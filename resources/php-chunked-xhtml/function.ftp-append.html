@@ -26,19 +26,14 @@
   <div id="layout-content"><div id="function.ftp-append" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ftp_append</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.2.0)</p><p class="refpurpose"><span class="refname">ftp_append</span> &mdash; <span class="dc-title">Append the contents of a file to another file on the FTP server</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">ftp_append</span> &mdash; <span class="dc-title">Append the contents of a file to another file on the FTP server</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.ftp-append-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ftp_append</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$ftp</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$remote_filename</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$local_filename</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>FTP_BINARY</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>ftp_append</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.ftp-connection.html" class="type FTP\Connection">FTP\Connection</a></span> <code class="parameter">$ftp</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$remote_filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$local_filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>FTP_BINARY</code></strong></span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
 
@@ -54,16 +49,13 @@ currently not documented; only its argument list is available.
  <div class="refsect1 parameters" id="refsect1-function.ftp-append-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">ftp</code></dt>
 
     <dd>
 
-     <p class="para">
-      
-     </p>
+      <p class="para">An <span class="classname"><a href="class.ftp-connection.html" class="classname">FTP\Connection</a></span> instance.</p>
     </dd>
 
    
@@ -113,6 +105,34 @@ currently not documented; only its argument list is available.
   <p class="para">
    Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.ftp-append-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">ftp</code> parameter expects an <span class="classname"><a href="class.ftp-connection.html" class="classname">FTP\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

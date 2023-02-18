@@ -26,25 +26,18 @@
   <div id="layout-content"><div id="function.sodium-pad" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sodium_pad</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.2.0)</p><p class="refpurpose"><span class="refname">sodium_pad</span> &mdash; <span class="dc-title">Add padding data</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">sodium_pad</span> &mdash; <span class="dc-title">Add padding data</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.sodium-pad-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>sodium_pad</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>sodium_pad</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$block_size</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
-
+   Right-pad a string to a desired length. Timing-safe.
   </p>
-
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-currently not documented; only its argument list is available.
-</p></div>
 
  </div>
 
@@ -52,7 +45,6 @@ currently not documented; only its argument list is available.
  <div class="refsect1 parameters" id="refsect1-function.sodium-pad-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">string</code></dt>
@@ -60,19 +52,19 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      Unpadded string.
      </p>
     </dd>
 
    
    
     <dt>
-<code class="parameter">length</code></dt>
+<code class="parameter">block_size</code></dt>
 
     <dd>
 
      <p class="para">
-      
+      The string will be padded until it is an even multiple of the block size.
      </p>
     </dd>
 
@@ -85,7 +77,7 @@ currently not documented; only its argument list is available.
  <div class="refsect1 returnvalues" id="refsect1-function.sodium-pad-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   
+   Padded string.
   </p>
  </div>
 

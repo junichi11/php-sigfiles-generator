@@ -26,23 +26,19 @@
   <div id="layout-content"><div id="function.openssl-csr-export-to-file" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_csr_export_to_file</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_csr_export_to_file</span> &mdash; <span class="dc-title">Exports a CSR to a file</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_csr_export_to_file</span> &mdash; <span class="dc-title">Exports a CSR to a file</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-csr-export-to-file-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_csr_export_to_file</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$csr</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$outfilename</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$notext</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>openssl_csr_export_to_file</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="class.opensslcertificatesigningrequest.html" class="type OpenSSLCertificateSigningRequest">OpenSSLCertificateSigningRequest</a></span>|<span class="type">string</span></span> <code class="parameter">$csr</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$output_filename</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$no_text</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_csr_export_to_file()</strong></span> takes the Certificate
    Signing Request represented by <code class="parameter">csr</code> and saves it
-   in PEM format into the file named by <code class="parameter">outfilename</code>.
+   in PEM format into the file named by <code class="parameter">output_filename</code>.
   </p>
  </div>
 
@@ -51,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
  <dt>
 <code class="parameter">csr</code></dt>
@@ -66,7 +61,7 @@
 
     
      <dt>
-<code class="parameter">outfilename</code></dt>
+<code class="parameter">output_filename</code></dt>
 
      <dd>
 
@@ -78,7 +73,7 @@
     
     
      <dt>
-<code class="parameter">notext</code></dt>
+<code class="parameter">no_text</code></dt>
 
      <dd>
 
@@ -105,10 +100,38 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.openssl-csr-export-to-file-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">csr</code> accepts an <span class="classname"><a href="class.opensslcertificatesigningrequest.html" class="classname">OpenSSLCertificateSigningRequest</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL X.509 CSR</code> was accepted.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.openssl-csr-export-to-file-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-910">
+   <div class="example" id="example-914">
     <p><strong>Example #1 openssl_csr_export_to_file() example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

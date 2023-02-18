@@ -26,20 +26,14 @@
   <div id="layout-content"><div id="function.oci-pconnect" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">oci_pconnect</h1>
-  <p class="verinfo">(PHP 5, PHP 7, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_pconnect</span> &mdash; <span class="dc-title">Connect to an Oracle database using a persistent connection</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_pconnect</span> &mdash; <span class="dc-title">Connect to an Oracle database using a persistent connection</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.oci-pconnect-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>oci_pconnect</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$connection_string</code> = ?</span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$character_set</code> = ?</span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$session_mode</code> = ?</span>
-   ) : <span class="type">resource</span></div>
+   <span class="methodname"><strong>oci_pconnect</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$connection_string</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = &quot;&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$session_mode</code><span class="initializer"> = <strong><code>OCI_DEFAULT</code></strong></span></span><br>): <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Creates a persistent connection to an Oracle server and logs on. 
@@ -59,7 +53,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">username</code></dt>
@@ -97,7 +90,7 @@ string</a>, or a Connect Name from
 the <var class="filename">tnsnames.ora</var> file, or the name of a local
 Oracle instance.
 </p>
-<p class="para">If not specified, PHP uses
+<p class="para">If not specified or <strong><code>null</code></strong>, PHP uses
 environment variables such as <strong><code>TWO_TASK</code></strong> (on Linux)
 or <strong><code>LOCAL</code></strong> (on Windows)
 and <strong><code>ORACLE_SID</code></strong> to determine the
@@ -110,7 +103,7 @@ To use the Easy Connect naming method, PHP must be linked with Oracle
 <em class="emphasis">[//]host_name[:port][/service_name]</em>. From Oracle
 11<em class="emphasis">g</em>, the syntax is:
 <em class="emphasis">[//]host_name[:port][/service_name][:server_type][/instance_name]</em>.
-Futher options were introduced with Oracle 19c, including timeout and keep-alive
+Further options were introduced with Oracle 19c, including timeout and keep-alive
 settings.  Refer to Oracle documentation.  Service names can be found by running
 the Oracle utility <code class="literal">lsnrctl status</code> on the database server
 machine.
@@ -128,7 +121,7 @@ daemon has read access to the file.
     
     
      <dt>
-<code class="parameter">character_set</code></dt>
+<code class="parameter">encoding</code></dt>
 
      <dd>
 
@@ -204,7 +197,7 @@ security reasons.
  <div class="refsect1 examples" id="refsect1-function.oci-pconnect-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2296">
+   <div class="example" id="example-1855">
     <p><strong>Example #1 Basic <span class="function"><strong>oci_pconnect()</strong></span> Example using Easy Connect syntax</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

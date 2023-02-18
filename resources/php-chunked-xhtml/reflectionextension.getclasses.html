@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="reflectionextension.getclasses" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionExtension::getClasses</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionExtension::getClasses</span> &mdash; <span class="dc-title">Gets classes</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionExtension::getClasses</span> &mdash; <span class="dc-title">Gets classes</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-reflectionextension.getclasses-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionExtension::getClasses</strong></span>
-    (
-   ) : <span class="type">array</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionExtension::getClasses</strong></span>(): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Gets a list of classes from an extension.
@@ -52,7 +50,7 @@
  <div class="refsect1 returnvalues" id="refsect1-reflectionextension.getclasses-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   An array of <a href="class.reflectionclass.html" class="classname">ReflectionClass</a> objects, one
+   An array of <span class="classname"><a href="class.reflectionclass.html" class="classname">ReflectionClass</a></span> objects, one
    for each class within the extension. If no classes are defined,
    an empty array is returned.
   </p>
@@ -62,7 +60,7 @@
  <div class="refsect1 examples" id="refsect1-reflectionextension.getclasses-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5699">
+   <div class="example" id="example-5143">
     <p><strong>Example #1 <span class="methodname"><strong>ReflectionExtension::getClasses()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

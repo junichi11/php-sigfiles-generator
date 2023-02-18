@@ -147,10 +147,10 @@ namespace {
 	function svn_export(string $frompath, string $topath, bool $working_copy = true, int $revision_no = -1): bool {}
 
 	/**
-	 * Abort a transaction, returns true if everything is okay, false otherwise
-	 * <p>This function is currently not documented; only its argument list is available.</p><p>Abort a transaction, returns true if everything is okay, false otherwise</p>
+	 * Aborts a transaction
+	 * <p>This function is currently not documented; only its argument list is available.</p><p>Aborts a transaction.</p>
 	 * @param resource $txn
-	 * @return bool
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-fs-abort-txn.php
 	 * @since PECL svn >= 0.2.0
 	 */
@@ -216,24 +216,24 @@ namespace {
 	function svn_fs_contents_changed($root1, string $path1, $root2, string $path2): bool {}
 
 	/**
-	 * Copies a file or a directory, returns true if all is ok, false otherwise
-	 * <p>This function is currently not documented; only its argument list is available.</p><p>Copies a file or a directory, returns true if all is ok, false otherwise</p>
+	 * Copies a file or a directory
+	 * <p>This function is currently not documented; only its argument list is available.</p><p>Copies a file or a directory.</p>
 	 * @param resource $from_root
 	 * @param string $from_path
 	 * @param resource $to_root
 	 * @param string $to_path
-	 * @return bool
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-fs-copy.php
 	 * @since PECL svn >= 0.2.0
 	 */
 	function svn_fs_copy($from_root, string $from_path, $to_root, string $to_path): bool {}
 
 	/**
-	 * Deletes a file or a directory, return true if all is ok, false otherwise
-	 * <p>This function is currently not documented; only its argument list is available.</p><p>Deletes a file or a directory, return true if all is ok, false otherwise</p>
+	 * Deletes a file or a directory
+	 * <p>This function is currently not documented; only its argument list is available.</p><p>Deletes a file or a directory.</p>
 	 * @param resource $root
 	 * @param string $path
-	 * @return bool
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-fs-delete.php
 	 * @since PECL svn >= 0.2.0
 	 */
@@ -273,44 +273,44 @@ namespace {
 	function svn_fs_file_length($fsroot, string $path): int {}
 
 	/**
-	 * Return true if the path points to a directory, false otherwise
-	 * <p>This function is currently not documented; only its argument list is available.</p><p>Return true if the path points to a directory, false otherwise</p>
+	 * Determines if a path points to a directory
+	 * <p>This function is currently not documented; only its argument list is available.</p><p>Determines if the given path points to a directory.</p>
 	 * @param resource $root
 	 * @param string $path
-	 * @return bool
+	 * @return bool <p>Returns <b><code>true</code></b> if the path points to a directory, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.svn-fs-is-dir.php
 	 * @since PECL svn >= 0.2.0
 	 */
 	function svn_fs_is_dir($root, string $path): bool {}
 
 	/**
-	 * Return true if the path points to a file, false otherwise
-	 * <p>This function is currently not documented; only its argument list is available.</p><p>Return true if the path points to a file, false otherwise</p>
+	 * Determines if a path points to a file
+	 * <p>This function is currently not documented; only its argument list is available.</p><p>Determines if the given path points to a file.</p>
 	 * @param resource $root
 	 * @param string $path
-	 * @return bool
+	 * @return bool <p>Returns <b><code>true</code></b> if the path points to a file, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.svn-fs-is-file.php
 	 * @since PECL svn >= 0.2.0
 	 */
 	function svn_fs_is_file($root, string $path): bool {}
 
 	/**
-	 * Creates a new empty directory, returns true if all is ok, false otherwise
-	 * <p>This function is currently not documented; only its argument list is available.</p><p>Creates a new empty directory, returns true if all is ok, false otherwise</p>
+	 * Creates a new empty directory
+	 * <p>This function is currently not documented; only its argument list is available.</p><p>Creates a new empty directory.</p>
 	 * @param resource $root
 	 * @param string $path
-	 * @return bool
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-fs-make-dir.php
 	 * @since PECL svn >= 0.2.0
 	 */
 	function svn_fs_make_dir($root, string $path): bool {}
 
 	/**
-	 * Creates a new empty file, returns true if all is ok, false otherwise
-	 * <p>This function is currently not documented; only its argument list is available.</p><p>Creates a new empty file, returns true if all is ok, false otherwise</p>
+	 * Creates a new empty file
+	 * <p>This function is currently not documented; only its argument list is available.</p><p>Creates a new empty file.</p>
 	 * @param resource $root
 	 * @param string $path
-	 * @return bool
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-fs-make-file.php
 	 * @since PECL svn >= 0.2.0
 	 */

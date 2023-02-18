@@ -26,18 +26,13 @@
   <div id="layout-content"><div id="function.array-splice" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_splice</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_splice</span> &mdash; <span class="dc-title">Remove a portion of the array and replace it with something else</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">array_splice</span> &mdash; <span class="dc-title">Remove a portion of the array and replace it with something else</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.array-splice-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>array_splice</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$array</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$replacement</code><span class="initializer"> = []</span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>array_splice</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$array</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$replacement</code><span class="initializer"> = []</span></span><br>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Removes the elements designated by <code class="parameter">offset</code> and
@@ -64,7 +59,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">array</code></dt>
@@ -201,7 +195,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-splice-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5467">
+   <div class="example" id="example-4962">
     <p><strong>Example #1 <span class="function"><strong>array_splice()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -248,7 +242,7 @@ array(5) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5468">
+   <div class="example" id="example-4963">
     <p><strong>Example #2 Equivalent statements to various <span class="function"><strong>array_splice()</strong></span> examples</strong></p>
     <div class="example-contents"><p>
      The following statements are equivalent:

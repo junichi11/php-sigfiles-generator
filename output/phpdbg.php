@@ -12,7 +12,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.phpdbg-break-file.php
 	 * @see phpdbg_break_function(), phpdbg_break_method(), phpdbg_break_next(), phpdbg_clear()
-	 * @since PHP 5 >= 5.6.3, PHP 7
+	 * @since PHP 5 >= 5.6.3, PHP 7, PHP 8
 	 */
 	function phpdbg_break_file(string $file, int $line): void {}
 
@@ -23,7 +23,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.phpdbg-break-function.php
 	 * @see phpdbg_break_file(), phpdbg_break_method(), phpdbg_break_next(), phpdbg_clear()
-	 * @since PHP 5 >= 5.6.3, PHP 7
+	 * @since PHP 5 >= 5.6.3, PHP 7, PHP 8
 	 */
 	function phpdbg_break_function(string $function): void {}
 
@@ -35,7 +35,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.phpdbg-break-method.php
 	 * @see phpdbg_break_file(), phpdbg_break_function(), phpdbg_break_next(), phpdbg_clear()
-	 * @since PHP 5 >= 5.6.3, PHP 7
+	 * @since PHP 5 >= 5.6.3, PHP 7, PHP 8
 	 */
 	function phpdbg_break_method(string $class, string $method): void {}
 
@@ -45,7 +45,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.phpdbg-break-next.php
 	 * @see phpdbg_break_file(), phpdbg_break_function(), phpdbg_break_method(), phpdbg_clear()
-	 * @since PHP 5 >= 5.6.3, PHP 7
+	 * @since PHP 5 >= 5.6.3, PHP 7, PHP 8
 	 */
 	function phpdbg_break_next(): void {}
 
@@ -55,7 +55,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.phpdbg-clear.php
 	 * @see phpdbg_break_file(), phpdbg_break_function(), phpdbg_break_method(), phpdbg_break_next()
-	 * @since PHP 5 >= 5.6.0, PHP 7
+	 * @since PHP 5 >= 5.6.0, PHP 7, PHP 8
 	 */
 	function phpdbg_clear(): void {}
 
@@ -67,7 +67,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.phpdbg-color.php
 	 * @see phpdbg_prompt()
-	 * @since PHP 5 >= 5.6.0, PHP 7
+	 * @since PHP 5 >= 5.6.0, PHP 7, PHP 8
 	 */
 	function phpdbg_color(int $element, string $color): void {}
 
@@ -75,11 +75,11 @@ namespace {
 	 * 
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param array $options
-	 * @return array|null
+	 * @return ?array
 	 * @link https://php.net/manual/en/function.phpdbg-end-oplog.php
-	 * @since PHP 7
+	 * @since PHP 7, PHP 8
 	 */
-	function phpdbg_end_oplog(array $options = []): array|null {}
+	function phpdbg_end_oplog(array $options = []): ?array {}
 
 	/**
 	 * Attempts to set the execution context
@@ -87,7 +87,7 @@ namespace {
 	 * @param string $context
 	 * @return string|bool <p>If the execution context was set previously it is returned. If the execution context was not set previously <b><code>true</code></b> is returned. If the request to set the context fails, <b><code>false</code></b> is returned, and an <b><code>E_WARNING</code></b> raised.</p>
 	 * @link https://php.net/manual/en/function.phpdbg-exec.php
-	 * @since PHP 5 >= 5.6.0, PHP 7
+	 * @since PHP 5 >= 5.6.0, PHP 7, PHP 8
 	 */
 	function phpdbg_exec(string $context): string|bool {}
 
@@ -97,7 +97,7 @@ namespace {
 	 * @param array $options
 	 * @return array
 	 * @link https://php.net/manual/en/function.phpdbg-get-executable.php
-	 * @since PHP 7
+	 * @since PHP 7, PHP 8
 	 */
 	function phpdbg_get_executable(array $options = []): array {}
 
@@ -108,7 +108,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.phpdbg-prompt.php
 	 * @see phpdbg_color()
-	 * @since PHP 5 >= 5.6.0, PHP 7
+	 * @since PHP 5 >= 5.6.0, PHP 7, PHP 8
 	 */
 	function phpdbg_prompt(string $string): void {}
 
@@ -117,7 +117,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.phpdbg-start-oplog.php
-	 * @since PHP 7
+	 * @since PHP 7, PHP 8
 	 */
 	function phpdbg_start_oplog(): void {}
 

@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.substr" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">substr</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">substr</span> &mdash; <span class="dc-title">Return part of a string</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">substr</span> &mdash; <span class="dc-title">Return part of a string</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.substr-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>substr</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>substr</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns the portion of <code class="parameter">string</code> specified by the
@@ -50,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -85,10 +80,10 @@
       </p>
       <p class="para">
        If <code class="parameter">string</code> is less than
-       <code class="parameter">offset</code> characters long, <strong><code>false</code></strong> will be returned.
+       <code class="parameter">offset</code> characters long, an empty string will be returned.
       </p>
       <p class="para">
-       <div class="example" id="example-5390">
+       <div class="example" id="example-4882">
         <p><strong>Example #1 Using a negative <code class="parameter">offset</code></strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -120,7 +115,7 @@
        (after the start position has been calculated when a
        <code class="parameter">offset</code> is negative).  If
        <code class="parameter">offset</code> denotes the position of this truncation or
-       beyond, <strong><code>false</code></strong> will be returned.
+       beyond, an empty string will be returned.
       </p>
       <p class="para">
        If <code class="parameter">length</code> is given and is <code class="literal">0</code>,
@@ -131,11 +126,11 @@
        <code class="parameter">offset</code> until the end of the string will be
        returned.
       </p>
-      <div class="example" id="example-5391">
+      <div class="example" id="example-4883">
        <p><strong>Example #2 Using a negative <code class="parameter">length</code></strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$rest&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdef"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;returns&nbsp;"abcde"<br /></span><span style="color: #0000BB">$rest&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdef"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;returns&nbsp;"cde"<br /></span><span style="color: #0000BB">$rest&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdef"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">4</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;returns&nbsp;false<br /></span><span style="color: #0000BB">$rest&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdef"</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;returns&nbsp;"de"<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$rest&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdef"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;returns&nbsp;"abcde"<br /></span><span style="color: #0000BB">$rest&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdef"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;returns&nbsp;"cde"<br /></span><span style="color: #0000BB">$rest&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdef"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">4</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;returns&nbsp;"";&nbsp;prior&nbsp;to&nbsp;PHP&nbsp;8.0.0,&nbsp;false&nbsp;was&nbsp;returned<br /></span><span style="color: #0000BB">$rest&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdef"</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;returns&nbsp;"de"<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
        </div>
@@ -153,7 +148,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.substr-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the extracted part of <code class="parameter">string</code>;  or <strong><code>false</code></strong> on failure, or
+   Returns the extracted part of <code class="parameter">string</code>, or
    an empty string.
   </p>
  </div>
@@ -196,7 +191,7 @@
  <div class="refsect1 examples" id="refsect1-function.substr-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5392">
+   <div class="example" id="example-4884">
     <p><strong>Example #3 Basic <span class="function"><strong>substr()</strong></span> usage</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -206,7 +201,7 @@
     </div>
 
    </div> 
-   <div class="example" id="example-5393">
+   <div class="example" id="example-4885">
     <p><strong>Example #4 <span class="function"><strong>substr()</strong></span> casting behaviour</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -215,7 +210,7 @@
 </code></div>
     </div>
 
-    <div class="example-contents"><p>Output of the above example in PHP 7:</p></div>
+    <div class="example-contents"><p>The above example will output:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
 1) &#039;pe&#039;
@@ -227,36 +222,35 @@
 7) &#039;1200&#039;
 </pre></div>
     </div>
-    <div class="example-contents"><p>Output of the above example in PHP 5:</p></div>
-    <div class="example-contents screen">
-<div class="cdata"><pre>
-1) &#039;pe&#039;
-2) &#039;54&#039;
-3) &#039;gr&#039;
-4) &#039;1&#039;
-5) false
-6) false
-7) &#039;1200&#039;
-</pre></div>
-    </div>
    </div>
-  </p>
- </div>
-
-
- <div class="refsect1 errors" id="refsect1-function.substr-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">
-   Returns <strong><code>false</code></strong> on error.
-   <div class="example" id="example-5394">
+  <div class="example" id="example-4887">
+   <p><strong>Example #5 Invalid Character Range</strong></p>
+   <div class="example-contents"><p>
+    If an invalid character range is requested, <span class="function"><strong>substr()</strong></span> returns
+    an empty string as of PHP 8.0.0; previously, <strong><code>false</code></strong> was returned instead.
+   </p></div>
+   <div class="example" id="example-4886">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">'a'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(false)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">'a'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
-   </div>   
+    <div class="example-contents"><p>Output of the above example in PHP 8:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+string(0) &quot;&quot;
+</pre></div>]<br />
+    </div>
+    <div class="example-contents"><p>Output of the above example in PHP 7:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+bool(false)
+</pre></div>
+    </div>
+   </div>
+  </div>
   </p>
  </div>
 

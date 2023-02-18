@@ -28,7 +28,7 @@
   
   <p class="para">
    This page describes the different compound date/time formats that the
-   <span class="function"><a href="function.strtotime.html" class="function">strtotime()</a></span>, <a href="class.datetime.html" class="classname">DateTime</a> and
+   <span class="function"><a href="function.strtotime.html" class="function">strtotime()</a></span>, <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> and
    <span class="function"><a href="function.date-create.html" class="function">date_create()</a></span> parser understands.
   </p>
   
@@ -83,7 +83,7 @@
 
      <tr>
       <td><code class="literal">ii</code></td>
-      <td>[0-5][0-9]</td>
+      <td>[0-5]?[0-9]</td>
       <td>&quot;04&quot;, &quot;8&quot;, &quot;59&quot;</td>
      </tr>
 
@@ -113,8 +113,8 @@
 
      <tr>
       <td><code class="literal">ss</code></td>
-      <td>[0-5][0-9]</td>
-      <td>&quot;04&quot;, &quot;8&quot;, &quot;59&quot;</td>
+      <td>([0-5]?[0-9])|60</td>
+      <td>&quot;04&quot;, &quot;8&quot;, &quot;59&quot;, &quot;60&quot; (leap second)</td>
      </tr>
 
      <tr>

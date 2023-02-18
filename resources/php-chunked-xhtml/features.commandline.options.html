@@ -192,7 +192,7 @@ $ php -c /custom/directory/custom-file.ini my_script.php
  </pre></div>
          </div>
         </p>
-        <p class="para"><div class="example" id="example-430">
+        <p class="para"><div class="example" id="example-447">
          <div class="example-contents screen">
 <div class="cdata"><pre>
 # Omitting the value part will set the given configuration directive to &quot;1&quot;
@@ -239,13 +239,6 @@ string(15) &quot;doesntmakesense&quot;
          <strong class="option unknown">-f</strong> is optional and may be omitted - providing just
          the filename to execute is sufficient.
         </p>
-        <blockquote class="note"><p><strong class="note">Note</strong>: 
-         <p class="para">
-          To pass arguments to a script, the first argument must be
-          <code class="literal">--</code>, otherwise PHP will interpret them as PHP
-          options.
-         </p>
-        </p></blockquote>
        </td>
       </tr>
 
@@ -302,7 +295,7 @@ string(15) &quot;doesntmakesense&quot;
        <td>-m</td>
        <td>--modules</td>
        <td>
-        <p class="para"><div class="example" id="example-431">
+        <p class="para"><div class="example" id="example-448">
          <p><strong>Example #1 Printing built in (and loaded) PHP and Zend modules</strong></p>
          <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -342,7 +335,7 @@ ctype
           to collide with command line variable substitution done by the
           shell.
          </p>
-         <div class="example" id="example-432">
+         <div class="example" id="example-449">
           <p><strong>Example #2 Getting a syntax error when using double quotes</strong></p>
           <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -373,7 +366,7 @@ $ php -r &quot; = get_defined_constants();&quot;
           Variables in single-quoted strings are not expanded
           by sh/bash.
          </p>
-         <div class="example" id="example-433">
+         <div class="example" id="example-450">
           <p><strong>Example #3 Using single quotes to prevent the shell&#039;s variable
           substitution</strong></p>
           <div class="example-contents screen">
@@ -396,7 +389,7 @@ array(370) {
          <p class="para">
           If using a shell other than sh/bash, further issues might be
           experienced - if appropriate, a bug report should be opened at
-          <a href="https://bugs.php.net/" class="link external">&raquo;&nbsp;https://bugs.php.net/</a>.
+          <a href="https://github.com/php/php-src/issues" class="link external">&raquo;&nbsp;https://github.com/php/php-src/issues</a>.
           It is still easy to run into trouble when trying to use variables
           (shell or PHP) in command-line code, or using backslashes for
           escaping, so take great care when doing so. You have been warned!
@@ -423,7 +416,7 @@ array(370) {
        <td>--process-begin</td>
        <td>
         <p class="para">
-         PHP code to execute before processing stdin. Added in PHP 5.
+         PHP code to execute before processing stdin.
         </p>
        </td>
       </tr>
@@ -433,7 +426,7 @@ array(370) {
        <td>--process-code</td>
        <td>
         <p class="para">
-         PHP code to execute for every input line. Added in PHP 5.
+         PHP code to execute for every input line.
         </p>
         <p class="para">
          There are two special variables available in this mode:
@@ -450,7 +443,7 @@ array(370) {
        <td>--process-file</td>
        <td>
         <p class="para">
-         PHP file to execute for every input line. Added in PHP 5.
+         PHP file to execute for every input line.
         </p>
        </td>
       </tr>
@@ -460,9 +453,9 @@ array(370) {
        <td>--process-end</td>
        <td>
         <p class="para">
-         PHP code to execute after processing the input. Added in PHP 5.
+         PHP code to execute after processing the input.
         </p>
-        <p class="para"><div class="example" id="example-434">
+        <p class="para"><div class="example" id="example-451">
          <p><strong>Example #4 Using the <strong class="option unknown">-B</strong>, <strong class="option unknown">-R</strong> and
           <strong class="option unknown">-E</strong> options to count the number of lines of a
           project.
@@ -483,7 +476,7 @@ Total Lines: 37328
        <td>
         <p class="para">
          Starts <a href="features.commandline.webserver.html" class="link">built-in web
-         server</a>. Available as of PHP 5.4.0.
+         server</a>.
         </p>
        </td>
       </tr>
@@ -493,7 +486,6 @@ Total Lines: 37328
        <td>--docroot</td>
        <td>
         Specifies document root for <a href="features.commandline.webserver.html" class="link">built-in web server</a>.
-        Available as of PHP 5.4.0.
        </td>
       </tr>
 
@@ -524,7 +516,7 @@ Total Lines: 37328
        <td>-v</td>
        <td>--version</td>
        <td>
-        <p class="para"><div class="example" id="example-435">
+        <p class="para"><div class="example" id="example-452">
          <p><strong>Example #5 Using <strong class="option unknown">-v</strong> to get the <acronym title="Server Application Programming Interface">SAPI</acronym>
          name and the version of PHP and Zend</strong></p>
          <div class="example-contents screen">
@@ -576,9 +568,8 @@ Zend Engine v2.3.0, Copyright (c) 1998-2009 Zend Technologies
        <td>--ini</td>
        <td>
         <p class="para">
-         Show configuration file names and scanned directories. Available as
-         of PHP 5.2.3.
-         <div class="example" id="example-436">
+         Show configuration file names and scanned directories.
+         <div class="example" id="example-453">
           <p><strong>Example #6 <code class="literal">--ini</code> example</strong></p>
           <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ php --ini
@@ -600,14 +591,14 @@ Additional .ini files parsed:      (none)</pre>
        <td>
         <p class="para">
          Show information about the given function or class method (e.g.
-         number and name of the parameters). Available as of PHP 5.1.2.
+         number and name of the parameters).
         </p>
         <p class="para">
          This option is only available if PHP was compiled with
          <a href="book.reflection.html" class="link">Reflection</a> support.
         </p>
         <p class="para">
-         <div class="example" id="example-437">
+         <div class="example" id="example-454">
           <p><strong>Example #7 basic <code class="literal">--rf</code> usage</strong></p>
           <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ php --rf var_dump
@@ -632,14 +623,14 @@ Function [ &lt;internal&gt; public function var_dump ] {
        <td>
         <p class="para">
          Show information about the given class (list of constants, properties
-         and methods). Available as of PHP 5.1.2.
+         and methods).
         </p>
         <p class="para">
          This option is only available if PHP was compiled with
          <a href="book.reflection.html" class="link">Reflection</a> support.
         </p>
         <p class="para">
-         <div class="example" id="example-438">
+         <div class="example" id="example-455">
           <p><strong>Example #8 <code class="literal">--rc</code> example</strong></p>
           <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ php --rc Directory
@@ -682,14 +673,14 @@ Class [ &lt;internal:standard&gt; class Directory ] {
        <td>
         <p class="para">
          Show information about the given extension (list of <var class="filename">php.ini</var> options,
-         defined functions, constants and classes). Available as of PHP 5.1.2.
+         defined functions, constants and classes).
         </p>
         <p class="para">
          This option is only available if PHP was compiled with
          <a href="book.reflection.html" class="link">Reflection</a> support.
         </p>
         <p class="para">
-         <div class="example" id="example-439">
+         <div class="example" id="example-456">
           <p><strong>Example #9 <code class="literal">--re</code> example</strong></p>
           <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ php --re json
@@ -717,7 +708,6 @@ Extension [ &lt;persistent&gt; extension #19 json version 1.2.1 ] {
         <p class="para">
          Show the configuration information for the given Zend extension (the
          same information that is returned by <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span>).
-         Available as of PHP 5.4.0.
         </p>
        </td>
       </tr>
@@ -729,11 +719,11 @@ Extension [ &lt;persistent&gt; extension #19 json version 1.2.1 ] {
         <p class="para">
          Show the configuration information for the given extension (the same
          information that is returned by <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span>).
-         Available as of PHP 5.2.2. The core configuration information
+         The core configuration information
          is available using &quot;main&quot; as extension name.
         </p>
         <p class="para">
-         <div class="example" id="example-440">
+         <div class="example" id="example-457">
           <p><strong>Example #10 <code class="literal">--ri</code> example</strong></p>
           <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ php --ri date

@@ -32,17 +32,14 @@
  
  <div id="function.money-format-refsynopsisdiv">
    <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function has been
-<em class="emphasis">DEPRECATED</em> as of PHP 7.4.0. Relying on this function
+<em class="emphasis">DEPRECATED</em> as of PHP 7.4.0, and <em class="emphasis">REMOVED</em> as of PHP 8.0.0. Relying on this function
 is highly discouraged.</p></div>
  </div>
  
  <div class="refsect1 description" id="refsect1-function.money-format-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>money_format</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$number</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>money_format</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>, <span class="methodparam"><span class="type">float</span> <code class="parameter">$number</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>money_format()</strong></span> returns a formatted version of
@@ -57,7 +54,6 @@ is highly discouraged.</p></div>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">format</code></dt>
@@ -80,7 +76,6 @@ is highly discouraged.</p></div>
        <p class="para">
        One or more of the optional flags below can be used:
         <dl>
-
          
           <dt>
 <code class="literal">=</code><span class="replaceable">f</span></dt>
@@ -159,7 +154,6 @@ is highly discouraged.</p></div>
        <h5 class="title">Field width</h5>
        <p class="para">
         <dl>
-
          
           <dt>
 <span class="replaceable">w</span></dt>
@@ -182,7 +176,6 @@ is highly discouraged.</p></div>
        <h5 class="title">Left precision</h5>
        <p class="para">
         <dl>
-
          
           <dt>
 <code class="literal">#</code><span class="replaceable">n</span></dt>
@@ -223,7 +216,6 @@ is highly discouraged.</p></div>
        </h5>
        <p class="para">
         <dl>
-
          
           <dt>
 <code class="literal">.</code><span class="replaceable">p</span></dt>
@@ -252,7 +244,6 @@ is highly discouraged.</p></div>
        </h5>
        <p class="para">
         <dl>
-
          
           <dt>
 <code class="literal">i</code></dt>
@@ -356,7 +347,28 @@ is highly discouraged.</p></div>
   </p>
  </div>
 
- 
+
+ <div class="refsect1 examples" id="refsect1-function.money-format-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-4804">
+    <p><strong>Example #1 <span class="function"><strong>money_format()</strong></span> Example</strong></p>
+    <div class="example-contents"><p>
+     We will use different locales and format specifications to
+     illustrate the use of this function.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$number&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1234.56</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;let's&nbsp;print&nbsp;the&nbsp;international&nbsp;format&nbsp;for&nbsp;the&nbsp;en_US&nbsp;locale<br /></span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_MONETARY</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'en_US'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">money_format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%i'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;USD&nbsp;1,234.56<br /><br />//&nbsp;Italian&nbsp;national&nbsp;format&nbsp;with&nbsp;2&nbsp;decimals`<br /></span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_MONETARY</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'it_IT'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">money_format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%.2n'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;Eu&nbsp;1.234,56<br /><br />//&nbsp;Using&nbsp;a&nbsp;negative&nbsp;number<br /></span><span style="color: #0000BB">$number&nbsp;</span><span style="color: #007700">=&nbsp;-</span><span style="color: #0000BB">1234.5672</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;US&nbsp;national&nbsp;format,&nbsp;using&nbsp;()&nbsp;for&nbsp;negative&nbsp;numbers<br />//&nbsp;and&nbsp;10&nbsp;digits&nbsp;for&nbsp;left&nbsp;precision<br /></span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_MONETARY</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'en_US'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">money_format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%(#10n'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;($&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,234.57)<br /><br />//&nbsp;Similar&nbsp;format&nbsp;as&nbsp;above,&nbsp;adding&nbsp;the&nbsp;use&nbsp;of&nbsp;2&nbsp;digits&nbsp;of&nbsp;right<br />//&nbsp;precision&nbsp;and&nbsp;'*'&nbsp;as&nbsp;a&nbsp;fill&nbsp;character<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">money_format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%=*(#10.2n'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;($********1,234.57)<br /><br />//&nbsp;Let's&nbsp;justify&nbsp;to&nbsp;the&nbsp;left,&nbsp;with&nbsp;14&nbsp;positions&nbsp;of&nbsp;width,&nbsp;8&nbsp;digits&nbsp;of<br />//&nbsp;left&nbsp;precision,&nbsp;2&nbsp;of&nbsp;right&nbsp;precision,&nbsp;without&nbsp;the&nbsp;grouping&nbsp;character<br />//&nbsp;and&nbsp;using&nbsp;the&nbsp;international&nbsp;format&nbsp;for&nbsp;the&nbsp;de_DE&nbsp;locale.<br /></span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_MONETARY</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'de_DE'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">money_format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%=*^-14#8.2i'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1234.56</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;Eu&nbsp;1234,56****<br /><br />//&nbsp;Let's&nbsp;add&nbsp;some&nbsp;blurb&nbsp;before&nbsp;and&nbsp;after&nbsp;the&nbsp;conversion&nbsp;specification<br /></span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_MONETARY</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'en_GB'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$fmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'The&nbsp;final&nbsp;value&nbsp;is&nbsp;%i&nbsp;(after&nbsp;a&nbsp;10%%&nbsp;discount)'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">money_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$fmt</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1234.56</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;The&nbsp;final&nbsp;value&nbsp;is&nbsp;&nbsp;GBP&nbsp;1,234.56&nbsp;(after&nbsp;a&nbsp;10%&nbsp;discount)<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
  <div class="refsect1 notes" id="refsect1-function.money-format-notes">
   <h3 class="title">Notes</h3>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
@@ -372,28 +384,7 @@ is highly discouraged.</p></div>
     affects the behavior of this function. Use <span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span>
     to set to the appropriate default locale before using this function.
    </p>
-  </p></blockquote>   
- </div>
-
-
- <div class="refsect1 examples" id="refsect1-function.money-format-examples">
-  <h3 class="title">Examples</h3>
-  <p class="para">
-   <div class="example" id="example-5315">
-    <p><strong>Example #1 <span class="function"><strong>money_format()</strong></span> Example</strong></p>
-    <div class="example-contents"><p>
-     We will use different locales and format specifications to
-     illustrate the use of this function.
-    </p></div>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$number&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1234.56</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;let's&nbsp;print&nbsp;the&nbsp;international&nbsp;format&nbsp;for&nbsp;the&nbsp;en_US&nbsp;locale<br /></span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_MONETARY</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'en_US'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">money_format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%i'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;USD&nbsp;1,234.56<br /><br />//&nbsp;Italian&nbsp;national&nbsp;format&nbsp;with&nbsp;2&nbsp;decimals`<br /></span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_MONETARY</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'it_IT'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">money_format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%.2n'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;Eu&nbsp;1.234,56<br /><br />//&nbsp;Using&nbsp;a&nbsp;negative&nbsp;number<br /></span><span style="color: #0000BB">$number&nbsp;</span><span style="color: #007700">=&nbsp;-</span><span style="color: #0000BB">1234.5672</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;US&nbsp;national&nbsp;format,&nbsp;using&nbsp;()&nbsp;for&nbsp;negative&nbsp;numbers<br />//&nbsp;and&nbsp;10&nbsp;digits&nbsp;for&nbsp;left&nbsp;precision<br /></span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_MONETARY</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'en_US'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">money_format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%(#10n'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;($&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,234.57)<br /><br />//&nbsp;Similar&nbsp;format&nbsp;as&nbsp;above,&nbsp;adding&nbsp;the&nbsp;use&nbsp;of&nbsp;2&nbsp;digits&nbsp;of&nbsp;right<br />//&nbsp;precision&nbsp;and&nbsp;'*'&nbsp;as&nbsp;a&nbsp;fill&nbsp;character<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">money_format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%=*(#10.2n'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;($********1,234.57)<br /><br />//&nbsp;Let's&nbsp;justify&nbsp;to&nbsp;the&nbsp;left,&nbsp;with&nbsp;14&nbsp;positions&nbsp;of&nbsp;width,&nbsp;8&nbsp;digits&nbsp;of<br />//&nbsp;left&nbsp;precision,&nbsp;2&nbsp;of&nbsp;right&nbsp;precision,&nbsp;without&nbsp;the&nbsp;grouping&nbsp;character<br />//&nbsp;and&nbsp;using&nbsp;the&nbsp;international&nbsp;format&nbsp;for&nbsp;the&nbsp;de_DE&nbsp;locale.<br /></span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_MONETARY</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'de_DE'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">money_format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%=*^-14#8.2i'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1234.56</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;Eu&nbsp;1234,56****<br /><br />//&nbsp;Let's&nbsp;add&nbsp;some&nbsp;blurb&nbsp;before&nbsp;and&nbsp;after&nbsp;the&nbsp;conversion&nbsp;specification<br /></span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_MONETARY</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'en_GB'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$fmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'The&nbsp;final&nbsp;value&nbsp;is&nbsp;%i&nbsp;(after&nbsp;a&nbsp;10%%&nbsp;discount)'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">money_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$fmt</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1234.56</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;The&nbsp;final&nbsp;value&nbsp;is&nbsp;&nbsp;GBP&nbsp;1,234.56&nbsp;(after&nbsp;a&nbsp;10%&nbsp;discount)<br /><br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-   </div>
-  </p>
+  </p></blockquote>
  </div>
 
 

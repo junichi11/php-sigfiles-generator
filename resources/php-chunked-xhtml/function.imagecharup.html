@@ -26,23 +26,16 @@
   <div id="layout-content"><div id="function.imagecharup" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecharup</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagecharup</span> &mdash; <span class="dc-title">Draw a character vertically</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagecharup</span> &mdash; <span class="dc-title">Draw a character vertically</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagecharup-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagecharup</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$font</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$x</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$y</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$c</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$color</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>imagecharup</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$image</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type"><a href="class.gdfont.html" class="type GdFont">GdFont</a></span>|<span class="type">int</span></span> <code class="parameter">$font</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$x</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$y</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$char</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$color</code></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Draws the character <code class="parameter">c</code> vertically at the specified
+   Draws the character <code class="parameter">char</code> vertically at the specified
    coordinate on the given <code class="parameter">image</code>.
   </p>
  </div>
@@ -51,22 +44,20 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-image</code></dt>
+
+<code class="parameter">image</code></dt>
 <dd>
-<p class="para">An image resource, returned by one of the image creation functions,
+<p class="para">A <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> object, returned by one of the image creation functions,
 such as <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
 
     <dt>
-<code class="parameter">
-font</code></dt>
+
+<code class="parameter">font</code></dt>
 <dd>
 <p class="para">Can be 1, 2, 3, 4, 5 for built-in
-fonts in latin2 encoding (where higher numbers corresponding to larger fonts) or any of your
-own font identifiers registered with <span class="function"><a href="function.imageloadfont.html" class="function">imageloadfont()</a></span>.
-</p></dd>
+fonts in latin2 encoding (where higher numbers corresponding to larger fonts) or <span class="classname"><a href="class.gdfont.html" class="classname">GdFont</a></span> instance,
+returned by <span class="function"><a href="function.imageloadfont.html" class="function">imageloadfont()</a></span>.</p></dd>
 
     
      <dt>
@@ -94,7 +85,7 @@ own font identifiers registered with <span class="function"><a href="function.im
     
     
      <dt>
-<code class="parameter">c</code></dt>
+<code class="parameter">char</code></dt>
 
      <dd>
 
@@ -128,10 +119,47 @@ own font identifiers registered with <span class="function"><a href="function.im
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagecharup-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+  <td>8.1.0</td>
+  <td>
+  The <code class="parameter">font</code> parameter now accepts both an <span class="classname"><a href="class.gdfont.html" class="classname">GdFont</a></span> instance
+  and an <span class="type">int</span>; previously only <span class="type">int</span> was accepted.
+  </td>
+</tr>
+
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
+  instance now; previously, a <span class="type">resource</span> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagecharup-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3100">
+   <div class="example" id="example-2616">
     <p><strong>Example #1 <span class="function"><strong>imagecharup()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

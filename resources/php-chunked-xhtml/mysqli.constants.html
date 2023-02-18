@@ -32,7 +32,6 @@ will only be available when the extension has either
 been compiled into PHP or dynamically loaded at runtime.
 </p>
   <dl>
-
    
     <dt id="constantmysqli-read-default-group"><strong><code>MYSQLI_READ_DEFAULT_GROUP</code></strong></dt>
 
@@ -222,7 +221,7 @@ been compiled into PHP or dynamically loaded at runtime.
     <dd>
 
      <p class="para">
-      For using buffered resultsets
+      For using buffered result sets. It has a value of <code class="literal">0</code>.
      </p>
     </dd>
 
@@ -233,7 +232,7 @@ been compiled into PHP or dynamically loaded at runtime.
     <dd>
 
      <p class="para">
-      For using unbuffered resultsets
+      For using unbuffered result sets. It has a value of <code class="literal">1</code>.
      </p>
     </dd>
 
@@ -725,6 +724,18 @@ been compiled into PHP or dynamically loaded at runtime.
 
    
    
+    <dt id="constantmysqli-type-json"><strong><code>MYSQLI_TYPE_JSON</code></strong></dt>
+
+    <dd>
+
+     <p class="para">
+      Field is defined as <code class="literal">JSON</code>.
+      Only valid for mysqlnd and MySQL 5.7.8 and up.
+     </p>
+    </dd>
+
+   
+   
     <dt id="constantmysqli-need-data"><strong><code>MYSQLI_NEED_DATA</code></strong></dt>
 
     <dd>
@@ -1003,6 +1014,18 @@ been compiled into PHP or dynamically loaded at runtime.
 
    
    
+    <dt id="constantmysqli-refresh-replica"><strong><code>MYSQLI_REFRESH_REPLICA</code></strong></dt>
+
+    <dd>
+
+     <p class="para">
+      Alias of <strong><code>MYSQLI_REFRESH_SLAVE</code></strong> constant.
+      Available as of PHP 8.1.0.
+     </p>
+    </dd>
+
+   
+   
     <dt id="constantmysqli-refresh-status"><strong><code>MYSQLI_REFRESH_STATUS</code></strong></dt>
 
     <dd>
@@ -1142,6 +1165,18 @@ been compiled into PHP or dynamically loaded at runtime.
 
      <p class="para">
       Requires MySQL 5.6.5 and up.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="constantmysqli-is-mariadb"><strong><code>MYSQLI_IS_MARIADB</code></strong></dt>
+
+    <dd>
+
+     <p class="para">
+      Whether the mysqli extension has been built against a MariaDB client library.
+      Available as of PHP 8.1.2.
      </p>
     </dd>
 

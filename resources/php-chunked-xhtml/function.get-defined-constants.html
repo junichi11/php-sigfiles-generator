@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.get-defined-constants" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">get_defined_constants</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">get_defined_constants</span> &mdash; <span class="dc-title">Returns an associative array with the names of all the constants and their values</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">get_defined_constants</span> &mdash; <span class="dc-title">Returns an associative array with the names of all the constants and their values</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.get-defined-constants-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>get_defined_constants</strong></span>
-    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$categorize</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>get_defined_constants</strong></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$categorize</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Returns the names and values of all the constants currently defined.
@@ -49,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">categorize</code></dt>
@@ -133,7 +130,7 @@ Array
  <div class="refsect1 examples" id="refsect1-function.get-defined-constants-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="function.ob-start.flags-bc">
+   <div class="example" id="example-545">
     <p><strong>Example #1 <span class="function"><strong>get_defined_constants()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

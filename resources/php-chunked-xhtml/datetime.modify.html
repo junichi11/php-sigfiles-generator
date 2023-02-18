@@ -27,24 +27,18 @@
  <div class="refnamediv">
   <h1 class="refname">DateTime::modify</h1>
   <h1 class="refname">date_modify</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">DateTime::modify</span> -- <span class="refname">date_modify</span> &mdash; <span class="dc-title">Alters the timestamp</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTime::modify</span> -- <span class="refname">date_modify</span> &mdash; <span class="dc-title">Alters the timestamp</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-datetime.modify-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DateTime::modify</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$modifier</code></span>
-   ) : <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DateTime::modify</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$modifier</code></span>): <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><a href="function.date-modify.html" class="methodname">date_modify</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span> <code class="parameter">$object</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$modifier</code></span>
-   ) : <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.date-modify.html" class="methodname">date_modify</a></span>(<span class="methodparam"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span> <code class="parameter">$object</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$modifier</code></span>): <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Alter the timestamp of a DateTime object by incrementing or decrementing in a
@@ -56,12 +50,11 @@
  <div class="refsect1 parameters" id="refsect1-datetime.modify-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    <dt>
 <code class="parameter">object</code></dt>
 
 <dd>
-<p class="para">Procedural style only: A <a href="class.datetime.html" class="classname">DateTime</a> object
+<p class="para">Procedural style only: A <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> object
 returned by <span class="function"><a href="function.date-create.html" class="function">date_create()</a></span>.
 The function modifies this object.</p></dd>
 
@@ -83,16 +76,16 @@ The function modifies this object.</p></dd>
  <div class="refsect1 returnvalues" id="refsect1-datetime.modify-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the <a href="class.datetime.html" class="classname">DateTime</a> object for method chaining or <strong><code>false</code></strong> on failure.
+   Returns the <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> object for method chaining or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-datetime.modify-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2517">
+  <div class="example" id="example-2030">
    <p><strong>Example #1 <span class="function"><strong>DateTime::modify()</strong></span> example</strong></p>
-   <div class="example-contents"><p>Object oriented style</p></div>
+   <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$date&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2006-12-12'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modify</span><span style="color: #007700">(</span><span style="color: #DD0000">'+1&nbsp;day'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -115,7 +108,7 @@ The function modifies this object.</p></dd>
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-2518">
+  <div class="example" id="example-2031">
    <p><strong>Example #2 Beware when adding or subtracting months</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

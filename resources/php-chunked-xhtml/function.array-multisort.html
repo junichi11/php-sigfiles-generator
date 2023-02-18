@@ -26,18 +26,13 @@
   <div id="layout-content"><div id="function.array-multisort" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_multisort</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_multisort</span> &mdash; <span class="dc-title">Sort multiple or multi-dimensional arrays</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">array_multisort</span> &mdash; <span class="dc-title">Sort multiple or multi-dimensional arrays</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.array-multisort-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>array_multisort</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$array1</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$array1_sort_order</code><span class="initializer"> = SORT_ASC</span></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$array1_sort_flags</code><span class="initializer"> = SORT_REGULAR</span></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$rest</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>array_multisort</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$array1</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$array1_sort_order</code><span class="initializer"> = SORT_ASC</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$array1_sort_flags</code><span class="initializer"> = SORT_REGULAR</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$rest</code></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>array_multisort()</strong></span> can be used to sort several
@@ -50,7 +45,14 @@
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
  <p class="para">
-  If two members compare as equal, their relative order in the sorted array is undefined.
+  If two members compare as equal, they retain their original order.
+  Prior to PHP 8.0.0, their relative order in the sorted array was undefined.
+ </p>
+</p></blockquote>
+
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <p class="para">
+    Resets array&#039;s internal pointer to the first element.
  </p>
 </p></blockquote>
 
@@ -61,7 +63,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">array1</code></dt>
@@ -175,7 +176,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-multisort-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5448">
+   <div class="example" id="example-4943">
     <p><strong>Example #1 Sorting multiple arrays</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -209,7 +210,7 @@ array(4) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5449">
+   <div class="example" id="example-4944">
     <p><strong>Example #2 Sorting multi-dimensional array</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -247,7 +248,7 @@ array(2) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5450">
+   <div class="example" id="example-4945">
     <p><strong>Example #3 Sorting database results</strong></p>
     <div class="example-contents"><p>
      For this example, each element in the <var class="varname">data</var>
@@ -291,7 +292,7 @@ volume | edition
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Obtain&nbsp;a&nbsp;list&nbsp;of&nbsp;columns<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$key&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$volume</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]&nbsp;&nbsp;=&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'volume'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$edition</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'edition'</span><span style="color: #007700">];<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;as&nbsp;of&nbsp;PHP&nbsp;5.5.0&nbsp;you&nbsp;can&nbsp;use&nbsp;array_column()&nbsp;instead&nbsp;of&nbsp;the&nbsp;above&nbsp;code<br /></span><span style="color: #0000BB">$volume&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_column</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'volume'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$edition&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_column</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'edition'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Sort&nbsp;the&nbsp;data&nbsp;with&nbsp;volume&nbsp;descending,&nbsp;edition&nbsp;ascending<br />//&nbsp;Add&nbsp;$data&nbsp;as&nbsp;the&nbsp;last&nbsp;parameter,&nbsp;to&nbsp;sort&nbsp;by&nbsp;the&nbsp;common&nbsp;key<br /></span><span style="color: #0000BB">array_multisort</span><span style="color: #007700">(</span><span style="color: #0000BB">$volume</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SORT_DESC</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$edition</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SORT_ASC</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Obtain&nbsp;a&nbsp;list&nbsp;of&nbsp;columns<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$key&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$volume</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]&nbsp;&nbsp;=&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'volume'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$edition</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'edition'</span><span style="color: #007700">];<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;you&nbsp;can&nbsp;use&nbsp;array_column()&nbsp;instead&nbsp;of&nbsp;the&nbsp;above&nbsp;code<br /></span><span style="color: #0000BB">$volume&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_column</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'volume'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$edition&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_column</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'edition'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Sort&nbsp;the&nbsp;data&nbsp;with&nbsp;volume&nbsp;descending,&nbsp;edition&nbsp;ascending<br />//&nbsp;Add&nbsp;$data&nbsp;as&nbsp;the&nbsp;last&nbsp;parameter,&nbsp;to&nbsp;sort&nbsp;by&nbsp;the&nbsp;common&nbsp;key<br /></span><span style="color: #0000BB">array_multisort</span><span style="color: #007700">(</span><span style="color: #0000BB">$volume</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SORT_DESC</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$edition</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SORT_ASC</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -314,7 +315,7 @@ volume | edition
    </div>
   </p>
   <p class="para">
-   <div class="example" id="array_key_first.example.basic">
+   <div class="example" id="example-4946">
     <p><strong>Example #4 Case insensitive sorting</strong></p>
     <div class="example-contents"><p>
      Both <strong><code>SORT_STRING</code></strong> and

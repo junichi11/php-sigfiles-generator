@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.curl-reset" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">curl_reset</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p><p class="refpurpose"><span class="refname">curl_reset</span> &mdash; <span class="dc-title">Reset all options of a libcurl session handle</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">curl_reset</span> &mdash; <span class="dc-title">Reset all options of a libcurl session handle</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.curl-reset-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>curl_reset</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.curlhandle.html" class="type CurlHandle">CurlHandle</a></span> <code class="parameter">$handle</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>curl_reset</strong></span>(<span class="methodparam"><span class="type"><a href="class.curlhandle.html" class="type CurlHandle">CurlHandle</a></span> <code class="parameter">$handle</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    This function re-initializes all options set on the given cURL handle to the default values.
@@ -47,7 +45,6 @@
  <div class="refsect1 parameters" id="refsect1-function.curl-reset-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    <dt>
 <code class="parameter">handle</code>
 </dt>
@@ -84,7 +81,7 @@
      <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">handle</code> expects a <a href="class.curlhandle.html" class="classname">CurlHandle</a>
+  <code class="parameter">handle</code> expects a <span class="classname"><a href="class.curlhandle.html" class="classname">CurlHandle</a></span>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>
@@ -99,7 +96,7 @@
  <div class="refsect1 examples" id="refsect1-function.curl-reset-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4720">
+   <div class="example" id="example-4221">
     <p><strong>Example #1 <span class="function"><strong>curl_reset()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

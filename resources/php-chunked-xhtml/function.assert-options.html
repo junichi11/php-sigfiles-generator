@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.assert-options" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">assert_options</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">assert_options</span> &mdash; <span class="dc-title">Set/get the various assert flags</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">assert_options</span> &mdash; <span class="dc-title">Set/get the various assert flags</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.assert-options-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>assert_options</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$what</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code> = ?</span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="methodname"><strong>assert_options</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$what</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    Set the various <span class="function"><a href="function.assert.html" class="function">assert()</a></span> control options or just query
@@ -58,7 +55,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">what</code></dt>
@@ -139,15 +135,9 @@
        The callback function set via <strong><code>ASSERT_CALLBACK</code></strong> or assert.callback should
        have the following signature:
        <div class="methodsynopsis dc-description">
-        <span class="methodname"><strong>assert_callback</strong></span>
-         ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$file</code></span>
-        , <span class="methodparam"><span class="type">int</span> <code class="parameter">$line</code></span>
-        , <span class="methodparam"><span class="type">string</span> <code class="parameter">$assertion</code></span>
-        , <span class="methodparam"><span class="type">string</span> <code class="parameter">$description</code> = ?</span>
-        ) : <span class="type"><span class="type void">void</span></span></div>
+        <span class="methodname"><strong>assert_callback</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$file</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$line</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$assertion</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$description</code><span class="initializer"> = ?</span></span><br>): <span class="type"><span class="type void">void</span></span></div>
 
        <dl>
-
         
          <dt>
 <code class="parameter">file</code></dt>
@@ -221,7 +211,7 @@
  <div class="refsect1 examples" id="refsect1-function.assert-options-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-518">
+   <div class="example" id="example-533">
    <p><strong>Example #1 <span class="function"><strong>assert_options()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

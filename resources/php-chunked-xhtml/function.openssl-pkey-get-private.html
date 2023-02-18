@@ -26,21 +26,18 @@
   <div id="layout-content"><div id="function.openssl-pkey-get-private" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_pkey_get_private</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_pkey_get_private</span> &mdash; <span class="dc-title">Get a private key</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_pkey_get_private</span> &mdash; <span class="dc-title">Get a private key</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-pkey-get-private-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_pkey_get_private</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$passphrase</code><span class="initializer"> = &quot;&quot;</span></span>
-   ) : <span class="type">resource</span></div>
+   <span class="methodname"><strong>openssl_pkey_get_private</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="class.opensslasymmetrickey.html" class="type OpenSSLAsymmetricKey">OpenSSLAsymmetricKey</a></span>|<span class="type"><a href="class.opensslcertificate.html" class="type OpenSSLCertificate">OpenSSLCertificate</a></span>|<span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$private_key</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$passphrase</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type"><a href="class.opensslasymmetrickey.html" class="type OpenSSLAsymmetricKey">OpenSSLAsymmetricKey</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_pkey_get_private()</strong></span> parses
-   <code class="parameter">key</code> and prepares it for use by other functions.
+   <code class="parameter">private_key</code> and prepares it for use by other functions.
   </p>
  </div>
 
@@ -49,15 +46,14 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">key</code></dt>
+<code class="parameter">private_key</code></dt>
 
      <dd>
 
       <p class="para">
-       <code class="parameter">key</code> can be one of the following:
+       <code class="parameter">private_key</code> can be one of the following:
        <ol type="1">
         <li class="listitem"><span class="simpara">a string having the format
           <var class="filename">file://path/to/file.pem</var>. The named file must
@@ -92,9 +88,53 @@
  <div class="refsect1 returnvalues" id="refsect1-function.openssl-pkey-get-private-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a positive key resource identifier on success, or <strong><code>false</code></strong> on error.
+   Returns an <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span> instance on success, or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.openssl-pkey-get-private-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       On success, this function returns an <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL key</code> was returned.
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">private_key</code> accepts an <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span>
+       or <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL key</code> or <code class="literal">OpenSSL X.509</code>
+       was accepted.
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">passphrase</code> is nullable now.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
 
 </div></div></div></body></html>

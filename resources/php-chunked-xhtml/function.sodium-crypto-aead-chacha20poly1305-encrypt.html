@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Encrypt a message</title>
+  <title>Encrypt then authenticate with ChaCha20-Poly1305</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,34 +19,25 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="ref.sodium.html">Sodium Functions</a></li>
-    <li>Encrypt a message</li>
+    <li>Encrypt then authenticate with ChaCha20-Poly1305</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="function.sodium-crypto-aead-chacha20poly1305-encrypt" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sodium_crypto_aead_chacha20poly1305_encrypt</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.2.0)</p><p class="refpurpose"><span class="refname">sodium_crypto_aead_chacha20poly1305_encrypt</span> &mdash; <span class="dc-title">Encrypt a message</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">sodium_crypto_aead_chacha20poly1305_encrypt</span> &mdash; <span class="dc-title">Encrypt then authenticate with ChaCha20-Poly1305</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.sodium-crypto-aead-chacha20poly1305-encrypt-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>sodium_crypto_aead_chacha20poly1305_encrypt</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$additional_data</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$nonce</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>sodium_crypto_aead_chacha20poly1305_encrypt</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$additional_data</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$nonce</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span><br>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
-
+   Encrypt then authenticate with ChaCha20-Poly1305.
   </p>
-
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-currently not documented; only its argument list is available.
-</p></div>
 
  </div>
 
@@ -54,7 +45,6 @@ currently not documented; only its argument list is available.
  <div class="refsect1 parameters" id="refsect1-function.sodium-crypto-aead-chacha20poly1305-encrypt-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">message</code></dt>
@@ -62,7 +52,7 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      The plaintext message to encrypt.
      </p>
     </dd>
 
@@ -74,7 +64,8 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      Additional, authenticated data. This is used in the verification of the authentication tag
+      appended to the ciphertext, but it is not encrypted or stored in the ciphertext.
      </p>
     </dd>
 
@@ -86,7 +77,7 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      A number that must be only used once, per message. 8 bytes long.
      </p>
     </dd>
 
@@ -98,7 +89,7 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      Encryption key (256-bit).
      </p>
     </dd>
 
@@ -111,7 +102,7 @@ currently not documented; only its argument list is available.
  <div class="refsect1 returnvalues" id="refsect1-function.sodium-crypto-aead-chacha20poly1305-encrypt-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   
+   Returns the ciphertext and tag on success,  or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

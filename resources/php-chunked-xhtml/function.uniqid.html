@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.uniqid" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">uniqid</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">uniqid</span> &mdash; <span class="dc-title">Generate a unique ID</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">uniqid</span> &mdash; <span class="dc-title">Generate a unique ID</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.uniqid-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>uniqid</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code><span class="initializer"> = &quot;&quot;</span></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$more_entropy</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>uniqid</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code><span class="initializer"> = &quot;&quot;</span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$more_entropy</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Gets a prefixed unique identifier based on the current time in
@@ -63,7 +60,6 @@ cryptographically secure value, consider using <span class="function"><a href="f
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">prefix</code></dt>
@@ -121,7 +117,7 @@ cryptographically secure value, consider using <span class="function"><a href="f
  <div class="refsect1 examples" id="refsect1-function.uniqid-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4013">
+   <div class="example" id="example-3515">
     <p><strong>Example #1 <span class="function"><strong>uniqid()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

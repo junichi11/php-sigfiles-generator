@@ -28,7 +28,7 @@
  <h1 class="title">The HashContext class</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 7 &gt;= 7.2.0)</p>
+ <div class="partintro"><p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p>
 
 
   <div class="section" id="hashcontext.intro">
@@ -44,21 +44,23 @@
 
 
    <div class="classsynopsis">
-    <div class="ooclass"></div>
-
+    <div class="ooclass">
+     
+    </div>
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
-      <strong class="classname">HashContext</strong>
+      <span class="modifier">final</span>
+      <span class="modifier">class</span> <strong class="classname">HashContext</strong>
      </span>
      {</div>
 
-    
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="constructorsynopsis dc-description">
-   <span class="modifier">private</span> <span class="methodname"><a href="hashcontext.construct.html" class="methodname">__construct</a></span>
-    (
-   )</div>
+   <span class="modifier">private</span> <span class="methodname"><a href="hashcontext.construct.html" class="methodname">__construct</a></span>()</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="hashcontext.serialize.html" class="methodname">__serialize</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="hashcontext.unserialize.html" class="methodname">__unserialize</a></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$data</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
    }</div>
 
@@ -76,6 +78,14 @@
 
 
 
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="hashcontext.construct.html">HashContext::__construct</a> — Private constructor to disallow direct instantiation</li></ul>
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="hashcontext.construct.html">HashContext::__construct</a> — Private constructor to disallow direct instantiation</li><li><a href="hashcontext.serialize.html">HashContext::__serialize</a> — Serializes the HashContext object</li><li><a href="hashcontext.unserialize.html">HashContext::__unserialize</a> — Deserializes the data parameter into a HashContext object</li></ul>
 </div>
 </div></div></body></html>

@@ -26,21 +26,14 @@
   <div id="layout-content"><div id="function.msg-send" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">msg_send</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">msg_send</span> &mdash; <span class="dc-title">Send a message to a message queue</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">msg_send</span> &mdash; <span class="dc-title">Send a message to a message queue</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.msg-send-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>msg_send</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type SysvMessageQueue">SysvMessageQueue</span></span> <code class="parameter">$queue</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$message_type</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">float</span>|<span class="type">bool</span></span> <code class="parameter">$message</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$serialize</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$blocking</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$error_code</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>msg_send</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.sysvmessagequeue.html" class="type SysvMessageQueue">SysvMessageQueue</a></span> <code class="parameter">$queue</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$message_type</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">float</span>|<span class="type">bool</span></span> <code class="parameter">$message</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$serialize</code><span class="initializer"> = <strong><code>true</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$blocking</code><span class="initializer"> = <strong><code>true</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$error_code</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>msg_send()</strong></span> sends a <code class="parameter">message</code> of type
@@ -54,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">queue</code></dt>
@@ -186,7 +178,7 @@
       <tr>
        <td>8.0.0</td>
        <td>
-        <code class="parameter">queue</code> expects a <strong class="classname">SysvMessageQueue</strong>
+        <code class="parameter">queue</code> expects a <span class="classname"><a href="class.sysvmessagequeue.html" class="classname">SysvMessageQueue</a></span>
         instance now; previously, a <span class="type">resource</span> was expected.
        </td>
       </tr>

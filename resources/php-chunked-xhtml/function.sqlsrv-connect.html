@@ -32,10 +32,7 @@
  <div class="refsect1 description" id="refsect1-function.sqlsrv-connect-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>sqlsrv_connect</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$serverName</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$connectionInfo</code> = ?</span>
-   ) : <span class="type">resource</span></div>
+   <span class="methodname"><strong>sqlsrv_connect</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$serverName</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$connectionInfo</code><span class="initializer"> = ?</span></span>): <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Opens a connection to a Microsoft SQL Server database. By default, the connection 
@@ -49,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">serverName</code></dt>
@@ -96,7 +92,7 @@
  <div class="refsect1 examples" id="refsect1-function.sqlsrv-connect-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2432">
+   <div class="example" id="example-1986">
     <p><strong>Example #1 Connect using Windows Authentication.</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -108,7 +104,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2433">
+   <div class="example" id="example-1987">
     <p><strong>Example #2 Connect by specifying a user name and password.</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -120,7 +116,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2434">
+   <div class="example" id="example-1988">
     <p><strong>Example #3 Connect on a specified port.</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

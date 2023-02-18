@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.pg-send-query" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_send_query</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_send_query</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_send_query</span> &mdash; <span class="dc-title">
    Sends asynchronous query
   </span></p>
 
@@ -35,10 +35,7 @@
  <div class="refsect1 description" id="refsect1-function.pg-send-query-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_send_query</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>pg_send_query</strong></span>(<span class="methodparam"><span class="type"><a href="class.pgsql-connection.html" class="type PgSql\Connection">PgSql\Connection</a></span> <code class="parameter">$connection</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>): <span class="type"><span class="type">int</span>|<span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_send_query()</strong></span> sends a query or queries asynchronously to the
@@ -66,16 +63,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">connection</code></dt>
 
      <dd>
 
-      <p class="para">
-       PostgreSQL database connection resource.
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span> instance.</p>
      </dd>
 
     
@@ -102,17 +96,45 @@
 
  <div class="refsect1 returnvalues" id="refsect1-function.pg-send-query-returnvalues">
   <h3 class="title">Return Values</h3>
-  <p class="para">Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.</p>
   <p class="para">
-   Use <span class="function"><a href="function.pg-get-result.html" class="function">pg_get_result()</a></span> to determine the query result.
+   Returns <strong><code>true</code></strong> on success, <strong><code>false</code></strong> or <code class="literal">0</code> on failure.  Use <span class="function"><a href="function.pg-get-result.html" class="function">pg_get_result()</a></span>
+   to determine the query result.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.pg-send-query-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">connection</code> parameter expects an <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
  
  <div class="refsect1 examples" id="refsect1-function.pg-send-query-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2396">
+   <div class="example" id="example-1950">
     <p><strong>Example #1 <span class="function"><strong>pg_send_query()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

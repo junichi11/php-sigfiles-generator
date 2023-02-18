@@ -27,27 +27,21 @@
  <div class="refnamediv">
   <h1 class="refname">IntlDateFormatter::format</h1>
   <h1 class="refname">datefmt_format</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">IntlDateFormatter::format</span> -- <span class="refname">datefmt_format</span> &mdash; <span class="dc-title">Format the date/time value as a string</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">IntlDateFormatter::format</span> -- <span class="refname">datefmt_format</span> &mdash; <span class="dc-title">Format the date/time value as a string</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-intldateformatter.format-description">
   <h3 class="title">Description</h3>
   <p class="para">
-   Object oriented style
+   Object-oriented style
   </p>
    <div class="methodsynopsis dc-description">
-    <span class="modifier">public</span> <span class="methodname"><strong>IntlDateFormatter::format</strong></span>
-     ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-    ) : <span class="type">string</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>IntlDateFormatter::format</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span>|<span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span>|<span class="type">array</span>|<span class="type">string</span>|<span class="type">int</span>|<span class="type">float</span></span> <code class="parameter">$datetime</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Procedural style
   </p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>datefmt_format</strong></span>
-   ( <span class="methodparam"><span class="type"><a href="class.intldateformatter.html" class="type IntlDateFormatter">IntlDateFormatter</a></span> <code class="parameter">$fmt</code></span>
-  , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   ) : <span class="type">string</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>datefmt_format</strong></span>(<span class="methodparam"><span class="type"><a href="class.intldateformatter.html" class="type IntlDateFormatter">IntlDateFormatter</a></span> <code class="parameter">$formatter</code></span>, <span class="methodparam"><span class="type"><span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span>|<span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span>|<span class="type">array</span>|<span class="type">string</span>|<span class="type">int</span>|<span class="type">float</span></span> <code class="parameter">$datetime</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Formats the time value as a string.
@@ -59,10 +53,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">fmt</code></dt>
+<code class="parameter">formatter</code></dt>
 
      <dd>
 
@@ -74,20 +67,20 @@
     
     
      <dt>
-<code class="parameter">value</code></dt>
+<code class="parameter">datetime</code></dt>
 
      <dd>
 
       <p class="para">
-       Value to format. This may be a <a href="class.datetimeinterface.html" class="classname">DateTimeInterface</a> object, an
-       <a href="class.intlcalendar.html" class="classname">IntlCalendar</a> object, a <span class="type"><span class="type numeric">numeric</span></span> type
+       Value to format. This may be a <span class="classname"><a href="class.datetimeinterface.html" class="classname">DateTimeInterface</a></span> object, an
+       <span class="classname"><a href="class.intlcalendar.html" class="classname">IntlCalendar</a></span> object, a <span class="type"><span class="type numeric">numeric</span></span> type
        representing a (possibly fractional) number of seconds since epoch or an
        <span class="type">array</span> in the format output by
        <span class="function"><a href="function.localtime.html" class="function">localtime()</a></span>.
       </p>
       <p class="para">
-       If a <a href="class.datetime.html" class="classname">DateTime</a> or an
-       <a href="class.intlcalendar.html" class="classname">IntlCalendar</a> object is passed, its timezone is not
+       If a <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> or an
+       <span class="classname"><a href="class.intlcalendar.html" class="classname">IntlCalendar</a></span> object is passed, its timezone is not
        considered. The object will be formatted using the formaterʼs configured
        timezone. If one wants to use the timezone of the object to be formatted,
        <span class="function"><a href="intldateformatter.settimezone.html" class="function">IntlDateFormatter::setTimeZone()</a></span> must be called before
@@ -129,17 +122,17 @@
       <tr>
        <td>7.1.5</td>
        <td>
-        Support for providing general <a href="class.datetimeinterface.html" class="classname">DateTimeInterface</a> objects to the
-        <code class="parameter">value</code> parameter was added. Formerly, only proper
-        <a href="class.datetime.html" class="classname">DateTime</a> objects were supported.
+        Support for providing general <span class="classname"><a href="class.datetimeinterface.html" class="classname">DateTimeInterface</a></span> objects to the
+        <code class="parameter">datetime</code> parameter was added. Formerly, only proper
+        <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> objects were supported.
        </td>
       </tr>
 
       <tr>
        <td>PECL 3.0.0</td>
        <td>
-        Support for providing <a href="class.intlcalendar.html" class="classname">IntlCalendar</a> objects to the
-        <code class="parameter">value</code> parameter was added.
+        Support for providing <span class="classname"><a href="class.intlcalendar.html" class="classname">IntlCalendar</a></span> objects to the
+        <code class="parameter">datetime</code> parameter was added.
        </td>
       </tr>
 
@@ -153,7 +146,7 @@
 
  <div class="refsect1 examples" id="refsect1-intldateformatter.format-examples">
   <h3 class="title">Examples</h3>
-   <div class="example" id="example-2899">
+   <div class="example" id="example-2412">
     <p><strong>Example #1 <span class="function"><strong>datefmt_format()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -163,7 +156,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-2900">
+   <div class="example" id="example-2413">
     <p><strong>Example #2 OO example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -183,8 +176,8 @@ Second Formatted output with pattern is 12/31/1969
 </pre></div>
      </div>
 
-   <div class="example" id="example-2901">
-   <p><strong>Example #3 With <a href="class.intlcalendar.html" class="classname">IntlCalendar</a> object</strong></p>
+   <div class="example" id="example-2414">
+   <p><strong>Example #3 With <span class="classname"><a href="class.intlcalendar.html" class="classname">IntlCalendar</a></span> object</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$tz&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">reset</span><span style="color: #007700">(</span><span style="color: #0000BB">iterator_to_array</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlTimeZone</span><span style="color: #007700">::</span><span style="color: #0000BB">createEnumeration</span><span style="color: #007700">(</span><span style="color: #DD0000">'FR'</span><span style="color: #007700">)));<br /></span><span style="color: #0000BB">$formatter&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">IntlDateFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">create</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'fr_FR'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IntlDateFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">FULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IntlDateFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">FULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$tz</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IntlDateFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">GREGORIAN<br /></span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$cal&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">IntlCalendar</span><span style="color: #007700">::</span><span style="color: #0000BB">createInstance</span><span style="color: #007700">(</span><span style="color: #0000BB">$tz</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'@calendar=islamic-civil'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$cal</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlCalendar</span><span style="color: #007700">::</span><span style="color: #0000BB">FIELD_MONTH</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">8</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//9th&nbsp;month,&nbsp;Ramadan<br /></span><span style="color: #0000BB">$cal</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlCalendar</span><span style="color: #007700">::</span><span style="color: #0000BB">FIELD_DAY_OF_MONTH</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//1st&nbsp;day<br /></span><span style="color: #0000BB">$cal</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">clear</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlCalendar</span><span style="color: #007700">::</span><span style="color: #0000BB">FIELD_HOUR_OF_DAY</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$cal</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">clear</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlCalendar</span><span style="color: #007700">::</span><span style="color: #0000BB">FIELD_MINUTE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$cal</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">clear</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlCalendar</span><span style="color: #007700">::</span><span style="color: #0000BB">FIELD_SECOND</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$cal</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">clear</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlCalendar</span><span style="color: #007700">::</span><span style="color: #0000BB">FIELD_MILLISECOND</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"In&nbsp;this&nbsp;islamic&nbsp;year,&nbsp;Ramadan&nbsp;started/will&nbsp;start&nbsp;on:\n\t"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$formatter</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">$cal</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//Itʼs&nbsp;the&nbsp;formatterʼs&nbsp;timezone&nbsp;that&nbsp;is&nbsp;used:<br /></span><span style="color: #0000BB">$formatter</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">'Asia/Tokyo'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"After&nbsp;changing&nbsp;timezone:\n\t"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$formatter</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">$cal</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;</span>

@@ -26,28 +26,22 @@
   <div id="layout-content"><div id="intlcalendar.before" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">IntlCalendar::before</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)</p><p class="refpurpose"><span class="refname">IntlCalendar::before</span> &mdash; <span class="dc-title">Whether this objectʼs time is before that of the passed object</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8, PECL &gt;= 3.0.0a1)</p><p class="refpurpose"><span class="refname">IntlCalendar::before</span> &mdash; <span class="dc-title">Whether this objectʼs time is before that of the passed object</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-intlcalendar.before-description">
   <h3 class="title">Description</h3>
   <p class="para">
-   Object oriented style
+   Object-oriented style
   </p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>IntlCalendar::before</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span> <code class="parameter">$other</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>IntlCalendar::before</strong></span>(<span class="methodparam"><span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span> <code class="parameter">$other</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Procedural style
   </p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>intlcal_before</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span> <code class="parameter">$cal</code></span>
-   , <span class="methodparam"><span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span> <code class="parameter">$other</code></span>
-   ) : <span class="type">bool</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>intlcal_before</strong></span>(<span class="methodparam"><span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span> <code class="parameter">$calendar</code></span>, <span class="methodparam"><span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span> <code class="parameter">$other</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Returns whether this objectʼs time precedes the argumentʼs time.
@@ -58,16 +52,13 @@
  <div class="refsect1 parameters" id="refsect1-intlcalendar.before-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
-<code class="parameter">cal</code></dt>
+<code class="parameter">calendar</code></dt>
 
     <dd>
 
-     <p class="para">
-      The IntlCalendar resource.
-     </p>
+     <p class="para">An <span class="classname"><a href="class.intlcalendar.html" class="classname">IntlCalendar</a></span> instance.</p>
     </dd>
 
    
@@ -93,9 +84,8 @@
   <p class="para">
    Returns <strong><code>true</code></strong> if this objectʼs current time is before that of the
    <code class="parameter">calendar</code> argumentʼs time. Returns <strong><code>false</code></strong> otherwise.
-   Also returns <strong><code>false</code></strong> on failure. You can use <a href="intl.configuration.html#ini.intl.use-exceptions" class="link">exceptions</a> or
-   <span class="function"><a href="function.intl-get-error-code.html" class="function">intl_get_error_code()</a></span> to detect error conditions.
   </p>
+  <p class="para">On failure <strong><code>false</code></strong> is also returned. To detect error conditions use <span class="function"><a href="function.intl-get-error-code.html" class="function">intl_get_error_code()</a></span>, or set up Intl to throw <a href="intl.configuration.html#ini.intl.use-exceptions" class="link">exceptions</a>.</p>
  </div>
 
 

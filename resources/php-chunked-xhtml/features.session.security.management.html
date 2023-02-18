@@ -82,9 +82,8 @@
    </p>
 
    <p class="para">
-    As of PHP 5.5.2,
-    <a href="session.configuration.html#ini.session.use-strict-mode" class="link">session.use_strict_mode</a>
-    is available. When it is enabled, and the session save handler supports it,
+    When <a href="session.configuration.html#ini.session.use-strict-mode" class="link">session.use_strict_mode</a> is enabled, 
+    and the session save handler supports it,
     an uninitialized session ID is rejected and a new one is created.
     This prevents an attack that forces users to use a known session ID.
     An attacker may paste links or send emails that contains the session ID.
@@ -200,8 +199,8 @@
     Session IDs <em class="emphasis">must</em> be regenerated when user privileges
     are elevated, such as after authenticating.
     <span class="function"><a href="function.session-regenerate-id.html" class="function">session_regenerate_id()</a></span> must be called prior to
-    setting the authentication information to $_SESSION. (As of PHP 7.0.0,
-    <span class="function"><a href="function.session-regenerate-id.html" class="function">session_regenerate_id()</a></span> saves the current session data
+    setting the authentication information to $_SESSION. 
+    (<span class="function"><a href="function.session-regenerate-id.html" class="function">session_regenerate_id()</a></span> saves the current session data
     automatically in order to save timestamp/etc. to the current session.)
     Ensure only the new session contains the authenticated flag.
    </p>

@@ -26,24 +26,19 @@
   <div id="layout-content"><div id="function.openssl-public-encrypt" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_public_encrypt</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_public_encrypt</span> &mdash; <span class="dc-title">Encrypts data with public key </span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_public_encrypt</span> &mdash; <span class="dc-title">Encrypts data with public key </span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-public-encrypt-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_public_encrypt</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$crypted</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$padding</code><span class="initializer"> = OPENSSL_PKCS1_PADDING</span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>openssl_public_encrypt</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$encrypted_data</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type"><a href="class.opensslasymmetrickey.html" class="type OpenSSLAsymmetricKey">OpenSSLAsymmetricKey</a></span>|<span class="type"><a href="class.opensslcertificate.html" class="type OpenSSLCertificate">OpenSSLCertificate</a></span>|<span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$public_key</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$padding</code><span class="initializer"> = <strong><code>OPENSSL_PKCS1_PADDING</code></strong></span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_public_encrypt()</strong></span> encrypts <code class="parameter">data</code>
-   with public <code class="parameter">key</code> and stores the result into
-   <code class="parameter">crypted</code>. Encrypted data can be decrypted via
+   with public <code class="parameter">public_key</code> and stores the result into
+   <code class="parameter">encrypted_data</code>. Encrypted data can be decrypted via
    <span class="function"><a href="function.openssl-private-decrypt.html" class="function">openssl_private_decrypt()</a></span>. 
   </p>
   <p class="para">
@@ -58,7 +53,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">data</code></dt>
@@ -72,7 +66,7 @@
     
     
      <dt>
-<code class="parameter">crypted</code></dt>
+<code class="parameter">encrypted_data</code></dt>
 
      <dd>
 
@@ -84,7 +78,7 @@
     
     
      <dt>
-<code class="parameter">key</code></dt>
+<code class="parameter">public_key</code></dt>
 
      <dd>
 
@@ -121,6 +115,36 @@
   <p class="para">
    Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.openssl-public-encrypt-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">public_key</code> accepts an <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span>
+       or <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL key</code> or <code class="literal">OpenSSL X.509</code>
+       was accepted.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

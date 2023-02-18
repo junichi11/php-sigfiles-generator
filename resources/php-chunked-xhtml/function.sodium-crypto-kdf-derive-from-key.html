@@ -26,27 +26,21 @@
   <div id="layout-content"><div id="function.sodium-crypto-kdf-derive-from-key" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sodium_crypto_kdf_derive_from_key</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.2.0)</p><p class="refpurpose"><span class="refname">sodium_crypto_kdf_derive_from_key</span> &mdash; <span class="dc-title">Derive a subkey</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">sodium_crypto_kdf_derive_from_key</span> &mdash; <span class="dc-title">Derive a subkey</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.sodium-crypto-kdf-derive-from-key-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>sodium_crypto_kdf_derive_from_key</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$subkey_length</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$subkey_id</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$context</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>sodium_crypto_kdf_derive_from_key</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$subkey_length</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$subkey_id</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$context</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span><br>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
-
+   Derive a subkey from a root key and additional context.
   </p>
-
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-currently not documented; only its argument list is available.
-</p></div>
+  <p class="para">
+   Similar to <span class="function"><a href="function.hash-hkdf.html" class="function">hash_hkdf()</a></span>.
+  </p>
 
  </div>
 
@@ -54,7 +48,6 @@ currently not documented; only its argument list is available.
  <div class="refsect1 parameters" id="refsect1-function.sodium-crypto-kdf-derive-from-key-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">subkey_length</code></dt>
@@ -62,7 +55,7 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      Length of the key to return (in bytes)
      </p>
     </dd>
 
@@ -74,7 +67,7 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      Return the Nth subkey from a given root key. Useful for seeking.
      </p>
     </dd>
 
@@ -86,7 +79,7 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      Application-specific context.
      </p>
     </dd>
 
@@ -98,7 +91,7 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      The root key from which the subkey is derived.
      </p>
     </dd>
 
@@ -111,7 +104,7 @@ currently not documented; only its argument list is available.
  <div class="refsect1 returnvalues" id="refsect1-function.sodium-crypto-kdf-derive-from-key-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   
+   A string of pseudorandom (raw binary) bytes.
   </p>
  </div>
 

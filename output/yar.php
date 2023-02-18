@@ -47,10 +47,10 @@ namespace {
 
 		/**
 		 * Create a client
-		 * <p>Create a Yar_Client to a Yar_Server.</p>
+		 * <p>Create a <code>Yar_Client</code> to a <code>Yar_Server</code>.</p>
 		 * @param string $url <p>Yar Server URL.</p>
 		 * @param array $options
-		 * @return self <p>Yar_Client instance.</p>
+		 * @return self <p><code>Yar_Client</code> instance.</p>
 		 * @link https://php.net/manual/en/yar-client.construct.php
 		 * @since PECL yar >= 1.0.0
 		 */
@@ -80,7 +80,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -94,11 +94,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -128,13 +128,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -239,7 +239,7 @@ namespace {
 		 * Register a server
 		 * <p>Set up a Yar HTTP RPC Server, All the public methods of $obj will be register as a RPC service.</p>
 		 * @param Object $obj <p>An Object, all public methods of its will be registered as RPC services.</p>
-		 * @return self <p>An instance of Yar_Server.</p>
+		 * @return self <p>An instance of <code>Yar_Server</code>.</p>
 		 * @link https://php.net/manual/en/yar-server.construct.php
 		 * @since PECL yar >= 1.0.0
 		 */
@@ -275,7 +275,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -289,11 +289,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -323,13 +323,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace

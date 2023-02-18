@@ -26,15 +26,13 @@
   <div id="layout-content"><div id="function.ftp-nb-continue" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ftp_nb_continue</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ftp_nb_continue</span> &mdash; <span class="dc-title">Continues retrieving/sending a file (non-blocking)</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ftp_nb_continue</span> &mdash; <span class="dc-title">Continues retrieving/sending a file (non-blocking)</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.ftp-nb-continue-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ftp_nb_continue</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$ftp</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>ftp_nb_continue</strong></span>(<span class="methodparam"><span class="type"><a href="class.ftp-connection.html" class="type FTP\Connection">FTP\Connection</a></span> <code class="parameter">$ftp</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment"> 
    Continues retrieving/sending a file non-blocking.
@@ -45,16 +43,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">ftp</code></dt>
 
      <dd>
 
-      <p class="para">
-       The link identifier of the FTP connection.
-      </p>
+       <p class="para">An <span class="classname"><a href="class.ftp-connection.html" class="classname">FTP\Connection</a></span> instance.</p>
      </dd>
 
     
@@ -71,14 +66,43 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.ftp-nb-continue-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">ftp</code> parameter expects an <span class="classname"><a href="class.ftp-connection.html" class="classname">FTP\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+ 
  <div class="refsect1 examples" id="refsect1-function.ftp-nb-continue-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4790">
+   <div class="example" id="example-4291">
     <p><strong>Example #1 <span class="function"><strong>ftp_nb_continue()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;Initiate&nbsp;the&nbsp;download<br /></span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_nb_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$my_connection</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"test"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"README"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">FTP_BINARY</span><span style="color: #007700">);<br />while&nbsp;(</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">FTP_MOREDATA</span><span style="color: #007700">)&nbsp;{<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Continue&nbsp;downloading...<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_nb_continue</span><span style="color: #007700">(</span><span style="color: #0000BB">$my_connection</span><span style="color: #007700">);<br />}<br />if&nbsp;(</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">!=&nbsp;</span><span style="color: #0000BB">FTP_FINISHED</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"There&nbsp;was&nbsp;an&nbsp;error&nbsp;downloading&nbsp;the&nbsp;file..."</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;exit(</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;Initiate&nbsp;the&nbsp;download<br /></span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_nb_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$ftp</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"test"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"README"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">FTP_BINARY</span><span style="color: #007700">);<br />while&nbsp;(</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">FTP_MOREDATA</span><span style="color: #007700">)&nbsp;{<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Continue&nbsp;downloading...<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_nb_continue</span><span style="color: #007700">(</span><span style="color: #0000BB">$ftp</span><span style="color: #007700">);<br />}<br />if&nbsp;(</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">!=&nbsp;</span><span style="color: #0000BB">FTP_FINISHED</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"There&nbsp;was&nbsp;an&nbsp;error&nbsp;downloading&nbsp;the&nbsp;file..."</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;exit(</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

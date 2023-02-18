@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.pg-lo-tell" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_lo_tell</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_lo_tell</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_lo_tell</span> &mdash; <span class="dc-title">
    Returns current seek position a of large object
   </span></p>
 
@@ -35,9 +35,7 @@
  <div class="refsect1 description" id="refsect1-function.pg-lo-tell-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_lo_tell</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$large_object</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>pg_lo_tell</strong></span>(<span class="methodparam"><span class="type"><a href="class.pgsql-lob.html" class="type PgSql\Lob">PgSql\Lob</a></span> <code class="parameter">$lob</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_lo_tell()</strong></span> returns the current position (offset
@@ -54,16 +52,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">large_object</code></dt>
+<code class="parameter">lob</code></dt>
 
      <dd>
 
-      <p class="para">
-       PostgreSQL large object (LOB) resource, returned by <span class="function"><a href="function.pg-lo-open.html" class="function">pg_lo_open()</a></span>.
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pgsql-lob.html" class="classname">PgSql\Lob</a></span> instance, returned by <span class="function"><a href="function.pg-lo-open.html" class="function">pg_lo_open()</a></span>.</p>
      </dd>
 
     
@@ -81,11 +76,39 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.pg-lo-tell-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">lob</code> parameter expects an <span class="classname"><a href="class.pgsql-lob.html" class="classname">PgSql\Lob</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
  
  <div class="refsect1 examples" id="refsect1-function.pg-lo-tell-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2371">
+   <div class="example" id="example-1925">
     <p><strong>Example #1 <span class="function"><strong>pg_lo_tell()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -101,36 +124,6 @@ Seek position is: 50000
 </pre></div>
     </div>
    </div> 
-  </p>
- </div>
-
- 
- <div class="refsect1 changelog" id="refsect1-function.pg-lo-tell-changelog">
-  <h3 class="title">Changelog</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>Version</th>
-       <th>Description</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.6.0</td>
-       <td>
-        Added PostgreSQL 9.3&#039;s 64bit large object support. Both client and server must
-        support PostgreSQL 9.3 and PHP must be 64bit build to use 64bit large object.
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
   </p>
  </div>
 

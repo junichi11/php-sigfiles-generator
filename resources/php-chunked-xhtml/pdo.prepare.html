@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="pdo.prepare" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDO::prepare</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::prepare</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PHP 8,PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::prepare</span> &mdash; <span class="dc-title">
    Prepares a statement for execution and returns a statement object
   </span></p>
 
@@ -34,10 +34,7 @@
  <div class="refsect1 description" id="refsect1-pdo.prepare-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDO::prepare</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$statement</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$driver_options</code><span class="initializer"> = array()</span></span>
-   ) : <span class="type"><a href="class.pdostatement.html" class="type PDOStatement">PDOStatement</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDO::prepare</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>): <span class="type"><span class="type"><a href="class.pdostatement.html" class="type PDOStatement">PDOStatement</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
 
   <p class="para rdfs-comment">
@@ -81,7 +78,7 @@
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <span class="simpara">
-    As of PHP 5.3.0, the parser used for emulated prepared statements and for
+    The parser used for emulated prepared statements and for
     rewriting named or question mark style parameters supports the non standard
     backslash escapes for single- and double quotes. That means that terminating
     quotes immediately preceeded by a backslash are not recognized as such, which
@@ -91,16 +88,20 @@
     which is natively supported by the driver.
    </span>
   </p></blockquote>
+  <p class="para">
+    As of PHP 7.4.0, question marks can be escaped by doubling them. That means that
+    the <code class="literal">??</code> string will be translated to <code class="literal">?</code>
+    when sending the query to the database.
+  </p>
  </div>
 
  <div class="refsect1 parameters" id="refsect1-pdo.prepare-parameters">
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">statement</code></dt>
+<code class="parameter">query</code></dt>
 
      <dd>
 
@@ -112,7 +113,7 @@
     
     
      <dt>
-<code class="parameter">driver_options</code></dt>
+<code class="parameter">options</code></dt>
 
      <dd>
 
@@ -139,10 +140,10 @@
   <p class="para">
    If the database server successfully prepares the statement,
    <span class="function"><strong>PDO::prepare()</strong></span> returns a
-   <a href="class.pdostatement.html" class="classname">PDOStatement</a> object.
+   <span class="classname"><a href="class.pdostatement.html" class="classname">PDOStatement</a></span> object.
    If the database server cannot successfully prepare the statement,
    <span class="function"><strong>PDO::prepare()</strong></span> returns <strong><code>false</code></strong> or emits
-   <a href="class.pdoexception.html" class="classname">PDOException</a> (depending on <a href="pdo.error-handling.html" class="link">error handling</a>).
+   <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> (depending on <a href="pdo.error-handling.html" class="link">error handling</a>).
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
@@ -156,20 +157,30 @@
  <div class="refsect1 examples" id="refsect1-pdo.prepare-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1015"><p><strong>Example #1 SQL statement template with named parameters</strong></p>
+   <div class="example" id="example-1021"><p><strong>Example #1 SQL statement template with named parameters</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Execute&nbsp;a&nbsp;prepared&nbsp;statement&nbsp;by&nbsp;passing&nbsp;an&nbsp;array&nbsp;of&nbsp;values&nbsp;*/<br /></span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'SELECT&nbsp;name,&nbsp;colour,&nbsp;calories<br />&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;fruit<br />&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;calories&nbsp;&lt;&nbsp;:calories&nbsp;AND&nbsp;colour&nbsp;=&nbsp;:colour'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_CURSOR&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">CURSOR_FWDONLY</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #DD0000">':calories'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">150</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">':colour'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'red'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$red&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #DD0000">':calories'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">175</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">':colour'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$yellow&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Execute&nbsp;a&nbsp;prepared&nbsp;statement&nbsp;by&nbsp;passing&nbsp;an&nbsp;array&nbsp;of&nbsp;values&nbsp;*/<br /></span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'SELECT&nbsp;name,&nbsp;colour,&nbsp;calories<br />&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;fruit<br />&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;calories&nbsp;&lt;&nbsp;:calories&nbsp;AND&nbsp;colour&nbsp;=&nbsp;:colour'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_CURSOR&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">CURSOR_FWDONLY</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'calories'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">150</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'colour'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'red'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$red&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">/*&nbsp;Array&nbsp;keys&nbsp;can&nbsp;be&nbsp;prefixed&nbsp;with&nbsp;colons&nbsp;":"&nbsp;too&nbsp;(optional)&nbsp;*/<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #DD0000">':calories'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">175</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">':colour'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$yellow&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-1016">
+   <div class="example" id="example-1022">
     <p><strong>Example #2 SQL statement template with question mark parameters</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Execute&nbsp;a&nbsp;prepared&nbsp;statement&nbsp;by&nbsp;passing&nbsp;an&nbsp;array&nbsp;of&nbsp;values&nbsp;*/<br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;name,&nbsp;colour,&nbsp;calories<br />&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;fruit<br />&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;calories&nbsp;&lt;&nbsp;?&nbsp;AND&nbsp;colour&nbsp;=&nbsp;?'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #0000BB">150</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'red'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$red&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #0000BB">175</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$yellow&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-1023">
+    <p><strong>Example #3 SQL statement template with question mark escaped</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;note:&nbsp;this&nbsp;is&nbsp;only&nbsp;valid&nbsp;on&nbsp;PostgreSQL&nbsp;databases&nbsp;*/<br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;*&nbsp;FROM&nbsp;issues&nbsp;WHERE&nbsp;tag::jsonb&nbsp;??&nbsp;?'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">([</span><span style="color: #DD0000">'feature'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">$featureIssues&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">([</span><span style="color: #DD0000">'performance'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">$performanceIssues&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -184,7 +195,7 @@
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="pdo.exec.html" class="function" rel="rdfs-seeAlso">PDO::exec()</a> - Execute an SQL statement and return the number of affected rows</span></li>
-    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Executes an SQL statement, returning a result set as a PDOStatement object</span></li>
+    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Prepares and executes an SQL statement without placeholders</span></li>
     <li class="member"><span class="function"><a href="pdostatement.execute.html" class="function" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
    </ul>
   </p>

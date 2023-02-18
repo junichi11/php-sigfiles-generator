@@ -26,20 +26,14 @@
   <div id="layout-content"><div id="function.imagesetclip" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagesetclip</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.2.0)</p><p class="refpurpose"><span class="refname">imagesetclip</span> &mdash; <span class="dc-title">Set the clipping rectangle</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">imagesetclip</span> &mdash; <span class="dc-title">Set the clipping rectangle</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.imagesetclip-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagesetclip</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$im</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$x1</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$y1</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$x2</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$y2</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>imagesetclip</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$image</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$x1</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$y1</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$x2</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$y2</code></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>imagesetclip()</strong></span> sets the current clipping rectangle, i.e.
@@ -51,12 +45,11 @@
  <div class="refsect1 parameters" id="refsect1-function.imagesetclip-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    <dt>
-<code class="parameter">
-image</code></dt>
+
+<code class="parameter">image</code></dt>
 <dd>
-<p class="para">An image resource, returned by one of the image creation functions,
+<p class="para">A <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> object, returned by one of the image creation functions,
 such as <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
 
    
@@ -117,6 +110,34 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
   <p class="para">
    Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.imagesetclip-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
+  instance now; previously, a <span class="type">resource</span> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

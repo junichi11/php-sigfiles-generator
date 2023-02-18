@@ -3,7 +3,7 @@
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>Runs the equivalent of the select() system call on the given
-   arrays of streams with a timeout specified by tv_sec and tv_usec</title>
+   arrays of streams with a timeout specified by seconds and microseconds</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -21,27 +21,21 @@
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="ref.stream.html">Stream Functions</a></li>
     <li>Runs the equivalent of the select() system call on the given
-   arrays of streams with a timeout specified by tv_sec and tv_usec</li>
+   arrays of streams with a timeout specified by seconds and microseconds</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="function.stream-select" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stream_select</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stream_select</span> &mdash; <span class="dc-title">Runs the equivalent of the select() system call on the given
-   arrays of streams with a timeout specified by tv_sec and tv_usec </span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">stream_select</span> &mdash; <span class="dc-title">Runs the equivalent of the select() system call on the given
+   arrays of streams with a timeout specified by seconds and microseconds</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.stream-select-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>stream_select</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$read</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$write</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$except</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$tv_sec</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$tv_usec</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>stream_select</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter reference">&$read</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter reference">&$write</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter reference">&$except</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$seconds</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$microseconds</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    The <span class="function"><strong>stream_select()</strong></span> function accepts arrays of streams and
@@ -55,7 +49,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">read</code></dt>
@@ -109,24 +102,24 @@
     
     
      <dt>
-<code class="parameter">tv_sec</code></dt>
+<code class="parameter">seconds</code></dt>
 
      <dd>
 
       <p class="para">
-       The <code class="parameter">tv_sec</code> and <code class="parameter">tv_usec</code>
+       The <code class="parameter">seconds</code> and <code class="parameter">microseconds</code>
        together form the <em class="emphasis">timeout</em> parameter,
-       <code class="parameter">tv_sec</code> specifies the number of seconds while
-       <code class="parameter">tv_usec</code> the number of microseconds.
+       <code class="parameter">seconds</code> specifies the number of seconds while
+       <code class="parameter">microseconds</code> the number of microseconds.
        The <code class="parameter">timeout</code> is an upper bound on the amount of time
        that <span class="function"><strong>stream_select()</strong></span> will wait before it returns.
-       If <code class="parameter">tv_sec</code> and <code class="parameter">tv_usec</code> are
+       If <code class="parameter">seconds</code> and <code class="parameter">microseconds</code> are
        both set to <code class="literal">0</code>, <span class="function"><strong>stream_select()</strong></span> will
        not wait for data - instead it will return immediately, indicating the
        current status of the streams.
       </p>
       <p class="para">
-       If <code class="parameter">tv_sec</code> is <strong><code>null</code></strong> <span class="function"><strong>stream_select()</strong></span>
+       If <code class="parameter">seconds</code> is <strong><code>null</code></strong> <span class="function"><strong>stream_select()</strong></span>
        can block indefinitely, returning only when an event on one of the
        watched streams occurs (or if a signal interrupts the system call).
       </p>
@@ -154,12 +147,12 @@
     
     
      <dt>
-<code class="parameter">tv_usec</code></dt>
+<code class="parameter">microseconds</code></dt>
 
      <dd>
 
       <p class="para">
-       See <code class="parameter">tv_sec</code> description.
+       See <code class="parameter">seconds</code> description.
       </p>
      </dd>
 
@@ -182,10 +175,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.stream-select-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.1.0</td>
+      <td>
+       <code class="parameter">microseconds</code> is now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.stream-select-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4295">
+   <div class="example" id="example-3791">
     <p><strong>Example #1 <span class="function"><strong>stream_select()</strong></span> Example</strong></p>
     <div class="example-contents"><p>
      This example checks to see if data has arrived for reading on either

@@ -26,26 +26,20 @@
   <div id="layout-content"><div id="reflectionmethod.construct" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionMethod::__construct</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionMethod::__construct</span> &mdash; <span class="dc-title">Constructs a ReflectionMethod</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionMethod::__construct</span> &mdash; <span class="dc-title">Constructs a ReflectionMethod</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-reflectionmethod.construct-description">
   <h3 class="title">Description</h3>
   <div class="constructorsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionMethod::__construct</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type">object</span>|<span class="type">string</span></span> <code class="parameter">$objectOrMethod</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$method</code></span>
-   )</div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionMethod::__construct</strong></span>(<span class="methodparam"><span class="type"><span class="type">object</span>|<span class="type">string</span></span> <code class="parameter">$objectOrMethod</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$method</code></span>)</div>
 
   <p class="simpara">Alternative signature (not supported with named arguments):</p>
-  <div class="constructorsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionMethod::__construct</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$classMethod</code></span>
-   )</div>
+  <div class="constructorsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>ReflectionMethod::__construct</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$classMethod</code></span>)</div>
 
   <p class="para rdfs-comment">
-   Constructs a new <a href="class.reflectionmethod.html" class="classname">ReflectionMethod</a>.
+   Constructs a new <span class="classname"><a href="class.reflectionmethod.html" class="classname">ReflectionMethod</a></span>.
   </p>
 
  </div>
@@ -55,7 +49,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">objectOrMethod</code></dt>
@@ -109,7 +102,7 @@
  <div class="refsect1 errors" id="refsect1-reflectionmethod.construct-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   A <a href="class.reflectionexception.html" class="classname">ReflectionException</a> is thrown if the given method does not exist.
+   A <span class="classname"><a href="class.reflectionexception.html" class="classname">ReflectionException</a></span> is thrown if the given method does not exist.
   </p>
  </div>
 
@@ -117,7 +110,7 @@
  <div class="refsect1 examples" id="refsect1-reflectionmethod.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5719">
+   <div class="example" id="example-5163">
     <p><strong>Example #1 <span class="methodname"><strong>ReflectionMethod::__construct()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

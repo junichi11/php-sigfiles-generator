@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.fscanf" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">fscanf</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">fscanf</span> &mdash; <span class="dc-title">Parses input from a file according to a format</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">fscanf</span> &mdash; <span class="dc-title">Parses input from a file according to a format</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.fscanf-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>fscanf</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&...$vars</code></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type">int</span>|<span class="type"><span class="type false">false</span></span>|<span class="type">null</span></span></div>
+   <span class="methodname"><strong>fscanf</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&...$vars</code></span>): <span class="type"><span class="type">array</span>|<span class="type">int</span>|<span class="type"><span class="type false">false</span></span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    The function <span class="function"><strong>fscanf()</strong></span> is similar to
@@ -61,7 +57,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">stream</code></dt>
@@ -185,7 +180,8 @@ that is typically created using <span class="function"><a href="function.fopen.h
      </li>
      <li class="listitem">
       <span class="simpara">
-       For <code class="literal">g</code> and <code class="literal">G</code>
+       For <code class="literal">g</code>, <code class="literal">G</code>,
+       <code class="literal">h</code> and <code class="literal">H</code>
        specifiers: this is the maximum number of significant
        digits to be printed.
       </span>
@@ -261,9 +257,6 @@ that is typically created using <span class="function"><a href="function.fopen.h
        <td><code class="literal">e</code></td>
        <td>
         The argument is treated as scientific notation (e.g. 1.2e+2).
-        The precision specifier stands for the number of digits after the
-        decimal point since PHP 5.2.1. In earlier versions, it was taken as
-        number of significant digits (one less).
        </td>
       </tr>
 
@@ -288,7 +281,6 @@ that is typically created using <span class="function"><a href="function.fopen.h
        <td>
         The argument is treated as a float and presented
         as a floating-point number (non-locale aware).
-        Available as of PHP 5.0.3.
        </td>
       </tr>
 
@@ -406,12 +398,12 @@ that is typically created using <span class="function"><a href="function.fopen.h
 
      <tbody class="tbody">
       <tr>
-       <td><code class="literal">string</code></td>
+       <td><span class="type">string</span></td>
        <td><code class="literal">s</code></td>
       </tr>
 
       <tr>
-       <td><code class="literal">integer</code></td>
+       <td><span class="type">int</span></td>
        <td>
         <code class="literal">d</code>,
         <code class="literal">u</code>,
@@ -424,14 +416,16 @@ that is typically created using <span class="function"><a href="function.fopen.h
       </tr>
 
       <tr>
-       <td><code class="literal">double</code></td>
+       <td><span class="type">float</span></td>
        <td>
-        <code class="literal">g</code>,
-        <code class="literal">G</code>,
         <code class="literal">e</code>,
         <code class="literal">E</code>,
         <code class="literal">f</code>,
-        <code class="literal">F</code>
+        <code class="literal">F</code>,
+        <code class="literal">g</code>,
+        <code class="literal">G</code>,
+        <code class="literal">h</code>,
+        <code class="literal">H</code>
        </td>
       </tr>
 
@@ -481,7 +475,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
  <div class="refsect1 examples" id="refsect1-function.fscanf-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2661">
+   <div class="example" id="example-2173">
     <p><strong>Example #1 <span class="function"><strong>fscanf()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -493,7 +487,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2662">
+   <div class="example" id="example-2174">
     <p><strong>Example #2 Contents of users.txt</strong></p>
     <div class="example-contents">
 <div class="txtcode"><pre class="txtcode">javier  argonaut        pe

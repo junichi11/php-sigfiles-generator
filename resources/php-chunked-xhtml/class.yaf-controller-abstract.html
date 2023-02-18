@@ -34,17 +34,17 @@
   <div class="section" id="yaf-controller-abstract.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-    <strong class="classname">Yaf_Controller_Abstract</strong> is the heart of Yaf&#039;s 
+    <span class="classname"><strong class="classname">Yaf_Controller_Abstract</strong></span> is the heart of Yaf&#039;s 
     system. MVC stands for Model-View-Controller and is a design pattern 
     targeted at separating application logic from display logic.
    </p>
    <p class="para">
     Every custom controller shall inherit
-    <strong class="classname">Yaf_Controller_Abstract</strong>.
+    <span class="classname"><strong class="classname">Yaf_Controller_Abstract</strong></span>.
    </p>
    <p class="para">
     You will find that you can not define __construct function for your custom
-    controller, thus, <strong class="classname">Yaf_Controller_Abstract</strong> provides
+    controller, thus, <span class="classname"><strong class="classname">Yaf_Controller_Abstract</strong></span> provides
     a magic method: <span class="methodname"><a href="yaf-controller-abstract.init.html" class="methodname">Yaf_Controller_Abstract::init()</a></span>.
    </p>
    <p class="para">
@@ -78,116 +78,53 @@
     <div class="classsynopsisinfo">
      <span class="ooclass">
       <span class="modifier">abstract</span>
-      <strong class="classname">Yaf_Controller_Abstract</strong>
+      <span class="modifier">class</span> <strong class="classname">Yaf_Controller_Abstract</strong>
      </span>
      {</div>
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
     <div class="fieldsynopsis">
      <span class="modifier">public</span>
-      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.actions">$<var class="varname">actions</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.actions">$<var class="varname">actions</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">protected</span>
-      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.module">$<var class="varname">_module</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">protected</span>
+      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.module">$<var class="varname">_module</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">protected</span>
-      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.name">$<var class="varname">_name</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">protected</span>
+      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.name">$<var class="varname">_name</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">protected</span>
-      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.request">$<var class="varname">_request</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">protected</span>
+      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.request">$<var class="varname">_request</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">protected</span>
-      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.response">$<var class="varname">_response</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">protected</span>
+      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.response">$<var class="varname">_response</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">protected</span>
-      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.invoke-args">$<var class="varname">_invoke_args</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">protected</span>
+      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.invoke-args">$<var class="varname">_invoke_args</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">protected</span>
-      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.view">$<var class="varname">_view</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">protected</span>
+      <var class="varname"><a href="class.yaf-controller-abstract.html#yaf-controller-abstract.props.view">$<var class="varname">_view</var></a></var>;</div>
 
 
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">private</span> <span class="methodname"><a href="yaf-controller-abstract.construct.html" class="methodname">__construct</a></span>
-    (
-   )</div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">protected</span> <span class="methodname"><a href="yaf-controller-abstract.display.html" class="methodname">display</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$tpl</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$parameters</code> = ?</span>
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.forward.html" class="methodname">forward</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$action</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$paramters</code> = ?</span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getinvokearg.html" class="methodname">getInvokeArg</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getinvokeargs.html" class="methodname">getInvokeArgs</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getmodulename.html" class="methodname">getModuleName</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getname.html" class="methodname">getName</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getrequest.html" class="methodname">getRequest</a></span>
-    (
-   ) : <span class="type"><a href="class.yaf-request-abstract.html" class="type Yaf_Request_Abstract">Yaf_Request_Abstract</a></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getresponse.html" class="methodname">getResponse</a></span>
-    (
-   ) : <span class="type"><a href="class.yaf-response-abstract.html" class="type Yaf_Response_Abstract">Yaf_Response_Abstract</a></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getview.html" class="methodname">getView</a></span>
-    (
-   ) : <span class="type"><a href="class.yaf-view-interface.html" class="type Yaf_View_Interface">Yaf_View_Interface</a></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getviewpath.html" class="methodname">getViewpath</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.init.html" class="methodname">init</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.initview.html" class="methodname">initView</a></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.redirect.html" class="methodname">redirect</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$url</code></span>
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">protected</span> <span class="methodname"><a href="yaf-controller-abstract.render.html" class="methodname">render</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$tpl</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$parameters</code> = ?</span>
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.setviewpath.html" class="methodname">setViewpath</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$view_directory</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">final</span> <span class="modifier">private</span> <span class="methodname"><a href="yaf-controller-abstract.construct.html" class="methodname">__construct</a></span>()</div>
+<div class="methodsynopsis dc-description"><span class="modifier">protected</span> <span class="methodname"><a href="yaf-controller-abstract.display.html" class="methodname">display</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$tpl</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$parameters</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.forward.html" class="methodname">forward</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$action</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$paramters</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getinvokearg.html" class="methodname">getInvokeArg</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getinvokeargs.html" class="methodname">getInvokeArgs</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getmodulename.html" class="methodname">getModuleName</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getname.html" class="methodname">getName</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getrequest.html" class="methodname">getRequest</a></span>(): <span class="type"><a href="class.yaf-request-abstract.html" class="type Yaf_Request_Abstract">Yaf_Request_Abstract</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getresponse.html" class="methodname">getResponse</a></span>(): <span class="type"><a href="class.yaf-response-abstract.html" class="type Yaf_Response_Abstract">Yaf_Response_Abstract</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getview.html" class="methodname">getView</a></span>(): <span class="type"><a href="class.yaf-view-interface.html" class="type Yaf_View_Interface">Yaf_View_Interface</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getviewpath.html" class="methodname">getViewpath</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.init.html" class="methodname">init</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.initview.html" class="methodname">initView</a></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = ?</span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.redirect.html" class="methodname">redirect</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$url</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">protected</span> <span class="methodname"><a href="yaf-controller-abstract.render.html" class="methodname">render</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$tpl</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$parameters</code><span class="initializer"> = ?</span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.setviewpath.html" class="methodname">setViewpath</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$view_directory</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
    }</div>
 
@@ -199,7 +136,6 @@
   <div class="section" id="yaf-controller-abstract.props">
    <h2 class="title">Properties</h2>
    <dl>
-
     
      <dt id="yaf-controller-abstract.props.actions"><var class="varname">actions</var></dt>
 
@@ -207,8 +143,8 @@
 
       <p class="para">
       You can also define a action method in a separate PHP script by using
-      this property and <a href="class.yaf-action-abstract.html" class="classname">Yaf_Action_Abstract</a>.
-      <div class="example" id="example-4407">
+      this property and <span class="classname"><a href="class.yaf-action-abstract.html" class="classname">Yaf_Action_Abstract</a></span>.
+      <div class="example" id="example-3903">
        <p><strong>Example #1 define action in a separate file</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -218,7 +154,7 @@
         </div>
 
       </div>
-      <div class="example" id="example-4408">
+      <div class="example" id="example-3904">
        <p><strong>Example #2 Dummy_action.php</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -418,6 +354,6 @@
 
 
 
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="yaf-controller-abstract.construct.html">Yaf_Controller_Abstract::__construct</a> — Yaf_Controller_Abstract constructor</li><li><a href="yaf-controller-abstract.display.html">Yaf_Controller_Abstract::display</a> — The display purpose</li><li><a href="yaf-controller-abstract.forward.html">Yaf_Controller_Abstract::forward</a> — Foward to another action</li><li><a href="yaf-controller-abstract.getinvokearg.html">Yaf_Controller_Abstract::getInvokeArg</a> — The getInvokeArg purpose</li><li><a href="yaf-controller-abstract.getinvokeargs.html">Yaf_Controller_Abstract::getInvokeArgs</a> — The getInvokeArgs purpose</li><li><a href="yaf-controller-abstract.getmodulename.html">Yaf_Controller_Abstract::getModuleName</a> — Get module name</li><li><a href="yaf-controller-abstract.getname.html">Yaf_Controller_Abstract::getName</a> — Get self name</li><li><a href="yaf-controller-abstract.getrequest.html">Yaf_Controller_Abstract::getRequest</a> — Retrieve current request object</li><li><a href="yaf-controller-abstract.getresponse.html">Yaf_Controller_Abstract::getResponse</a> — Retrieve current response object</li><li><a href="yaf-controller-abstract.getview.html">Yaf_Controller_Abstract::getView</a> — Retrieve the view engine</li><li><a href="yaf-controller-abstract.getviewpath.html">Yaf_Controller_Abstract::getViewpath</a> — The getViewpath purpose</li><li><a href="yaf-controller-abstract.init.html">Yaf_Controller_Abstract::init</a> — Controller initializer</li><li><a href="yaf-controller-abstract.initview.html">Yaf_Controller_Abstract::initView</a> — The initView purpose</li><li><a href="yaf-controller-abstract.redirect.html">Yaf_Controller_Abstract::redirect</a> — Redirect to a URL</li><li><a href="yaf-controller-abstract.render.html">Yaf_Controller_Abstract::render</a> — Render view template</li><li><a href="yaf-controller-abstract.setviewpath.html">Yaf_Controller_Abstract::setViewpath</a> — The setViewpath purpose</li></ul>
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="yaf-controller-abstract.construct.html">Yaf_Controller_Abstract::__construct</a> — Yaf_Controller_Abstract constructor</li><li><a href="yaf-controller-abstract.display.html">Yaf_Controller_Abstract::display</a> — The display purpose</li><li><a href="yaf-controller-abstract.forward.html">Yaf_Controller_Abstract::forward</a> — Forward to another action</li><li><a href="yaf-controller-abstract.getinvokearg.html">Yaf_Controller_Abstract::getInvokeArg</a> — The getInvokeArg purpose</li><li><a href="yaf-controller-abstract.getinvokeargs.html">Yaf_Controller_Abstract::getInvokeArgs</a> — The getInvokeArgs purpose</li><li><a href="yaf-controller-abstract.getmodulename.html">Yaf_Controller_Abstract::getModuleName</a> — Get module name</li><li><a href="yaf-controller-abstract.getname.html">Yaf_Controller_Abstract::getName</a> — Get self name</li><li><a href="yaf-controller-abstract.getrequest.html">Yaf_Controller_Abstract::getRequest</a> — Retrieve current request object</li><li><a href="yaf-controller-abstract.getresponse.html">Yaf_Controller_Abstract::getResponse</a> — Retrieve current response object</li><li><a href="yaf-controller-abstract.getview.html">Yaf_Controller_Abstract::getView</a> — Retrieve the view engine</li><li><a href="yaf-controller-abstract.getviewpath.html">Yaf_Controller_Abstract::getViewpath</a> — The getViewpath purpose</li><li><a href="yaf-controller-abstract.init.html">Yaf_Controller_Abstract::init</a> — Controller initializer</li><li><a href="yaf-controller-abstract.initview.html">Yaf_Controller_Abstract::initView</a> — The initView purpose</li><li><a href="yaf-controller-abstract.redirect.html">Yaf_Controller_Abstract::redirect</a> — Redirect to a URL</li><li><a href="yaf-controller-abstract.render.html">Yaf_Controller_Abstract::render</a> — Render view template</li><li><a href="yaf-controller-abstract.setviewpath.html">Yaf_Controller_Abstract::setViewpath</a> — The setViewpath purpose</li></ul>
 </div>
 </div></div></body></html>

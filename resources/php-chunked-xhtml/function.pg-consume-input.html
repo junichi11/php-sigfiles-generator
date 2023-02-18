@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.pg-consume-input" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_consume_input</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.6.0, PHP 7)</p><p class="refpurpose"><span class="refname">pg_consume_input</span> &mdash; <span class="dc-title">Reads input on the connection</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.6.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_consume_input</span> &mdash; <span class="dc-title">Reads input on the connection</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.pg-consume-input-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_consume_input</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>pg_consume_input</strong></span>(<span class="methodparam"><span class="type"><a href="class.pgsql-connection.html" class="type PgSql\Connection">PgSql\Connection</a></span> <code class="parameter">$connection</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_consume_input()</strong></span> consumes any input waiting to be read
@@ -47,16 +45,13 @@
  <div class="refsect1 parameters" id="refsect1-function.pg-consume-input-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">connection</code></dt>
 
     <dd>
 
-     <p class="para">
-      PostgreSQL database connection resource.
-     </p>
+     <p class="para">An <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span> instance.</p>
     </dd>
 
    
@@ -73,4 +68,33 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.pg-consume-input-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">connection</code> parameter expects an <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+ 
 </div></div></div></body></html>

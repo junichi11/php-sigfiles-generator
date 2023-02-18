@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="reflectionclass.newinstancewithoutconstructor" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionClass::newInstanceWithoutConstructor</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionClass::newInstanceWithoutConstructor</span> &mdash; <span class="dc-title">Creates a new class instance without invoking the constructor</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionClass::newInstanceWithoutConstructor</span> &mdash; <span class="dc-title">Creates a new class instance without invoking the constructor</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-reflectionclass.newinstancewithoutconstructor-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::newInstanceWithoutConstructor</strong></span>
-    (
-   ) : <span class="type">object</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::newInstanceWithoutConstructor</strong></span>(): <span class="type">object</span></div>
 
   <p class="para rdfs-comment">
    Creates a new instance of the class without invoking the constructor.
@@ -57,42 +55,12 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-reflectionclass.newinstancewithoutconstructor-changelog">
-  <h3 class="title">Changelog</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>Version</th>
-       <th>Description</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.6.0</td>
-       <td>
-        All internal classes can now be instantiated except for those declared
-        <a href="language.oop5.final.html" class="link">final</a>.
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 errors" id="refsect1-reflectionclass.newinstancewithoutconstructor-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   A <a href="class.reflectionexception.html" class="classname">ReflectionException</a> if the class is an internal
-   class that cannot be instantiated without invoking the constructor. In PHP
-   5.6.0 onwards, this exception is limited only to internal classes that are
+   A <span class="classname"><a href="class.reflectionexception.html" class="classname">ReflectionException</a></span> if the class is an internal
+   class that cannot be instantiated without invoking the constructor.
+   This exception is limited only to internal classes that are
    <a href="language.oop5.final.html" class="link">final</a>.
   </p>
  </div>

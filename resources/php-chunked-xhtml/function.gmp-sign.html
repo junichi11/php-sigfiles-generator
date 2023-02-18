@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.gmp-sign" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gmp_sign</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">gmp_sign</span> &mdash; <span class="dc-title">Sign of number</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">gmp_sign</span> &mdash; <span class="dc-title">Sign of number</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.gmp-sign-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>gmp_sign</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$num</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>gmp_sign</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$num</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Checks the sign of a number.
@@ -47,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">num</code></dt>
@@ -55,8 +52,7 @@
      <dd>
 
       <p class="para">
-       Either a GMP number <span class="type">resource</span> in PHP 5.5 and earlier,
-       a <a href="class.gmp.html" class="classname">GMP</a> object in PHP 5.6 and later, or a numeric
+       Either a <span class="classname"><a href="class.gmp.html" class="classname">GMP</a></span> object, or a numeric
        string provided that it is possible to convert the latter to an
        <span class="type">int</span>.
       </p>
@@ -82,7 +78,7 @@
  <div class="refsect1 examples" id="refsect1-function.gmp-sign-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3581">
+   <div class="example" id="example-3096">
     <p><strong>Example #1 <span class="function"><strong>gmp_sign()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,19 +26,16 @@
   <div id="layout-content"><div id="function.imagegd" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagegd</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagegd</span> &mdash; <span class="dc-title">Output GD image to browser or file</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagegd</span> &mdash; <span class="dc-title">Output GD image to browser or file</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagegd-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagegd</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$to</code><span class="initializer"> = NULL</span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>imagegd</strong></span>(<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$image</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$file</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Outputs a GD image to the given <code class="parameter">to</code>.
+   Outputs a GD image to the given <code class="parameter">file</code>.
   </p>
  </div>
 
@@ -46,21 +43,20 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-image</code></dt>
+
+<code class="parameter">image</code></dt>
 <dd>
-<p class="para">An image resource, returned by one of the image creation functions,
+<p class="para">A <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> object, returned by one of the image creation functions,
 such as <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
 
     
      <dt>
-<code class="parameter">to</code></dt>
+<code class="parameter">file</code></dt>
 
      <dd>
 
-      <p class="para">The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <strong><code>null</code></strong>, the raw image stream will be outputted directly.</p>
+      <p class="para">The path or an open stream resource (which is automatically closed after this function returns) to save the file to. If not set or <strong><code>null</code></strong>, the raw image stream will be output directly.</p>
      </dd>
 
     
@@ -93,6 +89,21 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
 
      <tbody class="tbody">
       <tr>
+       <td>8.0.3</td>
+       <td>
+        <code class="parameter">file</code> is now nullable.
+       </td>
+      </tr>
+
+      <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
+  instance now; previously, a <span class="type">resource</span> was expected.
+ </td>
+</tr>
+
+      <tr>
        <td>7.2.0</td>
        <td>
         <span class="function"><strong>imagegd()</strong></span> now allows to output truecolor images.
@@ -111,7 +122,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imagegd-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3170">
+   <div class="example" id="example-2686">
     <p><strong>Example #1 Outputting a GD image</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -123,7 +134,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3171">
+   <div class="example" id="example-2687">
     <p><strong>Example #2 Saving a GD image</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

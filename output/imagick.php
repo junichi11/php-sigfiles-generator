@@ -3053,6 +3053,7 @@ namespace {
 		 * <p>Creates a vertical mirror image by reflecting the pixels around the central x-axis.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
 		 * @link https://php.net/manual/en/imagick.flipimage.php
+		 * @see Imagick::flopimage()
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
 		public function flipImage(): bool {}
@@ -3074,10 +3075,11 @@ namespace {
 		public function floodFillPaintImage(mixed $fill, float $fuzz, mixed $target, int $x, int $y, bool $invert, int $channel = Imagick::CHANNEL_DEFAULT): bool {}
 
 		/**
-		 * Creates a vertical mirror image
-		 * <p>Creates a vertical mirror image by reflecting the pixels around the central y-axis.</p>
+		 * Creates a horizontal mirror image
+		 * <p>Creates a horizontal mirror image by reflecting the pixels around the central y-axis.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
 		 * @link https://php.net/manual/en/imagick.flopimage.php
+		 * @see Imagick::flipimage()
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
 		public function flopImage(): bool {}
@@ -3264,7 +3266,7 @@ namespace {
 		public function getImageArtifact(string $artifact): string {}
 
 		/**
-		 * Description
+		 * Returns a named attribute
 		 * <p>Returns a named attribute.</p>
 		 * @param string $key <p>The key of the attribute to get.</p>
 		 * @return string
@@ -4215,7 +4217,7 @@ namespace {
 		 * <p>Changes the transparency value of any pixel that matches target and is an immediate neighbor. If the method <b><code>FillToBorderMethod</code></b> is specified, the transparency value is changed for any neighbor pixel that does not match the bordercolor member of image.</p>
 		 * @param float $alpha <p>The level of transparency: 1.0 is fully opaque and 0.0 is fully transparent.</p>
 		 * @param float $fuzz <p>The fuzz member of image defines how much tolerance is acceptable to consider two colors as the same.</p>
-		 * @param mixed $bordercolor <p>An ImagickPixel object or string representing the border color.</p>
+		 * @param mixed $bordercolor <p>An <code>ImagickPixel</code> object or string representing the border color.</p>
 		 * @param int $x <p>The starting x coordinate of the operation.</p>
 		 * @param int $y <p>The starting y coordinate of the operation.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
@@ -4271,10 +4273,10 @@ namespace {
 		 * <p>Creates a composite image by combining several separate images. The images are tiled on the composite image with the name of the image optionally appearing just below the individual tile.</p>
 		 * @param \ImagickDraw $draw <p>The font name, size, and color are obtained from this object.</p>
 		 * @param string $tile_geometry <p>The number of tiles per row and page (e.g. 6x4+0+0).</p>
-		 * @param string $thumbnail_geometry <p>Preferred image size and border size of each thumbnail (e.g. 120x120+4+3&gt;).</p>
+		 * @param string $thumbnail_geometry <p>Preferred image size and border size of each thumbnail (e.g. 120x120+4+3).</p>
 		 * @param int $mode <p>Thumbnail framing mode, see Montage Mode constants.</p>
 		 * @param string $frame <p>Surround the image with an ornamental border (e.g. 15x15+3+3). The frame color is that of the thumbnail's matte color.</p>
-		 * @return Imagick <p>Returns <b><code>true</code></b> on success.</p>
+		 * @return Imagick <p>Creates a composite image and returns it as a new <code>Imagick</code> object.</p>
 		 * @link https://php.net/manual/en/imagick.montageimage.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -4532,7 +4534,7 @@ namespace {
 
 		/**
 		 * Move to the previous image in the object
-		 * <p>Assocates the previous image in an image list with the Imagick object.</p>
+		 * <p>Associates the previous image in an image list with the Imagick object.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
 		 * @link https://php.net/manual/en/imagick.previousimage.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -4820,7 +4822,7 @@ namespace {
 
 		/**
 		 * Rounds image corners
-		 * <p>Rounds image corners. The first two parameters control the amount of rounding and the three last parameters can be used to fine-tune the rounding process. This method is available if Imagick has been compiled against ImageMagick version 6.2.9 or newer.</p>
+		 * <p>Rounds image corners. The first two parameters control the amount of rounding and the three last parameters can be used to fine-tune the rounding process. This method is available if Imagick has been compiled against ImageMagick version 6.2.9 or newer. This method is not available if Imagick has been compiled against ImageMagick version 7.0.0 or newer.</p>
 		 * @param float $x_rounding <p>x rounding</p>
 		 * @param float $y_rounding <p>y rounding</p>
 		 * @param float $stroke_width <p>stroke width</p>
@@ -5527,7 +5529,7 @@ namespace {
 		/**
 		 * Description
 		 * <p>Set a callback that will be called during the processing of the Imagick image.</p>
-		 * @param callable $callback <p>The progress function to call. It should return true if image processing should continue, or false if it should be cancelled. The offset parameter indicates the progress and the span parameter indicates the total amount of work needed to be done.</p>   callback  (  <code>mixed</code> <code>$offset</code>  ,  <code>mixed</code> <code>$span</code>  ) : <code>bool</code> <b>Caution</b> <p>The values passed to the callback function are not consistent. In particular the span parameter can increase during image processing. Because of this calculating the percentage complete of an image operation is not trivial.</p>
+		 * @param callable $callback <p>The progress function to call. It should return true if image processing should continue, or false if it should be cancelled. The offset parameter indicates the progress and the span parameter indicates the total amount of work needed to be done.</p>   callback ( <code>mixed</code> <code>$offset</code> ,  <code>mixed</code> <code>$span</code> ): <code>bool</code> <b>Caution</b> <p>The values passed to the callback function are not consistent. In particular the span parameter can increase during image processing. Because of this calculating the percentage complete of an image operation is not trivial.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
 		 * @link https://php.net/manual/en/imagick.setprogressmonitor.php
 		 * @since PECL imagick 3 >= 3.3.0
@@ -6049,7 +6051,7 @@ namespace {
 
 		/**
 		 * The ImagickDraw constructor
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>The ImagickDraw constructor</p>
+		 * <p>This function is currently not documented; only its argument list is available.</p><p>The <code>ImagickDraw</code> constructor.</p>
 		 * @return self <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.construct.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -6119,7 +6121,7 @@ namespace {
 		/**
 		 * Clears the ImagickDraw
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Clears the ImagickDraw object of any accumulated commands, and resets the settings it contains to their defaults.</p>
-		 * @return bool <p>Returns an ImagickDraw object.</p>
+		 * @return bool <p>Returns an <code>ImagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/imagickdraw.clear.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6127,8 +6129,8 @@ namespace {
 
 		/**
 		 * Makes an exact copy of the specified ImagickDraw object
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Makes an exact copy of the specified ImagickDraw object.</p>
-		 * @return ImagickDraw <p>What the function returns, first on success, then on failure. See also the &amp;return.success; entity</p>
+		 * <p>This function is currently not documented; only its argument list is available.</p><p>Makes an exact copy of the specified <code>ImagickDraw</code> object.</p>
+		 * @return ImagickDraw <p>returns an exact copy of the specified <code>ImagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/imagickdraw.clone.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6139,7 +6141,7 @@ namespace {
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Draws color on image using the current fill color, starting at specified position, and using specified paint method.</p>
 		 * @param float $x <p>x coordinate of the paint</p>
 		 * @param float $y <p>y coordinate of the paint</p>
-		 * @param int $paintMethod <p>one of the PAINT_ constants</p>
+		 * @param int $paintMethod <p>One of the PAINT constant (<code>imagick::PAINT_&#42;</code>).</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.color.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -6159,12 +6161,12 @@ namespace {
 		/**
 		 * Composites an image onto the current image
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Composites an image onto the current image, using the specified composition operator, specified position, and at the specified size.</p>
-		 * @param int $compose <p>composition operator. One of COMPOSITE_ constants</p>
-		 * @param float $x <p>x coordinate of the top left corner</p>
-		 * @param float $y <p>y coordinate of the top left corner</p>
-		 * @param float $width <p>width of the composition image</p>
-		 * @param float $height <p>height of the composition image</p>
-		 * @param \Imagick $compositeWand <p>the Imagick object where composition image is taken from</p>
+		 * @param int $compose <p>composition operator. One of the Composite Operator constant (<code>imagick::COMPOSITE_&#42;</code>).</p>
+		 * @param float $x <p>x coordinate of the top left corner.</p>
+		 * @param float $y <p>y coordinate of the top left corner.</p>
+		 * @param float $width <p>width of the composition image.</p>
+		 * @param float $height <p>height of the composition image.</p>
+		 * @param \Imagick $compositeWand <p>the <code>Imagick</code> object where composition image is taken from.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
 		 * @link https://php.net/manual/en/imagickdraw.composite.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -6173,7 +6175,7 @@ namespace {
 
 		/**
 		 * Frees all associated resources
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Frees all resources associated with the ImagickDraw object.</p>
+		 * <p>This function is currently not documented; only its argument list is available.</p><p>Frees all resources associated with the <code>ImagickDraw</code> object.</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.destroy.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -6207,7 +6209,7 @@ namespace {
 		/**
 		 * Returns the current polygon fill rule
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the current polygon fill rule to be used by the clipping path.</p>
-		 * @return int <p>Returns one of the FILLRULE_ constants.</p>
+		 * @return int <p>Returns a FILLRULE constant (<code>imagick::FILLRULE_&#42;</code>).</p>
 		 * @link https://php.net/manual/en/imagickdraw.getcliprule.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6216,7 +6218,7 @@ namespace {
 		/**
 		 * Returns the interpretation of clip path units
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the interpretation of clip path units.</p>
-		 * @return int <p>Returns an int on success.</p>
+		 * @return int <p>Returns an <code>int</code> on success.</p>
 		 * @link https://php.net/manual/en/imagickdraw.getclipunits.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6225,7 +6227,7 @@ namespace {
 		/**
 		 * Returns the fill color
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the fill color used for drawing filled objects.</p>
-		 * @return ImagickPixel <p>Returns an ImagickPixel object.</p>
+		 * @return ImagickPixel <p>Returns an <code>ImagickPixel</code> object.</p>
 		 * @link https://php.net/manual/en/imagickdraw.getfillcolor.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6243,7 +6245,7 @@ namespace {
 		/**
 		 * Returns the fill rule
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the fill rule used while drawing polygons.</p>
-		 * @return int <p>Returns a FILLRULE_ constant</p>
+		 * @return int <p>Returns a FILLRULE constant (<code>imagick::FILLRULE_&#42;</code>).</p>
 		 * @link https://php.net/manual/en/imagickdraw.getfillrule.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6270,7 +6272,7 @@ namespace {
 		/**
 		 * Returns the font pointsize
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the font pointsize used when annotating with text.</p>
-		 * @return float <p>Returns the font size associated with the current ImagickDraw object.</p>
+		 * @return float <p>Returns the font size associated with the current <code>ImagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/imagickdraw.getfontsize.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6288,7 +6290,7 @@ namespace {
 		/**
 		 * Returns the font style
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the font style used when annotating with text.</p>
-		 * @return int <p>Returns the font style constant (STYLE_) associated with the ImagickDraw object or 0 if no style is set.</p>
+		 * @return int <p>Returns a STYLE constant (<code>imagick::STYLE_&#42;</code>) associated with the <code>ImagickDraw</code> object or 0 if no style is set.</p>
 		 * @link https://php.net/manual/en/imagickdraw.getfontstyle.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6297,7 +6299,7 @@ namespace {
 		/**
 		 * Returns the font weight
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the font weight used when annotating with text.</p>
-		 * @return int <p>Returns an int on success and 0 if no weight is set.</p>
+		 * @return int <p>Returns an <code>int</code> on success and 0 if no weight is set.</p>
 		 * @link https://php.net/manual/en/imagickdraw.getfontweight.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6306,7 +6308,7 @@ namespace {
 		/**
 		 * Returns the text placement gravity
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the text placement gravity used when annotating with text.</p>
-		 * @return int <p>Returns a GRAVITY_ constant on success and 0 if no gravity is set.</p>
+		 * @return int <p>Returns a GRAVITY constant (<code>imagick::GRAVITY_&#42;</code>) on success and 0 if no gravity is set.</p>
 		 * @link https://php.net/manual/en/imagickdraw.getgravity.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6315,7 +6317,7 @@ namespace {
 		/**
 		 * Returns the current stroke antialias setting
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the current stroke antialias setting. Stroked outlines are antialiased by default. When antialiasing is disabled stroked pixels are thresholded to determine if the stroke color or underlying canvas color should be used.</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if antialiasing is on and false if it is off.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if antialiasing is on and <b><code>false</code></b> if it is off.</p>
 		 * @link https://php.net/manual/en/imagickdraw.getstrokeantialias.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6324,7 +6326,7 @@ namespace {
 		/**
 		 * Returns the color used for stroking object outlines
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the color used for stroking object outlines.</p>
-		 * @return ImagickPixel <p>Returns an ImagickPixel object which describes the color.</p>
+		 * @return ImagickPixel <p>Returns an <code>ImagickPixel</code> object which describes the color.</p>
 		 * @link https://php.net/manual/en/imagickdraw.getstrokecolor.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6351,7 +6353,7 @@ namespace {
 		/**
 		 * Returns the shape to be used at the end of open subpaths when they are stroked
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the shape to be used at the end of open subpaths when they are stroked.</p>
-		 * @return int <p>Returns one of the LINECAP_ constants or 0 if stroke linecap is not set.</p>
+		 * @return int <p>Returns a LINECAP constant (<code>imagick::LINECAP_&#42;</code>), or 0 if stroke linecap is not set.</p>
 		 * @link https://php.net/manual/en/imagickdraw.getstrokelinecap.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6360,7 +6362,7 @@ namespace {
 		/**
 		 * Returns the shape to be used at the corners of paths when they are stroked
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the shape to be used at the corners of paths (or other vector shapes) when they are stroked.</p>
-		 * @return int <p>Returns one of the LINEJOIN_ constants or 0 if stroke line join is not set.</p>
+		 * @return int <p>Returns a LINEJOIN constant (<code>imagick::LINEJOIN_&#42;</code>), or 0 if stroke line join is not set.</p>
 		 * @link https://php.net/manual/en/imagickdraw.getstrokelinejoin.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6396,7 +6398,7 @@ namespace {
 		/**
 		 * Returns the text alignment
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the alignment applied when annotating with text.</p>
-		 * @return int <p>Returns one of the ALIGN_ constants and 0 if no align is set.</p>
+		 * @return int <p>Returns a ALIGN constant (<code>imagick::ALIGN_&#42;</code>), and 0 if no align is set.</p>
 		 * @link https://php.net/manual/en/imagickdraw.gettextalignment.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6405,7 +6407,7 @@ namespace {
 		/**
 		 * Returns the current text antialias setting
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the current text antialias setting, which determines whether text is antialiased. Text is antialiased by default.</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if text is antialiased and false if not.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if text is antialiased and <b><code>false</code></b> if not.</p>
 		 * @link https://php.net/manual/en/imagickdraw.gettextantialias.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6414,7 +6416,7 @@ namespace {
 		/**
 		 * Returns the text decoration
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the decoration applied when annotating with text.</p>
-		 * @return int <p>Returns one of the DECORATION_ constants and 0 if no decoration is set.</p>
+		 * @return int <p>Returns a DECORATION constant (<code>imagick::DECORATION_&#42;</code>), and 0 if no decoration is set.</p>
 		 * @link https://php.net/manual/en/imagickdraw.gettextdecoration.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6459,7 +6461,7 @@ namespace {
 		/**
 		 * Returns the text under color
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the color of a background rectangle to place under text annotations.</p>
-		 * @return ImagickPixel <p>Returns an ImagickPixel object describing the color.</p>
+		 * @return ImagickPixel <p>Returns an <code>ImagickPixel</code> object describing the color.</p>
 		 * @link https://php.net/manual/en/imagickdraw.gettextundercolor.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6467,7 +6469,7 @@ namespace {
 
 		/**
 		 * Returns a string containing vector graphics
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns a string which specifies the vector graphics generated by any graphics calls made since the ImagickDraw object was instantiated.</p>
+		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns a string which specifies the vector graphics generated by any graphics calls made since the <code>ImagickDraw</code> object was instantiated.</p>
 		 * @return string <p>Returns a string containing the vector graphics.</p>
 		 * @link https://php.net/manual/en/imagickdraw.getvectorgraphics.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -6492,7 +6494,7 @@ namespace {
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Paints on the image's opacity channel in order to set effected pixels to transparent, to influence the opacity of pixels.</p>
 		 * @param float $x <p>x coordinate of the matte</p>
 		 * @param float $y <p>y coordinate of the matte</p>
-		 * @param int $paintMethod <p>PAINT_ constant</p>
+		 * @param int $paintMethod <p>One of the PAINT constant (<code>imagick::PAINT_&#42;</code>).</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/imagickdraw.matte.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -6614,7 +6616,7 @@ namespace {
 
 		/**
 		 * Draws an elliptical arc
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Draws an elliptical arc from the current point to (x, y) using absolute coordinates. The size and orientation of the ellipse are defined by two radii (rx, ry) and an xAxisRotation, which indicates how the ellipse as a whole is rotated relative to the current coordinate system. The center (cx, cy) of the ellipse is calculated automatically to satisfy the constraints imposed by the other parameters. largeArcFlag and sweepFlag contribute to the automatic calculations and help determine how the arc is drawn. If largeArcFlag is <b><code>true</code></b> then draw the larger of the available arcs. If sweepFlag is true, then draw the arc matching a clock-wise rotation.</p>
+		 * <p>This function is currently not documented; only its argument list is available.</p><p>Draws an elliptical arc from the current point to (x, y) using absolute coordinates. The size and orientation of the ellipse are defined by two radii (rx, ry) and an xAxisRotation, which indicates how the ellipse as a whole is rotated relative to the current coordinate system. The center (cx, cy) of the ellipse is calculated automatically to satisfy the constraints imposed by the other parameters. largeArcFlag and sweepFlag contribute to the automatic calculations and help determine how the arc is drawn. If <code>large_arc_flag</code> is <b><code>true</code></b> then draw the larger of the available arcs. If <code>sweep_flag</code> is true, then draw the arc matching a clock-wise rotation.</p>
 		 * @param float $rx <p>x radius</p>
 		 * @param float $ry <p>y radius</p>
 		 * @param float $x_axis_rotation <p>x axis rotation</p>
@@ -6630,7 +6632,7 @@ namespace {
 
 		/**
 		 * Draws an elliptical arc
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Draws an elliptical arc from the current point to (x, y) using relative coordinates. The size and orientation of the ellipse are defined by two radii (rx, ry) and an xAxisRotation, which indicates how the ellipse as a whole is rotated relative to the current coordinate system. The center (cx, cy) of the ellipse is calculated automatically to satisfy the constraints imposed by the other parameters. largeArcFlag and sweepFlag contribute to the automatic calculations and help determine how the arc is drawn. If largeArcFlag is <b><code>true</code></b> then draw the larger of the available arcs. If sweepFlag is true, then draw the arc matching a clock-wise rotation.</p>
+		 * <p>This function is currently not documented; only its argument list is available.</p><p>Draws an elliptical arc from the current point to (x, y) using relative coordinates. The size and orientation of the ellipse are defined by two radii (rx, ry) and an xAxisRotation, which indicates how the ellipse as a whole is rotated relative to the current coordinate system. The center (cx, cy) of the ellipse is calculated automatically to satisfy the constraints imposed by the other parameters. largeArcFlag and sweepFlag contribute to the automatic calculations and help determine how the arc is drawn. If <code>large_arc_flag</code> is <b><code>true</code></b> then draw the larger of the available arcs. If <code>sweep_flag</code> is true, then draw the arc matching a clock-wise rotation.</p>
 		 * @param float $rx <p>x radius</p>
 		 * @param float $ry <p>y radius</p>
 		 * @param float $x_axis_rotation <p>x axis rotation</p>
@@ -6780,7 +6782,7 @@ namespace {
 		/**
 		 * Destroys the current ImagickDraw in the stack, and returns to the previously pushed ImagickDraw
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Destroys the current ImagickDraw in the stack, and returns to the previously pushed ImagickDraw. Multiple ImagickDraws may exist. It is an error to attempt to pop more ImagickDraws than have been pushed, and it is proper form to pop all ImagickDraws which have been pushed.</p>
-		 * @return bool <p>Returns <b><code>true</code></b> on success and false on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/imagickdraw.pop.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6815,7 +6817,7 @@ namespace {
 
 		/**
 		 * Clones the current ImagickDraw and pushes it to the stack
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Clones the current ImagickDraw to create a new ImagickDraw, which is then added to the ImagickDraw stack. The original drawing ImagickDraw(s) may be returned to by invoking pop(). The ImagickDraws are stored on a ImagickDraw stack. For every Pop there must have already been an equivalent Push.</p>
+		 * <p>This function is currently not documented; only its argument list is available.</p><p>Clones the current ImagickDraw to create a new ImagickDraw, which is then added to the ImagickDraw stack. The original drawing ImagickDraw(s) may be returned to by invoking <code>ImagickDraw::pop()</code>. The ImagickDraws are stored on a ImagickDraw stack. For every Pop there must have already been an equivalent Push.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/imagickdraw.push.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -6824,7 +6826,7 @@ namespace {
 
 		/**
 		 * Starts a clip path definition
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Starts a clip path definition which is comprised of any number of drawing commands and terminated by a ImagickDraw::popClipPath() command.</p>
+		 * <p>This function is currently not documented; only its argument list is available.</p><p>Starts a clip path definition which is comprised of any number of drawing commands and terminated by a <code>ImagickDraw::popClipPath()</code> command.</p>
 		 * @param string $clip_mask_id <p>Clip mask Id</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.pushclippath.php
@@ -6834,7 +6836,7 @@ namespace {
 
 		/**
 		 * Indicates that following commands create named elements for early processing
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Indicates that commands up to a terminating ImagickDraw::popDefs() command create named elements (e.g. clip-paths, textures, etc.) which may safely be processed earlier for the sake of efficiency.</p>
+		 * <p>This function is currently not documented; only its argument list is available.</p><p>Indicates that commands up to a terminating <code>ImagickDraw::popDefs()</code> command create named elements (e.g. clip-paths, textures, etc.) which may safely be processed earlier for the sake of efficiency.</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.pushdefs.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -6889,7 +6891,7 @@ namespace {
 		/**
 		 * Applies the specified rotation to the current coordinate space
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Applies the specified rotation to the current coordinate space.</p>
-		 * @param float $degrees <p>degrees to rotate</p>
+		 * @param float $degrees <p>degrees to rotate.</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.rotate.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -6935,7 +6937,7 @@ namespace {
 		/**
 		 * Set the polygon fill rule to be used by the clipping path
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Set the polygon fill rule to be used by the clipping path.</p>
-		 * @param int $fill_rule <p>FILLRULE_ constant</p>
+		 * @param int $fill_rule <p>One of the FILLRULE constant (<code>imagick::FILLRULE_&#42;</code>).</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.setcliprule.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -6995,7 +6997,7 @@ namespace {
 		/**
 		 * Sets the fill rule to use while drawing polygons
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Sets the fill rule to use while drawing polygons.</p>
-		 * @param int $fill_rule <p>FILLRULE_ constant</p>
+		 * @param int $fill_rule <p>One of the FILLRULE constant (<code>imagick::FILLRULE_&#42;</code>).</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.setfillrule.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -7035,7 +7037,7 @@ namespace {
 		/**
 		 * Sets the font stretch to use when annotating with text
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Sets the font stretch to use when annotating with text. The AnyStretch enumeration acts as a wild-card "don't care" option.</p>
-		 * @param int $fontStretch <p>STRETCH_ constant</p>
+		 * @param int $fontStretch <p>One of the STRETCH constant (<code>imagick::STRETCH_&#42;</code>).</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.setfontstretch.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -7045,7 +7047,7 @@ namespace {
 		/**
 		 * Sets the font style to use when annotating with text
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Sets the font style to use when annotating with text. The AnyStyle enumeration acts as a wild-card "don't care" option.</p>
-		 * @param int $style <p>STYLETYPE_ constant</p>
+		 * @param int $style <p>One of the STYLE constant (<code>imagick::STYLE_&#42;</code>).</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.setfontstyle.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -7065,7 +7067,7 @@ namespace {
 		/**
 		 * Sets the text placement gravity
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Sets the text placement gravity to use when annotating with text.</p>
-		 * @param int $gravity <p>GRAVITY_ constant</p>
+		 * @param int $gravity <p>One of the GRAVITY constant (<code>imagick::GRAVITY_&#42;</code>).</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.setgravity.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -7136,7 +7138,7 @@ namespace {
 		/**
 		 * Specifies the shape to be used at the end of open subpaths when they are stroked
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Specifies the shape to be used at the end of open subpaths when they are stroked.</p>
-		 * @param int $linecap <p>LINECAP_ constant</p>
+		 * @param int $linecap <p>One of the LINECAP constant (<code>imagick::LINECAP_&#42;</code>).</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.setstrokelinecap.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -7146,7 +7148,7 @@ namespace {
 		/**
 		 * Specifies the shape to be used at the corners of paths when they are stroked
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Specifies the shape to be used at the corners of paths (or other vector shapes) when they are stroked.</p>
-		 * @param int $linejoin <p>LINEJOIN_ constant</p>
+		 * @param int $linejoin <p>One of the LINEJOIN constant (<code>imagick::LINEJOIN_&#42;</code>).</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.setstrokelinejoin.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -7177,7 +7179,7 @@ namespace {
 		 * Sets the pattern used for stroking object outlines
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Sets the pattern used for stroking object outlines.</p>
 		 * @param string $stroke_url <p>stroke URL</p>
-		 * @return bool <p>imagick.imagickdraw.return.success;</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
 		 * @link https://php.net/manual/en/imagickdraw.setstrokepatternurl.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -7196,7 +7198,7 @@ namespace {
 		/**
 		 * Specifies a text alignment
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Specifies a text alignment to be applied when annotating with text.</p>
-		 * @param int $alignment <p>ALIGN_ constant</p>
+		 * @param int $alignment <p>One of the ALIGN constant (<code>imagick::ALIGN_&#42;</code>).</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.settextalignment.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -7216,7 +7218,7 @@ namespace {
 		/**
 		 * Specifies a decoration
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Specifies a decoration to be applied when annotating with text.</p>
-		 * @param int $decoration <p>DECORATION_ constant</p>
+		 * @param int $decoration <p>One of the DECORATION constant (<code>imagick::DECORATION_&#42;</code>).</p>
 		 * @return bool <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/imagickdraw.settextdecoration.php
 		 * @since PECL imagick 2, PECL imagick 3
@@ -7275,7 +7277,7 @@ namespace {
 
 		/**
 		 * Sets the vector graphics
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Sets the vector graphics associated with the specified ImagickDraw object. Use this method with ImagickDraw::getVectorGraphics() as a method to persist the vector graphics state.</p>
+		 * <p>This function is currently not documented; only its argument list is available.</p><p>Sets the vector graphics associated with the specified ImagickDraw object. Use this method with <code>ImagickDraw::getVectorGraphics()</code> as a method to persist the vector graphics state.</p>
 		 * @param string $xml <p>xml containing the vector graphics</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/imagickdraw.setvectorgraphics.php

@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.pg-result-status" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_result_status</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_result_status</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_result_status</span> &mdash; <span class="dc-title">
    Get status of query result
   </span></p>
 
@@ -35,14 +35,11 @@
  <div class="refsect1 description" id="refsect1-function.pg-result-status-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_result_status</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = PGSQL_STATUS_LONG</span></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="methodname"><strong>pg_result_status</strong></span>(<span class="methodparam"><span class="type"><a href="class.pgsql-result.html" class="type PgSql\Result">PgSql\Result</a></span> <code class="parameter">$result</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>PGSQL_STATUS_LONG</code></strong></span></span>): <span class="type"><span class="type">string</span>|<span class="type">int</span></span></div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>pg_result_status()</strong></span> returns the status of a result
-   resource, or the PostgreSQL command completion tag associated with the result
+   <span class="function"><strong>pg_result_status()</strong></span> returns the status of the <span class="classname"><a href="class.pgsql-result.html" class="classname">PgSql\Result</a></span> instance,
+   or the PostgreSQL command completion tag associated with the result
   </p>
  </div>
 
@@ -51,24 +48,20 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">result</code></dt>
 
      <dd>
 
-      <p class="para">
-       PostgreSQL query result resource, returned by <span class="function"><a href="function.pg-query.html" class="function">pg_query()</a></span>,
-       <span class="function"><a href="function.pg-query-params.html" class="function">pg_query_params()</a></span> or <span class="function"><a href="function.pg-execute.html" class="function">pg_execute()</a></span>
-       (among others).
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pgsql-result.html" class="classname">PgSql\Result</a></span> instance, returned by <span class="function"><a href="function.pg-query.html" class="function">pg_query()</a></span>,
+<span class="function"><a href="function.pg-query-params.html" class="function">pg_query_params()</a></span> or <span class="function"><a href="function.pg-execute.html" class="function">pg_execute()</a></span>(among others).</p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">type</code></dt>
+<code class="parameter">mode</code></dt>
 
      <dd>
 
@@ -99,10 +92,38 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.pg-result-status-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">result</code> parameter expects an <span class="classname"><a href="class.pgsql-result.html" class="classname">PgSql\Result</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.pg-result-status-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2391">
+   <div class="example" id="example-1945">
     <p><strong>Example #1 <span class="function"><strong>pg_result_status()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

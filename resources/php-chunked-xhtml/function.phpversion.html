@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.phpversion" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">phpversion</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">phpversion</span> &mdash; <span class="dc-title">Gets the current PHP version</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">phpversion</span> &mdash; <span class="dc-title">Gets the current PHP version</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.phpversion-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>phpversion</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$extension</code> = ?</span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>phpversion</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$extension</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns a string containing the version of the currently running PHP
@@ -48,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">extension</code></dt>
@@ -70,18 +67,46 @@
  <div class="refsect1 returnvalues" id="refsect1-function.phpversion-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   If the optional <code class="parameter">extension</code> parameter is
-   specified, <span class="function"><strong>phpversion()</strong></span> returns the version of that
-   extension, or <strong><code>false</code></strong> if there is no version information associated or
-   the extension isn&#039;t enabled.
+   Returns the current PHP version as a <span class="type">string</span>.
+   If a <span class="type">string</span> argument is provided for
+   <code class="parameter">extension</code> parameter, <span class="function"><strong>phpversion()</strong></span>
+   returns the version of that extension, or <strong><code>false</code></strong> if there is no version
+   information associated or the extension isn&#039;t enabled.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.phpversion-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">extension</code> is nullable now.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.phpversion-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-560">
+   <div class="example" id="example-575">
     <p><strong>Example #1 <span class="function"><strong>phpversion()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -93,7 +118,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-561">
+   <div class="example" id="example-576">
     <p><strong>Example #2 <strong><code>PHP_VERSION_ID</code></strong> example and usage</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -128,7 +153,6 @@
     <li class="member"><span class="function"><a href="function.version-compare.html" class="function" rel="rdfs-seeAlso">version_compare()</a> - Compares two &quot;PHP-standardized&quot; version number strings</span></li>
     <li class="member"><span class="function"><a href="function.phpinfo.html" class="function" rel="rdfs-seeAlso">phpinfo()</a> - Outputs information about PHP's configuration</span></li>
     <li class="member"><span class="function"><a href="function.phpcredits.html" class="function" rel="rdfs-seeAlso">phpcredits()</a> - Prints out the credits for PHP</span></li>
-    <li class="member"><span class="function"><strong>php_logo_guid()</strong></span></li>
     <li class="member"><span class="function"><a href="function.zend-version.html" class="function" rel="rdfs-seeAlso">zend_version()</a> - Gets the version of the current Zend engine</span></li>
    </ul>
   </p>

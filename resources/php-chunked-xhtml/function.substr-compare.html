@@ -26,20 +26,14 @@
   <div id="layout-content"><div id="function.substr-compare" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">substr_compare</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">substr_compare</span> &mdash; <span class="dc-title">Binary safe comparison of two strings from an offset, up to length characters</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">substr_compare</span> &mdash; <span class="dc-title">Binary safe comparison of two strings from an offset, up to length characters</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.substr-compare-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>substr_compare</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$case_insensitive</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>substr_compare</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$case_insensitive</code><span class="initializer"> = <strong><code>false</code></strong></span></span><br>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>substr_compare()</strong></span> compares <code class="parameter">haystack</code>
@@ -53,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">haystack</code></dt>
@@ -179,7 +172,7 @@
  <div class="refsect1 examples" id="refsect1-function.substr-compare-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5386">
+   <div class="example" id="example-4878">
     <p><strong>Example #1 A <span class="function"><strong>substr_compare()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

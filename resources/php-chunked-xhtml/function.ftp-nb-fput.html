@@ -26,19 +26,13 @@
   <div id="layout-content"><div id="function.ftp-nb-fput" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ftp_nb_fput</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ftp_nb_fput</span> &mdash; <span class="dc-title">Stores a file from an open file to the FTP server (non-blocking)</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ftp_nb_fput</span> &mdash; <span class="dc-title">Stores a file from an open file to the FTP server (non-blocking)</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.ftp-nb-fput-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ftp_nb_fput</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$ftp</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$remote_filename</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>FTP_BINARY</code></strong></span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>ftp_nb_fput</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.ftp-connection.html" class="type FTP\Connection">FTP\Connection</a></span> <code class="parameter">$ftp</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$remote_filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>FTP_BINARY</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span><br>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>ftp_nb_fput()</strong></span> uploads the data from a file pointer to
@@ -55,16 +49,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">ftp</code></dt>
 
      <dd>
 
-      <p class="para">
-       The link identifier of the FTP connection.
-      </p>
+       <p class="para">An <span class="classname"><a href="class.ftp-connection.html" class="classname">FTP\Connection</a></span> instance.</p>
      </dd>
 
     
@@ -143,6 +134,14 @@
 
     <tbody class="tbody">
      <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">ftp</code> parameter expects an <span class="classname"><a href="class.ftp-connection.html" class="classname">FTP\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+     <tr>
       <td>7.3.0</td>
       <td>
        The <code class="parameter">mode</code> parameter is now optional. Formerly it
@@ -160,11 +159,11 @@
  <div class="refsect1 examples" id="refsect1-function.ftp-nb-fput-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4792">
+   <div class="example" id="example-4293">
     <p><strong>Example #1 <span class="function"><strong>ftp_nb_fput()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$file&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'index.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'r'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$conn_id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$ftp_server</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$login_result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_login</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ftp_user_name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ftp_user_pass</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Initiate&nbsp;the&nbsp;upload<br /></span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_nb_fput</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">FTP_BINARY</span><span style="color: #007700">);<br />while&nbsp;(</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">FTP_MOREDATA</span><span style="color: #007700">)&nbsp;{<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Do&nbsp;whatever&nbsp;you&nbsp;want<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"."</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Continue&nbsp;upload...<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_nb_continue</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_id</span><span style="color: #007700">);<br />}<br />if&nbsp;(</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">!=&nbsp;</span><span style="color: #0000BB">FTP_FINISHED</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"There&nbsp;was&nbsp;an&nbsp;error&nbsp;uploading&nbsp;the&nbsp;file..."</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;exit(</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$file&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'index.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'r'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$ftp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$ftp_server</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$login_result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_login</span><span style="color: #007700">(</span><span style="color: #0000BB">$ftp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ftp_user_name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ftp_user_pass</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Initiate&nbsp;the&nbsp;upload<br /></span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_nb_fput</span><span style="color: #007700">(</span><span style="color: #0000BB">$ftp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">FTP_BINARY</span><span style="color: #007700">);<br />while&nbsp;(</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">FTP_MOREDATA</span><span style="color: #007700">)&nbsp;{<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Do&nbsp;whatever&nbsp;you&nbsp;want<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"."</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Continue&nbsp;upload...<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_nb_continue</span><span style="color: #007700">(</span><span style="color: #0000BB">$ftp</span><span style="color: #007700">);<br />}<br />if&nbsp;(</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">!=&nbsp;</span><span style="color: #0000BB">FTP_FINISHED</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"There&nbsp;was&nbsp;an&nbsp;error&nbsp;uploading&nbsp;the&nbsp;file..."</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;exit(</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

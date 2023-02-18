@@ -33,11 +33,7 @@
  <div class="refsect1 description" id="refsect1-memcache.connect-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>Memcache::connect</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code> = ?</span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>Memcache::connect</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
 
 
   <p class="para rdfs-comment">
@@ -57,7 +53,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">host</code></dt>
@@ -112,6 +107,31 @@
  </div>
 
 
+ <div class="refsect1 returnvalues" id="refsect1-memcache.connect-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-memcache.connect-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-4377">
+    <p><strong>Example #1 <span class="function"><strong>Memcache::connect()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;procedural&nbsp;API&nbsp;*/<br /><br /></span><span style="color: #0000BB">$memcache_obj&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">memcache_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'memcache_host'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;OO&nbsp;API&nbsp;*/<br /><br /></span><span style="color: #0000BB">$memcache&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Memcache</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$memcache</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'memcache_host'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
  <div class="refsect1 notes" id="refsect1-memcache.connect-notes">
   <h3 class="title">Notes</h3>
   <div class="warning"><strong class="warning">Warning</strong>
@@ -124,31 +144,6 @@
     explicitly in this method call.
    </p>
   </div>
- </div>
-
-
- <div class="refsect1 returnvalues" id="refsect1-memcache.connect-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
-  </p>
- </div>
-
-
- <div class="refsect1 examples" id="refsect1-memcache.connect-examples">
-  <h3 class="title">Examples</h3>
-  <p class="para">
-   <div class="example" id="example-4876">
-    <p><strong>Example #1 <span class="function"><strong>Memcache::connect()</strong></span> example</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;procedural&nbsp;API&nbsp;*/<br /><br /></span><span style="color: #0000BB">$memcache_obj&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">memcache_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'memcache_host'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;OO&nbsp;API&nbsp;*/<br /><br /></span><span style="color: #0000BB">$memcache&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Memcache</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$memcache</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'memcache_host'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-   </div>
-  </p>
  </div>
 
 

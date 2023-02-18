@@ -26,20 +26,17 @@
   <div id="layout-content"><div id="function.oci-field-precision" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">oci_field_precision</h1>
-  <p class="verinfo">(PHP 5, PHP 7, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_field_precision</span> &mdash; <span class="dc-title">Tell the precision of a field</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_field_precision</span> &mdash; <span class="dc-title">Tell the precision of a field</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.oci-field-precision-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>oci_field_precision</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$field</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>oci_field_precision</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>, <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$column</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
-   Returns precision of the <code class="parameter">field</code>.
+   Returns precision of the <code class="parameter">column</code>.
   </p>
   <p class="para">
    For FLOAT columns, precision is nonzero and scale is -127.
@@ -53,7 +50,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">statement</code></dt>
@@ -68,7 +64,7 @@
     
     
      <dt>
-<code class="parameter">field</code></dt>
+<code class="parameter">column</code></dt>
 
      <dd>
 
@@ -87,7 +83,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.oci-field-precision-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the precision as an integer, or <strong><code>false</code></strong> on errors.
+   Returns the precision as an integer, or <strong><code>false</code></strong> on failure
   </p>
  </div>
 
@@ -95,7 +91,7 @@
  <div class="refsect1 examples" id="refsect1-function.oci-field-precision-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2277">
+   <div class="example" id="example-1836">
     <p><strong>Example #1 <span class="function"><strong>oci_field_precision()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

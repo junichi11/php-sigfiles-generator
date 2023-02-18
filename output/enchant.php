@@ -26,7 +26,7 @@ namespace {
 	 * @param \EnchantBroker $broker <p>An Enchant broker returned by <code>enchant_broker_init()</code>.</p>
 	 * @return array <p>Returns an <code>array</code> of available Enchant providers with their details.</p>
 	 * @link https://php.net/manual/en/function.enchant-broker-describe.php
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0
 	 */
 	function enchant_broker_describe(\EnchantBroker $broker): array {}
 
@@ -38,7 +38,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> when the tag exist or <b><code>false</code></b> when not.</p>
 	 * @link https://php.net/manual/en/function.enchant-broker-dict-exists.php
 	 * @see enchant_broker_describe()
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_broker_dict_exists(\EnchantBroker $broker, string $tag): bool {}
 
@@ -49,7 +49,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.enchant-broker-free.php
 	 * @see enchant_broker_init()
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_broker_free(\EnchantBroker $broker): bool {}
 
@@ -60,7 +60,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.enchant-broker-free-dict.php
 	 * @see enchant_broker_request_dict(), enchant_broker_request_pwl_dict()
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_broker_free_dict(\EnchantDictionary $dictionary): bool {}
 
@@ -72,7 +72,7 @@ namespace {
 	 * @return string|false <p>Returns the path of the dictionary directory on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.enchant-broker-get-dict-path.php
 	 * @see enchant_broker_set_dict_path()
-	 * @since PHP 5 >= 5.3.1, PHP 7, PECL enchant >= 1.0.1
+	 * @since PHP 5 >= 5.3.1, PHP 7, PHP 8, PECL enchant >= 1.0.1
 	 */
 	function enchant_broker_get_dict_path(\EnchantBroker $broker, int $type): string|false {}
 
@@ -82,7 +82,7 @@ namespace {
 	 * @param \EnchantBroker $broker <p>An Enchant broker returned by <code>enchant_broker_init()</code>.</p>
 	 * @return string|false <p>Return the msg string if an error was found or <b><code>false</code></b></p>
 	 * @link https://php.net/manual/en/function.enchant-broker-get-error.php
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_broker_get_error(\EnchantBroker $broker): string|false {}
 
@@ -91,7 +91,7 @@ namespace {
 	 * @return EnchantBroker|false <p>Returns a broker resource on success or <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.enchant-broker-init.php
 	 * @see enchant_broker_free()
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_broker_init(): \EnchantBroker|false {}
 
@@ -102,7 +102,7 @@ namespace {
 	 * @return array <p>Returns an <code>array</code> of available dictionaries with their details.</p>
 	 * @link https://php.net/manual/en/function.enchant-broker-list-dicts.php
 	 * @see enchant_broker_describe()
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 1.0.1
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 1.0.1
 	 */
 	function enchant_broker_list_dicts(\EnchantBroker $broker): array {}
 
@@ -114,7 +114,7 @@ namespace {
 	 * @return EnchantDictionary|false <p>Returns a dictionary resource on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.enchant-broker-request-dict.php
 	 * @see enchant_dict_describe(), enchant_broker_dict_exists(), enchant_broker_free_dict()
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_broker_request_dict(\EnchantBroker $broker, string $tag): \EnchantDictionary|false {}
 
@@ -126,7 +126,7 @@ namespace {
 	 * @return EnchantDictionary|false <p>Returns a dictionary resource on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.enchant-broker-request-pwl-dict.php
 	 * @see enchant_dict_describe(), enchant_broker_dict_exists(), enchant_broker_free_dict()
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_broker_request_pwl_dict(\EnchantBroker $broker, string $filename): \EnchantDictionary|false {}
 
@@ -139,7 +139,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.enchant-broker-set-dict-path.php
 	 * @see enchant_broker_get_dict_path()
-	 * @since PHP 5 >= 5.3.1, PHP 7, PECL enchant >= 1.0.1
+	 * @since PHP 5 >= 5.3.1, PHP 7, PHP 8, PECL enchant >= 1.0.1
 	 */
 	function enchant_broker_set_dict_path(\EnchantBroker $broker, int $type, string $path): bool {}
 
@@ -151,7 +151,7 @@ namespace {
 	 * @param string $ordering <p>Comma delimited list of provider names</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.enchant-broker-set-ordering.php
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_broker_set_ordering(\EnchantBroker $broker, string $tag, string $ordering): bool {}
 
@@ -174,7 +174,7 @@ namespace {
 	 * @param string $word <p>The word to add</p>
 	 * @return void
 	 * @link https://php.net/manual/en/function.enchant-dict-add-to-personal.php
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_dict_add_to_personal(\EnchantDictionary $dictionary, string $word): void {}
 
@@ -186,7 +186,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.enchant-dict-add-to-session.php
 	 * @see enchant_broker_request_dict()
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_dict_add_to_session(\EnchantDictionary $dictionary, string $word): void {}
 
@@ -197,7 +197,7 @@ namespace {
 	 * @param string $word <p>The word to check</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if the word is spelled correctly, <b><code>false</code></b> if not.</p>
 	 * @link https://php.net/manual/en/function.enchant-dict-check.php
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_dict_check(\EnchantDictionary $dictionary, string $word): bool {}
 
@@ -207,7 +207,7 @@ namespace {
 	 * @param \EnchantDictionary $dictionary <p>An Enchant dictionary returned by <code>enchant_broker_request_dict()</code> or <code>enchant_broker_request_pwl_dict()</code>.</p>
 	 * @return array <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.enchant-dict-describe.php
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_dict_describe(\EnchantDictionary $dictionary): array {}
 
@@ -217,7 +217,7 @@ namespace {
 	 * @param \EnchantDictionary $dictionary <p>An Enchant dictionary returned by <code>enchant_broker_request_dict()</code> or <code>enchant_broker_request_pwl_dict()</code>.</p>
 	 * @return string|false <p>Returns the error message as string or <b><code>false</code></b> if no error occurred.</p>
 	 * @link https://php.net/manual/en/function.enchant-dict-get-error.php
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_dict_get_error(\EnchantDictionary $dictionary): string|false {}
 
@@ -240,7 +240,7 @@ namespace {
 	 * @param string $word <p>The word to lookup</p>
 	 * @return bool
 	 * @link https://php.net/manual/en/function.enchant-dict-is-in-session.php
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_dict_is_in_session(\EnchantDictionary $dictionary, string $word): bool {}
 
@@ -253,7 +253,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> if the word is correctly spelled or <b><code>false</code></b></p>
 	 * @link https://php.net/manual/en/function.enchant-dict-quick-check.php
 	 * @see enchant_dict_check(), enchant_dict_suggest()
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant:0.2.0-1.0.1
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant:0.2.0-1.0.1
 	 */
 	function enchant_dict_quick_check(\EnchantDictionary $dictionary, string $word, array &$suggestions = null): bool {}
 
@@ -265,7 +265,7 @@ namespace {
 	 * @param string $correct <p>The correct word</p>
 	 * @return void <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.enchant-dict-store-replacement.php
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_dict_store_replacement(\EnchantDictionary $dictionary, string $misspelled, string $correct): void {}
 
@@ -276,7 +276,7 @@ namespace {
 	 * @return array <p>Will returns an array of suggestions if the word is bad spelled.</p>
 	 * @link https://php.net/manual/en/function.enchant-dict-suggest.php
 	 * @see enchant_dict_check(), enchant_dict_quick_check()
-	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL enchant >= 0.1.0 
 	 */
 	function enchant_dict_suggest(\EnchantDictionary $dictionary, string $word): array {}
 

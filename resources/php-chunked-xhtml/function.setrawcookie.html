@@ -26,30 +26,17 @@
   <div id="layout-content"><div id="function.setrawcookie" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">setrawcookie</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">setrawcookie</span> &mdash; <span class="dc-title">Send a cookie without urlencoding the cookie value</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">setrawcookie</span> &mdash; <span class="dc-title">Send a cookie without urlencoding the cookie value</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.setrawcookie-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>setrawcookie</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code> = ?</span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$expires</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code> = ?</span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$domain</code> = ?</span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$secure</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$httponly</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>setrawcookie</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$expires_or_options</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$domain</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$secure</code><span class="initializer"> = <strong><code>false</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$httponly</code><span class="initializer"> = <strong><code>false</code></strong></span></span><br>): <span class="type">bool</span></div>
 
-  <p class="para rdfs-comment">Alternative signature available as of PHP 7.3.0:</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>setrawcookie</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code> = ?</span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>
-   ) : <span class="type">bool</span></div>
+  <p class="para rdfs-comment">Alternative signature available as of PHP 7.3.0 (not supported with named parameters):</p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>setrawcookie</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>setrawcookie()</strong></span> is exactly the same as

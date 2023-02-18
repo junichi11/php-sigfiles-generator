@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.rtrim" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">rtrim</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">rtrim</span> &mdash; <span class="dc-title">Strip whitespace (or other characters) from the end of a string</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">rtrim</span> &mdash; <span class="dc-title">Strip whitespace (or other characters) from the end of a string</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.rtrim-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>rtrim</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$characters</code><span class="initializer"> = &quot; \n\r\t\v\0&quot;</span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>rtrim</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$characters</code><span class="initializer"> = &quot; \n\r\t\v\x00&quot;</span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    This function returns a string with whitespace (or other characters) stripped from the
@@ -92,7 +89,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -137,7 +133,7 @@
  <div class="refsect1 examples" id="refsect1-function.rtrim-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="metaphone.example.basic">
+   <div class="example" id="example-4818">
     <p><strong>Example #1 Usage example of <span class="function"><strong>rtrim()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

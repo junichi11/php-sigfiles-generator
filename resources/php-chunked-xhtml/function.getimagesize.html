@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.getimagesize" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">getimagesize</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">getimagesize</span> &mdash; <span class="dc-title">Get the size of an image</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">getimagesize</span> &mdash; <span class="dc-title">Get the size of an image</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.getimagesize-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>getimagesize</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$image_info</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>getimagesize</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$image_info</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    The <span class="function"><strong>getimagesize()</strong></span> function will determine the
@@ -91,7 +88,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">filename</code></dt>
@@ -167,7 +163,7 @@
    <code class="literal">mime</code> is the correspondant MIME type of the image.
    This information can be used to deliver images with the correct HTTP 
    <code class="literal">Content-type</code> header:
-   <div class="example" id="example-3085">
+   <div class="example" id="example-2601">
     <p><strong>Example #1 <span class="function"><strong>getimagesize()</strong></span> and MIME types</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -242,7 +238,7 @@
  <div class="refsect1 examples" id="refsect1-function.getimagesize-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3086">
+   <div class="example" id="example-2602">
     <p><strong>Example #2 <span class="function"><strong>getimagesize()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -252,7 +248,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3087">
+   <div class="example" id="example-2603">
     <p><strong>Example #3 getimagesize (URL)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -262,7 +258,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3088">
+   <div class="example" id="example-2604">
     <p><strong>Example #4 getimagesize() returning IPTC</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

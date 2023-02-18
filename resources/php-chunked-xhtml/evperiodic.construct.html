@@ -31,36 +31,28 @@
  </div>
  <div class="refsect1 description" id="refsect1-evperiodic.construct-description">
   <h3 class="title">Description</h3>
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>
-   <span class="methodname"><strong>EvPeriodic::__construct</strong></span>
-    ( <span class="methodparam">
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span>
+   <span class="methodname"><strong>EvPeriodic::__construct</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
     <span class="type">float</span>
      <code class="parameter">$offset</code>
-   </span>
-   , <span class="methodparam">
+   </span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
     <span class="type">string</span>
      <code class="parameter">$interval</code>
-   </span>
-   , <span class="methodparam">
+   </span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
     <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>
      <code class="parameter">$reschedule_cb</code>
-   </span>
-   , <span class="methodparam">
+   </span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
     <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>
      <code class="parameter">$callback</code>
-   </span>
-   , <span class="methodparam">
+   </span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
     <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
      <code class="parameter">$data</code>
     <span class="initializer"> = <strong><code>null</code></strong></span>
-   </span>
-   , <span class="methodparam">
+   </span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
     <span class="type">int</span>
      <code class="parameter">$priority</code>
     <span class="initializer"> = 0</span>
-   </span>
-   )</div>
+   </span><br>)</div>
 
   <p class="para rdfs-comment">
    Constructs EvPeriodic watcher object and starts it automatically.
@@ -72,7 +64,6 @@
  <div class="refsect1 parameters" id="refsect1-evperiodic.construct-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 
@@ -177,7 +168,7 @@
  <div class="refsect1 examples" id="refsect1-evperiodic.construct-examples">
   <h3 class="title">Examples</h3>
 
- <div class="example" id="example-3759">
+ <div class="example" id="example-3280">
    <p><strong>Example #1 Periodic timer. Use reschedule callback</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -187,7 +178,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-3760">
+  <div class="example" id="example-3281">
    <p><strong>Example #2 Periodic timer. Tick every 10.5 seconds starting at now</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -197,7 +188,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-3761">
+  <div class="example" id="example-3282">
    <p><strong>Example #3 Hourly watcher</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -216,7 +207,7 @@
     <a href="ev.periodic-modes.html" class="link">Periodic watcher operation modes</a>
    </li>
    <li class="member">
-    <a href="class.evtimer.html" class="classname">EvTimer</a>
+    <span class="classname"><a href="class.evtimer.html" class="classname">EvTimer</a></span>
    </li>
    <li class="member">
     <span class="methodname"><a href="evperiodic.createstopped.html" class="methodname" rel="rdfs-seeAlso">EvPeriodic::createStopped()</a> - Create a stopped EvPeriodic watcher</span>

@@ -33,20 +33,12 @@
 
  <div class="refsect1 description" id="refsect1-stomp.setreadtimeout-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style (method):</p>
+  <p class="para">Object-oriented style (method):</p>
    <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Stomp::setReadTimeout</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$seconds</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$microseconds</code> = ?</span>
-    ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Stomp::setReadTimeout</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$seconds</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$microseconds</code><span class="initializer"> = ?</span></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">Procedural style:</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>stomp_set_read_timeout</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$seconds</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$microseconds</code> = ?</span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>stomp_set_read_timeout</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$link</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$seconds</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$microseconds</code><span class="initializer"> = ?</span></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Sets read timeout.
@@ -58,7 +50,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
 <code class="parameter">link</code></dt>
 <dd>
@@ -94,11 +85,19 @@
  </div>
 
 
+ <div class="refsect1 returnvalues" id="refsect1-stomp.setreadtimeout-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   No value is returned.
+  </p>
+ </div>
+
+ 
  <div class="refsect1 examples" id="refsect1-stomp.setreadtimeout-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5077">
-    <p><strong>Example #1 Object oriented style</strong></p>
+   <div class="example" id="example-4577">
+    <p><strong>Example #1 Object-oriented style</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;connection&nbsp;*/<br /></span><span style="color: #007700">try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stomp&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Stomp</span><span style="color: #007700">(</span><span style="color: #DD0000">'tcp://localhost:61613'</span><span style="color: #007700">);<br />}&nbsp;catch(</span><span style="color: #0000BB">StompException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connection&nbsp;failed:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">());<br />}<br /><br /></span><span style="color: #0000BB">$stomp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setReadTimeout</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;<br /></span><span style="color: #FF8000">/*&nbsp;close&nbsp;connection&nbsp;*/<br /></span><span style="color: #007700">unset(</span><span style="color: #0000BB">$stomp</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
@@ -109,7 +108,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5078">
+   <div class="example" id="example-4578">
     <p><strong>Example #2 Procedural style</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -121,7 +120,6 @@
    </div>
   </p>
  </div>
-
 
 
 </div></div></div></body></html>

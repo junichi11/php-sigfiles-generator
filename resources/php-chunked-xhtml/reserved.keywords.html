@@ -28,12 +28,9 @@
    <p class="simpara">
     These words have special meaning in PHP. Some of them represent things 
     which look like functions, some look like constants, and so on - but 
-    they&#039;re not, really: they are language constructs. You cannot use any
-    of the following words as constants, class names, function or method names. 
-    Using them as variable names is generally OK, but could lead to confusion.
-   </p>
-   <p class="simpara">
-    As of PHP 7.0.0 these keywords are allowed as property, constant, and
+    they&#039;re not, really: they are language constructs.
+    The following words cannot be used as constants, class names, function or method names. 
+    They are, however, allowed as property, constant, and
     method names of classes, interfaces and traits, except that
     <code class="literal">class</code> may not be used as constant name.
    </p>
@@ -65,7 +62,7 @@
         <a href="control-structures.break.html" class="link">break</a>
        </td>
        <td>
-        <a href="language.types.callable.html" class="link">callable</a> (as of PHP 5.4)
+        <a href="language.types.callable.html" class="link">callable</a>
        </td>
        <td>
         <a href="control-structures.switch.html" class="link">case</a>
@@ -155,7 +152,7 @@
         <a href="language.oop5.final.html" class="link">final</a>
        </td>
        <td>
-        <a href="language.exceptions.html" class="link">finally</a> (as of PHP 5.5)
+        <a href="language.exceptions.html" class="link">finally</a>
        </td>
        <td>
         <a href="functions.arrow.html" class="link">fn</a> (as of PHP 7.4)
@@ -176,7 +173,7 @@
         <a href="language.variables.scope.html" class="link">global</a>
        </td>
        <td>
-        <a href="control-structures.goto.html" class="link">goto</a> (as of PHP 5.3)
+        <a href="control-structures.goto.html" class="link">goto</a>
        </td>
        <td>
         <a href="control-structures.if.html" class="link">if</a>
@@ -197,7 +194,7 @@
         <a href="language.operators.type.html" class="link">instanceof</a>
        </td>
        <td>
-        <a href="language.oop5.traits.html#language.oop5.traits.conflict" class="link">insteadof</a> (as of PHP 5.4)
+        <a href="language.oop5.traits.html#language.oop5.traits.conflict" class="link">insteadof</a>
        </td>
        <td>
         <a href="language.oop5.interfaces.html" class="link">interface</a>
@@ -215,7 +212,7 @@
         <a href="control-structures.match.html" class="link">match</a> (as of PHP 8.0)
        </td>
        <td>
-        <a href="language.namespaces.html" class="link">namespace</a> (as of PHP 5.3)
+        <a href="language.namespaces.html" class="link">namespace</a>
        </td>
        <td>
         <a href="language.oop5.basic.html#language.oop5.basic.new" class="link">new</a>
@@ -242,6 +239,9 @@
 
       <tr>
        <td>
+        <a href="language.oop5.properties.html#language.oop5.properties.readonly-properties" class="link">readonly</a> (as of PHP 8.1.0) *
+       </td>
+       <td>
         <span class="function"><a href="function.require.html" class="function">require</a></span>
        </td>
        <td>
@@ -253,17 +253,17 @@
        <td>
         <a href="language.variables.scope.html" class="link">static</a>
        </td>
-       <td>
-        <a href="control-structures.switch.html" class="link">switch</a>
-       </td>
       </tr>
 
       <tr>
        <td>
+        <a href="control-structures.switch.html" class="link">switch</a>
+       </td>
+       <td>
         <a href="language.exceptions.html" class="link">throw</a>
        </td>
        <td>
-        <a href="language.oop5.traits.html" class="link">trait</a> (as of PHP 5.4)
+        <a href="language.oop5.traits.html" class="link">trait</a>
        </td>
        <td>
         <a href="language.exceptions.html" class="link">try</a>
@@ -271,12 +271,12 @@
        <td>
         <span class="function"><a href="function.unset.html" class="function">unset()</a></span>
        </td>
-       <td>
-        <a href="language.namespaces.html" class="link">use</a>
-       </td>
       </tr>
 
       <tr>
+       <td>
+        <a href="language.namespaces.html" class="link">use</a>
+       </td>
        <td>
         <a href="language.oop5.properties.html" class="link">var</a>
        </td>
@@ -287,18 +287,29 @@
         <a href="language.operators.logical.html" class="link">xor</a>
        </td>
        <td>
-        <a href="language.generators.html" class="link">yield</a> (as of PHP 5.5)
+        <a href="language.generators.html" class="link">yield</a>
        </td>
+      </tr>
+
+      <tr>
        <td>
-        <a href="language.generators.syntax.html#control-structures.yield.from" class="link">yield from</a> (as of PHP 7.0)
+        <a href="language.generators.syntax.html#control-structures.yield.from" class="link">yield from</a>
        </td>
+       <td class="empty">&nbsp;</td>
+       <td class="empty">&nbsp;</td>
+       <td class="empty">&nbsp;</td>
+       <td class="empty">&nbsp;</td>
       </tr>
 
      </tbody>
     
    </table>
 
-   
+
+   <p class="simpara">
+    * <code class="literal">readonly</code> may be used as function name.
+   </p>
+
    <table class="doctable table">
     <caption><strong>Compile-time constants</strong></caption>
     
@@ -308,7 +319,7 @@
         <a href="language.constants.predefined.html" class="link">__CLASS__</a>
        </td>
        <td> 
-        <a href="language.constants.predefined.html" class="link">__DIR__</a> (as of PHP 5.3)
+        <a href="language.constants.predefined.html" class="link">__DIR__</a>
        </td>
        <td>
         <a href="language.constants.predefined.html" class="link">__FILE__</a>
@@ -326,10 +337,10 @@
 
       <tr>
        <td>
-        <a href="language.namespaces.nsconstants.html" class="link">__NAMESPACE__</a> (as of PHP 5.3)
+        <a href="language.namespaces.nsconstants.html" class="link">__NAMESPACE__</a>
        </td>
        <td>
-        <a href="language.constants.predefined.html" class="link">__TRAIT__</a> (as of PHP 5.4)
+        <a href="language.constants.predefined.html" class="link">__TRAIT__</a>
        </td>
        <td>
        </td>

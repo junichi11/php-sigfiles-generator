@@ -13,9 +13,9 @@ namespace Vtiful\Kernel {
 
 		/**
 		 * Vtiful\Kernel\Excel constructor
-		 * <p>Vtiful\Kernel\Excel constructor, create a class object.</p>
+		 * <p><code>Vtiful\Kernel\Excel</code> constructor, create a class object.</p>
 		 * @param array $config <p>XLSX file export configuration</p>
-		 * @return self <p>Vtiful\Kernel\Excel instance</p>
+		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.construct.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -25,7 +25,7 @@ namespace Vtiful\Kernel {
 		 * Vtiful\Kernel\Excel addSheet
 		 * <p>Create a new worksheet in the xlsx file.</p>
 		 * @param string $sheetName <p>Worksheet name</p>
-		 * @return self <p>Vtiful\Kernel\Excel instance</p>
+		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.addSheet.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -35,7 +35,7 @@ namespace Vtiful\Kernel {
 		 * Vtiful\Kernel\Excel autoFilter
 		 * <p>Add autofilter to a worksheet.</p>
 		 * @param string $scope <p>Cell start and end coordinate string.</p>
-		 * @return self <p>Vtiful\Kernel\Excel instance</p>
+		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.autoFilter.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -46,7 +46,7 @@ namespace Vtiful\Kernel {
 		 * <p>Write a large file with constant memory usage.</p>
 		 * @param string $fileName <p>XLSX file name</p>
 		 * @param string $sheetName <p>Worksheet name</p>
-		 * @return self <p>Vtiful\Kernel\Excel instance</p>
+		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.constMemory.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -56,7 +56,7 @@ namespace Vtiful\Kernel {
 		 * Vtiful\Kernel\Excel data
 		 * <p>Write a data in the worksheet.</p>
 		 * @param array $data <p>worksheet data</p>
-		 * @return self <p>Vtiful\Kernel\Excel instance</p>
+		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.data.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -67,7 +67,7 @@ namespace Vtiful\Kernel {
 		 * <p>Create a brand new xlsx file and create a worksheet.</p>
 		 * @param string $fileName <p>XLSX file name</p>
 		 * @param string $sheetName <p>Worksheet name</p>
-		 * @return self <p>Vtiful\Kernel\Excel instance</p>
+		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.filename.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -86,7 +86,7 @@ namespace Vtiful\Kernel {
 		 * Vtiful\Kernel\Excel header
 		 * <p>Write a header in the worksheet.</p>
 		 * @param array $headerData <p>worksheet header data</p>
-		 * @return self <p>Vtiful\Kernel\Excel instance</p>
+		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.header.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -98,7 +98,7 @@ namespace Vtiful\Kernel {
 		 * @param int $row <p>cell row</p>
 		 * @param int $column <p>cell column</p>
 		 * @param string $formula <p>formula string</p>
-		 * @return self <p>Vtiful\Kernel\Excel instance</p>
+		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.insertFormula.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -110,7 +110,7 @@ namespace Vtiful\Kernel {
 		 * @param int $row <p>cell row</p>
 		 * @param int $column <p>cell column</p>
 		 * @param string $localImagePath <p>local image path</p>
-		 * @return self <p>Vtiful\Kernel\Excel instance</p>
+		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.insertImage.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -123,7 +123,7 @@ namespace Vtiful\Kernel {
 		 * @param int $column <p>cell column</p>
 		 * @param string $data <p>data to be written</p>
 		 * @param string $format <p>String format</p>
-		 * @return self <p>Vtiful\Kernel\Excel instance</p>
+		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.insertText.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -134,7 +134,7 @@ namespace Vtiful\Kernel {
 		 * <p>Merge Cells.</p>
 		 * @param string $scope <p>cell start and end coordinate strings</p>
 		 * @param string $data <p>string data</p>
-		 * @return self <p>Vtiful\Kernel\Excel instance</p>
+		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.mergeCells.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -155,7 +155,7 @@ namespace Vtiful\Kernel {
 		 * @param string $range <p>cell start and end coordinate strings</p>
 		 * @param float $width <p>column width</p>
 		 * @param resource $format <p>cell format resource</p>
-		 * @return self <p>Vtiful\Kernel\Excel instance</p>
+		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.setColumn.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -167,7 +167,7 @@ namespace Vtiful\Kernel {
 		 * @param string $range <p>cell start and end coordinate strings</p>
 		 * @param float $height <p>row height</p>
 		 * @param resource $format <p>cell format resource</p>
-		 * @return self <p>Vtiful\Kernel\Excel instance</p>
+		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.setRow.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -281,7 +281,7 @@ namespace Vtiful\Kernel {
 		 * Vtiful\Kernel\Format align
 		 * <p>set cell align</p>
 		 * @param resource $handle <p>xlsx file handle</p>
-		 * @param int $style <p>Vtiful\Kernel\Format constant</p>
+		 * @param int $style <p><code>Vtiful\Kernel\Format</code> constant</p>
 		 * @return resource <p>Resource</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-format.align.php
 		 * @since PECL xlswriter >= 1.2.1
@@ -290,7 +290,7 @@ namespace Vtiful\Kernel {
 
 		/**
 		 * Vtiful\Kernel\Format bold
-		 * <p>Vtiful\Kernel\Format bold format</p>
+		 * <p><code>Vtiful\Kernel\Format</code> bold format</p>
 		 * @param resource $handle <p>xlsx file handle</p>
 		 * @return resource <p>Resource</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-format.bold.php
@@ -300,7 +300,7 @@ namespace Vtiful\Kernel {
 
 		/**
 		 * Vtiful\Kernel\Format italic
-		 * <p>Vtiful\Kernel\Format italic format</p>
+		 * <p><code>Vtiful\Kernel\Format</code> italic format</p>
 		 * @param resource $handle <p>xlsx file handle</p>
 		 * @return resource <p>Resource</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-format.italic.php
@@ -310,9 +310,9 @@ namespace Vtiful\Kernel {
 
 		/**
 		 * Vtiful\Kernel\Format underline
-		 * <p>Vtiful\Kernel\Format underline format</p>
+		 * <p><code>Vtiful\Kernel\Format</code> underline format</p>
 		 * @param resource $handle <p>xlsx file handle</p>
-		 * @param int $style <p>Vtiful\Kernel\Format constant</p>
+		 * @param int $style <p><code>Vtiful\Kernel\Format</code> constant</p>
 		 * @return resource <p>Resource</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-format.underline.php
 		 * @since PECL xlswriter >= 1.2.1

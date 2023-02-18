@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="worker.isworking.html">« Worker::isWorking</a></li>
+      <li style="float: left;"><a href="worker.isshutdown.html">« Worker::isShutdown</a></li>
       <li style="float: right;"><a href="worker.stack.html">Worker::stack »</a></li>
     </ul>
   </div>
@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-worker.shutdown-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Worker::shutdown</strong></span>
-    (
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Worker::shutdown</strong></span>(): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Shuts down the worker after executing all of the stacked tasks.
@@ -52,7 +50,7 @@
  <div class="refsect1 returnvalues" id="refsect1-worker.shutdown-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Whether the worker was successfully shutdown or not.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -60,7 +58,7 @@
  <div class="refsect1 examples" id="refsect1-worker.shutdown-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3846">
+   <div class="example" id="example-3359">
     <p><strong>Example #1 Shutdown the referenced worker</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

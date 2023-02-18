@@ -26,24 +26,18 @@
   <div id="layout-content"><div id="function.oci-bind-by-name" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">oci_bind_by_name</h1>
-  <p class="verinfo">(PHP 5, PHP 7, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_bind_by_name</span> &mdash; <span class="dc-title">Binds a PHP variable to an Oracle placeholder</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_bind_by_name</span> &mdash; <span class="dc-title">Binds a PHP variable to an Oracle placeholder</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.oci-bind-by-name-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>oci_bind_by_name</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$bv_name</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$variable</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$maxlength</code><span class="initializer"> = -1</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = SQLT_CHR</span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>oci_bind_by_name</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$param</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$var</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$max_length</code><span class="initializer"> = -1</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = 0</span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Binds a PHP variable <code class="parameter">variable</code> to the Oracle
-   bind variable placeholder <code class="parameter">bv_name</code>.  Binding
+   Binds a PHP variable <code class="parameter">var</code> to the Oracle
+   bind variable placeholder <code class="parameter">param</code>.  Binding
    is important for Oracle database performance and also as a way to
    avoid SQL Injection security issues.
   </p>
@@ -74,14 +68,14 @@
   </p>
 
   <p class="para">
-    You must specify <code class="parameter">maxlength</code> when using
+    You must specify <code class="parameter">max_length</code> when using
     an <code class="literal">OUT</code> bind so that PHP allocates enough memory
     to hold the returned value.
   </p>
 
   <p class="para">
     For <code class="literal">IN</code> binds it is recommended to set
-    the <code class="parameter">maxlength</code> length if the statement is
+    the <code class="parameter">max_length</code> length if the statement is
     re-executed multiple times with different values for the PHP
     variable.  Otherwise Oracle may truncate data to the length of the
     initial PHP variable value.  If you don&#039;t know what the maximum
@@ -119,7 +113,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">statement</code></dt>
@@ -127,21 +120,21 @@
      <dd>
 
       <p class="para">
-       A valid OCI8 statement identifer.
+       A valid OCI8 statement identifier.
       </p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">bv_name</code></dt>
+<code class="parameter">param</code></dt>
 
      <dd>
 
       <p class="para">
        The colon-prefixed bind variable placeholder used in the
        statement.  The colon is optional
-       in <code class="parameter">bv_name</code>. Oracle does not use question
+       in <code class="parameter">param</code>. Oracle does not use question
        marks for placeholders.
       </p>
      </dd>
@@ -149,27 +142,27 @@
     
     
      <dt>
-<code class="parameter">variable</code></dt>
- 
+<code class="parameter">var</code></dt>
+
      <dd>
 
       <p class="para">
-       The PHP variable to be associated with <code class="parameter">bv_name</code>
+       The PHP variable to be associated with <code class="parameter">param</code>
       </p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">maxlength</code></dt>
+<code class="parameter">max_length</code></dt>
 
      <dd>
 
       <p class="para">
        Sets the maximum length for the data. If you set it to -1, this
        function will use the current length
-       of <code class="parameter">variable</code> to set the maximum
-       length. In this case the <code class="parameter">variable</code> must
+       of <code class="parameter">var</code> to set the maximum
+       length. In this case the <code class="parameter">var</code> must
        exist and contain data
        when <span class="function"><strong>oci_bind_by_name()</strong></span> is called.
       </p>
@@ -295,7 +288,7 @@
  <div class="refsect1 examples" id="refsect1-function.oci-bind-by-name-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2219">
+   <div class="example" id="example-1778">
     <p><strong>Example #1 Inserting data with <span class="function"><strong>oci_bind_by_name()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -308,7 +301,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2220">
+   <div class="example" id="example-1779">
     <p><strong>Example #2 Binding once for multiple executions</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -321,7 +314,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2221">
+   <div class="example" id="example-1780">
     <p><strong>Example #3 Binding with a <span class="function"><strong>foreach()</strong></span> loop</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -334,7 +327,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2222">
+   <div class="example" id="example-1781">
     <p><strong>Example #4 Binding in a WHERE clause</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -347,7 +340,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2223">
+   <div class="example" id="example-1782">
     <p><strong>Example #5 Binding with a LIKE clause</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -360,7 +353,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2224">
+   <div class="example" id="example-1783">
     <p><strong>Example #6 Binding with REGEXP_LIKE</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -380,7 +373,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2225">
+   <div class="example" id="example-1784">
     <p><strong>Example #7 Binding Multiple Values in an IN Clause</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -393,7 +386,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2226">
+   <div class="example" id="example-1785">
     <p><strong>Example #8 Binding a ROWID returned by a query</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -406,7 +399,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2227">
+   <div class="example" id="example-1786">
     <p><strong>Example #9 Binding a ROWID on INSERT</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -419,7 +412,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2228">
+   <div class="example" id="example-1787">
     <p><strong>Example #10 Binding for a PL/SQL stored function</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -432,7 +425,7 @@
   </p>
 
   <p class="para">
-  <div class="example" id="example-2229">
+  <div class="example" id="example-1788">
    <p><strong>Example #11 Binding parameters for a PL/SQL stored procedure</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -445,7 +438,7 @@
   </p>
 
   <p class="para">
-  <div class="example" id="example-2230">
+  <div class="example" id="example-1789">
    <p><strong>Example #12 Binding a CLOB column</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -458,7 +451,7 @@
   </p>
 
   <p class="para">
-  <div class="example" id="example-2231">
+  <div class="example" id="example-1790">
    <p><strong>Example #13 Binding a PL/SQL BOOLEAN</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -473,20 +466,11 @@
  </div>
 
 
- <div class="refsect1 returnvalues" id="refsect1-function.oci-bind-by-name-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
-  </p>
- </div>
-
-
  <div class="refsect1 notes" id="refsect1-function.oci-bind-by-name-notes">
   <h3 class="title">Notes</h3>
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="para">
-    Do not use <a href="info.configuration.html#ini.magic-quotes-gpc" class="link">magic_quotes_gpc</a> or
-    <span class="function"><a href="function.addslashes.html" class="function">addslashes()</a></span>
+    Do not use <span class="function"><a href="function.addslashes.html" class="function">addslashes()</a></span>
     and <span class="function"><strong>oci_bind_by_name()</strong></span> simultaneously as no
     quoting is needed. Any magically applied quotes will be written
     into your database because <span class="function"><strong>oci_bind_by_name()</strong></span>
@@ -506,7 +490,7 @@
   </p></blockquote>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-     The PHP <code class="parameter">variable</code> argument is a reference.  Some
+     The PHP <code class="parameter">var</code> argument is a reference.  Some
      forms of loops do not work as expected:
    </p>
    <div class="informalexample">

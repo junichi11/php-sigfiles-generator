@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.enchant-broker-dict-exists" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">enchant_broker_dict_exists</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL enchant &gt;= 0.1.0 )</p><p class="refpurpose"><span class="refname">enchant_broker_dict_exists</span> &mdash; <span class="dc-title">Whether a dictionary exists or not. Using non-empty tag</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL enchant &gt;= 0.1.0 )</p><p class="refpurpose"><span class="refname">enchant_broker_dict_exists</span> &mdash; <span class="dc-title">Whether a dictionary exists or not. Using non-empty tag</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.enchant-broker-dict-exists-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>enchant_broker_dict_exists</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.enchantbroker.html" class="type EnchantBroker">EnchantBroker</a></span> <code class="parameter">$broker</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$tag</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>enchant_broker_dict_exists</strong></span>(<span class="methodparam"><span class="type"><a href="class.enchantbroker.html" class="type EnchantBroker">EnchantBroker</a></span> <code class="parameter">$broker</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$tag</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Tells if a dictionary exists or not, using a non-empty tags
@@ -46,7 +43,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">broker</code></dt>
@@ -101,7 +97,7 @@
      <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">broker</code> expects an <a href="class.enchantbroker.html" class="classname">EnchantBroker</a> instance now;
+  <code class="parameter">broker</code> expects an <span class="classname"><a href="class.enchantbroker.html" class="classname">EnchantBroker</a></span> instance now;
   previoulsy, a <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
@@ -116,7 +112,7 @@
  <div class="refsect1 examples" id="refsect1-function.enchant-broker-dict-exists-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2736">
+   <div class="example" id="example-2247">
     <p><strong>Example #1 A <span class="function"><strong>enchant_broker_dict_exists()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

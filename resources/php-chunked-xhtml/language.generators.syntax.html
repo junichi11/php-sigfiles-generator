@@ -64,7 +64,7 @@
     generator and pauses execution of the generator function.
    </p>
 
-   <div class="example" id="example-318">
+   <div class="example" id="example-332">
     <p><strong>Example #1 A simple example of yielding values</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -112,7 +112,7 @@
      define an associative array, as shown below.
     </p>
 
-    <div class="example" id="example-319">
+    <div class="example" id="example-333">
      <p><strong>Example #2 Yielding a key/value pair</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -163,7 +163,7 @@ $data&nbsp;=&nbsp;(yield&nbsp;$key&nbsp;=&gt;&nbsp;$value);</span>
      automatic key.
     </p>
 
-    <div class="example" id="example-320">
+    <div class="example" id="example-334">
      <p><strong>Example #3 Yielding <strong><code>null</code></strong>s</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -198,7 +198,7 @@ array(3) {
      by prepending an ampersand to the function name.
     </p>
 
-    <div class="example" id="example-321">
+    <div class="example" id="example-335">
      <p><strong>Example #4 Yielding values by reference</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -221,7 +221,7 @@ array(3) {
 
     <p class="para">
      Generator delegation allows you to yield values from another
-     generator, <a href="class.traversable.html" class="classname">Traversable</a> object, or
+     generator, <span class="classname"><a href="class.traversable.html" class="classname">Traversable</a></span> object, or
      <span class="type">array</span> by using the <strong class="command">yield from</strong> keyword.
      The outer generator will then yield all values from the inner generator,
      object, or array until that is no longer valid, after which execution
@@ -239,7 +239,7 @@ array(3) {
 
       <p class="para">
        <strong class="command">yield from</strong> does not reset the keys. It preserves
-       the keys returned by the <a href="class.traversable.html" class="classname">Traversable</a> object, or
+       the keys returned by the <span class="classname"><a href="class.traversable.html" class="classname">Traversable</a></span> object, or
        <span class="type">array</span>. Thus some values may share a common key with another
        <strong class="command">yield</strong> or <strong class="command">yield from</strong>, which, upon
        insertion into an array, will overwrite former values with that key.
@@ -250,10 +250,10 @@ array(3) {
        returning a keyed array by default, leading to possibly unexpected results.
        <span class="function"><a href="function.iterator-to-array.html" class="function">iterator_to_array()</a></span> has a second parameter
        <code class="parameter">use_keys</code> which can be set to <strong><code>false</code></strong> to collect
-       all the values while ignoring the keys returned by the <a href="class.generator.html" class="classname">Generator</a>.
+       all the values while ignoring the keys returned by the <span class="classname"><a href="class.generator.html" class="classname">Generator</a></span>.
       </p>
      
-      <div class="example" id="example-322">
+      <div class="example" id="example-336">
        <p><strong>Example #5 <strong class="command">yield from</strong> with <span class="function"><a href="function.iterator-to-array.html" class="function">iterator_to_array()</a></span></strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -278,7 +278,7 @@ array(3) {
       </div>
     </div>
 
-    <div class="example" id="example-323">
+    <div class="example" id="example-337">
      <p><strong>Example #6 Basic use of <strong class="command">yield from</strong></strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -295,7 +295,7 @@ array(3) {
      </div>
     </div>
 
-    <div class="example" id="example-324">
+    <div class="example" id="example-338">
      <p><strong>Example #7 <strong class="command">yield from</strong> and return values</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

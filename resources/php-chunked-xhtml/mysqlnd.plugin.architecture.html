@@ -37,7 +37,7 @@
    know a little of how <code class="literal">mysqlnd</code> itself is organized.
    <code class="literal">Mysqlnd</code> consists of the following modules:
   </p>
-  <table class="doctable table">
+  <table id="mysqlnd.plugin.orgchart" class="doctable table">
    <caption><strong>The mysqlnd organization chart, per module</strong></caption>
    
     <thead>
@@ -84,7 +84,7 @@
   </table>
 
   <p class="para">
-   <em class="emphasis">C Object Oriented Paradigm</em>
+   <em class="emphasis">C Object-Oriented Paradigm</em>
   </p>
   <p class="para">
    At the code level, <code class="literal">mysqlnd</code> uses a C pattern for
@@ -97,7 +97,7 @@
   </p>
   <p class="para">
    Unlike with other languages such as C++ or Java, there are no fixed
-   rules on inheritance in the C object oriented paradigm. However,
+   rules on inheritance in the C object-oriented paradigm. However,
    there are some conventions that need to be followed that will be
    discussed later.
   </p>
@@ -237,7 +237,7 @@ MYSQLND_METHOD(my_conn_class, query)(MYSQLND *conn,
    The following table shows how to calculate the position of the
    pointer for a specific plugin:
   </p>
-  <table class="doctable table">
+  <table id="mysqlnd.plugin.pointercalc" class="doctable table">
    <caption><strong>Pointer calculations for mysqlnd</strong></caption>
    
     <thead>
@@ -315,7 +315,7 @@ static MY_CONN_PROPERTIES** get_conn_properties(const MYSQLND *conn TSRMLS_DC) {
    allocator has some useful features, such as the ability to use a
    debug allocator in a non-debug build.
   </p>
-  <table class="doctable table">
+  <table id="mysqlnd.plugin.subclass" class="doctable table">
    <caption><strong>When and how to subclass</strong></caption>
    
     <thead>
@@ -399,7 +399,7 @@ static MY_CONN_PROPERTIES** get_conn_properties(const MYSQLND *conn TSRMLS_DC) {
    The advantage of the shared function table approach is performance.
    There is no need to copy a function table for each and every object.
   </p>
-  <table class="doctable table">
+  <table id="mysqlnd.plugin.constatus" class="doctable table">
    <caption><strong>Constructor status</strong></caption>
    
     <thead>
@@ -519,7 +519,7 @@ static MY_CONN_PROPERTIES** get_conn_properties(const MYSQLND *conn TSRMLS_DC) {
    function tables of objects with non-shared object tables, such as
    Resultset, Network, Wire Protocol.
   </p>
-  <table class="doctable table">
+  <table id="mysqlnd.plugin.deststatus" class="doctable table">
    <caption><strong>Destruction status</strong></caption>
    
     <thead>

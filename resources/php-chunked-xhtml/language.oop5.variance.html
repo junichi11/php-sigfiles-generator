@@ -36,6 +36,35 @@
   of its parent&#039;s method. Whereas, contravariance allows a parameter type to be less 
   specific in a child method, than that of its parent.
  </p>
+ <p class="para">
+  A type declaration is considered more specific in the following case:
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     A type is removed from a
+     <a href="language.types.declarations.html#language.types.declarations.composite.union" class="link">union type</a>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     A type is added to an
+     <a href="language.types.declarations.html#language.types.declarations.composite.intersection" class="link">intersection type</a>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     A class type is changed to a child class type
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="type"><a href="language.types.iterable.html" class="type iterable">iterable</a></span> is changed to <span class="type">array</span> or <span class="classname"><a href="class.traversable.html" class="classname">Traversable</a></span>
+    </span>
+   </li>
+  </ul>
+
+  A type class is considered less specific if the opposite is true.
+ </p>
 
  <div class="sect2" id="language.oop5.variance.covariance">
   <h3 class="title">Covariance</h3>

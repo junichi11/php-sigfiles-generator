@@ -26,15 +26,13 @@
   <div id="layout-content"><div id="function.textdomain" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">textdomain</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">textdomain</span> &mdash; <span class="dc-title">Sets the default domain</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">textdomain</span> &mdash; <span class="dc-title">Sets the default domain</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.textdomain-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>textdomain</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$domain</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>textdomain</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$domain</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    This function sets the domain to search within when calls are
@@ -48,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">domain</code></dt>
@@ -76,5 +73,15 @@
   </p>
  </div>
 
+
+ <div class="refsect1 notes" id="refsect1-function.textdomain-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    The <span class="function"><strong>textdomain()</strong></span> information is maintained per process,
+    not per thread.
+   </p>
+  </p></blockquote>
+ </div>
 
 </div></div></div></body></html>

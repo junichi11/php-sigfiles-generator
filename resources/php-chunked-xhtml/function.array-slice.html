@@ -26,18 +26,13 @@
   <div id="layout-content"><div id="function.array-slice" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_slice</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_slice</span> &mdash; <span class="dc-title">Extract a slice of the array</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">array_slice</span> &mdash; <span class="dc-title">Extract a slice of the array</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.array-slice-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>array_slice</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$preserve_keys</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>array_slice</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$preserve_keys</code><span class="initializer"> = <strong><code>false</code></strong></span></span><br>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>array_slice()</strong></span> returns the sequence of elements
@@ -51,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">array</code></dt>
@@ -146,7 +140,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-slice-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5464">
+   <div class="example" id="example-4959">
     <p><strong>Example #1 <span class="function"><strong>array_slice()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -173,7 +167,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5465">
+   <div class="example" id="example-4960">
     <p><strong>Example #2 <span class="function"><strong>array_slice()</strong></span> and one-based array</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -195,7 +189,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5466">
+   <div class="example" id="example-4961">
     <p><strong>Example #3 <span class="function"><strong>array_slice()</strong></span> and array with mixed keys</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

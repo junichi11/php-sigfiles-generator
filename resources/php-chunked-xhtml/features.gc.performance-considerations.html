@@ -53,7 +53,7 @@
      itself uses when starting up.
     </p>
     <p class="para">
-     <div class="example" id="example-462">
+     <div class="example" id="example-479">
       <p><strong>Example #1 Memory usage example</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -100,7 +100,7 @@
      second script is here:
     </p>
     <p class="para">
-     <div class="example" id="example-463">
+     <div class="example" id="example-480">
       <p><strong>Example #2 GC performance influences</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -117,7 +117,7 @@
      on, and once with it turned off:
     </p>
     <p class="para">
-     <div class="example" id="example-464">
+     <div class="example" id="example-481">
       <p><strong>Example #3 Running the above script</strong></p>
       <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">time php -dzend.enable_gc=0 -dmemory_limit=-1 -n example2.php
@@ -154,7 +154,7 @@ time php -dzend.enable_gc=1 -dmemory_limit=-1 -n example2.php</pre>
      sequence should do the trick:
     </p>
     <p class="para">
-     <div class="example" id="example-465">
+     <div class="example" id="example-482">
       <p><strong>Example #4 Recompiling PHP to enable GC benchmarking</strong></p>
       <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">export CFLAGS=-DGC_BENCH=1
@@ -172,7 +172,7 @@ make</pre>
      execution:
     </p>
     <p class="para">
-     <div class="example" id="example-466">
+     <div class="example" id="example-483">
       <p><strong>Example #5 GC statistics</strong></p>
       <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">GC Statistics

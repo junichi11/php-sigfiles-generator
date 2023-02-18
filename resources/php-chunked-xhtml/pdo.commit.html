@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="pdo.commit" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDO::commit</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::commit</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::commit</span> &mdash; <span class="dc-title">
    Commits a transaction
   </span></p>
 
@@ -35,15 +35,19 @@
  <div class="refsect1 description" id="refsect1-pdo.commit-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDO::commit</strong></span>
-    (
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDO::commit</strong></span>(): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Commits a transaction, returning the database connection to autocommit
    mode until the next call to <span class="function"><a href="pdo.begintransaction.html" class="function">PDO::beginTransaction()</a></span>
    starts a new transaction.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-pdo.commit-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -58,7 +62,7 @@
  <div class="refsect1 errors" id="refsect1-pdo.commit-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Throws a <a href="class.pdoexception.html" class="classname">PDOException</a> if there is no active transaction.
+   Throws a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if there is no active transaction.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">An exception is raised even when the <strong><code>PDO::ATTR_ERRMODE</code></strong> attribute is not <strong><code>PDO::ERRMODE_EXCEPTION</code></strong>.</span></p></blockquote>
  </div>
@@ -67,7 +71,7 @@
  <div class="refsect1 examples" id="refsect1-pdo.commit-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1005">
+   <div class="example" id="example-1011">
     <p><strong>Example #1 Committing a basic transaction</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -79,7 +83,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1006">
+   <div class="example" id="example-1012">
     <p><strong>Example #2 Committing a DDL transaction</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

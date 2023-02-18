@@ -65,6 +65,7 @@
 
   <p class="para">
    To use octal notation, precede the number with a <code class="literal">0</code> (zero).
+   As of PHP 8.1.0, octal notation can also be preceded with <code class="literal">0o</code> or <code class="literal">0O</code>.
    To use hexadecimal notation precede the number with <code class="literal">0x</code>.
    To use binary notation precede the number with <code class="literal">0b</code>.
   </p>
@@ -74,11 +75,11 @@
    for better readability of literals. These underscores are removed by PHP&#039;s scanner.
   </p>
 
-  <div class="example" id="example-42">
+  <div class="example" id="example-33">
    <p><strong>Example #1 Integer literals</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1234</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;decimal&nbsp;number<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0123</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;octal&nbsp;number&nbsp;(equivalent&nbsp;to&nbsp;83&nbsp;decimal)<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0x1A</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;hexadecimal&nbsp;number&nbsp;(equivalent&nbsp;to&nbsp;26&nbsp;decimal)<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0b11111111</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;binary&nbsp;number&nbsp;(equivalent&nbsp;to&nbsp;255&nbsp;decimal)<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1_234_567</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;decimal&nbsp;number&nbsp;(as&nbsp;of&nbsp;PHP&nbsp;7.4.0)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1234</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;decimal&nbsp;number<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0123</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;octal&nbsp;number&nbsp;(equivalent&nbsp;to&nbsp;83&nbsp;decimal)<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0o123</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;octal&nbsp;number&nbsp;(as&nbsp;of&nbsp;PHP&nbsp;8.1.0)<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0x1A</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;hexadecimal&nbsp;number&nbsp;(equivalent&nbsp;to&nbsp;26&nbsp;decimal)<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0b11111111</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;binary&nbsp;number&nbsp;(equivalent&nbsp;to&nbsp;255&nbsp;decimal)<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1_234_567</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;decimal&nbsp;number&nbsp;(as&nbsp;of&nbsp;PHP&nbsp;7.4.0)<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -98,7 +99,7 @@ decimal     : [1-9][0-9]*(_[0-9]+)*
 
 hexadecimal : 0[xX][0-9a-fA-F]+(_[0-9a-fA-F]+)*
 
-octal       : 0[0-7]+(_[0-7]+)*
+octal       : 0[oO]?[0-7]+(_[0-7]+)*
 
 binary      : 0[bB][01]+(_[01]+)*
 
@@ -133,7 +134,7 @@ integer     : decimal
    <span class="type">int</span> type will return a <span class="type">float</span> instead.
   </p>
 
-  <div class="example" id="example-43">
+  <div class="example" id="example-34">
    <p><strong>Example #2 Integer overflow on a 32-bit system</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -144,7 +145,7 @@ integer     : decimal
 
   </div>
 
-  <div class="example" id="example-44">
+  <div class="example" id="example-35">
    <p><strong>Example #3 Integer overflow on a 64-bit system</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

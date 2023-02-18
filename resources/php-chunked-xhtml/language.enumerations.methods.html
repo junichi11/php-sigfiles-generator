@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Enumeration methods</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="language.enumerations.backed.html">« Backed enumerations</a></li>
+      <li style="float: right;"><a href="language.enumerations.static-methods.html">Enumeration static methods »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.enumerations.html">Enumerations</a></li>
+    <li>Enumeration methods</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="language.enumerations.methods" class="sect1">
+  <h2 class="title">Enumeration methods</h2>
+
+  <p class="para">
+   Enums (both Pure Enums and Backed Enums) may contain methods, and may implement interfaces.
+   If an Enum implements an interface, then any type check for that interface will also accept
+   all cases of that Enum.
+  </p>
+
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">interface&nbsp;</span><span style="color: #0000BB">Colorful<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">color</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">enum&nbsp;Suit&nbsp;</span><span style="color: #007700">implements&nbsp;</span><span style="color: #0000BB">Colorful<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Hearts</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Diamonds</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Clubs</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Spades</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Fulfills&nbsp;the&nbsp;interface&nbsp;contract.<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">color</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">string<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">match</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Hearts</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Diamonds&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Red'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Clubs</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Spades&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Black'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Not&nbsp;part&nbsp;of&nbsp;an&nbsp;interface;&nbsp;that's&nbsp;fine.<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">shape</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">string<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"Rectangle"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />function&nbsp;</span><span style="color: #0000BB">paint</span><span style="color: #007700">(</span><span style="color: #0000BB">Colorful&nbsp;$c</span><span style="color: #007700">)&nbsp;{&nbsp;...&nbsp;}<br /><br /></span><span style="color: #0000BB">paint</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Clubs</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Works<br /><br /></span><span style="color: #007700">print&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Diamonds</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">shape</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;prints&nbsp;"Rectangle"<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+
+  <p class="para">
+   In this example, all four instances of <code class="literal">Suit</code> have two methods,
+   <code class="literal">color()</code> and <code class="literal">shape()</code>.  As far as calling code
+   and type checks are concerned, they behave exactly the same as any other object instance.
+  </p>
+
+  <p class="para">
+   On a Backed Enum, the interface declaration goes after the backing type declaration.
+  </p>
+
+  <div class="example-contents">
+   <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">interface&nbsp;</span><span style="color: #0000BB">Colorful<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">color</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">enum&nbsp;Suit</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">string&nbsp;</span><span style="color: #007700">implements&nbsp;</span><span style="color: #0000BB">Colorful<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Hearts&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'H'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Diamonds&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'D'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Clubs&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'C'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Spades&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'S'</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Fulfills&nbsp;the&nbsp;interface&nbsp;contract.<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">color</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">string<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">match</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Hearts</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Diamonds&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Red'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Clubs</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Spades&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Black'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+
+  <p class="para">
+   Inside a method, the <code class="literal">$this</code> variable is defined and refers to the Case instance.
+  </p>
+
+  <p class="para">
+   Methods may be arbitrarily complex, but in practice will usually return a static value or
+   <a href="control-structures.match.html" class="link">match</a> on <code class="literal">$this</code> to provide
+   different results for different cases.
+  </p>
+
+  <p class="para">
+   Note that in this case it would be a better data modeling practice to also define a
+   <code class="literal">SuitColor</code> Enum Type with values Red and Black and return that instead.
+   However, that would complicate this example.
+  </p>
+
+  <p class="para">
+   The above hierarchy is logically similar to the following class structure
+   (although this is not the actual code that runs):
+  </p>
+
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">interface&nbsp;</span><span style="color: #0000BB">Colorful<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">color</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">;<br />}<br /><br />final&nbsp;class&nbsp;</span><span style="color: #0000BB">Suit&nbsp;</span><span style="color: #007700">implements&nbsp;</span><span style="color: #0000BB">UnitEnum</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Colorful<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;const&nbsp;</span><span style="color: #0000BB">Hearts&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">(</span><span style="color: #DD0000">'Hearts'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;const&nbsp;</span><span style="color: #0000BB">Diamonds&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">(</span><span style="color: #DD0000">'Diamonds'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;const&nbsp;</span><span style="color: #0000BB">Clubs&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">(</span><span style="color: #DD0000">'Clubs'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;const&nbsp;</span><span style="color: #0000BB">Spades&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">(</span><span style="color: #DD0000">'Spades'</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(public&nbsp;</span><span style="color: #0000BB">readonly&nbsp;string&nbsp;$name</span><span style="color: #007700">)&nbsp;{}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">color</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">string<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">match</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Hearts</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Diamonds&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Red'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Clubs</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Spades&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Black'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">shape</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">string<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"Rectangle"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">cases</span><span style="color: #007700">():&nbsp;array<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Illegal&nbsp;method,&nbsp;because&nbsp;manually&nbsp;defining&nbsp;a&nbsp;cases()&nbsp;method&nbsp;on&nbsp;an&nbsp;Enum&nbsp;is&nbsp;disallowed.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;See&nbsp;also&nbsp;"Value&nbsp;listing"&nbsp;section.<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+
+  <p class="para">
+   Methods may be public, private, or protected, although in practice private and
+   protected are equivalent as inheritance is not allowed.
+  </p>
+
+ </div></div></div></body></html>

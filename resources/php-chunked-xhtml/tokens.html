@@ -27,30 +27,38 @@
  <h1>List of Parser Tokens</h1>
 
  <p class="para">
-  Various parts of the PHP language are represented internally by types like
-  T_SR. PHP outputs identifiers like this one in parse errors, like
-  <code class="literal">&quot;Parse error: unexpected T_SR, expecting &#039;,&#039; or &#039;;&#039; in script.php on line 10.&quot;</code>
+  Various parts of the PHP language are represented internally by tokens.
+  A code snippet that contains an invalid sequence of tokens may lead to errors like
+  <code class="literal">Parse error: syntax error, unexpected token &quot;==&quot;, expecting &quot;(&quot; in script.php on line 10.&quot;</code>
+  where token <code class="code">==</code> is internally represented by <strong><code>T_IS_EQUAL</code></strong>.
  </p>
+
  <p class="para">
-  You&#039;re supposed to know what T_SR means. For everybody who doesn&#039;t
-  know that, here is a table with those identifiers, PHP-syntax and
-  references to the appropriate places in the manual.
+  The following table lists all tokens. They are also available as PHP constants.
  </p>
 
  <blockquote class="note"><p><strong class="note">Note</strong>: 
   <strong>Usage of T_* constants</strong><br />
   <p class="para">
-   All tokens listed below are also defined as PHP constants. Their value is
-   automatically generated based on PHP&#039;s underlying parser infrastructure.
+   T_* constants values are automatically generated based on PHP&#039;s underlying parser infrastructure.
    This means that the concrete value of a token may change between two PHP
-   versions. For example the <strong><code>T_FILE</code></strong> constant is
-   <code class="literal">365</code> in PHP 5.3, while the same value refers now to
-   <strong><code>T_TRAIT</code></strong> in PHP 5.4 and the value of <strong><code>T_FILE</code></strong>
-   is <code class="literal">369</code>. This means that your code should never rely directly
+   versions.
+   This means that your code should never rely directly
    on the original T_* values taken from PHP version X.Y.Z, to provide some compatibility
-   across multiple PHP versions. Instead your code should utilize custom values
-   (using big numbers like <code class="literal">10000</code>) and an appropriate strategy that
-   will work with both PHP versions and T_* values.
+   across multiple PHP versions.
+  </p>
+
+  <p class="para">
+   To make use of T_* constants across multiple PHP versions, undefined constants
+   may be defined by the user (using big numbers like <code class="literal">10000</code>) with an
+   appropriate strategy that will work with both PHP versions and T_* values.
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Prior&nbsp;to&nbsp;PHP&nbsp;7.4.0,&nbsp;T_FN&nbsp;is&nbsp;not&nbsp;defined.<br /></span><span style="color: #0000BB">defined</span><span style="color: #007700">(</span><span style="color: #DD0000">'T_FN'</span><span style="color: #007700">)&nbsp;||&nbsp;</span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'T_FN'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10001</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+   </div>
+
   </p>
  </p></blockquote>
 
@@ -92,10 +100,16 @@
      <td><a href="language.types.type-juggling.html#language.types.typecasting" class="link">type-casting</a></td>
     </tr>
 
-     <tr>
+    <tr>
      <td><strong><code>T_AS</code></strong></td>
      <td>as</td>
      <td><a href="control-structures.foreach.html" class="link">foreach</a></td>
+    </tr>
+
+    <tr>
+     <td><strong><code>T_ATTRIBUTE</code></strong></td>
+     <td>#[</td>
+     <td><a href="language.attributes.html" class="link">attributes</a> (available as of PHP 8.0.0)</td>
     </tr>
 
     <tr>
@@ -103,7 +117,7 @@
      <td class="empty">&nbsp;</td>
      <td>
       anything below ASCII 32 except \t (0x09), \n (0x0a) and \r (0x0d)
-      (available since PHP 7.4.0)
+      (available as of PHP 7.4.0)
      </td>
     </tr>
 
@@ -191,7 +205,7 @@
      <td>??=</td>
      <td>
       <a href="language.operators.assignment.html" class="link">assignment operators</a>
-      (available since PHP 7.4.0)
+      (available as of PHP 7.4.0)
      </td>
     </tr>
 
@@ -433,7 +447,7 @@
      <td>fn</td>
      <td>
       <a href="functions.arrow.html" class="link">arrow functions</a>
-      (available since PHP 7.4.0)
+      (available as of PHP 7.4.0)
      </td>
     </tr>
 
@@ -623,6 +637,14 @@
     </tr>
 
     <tr>
+     <td><strong><code>T_MATCH</code></strong></td>
+     <td>match</td>
+     <td>
+      <a href="control-structures.match.html" class="link">match</a> (available as of PHP 8.0.0)
+     </td>
+    </tr>
+
+    <tr>
      <td><strong><code>T_METHOD_C</code></strong></td>
      <td>__METHOD__</td>
      <td>
@@ -656,6 +678,14 @@
      <td>namespace</td>
      <td>
       <a href="language.namespaces.html" class="link">namespaces</a>
+     </td>
+    </tr>
+
+    <tr>
+     <td><strong><code>T_NAME_FULLY_QUALIFIED</code></strong></td>
+     <td>\App\Namespace</td>
+     <td>
+      <a href="language.namespaces.html" class="link">namespaces</a> (available as of PHP 8.0.0)
      </td>
     </tr>
 

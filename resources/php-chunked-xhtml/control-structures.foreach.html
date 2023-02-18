@@ -54,6 +54,11 @@ foreach (iterable_expression as $key =&gt; $value)
   the <code class="literal">$key</code> variable on each iteration.
  </p>
  <p class="simpara">
+  Note that <code class="literal">foreach</code> does not modify the internal array
+  pointer, which is used by functions such as <span class="function"><a href="function.current.html" class="function">current()</a></span>
+  and <span class="function"><a href="function.key.html" class="function">key()</a></span>.
+ </p>
+ <p class="simpara">
   It is possible to
   <a href="language.oop5.iterations.html" class="link">customize object iteration</a>.
  </p>

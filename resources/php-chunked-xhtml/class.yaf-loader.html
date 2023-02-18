@@ -34,16 +34,16 @@
   <div class="section" id="yaf-loader.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-    <strong class="classname">Yaf_Loader</strong> introduces a comprehensive autoloading
+    <span class="classname"><strong class="classname">Yaf_Loader</strong></span> introduces a comprehensive autoloading
     solution for Yaf.
    </p>
    <p class="para">
-    The first time an instance of <a href="class.yaf-application.html" class="classname">Yaf_Application</a> is retrieved, 
-    <strong class="classname">Yaf_Loader</strong> will instance a singleton, and registers itself with
+    The first time an instance of <span class="classname"><a href="class.yaf-application.html" class="classname">Yaf_Application</a></span> is retrieved, 
+    <span class="classname"><strong class="classname">Yaf_Loader</strong></span> will instance a singleton, and registers itself with
     spl_autoload.  You retrieve an instance using the <span class="methodname"><a href="yaf-loader.getinstance.html" class="methodname">Yaf_Loader::getInstance()</a></span>
    </p>
    <p class="para">
-    <strong class="classname">Yaf_Loader</strong> attempt to load a class only one shot, if
+    <span class="classname"><strong class="classname">Yaf_Loader</strong></span> attempt to load a class only one shot, if
     failed, depend on <a href="yaf.configuration.html#ini.yaf.use-spl-autoload" class="link">yaf.use_spl_auload</a>, if this
     config is On <span class="methodname"><a href="yaf-loader.autoload.html" class="methodname">Yaf_Loader::autoload()</a></span> will return 
     <strong><code>false</code></strong>, thus give the chance to other autoload function. if it is Off 
@@ -58,13 +58,13 @@
     </p></blockquote>
    </p>
    <p class="para">
-    By default, <strong class="classname">Yaf_Loader</strong> assume all library (class
+    By default, <span class="classname"><strong class="classname">Yaf_Loader</strong></span> assume all library (class
     defined script) store in the <a href="yaf.configuration.html#ini.yaf.library" class="link">global library 
      directory</a>, which is defined in the php.ini(yaf.library).
    </p>
 
    <p class="para">
-    If you want <strong class="classname">Yaf_Loader</strong> search some
+    If you want <span class="classname"><strong class="classname">Yaf_Loader</strong></span> search some
     classes(libraries) in the <a href="class.yaf-loader.html#yaf-loader.props.library" class="link">local class
      directory</a>(which is defined in application.ini, and by default,
     it is <a href="yaf.appconfig.html#configuration.yaf.directory" class="link">application.directory</a> . &quot;/library&quot;), 
@@ -74,7 +74,7 @@
 
    <p class="para">
     Let&#039;s see some examples(assuming APPLICATION_PATH is <a href="yaf.appconfig.html#configuration.yaf.directory" class="link">application.directory</a>):
-    <div class="example" id="example-4419">
+    <div class="example" id="example-3915">
      <p><strong>Example #1 Config example</strong></p>
       <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">// Assuming the following configure in php.ini:
@@ -88,7 +88,7 @@ application.library = APPLICATION_PATH &quot;/library&quot;</pre>
     </div>
 
     Assuming the following local name space is registered:
-    <div class="example" id="example-4420">
+    <div class="example" id="example-3916">
      <p><strong>Example #2 Register localnamespace</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -100,7 +100,7 @@ application.library = APPLICATION_PATH &quot;/library&quot;</pre>
     </div>
 
    Then the autoload examples:
-    <div class="example" id="example-4421">
+    <div class="example" id="example-3917">
      <p><strong>Example #3 Load class example</strong></p>
       <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">class Foo_Bar_Test =&gt;
@@ -116,8 +116,7 @@ class BarNon_Test
 
     </div>
 
-   As of PHP 5.3, you can use namespace:
-   <div class="example" id="example-4422">
+   <div class="example" id="example-3918">
     <p><strong>Example #4 Load namespace class example</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">class \Foo\Bar\Dummy =&gt;
@@ -137,9 +136,9 @@ class \FooBar\Bar\Dummy =&gt;
   </p>
 
   <p class="para">
-   <strong class="classname">Yaf_Loader</strong> is also designed to load the MVC classes,
+   <span class="classname"><strong class="classname">Yaf_Loader</strong></span> is also designed to load the MVC classes,
    and the rule is:
-   <div class="example" id="example-4423">
+   <div class="example" id="example-3919">
     <p><strong>Example #5 MVC class loading example</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">Controller Classes =&gt;
@@ -158,7 +157,7 @@ Plugin Classes =&gt;
    Yaf identify a class&#039;s suffix(this is by default, you can also change to
    the prefix by change the configure <a href="yaf.configuration.html#ini.yaf.name-suffix" class="link">yaf.name_suffix</a>) to decide whether it
    is a MVC class:
-   <div class="example" id="example-4424">
+   <div class="example" id="example-3920">
     <p><strong>Example #6 MVC class distinctions</strong></p>
    <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">Controller Classes =&gt;
@@ -175,7 +174,7 @@ Plugin Classes =&gt;
   </div>
 
    some examples:
-   <div class="example" id="example-4425">
+   <div class="example" id="example-3921">
     <p><strong>Example #7 MVC loading example</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">class IndexController
@@ -218,88 +217,41 @@ class A_B_TestModel =&gt;
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
-      <strong class="classname">Yaf_Loader</strong>
+      <span class="modifier">class</span> <strong class="classname">Yaf_Loader</strong>
      </span>
      {</div>
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
     <div class="fieldsynopsis">
      <span class="modifier">protected</span>
-      <var class="varname"><a href="class.yaf-loader.html#yaf-loader.props.local-ns">$<var class="varname">_local_ns</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.yaf-loader.html#yaf-loader.props.local-ns">$<var class="varname">_local_ns</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">protected</span>
-      <var class="varname"><a href="class.yaf-loader.html#yaf-loader.props.library">$<var class="varname">_library</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">protected</span>
+      <var class="varname"><a href="class.yaf-loader.html#yaf-loader.props.library">$<var class="varname">_library</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">protected</span>
-      <var class="varname"><a href="class.yaf-loader.html#yaf-loader.props.global-library">$<var class="varname">_global_library</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">protected</span>
+      <var class="varname"><a href="class.yaf-loader.html#yaf-loader.props.global-library">$<var class="varname">_global_library</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">static</span>
-      <var class="varname"><a href="class.yaf-loader.html#yaf-loader.props.instance">$<var class="varname">_instance</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">static</span>
+      <var class="varname"><a href="class.yaf-loader.html#yaf-loader.props.instance">$<var class="varname">_instance</var></a></var>;</div>
 
 
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.autoload.html" class="methodname">autoload</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.clearlocalnamespace.html" class="methodname">clearLocalNamespace</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">private</span> <span class="methodname"><a href="yaf-loader.construct.html" class="methodname">__construct</a></span>
-    (
-   )</div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="yaf-loader.getinstance.html" class="methodname">getInstance</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.getlibrarypath.html" class="methodname">getLibraryPath</a></span>
-    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_global</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type"><a href="class.yaf-loader.html" class="type Yaf_Loader">Yaf_Loader</a></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.getnamespaces.html" class="methodname">getLocalNamespace</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.getnamespacepath.html" class="methodname">getNamespacePath</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$namespaces</code></span>
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>getNamespaces</strong></span>
-    (
-   ) : <span class="type">array</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="yaf-loader.import.html" class="methodname">import</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.islocalname.html" class="methodname">isLocalName</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.registerlocalnamespace.html" class="methodname">registerLocalNamespace</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$prefix</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.registernamespace.html" class="methodname">registerNamespace</a></span>
-    ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$namespaces</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code> = ?</span>
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.setlibrarypath.html" class="methodname">setLibraryPath</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$directory</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_global</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type"><a href="class.yaf-loader.html" class="type Yaf_Loader">Yaf_Loader</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.autoload.html" class="methodname">autoload</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.clearlocalnamespace.html" class="methodname">clearLocalNamespace</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">private</span> <span class="methodname"><a href="yaf-loader.construct.html" class="methodname">__construct</a></span>()</div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="yaf-loader.getinstance.html" class="methodname">getInstance</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.getlibrarypath.html" class="methodname">getLibraryPath</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_global</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><a href="class.yaf-loader.html" class="type Yaf_Loader">Yaf_Loader</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.getnamespaces.html" class="methodname">getLocalNamespace</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.getnamespacepath.html" class="methodname">getNamespacePath</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$namespaces</code></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>getNamespaces</strong></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="yaf-loader.import.html" class="methodname">import</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.islocalname.html" class="methodname">isLocalName</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.registerlocalnamespace.html" class="methodname">registerLocalNamespace</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$prefix</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.registernamespace.html" class="methodname">registerNamespace</a></span>(<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$namespaces</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-loader.setlibrarypath.html" class="methodname">setLibraryPath</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$directory</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_global</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><a href="class.yaf-loader.html" class="type Yaf_Loader">Yaf_Loader</a></span></div>
 
    }</div>
 
@@ -311,7 +263,6 @@ class A_B_TestModel =&gt;
   <div class="section" id="yaf-loader.props">
    <h2 class="title">Properties</h2>
    <dl>
-
     
      <dt id="yaf-loader.props.local-ns"><var class="varname">_local_ns</var></dt>
 

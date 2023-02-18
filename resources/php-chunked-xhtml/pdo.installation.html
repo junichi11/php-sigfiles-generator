@@ -30,7 +30,7 @@
   <ol type="1"><li>
    <p class="para">
     PDO and the <a href="ref.pdo-sqlite.html" class="link">PDO_SQLITE</a> driver
-    is enabled by default as of PHP 5.1.0. You may need
+    is enabled by default. You may need
     to enable the PDO driver for your database of choice; consult the
     documentation for
     <a href="pdo.drivers.html" class="link">database-specific PDO drivers</a>
@@ -65,24 +65,7 @@ extension=pdo.so
   <strong class="title">Windows users</strong>
   <ol type="1"><li>
    <p class="para">
-    PDO and all the major drivers ship with PHP as shared extensions, and
-    simply need to be activated by editing the <var class="filename">php.ini</var> file:
-    <div class="example-contents screen">
-<div class="cdata"><pre>
-extension=php_pdo.dll
-</pre></div>
-    </div>
-   </p>
-   <blockquote class="note"><p><strong class="note">Note</strong>: 
-    <p class="para">
-     This step is not necessary for PHP 5.3 and above, as a DLL is no longer 
-     required for PDO.
-    </p>
-   </p></blockquote>
-  </li>
-  <li>
-   <p class="para">
-    Next, choose the other database-specific DLL files and either use 
+    Choose the other database-specific DLL files and either use 
     <span class="function"><a href="function.dl.html" class="function">dl()</a></span> to load them at runtime, or enable them in
     <var class="filename">php.ini</var> below <var class="filename">php_pdo.dll</var>. For example:
     <div class="example-contents screen">

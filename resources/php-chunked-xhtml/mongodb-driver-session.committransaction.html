@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-mongodb-driver-session.committransaction-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Session::commitTransaction</strong></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Session::commitTransaction</strong></span>(): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Saves the changes made by the operations in the multi-document transaction
@@ -62,9 +60,9 @@
  <div class="refsect1 errors" id="refsect1-mongodb-driver-session.committransaction-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <ul class="simplelist">
-   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> on argument parsing errors.</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a></span> on argument parsing errors.</li>
    <li class="member">Throws
-   <a href="class.mongodb-driver-exception-commandexception.html" class="classname">MongoDB\Driver\Exception\CommandException</a> if the
+   <span class="classname"><a href="class.mongodb-driver-exception-commandexception.html" class="classname">MongoDB\Driver\Exception\CommandException</a></span> if the
    server could not commit the transaction (e.g. due to conflicts, network
    issues). In case the exception&#039;s
    <span class="methodname"><a href="mongodb-driver-commandexception.getresultdocument.html" class="methodname">MongoDB\Driver\Exception\CommandException::getResultDocument()</a></span>
@@ -76,7 +74,7 @@
    <span class="methodname"><a href="mongodb-driver-runtimeexception.haserrorlabel.html" class="methodname">MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</a></span>
    should be used to test for this situation instead.</li>
    <li class="member">Throws
-   <a href="class.mongodb-driver-exception-runtimeexception.html" class="classname">MongoDB\Driver\Exception\RuntimeException</a> if the
+   <span class="classname"><a href="class.mongodb-driver-exception-runtimeexception.html" class="classname">MongoDB\Driver\Exception\RuntimeException</a></span> if the
    transaction could not be commited (e.g. a transaction was not
    started).</li>
   </ul>

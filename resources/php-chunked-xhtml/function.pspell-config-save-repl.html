@@ -28,7 +28,7 @@
   <div id="layout-content"><div id="function.pspell-config-save-repl" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pspell_config_save_repl</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pspell_config_save_repl</span> &mdash; <span class="dc-title">Determine whether to save a replacement pairs list
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pspell_config_save_repl</span> &mdash; <span class="dc-title">Determine whether to save a replacement pairs list
   along with the wordlist</span></p>
 
  </div>
@@ -36,10 +36,7 @@
  <div class="refsect1 description" id="refsect1-function.pspell-config-save-repl-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pspell_config_save_repl</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$config</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$save</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>pspell_config_save_repl</strong></span>(<span class="methodparam"><span class="type"><a href="class.pspell-config.html" class="type PSpell\Config">PSpell\Config</a></span> <code class="parameter">$config</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$save</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pspell_config_save_repl()</strong></span> determines whether
@@ -61,15 +58,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">config</code></dt>
 
      <dd>
 
-      <p class="para">
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pspell-config.html" class="classname">PSpell\Config</a></span> instance.</p>
      </dd>
 
     
@@ -96,6 +91,34 @@
   <p class="para">
    Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.pspell-config-save-repl-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">config</code> parameter expects an <span class="classname"><a href="class.pspell-config.html" class="classname">PSpell\Config</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

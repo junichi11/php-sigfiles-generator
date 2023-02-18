@@ -27,26 +27,17 @@
  <div class="refnamediv">
   <h1 class="refname">tidy::parseString</h1>
   <h1 class="refname">tidy_parse_string</h1>
-  <p class="verinfo">(PHP 5, PHP 7, PECL tidy &gt;= 0.5.2)</p><p class="refpurpose"><span class="refname">tidy::parseString</span> -- <span class="refname">tidy_parse_string</span> &mdash; <span class="dc-title">Parse a document stored in a string</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL tidy &gt;= 0.5.2)</p><p class="refpurpose"><span class="refname">tidy::parseString</span> -- <span class="refname">tidy_parse_string</span> &mdash; <span class="dc-title">Parse a document stored in a string</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-tidy.parsestring-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>tidy::parseString</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$config</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>tidy::parseString</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$config</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>tidy_parse_string</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$config</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><span class="type"><a href="class.tidy.html" class="type tidy">tidy</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>tidy_parse_string</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$config</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type"><a href="class.tidy.html" class="type tidy">tidy</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Parses a document stored in a string.
@@ -58,7 +49,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -117,7 +107,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    <span class="methodname"><strong>tidy::parseString()</strong></span> returns <strong><code>true</code></strong> on success.
-   <span class="function"><strong>tidy_parse_string()</strong></span> returns a new <a href="class.tidy.html" class="classname">tidy</a>
+   <span class="function"><strong>tidy_parse_string()</strong></span> returns a new <span class="classname"><a href="class.tidy.html" class="classname">tidy</a></span>
    instance on success.
    Both, the method and the function return <strong><code>false</code></strong> on failure.
   </p>
@@ -154,7 +144,7 @@
  <div class="refsect1 examples" id="refsect1-tidy.parsestring-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4321">
+   <div class="example" id="example-3817">
     <p><strong>Example #1 <span class="function"><strong>tidy::parseString()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

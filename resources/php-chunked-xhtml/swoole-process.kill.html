@@ -32,11 +32,7 @@
 
  <div class="refsect1 description" id="refsect1-swoole-process.kill-description">
   <h3 class="title">Description</h3>
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>Swoole\Process::kill</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$pid</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$signal_no</code> = ?</span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>Swoole\Process::kill</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$pid</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$signal_no</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
     Send signal to the child process.
@@ -48,7 +44,6 @@
  <div class="refsect1 parameters" id="refsect1-swoole-process.kill-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">pid</code></dt>
@@ -56,7 +51,7 @@
     <dd>
 
      <p class="para">
-      
+      Process pid
      </p>
     </dd>
 
@@ -68,7 +63,7 @@
     <dd>
 
      <p class="para">
-      
+      Signal to be sent
      </p>
     </dd>
 
@@ -81,7 +76,7 @@
  <div class="refsect1 returnvalues" id="refsect1-swoole-process.kill-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

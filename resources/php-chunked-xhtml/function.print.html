@@ -26,28 +26,27 @@
   <div id="layout-content"><div id="function.print" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">print</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">print</span> &mdash; <span class="dc-title">Output a string</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">print</span> &mdash; <span class="dc-title">Output a string</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.print-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>print</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$arg</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>print</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$expression</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
-   Outputs <code class="parameter">arg</code>.
+   Outputs <code class="parameter">expression</code>.
   </p>
   <p class="para">
-   <code class="literal">print</code> is not actually a real function (it is a
-   language construct) so you are not required to use parentheses
-   with its argument list.
+   <code class="literal">print</code> is not a function but a language construct.
+   Its argument is the expression following the <code class="literal">print</code> keyword,
+   and is not delimited by parentheses.
   </p>
   <p class="para">
-   The major differences to <code class="literal">echo</code> are that
-   <code class="literal">print</code> only accepts a single argument and always returns 1.
+   The major differences to <span class="function"><a href="function.echo.html" class="function">echo</a></span> are that
+   <code class="literal">print</code> only accepts a single argument and always returns
+   <code class="literal">1</code>.
   </p>
  </div>
 
@@ -56,15 +55,16 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">arg</code></dt>
+<code class="parameter">expression</code></dt>
 
      <dd>
 
       <p class="para">
-       The input data.
+       The expression to be output. Non-string values will be coerced to strings,
+       even when <a href="language.types.declarations.html#language.types.declarations.strict" class="link">the
+       <code class="literal">strict_types</code> directive</a> is enabled.
       </p>
      </dd>
 
@@ -86,11 +86,11 @@
  <div class="refsect1 examples" id="refsect1-function.print-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5324">
+   <div class="example" id="example-4813">
     <p><strong>Example #1 <code class="literal">print</code> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">print(</span><span style="color: #DD0000">"Hello&nbsp;World"</span><span style="color: #007700">);<br /><br />print&nbsp;</span><span style="color: #DD0000">"print()&nbsp;also&nbsp;works&nbsp;without&nbsp;parentheses."</span><span style="color: #007700">;<br /><br />print&nbsp;</span><span style="color: #DD0000">"This&nbsp;spans<br />multiple&nbsp;lines.&nbsp;The&nbsp;newlines&nbsp;will&nbsp;be<br />output&nbsp;as&nbsp;well"</span><span style="color: #007700">;<br /><br />print&nbsp;</span><span style="color: #DD0000">"This&nbsp;spans\nmultiple&nbsp;lines.&nbsp;The&nbsp;newlines&nbsp;will&nbsp;be\noutput&nbsp;as&nbsp;well."</span><span style="color: #007700">;<br /><br />print&nbsp;</span><span style="color: #DD0000">"escaping&nbsp;characters&nbsp;is&nbsp;done&nbsp;\"Like&nbsp;this\"."</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;You&nbsp;can&nbsp;use&nbsp;variables&nbsp;inside&nbsp;a&nbsp;print&nbsp;statement<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"foobar"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"barbaz"</span><span style="color: #007700">;<br /><br />print&nbsp;</span><span style="color: #DD0000">"foo&nbsp;is&nbsp;</span><span style="color: #0000BB">$foo</span><span style="color: #DD0000">"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;foo&nbsp;is&nbsp;foobar<br /><br />//&nbsp;You&nbsp;can&nbsp;also&nbsp;use&nbsp;arrays<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"value"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">);<br /><br />print&nbsp;</span><span style="color: #DD0000">"this&nbsp;is&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$bar</span><span style="color: #007700">[</span><span style="color: #DD0000">'value'</span><span style="color: #007700">]}</span><span style="color: #DD0000">&nbsp;!"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;this&nbsp;is&nbsp;foo&nbsp;!<br /><br />//&nbsp;Using&nbsp;single&nbsp;quotes&nbsp;will&nbsp;print&nbsp;the&nbsp;variable&nbsp;name,&nbsp;not&nbsp;the&nbsp;value<br /></span><span style="color: #007700">print&nbsp;</span><span style="color: #DD0000">'foo&nbsp;is&nbsp;$foo'</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;foo&nbsp;is&nbsp;$foo<br /><br />//&nbsp;If&nbsp;you&nbsp;are&nbsp;not&nbsp;using&nbsp;any&nbsp;other&nbsp;characters,&nbsp;you&nbsp;can&nbsp;just&nbsp;print&nbsp;variables<br /></span><span style="color: #007700">print&nbsp;</span><span style="color: #0000BB">$foo</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;foobar<br /><br /></span><span style="color: #007700">print&nbsp;&lt;&lt;&lt;END<br /></span><span style="color: #DD0000">This&nbsp;uses&nbsp;the&nbsp;"here&nbsp;document"&nbsp;syntax&nbsp;to&nbsp;output<br />multiple&nbsp;lines&nbsp;with&nbsp;</span><span style="color: #0000BB">$variable</span><span style="color: #DD0000">&nbsp;interpolation.&nbsp;Note<br />that&nbsp;the&nbsp;here&nbsp;document&nbsp;terminator&nbsp;must&nbsp;appear&nbsp;on&nbsp;a<br />line&nbsp;with&nbsp;just&nbsp;a&nbsp;semicolon&nbsp;no&nbsp;extra&nbsp;whitespace!<br /></span><span style="color: #007700">END;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">print&nbsp;</span><span style="color: #DD0000">"print&nbsp;does&nbsp;not&nbsp;require&nbsp;parentheses."</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;No&nbsp;newline&nbsp;or&nbsp;space&nbsp;is&nbsp;added;&nbsp;the&nbsp;below&nbsp;outputs&nbsp;"helloworld"&nbsp;all&nbsp;on&nbsp;one&nbsp;line<br /></span><span style="color: #007700">print&nbsp;</span><span style="color: #DD0000">"hello"</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">;<br /><br />print&nbsp;</span><span style="color: #DD0000">"This&nbsp;string&nbsp;spans<br />multiple&nbsp;lines.&nbsp;The&nbsp;newlines&nbsp;will&nbsp;be<br />output&nbsp;as&nbsp;well"</span><span style="color: #007700">;<br /><br />print&nbsp;</span><span style="color: #DD0000">"This&nbsp;string&nbsp;spans\nmultiple&nbsp;lines.&nbsp;The&nbsp;newlines&nbsp;will&nbsp;be\noutput&nbsp;as&nbsp;well."</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;The&nbsp;argument&nbsp;can&nbsp;be&nbsp;any&nbsp;expression&nbsp;which&nbsp;produces&nbsp;a&nbsp;string<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"example"</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"foo&nbsp;is&nbsp;</span><span style="color: #0000BB">$foo</span><span style="color: #DD0000">"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;foo&nbsp;is&nbsp;example<br /><br /></span><span style="color: #0000BB">$fruits&nbsp;</span><span style="color: #007700">=&nbsp;[</span><span style="color: #DD0000">"lemon"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"orange"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"banana"</span><span style="color: #007700">];<br />print&nbsp;</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">"&nbsp;and&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$fruits</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;lemon&nbsp;and&nbsp;orange&nbsp;and&nbsp;banana<br /><br />//&nbsp;Non-string&nbsp;expressions&nbsp;are&nbsp;coerced&nbsp;to&nbsp;string,&nbsp;even&nbsp;if&nbsp;declare(strict_types=1)&nbsp;is&nbsp;used<br /></span><span style="color: #007700">print&nbsp;</span><span style="color: #0000BB">6&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;42<br /><br />//&nbsp;Because&nbsp;print&nbsp;has&nbsp;a&nbsp;return&nbsp;value,&nbsp;it&nbsp;can&nbsp;be&nbsp;used&nbsp;in&nbsp;expressions<br />//&nbsp;The&nbsp;following&nbsp;outputs&nbsp;"hello&nbsp;world"<br /></span><span style="color: #007700">if&nbsp;(&nbsp;print&nbsp;</span><span style="color: #DD0000">"hello"&nbsp;</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&nbsp;world"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;The&nbsp;following&nbsp;outputs&nbsp;"true"<br /></span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">)&nbsp;?&nbsp;print&nbsp;</span><span style="color: #DD0000">'true'&nbsp;</span><span style="color: #007700">:&nbsp;print&nbsp;</span><span style="color: #DD0000">'false'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -102,6 +102,49 @@
 
  <div class="refsect1 notes" id="refsect1-function.print-notes">
   <h3 class="title">Notes</h3>
+
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <strong>Using with parentheses</strong><br />
+   <p class="para">
+    Surrounding the argument to <code class="literal">print</code> with parentheses will not
+    raise a syntax error, and produces syntax which looks like a normal
+    function call. However, this can be misleading, because the parentheses are actually
+    part of the expression being output, not part of the <code class="literal">print</code>
+    syntax itself.
+   </p>
+   <p class="para">
+    <div class="example" id="example-4814">
+     
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">print&nbsp;</span><span style="color: #DD0000">"hello"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;outputs&nbsp;"hello"<br /><br /></span><span style="color: #007700">print(</span><span style="color: #DD0000">"hello"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;also&nbsp;outputs&nbsp;"hello",&nbsp;because&nbsp;("hello")&nbsp;is&nbsp;a&nbsp;valid&nbsp;expression<br /><br /></span><span style="color: #007700">print(</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;*&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;outputs&nbsp;"9";&nbsp;the&nbsp;parentheses&nbsp;cause&nbsp;1+2&nbsp;to&nbsp;be&nbsp;evaluated&nbsp;first,&nbsp;then&nbsp;3*3<br />//&nbsp;the&nbsp;print&nbsp;statement&nbsp;sees&nbsp;the&nbsp;whole&nbsp;expression&nbsp;as&nbsp;one&nbsp;argument<br /><br /></span><span style="color: #007700">if&nbsp;(&nbsp;print(</span><span style="color: #DD0000">"hello"</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">false&nbsp;</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"&nbsp;-&nbsp;inside&nbsp;if"</span><span style="color: #007700">;<br />}<br />else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"&nbsp;-&nbsp;inside&nbsp;else"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #FF8000">//&nbsp;outputs&nbsp;"&nbsp;-&nbsp;inside&nbsp;if"<br />//&nbsp;the&nbsp;expression&nbsp;("hello")&nbsp;&amp;&amp;&nbsp;false&nbsp;is&nbsp;first&nbsp;evaluated,&nbsp;giving&nbsp;false<br />//&nbsp;this&nbsp;is&nbsp;coerced&nbsp;to&nbsp;the&nbsp;empty&nbsp;string&nbsp;""&nbsp;and&nbsp;printed<br />//&nbsp;the&nbsp;print&nbsp;construct&nbsp;then&nbsp;returns&nbsp;1,&nbsp;so&nbsp;code&nbsp;in&nbsp;the&nbsp;if&nbsp;block&nbsp;is&nbsp;run<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+
+   <p class="para">
+    When using <code class="literal">print</code> in a larger expression, placing both the
+    keyword and its argument in parentheses may be necessary to give the intended
+    result:
+   </p>
+
+   <p class="para">
+    <div class="example" id="example-4815">
+     
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(&nbsp;(print&nbsp;</span><span style="color: #DD0000">"hello"</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">false&nbsp;</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"&nbsp;-&nbsp;inside&nbsp;if"</span><span style="color: #007700">;<br />}<br />else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"&nbsp;-&nbsp;inside&nbsp;else"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #FF8000">//&nbsp;outputs&nbsp;"hello&nbsp;-&nbsp;inside&nbsp;else"<br />//&nbsp;unlike&nbsp;the&nbsp;previous&nbsp;example,&nbsp;the&nbsp;expression&nbsp;(print&nbsp;"hello")&nbsp;is&nbsp;evaluated&nbsp;first<br />//&nbsp;after&nbsp;outputting&nbsp;"hello",&nbsp;print&nbsp;returns&nbsp;1<br />//&nbsp;since&nbsp;1&nbsp;&amp;&amp;&nbsp;false&nbsp;is&nbsp;false,&nbsp;code&nbsp;in&nbsp;the&nbsp;else&nbsp;block&nbsp;is&nbsp;run<br /><br /></span><span style="color: #007700">print&nbsp;</span><span style="color: #DD0000">"hello&nbsp;"&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;outputs&nbsp;"world1";&nbsp;print&nbsp;"world"&nbsp;is&nbsp;evaluated&nbsp;first,<br />//&nbsp;then&nbsp;the&nbsp;expression&nbsp;"hello&nbsp;"&nbsp;&amp;&amp;&nbsp;1&nbsp;is&nbsp;passed&nbsp;to&nbsp;the&nbsp;left-hand&nbsp;print<br /><br /></span><span style="color: #007700">(print&nbsp;</span><span style="color: #DD0000">"hello&nbsp;"</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;(print&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;outputs&nbsp;"hello&nbsp;world";&nbsp;the&nbsp;parentheses&nbsp;force&nbsp;the&nbsp;print&nbsp;expressions<br />//&nbsp;to&nbsp;be&nbsp;evaluated&nbsp;before&nbsp;the&nbsp;&amp;&amp;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+  </p></blockquote>
+
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">Because this is a
 language construct and not a function, it cannot be called using
 <a href="functions.variable-functions.html" class="link">variable functions</a>.</span>
@@ -116,7 +159,7 @@ language construct and not a function, it cannot be called using
     <li class="member"><span class="function"><a href="function.echo.html" class="function" rel="rdfs-seeAlso">echo</a> - Output one or more strings</span></li>
     <li class="member"><span class="function"><a href="function.printf.html" class="function" rel="rdfs-seeAlso">printf()</a> - Output a formatted string</span></li>
     <li class="member"><span class="function"><a href="function.flush.html" class="function" rel="rdfs-seeAlso">flush()</a> - Flush system output buffer</span></li>
-    <li class="member"><a href="language.types.string.html#language.types.string.syntax.heredoc" class="link">Heredoc syntax</a></li>
+    <li class="member"><a href="language.types.string.html" class="link">Ways to specify literal strings</a></li>
    </ul>
   </p>
  </div>

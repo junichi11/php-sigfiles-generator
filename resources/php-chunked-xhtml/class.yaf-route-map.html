@@ -34,7 +34,7 @@
   <div class="section" id="yaf-route-map.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-     <strong class="classname">Yaf_Route_Map</strong> is a built-in route, it simply
+     <span class="classname"><strong class="classname">Yaf_Route_Map</strong></span> is a built-in route, it simply
      convert a URI endpoint (that part of the URI which comes after the
      base URI: see <span class="methodname"><a href="yaf-request-abstract.setbaseuri.html" class="methodname">Yaf_Request_Abstract::setBaseUri()</a></span>)
      to a controller name or action name(depends on the parameter passed to
@@ -64,42 +64,27 @@
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
-      <strong class="classname">Yaf_Route_Map</strong>
+      <span class="modifier">class</span> <strong class="classname">Yaf_Route_Map</strong>
      </span>
      
-     <span class="oointerface">implements 
-      <span class="interfacename"><a href="class.yaf-route-interface.html" class="interfacename">Yaf_Route_Interface</a></span>
-     </span>
-     {</div>
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a href="class.yaf-route-interface.html" class="interfacename">Yaf_Route_Interface</a></span> {</div>
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
     <div class="fieldsynopsis">
      <span class="modifier">protected</span>
-      <var class="varname"><a href="class.yaf-route-map.html#yaf-route-map.props.ctl-router">$<var class="varname">_ctl_router</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.yaf-route-map.html#yaf-route-map.props.ctl-router">$<var class="varname">_ctl_router</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">protected</span>
-      <var class="varname"><a href="class.yaf-route-map.html#yaf-route-map.props.delimiter">$<var class="varname">_delimiter</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">protected</span>
+      <var class="varname"><a href="class.yaf-route-map.html#yaf-route-map.props.delimiter">$<var class="varname">_delimiter</var></a></var>;</div>
 
 
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-route-map.assemble.html" class="methodname">assemble</a></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$info</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$query</code> = ?</span>
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-route-map.construct.html" class="methodname">__construct</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$controller_prefer</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code><span class="initializer"> = &quot;&quot;</span></span>
-   )</div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-route-map.route.html" class="methodname">route</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.yaf-request-abstract.html" class="type Yaf_Request_Abstract">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><a href="yaf-route-map.assemble.html" class="methodname">assemble</a></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$info</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$query</code><span class="initializer"> = ?</span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-route-map.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$controller_prefer</code><span class="initializer"> = <strong><code>false</code></strong></span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code><span class="initializer"> = &quot;&quot;</span></span>)</div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-route-map.route.html" class="methodname">route</a></span>(<span class="methodparam"><span class="type"><a href="class.yaf-request-abstract.html" class="type Yaf_Request_Abstract">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>): <span class="type">bool</span></div>
 
    }</div>
 
@@ -111,7 +96,6 @@
   <div class="section" id="yaf-route-map.props">
    <h2 class="title">Properties</h2>
    <dl>
-
     
      <dt id="yaf-route-map.props.ctl-router"><var class="varname">_ctl_router</var></dt>
 

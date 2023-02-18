@@ -35,13 +35,7 @@
  <div class="refsect1 description" id="refsect1-function.ssh2-publickey-add-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ssh2_publickey_add</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$pkey</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$algoname</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$blob</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$overwrite</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$attributes</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>ssh2_publickey_add</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$pkey</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$algoname</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$blob</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$overwrite</code><span class="initializer"> = <strong><code>false</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$attributes</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
 
 
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">The public key subsystem
@@ -57,7 +51,6 @@ using public key authentication, use the
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">pkey</code></dt>
@@ -139,7 +132,7 @@ using public key authentication, use the
  <div class="refsect1 examples" id="refsect1-function.ssh2-publickey-add-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5040">
+   <div class="example" id="example-4540">
     <p><strong>Example #1 Adding a publickey with <span class="function"><strong>ssh2_publickey_add()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

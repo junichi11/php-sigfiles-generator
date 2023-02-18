@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.spl-autoload" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">spl_autoload</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">spl_autoload</span> &mdash; <span class="dc-title">Default implementation for __autoload()</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">spl_autoload</span> &mdash; <span class="dc-title">Default implementation for __autoload()</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.spl-autoload-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>spl_autoload</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$file_extensions</code><span class="initializer"> = spl_autoload_extensions()</span></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>spl_autoload</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$file_extensions</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    This function is intended to be used as a default implementation for
@@ -51,15 +48,14 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">class_name</code></dt>
+<code class="parameter">class</code></dt>
 
      <dd>
 
       <p class="para">
-       The lowercased name of the class (and namespace) being instantiated.
+       The name of the class (and namespace) being instantiated.
       </p>
      </dd>
 
@@ -73,7 +69,7 @@
       <p class="para">
        By default it checks all include paths to
        contain filenames built up by the lowercase class name appended by the
-       filename extensions .inc and .php.       
+       filename extensions .inc and .php.
       </p>
      </dd>
 
@@ -94,10 +90,39 @@
 
  <div class="refsect1 errors" id="refsect1-function.spl-autoload-errors">
   <h3 class="title">Errors/Exceptions</h3>
-   <p class="para">
-    Throws <a href="class.logicexception.html" class="classname">LogicException</a> when the class is not found
-    and there are no other autoloaders registered.
-   </p>
+  <p class="para">
+   Throws <span class="classname"><a href="class.logicexception.html" class="classname">LogicException</a></span> when the class is not found
+   and there are no other autoloaders registered.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 changelog" id="refsect1-function.spl-autoload-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">file_extensions</code> is now nullable.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
  </div>
 
  

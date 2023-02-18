@@ -26,17 +26,28 @@
   <div id="layout-content"><div id="function.shmop-close" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">shmop_close</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">shmop_close</span> &mdash; <span class="dc-title">Close shared memory block</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">shmop_close</span> &mdash; <span class="dc-title">Close shared memory block</span></p>
 
  </div>
+
+ <div id="function.shmop-close-refsynopsisdiv">
+  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function has been
+<em class="emphasis">DEPRECATED</em> as of PHP 8.0.0. Relying on this function
+is highly discouraged.</p></div>
+ </div>
+
  <div class="refsect1 description" id="refsect1-function.shmop-close-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>shmop_close</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.shmop.html" class="type Shmop">Shmop</a></span> <code class="parameter">$shmop</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>shmop_close</strong></span>(<span class="methodparam"><span class="type"><a href="class.shmop.html" class="type Shmop">Shmop</a></span> <code class="parameter">$shmop</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
-  <p class="para rdfs-comment">
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <p class="para">
+  This function has no effect. Prior to PHP 8.0.0, this function was used to close the resource.
+ </p>
+</p></blockquote>
+
+  <p class="para">
    <span class="function"><strong>shmop_close()</strong></span> is used to close a shared memory block.
   </p>
  </div>
@@ -45,7 +56,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">shmop</code></dt>
@@ -88,7 +98,7 @@
      <tr>
       <td>8.0.0</td>
       <td>
-       <code class="parameter">shmop</code> expects a <a href="class.shmop.html" class="classname">Shmop</a>
+       <code class="parameter">shmop</code> expects a <span class="classname"><a href="class.shmop.html" class="classname">Shmop</a></span>
        instance now; previously, a <span class="type">resource</span> was expected.
       </td>
      </tr>
@@ -103,7 +113,7 @@
  <div class="refsect1 examples" id="refsect1-function.shmop-close-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3905">
+   <div class="example" id="example-3406">
     <p><strong>Example #1 Closing shared memory block</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

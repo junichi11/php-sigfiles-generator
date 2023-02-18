@@ -32,7 +32,6 @@ will only be available when the extension has either
 been compiled into PHP or dynamically loaded at runtime.
 </p>
  <dl>
-
   
    <dt id="constant.input-post">
     <strong><code>INPUT_POST</code></strong>
@@ -218,6 +217,20 @@ been compiled into PHP or dynamically loaded at runtime.
 
   
   
+   <dt id="constant.filter-validate-bool">
+    <strong><code>FILTER_VALIDATE_BOOL</code></strong>
+     (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Alias of <strong><code>FILTER_VALIDATE_BOOLEAN</code></strong>.
+    </span>
+   </dd>
+
+  
+  
    <dt id="constant.filter-validate-boolean">
     <strong><code>FILTER_VALIDATE_BOOLEAN</code></strong>
      (<span class="type">int</span>)
@@ -326,7 +339,6 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      ID of &quot;validate_mac_address&quot; filter.
-     (Available as of PHP 5.5.0)
     </span>
    </dd>
 
@@ -370,6 +382,8 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      ID of &quot;string&quot; filter.
+     (<em class="emphasis">Deprecated</em> as of PHP 8.1.0,
+     use <span class="function"><a href="function.htmlspecialchars.html" class="function">htmlspecialchars()</a></span> instead.)
     </span>
    </dd>
 
@@ -384,6 +398,8 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      ID of &quot;stripped&quot; filter.
+     (<em class="emphasis">Deprecated</em> as of PHP 8.1.0,
+     use <span class="function"><a href="function.htmlspecialchars.html" class="function">htmlspecialchars()</a></span> instead.)
     </span>
    </dd>
 
@@ -482,7 +498,9 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      ID of &quot;magic_quotes&quot; filter.
-     (Deprecated per PHP 7.3.0, use FILTER_SANITIZE_ADD_SLASHES instead.)
+     (<em class="emphasis">DEPRECATED</em> as of PHP 7.3.0 and
+     <em class="emphasis">REMOVED</em> as of  PHP 8.0.0,
+     use <strong><code>FILTER_SANITIZE_ADD_SLASHES</code></strong> instead.)
     </span>
    </dd>
 
@@ -582,7 +600,6 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      Strips backtick characters.
-     (Available as of PHP 5.3.2)
     </span>
    </dd>
 
@@ -738,7 +755,7 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      Require scheme in &quot;validate_url&quot; filter.
-     (Deprecated per PHP 7.3 as it is implied in the filter already.)
+     (Deprecated as of PHP 7.3.0 and removed as of PHP 8.0.0, as it is implied in the filter already.)
     </span>
    </dd>
 
@@ -753,7 +770,7 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      Require host in &quot;validate_url&quot; filter.
-     (Deprecated per PHP 7.3 as it is implied in the filter already.)
+     (Deprecated as of PHP 7.3.0 and removed as of PHP 8.0.0, as it is implied in the filter already.)
     </span>
    </dd>
 

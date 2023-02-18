@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.array-filter" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_filter</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_filter</span> &mdash; <span class="dc-title">Filters elements of an array using a callback function</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">array_filter</span> &mdash; <span class="dc-title">Filters elements of an array using a callback function</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.array-filter-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>array_filter</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
-   , <span class="methodparam"><span class="type"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>|<span class="type">null</span></span> <code class="parameter">$callback</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>array_filter</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span><span class="type"></span></span> <code class="parameter">$callback</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0</span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Iterates over each value in the <code class="parameter">array</code>
@@ -57,7 +53,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
 
     
      <dt>
@@ -150,13 +145,12 @@
      </tr>
 
      <tr>
-      <td>5.6.0</td>
-      <td>
-       Added optional <code class="parameter">mode</code> parameter and constants 
-       <strong><code>ARRAY_FILTER_USE_KEY</code></strong> and 
-       <strong><code>ARRAY_FILTER_USE_BOTH</code></strong>
-      </td>
-     </tr>
+ <td>8.0.0</td>
+ <td>
+  If <code class="parameter">callback</code> expects a parameter to be passed
+  by reference, this function will now emit an <strong><code>E_WARNING</code></strong>.
+ </td>
+</tr>
 
     </tbody>
    
@@ -170,7 +164,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-filter-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5424">
+   <div class="example" id="example-4917">
     <p><strong>Example #1 <span class="function"><strong>array_filter()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -200,7 +194,7 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5425">
+   <div class="example" id="example-4918">
     <p><strong>Example #2 <span class="function"><strong>array_filter()</strong></span> without
     <code class="parameter">callback</code></strong></p>
     <div class="example-contents">
@@ -221,7 +215,7 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5426">
+   <div class="example" id="example-4919">
     <p><strong>Example #3 <span class="function"><strong>array_filter()</strong></span> with 
     <code class="parameter">mode</code></strong></p>
     <div class="example-contents">
@@ -261,11 +255,12 @@ array(2) {
   </div>
  </div>
 
- 
+
  <div class="refsect1 seealso" id="refsect1-function.array-filter-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.array-intersect.html" class="function" rel="rdfs-seeAlso">array_intersect()</a> - Computes the intersection of arrays</span></li>
     <li class="member"><span class="function"><a href="function.array-map.html" class="function" rel="rdfs-seeAlso">array_map()</a> - Applies the callback to the elements of the given arrays</span></li>
     <li class="member"><span class="function"><a href="function.array-reduce.html" class="function" rel="rdfs-seeAlso">array_reduce()</a> - Iteratively reduce the array to a single value using a callback function</span></li>
     <li class="member"><span class="function"><a href="function.array-walk.html" class="function" rel="rdfs-seeAlso">array_walk()</a> - Apply a user supplied function to every member of an array</span></li>

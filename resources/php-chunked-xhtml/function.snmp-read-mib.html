@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.snmp-read-mib" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">snmp_read_mib</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">snmp_read_mib</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">snmp_read_mib</span> &mdash; <span class="dc-title">
    Reads and parses a MIB file into the active MIB tree
   </span></p>
 
@@ -34,19 +34,17 @@
  <div class="refsect1 description" id="refsect1-function.snmp-read-mib-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>snmp_read_mib</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>snmp_read_mib</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>): <span class="type">bool</span></div>
 
   
   <p class="para rdfs-comment">
    This function is used to load additional, e.g. vendor specific, MIBs so that
-   human readable OIDs like VENDOR-MIB::foo.1 instead of error prone numeric OIDs
+   human readable OIDs like <code class="literal">VENDOR-MIB::foo.1</code> instead of error prone numeric OIDs
    can be used.
   </p>
   <p class="para">
    The order in which the MIBs are loaded does matter as the underlying Net-SNMP
-   libary will print warnings if referenced objects cannot be resolved.
+   library will print warnings if referenced objects cannot be resolved.
   </p>
   
  </div>
@@ -56,7 +54,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">filename</code></dt>
@@ -70,11 +67,19 @@
   </p>
  </div>
 
+
+ <div class="refsect1 returnvalues" id="refsect1-function.snmp-read-mib-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
+  </p>
+ </div>
+
  
  <div class="refsect1 examples" id="refsect1-function.snmp-read-mib-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4974">
+   <div class="example" id="example-4474">
     <p><strong>Example #1 Using <span class="function"><strong>snmp_read_mib()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

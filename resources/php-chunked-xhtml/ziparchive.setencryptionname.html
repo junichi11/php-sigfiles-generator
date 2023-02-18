@@ -26,17 +26,13 @@
   <div id="layout-content"><div id="ziparchive.setencryptionname" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ZipArchive::setEncryptionName</h1>
-  <p class="verinfo">(PHP &gt;= 7.2.0, PECL zip &gt;= 1.14.0)</p><p class="refpurpose"><span class="refname">ZipArchive::setEncryptionName</span> &mdash; <span class="dc-title">Set the encryption method of an entry defined by its name</span></p>
+  <p class="verinfo">(PHP &gt;= 7.2.0, PHP 8, PECL zip &gt;= 1.14.0)</p><p class="refpurpose"><span class="refname">ZipArchive::setEncryptionName</span> &mdash; <span class="dc-title">Set the encryption method of an entry defined by its name</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-ziparchive.setencryptionname-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ZipArchive::setEncryptionName</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$method</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$password</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ZipArchive::setEncryptionName</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$method</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$password</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Set the encryption method of an entry defined by its name.
@@ -47,7 +43,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">name</code></dt>
@@ -132,7 +127,7 @@
      the file <var class="filename">test.txt</var>
      encrypted using the AES 256 method.
     </p>
-    <div class="example" id="example-848">
+    <div class="example" id="example-853">
      <p><strong>Example #1 Archive and encrypt a file</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

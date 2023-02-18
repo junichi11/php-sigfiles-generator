@@ -26,29 +26,64 @@
   <div id="layout-content"><div id="domdocument.createdocumentfragment" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">DOMDocument::createDocumentFragment</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">DOMDocument::createDocumentFragment</span> &mdash; <span class="dc-title">Create new document fragment</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DOMDocument::createDocumentFragment</span> &mdash; <span class="dc-title">Create new document fragment</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-domdocument.createdocumentfragment-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DOMDocument::createDocumentFragment</strong></span>
-    (
-   ) : <span class="type"><span class="type"><a href="class.domdocumentfragment.html" class="type DOMDocumentFragment">DOMDocumentFragment</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DOMDocument::createDocumentFragment</strong></span>(): <span class="type"><a href="class.domdocumentfragment.html" class="type DOMDocumentFragment">DOMDocumentFragment</a></span></div>
 
   <p class="para rdfs-comment">
    This function creates a new instance of class 
-   <a href="class.domdocumentfragment.html" class="classname">DOMDocumentFragment</a>. This node will not show up in the document unless
+   <span class="classname"><a href="class.domdocumentfragment.html" class="classname">DOMDocumentFragment</a></span>. This node will not show up in the document unless
 it is inserted with (e.g.) <span class="function"><a href="domnode.appendchild.html" class="function">DOMNode::appendChild()</a></span>.
   </p>
  </div>
 
+
+ <div class="refsect1 parameters" id="refsect1-domdocument.createdocumentfragment-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+ 
  <div class="refsect1 returnvalues" id="refsect1-domdocument.createdocumentfragment-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The new <a href="class.domdocumentfragment.html" class="classname">DOMDocumentFragment</a> or <strong><code>false</code></strong> if an error occurred.
+   The new <span class="classname"><a href="class.domdocumentfragment.html" class="classname">DOMDocumentFragment</a></span>.
   </p>
  </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-domdocument.createdocumentfragment-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.1.0</td>
+      <td>
+       In case of an error, a <span class="classname"><a href="class.domexception.html" class="classname">DomException</a></span> is thrown now.
+       Previously, <strong><code>false</code></strong> was returned.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 seealso" id="refsect1-domdocument.createdocumentfragment-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">

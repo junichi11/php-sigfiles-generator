@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="language.constants.html">« Constants</a></li>
-      <li style="float: right;"><a href="language.constants.predefined.html">Magic constants »</a></li>
+      <li style="float: right;"><a href="language.constants.predefined.html">Predefined constants »</a></li>
     </ul>
   </div>
 </div>
@@ -61,7 +61,7 @@
    </p></blockquote>
 
    <p class="simpara">
-    If an undefined constant is used an <a href="class.error.html" class="classname">Error</a> is thrown.
+    If an undefined constant is used an <span class="classname"><a href="class.error.html" class="classname">Error</a></span> is thrown.
     Prior to PHP 8.0.0, undefined constants would be interpreted as a bare
     word <span class="type">string</span>, i.e. (CONSTANT vs &quot;CONSTANT&quot;). 
     This fallback is deprecated as of PHP 7.2.0, and an error of level
@@ -72,7 +72,7 @@
     <a href="language.types.array.html#language.types.array.foo-bar" class="link">$foo[bar]</a> is
     wrong (unless <code class="literal">bar</code> is a constant).
     This does not apply to <a href="language.namespaces.rules.html" class="link">(fully) qualified constants</a>,
-    which will always raise a <a href="class.error.html" class="classname">Error</a> if undefined.
+    which will always raise a <span class="classname"><a href="class.error.html" class="classname">Error</a></span> if undefined.
    </p>
 
    <blockquote class="note"><p><strong class="note">Note</strong>: 
@@ -111,7 +111,7 @@
    </p>
 
    <p class="para">
-    <div class="example" id="example-107">
+    <div class="example" id="example-105">
      <p><strong>Example #1 Defining Constants</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -124,7 +124,7 @@
    </p>
 
    <p class="para">
-    <div class="example" id="example-108">
+    <div class="example" id="example-106">
      <p><strong>Example #2 Defining Constants using the <code class="literal">const</code> keyword</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -142,8 +142,8 @@
      constants defined using the <code class="literal">const</code> keyword must be
      declared at the top-level scope because they are defined at compile-time.
      This means that they cannot be declared inside functions, loops,
-     <code class="literal">if</code> statements or <code class="literal">try</code>/
-     <code class="literal">catch</code> blocks.
+     <code class="literal">if</code> statements or
+     <code class="literal">try</code>/<code class="literal">catch</code> blocks.
     </p>
    </p></blockquote>
 

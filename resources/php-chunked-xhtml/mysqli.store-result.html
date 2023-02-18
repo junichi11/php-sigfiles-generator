@@ -27,28 +27,22 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli::store_result</h1>
   <h1 class="refname">mysqli_store_result</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli::store_result</span> -- <span class="refname">mysqli_store_result</span> &mdash; <span class="dc-title">Transfers a result set from the last query</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mysqli::store_result</span> -- <span class="refname">mysqli_store_result</span> &mdash; <span class="dc-title">Transfers a result set from the last query</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-mysqli.store-result-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>mysqli::store_result</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code> = ?</span>
-   ) : <span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>mysqli::store_result</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0</span></span>): <span class="type"><span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysqli_store_result</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$link</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code> = ?</span>
-   ) : <span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>mysqli_store_result</strong></span>(<span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$mysql</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0</span></span>): <span class="type"><span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Transfers the result set from the last query on the database connection
-   represented by the <code class="parameter">link</code> parameter to be used with
+   represented by the <code class="parameter">mysql</code> parameter to be used with
    the <span class="function"><a href="mysqli-result.data-seek.html" class="function">mysqli_data_seek()</a></span> function.
   </p>
  </div>
@@ -58,24 +52,23 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
    <dt>
-<code class="parameter">
-link</code></dt>
+
+<code class="parameter">mysql</code></dt>
 <dd>
-<p class="para">Procedural style only: A link identifier
+<p class="para">Procedural style only: A <span class="classname"><a href="class.mysqli.html" class="classname">mysqli</a></span> object
 returned by <span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span> or <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span>
 </p></dd>
 
    
      <dt>
-<code class="parameter">option</code></dt>
+<code class="parameter">mode</code></dt>
 
      <dd>
 
       <p class="para">
        The option that you want to set. It can be one of the following values:
-       <table class="doctable table">
+       <table id="mysqli.store-result.parameters" class="doctable table">
         <caption><strong>Valid options</strong></caption>
         
          <thead>
@@ -134,6 +127,14 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
  </div>
 
 
+ <div class="refsect1 examples" id="refsect1-mysqli.store-result-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   See <span class="function"><a href="mysqli.multi-query.html" class="function">mysqli_multi_query()</a></span>.
+  </p>
+ </div>
+
+
  <div class="refsect1 notes" id="refsect1-mysqli.store-result-notes">
   <h3 class="title">Notes</h3>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
@@ -145,14 +146,6 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
     important.
    </p>
   </p></blockquote>
- </div>
-
-
- <div class="refsect1 examples" id="refsect1-mysqli.store-result-examples">
-  <h3 class="title">Examples</h3>
-  <p class="para">
-   See <span class="function"><a href="mysqli.multi-query.html" class="function">mysqli_multi_query()</a></span>.
-  </p>
  </div>
 
 

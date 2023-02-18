@@ -26,22 +26,26 @@
   <div id="layout-content"><div id="function.restore-error-handler" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">restore_error_handler</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">restore_error_handler</span> &mdash; <span class="dc-title">Restores the previous error handler function</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">restore_error_handler</span> &mdash; <span class="dc-title">Restores the previous error handler function</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.restore-error-handler-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>restore_error_handler</strong></span>
-    (
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>restore_error_handler</strong></span>(): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Used after changing the error handler function using
    <span class="function"><a href="function.set-error-handler.html" class="function">set_error_handler()</a></span>, to revert to the previous error
    handler (which could be the built-in or a user defined function). 
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.restore-error-handler-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -56,7 +60,7 @@
  <div class="refsect1 examples" id="refsect1-function.restore-error-handler-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-490">
+   <div class="example" id="example-506">
     <p><strong>Example #1 <span class="function"><strong>restore_error_handler()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      Decide if <span class="function"><a href="function.unserialize.html" class="function">unserialize()</a></span> caused an error, then

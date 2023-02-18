@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.pg-update" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_update</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_update</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_update</span> &mdash; <span class="dc-title">
    Update table
   </span></p>
 
@@ -35,36 +35,23 @@
  <div class="refsect1 description" id="refsect1-function.pg-update-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_update</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$table_name</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$data</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$condition</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = PGSQL_DML_EXEC</span></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="methodname"><strong>pg_update</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.pgsql-connection.html" class="type PgSql\Connection">PgSql\Connection</a></span> <code class="parameter">$connection</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$table_name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$values</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$conditions</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>PGSQL_DML_EXEC</code></strong></span></span><br>): <span class="type"><span class="type">string</span>|<span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_update()</strong></span> updates records that matches
-   <code class="literal">condition</code> with <code class="literal">data</code>. If
-   <code class="literal">options</code> is specified,
-   <span class="function"><a href="function.pg-convert.html" class="function">pg_convert()</a></span> is applied to
-   <code class="literal">data</code> with specified options.
+   <code class="parameter">conditions</code> with <code class="parameter">values</code>.
   </p>
   <p class="para">
-   <span class="function"><strong>pg_update()</strong></span> updates records specified by
-   <code class="literal">assoc_array</code> which has
-   <code class="literal">field=&gt;value</code>.
-  </p>
-  <p class="para">If <code class="literal">options</code> is specified,
+   If <code class="parameter">flags</code> is specified,
    <span class="function"><a href="function.pg-convert.html" class="function">pg_convert()</a></span> is applied to
-   <code class="literal">assoc_array</code> with the specified flags.
+   <code class="parameter">values</code> with the specified flags.
   </p>
   <p class="para">
-   By default <span class="function"><strong>pg_update()</strong></span> passes raw values. Values
-   must be escaped or PGSQL_DML_ESCAPE option must be
-   specified. PGSQL_DML_ESCAPE quotes and escapes
-   parameters/identifiers. Therefore, table/column names became case
-   sensitive.
+   By default <span class="function"><strong>pg_update()</strong></span> passes raw values.
+   Values must be escaped or the <strong><code>PGSQL_DML_ESCAPE</code></strong> flag
+   must be specified in <code class="parameter">flags</code>.
+   <strong><code>PGSQL_DML_ESCAPE</code></strong> quotes and escapes parameters/identifiers.
+   Therefore, table/column names become case sensitive.
   </p>
   <p class="para">
    Note that neither escape nor prepared query can protect LIKE query,
@@ -78,16 +65,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">connection</code></dt>
 
      <dd>
 
-      <p class="para">
-       PostgreSQL database connection resource.
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span> instance.</p>
      </dd>
 
     
@@ -105,7 +89,7 @@
     
     
      <dt>
-<code class="parameter">data</code></dt>
+<code class="parameter">values</code></dt>
 
      <dd>
 
@@ -118,7 +102,7 @@
     
     
      <dt>
-<code class="parameter">condition</code></dt>
+<code class="parameter">conditions</code></dt>
 
      <dd>
 
@@ -131,7 +115,7 @@
     
     
      <dt>
-<code class="parameter">options</code></dt>
+<code class="parameter">flags</code></dt>
 
      <dd>
 
@@ -142,7 +126,7 @@
        <strong><code>PGSQL_DML_EXEC</code></strong>,
        <strong><code>PGSQL_DML_ASYNC</code></strong> or
        <strong><code>PGSQL_DML_STRING</code></strong> combined. If <strong><code>PGSQL_DML_STRING</code></strong> is part of the
-       <code class="parameter">options</code> then query string is returned. When <strong><code>PGSQL_DML_NO_CONV</code></strong>
+       <code class="parameter">flags</code> then query string is returned. When <strong><code>PGSQL_DML_NO_CONV</code></strong>
        or <strong><code>PGSQL_DML_ESCAPE</code></strong> is set, it does not call <span class="function"><a href="function.pg-convert.html" class="function">pg_convert()</a></span> internally.
       </p>
      </dd>
@@ -158,15 +142,43 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.  Returns <span class="type">string</span> if <strong><code>PGSQL_DML_STRING</code></strong> is passed
-   via <code class="parameter">options</code>.
+   via <code class="parameter">flags</code>.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.pg-update-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">connection</code> parameter expects an <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
  
  <div class="refsect1 examples" id="refsect1-function.pg-update-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2404">
+   <div class="example" id="example-1958">
     <p><strong>Example #1 <span class="function"><strong>pg_update()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -176,44 +188,6 @@
     </div>
 
    </div>
-  </p>
- </div>
-
-
- <div class="refsect1 changelog" id="refsect1-function.pg-update-changelog">
-  <h3 class="title">Changelog</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>Version</th>
-       <th>Description</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.6.0</td>
-       <td>
-        No longer experimental. Added <strong><code>PGSQL_DML_ESCAPE</code></strong> constant,
-        <strong><code>true</code></strong>/<strong><code>false</code></strong> and <strong><code>null</code></strong> data type support.
-       </td>
-      </tr>
-
-      <tr>
-       <td>5.5.3/5.4.19</td>
-       <td>
-        Direct SQL injection to <code class="parameter">table_name</code> and Indirect 
-        SQL injection to identifiers are fixed.
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
   </p>
  </div>
 

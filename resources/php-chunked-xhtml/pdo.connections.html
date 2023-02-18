@@ -34,7 +34,7 @@
   password (if any).
  </p>
  <p class="para">
-  <div class="example" id="example-988">
+  <div class="example" id="example-994">
    <p><strong>Example #1 Connecting to MySQL</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -53,7 +53,7 @@
   <span class="function"><a href="function.set-exception-handler.html" class="function">set_exception_handler()</a></span>.
  </p>
  <p class="para">
-  <div class="example" id="odbc-data-source.example.basic"><p><strong>Example #2 Handling connection errors</strong></p>
+  <div class="example" id="example-995"><p><strong>Example #2 Handling connection errors</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'mysql:host=localhost;dbname=test'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$pass</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;*&nbsp;from&nbsp;FOO'</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$row</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">PDOException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"Error!:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">"&lt;br/&gt;"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;die();<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -92,7 +92,7 @@
   </span>
  </p></blockquote>
  <p class="para">
-  <div class="example" id="example-990">
+  <div class="example" id="example-996">
    <p><strong>Example #3 Closing a connection</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -113,7 +113,7 @@
   application.
  </p>
  <p class="para">
-  <div class="example" id="example-991">
+  <div class="example" id="example-997">
    <p><strong>Example #4 Persistent connections</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

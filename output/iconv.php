@@ -12,7 +12,7 @@ namespace {
 	 * @param string $string <p>The string to be converted.</p>
 	 * @return string|false <p>Returns the converted string or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.iconv.php
-	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7, PHP 8
 	 */
 	function iconv(string $from_encoding, string $to_encoding, string $string): string|false {}
 
@@ -23,7 +23,7 @@ namespace {
 	 * @return array|string|false <p>Returns the current value of the internal configuration variable if successful or <b><code>false</code></b> on failure.</p><p>If <code>type</code> is omitted or set to "all", <b>iconv_get_encoding()</b> returns an array that stores all these variables.</p>
 	 * @link https://php.net/manual/en/function.iconv-get-encoding.php
 	 * @see iconv_set_encoding(), ob_iconv_handler()
-	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7, PHP 8
 	 */
 	function iconv_get_encoding(string $type = "all"): array|string|false {}
 
@@ -32,26 +32,26 @@ namespace {
 	 * <p>Decodes a <code>MIME</code> header field.</p>
 	 * @param string $string <p>The encoded header, as a string.</p>
 	 * @param int $mode <p><code>mode</code> determines the behaviour in the event <b>iconv_mime_decode()</b> encounters a malformed <code>MIME</code> header field. You can specify any combination of the following bitmasks.</p> <b>Bitmasks acceptable to <b>iconv_mime_decode()</b></b>   Value Constant Description     1 ICONV_MIME_DECODE_STRICT  If set, the given header is decoded in full conformance with the standards defined in RFC2047. This option is disabled by default because there are a lot of broken mail user agents that don't follow the specification and don't produce correct <code>MIME</code> headers.    2 ICONV_MIME_DECODE_CONTINUE_ON_ERROR  If set, <code>iconv_mime_decode_headers()</code> attempts to ignore any grammatical errors and continue to process a given header.
-	 * @param string|null $encoding <p>The optional <code>encoding</code> parameter specifies the character set to represent the result by. If omitted or <b><code>null</code></b>, iconv.internal_encoding will be used.</p>
+	 * @param ?string $encoding <p>The optional <code>encoding</code> parameter specifies the character set to represent the result by. If omitted or <b><code>null</code></b>, iconv.internal_encoding will be used.</p>
 	 * @return string|false <p>Returns a decoded <code>MIME</code> field on success, or <b><code>false</code></b> if an error occurs during the decoding.</p>
 	 * @link https://php.net/manual/en/function.iconv-mime-decode.php
 	 * @see iconv_mime_decode_headers(), mb_decode_mimeheader(), imap_mime_header_decode(), imap_base64(), imap_qprint()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
-	function iconv_mime_decode(string $string, int $mode = 0, string|null $encoding = null): string|false {}
+	function iconv_mime_decode(string $string, int $mode = 0, ?string $encoding = null): string|false {}
 
 	/**
 	 * Decodes multiple MIME header fields at once
 	 * <p>Decodes multiple <code>MIME</code> header fields at once.</p>
 	 * @param string $headers <p>The encoded headers, as a string.</p>
 	 * @param int $mode <p><code>mode</code> determines the behaviour in the event <b>iconv_mime_decode_headers()</b> encounters a malformed <code>MIME</code> header field. You can specify any combination of the following bitmasks.</p> <b>Bitmasks acceptable to <b>iconv_mime_decode_headers()</b></b>   Value Constant Description     1 ICONV_MIME_DECODE_STRICT  If set, the given header is decoded in full conformance with the standards defined in RFC2047. This option is disabled by default because there are a lot of broken mail user agents that don't follow the specification and don't produce correct <code>MIME</code> headers.    2 ICONV_MIME_DECODE_CONTINUE_ON_ERROR  If set, <b>iconv_mime_decode_headers()</b> attempts to ignore any grammatical errors and continue to process a given header.
-	 * @param string|null $encoding <p>The optional <code>encoding</code> parameter specifies the character set to represent the result by. If omitted or <b><code>null</code></b>, iconv.internal_encoding will be used.</p>
-	 * @return array|false <p>Returns an associative array that holds a whole set of <code>MIME</code> header fields specified by <code>headers</code> on success, or <b><code>false</code></b> if an error occurs during the decoding.</p><p>Each key of the return value represents an individual field name and the corresponding element represents a field value. If more than one field of the same name are present, <b>iconv_mime_decode_headers()</b> automatically incorporates them into a numerically indexed array in the order of occurrence.</p>
+	 * @param ?string $encoding <p>The optional <code>encoding</code> parameter specifies the character set to represent the result by. If omitted or <b><code>null</code></b>, iconv.internal_encoding will be used.</p>
+	 * @return array|false <p>Returns an associative array that holds a whole set of <code>MIME</code> header fields specified by <code>headers</code> on success, or <b><code>false</code></b> if an error occurs during the decoding.</p><p>Each key of the return value represents an individual field name and the corresponding element represents a field value. If more than one field of the same name are present, <b>iconv_mime_decode_headers()</b> automatically incorporates them into a numerically indexed array in the order of occurrence. Note that header names are not <i>case-insensitive</i>.</p>
 	 * @link https://php.net/manual/en/function.iconv-mime-decode-headers.php
 	 * @see iconv_mime_decode(), mb_decode_mimeheader(), imap_mime_header_decode(), imap_base64(), imap_qprint()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
-	function iconv_mime_decode_headers(string $headers, int $mode = 0, string|null $encoding = null): array|false {}
+	function iconv_mime_decode_headers(string $headers, int $mode = 0, ?string $encoding = null): array|false {}
 
 	/**
 	 * Composes a MIME header field
@@ -62,7 +62,7 @@ namespace {
 	 * @return string|false <p>Returns an encoded <code>MIME</code> field on success, or <b><code>false</code></b> if an error occurs during the encoding.</p>
 	 * @link https://php.net/manual/en/function.iconv-mime-encode.php
 	 * @see imap_binary(), mb_encode_mimeheader(), imap_8bit(), quoted_printable_encode()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function iconv_mime_encode(string $field_name, string $field_value, array $options = []): string|false {}
 
@@ -74,7 +74,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.iconv-set-encoding.php
 	 * @see iconv_get_encoding(), ob_iconv_handler()
-	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7, PHP 8
 	 */
 	function iconv_set_encoding(string $type, string $encoding): bool {}
 
@@ -82,13 +82,13 @@ namespace {
 	 * Returns the character count of string
 	 * <p>In contrast to <code>strlen()</code>, <b>iconv_strlen()</b> counts the occurrences of characters in the given byte sequence <code>string</code> on the basis of the specified character set, the result of which is not necessarily identical to the length of the string in byte.</p>
 	 * @param string $string <p>The string.</p>
-	 * @param string|null $encoding <p>If <code>encoding</code> parameter is omitted or <b><code>null</code></b>, <code>string</code> is assumed to be encoded in iconv.internal_encoding.</p>
+	 * @param ?string $encoding <p>If <code>encoding</code> parameter is omitted or <b><code>null</code></b>, <code>string</code> is assumed to be encoded in iconv.internal_encoding.</p>
 	 * @return int|false <p>Returns the character count of <code>string</code>, as an integer, or <b><code>false</code></b> if an error occurs during the encoding.</p>
 	 * @link https://php.net/manual/en/function.iconv-strlen.php
 	 * @see grapheme_strlen(), mb_strlen(), strlen()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
-	function iconv_strlen(string $string, string|null $encoding = null): int|false {}
+	function iconv_strlen(string $string, ?string $encoding = null): int|false {}
 
 	/**
 	 * Finds position of first occurrence of a needle within a haystack
@@ -96,40 +96,40 @@ namespace {
 	 * @param string $haystack <p>The entire string.</p>
 	 * @param string $needle <p>The searched substring.</p>
 	 * @param int $offset <p>The optional <code>offset</code> parameter specifies the position from which the search should be performed. If the offset is negative, it is counted from the end of the string.</p>
-	 * @param string|null $encoding <p>If <code>encoding</code> parameter is omitted or <b><code>null</code></b>, <code>string</code> are assumed to be encoded in iconv.internal_encoding.</p>
+	 * @param ?string $encoding <p>If <code>encoding</code> parameter is omitted or <b><code>null</code></b>, <code>string</code> are assumed to be encoded in iconv.internal_encoding.</p>
 	 * @return int|false <p>Returns the numeric position of the first occurrence of <code>needle</code> in <code>haystack</code>.</p><p>If <code>needle</code> is not found, <b>iconv_strpos()</b> will return <b><code>false</code></b>.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.iconv-strpos.php
 	 * @see strpos(), iconv_strrpos(), mb_strpos()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
-	function iconv_strpos(string $haystack, string $needle, int $offset = 0, string|null $encoding = null): int|false {}
+	function iconv_strpos(string $haystack, string $needle, int $offset = 0, ?string $encoding = null): int|false {}
 
 	/**
 	 * Finds the last occurrence of a needle within a haystack
 	 * <p>Finds the last occurrence of a <code>needle</code> within a <code>haystack</code>.</p><p>In contrast to <code>strrpos()</code>, the return value of <b>iconv_strrpos()</b> is the number of characters that appear before the needle, rather than the offset in bytes to the position where the needle has been found. The characters are counted on the basis of the specified character set <code>encoding</code>.</p>
 	 * @param string $haystack <p>The entire string.</p>
 	 * @param string $needle <p>The searched substring.</p>
-	 * @param string|null $encoding <p>If <code>encoding</code> parameter is omitted or <b><code>null</code></b>, <code>string</code> are assumed to be encoded in iconv.internal_encoding.</p>
+	 * @param ?string $encoding <p>If <code>encoding</code> parameter is omitted or <b><code>null</code></b>, <code>string</code> are assumed to be encoded in iconv.internal_encoding.</p>
 	 * @return int|false <p>Returns the numeric position of the last occurrence of <code>needle</code> in <code>haystack</code>.</p><p>If <code>needle</code> is not found, <b>iconv_strrpos()</b> will return <b><code>false</code></b>.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.iconv-strrpos.php
 	 * @see strrpos(), iconv_strpos(), mb_strrpos()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
-	function iconv_strrpos(string $haystack, string $needle, string|null $encoding = null): int|false {}
+	function iconv_strrpos(string $haystack, string $needle, ?string $encoding = null): int|false {}
 
 	/**
 	 * Cut out part of a string
 	 * <p>Cuts a portion of <code>string</code> specified by the <code>offset</code> and <code>length</code> parameters.</p>
 	 * @param string $string <p>The original string.</p>
 	 * @param int $offset <p>If <code>offset</code> is non-negative, <b>iconv_substr()</b> cuts the portion out of <code>string</code> beginning at <code>offset</code>'th character, counting from zero.</p> <p>If <code>offset</code> is negative, <b>iconv_substr()</b> cuts out the portion beginning at the position, <code>offset</code> characters away from the end of <code>string</code>.</p>
-	 * @param int|null $length <p>If <code>length</code> is given and is positive, the return value will contain at most <code>length</code> characters of the portion that begins at <code>offset</code> (depending on the length of <code>string</code>).</p> <p>If negative <code>length</code> is passed, <b>iconv_substr()</b> cuts the portion out of <code>string</code> from the <code>offset</code>'th character up to the character that is <code>length</code> characters away from the end of the string. In case <code>offset</code> is also negative, the start position is calculated beforehand according to the rule explained above.</p>
-	 * @param string|null $encoding <p>If <code>encoding</code> parameter is omitted or <b><code>null</code></b>, <code>string</code> are assumed to be encoded in iconv.internal_encoding.</p> <p>Note that <code>offset</code> and <code>length</code> parameters are always deemed to represent offsets that are calculated on the basis of the character set determined by <code>encoding</code>, whilst the counterpart <code>substr()</code> always takes these for byte offsets.</p>
+	 * @param ?int $length <p>If <code>length</code> is given and is positive, the return value will contain at most <code>length</code> characters of the portion that begins at <code>offset</code> (depending on the length of <code>string</code>).</p> <p>If negative <code>length</code> is passed, <b>iconv_substr()</b> cuts the portion out of <code>string</code> from the <code>offset</code>'th character up to the character that is <code>length</code> characters away from the end of the string. In case <code>offset</code> is also negative, the start position is calculated beforehand according to the rule explained above.</p>
+	 * @param ?string $encoding <p>If <code>encoding</code> parameter is omitted or <b><code>null</code></b>, <code>string</code> are assumed to be encoded in iconv.internal_encoding.</p> <p>Note that <code>offset</code> and <code>length</code> parameters are always deemed to represent offsets that are calculated on the basis of the character set determined by <code>encoding</code>, whilst the counterpart <code>substr()</code> always takes these for byte offsets.</p>
 	 * @return string|false <p>Returns the portion of <code>string</code> specified by the <code>offset</code> and <code>length</code> parameters.</p><p>If <code>string</code> is shorter than <code>offset</code> characters long, <b><code>false</code></b> will be returned. If <code>string</code> is exactly <code>offset</code> characters long, an empty string will be returned.</p>
 	 * @link https://php.net/manual/en/function.iconv-substr.php
 	 * @see substr(), mb_substr(), mb_strcut()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
-	function iconv_substr(string $string, int $offset, int|null $length = null, string|null $encoding = null): string|false {}
+	function iconv_substr(string $string, int $offset, ?int $length = null, ?string $encoding = null): string|false {}
 
 	/**
 	 * Convert character encoding as output buffer handler
@@ -139,7 +139,7 @@ namespace {
 	 * @return string <p>See <code>ob_start()</code> for information about this handler return values.</p>
 	 * @link https://php.net/manual/en/function.ob-iconv-handler.php
 	 * @see iconv_get_encoding(), iconv_set_encoding()
-	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7, PHP 8
 	 */
 	function ob_iconv_handler(string $contents, int $status): string {}
 

@@ -36,8 +36,9 @@
      <ol type="1">
       <li class="listitem">
        <span class="simpara">
-        An X.509 resource returned from
-        <span class="function"><a href="function.openssl-x509-read.html" class="function">openssl_x509_read()</a></span>
+        An <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance
+        (or prior to PHP 8.0.0, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL X.509</code>)
+        returned from <span class="function"><a href="function.openssl-x509-read.html" class="function">openssl_x509_read()</a></span>
        </span>
       </li>
       <li class="listitem">
@@ -61,8 +62,9 @@
      <ol type="1">
       <li class="listitem">
        <span class="simpara">
-        A CSR resource returned from
-        <span class="function"><a href="function.openssl-csr-new.html" class="function">openssl_csr_new()</a></span>
+        An <span class="classname"><a href="class.opensslcertificatesigningrequest.html" class="classname">OpenSSLCertificateSigningRequest</a></span> instance
+        (or prior to PHP 8.0.0, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL X.509 CSR</code>)
+        returned from <span class="function"><a href="function.openssl-csr-new.html" class="function">openssl_csr_new()</a></span>
        </span>
       </li>
       <li class="listitem">
@@ -86,13 +88,18 @@
      Public/Private Keys
      <ol type="1">
       <li class="listitem">
-       <span class="simpara">A key resource returned from
-        <span class="function"><a href="function.openssl-get-publickey.html" class="function">openssl_get_publickey()</a></span> or
+       <span class="simpara">
+        An <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span> instance
+        (or prior to PHP 8.0.0, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL key</code>)
+        returned from <span class="function"><a href="function.openssl-get-publickey.html" class="function">openssl_get_publickey()</a></span> or
         <span class="function"><a href="function.openssl-get-privatekey.html" class="function">openssl_get_privatekey()</a></span>
        </span>
       </li>
       <li class="listitem">
-       <span class="simpara">For public keys only: an X.509 resource</span>
+       <span class="simpara">
+        For public keys only: an <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance
+        (or prior to PHP 8.0.0, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL X.509</code>)
+       </span>
       </li>
       <li class="listitem">
        <span class="simpara">A string having the format

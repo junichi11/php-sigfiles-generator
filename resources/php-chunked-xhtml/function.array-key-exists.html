@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="function.array-intersect.html">« array_intersect</a></li>
+      <li style="float: left;"><a href="function.array-is-list.html">« array_is_list</a></li>
       <li style="float: right;"><a href="function.array-key-first.html">array_key_first »</a></li>
     </ul>
   </div>
@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.array-key-exists" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_key_exists</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_key_exists</span> &mdash; <span class="dc-title">Checks if the given key or index exists in the array</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">array_key_exists</span> &mdash; <span class="dc-title">Checks if the given key or index exists in the array</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.array-key-exists-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>array_key_exists</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$key</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>array_key_exists</strong></span>(<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>array_key_exists()</strong></span> returns <strong><code>true</code></strong> if the
@@ -51,7 +48,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">key</code></dt>
@@ -99,7 +95,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-key-exists-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5434">
+   <div class="example" id="example-4928">
     <p><strong>Example #1 <span class="function"><strong>array_key_exists()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -110,7 +106,7 @@
 
    </div>
   </p>
-  <div class="example" id="example-5435">
+  <div class="example" id="example-4929">
    <p><strong>Example #2 <span class="function"><strong>array_key_exists()</strong></span> vs <span class="function"><a href="function.isset.html" class="function">isset()</a></span></strong></p>
    <div class="example-contents"><p>
     <span class="function"><a href="function.isset.html" class="function">isset()</a></span> does not return <strong><code>true</code></strong> for array keys
@@ -135,13 +131,12 @@
      For backward compatibility reasons, <span class="function"><strong>array_key_exists()</strong></span>
      will also return <strong><code>true</code></strong> if <code class="parameter">key</code> is a property
      defined within an <span class="type">object</span> given as
-     <code class="parameter">array</code>. This behaviour should not be relied upon,
-     and care should be taken to ensure that <code class="parameter">array</code> is
-     an <span class="type">array</span>.
+     <code class="parameter">array</code>. This behaviour is deprecated as of PHP 7.4.0,
+     and removed as of PHP 8.0.0.
     </p>
     <p class="para">
-     To check whether a property exists in an object, use
-     <span class="function"><a href="function.property-exists.html" class="function">property_exists()</a></span>.
+     To check whether a property exists in an object,
+     <span class="function"><a href="function.property-exists.html" class="function">property_exists()</a></span> should be used.
     </p>
   </p></blockquote>
  </div>

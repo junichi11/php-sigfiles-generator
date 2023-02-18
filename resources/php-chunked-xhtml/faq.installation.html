@@ -256,7 +256,7 @@ cgi error:
        <li class="listitem">
         <p class="para">
          You should include your backtrace in your bug report. This should be submitted to 
-         <a href="https://bugs.php.net/" class="link external">&raquo;&nbsp;https://bugs.php.net/</a> 
+         <a href="https://github.com/php/php-src/issues" class="link external">&raquo;&nbsp;https://github.com/php/php-src/issues</a> 
         </p>
        </li>
       </ul>
@@ -534,7 +534,7 @@ cgi error:
     </strong></dt>
     <dd class="answer">
      <p class="para">
-      On Windows 7, XP, Vista, 2008, 2012 and up:
+      On Windows:
       <ul class="itemizedlist">
        <li class="listitem"><p class="para">
         Go to Control Panel and open the System icon (Start → Control Panel)
@@ -563,38 +563,12 @@ cgi error:
        </p></li>
       </ul>
      </p>
-     <p class="para">
-      On Windows 98/Me you need to edit the <var class="filename">autoexec.bat</var>
-      file:
-      <ul class="itemizedlist">
-       <li class="listitem"><p class="para">
-        Open the Notepad (Start → Run and enter notepad)
-       </p></li>
-       <li class="listitem"><p class="para">
-        Open the <var class="filename">C:\autoexec.bat</var> file
-       </p></li>
-       <li class="listitem"><p class="para">
-        Locate the line with PATH=C:\WINDOWS;C:\WINDOWS\COMMAND;..... and add:
-        <code class="literal">;C:\php</code> to the end of the line
-       </p></li>
-       <li class="listitem"><p class="para">
-        Save the file and restart your computer
-       </p></li>
-      </ul>
-     </p>
      <blockquote class="note"><p><strong class="note">Note</strong>: 
       <span class="simpara">
        Be sure to reboot after following the steps above to ensure that the
        <var class="envar">PATH</var> changes are applied.
       </span>
      </p></blockquote>
-     <p class="para">
-      The PHP manual used to promote the copying of files into the Windows
-      system directory, this is because this directory
-      (<var class="filename">C:\Windows</var>, <var class="filename">C:\WINNT</var>, etc.)
-      is by default in the system&#039;s <var class="envar">PATH</var>. Copying files into the Windows
-      system directory has long since been deprecated and may cause problems.
-     </p>
     </dd>
    </dl>
 
@@ -606,60 +580,10 @@ cgi error:
     </strong></dt>
     <dd class="answer">
      <p class="para">
-      There are several ways of doing this. If you are using Apache, read
-      their installation specific instructions (<a href="install.windows.legacy.index.html#install.windows.legacy.apache1" class="link">Apache 1</a>, <a href="install.windows.legacy.index.html#install.windows.legacy.apache2" class="link">Apache 2</a>), otherwise you must
-      set the <var class="varname">PHPRC</var> environment variable:
+      There are several ways of doing this. If you are using Apache,
+      refer to the Apache documentation, otherwise
+      you must set the <var class="varname">PHPRC</var> environment variable.
      </p>
-     <p class="para">
-      On Windows:
-      <ul class="itemizedlist">
-       <li class="listitem"><p class="para">
-        Go to Control Panel and open the System icon (Start → Settings
-        → Control Panel → System, or just Start → Control Panel
-        → System)
-       </p></li>
-       <li class="listitem"><p class="para">
-        Go to the Advanced tab
-       </p></li>
-       <li class="listitem"><p class="para">
-        Click on the &#039;Environment Variables&#039; button
-       </p></li>
-       <li class="listitem"><p class="para">
-        Look into the &#039;System variables&#039; pane
-       </p></li>
-       <li class="listitem"><p class="para">
-         Click on &#039;New&#039; and enter &#039;PHPRC&#039; as the variable name and the
-         directory where <var class="filename">php.ini</var> is located as the variable value (e.g.
-         <code class="literal">C:\php</code>)
-       </p></li>
-       <li class="listitem"><p class="para">
-        Press OK and restart your computer
-       </p></li>
-      </ul>
-     </p>
-     <p class="para">
-      On Windows 98/Me you need to edit the <var class="filename">autoexec.bat</var>
-      file:
-      <ul class="itemizedlist">
-       <li class="listitem"><p class="para">
-        Open the Notepad (Start → Run and enter notepad)
-       </p></li>
-       <li class="listitem"><p class="para">
-        Open the <var class="filename">C:\autoexec.bat</var> file
-       </p></li>
-       <li class="listitem"><p class="para">
-        Add a new line to the end of the file: <code class="literal">set
-         PHPRC=C:\php</code> (replace <code class="literal">C:\php</code> with the
-        directory where <var class="filename">php.ini</var> is located). Please note that the path
-        cannot contain spaces. For instance, if you have installed PHP in
-        <var class="filename">C:\Program Files\PHP</var>, you would enter
-        <var class="filename">C:\PROGRA~1\PHP</var> instead.
-       </p></li>
-       <li class="listitem"><p class="para">
-        Save the file and restart your computer
-       </p></li>
-      </ul>
-     </p>      
     </dd>
    </dl>
 

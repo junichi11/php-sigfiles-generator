@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.get-browser" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">get_browser</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">get_browser</span> &mdash; <span class="dc-title">Tells what the user&#039;s browser is capable of</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">get_browser</span> &mdash; <span class="dc-title">Tells what the user&#039;s browser is capable of</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.get-browser-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>get_browser</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$user_agent</code> = ?</span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return_array</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="methodname"><strong>get_browser</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$user_agent</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return_array</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><span class="type">object</span>|<span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Attempts to determine the capabilities of the user&#039;s browser, by looking
@@ -50,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">user_agent</code></dt>
@@ -102,13 +98,18 @@
    cookies are accepted is to set one with <span class="function"><a href="function.setcookie.html" class="function">setcookie()</a></span>,
    reload, and check for the value.
   </p>
+  <p class="para">
+    Returns <strong><code>false</code></strong> when no information can be retrieved, such as when the
+    <a href="misc.configuration.html#ini.browscap" class="link">browscap</a> configuration setting in 
+    <var class="filename">php.ini</var> has not been set.
+  </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.get-browser-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3997">
+   <div class="example" id="example-3499">
     <p><strong>Example #1 Listing all information about the users browser</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

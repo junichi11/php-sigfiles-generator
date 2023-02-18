@@ -34,8 +34,7 @@
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="para">This extension was deprecated in PHP 5.5.0, and it was removed in PHP 7.0.0.
 Instead, the <a href="book.mysqli.html" class="link">MySQLi</a> or <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> extension should be used.
-See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide and
-<a href="faq.databases.html#faq.databases.mysql.deprecated" class="link">related FAQ</a> for more information.
+See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide.
 Alternatives to this function include:</p>
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="mysqli.query.html" class="function">mysqli_query()</a></span></li>
@@ -47,10 +46,7 @@ Alternatives to this function include:</p>
  <div class="refsect1 description" id="refsect1-function.mysql-query-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysql_query</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="methodname"><strong>mysql_query</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>mysql_query()</strong></span> sends a unique query (multiple queries
@@ -65,7 +61,6 @@ Alternatives to this function include:</p>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">query</code></dt>
@@ -83,8 +78,8 @@ Alternatives to this function include:</p>
 
     
     <dt>
-<code class="parameter">
-link_identifier</code></dt>
+
+<code class="parameter">link_identifier</code></dt>
 <dd>
 <p class="para">The MySQL connection. If the
 link identifier is not specified, the last link opened by
@@ -136,7 +131,7 @@ with no arguments. If no connection is found or established, an
  <div class="refsect1 examples" id="refsect1-function.mysql-query-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2002">
+   <div class="example" id="example-1757">
     <p><strong>Example #1 Invalid Query</strong></p>
     <div class="example-contents"><p>
      The following query is syntactically invalid, so
@@ -152,7 +147,7 @@ with no arguments. If no connection is found or established, an
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2003">
+   <div class="example" id="example-1758">
     <p><strong>Example #2 Valid Query</strong></p>
     <div class="example-contents"><p>
      The following query is valid, so <span class="function"><strong>mysql_query()</strong></span>

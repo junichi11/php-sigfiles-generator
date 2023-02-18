@@ -33,10 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.var-export-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>var_export</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type"><span class="type">string</span>|<span class="type">null</span></span></div>
+   <span class="methodname"><strong>var_export</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
 
   <p class="simpara">
    <span class="function"><strong>var_export()</strong></span> gets structured information about the 
@@ -50,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">value</code></dt>
@@ -92,14 +88,6 @@
  </div>
 
 
- <div class="refsect1 notes" id="refsect1-function.var-export-notes">
-  <h3 class="title">Notes</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: <p class="para">When the <code class="parameter">return</code> parameter
-is used, this function uses internal output buffering so it cannot be used inside an
-<span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> callback function.</p></p></blockquote>
- </div>
-
-
  <div class="refsect1 changelog" id="refsect1-function.var-export-changelog">
   <h3 class="title">Changelog</h3>
   <p class="para">
@@ -117,10 +105,10 @@ is used, this function uses internal output buffering so it cannot be used insid
       <tr>
        <td>7.3.0</td>
        <td>
-        Now exports <strong class="classname">stdClass</strong> objects as an array cast to
+        Now exports <span class="classname"><strong class="classname">stdClass</strong></span> objects as an array cast to
         an object (<code class="code">(object) array( ... )</code>), rather than using the
         nonexistent method <span class="methodname"><strong>stdClass::__setState()</strong></span>.
-        The practical effect is that now <strong class="classname">stdClass</strong> is
+        The practical effect is that now <span class="classname"><strong class="classname">stdClass</strong></span> is
         exportable, and the resulting code will even work on earlier versions of
         PHP.
        </td>
@@ -137,7 +125,7 @@ is used, this function uses internal output buffering so it cannot be used insid
  <div class="refsect1 examples" id="refsect1-function.var-export-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5799">
+   <div class="example" id="example-5249">
     <p><strong>Example #1 <span class="function"><strong>var_export()</strong></span> Examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -177,7 +165,7 @@ array (
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5800">
+   <div class="example" id="example-5250">
     <p><strong>Example #2 Exporting stdClass (since PHP 7.3.0)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -198,8 +186,8 @@ array (
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5801">
-    <p><strong>Example #3 Exporting classes (since PHP 5.1.0)</strong></p>
+   <div class="example" id="example-5251">
+    <p><strong>Example #3 Exporting classes</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">A&nbsp;</span><span style="color: #007700">{&nbsp;public&nbsp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">;&nbsp;}<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">A</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">var&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -218,8 +206,8 @@ A::__set_state(array(
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5802">
-    <p><strong>Example #4 Using <a href="language.oop5.magic.html#object.set-state" class="link">__set_state()</a> (since PHP 5.1.0)</strong></p>
+   <div class="example" id="example-5252">
+    <p><strong>Example #4 Using <a href="language.oop5.magic.html#object.set-state" class="link">__set_state()</a></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">A<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$var1</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$var2</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(</span><span style="color: #0000BB">$an_array</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$obj&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">A</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">var1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$an_array</span><span style="color: #007700">[</span><span style="color: #DD0000">'var1'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">var2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$an_array</span><span style="color: #007700">[</span><span style="color: #DD0000">'var2'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">A</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">var1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">var2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">;<br /><br />eval(</span><span style="color: #DD0000">'$b&nbsp;=&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">';'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;$b&nbsp;=&nbsp;A::__set_state(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp;'var1'&nbsp;=&gt;&nbsp;5,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp;'var2'&nbsp;=&gt;&nbsp;'foo',<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$b</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -268,7 +256,7 @@ object(A)#2 (2) {
    <p class="para">
     To be able to evaluate the PHP generated by <span class="function"><strong>var_export()</strong></span>,
     all processed objects must implement the magic <a href="language.oop5.magic.html#object.set-state" class="link">__set_state</a> method. The only exception is
-    <strong class="classname">stdClass</strong>, which is exported using an array cast to
+    <span class="classname"><strong class="classname">stdClass</strong></span>, which is exported using an array cast to
     an object.
    </p>
   </p></blockquote>

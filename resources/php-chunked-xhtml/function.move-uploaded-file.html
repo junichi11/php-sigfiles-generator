@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.move-uploaded-file" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">move_uploaded_file</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.3, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">move_uploaded_file</span> &mdash; <span class="dc-title">Moves an uploaded file to a new location</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.3, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">move_uploaded_file</span> &mdash; <span class="dc-title">Moves an uploaded file to a new location</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.move-uploaded-file-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>move_uploaded_file</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$from</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$to</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>move_uploaded_file</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$from</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$to</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    This function checks to ensure that the file designated by
@@ -58,7 +55,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">from</code></dt>
@@ -112,7 +108,7 @@
  <div class="refsect1 examples" id="refsect1-function.move-uploaded-file-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2683">
+   <div class="example" id="example-2196">
     <p><strong>Example #1 Uploading multiple files</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -19,7 +19,9 @@ class PhpClass extends PhpType {
             $out .= implode(' ', $this->modifiers);
             $out .= ' ';
         }
-        $out .= 'class ';
+        if (!in_array('class', $this->modifiers, true)) {
+            $out .= 'class ';
+        }
         $out .= $this->name->getName();
         $supertypePrefix = PhpName::DEFAULT_NAMESPACE;
         $first = true;
@@ -76,7 +78,7 @@ class PhpClass extends PhpType {
 
     protected function initInternal(): void {
         parent::initInternal();
-        $this->implements = Html::queryValues($this->xpath(), './/span[@class="oointerface"]/span[@class="interfacename"]/a', $this->typeInfo, true);
+        $this->implements = Html::queryValues($this->xpath(), './/span[@class="oointerface"]/a', $this->typeInfo, true);
     }
 
 }

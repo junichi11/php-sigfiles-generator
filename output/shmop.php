@@ -14,12 +14,12 @@ namespace {
 
 	/**
 	 * Close shared memory block
-	 * <p><b>shmop_close()</b> is used to close a shared memory block.</p>
+	 * <p><b>Note</b>:</p><p>This function has no effect. Prior to PHP 8.0.0, this function was used to close the resource.</p><p><b>shmop_close()</b> is used to close a shared memory block.</p>
 	 * @param \Shmop $shmop <p>The shared memory block resource created by <code>shmop_open()</code></p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.shmop-close.php
 	 * @see shmop_open()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function shmop_close(\Shmop $shmop): void {}
 
@@ -29,7 +29,7 @@ namespace {
 	 * @param \Shmop $shmop <p>The shared memory block resource created by <code>shmop_open()</code></p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.shmop-delete.php
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function shmop_delete(\Shmop $shmop): bool {}
 
@@ -40,10 +40,10 @@ namespace {
 	 * @param string $mode <p>The flags that you can use:</p><ul> <li>  "a" for access (sets SHM_RDONLY for shmat) use this flag when you need to open an existing shared memory segment for read only  </li> <li>  "c" for create (sets IPC_CREATE) use this flag when you need to create a new shared memory segment or if a segment with the same key exists, try to open it for read and write  </li> <li>  "w" for read &amp; write access use this flag when you need to read and write to a shared memory segment, use this flag in most cases.  </li> <li>  "n" create a new memory segment (sets IPC_CREATE|IPC_EXCL) use this flag when you want to create a new shared memory segment but if one already exists with the same flag, fail. This is useful for security purposes, using this you can prevent race condition exploits.  </li> </ul>
 	 * @param int $permissions <p>The permissions that you wish to assign to your memory segment, those are the same as permission for a file. Permissions need to be passed in octal form, like for example <code>0644</code></p>
 	 * @param int $size <p>The size of the shared memory block you wish to create in bytes</p>
-	 * @return Shmop|false <p>On success <b>shmop_open()</b> will return a Shmop instance that you can use to access the shared memory segment you've created. <b><code>false</code></b> is returned on failure.</p>
+	 * @return Shmop|false <p>On success <b>shmop_open()</b> will return a <code>Shmop</code> instance that you can use to access the shared memory segment you've created. <b><code>false</code></b> is returned on failure.</p>
 	 * @link https://php.net/manual/en/function.shmop-open.php
 	 * @see shmop_close(), shmop_delete()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function shmop_open(int $key, string $mode, int $permissions, int $size): \Shmop|false {}
 
@@ -56,7 +56,7 @@ namespace {
 	 * @return string <p>Returns the data or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.shmop-read.php
 	 * @see shmop_write()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function shmop_read(\Shmop $shmop, int $offset, int $size): string {}
 
@@ -66,7 +66,7 @@ namespace {
 	 * @param \Shmop $shmop <p>The shared memory block identifier created by <code>shmop_open()</code></p>
 	 * @return int <p>Returns an int, which represents the number of bytes the shared memory block occupies.</p>
 	 * @link https://php.net/manual/en/function.shmop-size.php
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function shmop_size(\Shmop $shmop): int {}
 
@@ -79,7 +79,7 @@ namespace {
 	 * @return int <p>The size of the written <code>data</code>.</p>
 	 * @link https://php.net/manual/en/function.shmop-write.php
 	 * @see shmop_read()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function shmop_write(\Shmop $shmop, string $data, int $offset): int {}
 

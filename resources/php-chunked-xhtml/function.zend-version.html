@@ -26,21 +26,25 @@
   <div id="layout-content"><div id="function.zend-version" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">zend_version</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">zend_version</span> &mdash; <span class="dc-title">Gets the version of the current Zend engine</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">zend_version</span> &mdash; <span class="dc-title">Gets the version of the current Zend engine</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.zend-version-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>zend_version</strong></span>
-    (
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>zend_version</strong></span>(): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns a string containing the version of the currently running
    Zend Engine.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.zend-version-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -55,7 +59,7 @@
  <div class="refsect1 examples" id="refsect1-function.zend-version-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-569">
+   <div class="example" id="example-584">
     <p><strong>Example #1 <span class="function"><strong>zend_version()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -82,7 +86,6 @@ Zend engine version: 2.2.0
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.phpinfo.html" class="function" rel="rdfs-seeAlso">phpinfo()</a> - Outputs information about PHP's configuration</span></li>
     <li class="member"><span class="function"><a href="function.phpcredits.html" class="function" rel="rdfs-seeAlso">phpcredits()</a> - Prints out the credits for PHP</span></li>
-    <li class="member"><span class="function"><strong>php_logo_guid()</strong></span></li>
     <li class="member"><span class="function"><a href="function.phpversion.html" class="function" rel="rdfs-seeAlso">phpversion()</a> - Gets the current PHP version</span></li>
    </ul>
   </p>

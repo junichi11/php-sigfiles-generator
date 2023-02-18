@@ -26,23 +26,18 @@
   <div id="layout-content"><div id="function.pg-fetch-row" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_fetch_row</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_fetch_row</span> &mdash; <span class="dc-title">Get a row as an enumerated array</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_fetch_row</span> &mdash; <span class="dc-title">Get a row as an enumerated array</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.pg-fetch-row-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_fetch_row</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$row</code> = ?</span>
-   
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>pg_fetch_row</strong></span>(<span class="methodparam"><span class="type"><a href="class.pgsql-result.html" class="type PgSql\Result">PgSql\Result</a></span> <code class="parameter">$result</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$row</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>PGSQL_NUM</code></strong></span></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_fetch_row()</strong></span> fetches one row of data from
-   the result associated with the specified
-   <code class="parameter">result</code> resource.
+   the result associated with the specified <code class="parameter">result</code> instance.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">This function sets NULL fields to
 the PHP <strong><code>null</code></strong> value.</span></p></blockquote>
@@ -53,18 +48,14 @@ the PHP <strong><code>null</code></strong> value.</span></p></blockquote>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">result</code></dt>
 
      <dd>
 
-      <p class="para">
-       PostgreSQL query result resource, returned by <span class="function"><a href="function.pg-query.html" class="function">pg_query()</a></span>,
-       <span class="function"><a href="function.pg-query-params.html" class="function">pg_query_params()</a></span> or <span class="function"><a href="function.pg-execute.html" class="function">pg_execute()</a></span>
-       (among others).
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pgsql-result.html" class="classname">PgSql\Result</a></span> instance, returned by <span class="function"><a href="function.pg-query.html" class="function">pg_query()</a></span>,
+<span class="function"><a href="function.pg-query-params.html" class="function">pg_query_params()</a></span> or <span class="function"><a href="function.pg-execute.html" class="function">pg_execute()</a></span>(among others).</p>
      </dd>
 
     
@@ -101,10 +92,38 @@ the PHP <strong><code>null</code></strong> value.</span></p></blockquote>
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.pg-fetch-row-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">result</code> parameter expects an <span class="classname"><a href="class.pgsql-result.html" class="classname">PgSql\Result</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.pg-fetch-row-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2345">
+   <div class="example" id="example-1899">
     <p><strong>Example #1 <span class="function"><strong>pg_fetch_row()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -125,7 +144,7 @@ the PHP <strong><code>null</code></strong> value.</span></p></blockquote>
     <li class="member"><span class="function"><a href="function.pg-query.html" class="function" rel="rdfs-seeAlso">pg_query()</a> - Execute a query</span></li>
     <li class="member"><span class="function"><a href="function.pg-fetch-array.html" class="function" rel="rdfs-seeAlso">pg_fetch_array()</a> - Fetch a row as an array</span></li>
     <li class="member"><span class="function"><a href="function.pg-fetch-object.html" class="function" rel="rdfs-seeAlso">pg_fetch_object()</a> - Fetch a row as an object</span></li>
-    <li class="member"><span class="function"><a href="function.pg-fetch-result.html" class="function" rel="rdfs-seeAlso">pg_fetch_result()</a> - Returns values from a result resource</span></li>
+    <li class="member"><span class="function"><a href="function.pg-fetch-result.html" class="function" rel="rdfs-seeAlso">pg_fetch_result()</a> - Returns values from a result instance</span></li>
    </ul>
   </p>
  </div>

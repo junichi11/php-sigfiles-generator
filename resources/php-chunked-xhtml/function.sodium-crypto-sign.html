@@ -26,25 +26,20 @@
   <div id="layout-content"><div id="function.sodium-crypto-sign" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sodium_crypto_sign</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.2.0)</p><p class="refpurpose"><span class="refname">sodium_crypto_sign</span> &mdash; <span class="dc-title">Sign a message</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">sodium_crypto_sign</span> &mdash; <span class="dc-title">Sign a message</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.sodium-crypto-sign-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>sodium_crypto_sign</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$secret_key</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>sodium_crypto_sign</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$secret_key</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
-
+   Sign a message with a secret key, that can be verified by the corresponding public key.
+   This function attaches the signature to the message. See <span class="function"><a href="function.sodium-crypto-sign-detached.html" class="function">sodium_crypto_sign_detached()</a></span>
+   for detached signatures.
   </p>
-
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-currently not documented; only its argument list is available.
-</p></div>
 
  </div>
 
@@ -52,7 +47,6 @@ currently not documented; only its argument list is available.
  <div class="refsect1 parameters" id="refsect1-function.sodium-crypto-sign-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">message</code></dt>
@@ -60,7 +54,7 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      Message to sign.
      </p>
     </dd>
 
@@ -72,7 +66,7 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      Secret key. See <span class="function"><a href="function.sodium-crypto-sign-secretkey.html" class="function">sodium_crypto_sign_secretkey()</a></span>
      </p>
     </dd>
 
@@ -85,7 +79,7 @@ currently not documented; only its argument list is available.
  <div class="refsect1 returnvalues" id="refsect1-function.sodium-crypto-sign-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   
+   Signed message (not encrypted).
   </p>
  </div>
 

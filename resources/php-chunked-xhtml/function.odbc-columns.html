@@ -26,19 +26,13 @@
   <div id="layout-content"><div id="function.odbc-columns" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">odbc_columns</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">odbc_columns</span> &mdash; <span class="dc-title">Lists the column names in specified tables</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">odbc_columns</span> &mdash; <span class="dc-title">Lists the column names in specified tables</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.odbc-columns-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>odbc_columns</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$odbc</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$catalog</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$schema</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$table</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$column</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>odbc_columns</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$odbc</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$catalog</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$schema</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$table</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$column</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Lists all columns in the requested range.
@@ -49,7 +43,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">odbc</code></dt>
@@ -189,7 +182,7 @@ and <code class="literal">_</code> to match a single character.
 
  <div class="refsect1 examples" id="refsect1-function.odbc-columns-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-972">
+  <div class="example" id="odbc-columns.example.basic">
    <p><strong>Example #1 List Columns of a Table</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,18 +26,16 @@
   <div id="layout-content"><div id="function.abs" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">abs</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">abs</span> &mdash; <span class="dc-title">Absolute value</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">abs</span> &mdash; <span class="dc-title">Absolute value</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.abs-description">
   <h3 class="title">Description</h3>
    <div class="methodsynopsis dc-description">
-    <span class="methodname"><strong>abs</strong></span>
-     ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$number</code></span>
-    ) : <span class="type"><span class="type">int</span>|<span class="type">float</span></span></div>
+   <span class="methodname"><strong>abs</strong></span>(<span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">float</span></span> <code class="parameter">$num</code></span>): <span class="type"><span class="type">int</span>|<span class="type">float</span></span></div>
 
   <p class="para rdfs-comment">
-   Returns the absolute value of <code class="parameter">number</code>. 
+   Returns the absolute value of <code class="parameter">num</code>. 
   </p>
  </div>
 
@@ -45,10 +43,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">number</code></dt>
+<code class="parameter">num</code></dt>
 
      <dd>
 
@@ -66,18 +63,47 @@
  <div class="refsect1 returnvalues" id="refsect1-function.abs-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The absolute value of <code class="parameter">number</code>. If the
-   argument <code class="parameter">number</code> is
+   The absolute value of <code class="parameter">num</code>. If the
+   argument <code class="parameter">num</code> is
    of type <span class="type">float</span>, the return type is also <span class="type">float</span>,
    otherwise it is <span class="type">int</span> (as <span class="type">float</span> usually has a
    bigger value range than <span class="type">int</span>).
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.abs-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">num</code> no longer accepts internal objects which support
+       numeric conversion.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.abs-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3588">
+   <div class="example" id="example-3103">
     <p><strong>Example #1 <span class="function"><strong>abs()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -90,25 +90,25 @@ namespace {
 		const MAXPRI = 2;
 
 		/**
-		 * @var int <p>The file descriptor in the EvIo watcher has become readable.</p>
+		 * @var int <p>The file descriptor in the <code>EvIo</code> watcher has become readable.</p>
 		 * @link https://php.net/manual/en/class.ev.php
 		 */
 		const READ = 1;
 
 		/**
-		 * @var int <p>The file descriptor in the EvIo watcher has become writable.</p>
+		 * @var int <p>The file descriptor in the <code>EvIo</code> watcher has become writable.</p>
 		 * @link https://php.net/manual/en/class.ev.php
 		 */
 		const WRITE = 2;
 
 		/**
-		 * @var int <p>EvTimer watcher has been timed out.</p>
+		 * @var int <p><code>EvTimer</code> watcher has been timed out.</p>
 		 * @link https://php.net/manual/en/class.ev.php
 		 */
 		const TIMER = 256;
 
 		/**
-		 * @var int <p>EvPeriodic watcher has been timed out.</p>
+		 * @var int <p><code>EvPeriodic</code> watcher has been timed out.</p>
 		 * @link https://php.net/manual/en/class.ev.php
 		 */
 		const PERIODIC = 512;
@@ -126,31 +126,31 @@ namespace {
 		const CHILD = 2048;
 
 		/**
-		 * @var int <p>The path specified in EvStat watcher changed its attributes.</p>
+		 * @var int <p>The path specified in <code>EvStat</code> watcher changed its attributes.</p>
 		 * @link https://php.net/manual/en/class.ev.php
 		 */
 		const STAT = 4096;
 
 		/**
-		 * @var int <p>EvIdle watcher works when there is nothing to do with other watchers.</p>
+		 * @var int <p><code>EvIdle</code> watcher works when there is nothing to do with other watchers.</p>
 		 * @link https://php.net/manual/en/class.ev.php
 		 */
 		const IDLE = 8192;
 
 		/**
-		 * @var int <p>All EvPrepare watchers are invoked just before <code>Ev::run()</code> starts. Thus, EvPrepare watchers are the last watchers invoked before the event loop sleeps or polls for new events.</p>
+		 * @var int <p>All <code>EvPrepare</code> watchers are invoked just before <code>Ev::run()</code> starts. Thus, <code>EvPrepare</code> watchers are the last watchers invoked before the event loop sleeps or polls for new events.</p>
 		 * @link https://php.net/manual/en/class.ev.php
 		 */
 		const PREPARE = 16384;
 
 		/**
-		 * @var int <p>All EvCheck watchers are queued just after <code>Ev::run()</code> has gathered the new events, but before it queues any callbacks for any received events. Thus, EvCheck watchers will be invoked before any other watchers of the same or lower priority within an event loop iteration.</p>
+		 * @var int <p>All <code>EvCheck</code> watchers are queued just after <code>Ev::run()</code> has gathered the new events, but before it queues any callbacks for any received events. Thus, <code>EvCheck</code> watchers will be invoked before any other watchers of the same or lower priority within an event loop iteration.</p>
 		 * @link https://php.net/manual/en/class.ev.php
 		 */
 		const CHECK = 32768;
 
 		/**
-		 * @var int <p>The embedded event loop specified in the EvEmbed watcher needs attention.</p>
+		 * @var int <p>The embedded event loop specified in the <code>EvEmbed</code> watcher needs attention.</p>
 		 * @link https://php.net/manual/en/class.ev.php
 		 */
 		const EMBED = 65536;
@@ -186,7 +186,7 @@ namespace {
 		const BACKEND_EPOLL = 4;
 
 		/**
-		 * @var int <p><code>kqueue</code> backend used on most BSD systems. EvEmbed watcher could be used to embed one loop(with kqueue backend) into another. For instance, one can try to create an event loop with <code>kqueue</code> backend and use it for sockets only.</p>
+		 * @var int <p><code>kqueue</code> backend used on most BSD systems. <code>EvEmbed</code> watcher could be used to embed one loop(with kqueue backend) into another. For instance, one can try to create an event loop with <code>kqueue</code> backend and use it for sockets only.</p>
 		 * @link https://php.net/manual/en/class.ev.php
 		 */
 		const BACKEND_KQUEUE = 8;
@@ -273,7 +273,7 @@ namespace {
 
 		/**
 		 * Returns the time when the last iteration of the default event loop has started
-		 * <p>Returns the time when the last iteration of the default event loop has started. This is the time that timers( EvTimer and EvPeriodic ) are based on, and referring to it is usually faster then calling <code>Ev::time()</code> .</p>
+		 * <p>Returns the time when the last iteration of the default event loop has started. This is the time that timers( <code>EvTimer</code> and <code>EvPeriodic</code> ) are based on, and referring to it is usually faster then calling <code>Ev::time()</code> .</p>
 		 * @return float <p>Returns number of seconds(fractional) representing the time when the last iteration of the default event loop has started.</p>
 		 * @link https://php.net/manual/en/ev.now.php
 		 * @since PECL ev >= 0.2.0
@@ -375,10 +375,10 @@ namespace {
 	}
 
 	/**
-	 * <p>EvPrepare and <b>EvCheck</b> watchers are usually used in pairs. EvPrepare watchers get invoked before the process blocks, <b>EvCheck</b> afterwards.</p>
-	 * <p>It is not allowed to call <code>EvLoop::run()</code> or similar methods or functions that enter the current event loop from either EvPrepare or <b>EvCheck</b> watchers. Other loops than the current one are fine, however. The rationale behind this is that one don't need to check for recursion in those watchers, i.e. the sequence will always be: EvPrepare -&gt; blocking -&gt; <b>EvCheck</b> , so having a watcher of each kind they will always be called in pairs bracketing the blocking call.</p>
+	 * <p><code>EvPrepare</code> and <b>EvCheck</b> watchers are usually used in pairs. <code>EvPrepare</code> watchers get invoked before the process blocks, <b>EvCheck</b> afterwards.</p>
+	 * <p>It is not allowed to call <code>EvLoop::run()</code> or similar methods or functions that enter the current event loop from either <code>EvPrepare</code> or <b>EvCheck</b> watchers. Other loops than the current one are fine, however. The rationale behind this is that one don't need to check for recursion in those watchers, i.e. the sequence will always be: <code>EvPrepare</code> -&gt; blocking -&gt; <b>EvCheck</b> , so having a watcher of each kind they will always be called in pairs bracketing the blocking call.</p>
 	 * <p>The main purpose is to integrate other event mechanisms into <i>libev</i> and their use is somewhat advanced. They could be used, for example, to track variable changes, implement custom watchers, integrate net-snmp or a coroutine library and lots more. They are also occasionally useful to cache some data and want to flush it before blocking.</p>
-	 * <p>It is recommended to give <b>EvCheck</b> watchers highest( <b><code>Ev::MAXPRI</code></b> ) priority, to ensure that they are being run before any other watchers after the poll (this doesn&rsquo;t matter for EvPrepare watchers).</p>
+	 * <p>It is recommended to give <b>EvCheck</b> watchers highest( <b><code>Ev::MAXPRI</code></b> ) priority, to ensure that they are being run before any other watchers after the poll (this doesn&rsquo;t matter for <code>EvPrepare</code> watchers).</p>
 	 * <p>Also, <b>EvCheck</b> watchers should not activate/feed events. While <i>libev</i> fully supports this, they might get executed before other <b>EvCheck</b> watchers did their job.</p>
 	 * @link https://php.net/manual/en/class.evcheck.php
 	 * @since PECL ev >= 0.2.0
@@ -404,14 +404,14 @@ namespace {
 		public $is_pending;
 
 		/**
-		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for EvIdle watchers). EvIdle watchers provide functionality to suppress invocation when higher priority events are pending.</p>
+		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for <code>EvIdle</code> watchers). <code>EvIdle</code> watchers provide functionality to suppress invocation when higher priority events are pending.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.priority
 		 */
 		public $priority;
 
 		/**
 		 * Constructs the EvCheck watcher object
-		 * <p>Constructs the EvCheck watcher object.</p>
+		 * <p>Constructs the <code>EvCheck</code> watcher object.</p>
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
@@ -455,7 +455,7 @@ namespace {
 		/**
 		 * Returns the loop responsible for the watcher
 		 * <p>Returns the loop responsible for the watcher</p>
-		 * @return EvLoop <p>Returns EvLoop event loop object responsible for the watcher.</p>
+		 * @return EvLoop <p>Returns <code>EvLoop</code> event loop object responsible for the watcher.</p>
 		 * @link https://php.net/manual/en/evwatcher.getloop.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -555,14 +555,14 @@ namespace {
 		public $is_pending;
 
 		/**
-		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for EvIdle watchers). EvIdle watchers provide functionality to suppress invocation when higher priority events are pending.</p>
+		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for <code>EvIdle</code> watchers). <code>EvIdle</code> watchers provide functionality to suppress invocation when higher priority events are pending.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.priority
 		 */
 		public $priority;
 
 		/**
 		 * Constructs the EvChild watcher object
-		 * <p>Constructs the EvChild watcher object.</p><p>Call the callback when a status change for process ID <code>pid</code> (or any <i>PID</i> if <code>pid</code> is <b><code>0</code></b> ) has been received(a status change happens when the process terminates or is killed, or, when <code>trace</code> is <b><code>true</code></b>, additionally when it is stopped or continued). In other words, when the process receives a <b><code>SIGCHLD</code></b> , <i>Ev</i> will fetch the outstanding exit/wait status for all changed/zombie children and call the callback.</p><p>It is valid to install a child watcher after an EvChild has exited but before the event loop has started its next iteration. For example, first one calls <code>fork</code> , then the new child process might exit, and only then an EvChild watcher is installed in the parent for the new <i>PID</i> .</p><p>You can access both exit/tracing status and <code>pid</code> by using the rstatus and rpid properties of the watcher object.</p><p>The number of <i>PID</i> watchers per <i>PID</i> is unlimited. All of them will be called.</p><p>The <code>EvChild::createStopped()</code> method doesn't start(activate) the newly created watcher.</p>
+		 * <p>Constructs the <code>EvChild</code> watcher object.</p><p>Call the callback when a status change for process ID <code>pid</code> (or any <i>PID</i> if <code>pid</code> is <b><code>0</code></b> ) has been received(a status change happens when the process terminates or is killed, or, when <code>trace</code> is <b><code>true</code></b>, additionally when it is stopped or continued). In other words, when the process receives a <b><code>SIGCHLD</code></b> , <i>Ev</i> will fetch the outstanding exit/wait status for all changed/zombie children and call the callback.</p><p>It is valid to install a child watcher after an <code>EvChild</code> has exited but before the event loop has started its next iteration. For example, first one calls <code>fork</code> , then the new child process might exit, and only then an <code>EvChild</code> watcher is installed in the parent for the new <i>PID</i> .</p><p>You can access both exit/tracing status and <code>pid</code> by using the rstatus and rpid properties of the watcher object.</p><p>The number of <i>PID</i> watchers per <i>PID</i> is unlimited. All of them will be called.</p><p>The <code>EvChild::createStopped()</code> method doesn't start(activate) the newly created watcher.</p>
 		 * @param int $pid <p>Wait for status changes of process PID(or any process if PID is specified as <b><code>0</code></b> ).</p>
 		 * @param bool $trace <p>If <b><code>false</code></b>, only activate the watcher when the process terminates. Otherwise(<b><code>true</code></b>) additionally activate the watcher when the process is stopped or continued.</p>
 		 * @param callable $callback <p>See Watcher callbacks .</p>
@@ -610,7 +610,7 @@ namespace {
 		/**
 		 * Returns the loop responsible for the watcher
 		 * <p>Returns the loop responsible for the watcher</p>
-		 * @return EvLoop <p>Returns EvLoop event loop object responsible for the watcher.</p>
+		 * @return EvLoop <p>Returns <code>EvLoop</code> event loop object responsible for the watcher.</p>
 		 * @link https://php.net/manual/en/evwatcher.getloop.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -691,7 +691,7 @@ namespace {
 		/**
 		 * Constructs the EvEmbed object
 		 * <p>This is a rather advanced watcher type that lets to embed one event loop into another(currently only IO events are supported in the embedded loop, other types of watchers might be handled in a delayed or incorrect fashion and must not be used).</p><p>See the libev documentation for details.</p><p>This watcher is most useful on <i>BSD</i> systems without working <code>kqueue</code> to still be able to handle a large number of sockets. See example below.</p>
-		 * @param object $other <p>Instance of EvLoop . The loop to embed, this loop must be embeddable(see <code>Ev::embeddableBackends()</code> ).</p>
+		 * @param object $other <p>Instance of <code>EvLoop</code> . The loop to embed, this loop must be embeddable(see <code>Ev::embeddableBackends()</code> ).</p>
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
@@ -736,7 +736,7 @@ namespace {
 		/**
 		 * Returns the loop responsible for the watcher
 		 * <p>Returns the loop responsible for the watcher</p>
-		 * @return EvLoop <p>Returns EvLoop event loop object responsible for the watcher.</p>
+		 * @return EvLoop <p>Returns <code>EvLoop</code> event loop object responsible for the watcher.</p>
 		 * @link https://php.net/manual/en/evwatcher.getloop.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -811,7 +811,7 @@ namespace {
 	}
 
 	/**
-	 * <p>Fork watchers are called when a <code>fork()</code> was detected (usually because whoever signalled <i>libev</i> about it by calling <code>EvLoop::fork()</code> ). The invocation is done before the event loop blocks next and before EvCheck watchers are being called, and only in the child after the fork. Note, that if whoever calling <code>EvLoop::fork()</code> calls it in the wrong process, the fork handlers will be invoked, too.</p>
+	 * <p>Fork watchers are called when a <code>fork()</code> was detected (usually because whoever signalled <i>libev</i> about it by calling <code>EvLoop::fork()</code> ). The invocation is done before the event loop blocks next and before <code>EvCheck</code> watchers are being called, and only in the child after the fork. Note, that if whoever calling <code>EvLoop::fork()</code> calls it in the wrong process, the fork handlers will be invoked, too.</p>
 	 * @link https://php.net/manual/en/class.evfork.php
 	 * @since PECL ev >= 0.2.0
 	 */
@@ -836,7 +836,7 @@ namespace {
 		public $is_pending;
 
 		/**
-		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for EvIdle watchers). EvIdle watchers provide functionality to suppress invocation when higher priority events are pending.</p>
+		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for <code>EvIdle</code> watchers). <code>EvIdle</code> watchers provide functionality to suppress invocation when higher priority events are pending.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.priority
 		 */
 		public $priority;
@@ -887,7 +887,7 @@ namespace {
 		/**
 		 * Returns the loop responsible for the watcher
 		 * <p>Returns the loop responsible for the watcher</p>
-		 * @return EvLoop <p>Returns EvLoop event loop object responsible for the watcher.</p>
+		 * @return EvLoop <p>Returns <code>EvLoop</code> event loop object responsible for the watcher.</p>
 		 * @link https://php.net/manual/en/evwatcher.getloop.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -943,7 +943,7 @@ namespace {
 	}
 
 	/**
-	 * <p><b>EvIdle</b> watchers trigger events when no other events of the same or higher priority are pending ( EvPrepare , EvCheck and other <b>EvIdle</b> watchers do not count as receiving <i>events</i> ).</p>
+	 * <p><b>EvIdle</b> watchers trigger events when no other events of the same or higher priority are pending ( <code>EvPrepare</code> , <code>EvCheck</code> and other <b>EvIdle</b> watchers do not count as receiving <i>events</i> ).</p>
 	 * <p>Thus, as long as the process is busy handling sockets or timeouts(or even signals) of the same or higher priority it will not be triggered. But when the process is in idle(or only lower-priority watchers are pending), the <b>EvIdle</b> watchers are being called once per event loop iteration - until stopped, that is, or the process receives more events and becomes busy again with higher priority stuff.</p>
 	 * <p>Apart from keeping the process non-blocking(which is a useful on its own sometimes), <b>EvIdle</b> watchers are a good place to do <i>"pseudo-background processing"</i> , or delay processing stuff to after the event loop has handled all outstanding events.</p>
 	 * <p>The most noticeable effect is that as long as any <i>idle</i> watchers are active, the process will <i>not</i> block when waiting for new events.</p>
@@ -971,7 +971,7 @@ namespace {
 		public $is_pending;
 
 		/**
-		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for EvIdle watchers). EvIdle watchers provide functionality to suppress invocation when higher priority events are pending.</p>
+		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for <code>EvIdle</code> watchers). <code>EvIdle</code> watchers provide functionality to suppress invocation when higher priority events are pending.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.priority
 		 */
 		public $priority;
@@ -1022,7 +1022,7 @@ namespace {
 		/**
 		 * Returns the loop responsible for the watcher
 		 * <p>Returns the loop responsible for the watcher</p>
-		 * @return EvLoop <p>Returns EvLoop event loop object responsible for the watcher.</p>
+		 * @return EvLoop <p>Returns <code>EvLoop</code> event loop object responsible for the watcher.</p>
 		 * @link https://php.net/manual/en/evwatcher.getloop.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -1119,7 +1119,7 @@ namespace {
 		public $is_pending;
 
 		/**
-		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for EvIdle watchers). EvIdle watchers provide functionality to suppress invocation when higher priority events are pending.</p>
+		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for <code>EvIdle</code> watchers). <code>EvIdle</code> watchers provide functionality to suppress invocation when higher priority events are pending.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.priority
 		 */
 		public $priority;
@@ -1174,7 +1174,7 @@ namespace {
 		/**
 		 * Returns the loop responsible for the watcher
 		 * <p>Returns the loop responsible for the watcher</p>
-		 * @return EvLoop <p>Returns EvLoop event loop object responsible for the watcher.</p>
+		 * @return EvLoop <p>Returns <code>EvLoop</code> event loop object responsible for the watcher.</p>
 		 * @link https://php.net/manual/en/evwatcher.getloop.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -1241,9 +1241,9 @@ namespace {
 	}
 
 	/**
-	 * <p>Represents an event loop that is always distinct from the <i>default loop</i> . Unlike the <i>default loop</i> , it cannot handle EvChild watchers.</p>
+	 * <p>Represents an event loop that is always distinct from the <i>default loop</i> . Unlike the <i>default loop</i> , it cannot handle <code>EvChild</code> watchers.</p>
 	 * <p>Having threads we have to create a loop per thread, and use the <i>default loop</i> in the parent thread.</p>
-	 * <p>The <i>default event loop</i> is initialized automatically by <i>Ev</i> . It is accessible via methods of the Ev class, or via <code>EvLoop::defaultLoop()</code> method.</p>
+	 * <p>The <i>default event loop</i> is initialized automatically by <i>Ev</i> . It is accessible via methods of the <code>Ev</code> class, or via <code>EvLoop::defaultLoop()</code> method.</p>
 	 * @link https://php.net/manual/en/class.evloop.php
 	 * @since PECL ev >= 0.2.0
 	 */
@@ -1280,13 +1280,13 @@ namespace {
 		public $pending;
 
 		/**
-		 * @var mixed <p>Higher io_interval allows <i>libev</i> to spend more time collecting EvIo events, so more events can be handled per iteration, at the cost of increasing latency. Timeouts (both EvPeriodic and EvTimer ) will not be affected. Setting this to a non-zero value will introduce an additional <code>sleep()</code> call into most loop iterations. The sleep time ensures that <i>libev</i> will not poll for EvIo events more often than once per this interval, on average. Many programs can usually benefit by setting the io_interval to a value near <b><code>0.1</code></b> , which is often enough for interactive servers(not for games). It usually doesn't make much sense to set it to a lower value than <b><code>0.01</code></b> , as this approaches the timing granularity of most systems.</p> <p>See also FUNCTIONS CONTROLLING EVENT LOOPS .</p>
+		 * @var mixed <p>Higher io_interval allows <i>libev</i> to spend more time collecting <code>EvIo</code> events, so more events can be handled per iteration, at the cost of increasing latency. Timeouts (both <code>EvPeriodic</code> and <code>EvTimer</code> ) will not be affected. Setting this to a non-zero value will introduce an additional <code>sleep()</code> call into most loop iterations. The sleep time ensures that <i>libev</i> will not poll for <code>EvIo</code> events more often than once per this interval, on average. Many programs can usually benefit by setting the io_interval to a value near <b><code>0.1</code></b> , which is often enough for interactive servers(not for games). It usually doesn't make much sense to set it to a lower value than <b><code>0.01</code></b> , as this approaches the timing granularity of most systems.</p> <p>See also FUNCTIONS CONTROLLING EVENT LOOPS .</p>
 		 * @link https://php.net/manual/en/class.evloop.php#evloop.props.io-interval
 		 */
 		public $io_interval;
 
 		/**
-		 * @var mixed <p>Higher timeout_interval allows <i>libev</i> to spend more time collecting timeouts, at the expense of increased latency/jitter/inexactness(the watcher callback will be called later). EvIo watchers will not be affected. Setting this to a non-null value will not introduce any overhead in <i>libev</i> . See also FUNCTIONS CONTROLLING EVENT LOOPS .</p>
+		 * @var mixed <p>Higher timeout_interval allows <i>libev</i> to spend more time collecting timeouts, at the expense of increased latency/jitter/inexactness(the watcher callback will be called later). <code>EvIo</code> watchers will not be affected. Setting this to a non-null value will not introduce any overhead in <i>libev</i> . See also FUNCTIONS CONTROLLING EVENT LOOPS .</p>
 		 * @link https://php.net/manual/en/class.evloop.php#evloop.props.timeout-interval
 		 */
 		public $timeout_interval;
@@ -1360,7 +1360,7 @@ namespace {
 
 		/**
 		 * Creates an instance of EvEmbed watcher associated with the current EvLoop object
-		 * <p>Creates an instance of EvEmbed watcher associated with the current EvLoop object.</p>
+		 * <p>Creates an instance of <code>EvEmbed</code> watcher associated with the current <code>EvLoop</code> object.</p>
 		 * @param string $other
 		 * @param string $callback
 		 * @param string $data
@@ -1562,8 +1562,8 @@ namespace {
 
 	/**
 	 * <p>Periodic watchers are also timers of a kind, but they are very versatile.</p>
-	 * <p>Unlike EvTimer , <b>EvPeriodic</b> watchers are not based on real time(or relative time, the physical time that passes) but on wall clock time(absolute time, calendar or clock). The difference is that wall clock time can run faster or slower than real time, and time jumps are not uncommon(e.g. when adjusting it).</p>
-	 * <p><b>EvPeriodic</b> watcher can be configured to trigger after some specific point in time. For example, if an <b>EvPeriodic</b> watcher is configured to trigger <i>"in 10 seconds"</i> (e.g. <code>EvLoop::now()</code> + <b><code>10.0</code></b> , i.e. an absolute time, not a delay), and the system clock is reset to <i>January of the previous year</i> , then it will take a year or more to trigger the event (unlike an EvTimer , which would still trigger roughly <b><code>10</code></b> seconds after starting it as it uses a relative timeout).</p>
+	 * <p>Unlike <code>EvTimer</code> , <b>EvPeriodic</b> watchers are not based on real time(or relative time, the physical time that passes) but on wall clock time(absolute time, calendar or clock). The difference is that wall clock time can run faster or slower than real time, and time jumps are not uncommon(e.g. when adjusting it).</p>
+	 * <p><b>EvPeriodic</b> watcher can be configured to trigger after some specific point in time. For example, if an <b>EvPeriodic</b> watcher is configured to trigger <i>"in 10 seconds"</i> (e.g. <code>EvLoop::now()</code> + <b><code>10.0</code></b> , i.e. an absolute time, not a delay), and the system clock is reset to <i>January of the previous year</i> , then it will take a year or more to trigger the event (unlike an <code>EvTimer</code> , which would still trigger roughly <b><code>10</code></b> seconds after starting it as it uses a relative timeout).</p>
 	 * <p>As with timers, the callback is guaranteed to be invoked only when the point in time where it is supposed to trigger has passed. If multiple timers become ready during the same loop iteration then the ones with earlier time-out values are invoked before ones with later time-out values (but this is no longer true when a callback calls <code>EvLoop::run()</code> recursively).</p>
 	 * @link https://php.net/manual/en/class.evperiodic.php
 	 * @since PECL ev >= 0.2.0
@@ -1601,7 +1601,7 @@ namespace {
 		public $is_pending;
 
 		/**
-		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for EvIdle watchers). EvIdle watchers provide functionality to suppress invocation when higher priority events are pending.</p>
+		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for <code>EvIdle</code> watchers). <code>EvIdle</code> watchers provide functionality to suppress invocation when higher priority events are pending.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.priority
 		 */
 		public $priority;
@@ -1676,7 +1676,7 @@ namespace {
 		/**
 		 * Returns the loop responsible for the watcher
 		 * <p>Returns the loop responsible for the watcher</p>
-		 * @return EvLoop <p>Returns EvLoop event loop object responsible for the watcher.</p>
+		 * @return EvLoop <p>Returns <code>EvLoop</code> event loop object responsible for the watcher.</p>
 		 * @link https://php.net/manual/en/evwatcher.getloop.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -1743,11 +1743,11 @@ namespace {
 	}
 
 	/**
-	 * <p><b>EvPrepare</b> and EvCheck watchers are usually used in pairs. <b>EvPrepare</b> watchers get invoked before the process blocks, EvCheck afterwards.</p>
-	 * <p>It is not allowed to call <code>EvLoop::run()</code> or similar methods or functions that enter the current event loop from either <b>EvPrepare</b> or EvCheck watchers. Other loops than the current one are fine, however. The rationale behind this is that one don't need to check for recursion in those watchers, i.e. the sequence will always be: <b>EvPrepare</b> -&gt; blocking -&gt; EvCheck , so having a watcher of each kind they will always be called in pairs bracketing the blocking call.</p>
+	 * <p><b>EvPrepare</b> and <code>EvCheck</code> watchers are usually used in pairs. <b>EvPrepare</b> watchers get invoked before the process blocks, <code>EvCheck</code> afterwards.</p>
+	 * <p>It is not allowed to call <code>EvLoop::run()</code> or similar methods or functions that enter the current event loop from either <b>EvPrepare</b> or <code>EvCheck</code> watchers. Other loops than the current one are fine, however. The rationale behind this is that one don't need to check for recursion in those watchers, i.e. the sequence will always be: <b>EvPrepare</b> -&gt; blocking -&gt; <code>EvCheck</code> , so having a watcher of each kind they will always be called in pairs bracketing the blocking call.</p>
 	 * <p>The main purpose is to integrate other event mechanisms into <i>libev</i> and their use is somewhat advanced. They could be used, for example, to track variable changes, implement custom watchers, integrate net-snmp or a coroutine library and lots more. They are also occasionally useful to cache some data and want to flush it before blocking.</p>
-	 * <p>It is recommended to give EvCheck watchers highest( <b><code>Ev::MAXPRI</code></b> ) priority, to ensure that they are being run before any other watchers after the poll (this doesn&rsquo;t matter for <b>EvPrepare</b> watchers).</p>
-	 * <p>Also, EvCheck watchers should not activate/feed events. While <i>libev</i> fully supports this, they might get executed before other EvCheck watchers did their job.</p>
+	 * <p>It is recommended to give <code>EvCheck</code> watchers highest( <b><code>Ev::MAXPRI</code></b> ) priority, to ensure that they are being run before any other watchers after the poll (this doesn&rsquo;t matter for <b>EvPrepare</b> watchers).</p>
+	 * <p>Also, <code>EvCheck</code> watchers should not activate/feed events. While <i>libev</i> fully supports this, they might get executed before other <code>EvCheck</code> watchers did their job.</p>
 	 * @link https://php.net/manual/en/class.evprepare.php
 	 * @since PECL ev >= 0.2.0
 	 */
@@ -1772,7 +1772,7 @@ namespace {
 		public $is_pending;
 
 		/**
-		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for EvIdle watchers). EvIdle watchers provide functionality to suppress invocation when higher priority events are pending.</p>
+		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for <code>EvIdle</code> watchers). <code>EvIdle</code> watchers provide functionality to suppress invocation when higher priority events are pending.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.priority
 		 */
 		public $priority;
@@ -1823,7 +1823,7 @@ namespace {
 		/**
 		 * Returns the loop responsible for the watcher
 		 * <p>Returns the loop responsible for the watcher</p>
-		 * @return EvLoop <p>Returns EvLoop event loop object responsible for the watcher.</p>
+		 * @return EvLoop <p>Returns <code>EvLoop</code> event loop object responsible for the watcher.</p>
 		 * @link https://php.net/manual/en/evwatcher.getloop.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -1881,7 +1881,7 @@ namespace {
 	/**
 	 * <p><b>EvSignal</b> watchers will trigger an event when the process receives a specific signal one or more times. Even though signals are very asynchronous, <i>libev</i> will try its best to deliver signals synchronously, i.e. as part of the normal event processing, like any other event.</p>
 	 * <p>There is no limit for the number of watchers for the same signal, but only within the same loop, i.e. one can watch for <b><code>SIGINT</code></b> in the default loop and for <b><code>SIGIO</code></b> in another loop, but it is not allowed to watch for <b><code>SIGINT</code></b> in both the default loop and another loop at the same time. At the moment, <b><code>SIGCHLD</code></b> is permanently tied to the default loop.</p>
-	 * <p>If possible and supported, <i>libev</i> will install its handlers with <code>SA_RESTART</code> (or equivalent) behaviour enabled, so system calls should not be unduly interrupted. In case of a problem with system calls getting interrupted by signals, all the signals can be blocked in an EvCheck watcher and unblocked in a EvPrepare watcher.</p>
+	 * <p>If possible and supported, <i>libev</i> will install its handlers with <code>SA_RESTART</code> (or equivalent) behaviour enabled, so system calls should not be unduly interrupted. In case of a problem with system calls getting interrupted by signals, all the signals can be blocked in an <code>EvCheck</code> watcher and unblocked in a <code>EvPrepare</code> watcher.</p>
 	 * @link https://php.net/manual/en/class.evsignal.php
 	 * @since PECL ev >= 0.2.0
 	 */
@@ -1912,7 +1912,7 @@ namespace {
 		public $is_pending;
 
 		/**
-		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for EvIdle watchers). EvIdle watchers provide functionality to suppress invocation when higher priority events are pending.</p>
+		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for <code>EvIdle</code> watchers). <code>EvIdle</code> watchers provide functionality to suppress invocation when higher priority events are pending.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.priority
 		 */
 		public $priority;
@@ -1965,7 +1965,7 @@ namespace {
 		/**
 		 * Returns the loop responsible for the watcher
 		 * <p>Returns the loop responsible for the watcher</p>
-		 * @return EvLoop <p>Returns EvLoop event loop object responsible for the watcher.</p>
+		 * @return EvLoop <p>Returns <code>EvLoop</code> event loop object responsible for the watcher.</p>
 		 * @link https://php.net/manual/en/evwatcher.getloop.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -2072,7 +2072,7 @@ namespace {
 		public $is_pending;
 
 		/**
-		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for EvIdle watchers). EvIdle watchers provide functionality to suppress invocation when higher priority events are pending.</p>
+		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for <code>EvIdle</code> watchers). <code>EvIdle</code> watchers provide functionality to suppress invocation when higher priority events are pending.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.priority
 		 */
 		public $priority;
@@ -2136,7 +2136,7 @@ namespace {
 		/**
 		 * Returns the loop responsible for the watcher
 		 * <p>Returns the loop responsible for the watcher</p>
-		 * @return EvLoop <p>Returns EvLoop event loop object responsible for the watcher.</p>
+		 * @return EvLoop <p>Returns <code>EvLoop</code> event loop object responsible for the watcher.</p>
 		 * @link https://php.net/manual/en/evwatcher.getloop.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -2261,7 +2261,7 @@ namespace {
 		public $is_pending;
 
 		/**
-		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for EvIdle watchers). EvIdle watchers provide functionality to suppress invocation when higher priority events are pending.</p>
+		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for <code>EvIdle</code> watchers). <code>EvIdle</code> watchers provide functionality to suppress invocation when higher priority events are pending.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.priority
 		 */
 		public $priority;
@@ -2325,7 +2325,7 @@ namespace {
 		/**
 		 * Returns the loop responsible for the watcher
 		 * <p>Returns the loop responsible for the watcher</p>
-		 * @return EvLoop <p>Returns EvLoop event loop object responsible for the watcher.</p>
+		 * @return EvLoop <p>Returns <code>EvLoop</code> event loop object responsible for the watcher.</p>
 		 * @link https://php.net/manual/en/evwatcher.getloop.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -2392,7 +2392,7 @@ namespace {
 	}
 
 	/**
-	 * <p><b>EvWatcher</b> is a base class for all watchers( EvCheck , EvChild etc.). Since <b>EvWatcher</b> 's constructor is abstract , one can't(and don't need to) create EvWatcher objects directly.</p>
+	 * <p><b>EvWatcher</b> is a base class for all watchers( <code>EvCheck</code> , <code>EvChild</code> etc.). Since <b>EvWatcher</b> 's constructor is abstract , one can't(and don't need to) create EvWatcher objects directly.</p>
 	 * @link https://php.net/manual/en/class.evwatcher.php
 	 * @since PECL ev >= 0.2.0
 	 */
@@ -2417,7 +2417,7 @@ namespace {
 		public $is_pending;
 
 		/**
-		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for EvIdle watchers). EvIdle watchers provide functionality to suppress invocation when higher priority events are pending.</p>
+		 * @var mixed <p><code>int</code> between <b><code>Ev::MINPRI</code></b> and <b><code>Ev::MAXPRI</code></b> . Pending watchers with higher priority will be invoked before watchers with lower priority, but priority will not keep watchers from being executed(except for <code>EvIdle</code> watchers). <code>EvIdle</code> watchers provide functionality to suppress invocation when higher priority events are pending.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.priority
 		 */
 		public $priority;
@@ -2453,7 +2453,7 @@ namespace {
 		/**
 		 * Returns the loop responsible for the watcher
 		 * <p>Returns the loop responsible for the watcher</p>
-		 * @return EvLoop <p>Returns EvLoop event loop object responsible for the watcher.</p>
+		 * @return EvLoop <p>Returns <code>EvLoop</code> event loop object responsible for the watcher.</p>
 		 * @link https://php.net/manual/en/evwatcher.getloop.php
 		 * @since PECL ev >= 0.2.0
 		 */

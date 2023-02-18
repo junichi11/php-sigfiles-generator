@@ -23,11 +23,11 @@ namespace {
 		/**
 		 * Return the key of the current element
 		 * <p>Returns the key of the current element.</p>
-		 * @return scalar <p>Returns scalar on success, or <b><code>null</code></b> on failure.</p>
+		 * @return mixed <p>Returns scalar on success, or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/iterator.key.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function key(): \scalar;
+		public function key(): mixed;
 
 		/**
 		 * Move forward to next element

@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.php-uname" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">php_uname</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">php_uname</span> &mdash; <span class="dc-title">Returns information about the operating system PHP is running on</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">php_uname</span> &mdash; <span class="dc-title">Returns information about the operating system PHP is running on</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.php-uname-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>php_uname</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code><span class="initializer"> = &quot;a&quot;</span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>php_uname</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code><span class="initializer"> = &quot;a&quot;</span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>php_uname()</strong></span> returns a description of the operating
@@ -58,7 +56,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">mode</code></dt>
@@ -126,7 +123,7 @@
  <div class="refsect1 examples" id="refsect1-function.php-uname-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-554">
+   <div class="example" id="example-569">
     <p><strong>Example #1 Some <span class="function"><strong>php_uname()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -140,7 +137,7 @@
   <p class="para">
    There are also some related <a href="language.constants.predefined.html" class="link">
    Predefined PHP constants</a> that may come in handy, for example:
-   <div class="example" id="getopt.examples-1">
+   <div class="example" id="example-570">
     <p><strong>Example #2 A few OS related constant examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

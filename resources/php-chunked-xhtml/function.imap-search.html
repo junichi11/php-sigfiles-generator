@@ -26,18 +26,13 @@
   <div id="layout-content"><div id="function.imap-search" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imap_search</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imap_search</span> &mdash; <span class="dc-title">This function returns an array of messages matching the given search criteria</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imap_search</span> &mdash; <span class="dc-title">This function returns an array of messages matching the given search criteria</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imap-search-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imap_search</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$criteria</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SE_FREE</code></strong></span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$charset</code><span class="initializer"> = &quot;&quot;</span></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>imap_search</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.imap-connection.html" class="type IMAP\Connection">IMAP\Connection</a></span> <code class="parameter">$imap</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$criteria</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SE_FREE</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$charset</code><span class="initializer"> = &quot;&quot;</span></span><br>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    This function performs a search on the mailbox currently opened
@@ -57,13 +52,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-imap</code></dt>
+
+<code class="parameter">imap</code></dt>
 <dd>
-<p class="para">An IMAP stream returned by
-<span class="function"><a href="function.imap-open.html" class="function">imap_open()</a></span>.</p></dd>
+<p class="para">An <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span> instance.</p></dd>
 
     
      <dt>
@@ -247,13 +240,41 @@ imap</code></dt>
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.imap-search-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">imap</code> parameter expects an <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imap-search-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3511">
+  <div class="example" id="imap-search.examples">
    <p><strong>Example #1 <span class="function"><strong>imap_search()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open</span><span style="color: #007700">(</span><span style="color: #DD0000">'{imap.example.com:993/imap/ssl}INBOX'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'foo@example.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'pass123'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">OP_READONLY</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$some&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_search</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'SUBJECT&nbsp;"HOWTO&nbsp;be&nbsp;Awesome"&nbsp;SINCE&nbsp;"8&nbsp;August&nbsp;2008"'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SE_UID</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$msgnos&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_search</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'ALL'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$uids&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_search</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'ALL'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SE_UID</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$some</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$msgnos</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$uids</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$imap&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open</span><span style="color: #007700">(</span><span style="color: #DD0000">'{imap.example.com:993/imap/ssl}INBOX'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'foo@example.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'pass123'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">OP_READONLY</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$some&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_search</span><span style="color: #007700">(</span><span style="color: #0000BB">$imap</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'SUBJECT&nbsp;"HOWTO&nbsp;be&nbsp;Awesome"&nbsp;SINCE&nbsp;"8&nbsp;August&nbsp;2008"'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SE_UID</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$msgnos&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_search</span><span style="color: #007700">(</span><span style="color: #0000BB">$imap</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'ALL'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$uids&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_search</span><span style="color: #007700">(</span><span style="color: #0000BB">$imap</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'ALL'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SE_UID</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$some</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$msgnos</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$uids</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

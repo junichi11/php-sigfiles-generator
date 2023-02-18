@@ -12,7 +12,7 @@ namespace {
 	 * @param int $year <p>Year in the selected calendar</p>
 	 * @return int <p>The length in days of the selected month in the given calendar</p>
 	 * @link https://php.net/manual/en/function.cal-days-in-month.php
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function cal_days_in_month(int $calendar, int $month, int $year): int {}
 
@@ -24,7 +24,7 @@ namespace {
 	 * @return array <p>Returns an array containing calendar information like month, day, year, day of week (<code>dow</code>), abbreviated and full names of weekday and month and the date in string form "month/day/year". The day of week ranges from <code>0</code> (Sunday) to <code>6</code> (Saturday).</p>
 	 * @link https://php.net/manual/en/function.cal-from-jd.php
 	 * @see cal_to_jd(), jdtofrench(), jdtogregorian(), jdtojewish(), jdtojulian(), jdtounix()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function cal_from_jd(int $julian_day, int $calendar): array {}
 
@@ -34,7 +34,7 @@ namespace {
 	 * @param int $calendar <p>Calendar to return information for. If no calendar is specified information about all calendars is returned.</p>
 	 * @return array
 	 * @link https://php.net/manual/en/function.cal-info.php
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function cal_info(int $calendar = -1): array {}
 
@@ -48,33 +48,33 @@ namespace {
 	 * @return int <p>A Julian Day number.</p>
 	 * @link https://php.net/manual/en/function.cal-to-jd.php
 	 * @see cal_from_jd(), frenchtojd(), gregoriantojd(), jewishtojd(), juliantojd(), unixtojd()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function cal_to_jd(int $calendar, int $month, int $day, int $year): int {}
 
 	/**
 	 * Get Unix timestamp for midnight on Easter of a given year
 	 * <p>Returns the Unix timestamp corresponding to midnight on Easter of the given year.</p><p>This function will generate a warning if the year is outside of the range for Unix timestamps (i.e. typically before 1970 or after 2037 on 32bit systems).</p><p>The date of Easter Day was defined by the Council of Nicaea in AD325 as the Sunday after the first full moon which falls on or after the Spring Equinox. The Equinox is assumed to always fall on 21st March, so the calculation reduces to determining the date of the full moon and the date of the following Sunday. The algorithm used here was introduced around the year 532 by Dionysius Exiguus. Under the Julian Calendar (for years before 1753) a simple 19-year cycle is used to track the phases of the Moon. Under the Gregorian Calendar (for years after 1753 - devised by Clavius and Lilius, and introduced by Pope Gregory XIII in October 1582, and into Britain and its then colonies in September 1752) two correction factors are added to make the cycle more accurate.</p>
-	 * @param int|null $year <p>The year as a number between 1970 an 2037. If omitted or <b><code>null</code></b>, defaults to the current year according to the local time.</p>
+	 * @param ?int $year <p>The year as a number between 1970 an 2037. If omitted or <b><code>null</code></b>, defaults to the current year according to the local time.</p>
 	 * @param int $mode <p>Allows Easter dates to be calculated based on the Julian calendar when set to <b><code>CAL_EASTER_ALWAYS_JULIAN</code></b>. See also calendar constants.</p>
 	 * @return int <p>The easter date as a unix timestamp.</p>
 	 * @link https://php.net/manual/en/function.easter-date.php
 	 * @see easter_days()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function easter_date(int|null $year = null, int $mode = CAL_EASTER_DEFAULT): int {}
+	function easter_date(?int $year = null, int $mode = CAL_EASTER_DEFAULT): int {}
 
 	/**
 	 * Get number of days after March 21 on which Easter falls for a given year
 	 * <p>Returns the number of days after March 21 on which Easter falls for a given year. If no year is specified, the current year is assumed.</p><p>This function can be used instead of <code>easter_date()</code> to calculate Easter for years which fall outside the range of Unix timestamps (i.e. before 1970 or after 2037).</p><p>The date of Easter Day was defined by the Council of Nicaea in AD325 as the Sunday after the first full moon which falls on or after the Spring Equinox. The Equinox is assumed to always fall on 21st March, so the calculation reduces to determining the date of the full moon and the date of the following Sunday. The algorithm used here was introduced around the year 532 by Dionysius Exiguus. Under the Julian Calendar (for years before 1753) a simple 19-year cycle is used to track the phases of the Moon. Under the Gregorian Calendar (for years after 1753 - devised by Clavius and Lilius, and introduced by Pope Gregory XIII in October 1582, and into Britain and its then colonies in September 1752) two correction factors are added to make the cycle more accurate.</p>
-	 * @param int|null $year <p>The year as a positive number. If omitted or <b><code>null</code></b>, defaults to the current year according to the local time.</p>
+	 * @param ?int $year <p>The year as a positive number. If omitted or <b><code>null</code></b>, defaults to the current year according to the local time.</p>
 	 * @param int $mode <p>Allows Easter dates to be calculated based on the Gregorian calendar during the years 1582 - 1752 when set to <b><code>CAL_EASTER_ROMAN</code></b>. See the calendar constants for more valid constants.</p>
 	 * @return int <p>The number of days after March 21st that the Easter Sunday is in the given <code>year</code>.</p>
 	 * @link https://php.net/manual/en/function.easter-days.php
 	 * @see easter_date()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function easter_days(int|null $year = null, int $mode = CAL_EASTER_DEFAULT): int {}
+	function easter_days(?int $year = null, int $mode = CAL_EASTER_DEFAULT): int {}
 
 	/**
 	 * Converts a date from the French Republican Calendar to a Julian Day Count
@@ -85,7 +85,7 @@ namespace {
 	 * @return int <p>The julian day for the given french revolution date as an integer.</p>
 	 * @link https://php.net/manual/en/function.frenchtojd.php
 	 * @see jdtofrench(), cal_to_jd()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function frenchtojd(int $month, int $day, int $year): int {}
 
@@ -98,7 +98,7 @@ namespace {
 	 * @return int <p>The julian day for the given gregorian date as an integer. Dates outside the valid range return <code>0</code>.</p>
 	 * @link https://php.net/manual/en/function.gregoriantojd.php
 	 * @see jdtogregorian(), cal_to_jd()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function gregoriantojd(int $month, int $day, int $year): int {}
 
@@ -109,7 +109,7 @@ namespace {
 	 * @param int $mode <b>Calendar week modes</b>   Mode Meaning     0 (Default)  Return the day number as an int (0=Sunday, 1=Monday, etc)    1  Returns string containing the day of week (English-Gregorian)    2  Return a string containing the abbreviated day of week (English-Gregorian)
 	 * @return int|string <p>The gregorian weekday as either an integer or string.</p>
 	 * @link https://php.net/manual/en/function.jddayofweek.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function jddayofweek(int $julian_day, int $mode = CAL_DOW_DAYNO): int|string {}
 
@@ -120,7 +120,7 @@ namespace {
 	 * @param int $mode <p>The calendar mode (see table above).</p>
 	 * @return string <p>The month name for the given Julian Day and <code>mode</code>.</p>
 	 * @link https://php.net/manual/en/function.jdmonthname.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function jdmonthname(int $julian_day, int $mode): string {}
 
@@ -131,7 +131,7 @@ namespace {
 	 * @return string <p>The french revolution date as a string in the form "month/day/year"</p>
 	 * @link https://php.net/manual/en/function.jdtofrench.php
 	 * @see frenchtojd(), cal_from_jd()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function jdtofrench(int $julian_day): string {}
 
@@ -142,7 +142,7 @@ namespace {
 	 * @return string <p>The gregorian date as a string in the form "month/day/year"</p>
 	 * @link https://php.net/manual/en/function.jdtogregorian.php
 	 * @see gregoriantojd(), cal_from_jd()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function jdtogregorian(int $julian_day): string {}
 
@@ -155,7 +155,7 @@ namespace {
 	 * @return string <p>The Jewish date as a string in the form "month/day/year", or an ISO-8859-8 encoded Hebrew date string, according to the <code>hebrew</code> parameter.</p>
 	 * @link https://php.net/manual/en/function.jdtojewish.php
 	 * @see jewishtojd(), cal_from_jd()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function jdtojewish(int $julian_day, bool $hebrew = false, int $flags = 0): string {}
 
@@ -166,7 +166,7 @@ namespace {
 	 * @return string <p>The julian date as a string in the form "month/day/year"</p>
 	 * @link https://php.net/manual/en/function.jdtojulian.php
 	 * @see juliantojd(), cal_from_jd()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function jdtojulian(int $julian_day): string {}
 
@@ -177,7 +177,7 @@ namespace {
 	 * @return int <p>The unix timestamp for the start (midnight, not noon) of the given Julian day</p>
 	 * @link https://php.net/manual/en/function.jdtounix.php
 	 * @see unixtojd()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function jdtounix(int $julian_day): int {}
 
@@ -190,7 +190,7 @@ namespace {
 	 * @return int <p>The julian day for the given jewish date as an integer.</p>
 	 * @link https://php.net/manual/en/function.jewishtojd.php
 	 * @see jdtojewish(), cal_to_jd()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function jewishtojd(int $month, int $day, int $year): int {}
 
@@ -203,20 +203,20 @@ namespace {
 	 * @return int <p>The julian day for the given julian date as an integer.</p>
 	 * @link https://php.net/manual/en/function.juliantojd.php
 	 * @see jdtojulian(), cal_to_jd()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function juliantojd(int $month, int $day, int $year): int {}
 
 	/**
 	 * Convert Unix timestamp to Julian Day
 	 * <p>Return the Julian Day for a Unix <code>timestamp</code> (seconds since 1.1.1970), or for the current day if no <code>timestamp</code> is given. Either way, the time is regarded as local time (not UTC).</p>
-	 * @param int|null $timestamp <p>A unix timestamp to convert.</p>
+	 * @param ?int $timestamp <p>A unix timestamp to convert.</p>
 	 * @return int|false <p>A julian day number as integer, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.unixtojd.php
 	 * @see jdtounix()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function unixtojd(int|null $timestamp = null): int|false {}
+	function unixtojd(?int $timestamp = null): int|false {}
 
 	/**
 	 * For <code>jddayofweek()</code>: the day of the week as <code>int</code>, where <code>0</code> means Sunday and <code>6</code> means Saturday.

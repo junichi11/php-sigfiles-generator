@@ -5,6 +5,30 @@
 namespace {
 
 	/**
+	 * <p>A fully opaque class which replaces a <code>sysvmsg queue</code> resource as of PHP 8.0.0.</p>
+	 * @link https://php.net/manual/en/class.sysvmessagequeue.php
+	 * @since PHP 8
+	 */
+	final class SysvMessageQueue {
+	}
+
+	/**
+	 * <p>A fully opaque class which replaces a <code>sysvsem</code> resource as of PHP 8.0.0.</p>
+	 * @link https://php.net/manual/en/class.sysvsemaphore.php
+	 * @since PHP 8
+	 */
+	final class SysvSemaphore {
+	}
+
+	/**
+	 * <p>A fully opaque class which replaces a <code>sysvshm</code> resource as of PHP 8.0.0.</p>
+	 * @link https://php.net/manual/en/class.sysvsharedmemory.php
+	 * @since PHP 8
+	 */
+	final class SysvSharedMemory {
+	}
+
+	/**
 	 * Convert a pathname and a project identifier to a System V IPC key
 	 * <p>The function converts the <code>filename</code> of an existing accessible file and a project identifier into an <code>integer</code> for use with for example <code>shmop_open()</code> and other System V IPC keys.</p>
 	 * @param string $filename <p>Path to an accessible file.</p>
@@ -12,7 +36,7 @@ namespace {
 	 * @return int <p>On success the return value will be the created key value, otherwise <code>-1</code> is returned.</p>
 	 * @link https://php.net/manual/en/function.ftok.php
 	 * @see shmop_open(), sem_get()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function ftok(string $filename, string $project_id): int {}
 
@@ -21,10 +45,10 @@ namespace {
 	 * <p><b>msg_get_queue()</b> returns an id that can be used to access the System V message queue with the given <code>key</code>. The first call creates the message queue with the optional <code>permissions</code>. A second call to <b>msg_get_queue()</b> for the same <code>key</code> will return a different message queue identifier, but both identifiers access the same underlying message queue.</p>
 	 * @param int $key <p>Message queue numeric ID</p>
 	 * @param int $permissions <p>Queue permissions. Default to 0666. If the message queue already exists, the <code>permissions</code> will be ignored.</p>
-	 * @return SysvMessageQueue|false <p>Returns <b>SysvMessageQueue</b> instance that can be used to access the System V message queue, or <b><code>false</code></b> on failure.</p>
+	 * @return SysvMessageQueue|false <p>Returns <code>SysvMessageQueue</code> instance that can be used to access the System V message queue, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.msg-get-queue.php
 	 * @see msg_remove_queue(), msg_receive(), msg_send(), msg_stat_queue(), msg_set_queue()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function msg_get_queue(int $key, int $permissions = 0666): \SysvMessageQueue|false {}
 
@@ -35,7 +59,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.msg-queue-exists.php
 	 * @see msg_remove_queue(), msg_receive(), msg_stat_queue()
-	 * @since PHP 5 >= 5.3.0, PHP 7
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 	 */
 	function msg_queue_exists(int $key): bool {}
 
@@ -53,7 +77,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><p>Upon successful completion the message queue data structure is updated as follows: <code>msg_lrpid</code> is set to the process-ID of the calling process, <code>msg_qnum</code> is decremented by 1 and <code>msg_rtime</code> is set to the current time.</p>
 	 * @link https://php.net/manual/en/function.msg-receive.php
 	 * @see msg_remove_queue(), msg_send(), msg_stat_queue(), msg_set_queue()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function msg_receive(\SysvMessageQueue $queue, int $desired_message_type, int &$received_message_type, int $max_message_size, mixed &$message, bool $unserialize = true, int $flags = 0, int &$error_code = null): bool {}
 
@@ -64,7 +88,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.msg-remove-queue.php
 	 * @see msg_get_queue(), msg_receive(), msg_stat_queue(), msg_set_queue()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function msg_remove_queue(\SysvMessageQueue $queue): bool {}
 
@@ -80,7 +104,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><p>Upon successful completion the message queue data structure is updated as follows: <code>msg_lspid</code> is set to the process-ID of the calling process, <code>msg_qnum</code> is incremented by 1 and <code>msg_stime</code> is set to the current time.</p>
 	 * @link https://php.net/manual/en/function.msg-send.php
 	 * @see msg_remove_queue(), msg_receive(), msg_stat_queue(), msg_set_queue()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function msg_send(\SysvMessageQueue $queue, int $message_type, string|int|float|bool $message, bool $serialize = true, bool $blocking = true, int &$error_code = null): bool {}
 
@@ -92,7 +116,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.msg-set-queue.php
 	 * @see msg_remove_queue(), msg_receive(), msg_stat_queue(), msg_get_queue()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function msg_set_queue(\SysvMessageQueue $queue, array $data): bool {}
 
@@ -103,7 +127,7 @@ namespace {
 	 * @return array|false <p>On success, the return value is an array whose keys and values have the following meanings:</p> <b>Array structure for msg_stat_queue</b>   <code>msg_perm.uid</code>  The uid of the owner of the queue.    <code>msg_perm.gid</code>  The gid of the owner of the queue.    <code>msg_perm.mode</code>  The file access mode of the queue.    <code>msg_stime</code>  The time that the last message was sent to the queue.    <code>msg_rtime</code>  The time that the last message was received from the queue.    <code>msg_ctime</code>  The time that the queue was last changed.    <code>msg_qnum</code>  The number of messages waiting to be read from the queue.    <code>msg_qbytes</code>  The maximum number of bytes allowed in one message queue. On Linux, this value may be read and modified via /proc/sys/kernel/msgmnb.    <code>msg_lspid</code>  The pid of the process that sent the last message to the queue.    <code>msg_lrpid</code>  The pid of the process that received the last message from the queue.    <p>Returns <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.msg-stat-queue.php
 	 * @see msg_remove_queue(), msg_receive(), msg_get_queue(), msg_set_queue()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function msg_stat_queue(\SysvMessageQueue $queue): array|false {}
 
@@ -115,7 +139,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.sem-acquire.php
 	 * @see sem_get(), sem_release()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function sem_acquire(\SysvSemaphore $semaphore, bool $non_blocking = false): bool {}
 
@@ -129,7 +153,7 @@ namespace {
 	 * @return SysvSemaphore|false <p>Returns a positive semaphore identifier on success, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.sem-get.php
 	 * @see sem_acquire(), sem_release(), ftok()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function sem_get(int $key, int $max_acquire = 1, int $permissions = 0666, bool $auto_release = true): \SysvSemaphore|false {}
 
@@ -140,7 +164,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.sem-release.php
 	 * @see sem_get(), sem_acquire()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function sem_release(\SysvSemaphore $semaphore): bool {}
 
@@ -151,22 +175,22 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.sem-remove.php
 	 * @see sem_get(), sem_release(), sem_acquire()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function sem_remove(\SysvSemaphore $semaphore): bool {}
 
 	/**
 	 * Creates or open a shared memory segment
-	 * <p><b>shm_attach()</b> returns an id that can be used to access the System V shared memory with the given <code>key</code>, the first call creates the shared memory segment with <code>size</code> and the optional perm-bits <code>permissions</code>.</p><p>A second call to <b>shm_attach()</b> for the same <code>key</code> will return a different <b>SysvSharedMemory</b> instance, but both instances access the same underlying shared memory. <code>size</code> and <code>permissions</code> will be ignored.</p>
+	 * <p><b>shm_attach()</b> returns an id that can be used to access the System V shared memory with the given <code>key</code>, the first call creates the shared memory segment with <code>size</code> and the optional perm-bits <code>permissions</code>.</p><p>A second call to <b>shm_attach()</b> for the same <code>key</code> will return a different <code>SysvSharedMemory</code> instance, but both instances access the same underlying shared memory. <code>size</code> and <code>permissions</code> will be ignored.</p>
 	 * @param int $key <p>A numeric shared memory segment ID</p>
-	 * @param int|null $size <p>The memory size. If not provided, default to the <code>sysvshm.init_mem</code> in the php.ini, otherwise 10000 bytes.</p>
+	 * @param ?int $size <p>The memory size. If not provided, default to the <code>sysvshm.init_mem</code> in the php.ini, otherwise 10000 bytes.</p>
 	 * @param int $permissions <p>The optional permission bits. Default to 0666.</p>
-	 * @return SysvSharedMemory|false <p>Returns a <b>SysvSharedMemory</b> instance on success, or <b><code>false</code></b> on failure.</p>
+	 * @return SysvSharedMemory|false <p>Returns a <code>SysvSharedMemory</code> instance on success, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.shm-attach.php
 	 * @see shm_detach(), ftok()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function shm_attach(int $key, int|null $size = null, int $permissions = 0666): \SysvSharedMemory|false {}
+	function shm_attach(int $key, ?int $size = null, int $permissions = 0666): \SysvSharedMemory|false {}
 
 	/**
 	 * Disconnects from shared memory segment
@@ -175,7 +199,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.shm-detach.php
 	 * @see shm_attach(), shm_remove(), shm_remove_var()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function shm_detach(\SysvSharedMemory $shm): bool {}
 
@@ -187,7 +211,7 @@ namespace {
 	 * @return mixed <p>Returns the variable with the given key.</p>
 	 * @link https://php.net/manual/en/function.shm-get-var.php
 	 * @see shm_has_var(), shm_put_var()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function shm_get_var(\SysvSharedMemory $shm, int $key): mixed {}
 
@@ -199,7 +223,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> if the entry exists, otherwise <b><code>false</code></b></p>
 	 * @link https://php.net/manual/en/function.shm-has-var.php
 	 * @see shm_get_var(), shm_put_var()
-	 * @since PHP 5 >= 5.3.0, PHP 7
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 	 */
 	function shm_has_var(\SysvSharedMemory $shm, int $key): bool {}
 
@@ -212,7 +236,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.shm-put-var.php
 	 * @see shm_get_var(), shm_has_var()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function shm_put_var(\SysvSharedMemory $shm, int $key, mixed $value): bool {}
 
@@ -223,7 +247,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.shm-remove.php
 	 * @see shm_remove_var()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function shm_remove(\SysvSharedMemory $shm): bool {}
 
@@ -235,33 +259,18 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.shm-remove-var.php
 	 * @see shm_remove()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function shm_remove_var(\SysvSharedMemory $shm, int $key): bool {}
 
-	/**
-	 * As of 5.2.0
-	 */
 	define('MSG_EAGAIN', 11);
 
-	/**
-	 * As of 5.2.0
-	 */
 	define('MSG_ENOMSG', 42);
 
-	/**
-	 * <code>int</code>
-	 */
 	define('MSG_EXCEPT', 4);
 
-	/**
-	 * <code>int</code>
-	 */
 	define('MSG_IPC_NOWAIT', 1);
 
-	/**
-	 * <code>int</code>
-	 */
 	define('MSG_NOERROR', 2);
 
 }

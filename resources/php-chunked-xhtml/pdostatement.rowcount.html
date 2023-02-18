@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="pdostatement.rowcount" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDOStatement::rowCount</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDOStatement::rowCount</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDOStatement::rowCount</span> &mdash; <span class="dc-title">
    Returns the number of rows affected by the last SQL statement
   </span></p>
 
@@ -34,9 +34,7 @@
  <div class="refsect1 description" id="refsect1-pdostatement.rowcount-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::rowCount</strong></span>
-    (
-   ) : <span class="type">int</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::rowCount</strong></span>(): <span class="type">int</span></div>
 
 
   <p class="para rdfs-comment">
@@ -61,6 +59,12 @@
   </p></blockquote>
  </div>
 
+
+ <div class="refsect1 parameters" id="refsect1-pdostatement.rowcount-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
  
   <div class="refsect1 returnvalues" id="refsect1-pdostatement.rowcount-returnvalues">
   <h3 class="title">Return Values</h3>
@@ -73,7 +77,7 @@
  <div class="refsect1 examples" id="refsect1-pdostatement.rowcount-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1050">
+   <div class="example" id="example-1057">
     <p><strong>Example #1 Return the number of deleted rows</strong></p>
     <div class="example-contents"><p>
      <span class="function"><strong>PDOStatement::rowCount()</strong></span> returns the number of
@@ -95,7 +99,7 @@ Deleted 9 rows.
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1051">
+   <div class="example" id="example-1058">
     <p><strong>Example #2 Counting rows returned by a SELECT statement</strong></p>
     <div class="example-contents"><p>
      For most databases, <span class="function"><strong>PDOStatement::rowCount()</strong></span> does not
@@ -130,7 +134,7 @@ There are 2 matching records.
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="pdostatement.columncount.html" class="function" rel="rdfs-seeAlso">PDOStatement::columnCount()</a> - Returns the number of columns in the result set</span></li>
     <li class="member"><span class="function"><a href="pdostatement.fetchcolumn.html" class="function" rel="rdfs-seeAlso">PDOStatement::fetchColumn()</a> - Returns a single column from the next row of a result set</span></li>
-    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Executes an SQL statement, returning a result set as a PDOStatement object</span></li>
+    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Prepares and executes an SQL statement without placeholders</span></li>
    </ul>
   </p>
 

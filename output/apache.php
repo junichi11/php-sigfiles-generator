@@ -10,7 +10,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.apache-child-terminate.php
 	 * @see exit()
-	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7, PHP 8
 	 */
 	function apache_child_terminate(): void {}
 
@@ -19,7 +19,7 @@ namespace {
 	 * <p>Get a list of loaded Apache modules.</p>
 	 * @return array <p>An <code>array</code> of loaded Apache modules.</p>
 	 * @link https://php.net/manual/en/function.apache-get-modules.php
-	 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7, PHP 8
 	 */
 	function apache_get_modules(): array {}
 
@@ -29,7 +29,7 @@ namespace {
 	 * @return string|false <p>Returns the Apache version on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.apache-get-version.php
 	 * @see phpinfo()
-	 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7, PHP 8
 	 */
 	function apache_get_version(): string|false {}
 
@@ -41,7 +41,7 @@ namespace {
 	 * @return string|false <p>The value of the Apache environment variable on success, or <b><code>false</code></b> on failure</p>
 	 * @link https://php.net/manual/en/function.apache-getenv.php
 	 * @see apache_setenv(), getenv()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function apache_getenv(string $variable, bool $walk_to_top = false): string|false {}
 
@@ -51,7 +51,7 @@ namespace {
 	 * @param string $filename <p>The filename (URI) that's being requested.</p>
 	 * @return object|false <p>An <code>object</code> of related URI information. The properties of this <code>object</code> are:</p><ul> <li>status</li> <li>the_request</li> <li>status_line</li> <li>method</li> <li>content_type</li> <li>handler</li> <li>uri</li> <li>filename</li> <li>path_info</li> <li>args</li> <li>boundary</li> <li>no_cache</li> <li>no_local_copy</li> <li>allowed</li> <li>send_bodyct</li> <li>bytes_sent</li> <li>byterange</li> <li>clength</li> <li>unparsed_uri</li> <li>mtime</li> <li>request_time</li> </ul><p>Returns <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.apache-lookup-uri.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function apache_lookup_uri(string $filename): object|false {}
 
@@ -59,13 +59,13 @@ namespace {
 	 * Get and set apache request notes
 	 * <p>This function is a wrapper for Apache's <code>table_get</code> and <code>table_set</code>. It edits the table of notes that exists during a request. The table's purpose is to allow Apache modules to communicate.</p><p>The main use for <b>apache_note()</b> is to pass information from one module to another within the same request.</p>
 	 * @param string $note_name <p>The name of the note.</p>
-	 * @param string|null $note_value <p>The value of the note.</p>
+	 * @param ?string $note_value <p>The value of the note.</p>
 	 * @return string|false <p>If <code>note_value</code> is omitted or <b><code>null</code></b>, it returns the current value of note <code>note_name</code>. Otherwise, it sets the value of note <code>note_name</code> to <code>note_value</code> and returns the previous value of note <code>note_name</code>. If the note cannot be retrieved, <b><code>false</code></b> is returned.</p>
 	 * @link https://php.net/manual/en/function.apache-note.php
 	 * @see virtual()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function apache_note(string $note_name, string|null $note_value = null): string|false {}
+	function apache_note(string $note_name, ?string $note_value = null): string|false {}
 
 	/**
 	 * Fetch all HTTP request headers
@@ -73,19 +73,9 @@ namespace {
 	 * @return array <p>An associative array of all the HTTP headers in the current request, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.apache-request-headers.php
 	 * @see apache_response_headers()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function apache_request_headers(): array {}
-
-	/**
-	 * Reset the Apache write timer
-	 * <p><b>apache_reset_timeout()</b> resets the Apache write timer, which defaults to 300 seconds. With <code>set_time_limit(0); ignore_user_abort(true)</code> and periodic <b>apache_reset_timeout()</b> calls, Apache can theoretically run forever.</p><p>This function requires Apache 1.</p>
-	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
-	 * @link https://php.net/manual/en/function.apache-reset-timeout.php
-	 * @see set_time_limit(), ignore_user_abort()
-	 * @since PHP 5 >= 5.1.0, PHP 7
-	 */
-	function apache_reset_timeout(): bool {}
 
 	/**
 	 * Fetch all HTTP response headers
@@ -93,7 +83,7 @@ namespace {
 	 * @return array|false <p>An array of all Apache response headers on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.apache-response-headers.php
 	 * @see apache_request_headers(), headers_sent(), headers_list()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function apache_response_headers(): array|false {}
 
@@ -106,7 +96,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.apache-setenv.php
 	 * @see apache_getenv()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function apache_setenv(string $variable, string $value, bool $walk_to_top = false): bool {}
 
@@ -116,7 +106,7 @@ namespace {
 	 * @return array <p>An associative array of all the HTTP headers in the current request, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.getallheaders.php
 	 * @see apache_response_headers()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function getallheaders(): array {}
 
@@ -127,7 +117,7 @@ namespace {
 	 * @return bool <p>Performs the virtual command on success, or returns <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.virtual.php
 	 * @see apache_note()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function virtual(string $uri): bool {}
 

@@ -405,7 +405,7 @@ namespace Gender {
 		/**
 		 * Get textual country representation
 		 * <p>Returns the textual representation of a country from a Gender class constant.</p>
-		 * @param int $country <p>A country ID specified by a Gender\Gender class constant.</p>
+		 * @param int $country <p>A country ID specified by a <code>Gender\Gender</code> class constant.</p>
 		 * @return array|false <p>Returns an array with the short and full names of the country on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gender-gender.country.php
 		 * @since PECL gender >= 0.8.0

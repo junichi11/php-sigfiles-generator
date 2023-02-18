@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-solrclient.ping-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>SolrClient::ping</strong></span>
-    (
-   ) : <span class="type"><a href="class.solrpingresponse.html" class="type SolrPingResponse">SolrPingResponse</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>SolrClient::ping</strong></span>(): <span class="type"><a href="class.solrpingresponse.html" class="type SolrPingResponse">SolrPingResponse</a></span></div>
 
   <p class="para rdfs-comment">
    Checks if the Solr server is still alive. Sends a HEAD request to the Apache Solr server.
@@ -61,10 +59,10 @@
  <div class="refsect1 errors" id="refsect1-solrclient.ping-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Throws <a href="class.solrclientexception.html" class="classname">SolrClientException</a> if the client had failed, or there was a connection issue.
+   Throws <span class="classname"><a href="class.solrclientexception.html" class="classname">SolrClientException</a></span> if the client had failed, or there was a connection issue.
   </p>
   <p class="para">
-    Throws <a href="class.solrserverexception.html" class="classname">SolrServerException</a> if the Solr Server had failed to satisfy the request.
+    Throws <span class="classname"><a href="class.solrserverexception.html" class="classname">SolrServerException</a></span> if the Solr Server had failed to satisfy the request.
   </p>
  </div>
 
@@ -72,7 +70,7 @@
  <div class="refsect1 examples" id="refsect1-solrclient.ping-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5162">
+   <div class="example" id="example-4662">
     <p><strong>Example #1 <span class="methodname"><strong>SolrClient::ping()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.pg-unescape-bytea" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_unescape_bytea</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_unescape_bytea</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_unescape_bytea</span> &mdash; <span class="dc-title">
    Unescape binary for bytea type
   </span></p>
 
@@ -35,9 +35,7 @@
  <div class="refsect1 description" id="refsect1-function.pg-unescape-bytea-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_unescape_bytea</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>pg_unescape_bytea</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_unescape_bytea()</strong></span> unescapes PostgreSQL bytea data
@@ -66,10 +64,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">data</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -97,7 +94,7 @@
  <div class="refsect1 examples" id="refsect1-function.pg-unescape-bytea-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2402">
+   <div class="example" id="example-1956">
     <p><strong>Example #1 <span class="function"><strong>pg_unescape_bytea()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -107,35 +104,6 @@
     </div>
 
    </div>
-  </p>
- </div>
-
-
- <div class="refsect1 changelog" id="refsect1-function.pg-unescape-bytea-changelog">
-  <h3 class="title">Changelog</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>Version</th>
-       <th>Description</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.5.1</td>
-       <td>
-        A warning is thrown if the input string is invalid.
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
   </p>
  </div>
 

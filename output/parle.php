@@ -24,14 +24,14 @@ namespace Parle {
 		public $position;
 
 		/**
-		 * @var mixed <p>If applicable - the Parle\Token related to the error, otherwise <b><code>null</code></b>.</p>
+		 * @var mixed <p>If applicable - the <code>Parle\Token</code> related to the error, otherwise <b><code>null</code></b>.</p>
 		 * @link https://php.net/manual/en/class.parle-errorinfo.php#parle-errorinfo.props.token
 		 */
 		public $token;
 	}
 
 	/**
-	 * <p>Single state lexer class. Lexemes can be defined on the fly. If the particular lexer instance is meant to be used with Parle\Parser, the token IDs need to be taken from there. Otherwise, arbitrary token IDs can be supplied. This lexer can give a certain performance advantage over Parle\RLexer, if no multiple states are required. Note, that Parle\RParser is not compatible with this lexer.</p>
+	 * <p>Single state lexer class. Lexemes can be defined on the fly. If the particular lexer instance is meant to be used with <code>Parle\Parser</code>, the token IDs need to be taken from there. Otherwise, arbitrary token IDs can be supplied. This lexer can give a certain performance advantage over <code>Parle\RLexer</code>, if no multiple states are required. Note, that <code>Parle\RParser</code> is not compatible with this lexer.</p>
 	 * @link https://php.net/manual/en/class.parle-lexer.php
 	 * @since PECL parle >= 0.5.1
 	 */
@@ -148,7 +148,7 @@ namespace Parle {
 		/**
 		 * Retrieve the current token
 		 * <p>Retrieve the current token.</p>
-		 * @return Parle\Token <p>Returns an instance of Parle\Token.</p>
+		 * @return Parle\Token <p>Returns an instance of <code>Parle\Token</code>.</p>
 		 * @link https://php.net/manual/en/parle-lexer.gettoken.php
 		 * @since PECL parle >= 0.5.1
 		 */
@@ -197,7 +197,13 @@ namespace Parle {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -209,7 +215,7 @@ namespace Parle {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -218,13 +224,25 @@ namespace Parle {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -238,11 +256,11 @@ namespace Parle {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -272,13 +290,13 @@ namespace Parle {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -300,7 +318,7 @@ namespace Parle {
 	}
 
 	/**
-	 * <p>Parser class. Rules can be defined on the fly. Once finalized, a Parle\Lexer instance is required to deliver the token stream.</p>
+	 * <p>Parser class. Rules can be defined on the fly. Once finalized, a <code>Parle\Lexer</code> instance is required to deliver the token stream.</p>
 	 * @link https://php.net/manual/en/class.parle-parser.php
 	 * @since PECL parle >= 0.5.1
 	 */
@@ -407,7 +425,7 @@ namespace Parle {
 		/**
 		 * Retrieve the error information
 		 * <p>Retrieve the error information in case <b>Parle\Parser::action()</b> returned the error action.</p>
-		 * @return Parle\ErrorInfo <p>Returns an instance of Parle\ErrorInfo.</p>
+		 * @return Parle\ErrorInfo <p>Returns an instance of <code>Parle\ErrorInfo</code>.</p>
 		 * @link https://php.net/manual/en/parle-parser.errorinfo.php
 		 * @since PECL parle >= 0.5.1
 		 */
@@ -535,7 +553,13 @@ namespace Parle {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -547,7 +571,7 @@ namespace Parle {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -556,13 +580,25 @@ namespace Parle {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -576,11 +612,11 @@ namespace Parle {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -610,13 +646,13 @@ namespace Parle {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -638,7 +674,7 @@ namespace Parle {
 	}
 
 	/**
-	 * <p>Multistate lexer class. Lexemes can be defined on the fly. If the particular lexer instance is meant to be used with Parle\RParser, the token IDs need to be taken from there. Otherwise, arbitrary token IDs can be supplied. Note, that Parle\Parser is not compatible with this lexer.</p>
+	 * <p>Multistate lexer class. Lexemes can be defined on the fly. If the particular lexer instance is meant to be used with <code>Parle\RParser</code>, the token IDs need to be taken from there. Otherwise, arbitrary token IDs can be supplied. Note, that <code>Parle\Parser</code> is not compatible with this lexer.</p>
 	 * @link https://php.net/manual/en/class.parle-rlexer.php
 	 * @since PECL parle >= 0.5.1
 	 */
@@ -755,7 +791,7 @@ namespace Parle {
 		/**
 		 * Retrieve the current token
 		 * <p>Retrive the current token.</p>
-		 * @return Parle\Token <p>Returns an instance of Parle\Token.</p>
+		 * @return Parle\Token <p>Returns an instance of <code>Parle\Token</code>.</p>
 		 * @link https://php.net/manual/en/parle-rlexer.gettoken.php
 		 * @since PECL parle >= 0.5.1
 		 */
@@ -805,7 +841,7 @@ namespace Parle {
 	}
 
 	/**
-	 * <p>Parser class. Rules can be defined on the fly. Once finalized, a Parle\RLexer instance is required to deliver the token stream.</p>
+	 * <p>Parser class. Rules can be defined on the fly. Once finalized, a <code>Parle\RLexer</code> instance is required to deliver the token stream.</p>
 	 * @link https://php.net/manual/en/class.parle-rparser.php
 	 * @since PECL parle >= 0.7.0
 	 */
@@ -912,7 +948,7 @@ namespace Parle {
 		/**
 		 * Retrieve the error information
 		 * <p>Retrieve the error information in case <b>Parle\RParser::action()</b> returned the error action.</p>
-		 * @return Parle\ErrorInfo <p>Returns an instance of Parle\ErrorInfo.</p>
+		 * @return Parle\ErrorInfo <p>Returns an instance of <code>Parle\ErrorInfo</code>.</p>
 		 * @link https://php.net/manual/en/parle-rparser.errorinfo.php
 		 * @since PECL parle >= 0.7.0
 		 */

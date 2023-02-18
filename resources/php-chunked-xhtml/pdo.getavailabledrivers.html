@@ -27,7 +27,7 @@
  <div class="refnamediv">
   <h1 class="refname">PDO::getAvailableDrivers</h1>
   <h1 class="refname">pdo_drivers</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 1.0.3)</p><p class="refpurpose"><span class="refname">PDO::getAvailableDrivers</span> -- <span class="refname">pdo_drivers</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 1.0.3)</p><p class="refpurpose"><span class="refname">PDO::getAvailableDrivers</span> -- <span class="refname">pdo_drivers</span> &mdash; <span class="dc-title">
    Return an array of available PDO drivers
   </span></p>
 
@@ -35,14 +35,9 @@
  <div class="refsect1 description" id="refsect1-pdo.getavailabledrivers-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>PDO::getAvailableDrivers</strong></span>
-    (
-   ) : <span class="type">array</span></div>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>PDO::getAvailableDrivers</strong></span>(): <span class="type">array</span></div>
 
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pdo_drivers</strong></span>
-    (
-   ) : <span class="type">array</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>pdo_drivers</strong></span>(): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    This function returns all currently available PDO drivers which can be used
@@ -51,6 +46,13 @@
   </p>
 
  </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-pdo.getavailabledrivers-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
 
  <div class="refsect1 returnvalues" id="refsect1-pdo.getavailabledrivers-returnvalues">
   <h3 class="title">Return Values</h3>
@@ -64,7 +66,7 @@
  <div class="refsect1 examples" id="refsect1-pdo.getavailabledrivers-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1014">
+   <div class="example" id="example-1020">
     <p><strong>Example #1 A <span class="function"><strong>PDO::getAvailableDrivers()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

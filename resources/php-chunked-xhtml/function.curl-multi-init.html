@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.curl-multi-init" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">curl_multi_init</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">curl_multi_init</span> &mdash; <span class="dc-title">Returns a new cURL multi handle</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">curl_multi_init</span> &mdash; <span class="dc-title">Returns a new cURL multi handle</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.curl-multi-init-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>curl_multi_init</strong></span>
-    (
-   ) : <span class="type"><a href="class.curlmultihandle.html" class="type CurlMultiHandle">CurlMultiHandle</a></span></div>
+   <span class="methodname"><strong>curl_multi_init</strong></span>(): <span class="type"><a href="class.curlmultihandle.html" class="type CurlMultiHandle">CurlMultiHandle</a></span></div>
 
   <p class="para rdfs-comment">
    Allows the processing of multiple cURL handles asynchronously.
@@ -73,7 +71,7 @@
      <tr>
       <td>8.0.0</td>
       <td>
-       On success, this function returns a <a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a> instance now;
+       On success, this function returns a <span class="classname"><a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a></span> instance now;
        previously, a <span class="type">resource</span> was returned.
       </td>
      </tr>
@@ -88,7 +86,7 @@
  <div class="refsect1 examples" id="refsect1-function.curl-multi-init-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4718">
+   <div class="example" id="example-4219">
     <p><strong>Example #1 <span class="function"><strong>curl_multi_init()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This example will create two cURL handles, add them to a multi

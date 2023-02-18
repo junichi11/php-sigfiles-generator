@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="function.preg-replace.html">« preg_replace</a></li>
-      <li style="float: right;"><a href="book.regex.html">POSIX Regex »</a></li>
+      <li style="float: right;"><a href="book.ssdeep.html">ssdeep »</a></li>
     </ul>
   </div>
 </div>
@@ -26,19 +26,14 @@
   <div id="layout-content"><div id="function.preg-split" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">preg_split</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">preg_split</span> &mdash; <span class="dc-title">Split string by a regular expression</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">preg_split</span> &mdash; <span class="dc-title">Split string by a regular expression</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.preg-split-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>preg_split</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$subject</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = -1</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>preg_split</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$subject</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = -1</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span><br>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Split the given string by a regular expression.
@@ -50,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">pattern</code></dt>
@@ -99,7 +93,6 @@
        <code class="parameter">flags</code> can be any combination of the following
        flags (combined with the <code class="literal">|</code> bitwise operator):
        <dl>
-
         
          <dt>
 <strong><code>PREG_SPLIT_NO_EMPTY</code></strong></dt>
@@ -163,10 +156,18 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.preg-split-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+If the regex pattern passed does not compile to a valid regex, an <strong><code>E_WARNING</code></strong> is emitted.
+</p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.preg-split-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5265">
+   <div class="example" id="example-4764">
     <p><strong>Example #1 <span class="function"><strong>preg_split()</strong></span> example : Get the parts of a search string</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -189,7 +190,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5266">
+   <div class="example" id="example-4765">
     <p><strong>Example #2 Splitting a string into component characters</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -215,7 +216,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5267">
+   <div class="example" id="example-4766">
     <p><strong>Example #3 Splitting a string into matches and their offsets</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,18 +26,13 @@
   <div id="layout-content"><div id="function.imagettfbbox" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagettfbbox</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagettfbbox</span> &mdash; <span class="dc-title">Give the bounding box of a text using TrueType fonts</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagettfbbox</span> &mdash; <span class="dc-title">Give the bounding box of a text using TrueType fonts</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagettfbbox-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagettfbbox</strong></span>
-    ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$size</code></span>
-   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$angle</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$fontfile</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$text</code></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>imagettfbbox</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">float</span> <code class="parameter">$size</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">float</span> <code class="parameter">$angle</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$font_filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span><br>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    This function calculates and returns the bounding box in pixels
@@ -45,9 +40,10 @@
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    <span class="function"><a href="function.imageftbbox.html" class="function">imageftbbox()</a></span> is an extended variant of
-    <span class="function"><strong>imagettfbbox()</strong></span> which additionally supports the
+    Prior to PHP 8.0.0, <span class="function"><a href="function.imageftbbox.html" class="function">imageftbbox()</a></span> was an extended variant of
+    <span class="function"><strong>imagettfbbox()</strong></span> which additionally supported the
     <code class="parameter">extrainfo</code>.
+    As of PHP 8.0.0, <span class="function"><strong>imagettfbbox()</strong></span> is an alias of <span class="function"><a href="function.imageftbbox.html" class="function">imageftbbox()</a></span>.
    </p>
   </p></blockquote>
  </div>
@@ -56,7 +52,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">size</code></dt>
@@ -74,7 +69,7 @@
      <dd>
 
       <p class="para">
-       Angle in degrees in which <code class="parameter">text</code> will be measured.
+       Angle in degrees in which <code class="parameter">string</code> will be measured.
       </p>
      </dd>
 
@@ -126,7 +121,7 @@
 
     
      <dt>
-<code class="parameter">text</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -210,10 +205,38 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagettfbbox-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       The <code class="parameter">options</code> has been added.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagettfbbox-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3204">
+   <div class="example" id="example-2720">
     <p><strong>Example #1 <span class="function"><strong>imagettfbbox()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

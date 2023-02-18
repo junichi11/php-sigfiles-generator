@@ -80,6 +80,10 @@ class PhpTypes extends PhpElements {
             }
         }
         if ($name === null) {
+            // e.g. class.throwable.html
+            $name = Html::queryFirstValue($this->xpath(), '//*[@class="classsynopsisinfo"]//strong[@class="interfacename"]', null, true);
+        }
+        if ($name === null) {
             Log::error("Missing name in file '$this->file'", true);
         }
         return PhpName::fromString($name);

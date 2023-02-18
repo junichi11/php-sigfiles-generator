@@ -6,12 +6,12 @@ namespace {
 
 	/**
 	 * Bind variables to a prepared statement as parameters
-	 * <p>The <b>cubrid_bind()</b> function is used to bind values to a corresponding named or question mark placeholder in the SQL statement that was passed to <code>cubrid_prepare()</code>. If <code>bind_value_type</code> is not given, string will be the default.</p><p><b>Note</b>:</p><p>If the type of data to be bound is BLOB/CLOB, CUBRID will try to map the data as a PHP stream. If the actually bind value type is not stream, CUBRID will convert it to string, and use it as the full path and file name of a file on the client filesystem.</p><p>If the type of data to be bound explicitly is ENUM, the $bind_value argument should be the enum element which is in string format.</p><p>In CUBRID shard envrioment, the $bind_value_type must be included in the cubrid_bind function.</p><p>The following table shows the types of substitute values.</p><p></p>
+	 * <p>The <b>cubrid_bind()</b> function is used to bind values to a corresponding named or question mark placeholder in the SQL statement that was passed to <code>cubrid_prepare()</code>. If <code>bind_value_type</code> is not given, string will be the default.</p><p><b>Note</b>:</p><p>If the type of data to be bound is BLOB/CLOB, CUBRID will try to map the data as a PHP stream. If the actually bind value type is not stream, CUBRID will convert it to string, and use it as the full path and file name of a file on the client filesystem.</p><p>If the type of data to be bound explicitly is ENUM, the <code>bind_value</code> argument should be the enum element which is in string format.</p><p>In CUBRID shard envrioment, the <code>bind_value_type</code> must be included in the <b>cubrid_bind()</b> function.</p><p>The following table shows the types of substitute values.</p><p></p>
 	 * @param resource $req_identifier <p>Request identifier as a result of <code>cubrid_prepare()</code>.</p>
 	 * @param int $bind_index <p>Location of binding parameters. It starts with 1.</p>
 	 * @param mixed $bind_value <p>Actual value for binding.</p>
 	 * @param string $bind_value_type <p>A type of the value to bind. (It is omitted by default. Thus, the system internally uses string by default. However, you need to specify the exact type of the value as an argument when they are NCHAR, BIT, or BLOB/CLOB).</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-bind.php
 	 * @see cubrid_execute(), cubrid_prepare()
 	 * @since PECL CUBRID >= 8.3.0
@@ -58,7 +58,7 @@ namespace {
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
 	 * @param string $oid <p>OID the instance that you want to work with.</p>
 	 * @param string $attr_name <p>Name of the attribute that you want to work with.</p>
-	 * @return int <p>Number of elements, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return int <p>Number of elements, when process is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-col-size.php
 	 * @since PECL CUBRID >= 8.3.0
 	 */
@@ -68,7 +68,7 @@ namespace {
 	 * Get the column names in result
 	 * <p>The <b>cubrid_column_names()</b> function is used to get the column names of the query result by using <code>req_identifier</code>.</p>
 	 * @param resource $req_identifier <p>Request identifier.</p>
-	 * @return array <p>Array of string values containing the column names, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return array <p>Array of string values containing the column names, when process is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-column-names.php
 	 * @see cubrid_prepare(), cubrid_execute(), cubrid_column_types()
 	 * @since PECL CUBRID >= 8.3.0
@@ -79,7 +79,7 @@ namespace {
 	 * Get column types in result
 	 * <p>The <b>cubrid_column_types()</b> function gets column types of query results by using <code>req_identifier</code>.</p>
 	 * @param resource $req_identifier <p>Request identifier.</p>
-	 * @return array <p>Array of string values containing the column types, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return array <p>Array of string values containing the column types, when process is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-column-types.php
 	 * @see cubrid_column_names(), cubrid_prepare(), cubrid_execute()
 	 * @since PECL CUBRID >= 8.3.0
@@ -90,7 +90,7 @@ namespace {
 	 * Commit a transaction
 	 * <p>The <b>cubrid_commit()</b> function is used to execute commit on the transaction pointed by <code>conn_identifier</code>, currently in progress. Connection to the server is closed after the <b>cubrid_commit()</b> function is called; However, the connection handle is still valid.</p><p>In CUBRID PHP, auto-commit mode is disabled by default for transaction management. You can set it by using <code>cubrid_set_autocommit()</code>. You can get its status by using <code>cubrid_get_autocommit()</code>. Before you start a transaction, remember to disable the auto-commit mode.</p>
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-commit.php
 	 * @see cubrid_rollback(), cubrid_get_autocommit(), cubrid_set_autocommit()
 	 * @since PECL CUBRID >= 8.3.0
@@ -106,7 +106,7 @@ namespace {
 	 * @param string $userid <p>User name for the database. If not given, the default value is "public".</p>
 	 * @param string $passwd <p>User password. If not given, the default value is "".</p>
 	 * @param bool $new_link <p>If a second call is made to <b>cubrid_connect()</b> with the same arguments, no new connection will be established, but instead, the connection identifier of the already opened connection will be returned. The <code>new_link</code> parameter modifies this behavior and makes <b>cubrid_connect()</b> always open a new connection, even if <b>cubrid_connect()</b> was called before with the same parameters.</p>
-	 * @return resource <p>Connection identifier, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return resource <p>Connection identifier, when process is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-connect.php
 	 * @see cubrid_pconnect(), cubrid_connect_with_url(), cubrid_pconnect_with_url(), cubrid_disconnect(), cubrid_close()
 	 * @since PECL CUBRID >= 8.3.1
@@ -120,7 +120,7 @@ namespace {
 	 * @param string $userid <p>User name for the database.</p>
 	 * @param string $passwd <p>User password.</p>
 	 * @param bool $new_link <p>If a second call is made to <b>cubrid_connect_with_url()</b> with the same arguments, no new connection will be established, but instead, the connection identifier of the already opened connection will be returned. The <code>new_link</code> parameter modifies this behavior and makes <b>cubrid_connect_with_url()</b> always open a new connection, even if <b>cubrid_connect_with_url()</b> was called before with the same parameters.</p>
-	 * @return resource <p>Connection identifier, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return resource <p>Connection identifier, when process is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-connect-with-url.php
 	 * @see cubrid_connect(), cubrid_pconnect(), cubrid_pconnect_with_url(), cubrid_disconnect(), cubrid_close()
 	 * @since PECL CUBRID >= 8.3.1
@@ -129,9 +129,9 @@ namespace {
 
 	/**
 	 * Get OID of the current cursor location
-	 * <p>The <b>cubrid_current_oid()</b> function is used to get the oid of the current cursor location from the query result. To use <b>cubrid_current_oid()</b>, the query executed must be a updatable query, and the CUBRID_INCLUDE_OID option must be included during the query execution.</p>
+	 * <p>The <b>cubrid_current_oid()</b> function is used to get the oid of the current cursor location from the query result. To use <b>cubrid_current_oid()</b>, the query executed must be a updatable query, and the <b><code>CUBRID_INCLUDE_OID</code></b> option must be included during the query execution.</p>
 	 * @param resource $req_identifier <p>Request identifier.</p>
-	 * @return string <p>Oid of current cursor location, when process is successful</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return string <p>Oid of current cursor location, when process is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-current-oid.php
 	 * @see cubrid_execute()
 	 * @since PECL CUBRID >= 8.3.0
@@ -142,7 +142,7 @@ namespace {
 	 * Close a database connection
 	 * <p>The <b>cubrid_disconnect()</b> function closes the connection handle and disconnects from server. If any request handle is not closed at this point, it will be closed. It is similar to the CUBRID MySQL compatible function <code>cubrid_close()</code>.</p>
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-disconnect.php
 	 * @see cubrid_close(), cubrid_connect(), cubrid_connect_with_url()
 	 * @since PECL CUBRID >= 8.3.0
@@ -154,7 +154,7 @@ namespace {
 	 * <p>The <b>cubrid_drop()</b> function is used to delete an instance from database by using the <code>oid</code> of the instance.</p>
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
 	 * @param string $oid <p>Oid of the instance that you want to delete.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-drop.php
 	 * @see cubrid_is_instance()
 	 * @since PECL CUBRID >= 8.3.0
@@ -174,7 +174,7 @@ namespace {
 	/**
 	 * Get the facility code of error
 	 * <p>The <b>cubrid_error_code_facility()</b> function is used to get the facility code (level in which the error occurred) from the error code of the error that occurred during the API execution. Usually, you can get the error code when API returns false as its return value.</p>
-	 * @return int <p>Facility code of the error code that occurred: CUBRID_FACILITY_DBMS, CUBRID_FACILITY_CAS, CUBRID_FACILITY_CCI, CUBRID_FACILITY_CLIENT</p>
+	 * @return int <p>Facility code of the error code that occurred: <b><code>CUBRID_FACILITY_DBMS</code></b>, <b><code>CUBRID_FACILITY_CAS</code></b>, <b><code>CUBRID_FACILITY_CCI</code></b>, <b><code>CUBRID_FACILITY_CLIENT</code></b>.</p>
 	 * @link https://php.net/manual/en/function.cubrid-error-code-facility.php
 	 * @see cubrid_error_code(), cubrid_error_msg()
 	 * @since PECL CUBRID >= 8.3.0
@@ -193,11 +193,11 @@ namespace {
 
 	/**
 	 * Execute a prepared SQL statement
-	 * <p>The <b>cubrid_execute()</b> function is used to execute the given SQL statement. It executes the query by using <code>conn_identifier</code> and SQL, and then returns the request identifier created. It is used for simple execution of query, where the parameter binding is not needed. In addition, the <b>cubrid_execute()</b> function is used to execute the prepared statement by means of <code>cubrid_prepare()</code> and <code>cubrid_bind()</code>. At this time, you need to specify arguments of <code>request_identifier</code> and <code>option</code>.</p><p>The <code>option</code> is used to determine whether to get OID after query execution and whether to execute the query in synchronous or asynchronous mode. CUBRID_INCLUDE_OID and CUBRID_ASYNC (or CUBRID_EXEC_QUERY_ALL if you want to execute multiple SQL statements) can be specified by using a bitwise OR operator. If not specified, neither of them isselected. If the flag CUBRID_EXEC_QUERY_ALL is set, a synchronous mode (sync_mode) is used to retrieve query results, and in such cases the following rules are applied:</p><p></p><p>If the first argument is <code>request_identifier</code> to execute the <code>cubrid_prepare()</code> function, you can specify an option, CUBRID_ASYNC only.</p>
+	 * <p>The <b>cubrid_execute()</b> function is used to execute the given SQL statement. It executes the query by using <code>conn_identifier</code> and SQL, and then returns the request identifier created. It is used for simple execution of query, where the parameter binding is not needed. In addition, the <b>cubrid_execute()</b> function is used to execute the prepared statement by means of <code>cubrid_prepare()</code> and <code>cubrid_bind()</code>. At this time, you need to specify arguments of <code>request_identifier</code> and <code>option</code>.</p><p>The <code>option</code> is used to determine whether to get OID after query execution and whether to execute the query in synchronous or asynchronous mode. <b><code>CUBRID_INCLUDE_OID</code></b> and <b><code>CUBRID_ASYNC</code></b> (or <b><code>CUBRID_EXEC_QUERY_ALL</code></b> if you want to execute multiple SQL statements) can be specified by using a bitwise OR operator. If not specified, neither of them isselected. If the flag <b><code>CUBRID_EXEC_QUERY_ALL</code></b> is set, a synchronous mode (sync_mode) is used to retrieve query results, and in such cases the following rules are applied:</p><p></p><p>If the first argument is <code>request_identifier</code> to execute the <code>cubrid_prepare()</code> function, you can specify an option, <b><code>CUBRID_ASYNC</code></b> only.</p>
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
 	 * @param string $sql <p>SQL to be executed.</p>
-	 * @param int $option <p>Query execution option CUBRID_INCLUDE_OID, CUBRID_ASYNC, CUBRID_EXEC_QUERY_ALL.</p>
-	 * @return resource <p>Request identifier, when process is successful and first param is conn_identifier; <b><code>true</code></b>, when process is successful and first argument is request_identifier.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @param int $option <p>Query execution option <b><code>CUBRID_INCLUDE_OID</code></b>, <b><code>CUBRID_ASYNC</code></b>, <b><code>CUBRID_EXEC_QUERY_ALL</code></b>.</p>
+	 * @return resource <p>Request identifier, when process is successful and first param is conn_identifier; <b><code>true</code></b>, when process is successful and first argument is request_identifier, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-execute.php
 	 * @see cubrid_prepare(), cubrid_bind(), cubrid_next_result(), cubrid_close_request(), cubrid_commit(), cubrid_rollback()
 	 * @since PECL CUBRID >= 8.3.0
@@ -218,9 +218,9 @@ namespace {
 
 	/**
 	 * Free the memory occupied by the result data
-	 * <p>This function frees the memory occupied by the result data. It returns TRUE on success or FALSE on failure. Note that it can only frees the client fetch buffer now, and if you want free all memory, use function <code>cubrid_close_request()</code>.</p>
+	 * <p>This function frees the memory occupied by the result data. It returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure. Note that it can only frees the client fetch buffer now, and if you want free all memory, use function <code>cubrid_close_request()</code>.</p>
 	 * @param resource $req_identifier <p>This is the request identifier.</p>
-	 * @return bool <p><b><code>true</code></b> on success.</p><p><b><code>false</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-free-result.php
 	 * @since PECL CUBRID >= 8.3.0
 	 */
@@ -254,7 +254,7 @@ namespace {
 	 * Return the current CUBRID connection charset
 	 * <p>This function returns the current CUBRID connection charset and is similar to the CUBRID MySQL compatible function <code>cubrid_client_encoding()</code>.</p>
 	 * @param resource $conn_identifier <p>The CUBRID connection.</p>
-	 * @return string <p>A string that represents the CUBRID connection charset; on success.</p><p><b><code>false</code></b> on failure.</p>
+	 * @return string <p>A string that represents the CUBRID connection charset on success, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-get-charset.php
 	 * @see cubrid_client_encoding()
 	 * @since PECL CUBRID >= 8.3.0
@@ -266,7 +266,7 @@ namespace {
 	 * <p>The <b>cubrid_get_class_name()</b> function is used to get the class name from <code>oid</code>. It doesn't work when selecting data from the system tables, for example db_class.</p>
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
 	 * @param string $oid <p>OID of the instance that you want to check the existence.</p>
-	 * @return string <p>Class name when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return string <p>Class name when process is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-get-class-name.php
 	 * @see cubrid_is_instance(), cubrid_drop()
 	 * @since PECL CUBRID >= 8.3.0
@@ -276,7 +276,7 @@ namespace {
 	/**
 	 * Return the client library version
 	 * <p>This function returns a string that represents the client library version.</p>
-	 * @return string <p>A string that represents the client library version; on success.</p><p><b><code>false</code></b> on failure.</p>
+	 * @return string <p>A string that represents the client library version on success, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-get-client-info.php
 	 * @since PECL CUBRID >= 8.3.0
 	 */
@@ -284,9 +284,9 @@ namespace {
 
 	/**
 	 * Returns the CUBRID database parameters
-	 * <p>This function returns the CUBRID database parameters or it returns FALSE on failure. It returns an associative array with the values for the following parameters:</p><p></p><p></p><p>The following table shows the isolation levels from 1 to 6. It consists of table schema (row) and isolation level:</p>
+	 * <p>This function returns the CUBRID database parameters, or <b><code>false</code></b> on failure. It returns an associative array with the values for the following parameters:</p><p></p><p></p><p>The following table shows the isolation levels from 1 to 6. It consists of table schema (row) and isolation level:</p>
 	 * @param resource $conn_identifier <p>The CUBRID connection. If the connection identifier is not specified, the last link opened by <code>cubrid_connect()</code> is assumed.</p>
-	 * @return array <p>An associative array with CUBRID database parameters; on success.</p><p><b><code>false</code></b> on failure.</p>
+	 * @return array <p>An associative array with CUBRID database parameters; on success, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-get-db-parameter.php
 	 * @see cubrid_set_db_parameter(), cubrid_get_autocommit()
 	 * @since PECL CUBRID >= 8.3.0
@@ -297,7 +297,7 @@ namespace {
 	 * Get the query timeout value of the request
 	 * <p>The <b>cubrid_get_query_timeout()</b> function is used to get the query timeout of the request.</p>
 	 * @param resource $req_identifier <p>Request identifier.</p>
-	 * @return int <p>Success: the query timeout value of the current request. Units of msec.</p><p>Failure: FALSE</p>
+	 * @return int <p>Returns the query timeout value in milliseconds of the current request on success, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-get-query-timeout.php
 	 * @see cubrid_set_query_timeout()
 	 * @since PECL CUBRID >= 8.4.1
@@ -308,7 +308,7 @@ namespace {
 	 * Return the CUBRID server version
 	 * <p>This function returns a string that represents the CUBRID server version.</p>
 	 * @param resource $conn_identifier <p>The CUBRID connection.</p>
-	 * @return string <p>A string that represents the CUBRID server version; on success.</p><p><b><code>false</code></b> on failure.</p>
+	 * @return string <p>A string that represents the CUBRID server version on success, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-get-server-info.php
 	 * @since PECL CUBRID >= 8.3.0
 	 */
@@ -343,7 +343,7 @@ namespace {
 	 * @param int $bind_index <p>Location of binding parameters. It starts with 1.</p>
 	 * @param mixed $bind_value <p>Actual value for binding.</p>
 	 * @param string $bind_value_type <p>It must be "BLOB" or "CLOB" and it won't be case-sensitive. If it not be given, the default value is "BLOB".</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob2-bind.php
 	 * @see cubrid_lob2_new(), cubrid_lob2_close()
 	 * @since PECL CUBRID >= 8.4.1
@@ -354,7 +354,7 @@ namespace {
 	 * Close LOB object
 	 * <p>The <b>cubrid_lob2_close()</b> function is used to close LOB object returned from <code>cubrid_lob2_new()</code> or got from the result set.</p>
 	 * @param resource $lob_identifier <p>Lob identifier as a result of <code>cubrid_lob2_new()</code> or get from the result set.</p>
-	 * @return bool <p><b><code>true</code></b>, on success.</p><p><b><code>false</code></b>, on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob2-close.php
 	 * @see cubrid_lob2_new()
 	 * @since PECL CUBRID >= 8.4.1
@@ -366,7 +366,7 @@ namespace {
 	 * <p>The <b>cubrid_lob2_export()</b> function is used to save the contents of BLOB/CLOB data to a file. To use this function, you must use <code>cubrid_lob2_new()</code> or fetch a lob object from CUBRID database first. If the file already exists, the operation will fail. This function will not influence the cursor position of the lob object. It operates the entire lob object.</p>
 	 * @param resource $lob_identifier <p>Lob identifier as a result of <code>cubrid_lob2_new()</code> or get from the result set.</p>
 	 * @param string $file_name
-	 * @return bool <p><b><code>true</code></b> if the process is successful and <b><code>false</code></b> for failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob2-export.php
 	 * @see cubrid_lob2_new(), cubrid_lob2_close(), cubrid_lob2_import(), cubrid_lob2_bind()
 	 * @since PECL CUBRID >= 8.4.1
@@ -378,7 +378,7 @@ namespace {
 	 * <p>The <b>cubrid_lob2_import()</b> function is used to save the contents of BLOB/CLOB data from a file. To use this function, you must use <code>cubrid_lob2_new()</code> or fetch a lob object from CUBRID database first. If the file already exists, the operation will fail. This function will not influence the cursor position of the lob object. It operates the entire lob object.</p>
 	 * @param resource $lob_identifier <p>Lob identifier as a result of <code>cubrid_lob2_new()</code> or get from the result set.</p>
 	 * @param string $file_name
-	 * @return bool <p><b><code>true</code></b> if the process is successful and <b><code>false</code></b> for failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob2-import.php
 	 * @see cubrid_lob2_new(), cubrid_lob2_close(), cubrid_lob2_export(), cubrid_lob2_bind()
 	 * @since PECL CUBRID >= 8.4.1
@@ -390,7 +390,7 @@ namespace {
 	 * <p>The <b>cubrid_lob2_new()</b> function is used to create a lob object (both BLOB and CLOB). This function should be used before you bind a lob object.</p>
 	 * @param resource $conn_identifier <p>Connection identifier. If the connection identifier is not specified, the last connection opened by <code>cubrid_connect()</code> or <code>cubrid_connect_with_url()</code> is assumed.</p>
 	 * @param string $type <p>It may be "BLOB" or "CLOB", it won't be case-sensitive. The default value is "BLOB".</p>
-	 * @return resource <p>Lob identifier when it is successful.</p><p><b><code>false</code></b> on failure.</p>
+	 * @return resource <p>Lob identifier when it is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob2-new.php
 	 * @see cubrid_lob2_close()
 	 * @since PECL CUBRID >= 8.4.1
@@ -402,7 +402,7 @@ namespace {
 	 * <p>The <b>cubrid_lob2_read()</b> function reads <code>len</code> bytes from the LOB data and returns the bytes read.</p>
 	 * @param resource $lob_identifier <p>Lob identifier as a result of <code>cubrid_lob2_new()</code> or get from the result set.</p>
 	 * @param int $len <p>Length from buffer you want to read from the lob data.</p>
-	 * @return string <p>Returns the contents as a string.</p><p><b><code>false</code></b> when there is no more data.</p><p>NULL on failure.</p>
+	 * @return string <p>Returns the contents as a string, <b><code>false</code></b> when there is no more data, or <b><code>null</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob2-read.php
 	 * @see cubrid_lob2_write(), cubrid_lob2_seek(), cubrid_lob2_seek64(), cubrid_lob2_tell(), cubrid_lob2_tell64(), cubrid_lob2_size(), cubrid_lob2_size64()
 	 * @since PECL CUBRID >= 8.4.1
@@ -411,11 +411,11 @@ namespace {
 
 	/**
 	 * Move the cursor of a lob object
-	 * <p>The <b>cubrid_lob2_seek()</b> function is used to move the cursor position of a lob object by the value set in the <code>offset</code> argument, to the direction set in the <code>origin</code> argument.</p><p>To set the <code>origin</code> argument, you can use CUBRID_CURSOR_FIRST to set the cursor position moving forward <code>offset</code> units from the first beginning. In this case, <code>offset</code> must be a positive value.</p><p>If you use CUBRID_CURSOR_CURRENT for <code>origin</code>, you can move forward or backward. and <code>offset</code> can be positive or negative.</p><p>If you use CUBRID_CURSOR_LAST for <code>origin</code>, you can move backward <code>offset</code> units from the end of LOB object and <code>offset</code> only can be positive.</p>
+	 * <p>The <b>cubrid_lob2_seek()</b> function is used to move the cursor position of a lob object by the value set in the <code>offset</code> argument, to the direction set in the <code>origin</code> argument.</p><p>To set the <code>origin</code> argument, you can use <b><code>CUBRID_CURSOR_FIRST</code></b> to set the cursor position moving forward <code>offset</code> units from the first beginning. In this case, <code>offset</code> must be a positive value.</p><p>If you use <b><code>CUBRID_CURSOR_CURRENT</code></b> for <code>origin</code>, you can move forward or backward. and <code>offset</code> can be positive or negative.</p><p>If you use <b><code>CUBRID_CURSOR_LAST</code></b> for <code>origin</code>, you can move backward <code>offset</code> units from the end of LOB object and <code>offset</code> only can be positive.</p>
 	 * @param resource $lob_identifier <p>Lob identifier as a result of <code>cubrid_lob2_new()</code> or get from the result set.</p>
 	 * @param int $offset <p>Number of units you want to move the cursor.</p>
 	 * @param int $origin <p>This parameter can be the following values:</p> <p>CUBRID_CURSOR_FIRST: move forward from the first beginning.</p> <p>CUBRID_CURSOR_CURRENT: move forward or backward from the current position.</p> <p>CUBRID_CURSOR_LAST: move backward at the end of LOB object.</p>
-	 * @return bool <p><b><code>true</code></b> if the process is successful and <b><code>false</code></b> for failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob2-seek.php
 	 * @see cubrid_lob2_read(), cubrid_lob2_write(), cubrid_lob2_seek64(), cubrid_lob2_tell(), cubrid_lob2_tell64(), cubrid_lob2_size(), cubrid_lob2_size64()
 	 * @since PECL CUBRID >= 8.4.1
@@ -424,11 +424,11 @@ namespace {
 
 	/**
 	 * Move the cursor of a lob object
-	 * <p>The <b>cubrid_lob2_seek64()</b> function is used to move the cursor position of a lob object by the value set in the <code>offset</code> argument, to the direction set in the <code>origin</code> argument. If the <code>offset</code> you want to move is larger than an integer data can be stored, you can use this function.</p><p>To set the <code>origin</code> argument, you can use CUBRID_CURSOR_FIRST to set the cursor position moving forward <code>offset</code> units from the first beginning. In this case, <code>offset</code> must be a positive value.</p><p>If you use CUBRID_CURSOR_CURRENT for <code>origin</code>, you can move forward or backward. and <code>offset</code> can be positive or negative.</p><p>If you use CUBRID_CURSOR_LAST for <code>origin</code>, you can move backward <code>offset</code> units from the end of LOB object and <code>offset</code> only can be positive.</p><p><b>Note</b>:</p><p>If you use this function to move the cursor position of the lob object, you should pass <code>offset</code> as a string.</p>
+	 * <p>The <b>cubrid_lob2_seek64()</b> function is used to move the cursor position of a lob object by the value set in the <code>offset</code> argument, to the direction set in the <code>origin</code> argument. If the <code>offset</code> you want to move is larger than an integer data can be stored, you can use this function.</p><p>To set the <code>origin</code> argument, you can use <b><code>CUBRID_CURSOR_FIRST</code></b> to set the cursor position moving forward <code>offset</code> units from the first beginning. In this case, <code>offset</code> must be a positive value.</p><p>If you use <b><code>CUBRID_CURSOR_CURRENT</code></b> for <code>origin</code>, you can move forward or backward. and <code>offset</code> can be positive or negative.</p><p>If you use <b><code>CUBRID_CURSOR_LAST</code></b> for <code>origin</code>, you can move backward <code>offset</code> units from the end of LOB object and <code>offset</code> only can be positive.</p><p><b>Note</b>:</p><p>If you use this function to move the cursor position of the lob object, you should pass <code>offset</code> as a string.</p>
 	 * @param resource $lob_identifier <p>Lob identifier as a result of <code>cubrid_lob2_new()</code> or get from the result set.</p>
 	 * @param string $offset <p>Number of units you want to move the cursor.</p>
 	 * @param int $origin <p>This parameter can be the following values:</p> <p>CUBRID_CURSOR_FIRST: move forward from the first beginning.</p> <p>CUBRID_CURSOR_CURRENT: move forward or backward from the current position.</p> <p>CUBRID_CURSOR_LAST: move backward at the end of LOB object.</p>
-	 * @return bool <p><b><code>true</code></b> if the process is successful and <b><code>false</code></b> for failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob2-seek64.php
 	 * @see cubrid_lob2_read(), cubrid_lob2_write(), cubrid_lob2_seek(), cubrid_lob2_tell(), cubrid_lob2_tell64(), cubrid_lob2_size(), cubrid_lob2_size64()
 	 * @since PECL CUBRID >= 8.4.1
@@ -439,7 +439,7 @@ namespace {
 	 * Get a lob object's size
 	 * <p>The <b>cubrid_lob2_size()</b> function is used to get the size of a lob object.</p>
 	 * @param resource $lob_identifier <p>Lob identifier as a result of <code>cubrid_lob2_new()</code> or get from the result set.</p>
-	 * @return int <p>It will return the size of the LOB object when it processes successfully.</p><p><b><code>false</code></b> on failure.</p>
+	 * @return int <p>It will return the size of the LOB object when it processes successfully, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob2-size.php
 	 * @see cubrid_lob2_read(), cubrid_lob2_write(), cubrid_lob2_seek(), cubrid_lob2_seek64(), cubrid_lob2_tell(), cubrid_lob2_tell64(), cubrid_lob2_size64()
 	 * @since PECL CUBRID >= 8.4.1
@@ -450,7 +450,7 @@ namespace {
 	 * Get a lob object's size
 	 * <p>The <b>cubrid_lob2_size64()</b> function is used to get the size of a lob object. If the size of a lob object is larger than an integer data can be stored, you can use this function and it will return the size as a string.</p>
 	 * @param resource $lob_identifier <p>Lob identifier as a result of <code>cubrid_lob2_new()</code> or get from the result set.</p>
-	 * @return string <p>It will return the size of the LOB object as a string when it processes successfully.</p><p><b><code>false</code></b> on failure.</p>
+	 * @return string <p>It will return the size of the LOB object as a string when it processes successfully, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob2-size64.php
 	 * @see cubrid_lob2_read(), cubrid_lob2_write(), cubrid_lob2_seek(), cubrid_lob2_seek64(), cubrid_lob2_tell(), cubrid_lob2_tell64(), cubrid_lob2_size()
 	 * @since PECL CUBRID >= 8.4.1
@@ -461,7 +461,7 @@ namespace {
 	 * Tell the cursor position of the LOB object
 	 * <p>The <b>cubrid_lob2_tell()</b> function is used to tell the cursor position of the LOB object.</p>
 	 * @param resource $lob_identifier <p>Lob identifier as a result of <code>cubrid_lob2_new()</code> or get from the result set.</p>
-	 * @return int <p>It will return the cursor position on the LOB object when it processes successfully.</p><p><b><code>false</code></b> on failure.</p>
+	 * @return int <p>It will return the cursor position on the LOB object when it processes successfully, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob2-tell.php
 	 * @see cubrid_lob2_read(), cubrid_lob2_write(), cubrid_lob2_seek(), cubrid_lob2_seek64(), cubrid_lob2_tell64(), cubrid_lob2_size(), cubrid_lob2_size64()
 	 * @since PECL CUBRID >= 8.4.1
@@ -472,7 +472,7 @@ namespace {
 	 * Tell the cursor position of the LOB object
 	 * <p>The <b>cubrid_lob2_tell64()</b> function is used to tell the cursor position of the LOB object. If the size of a lob object is larger than an integer data can be stored, you can use this function and it will return the position information as a string.</p>
 	 * @param resource $lob_identifier <p>Lob identifier as a result of <code>cubrid_lob2_new()</code> or get from the result set.</p>
-	 * @return string <p>It will return the cursor position on the LOB object as a string when it processes successfully.</p><p><b><code>false</code></b> on failure.</p>
+	 * @return string <p>It will return the cursor position on the LOB object as a string when it processes successfully, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob2-tell64.php
 	 * @see cubrid_lob2_read(), cubrid_lob2_write(), cubrid_lob2_seek(), cubrid_lob2_seek64(), cubrid_lob2_tell(), cubrid_lob2_size(), cubrid_lob2_size64()
 	 * @since PECL CUBRID >= 8.4.1
@@ -484,7 +484,7 @@ namespace {
 	 * <p>The <b>cubrid_lob2_write()</b> function reads as much as data from <code>buf</code> and stores it to the LOB object. Note that this function can only append characters now.</p>
 	 * @param resource $lob_identifier <p>Lob identifier as a result of <code>cubrid_lob2_new()</code> or get from the result set.</p>
 	 * @param string $buf <p>Data that need to be written to the lob object.</p>
-	 * @return bool <p><b><code>true</code></b> if the process is successful and <b><code>false</code></b> for failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob2-write.php
 	 * @see cubrid_lob2_read(), cubrid_lob2_seek(), cubrid_lob2_seek64(), cubrid_lob2_tell(), cubrid_lob2_tell64(), cubrid_lob2_size(), cubrid_lob2_size64()
 	 * @since PECL CUBRID >= 8.4.1
@@ -494,8 +494,8 @@ namespace {
 	/**
 	 * Close BLOB/CLOB data
 	 * <p><b>cubrid_lob_close()</b> is used to close all BLOB/CLOB returned from <code>cubrid_lob_get()</code>.</p>
-	 * @param array $lob_identifier_array <p>LOB identifier array return from cubrid_lob_get.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @param array $lob_identifier_array <p>LOB identifier array returned from <code>cubrid_lob_get()</code>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob-close.php
 	 * @see cubrid_lob_get(), cubrid_lob_size(), cubrid_lob_export(), cubrid_lob_send()
 	 * @since PECL CUBRID >= 8.3.1
@@ -508,7 +508,7 @@ namespace {
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
 	 * @param resource $lob_identifier <p>LOB identifier.</p>
 	 * @param string $path_name <p>Path name of the file.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob-export.php
 	 * @see cubrid_lob_get(), cubrid_lob_close(), cubrid_lob_size(), cubrid_lob_send()
 	 * @since PECL CUBRID >= 8.3.1
@@ -520,7 +520,7 @@ namespace {
 	 * <p><b>cubrid_lob_get()</b> is used to get BLOB/CLOB meta info from CUBRID database, CUBRID gets BLOB/CLOB by executing the SQL statement, and returns all LOBs as a resource array. Be sure that the SQL retrieves only one column and its data type is BLOB or CLOB.</p><p>Remember to use <code>cubrid_lob_close()</code> to release the LOBs if you don't need it any more.</p>
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
 	 * @param string $sql <p>SQL statement to be executed.</p>
-	 * @return array <p>Return an array of LOB resources, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return array <p>Return an array of LOB resources, when process is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob-get.php
 	 * @see cubrid_lob_close(), cubrid_lob_size(), cubrid_lob_export(), cubrid_lob_send()
 	 * @since PECL CUBRID >= 8.3.1
@@ -532,7 +532,7 @@ namespace {
 	 * <p><b>cubrid_lob_send()</b> reads BLOB/CLOB data and passes it straight through to the browser. To use this function, you must use <code>cubrid_lob_get()</code> first to get BLOB/CLOB info from CUBRID.</p>
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
 	 * @param resource $lob_identifier <p>LOB identifier.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob-send.php
 	 * @see cubrid_lob_get(), cubrid_lob_close(), cubrid_lob_size(), cubrid_lob_export()
 	 * @since PECL CUBRID >= 8.3.1
@@ -543,7 +543,7 @@ namespace {
 	 * Get BLOB/CLOB data size
 	 * <p><b>cubrid_lob_size()</b> is used to get BLOB/CLOB data size.</p>
 	 * @param resource $lob_identifier <p>LOB identifier.</p>
-	 * @return string <p>A string representing LOB data size, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return string <p>A string representing LOB data size, when process is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lob-size.php
 	 * @see cubrid_lob_get(), cubrid_lob_close(), cubrid_lob_export(), cubrid_lob_send()
 	 * @since PECL CUBRID >= 8.3.1
@@ -555,7 +555,7 @@ namespace {
 	 * <p>The <b>cubrid_lock_read()</b> function is used to put read lock on the instance pointed by given <code>oid</code>.</p>
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
 	 * @param string $oid <p>OID of the instance that you want to put read lock on.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lock-read.php
 	 * @see cubrid_lock_write()
 	 * @since PECL CUBRID >= 8.3.0
@@ -567,7 +567,7 @@ namespace {
 	 * <p>The <b>cubrid_lock_write()</b> function is used to put write lock on the instance pointed by the given <code>oid</code>.</p>
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
 	 * @param string $oid <p>OID of the instance that you want to put write lock on.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-lock-write.php
 	 * @see cubrid_lock_read()
 	 * @since PECL CUBRID >= 8.3.0
@@ -576,11 +576,11 @@ namespace {
 
 	/**
 	 * Move the cursor in the result
-	 * <p>The <b>cubrid_move_cursor()</b> function is used to move the current cursor location of <code>req_identifier</code> by the value set in the <code>offset</code> argument, to the direction set in the <code>origin</code> argument. To set the <code>origin</code> argument, you can use CUBRID_CURSOR_FIRST for the first part of the result, CUBRID_CURSOR_CURRENT for the current location of the result, or CUBRID_CURSOR_LAST for the last part of the result. If <code>origin</code> argument is not explicitly designated, then the function uses CUBRID_CURSOR_CURRENT as its default value.</p><p>If the value of cursor movement range goes over the valid limit, then the cursor moves to the next location after the valid range for the cursor. For example, if you move 20 units in the result with the size of 10, then the cursor will move to 11th place and return CUBRID_NO_MORE_DATA.</p>
+	 * <p>The <b>cubrid_move_cursor()</b> function is used to move the current cursor location of <code>req_identifier</code> by the value set in the <code>offset</code> argument, to the direction set in the <code>origin</code> argument. To set the <code>origin</code> argument, you can use <b><code>CUBRID_CURSOR_FIRST</code></b> for the first part of the result, <b><code>CUBRID_CURSOR_CURRENT</code></b> for the current location of the result, or <b><code>CUBRID_CURSOR_LAST</code></b> for the last part of the result. If <code>origin</code> argument is not explicitly designated, then the function uses <b><code>CUBRID_CURSOR_CURRENT</code></b> as its default value.</p><p>If the value of cursor movement range goes over the valid limit, then the cursor moves to the next location after the valid range for the cursor. For example, if you move 20 units in the result with the size of 10, then the cursor will move to 11th place and return <b><code>CUBRID_NO_MORE_DATA</code></b>.</p>
 	 * @param resource $req_identifier <p>Request identifier.</p>
 	 * @param int $offset <p>Number of units you want to move the cursor.</p>
-	 * @param int $origin <p>Location where you want to move the cursor from CUBRID_CURSOR_FIRST, CUBRID_CURSOR_CURRENT, CUBRID_CURSOR_LAST.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsucceful.</p>
+	 * @param int $origin <p>Location where you want to move the cursor from <b><code>CUBRID_CURSOR_FIRST</code></b>, <b><code>CUBRID_CURSOR_CURRENT</code></b>, <b><code>CUBRID_CURSOR_LAST</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-move-cursor.php
 	 * @see cubrid_execute()
 	 * @since PECL CUBRID >= 8.3.0
@@ -589,9 +589,9 @@ namespace {
 
 	/**
 	 * Get result of next query when executing multiple SQL statements
-	 * <p>The <b>cubrid_next_result()</b> function is used to get results of next query if multiple SQL statements are executed and CUBRID_EXEC_QUERY_ALL flag is set upon <code>cubrid_execute()</code>.</p>
+	 * <p>The <b>cubrid_next_result()</b> function is used to get results of next query if multiple SQL statements are executed and <b><code>CUBRID_EXEC_QUERY_ALL</code></b> flag is set upon <code>cubrid_execute()</code>.</p>
 	 * @param resource $result <p><code>result</code> comes from a call to <code>cubrid_execute()</code></p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-next-result.php
 	 * @see cubrid_execute()
 	 * @since PECL CUBRID >= 8.4.0
@@ -600,7 +600,7 @@ namespace {
 
 	/**
 	 * Return the number of columns in the result set
-	 * <p>The <b>cubrid_num_cols()</b> function is used to get the number of columns from the query result. It can only be used when the query executed is a select statement.</p>
+	 * <p>The <b>cubrid_num_cols()</b> function is used to get the number of columns from the query result. It can only be used when the query executed is a <code>SELECT</code> statement.</p>
 	 * @param resource $result <p>Result.</p>
 	 * @return int <p>Number of columns, when process is successful.</p><p><b><code>false</code></b>, if SQL statement is not SELECT.</p>
 	 * @link https://php.net/manual/en/function.cubrid-num-cols.php
@@ -611,7 +611,7 @@ namespace {
 
 	/**
 	 * Get the number of rows in the result set
-	 * <p>The <b>cubrid_num_rows()</b> function is used to get the number of rows from the query result. You can use it only when the query executed is a select statement. When you want to know such value for INSERT, UPDATE, or DELETE query, you have to use the <code>cubrid_affected_rows()</code> function.</p><p>Note: The <b>cubrid_num_rows()</b> function can only be used for synchronous query; it returns 0 when it is used for asynchronous query.</p>
+	 * <p>The <b>cubrid_num_rows()</b> function is used to get the number of rows from the query result. It can be used for <code>SELECT</code> statements. For <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> queries, use the <code>cubrid_affected_rows()</code> function.</p><p>Note: The <b>cubrid_num_rows()</b> function can only be used for synchronous query; it returns 0 when it is used for asynchronous query.</p>
 	 * @param resource $result <p><code>result</code> comes from a call to <code>cubrid_execute()</code>, <code>cubrid_query()</code> and <code>cubrid_prepare()</code></p>
 	 * @return int <p>Number of rows, when process is successful.</p><p>0 when the query was done in async mode.</p><p>-1, if SQL statement is not SELECT.</p><p><b><code>false</code></b> when process is unsuccessful.</p>
 	 * @link https://php.net/manual/en/function.cubrid-num-rows.php
@@ -628,7 +628,7 @@ namespace {
 	 * @param string $dbname <p>Name of database.</p>
 	 * @param string $userid <p>User name for the database.</p>
 	 * @param string $passwd <p>User password.</p>
-	 * @return resource <p>Connection identifier, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return resource <p>Connection identifier, when process is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-pconnect.php
 	 * @see cubrid_connect(), cubrid_connect_with_url(), cubrid_pconnect_with_url(), cubrid_disconnect(), cubrid_close()
 	 * @since PECL CUBRID >= 8.3.1
@@ -641,7 +641,7 @@ namespace {
 	 * @param string $conn_url <p>A character string that contains server connection information.</p>
 	 * @param string $userid <p>User name for the database.</p>
 	 * @param string $passwd <p>User password.</p>
-	 * @return resource <p>Connection identifier, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return resource <p>Connection identifier, when process is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-pconnect-with-url.php
 	 * @see cubrid_connect(), cubrid_connect_with_url(), cubrid_pconnect(), cubrid_disconnect(), cubrid_close()
 	 * @since PECL CUBRID >= 8.3.1
@@ -653,8 +653,8 @@ namespace {
 	 * <p>The <b>cubrid_prepare()</b> function is a sort of API which represents SQL statements compiled previously to a given connection handle. This pre-compiled SQL statement will be included in the <b>cubrid_prepare()</b>.</p><p>Accordingly, you can use this statement effectively to execute several times repeatedly or to process long data. Only a single statement can be used and a parameter may put a question mark (&#63;) to appropriate area in the SQL statement. Add a parameter when you bind a value in the VALUES clause of INSERT statement or in the WHERE clause. Note that it is allowed to bind a value to a MARK(&#63;) by using the <code>cubrid_bind()</code> function only.</p>
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
 	 * @param string $prepare_stmt <p>Prepare query.</p>
-	 * @param int $option <p>OID return option CUBRID_INCLUDE_OID.</p>
-	 * @return resource <p>Request identifier, if process is successful;</p><p><b><code>false</code></b>, if process is unsuccessful.</p>
+	 * @param int $option <p>OID return option <b><code>CUBRID_INCLUDE_OID</code></b>.</p>
+	 * @return resource <p>Request identifier, if process is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-prepare.php
 	 * @see cubrid_execute(), cubrid_bind()
 	 * @since PECL CUBRID >= 8.3.0
@@ -668,7 +668,7 @@ namespace {
 	 * @param string $oid <p>OID of the instance that you want to update.</p>
 	 * @param string $attr <p>Name of the attribute that you want to update.</p>
 	 * @param mixed $value <p>New value that you want to assign to the attribute.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-put.php
 	 * @see cubrid_get(), cubrid_set_add(), cubrid_set_drop(), cubrid_seq_insert(), cubrid_seq_drop(), cubrid_seq_put()
 	 * @since PECL CUBRID >= 8.3.0
@@ -679,7 +679,7 @@ namespace {
 	 * Roll back a transaction
 	 * <p>The <b>cubrid_rollback()</b> function executes rollback on the transaction pointed by <code>conn_identifier</code>, currently in progress.</p><p>Connection to server is closed after calling <b>cubrid_rollback()</b>. Connection handle, however, is still valid.</p>
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-rollback.php
 	 * @see cubrid_commit(), cubrid_disconnect()
 	 * @since PECL CUBRID >= 8.3.0
@@ -688,12 +688,12 @@ namespace {
 
 	/**
 	 * Get the requested schema information
-	 * <p>The <b>cubrid_schema()</b> function is used to get the requested schema information from database. You have to designate <code>class_name</code>, if you want to get information on certain class, <code>attr_name</code>, if you want to get information on certain attribute (can be used only with CUBRID_ SCH_ATTR_PRIVILEGE).</p><p>The result of the cubrid_schema function is returned as a two-dimensional array (column (associative array) &#42; row (numeric array)). The following tables shows types of schema and the column structure of the result array to be returned based on the schema type.</p><p></p>
+	 * <p>The <b>cubrid_schema()</b> function is used to get the requested schema information from database. To get information about specific class, set the <code>class_name</code>, to get information about specific attribute (can be used only with <b><code>CUBRID_SCH_ATTR_PRIVILEGE</code></b>), set the <code>attr_name</code>.</p><p>The result of the <b>cubrid_schema()</b> function is returned as a two-dimensional array (column (associative array) &#42; row (numeric array)). The following tables shows types of schema and the column structure of the result array to be returned based on the schema type.</p><p></p>
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
 	 * @param int $schema_type <p>Schema data that you want to know.</p>
 	 * @param string $class_name <p>Class you want to know the schema of.</p>
 	 * @param string $attr_name <p>Attribute you want to know the schema of.</p>
-	 * @return array <p>Array containing the schema information, when process is successful;</p><p><b><code>false</code></b>, when process is unsuccessful</p>
+	 * @return array <p>Array containing the schema information, when process is successful, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-schema.php
 	 * @since PECL CUBRID >= 8.3.0
 	 */
@@ -706,7 +706,7 @@ namespace {
 	 * @param string $oid <p>OID of the instance you want to work with.</p>
 	 * @param string $attr_name <p>Name of the attribute that you want to delete an element from.</p>
 	 * @param int $index <p>Index of the element that you want to delete (1-based).</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-seq-drop.php
 	 * @see cubrid_seq_insert(), cubrid_seq_put()
 	 * @since PECL CUBRID >= 8.3.0
@@ -721,7 +721,7 @@ namespace {
 	 * @param string $attr_name <p>Name of the attribute you want to insert an instance to.</p>
 	 * @param int $index <p>Location of the element, you want to insert the element to (1-based).</p>
 	 * @param string $seq_element <p>Content of the element that you want to insert.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-seq-insert.php
 	 * @see cubrid_seq_drop(), cubrid_seq_put()
 	 * @since PECL CUBRID >= 8.3.0
@@ -736,7 +736,7 @@ namespace {
 	 * @param string $attr_name <p>Name of the attribute that you want to update an element.</p>
 	 * @param int $index <p>Index (1-based) of the element that you want to update.</p>
 	 * @param string $seq_element <p>New content that you want to use for the update.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-seq-put.php
 	 * @see cubrid_seq_drop(), cubrid_seq_insert()
 	 * @since PECL CUBRID >= 8.3.0
@@ -750,7 +750,7 @@ namespace {
 	 * @param string $oid <p>OID of the instance you want to work with.</p>
 	 * @param string $attr_name <p>Name of the attribute you want to insert an element.</p>
 	 * @param string $set_element <p>Content of the element you want to insert.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-set-add.php
 	 * @see cubrid_seq_drop()
 	 * @since PECL CUBRID >= 8.3.0
@@ -762,7 +762,7 @@ namespace {
 	 * <p>The <b>cubrid_set_autocommit()</b> function is used to set the CUBRID database auto-commit mode of the current database connection.</p><p>In CUBRID PHP, auto-commit mode is disabled by default for transaction management. When auto-commit mode is truned from off to on, any pending work is automatically committed.</p>
 	 * @param resource $conn_identifier <p>Connection identifier.</p>
 	 * @param bool $mode <p>Auto-commit mode. The following constants can be used:</p> <p></p><ul> <li><b><code>CUBRID_AUTOCOMMIT_FALSE</code></b></li> <li><b><code>CUBRID_AUTOCOMMIT_TRUE</code></b></li> </ul>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-set-autocommit.php
 	 * @see cubrid_get_autocommit(), cubrid_commit()
 	 * @since PECL CUBRID >= 8.4.0
@@ -775,7 +775,7 @@ namespace {
 	 * @param resource $conn_identifier <p>The CUBRID connection. If the connection identifier is not specified, the last link opened by <code>cubrid_connect()</code> is assumed.</p>
 	 * @param int $param_type <p>Database parameter type.</p>
 	 * @param int $param_value <p>Isolation level value (1-6) or lock timeout (in seconds) value.</p>
-	 * @return bool <p><b><code>true</code></b> on success.</p><p><b><code>false</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-set-db-parameter.php
 	 * @see cubrid_get_db_parameter(), cubrid_set_autocommit()
 	 * @since PECL CUBRID >= 8.4.0
@@ -789,7 +789,7 @@ namespace {
 	 * @param string $oid <p>OID of the instance you want to work with.</p>
 	 * @param string $attr_name <p>Name of the attribute you want to delete an element from.</p>
 	 * @param string $set_element <p>Content of the element you want to delete.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-set-drop.php
 	 * @see cubrid_set_add()
 	 * @since PECL CUBRID >= 8.3.0
@@ -800,8 +800,8 @@ namespace {
 	 * Set the timeout time of query execution
 	 * <p>The <b>cubrid_set_query_timeout()</b> function is used to set the timeout time of query execution.</p>
 	 * @param resource $req_identifier <p>Request identifier.</p>
-	 * @param int $timeout <p>Timeout time, unit of msec.</p>
-	 * @return bool <p><b><code>true</code></b>, when process is successful.</p><p><b><code>false</code></b>, when process is unsuccessful.</p>
+	 * @param int $timeout <p>Timeout time in milliseconds.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cubrid-set-query-timeout.php
 	 * @see cubrid_get_query_timeout()
 	 * @since PECL CUBRID >= 8.4.1

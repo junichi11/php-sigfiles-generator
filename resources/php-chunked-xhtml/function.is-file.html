@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.is-file" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">is_file</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">is_file</span> &mdash; <span class="dc-title">Tells whether the filename is a regular file</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">is_file</span> &mdash; <span class="dc-title">Tells whether the filename is a regular file</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.is-file-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>is_file</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>is_file</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Tells whether the given file is a regular file.
@@ -47,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">filename</code></dt>
@@ -80,10 +77,18 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.is-file-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+Upon failure, an <strong><code>E_WARNING</code></strong> is emitted.
+</p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.is-file-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2671">
+   <div class="example" id="example-2184">
     <p><strong>Example #1 <span class="function"><strong>is_file()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -101,14 +106,6 @@ bool(false)
     </div>
    </div>
   </p>
- </div>
-
-
- <div class="refsect1 errors" id="refsect1-function.is-file-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">
-Upon failure, an <strong><code>E_WARNING</code></strong> is emitted.
-</p>
  </div>
 
 
@@ -130,7 +127,7 @@ can also be used with <em class="emphasis">some</em> URL wrappers.  Refer to
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.is-dir.html" class="function" rel="rdfs-seeAlso">is_dir()</a> - Tells whether the filename is a directory</span></li>
     <li class="member"><span class="function"><a href="function.is-link.html" class="function" rel="rdfs-seeAlso">is_link()</a> - Tells whether the filename is a symbolic link</span></li>
-    <li class="member"><a href="class.splfileinfo.html" class="classname">SplFileInfo</a></li>
+    <li class="member"><span class="classname"><a href="class.splfileinfo.html" class="classname">SplFileInfo</a></span></li>
    </ul>
   </p>
  </div>

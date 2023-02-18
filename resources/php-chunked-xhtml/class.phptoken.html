@@ -47,73 +47,46 @@
 
 
    <div class="classsynopsis">
-    <div class="ooclass"></div>
-
+    <div class="ooclass">
+     
+    </div>
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
-      <strong class="classname">PhpToken</strong>
+      <span class="modifier">class</span> <strong class="classname">PhpToken</strong>
      </span>
-     {</div>
 
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a href="class.stringable.html" class="interfacename">Stringable</a></span> {</div>
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
     <div class="fieldsynopsis">
      <span class="modifier">public</span>
      <span class="type">int</span>
-      <var class="varname"><a href="class.phptoken.html#phptoken.props.id">$<var class="varname">id</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.phptoken.html#phptoken.props.id">$<var class="varname">id</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="type">string</span>
-      <var class="varname"><a href="class.phptoken.html#phptoken.props.text">$<var class="varname">text</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.phptoken.html#phptoken.props.text">$<var class="varname">text</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="type">int</span>
-      <var class="varname"><a href="class.phptoken.html#phptoken.props.line">$<var class="varname">line</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.phptoken.html#phptoken.props.line">$<var class="varname">line</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="type">int</span>
-      <var class="varname"><a href="class.phptoken.html#phptoken.props.pos">$<var class="varname">pos</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.phptoken.html#phptoken.props.pos">$<var class="varname">pos</var></a></var>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="constructorsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="phptoken.construct.html" class="methodname">__construct</a></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$id</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$text</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$line</code><span class="initializer"> = -1</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$pos</code><span class="initializer"> = -1</span></span>
-   )</div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="phptoken.construct.html" class="methodname">__construct</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$id</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$text</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$line</code><span class="initializer"> = -1</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$pos</code><span class="initializer"> = -1</span></span><br>)</div>
 
-    <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>  <span class="methodname"><a href="phptoken.gettokenname.html" class="methodname">getTokenName</a></span>
-    (
-   ) : <span class="type"><span class="type">string</span>|<span class="type">null</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>  <span class="methodname"><a href="phptoken.is.html" class="methodname">is</a></span>
-    ( <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$kind</code></span>
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>  <span class="methodname"><a href="phptoken.isignorable.html" class="methodname">isIgnorable</a></span>
-    (
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>  <span class="methodname"><a href="phptoken.tostring.html" class="methodname">__toString</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span>  <span class="methodname"><a href="phptoken.tokenize.html" class="methodname">tokenize</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type">array</span></div>
-
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="phptoken.gettokenname.html" class="methodname">getTokenName</a></span>(): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="phptoken.is.html" class="methodname">is</a></span>(<span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$kind</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="phptoken.isignorable.html" class="methodname">isIgnorable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="phptoken.tostring.html" class="methodname">__toString</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="phptoken.tokenize.html" class="methodname">tokenize</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>): <span class="type">array</span></div>
 
    }</div>
 
@@ -123,7 +96,6 @@
   <div class="section" id="phptoken.props">
    <h2 class="title">Properties</h2>
    <dl>
-
     
      <dt id="phptoken.props.id"><var class="varname">id</var></dt>
 

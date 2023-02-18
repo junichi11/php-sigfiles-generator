@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.win32-set-service-exit-mode-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>win32_set_service_exit_mode</strong></span>
-    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$gracefulMode</code><span class="initializer"> = true</span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>win32_set_service_exit_mode</strong></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$gracefulMode</code><span class="initializer"> = true</span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    If <code class="parameter">gracefulMode</code> parameter is provided, the exit mode 
@@ -55,7 +53,6 @@ with the <span class="function"><a href="function.win32-set-service-exit-code.ht
  <div class="refsect1 parameters" id="refsect1-function.win32-set-service-exit-mode-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">gracefulMode</code></dt>
@@ -90,7 +87,7 @@ with the <span class="function"><a href="function.win32-set-service-exit-code.ht
 
    <p class="para">
     As of version 1.0.0, will throw a 
-    <a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a> if SAPI is not 
+    <span class="classname"><a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a></span> if SAPI is not 
     <code class="literal">&quot;cli&quot;</code>
    </p>
  </div>
@@ -114,7 +111,7 @@ with the <span class="function"><a href="function.win32-set-service-exit-code.ht
       <tr>
        <td>PECL win32service 1.0.0</td>
        <td>
-        Throws a <a href="class.valueerror.html" class="classname">ValueError</a> on invalid data in parameters,
+        Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> on invalid data in parameters,
         previously <strong><code>false</code></strong> was returned.
        </td>
       </tr>
@@ -122,7 +119,7 @@ with the <span class="function"><a href="function.win32-set-service-exit-code.ht
       <tr>
        <td>PECL win32service 1.0.0</td>
        <td>
-        Throws a <a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a> on error,
+        Throws a <span class="classname"><a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a></span> on error,
         previously a 
         <a href="win32service.constants.errors.html" class="link">Win32 Error Code</a>
         was returned.

@@ -27,7 +27,7 @@
  <h2 class="title">include</h2>
  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p>
  <p class="simpara">
-  The <code class="literal">include</code> statement includes and evaluates
+  The <code class="literal">include</code> expression includes and evaluates
   the specified file.
  </p>
  <p class="simpara">
@@ -74,7 +74,7 @@
   global scope.
  </p>
  <p class="para">
-  <div class="example" id="example-141">
+  <div class="example" id="example-140">
    <p><strong>Example #1 Basic <code class="literal">include</code> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -94,7 +94,7 @@ vars.php<br /><span style="color: #0000BB">&lt;?php<br /><br />$color&nbsp;</spa
   evaluated by the parser before the include occurs.
  </p>
  <p class="para">
-  <div class="example" id="example-142">
+  <div class="example" id="example-141">
    <p><strong>Example #2 Including within functions</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -127,7 +127,7 @@ vars.php<br /><span style="color: #0000BB">&lt;?php<br /><br />$color&nbsp;</spa
   included into the local script.
  </p>
  <p class="para">
-  <div class="example" id="example-143">
+  <div class="example" id="example-142">
    <p><strong>Example #3 <code class="literal">include</code> through HTTP</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -174,7 +174,7 @@ vars.php<br /><span style="color: #0000BB">&lt;?php<br /><br />$color&nbsp;</spa
   Because <code class="literal">include</code> is a special language construct,
   parentheses are not needed around its argument. Take care when comparing
   return value.
-  <div class="example" id="example-144">
+  <div class="example" id="example-143">
    <p><strong>Example #4 Comparing return value of include</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -186,7 +186,7 @@ vars.php<br /><span style="color: #0000BB">&lt;?php<br /><br />$color&nbsp;</spa
   </div>
  </p>
  <p class="para">
-  <div class="example" id="example-145">
+  <div class="example" id="example-144">
    <p><strong>Example #5 <code class="literal">include</code> and the <span class="function"><a href="function.return.html" class="function">return</a></span> statement</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -219,7 +219,7 @@ return.php<br /><span style="color: #0000BB">&lt;?php<br /><br />$var&nbsp;</spa
   Functions</a> with <code class="literal">include</code>. For example:
  </p>
  <p class="para">
-  <div class="example" id="example-146">
+  <div class="example" id="example-145">
    <p><strong>Example #6 Using output buffering to include a PHP file into a string</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

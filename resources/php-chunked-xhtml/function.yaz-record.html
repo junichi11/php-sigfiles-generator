@@ -32,11 +32,7 @@
  <div class="refsect1 description" id="refsect1-function.yaz-record-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>yaz_record</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$id</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$pos</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$type</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>yaz_record</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$id</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$pos</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$type</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    The <span class="function"><strong>yaz_record()</strong></span> function inspects a record in the
@@ -49,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">id</code></dt>
@@ -106,7 +101,6 @@
        set (as seen by PHP).
       </p>
       <dl>
-
        
         <dt>
 <code class="literal">string</code></dt>
@@ -254,7 +248,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.yaz-record-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-5107">
+  <div class="example" id="example-4607">
    <p><strong>Example #1 Array for GRS-1 record</strong></p>
    <div class="example-contents"><p>
     Consider this GRS-1 record:
@@ -308,7 +302,7 @@ Array
     </div>
    </p></div>
   </div>
-  <div class="example" id="example-5108">
+  <div class="example" id="example-4608">
    <p><strong>Example #2 Working with MARCXML</strong></p>
    <div class="example-contents"><p>
     The following PHP snippet returns a MARC21/USMARC record as MARCXML. 
@@ -334,10 +328,6 @@ Array
 </code></div>
     </div>
 
-   </p></div>
-   <div class="example-contents"><p>
-    For PHP 5 the <a href="book.xsl.html" class="link">XSL</a> extension must be used
-    instead of Sablotron XSLT.
    </p></div>
   </div>
  </div>

@@ -26,15 +26,13 @@
   <div id="layout-content"><div id="function.spl-autoload-extensions" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">spl_autoload_extensions</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">spl_autoload_extensions</span> &mdash; <span class="dc-title">Register and return default file extensions for spl_autoload</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">spl_autoload_extensions</span> &mdash; <span class="dc-title">Register and return default file extensions for spl_autoload</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.spl-autoload-extensions-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>spl_autoload_extensions</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$file_extensions</code> = ?</span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>spl_autoload_extensions</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$file_extensions</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    This function can modify and check the file extensions that the built in
@@ -53,7 +51,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">file_extensions</code></dt>
@@ -61,7 +58,7 @@
      <dd>
 
       <p class="para">
-       When calling without an argument, it simply returns the current list
+       If <strong><code>null</code></strong>, it simply returns the current list
        of extensions each separated by comma. To modify the list of file
        extensions, simply invoke the functions with the new list of file
        extensions to use in a single string with each extensions separated
@@ -85,9 +82,38 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.spl-autoload-extensions-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">file_extensions</code> is now nullable.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.spl-autoload-extensions-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="regexiterator.getpregflags.example.basic">
+  <div class="example" id="example-3680">
    <p><strong>Example #1 <span class="function"><strong>spl_autoload_extensions()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,24 +26,18 @@
   <div id="layout-content"><div id="function.sodium-crypto-sign-keypair" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sodium_crypto_sign_keypair</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.2.0)</p><p class="refpurpose"><span class="refname">sodium_crypto_sign_keypair</span> &mdash; <span class="dc-title">Randomly generate a secret key and a corresponding public key</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">sodium_crypto_sign_keypair</span> &mdash; <span class="dc-title">Randomly generate a secret key and a corresponding public key</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.sodium-crypto-sign-keypair-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>sodium_crypto_sign_keypair</strong></span>
-    (
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>sodium_crypto_sign_keypair</strong></span>(): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
-
+   Generate a random Ed25519 keypair as one string.
   </p>
-
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-currently not documented; only its argument list is available.
-</p></div>
 
  </div>
 
@@ -57,7 +51,7 @@ currently not documented; only its argument list is available.
  <div class="refsect1 returnvalues" id="refsect1-function.sodium-crypto-sign-keypair-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   
+   Ed25519 keypair.
   </p>
  </div>
 

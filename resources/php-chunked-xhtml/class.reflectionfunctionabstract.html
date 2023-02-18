@@ -28,13 +28,13 @@
  <h1 class="title">The ReflectionFunctionAbstract class</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p>
 
 
   <div class="section" id="reflectionfunctionabstract.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-    A parent class to <a href="class.reflectionfunction.html" class="classname">ReflectionFunction</a>, read its
+    A parent class to <span class="classname"><a href="class.reflectionfunction.html" class="classname">ReflectionFunction</a></span>, read its
     description for details.
    </p>
   </div>
@@ -45,136 +45,56 @@
 
 
    <div class="classsynopsis">
-    <div class="ooclass"></div>
-
+    <div class="ooclass">
+     
+    </div>
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
-      <strong class="classname">ReflectionFunctionAbstract</strong>
+      <span class="modifier">abstract</span>
+      <span class="modifier">class</span> <strong class="classname">ReflectionFunctionAbstract</strong>
      </span>
-     
-     <span class="oointerface">implements 
-      <span class="interfacename"><a href="class.reflector.html" class="interfacename">Reflector</a></span>
-     </span>
-     {</div>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a href="class.reflector.html" class="interfacename">Reflector</a></span> {</div>
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
     <div class="fieldsynopsis">
      <span class="modifier">public</span>
-      <var class="varname"><a href="class.reflectionfunctionabstract.html#reflectionfunctionabstract.props.name">$<var class="varname">name</var></a></var>
-    ;</div>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.reflectionfunctionabstract.html#reflectionfunctionabstract.props.name">$<var class="varname">name</var></a></var>;</div>
 
 
-    
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">private</span> <span class="methodname"><a href="reflectionfunctionabstract.clone.html" class="methodname">__clone</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getclosurescopeclass.html" class="methodname">getClosureScopeClass</a></span>
-    (
-   ) : <span class="type"><span class="type"><a href="class.reflectionclass.html" class="type ReflectionClass">ReflectionClass</a></span>|<span class="type">null</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getclosurethis.html" class="methodname">getClosureThis</a></span>
-    (
-   ) : <span class="type"><span class="type">object</span>|<span class="type">null</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getdoccomment.html" class="methodname">getDocComment</a></span>
-    (
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getendline.html" class="methodname">getEndLine</a></span>
-    (
-   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getextension.html" class="methodname">getExtension</a></span>
-    (
-   ) : <span class="type"><span class="type"><a href="class.reflectionextension.html" class="type ReflectionExtension">ReflectionExtension</a></span>|<span class="type">null</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getextensionname.html" class="methodname">getExtensionName</a></span>
-    (
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getfilename.html" class="methodname">getFileName</a></span>
-    (
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getname.html" class="methodname">getName</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getnamespacename.html" class="methodname">getNamespaceName</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getnumberofparameters.html" class="methodname">getNumberOfParameters</a></span>
-    (
-   ) : <span class="type">int</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getnumberofrequiredparameters.html" class="methodname">getNumberOfRequiredParameters</a></span>
-    (
-   ) : <span class="type">int</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getparameters.html" class="methodname">getParameters</a></span>
-    (
-   ) : <span class="type">array</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getreturntype.html" class="methodname">getReturnType</a></span>
-    (
-   ) : <span class="type"><span class="type"><a href="class.reflectiontype.html" class="type ReflectionType">ReflectionType</a></span>|<span class="type">null</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getshortname.html" class="methodname">getShortName</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getstartline.html" class="methodname">getStartLine</a></span>
-    (
-   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getstaticvariables.html" class="methodname">getStaticVariables</a></span>
-    (
-   ) : <span class="type">array</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.hasreturntype.html" class="methodname">hasReturnType</a></span>
-    (
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.innamespace.html" class="methodname">inNamespace</a></span>
-    (
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.isclosure.html" class="methodname">isClosure</a></span>
-    (
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.isdeprecated.html" class="methodname">isDeprecated</a></span>
-    (
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.isgenerator.html" class="methodname">isGenerator</a></span>
-    (
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.isinternal.html" class="methodname">isInternal</a></span>
-    (
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.isuserdefined.html" class="methodname">isUserDefined</a></span>
-    (
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.isvariadic.html" class="methodname">isVariadic</a></span>
-    (
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.returnsreference.html" class="methodname">returnsReference</a></span>
-    (
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.tostring.html" class="methodname">__toString</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">private</span> <span class="methodname"><a href="reflectionfunctionabstract.clone.html" class="methodname">__clone</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getattributes.html" class="methodname">getAttributes</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$name</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getclosurescopeclass.html" class="methodname">getClosureScopeClass</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.reflectionclass.html" class="type ReflectionClass">ReflectionClass</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getclosurethis.html" class="methodname">getClosureThis</a></span>(): <span class="type"><span class="type">?</span><span class="type">object</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getdoccomment.html" class="methodname">getDocComment</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getendline.html" class="methodname">getEndLine</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getextension.html" class="methodname">getExtension</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.reflectionextension.html" class="type ReflectionExtension">ReflectionExtension</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getextensionname.html" class="methodname">getExtensionName</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getfilename.html" class="methodname">getFileName</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getname.html" class="methodname">getName</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getnamespacename.html" class="methodname">getNamespaceName</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getnumberofparameters.html" class="methodname">getNumberOfParameters</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getnumberofrequiredparameters.html" class="methodname">getNumberOfRequiredParameters</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getparameters.html" class="methodname">getParameters</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getreturntype.html" class="methodname">getReturnType</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.reflectiontype.html" class="type ReflectionType">ReflectionType</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getshortname.html" class="methodname">getShortName</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getstartline.html" class="methodname">getStartLine</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.getstaticvariables.html" class="methodname">getStaticVariables</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.hasreturntype.html" class="methodname">hasReturnType</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.innamespace.html" class="methodname">inNamespace</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.isclosure.html" class="methodname">isClosure</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.isdeprecated.html" class="methodname">isDeprecated</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.isgenerator.html" class="methodname">isGenerator</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.isinternal.html" class="methodname">isInternal</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.isuserdefined.html" class="methodname">isUserDefined</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.isvariadic.html" class="methodname">isVariadic</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.returnsreference.html" class="methodname">returnsReference</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a href="reflectionfunctionabstract.tostring.html" class="methodname">__toString</a></span>(): <span class="type"><span class="type void">void</span></span></div>
 
    }</div>
 
@@ -186,7 +106,6 @@
   <div class="section" id="reflectionfunctionabstract.props">
    <h2 class="title">Properties</h2>
    <dl>
-
     
      <dt id="reflectionfunctionabstract.props.name"><var class="varname">name</var></dt>
 
@@ -194,7 +113,7 @@
 
       <p class="para">
        Name of the function. Read-only, throws
-       <a href="class.reflectionexception.html" class="classname">ReflectionException</a> in attempt to write.
+       <span class="classname"><a href="class.reflectionexception.html" class="classname">ReflectionException</a></span> in attempt to write.
       </p>
      </dd>
 
@@ -380,6 +299,9 @@
 
 
 
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="reflectionfunctionabstract.clone.html">ReflectionFunctionAbstract::__clone</a> — Clones function</li><li><a href="reflectionfunctionabstract.getclosurescopeclass.html">ReflectionFunctionAbstract::getClosureScopeClass</a> — Returns the scope associated to the closure</li><li><a href="reflectionfunctionabstract.getclosurethis.html">ReflectionFunctionAbstract::getClosureThis</a> — Returns this pointer bound to closure</li><li><a href="reflectionfunctionabstract.getdoccomment.html">ReflectionFunctionAbstract::getDocComment</a> — Gets doc comment</li><li><a href="reflectionfunctionabstract.getendline.html">ReflectionFunctionAbstract::getEndLine</a> — Gets end line number</li><li><a href="reflectionfunctionabstract.getextension.html">ReflectionFunctionAbstract::getExtension</a> — Gets extension info</li><li><a href="reflectionfunctionabstract.getextensionname.html">ReflectionFunctionAbstract::getExtensionName</a> — Gets extension name</li><li><a href="reflectionfunctionabstract.getfilename.html">ReflectionFunctionAbstract::getFileName</a> — Gets file name</li><li><a href="reflectionfunctionabstract.getname.html">ReflectionFunctionAbstract::getName</a> — Gets function name</li><li><a href="reflectionfunctionabstract.getnamespacename.html">ReflectionFunctionAbstract::getNamespaceName</a> — Gets namespace name</li><li><a href="reflectionfunctionabstract.getnumberofparameters.html">ReflectionFunctionAbstract::getNumberOfParameters</a> — Gets number of parameters</li><li><a href="reflectionfunctionabstract.getnumberofrequiredparameters.html">ReflectionFunctionAbstract::getNumberOfRequiredParameters</a> — Gets number of required parameters</li><li><a href="reflectionfunctionabstract.getparameters.html">ReflectionFunctionAbstract::getParameters</a> — Gets parameters</li><li><a href="reflectionfunctionabstract.getreturntype.html">ReflectionFunctionAbstract::getReturnType</a> — Gets the specified return type of a function</li><li><a href="reflectionfunctionabstract.getshortname.html">ReflectionFunctionAbstract::getShortName</a> — Gets function short name</li><li><a href="reflectionfunctionabstract.getstartline.html">ReflectionFunctionAbstract::getStartLine</a> — Gets starting line number</li><li><a href="reflectionfunctionabstract.getstaticvariables.html">ReflectionFunctionAbstract::getStaticVariables</a> — Gets static variables</li><li><a href="reflectionfunctionabstract.hasreturntype.html">ReflectionFunctionAbstract::hasReturnType</a> — Checks if the function has a specified return type</li><li><a href="reflectionfunctionabstract.innamespace.html">ReflectionFunctionAbstract::inNamespace</a> — Checks if function in namespace</li><li><a href="reflectionfunctionabstract.isclosure.html">ReflectionFunctionAbstract::isClosure</a> — Checks if closure</li><li><a href="reflectionfunctionabstract.isdeprecated.html">ReflectionFunctionAbstract::isDeprecated</a> — Checks if deprecated</li><li><a href="reflectionfunctionabstract.isgenerator.html">ReflectionFunctionAbstract::isGenerator</a> — Returns whether this function is a generator</li><li><a href="reflectionfunctionabstract.isinternal.html">ReflectionFunctionAbstract::isInternal</a> — Checks if is internal</li><li><a href="reflectionfunctionabstract.isuserdefined.html">ReflectionFunctionAbstract::isUserDefined</a> — Checks if user defined</li><li><a href="reflectionfunctionabstract.isvariadic.html">ReflectionFunctionAbstract::isVariadic</a> — Checks if the function is variadic</li><li><a href="reflectionfunctionabstract.returnsreference.html">ReflectionFunctionAbstract::returnsReference</a> — Checks if returns reference</li><li><a href="reflectionfunctionabstract.tostring.html">ReflectionFunctionAbstract::__toString</a> — To string</li></ul>
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="reflectionfunctionabstract.clone.html">ReflectionFunctionAbstract::__clone</a> — Clones function</li><li><a href="reflectionfunctionabstract.getattributes.html">ReflectionFunctionAbstract::getAttributes</a> — Gets Attributes</li><li><a href="reflectionfunctionabstract.getclosurescopeclass.html">ReflectionFunctionAbstract::getClosureScopeClass</a> — Returns the scope associated to the closure</li><li><a href="reflectionfunctionabstract.getclosurethis.html">ReflectionFunctionAbstract::getClosureThis</a> — Returns this pointer bound to closure</li><li><a href="reflectionfunctionabstract.getdoccomment.html">ReflectionFunctionAbstract::getDocComment</a> — Gets doc comment</li><li><a href="reflectionfunctionabstract.getendline.html">ReflectionFunctionAbstract::getEndLine</a> — Gets end line number</li><li><a href="reflectionfunctionabstract.getextension.html">ReflectionFunctionAbstract::getExtension</a> — Gets extension info</li><li><a href="reflectionfunctionabstract.getextensionname.html">ReflectionFunctionAbstract::getExtensionName</a> — Gets extension name</li><li><a href="reflectionfunctionabstract.getfilename.html">ReflectionFunctionAbstract::getFileName</a> — Gets file name</li><li><a href="reflectionfunctionabstract.getname.html">ReflectionFunctionAbstract::getName</a> — Gets function name</li><li><a href="reflectionfunctionabstract.getnamespacename.html">ReflectionFunctionAbstract::getNamespaceName</a> — Gets namespace name</li><li><a href="reflectionfunctionabstract.getnumberofparameters.html">ReflectionFunctionAbstract::getNumberOfParameters</a> — Gets number of parameters</li><li><a href="reflectionfunctionabstract.getnumberofrequiredparameters.html">ReflectionFunctionAbstract::getNumberOfRequiredParameters</a> — Gets number of required parameters</li><li><a href="reflectionfunctionabstract.getparameters.html">ReflectionFunctionAbstract::getParameters</a> — Gets parameters</li><li><a href="reflectionfunctionabstract.getreturntype.html">ReflectionFunctionAbstract::getReturnType</a> — Gets the specified return type of a function</li><li><a href="reflectionfunctionabstract.getshortname.html">ReflectionFunctionAbstract::getShortName</a> — Gets function short name</li><li><a href="reflectionfunctionabstract.getstartline.html">ReflectionFunctionAbstract::getStartLine</a> — Gets starting line number</li><li><a href="reflectionfunctionabstract.getstaticvariables.html">ReflectionFunctionAbstract::getStaticVariables</a> — Gets static variables</li><li><a href="reflectionfunctionabstract.hasreturntype.html">ReflectionFunctionAbstract::hasReturnType</a> — Checks if the function has a specified return type</li><li><a href="reflectionfunctionabstract.innamespace.html">ReflectionFunctionAbstract::inNamespace</a> — Checks if function in namespace</li><li><a href="reflectionfunctionabstract.isclosure.html">ReflectionFunctionAbstract::isClosure</a> — Checks if closure</li><li><a href="reflectionfunctionabstract.isdeprecated.html">ReflectionFunctionAbstract::isDeprecated</a> — Checks if deprecated</li><li><a href="reflectionfunctionabstract.isgenerator.html">ReflectionFunctionAbstract::isGenerator</a> — Returns whether this function is a generator</li><li><a href="reflectionfunctionabstract.isinternal.html">ReflectionFunctionAbstract::isInternal</a> — Checks if is internal</li><li><a href="reflectionfunctionabstract.isuserdefined.html">ReflectionFunctionAbstract::isUserDefined</a> — Checks if user defined</li><li><a href="reflectionfunctionabstract.isvariadic.html">ReflectionFunctionAbstract::isVariadic</a> — Checks if the function is variadic</li><li><a href="reflectionfunctionabstract.returnsreference.html">ReflectionFunctionAbstract::returnsReference</a> — Checks if returns reference</li><li><a href="reflectionfunctionabstract.tostring.html">ReflectionFunctionAbstract::__toString</a> — To string</li></ul>
 </div>
 </div></div></body></html>

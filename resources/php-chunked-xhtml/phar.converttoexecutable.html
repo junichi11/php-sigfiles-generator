@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="phar.converttoexecutable" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Phar::convertToExecutable</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL phar &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Phar::convertToExecutable</span> &mdash; <span class="dc-title">Convert a phar archive to another executable phar archive file format</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL phar &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Phar::convertToExecutable</span> &mdash; <span class="dc-title">Convert a phar archive to another executable phar archive file format</span></p>
 
  </div>
 
@@ -34,16 +34,12 @@
  <div class="refsect1 description" id="refsect1-phar.converttoexecutable-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Phar::convertToExecutable</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$format</code><span class="initializer"> = 9021976</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$compression</code><span class="initializer"> = 9021976</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$extension</code> = ?</span>
-   ) : <span class="type"><a href="class.phar.html" class="type Phar">Phar</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Phar::convertToExecutable</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$format</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$compression</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$extension</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a href="class.phar.html" class="type Phar">Phar</a></span></span></div>
 
   <blockquote class="note"><p><strong class="note">Note</strong>: <p class="para">This
 method requires the <var class="filename">php.ini</var> setting <code class="literal">phar.readonly</code> to be
-set to <code class="literal">0</code> in order to work for <a href="class.phar.html" class="classname">Phar</a>
-objects.  Otherwise, a <a href="class.pharexception.html" class="classname">PharException</a> will be thrown.</p></p></blockquote>
+set to <code class="literal">0</code> in order to work for <span class="classname"><a href="class.phar.html" class="classname">Phar</a></span>
+objects.  Otherwise, a <span class="classname"><a href="class.pharexception.html" class="classname">PharException</a></span> will be thrown.</p></p></blockquote>
   <p class="para">
    This method is used to convert a phar archive to another file format.  For instance,
    it can be used to create a tar-based executable phar archive from a zip-based
@@ -52,10 +48,10 @@ objects.  Otherwise, a <a href="class.pharexception.html" class="classname">Phar
    archive.
   </p>
   <p class="para">
-   If no changes are specified, this method throws a <a href="class.badmethodcallexception.html" class="classname">BadMethodCallException</a>.
+   If no changes are specified, this method throws a <span class="classname"><a href="class.badmethodcallexception.html" class="classname">BadMethodCallException</a></span>.
   </p>
   <p class="para">
-   If successful, the method creates a new archive on disk and returns a <a href="class.phar.html" class="classname">Phar</a>
+   If successful, the method creates a new archive on disk and returns a <span class="classname"><a href="class.phar.html" class="classname">Phar</a></span>
    object.  The old archive is not removed from disk, and should be done manually after
    the process has finished.
   </p>
@@ -66,7 +62,6 @@ objects.  Otherwise, a <a href="class.pharexception.html" class="classname">Phar
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">format</code></dt>
@@ -127,8 +122,8 @@ objects.  Otherwise, a <a href="class.pharexception.html" class="classname">Phar
  <div class="refsect1 returnvalues" id="refsect1-phar.converttoexecutable-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The method returns a <a href="class.phar.html" class="classname">Phar</a> object on success and throws an
-   exception on failure.
+   The method returns a <span class="classname"><a href="class.phar.html" class="classname">Phar</a></span> object on success,
+   or <strong><code>null</code></strong> on failure.
   </p>
  </div>
 
@@ -136,21 +131,48 @@ objects.  Otherwise, a <a href="class.pharexception.html" class="classname">Phar
  <div class="refsect1 errors" id="refsect1-phar.converttoexecutable-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   This method throws <a href="class.badmethodcallexception.html" class="classname">BadMethodCallException</a> when unable
+   This method throws <span class="classname"><a href="class.badmethodcallexception.html" class="classname">BadMethodCallException</a></span> when unable
    to compress, an unknown compression method has been specified, the requested
    archive is buffering with <span class="function"><a href="phar.startbuffering.html" class="function">Phar::startBuffering()</a></span> and
    has not concluded with <span class="function"><a href="phar.stopbuffering.html" class="function">Phar::stopBuffering()</a></span>, an
-   <a href="class.unexpectedvalueexception.html" class="classname">UnexpectedValueException</a> if write support is disabled,
-   and a <a href="class.pharexception.html" class="classname">PharException</a> if any problems are encountered
+   <span class="classname"><a href="class.unexpectedvalueexception.html" class="classname">UnexpectedValueException</a></span> if write support is disabled,
+   and a <span class="classname"><a href="class.pharexception.html" class="classname">PharException</a></span> if any problems are encountered
    during the phar creation process.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-phar.converttoexecutable-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">format</code>, <code class="parameter">compression</code>, and <code class="parameter">localName</code> are now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-phar.converttoexecutable-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-709">
+   <div class="example" id="example-712">
     <p><strong>Example #1 A <span class="function"><strong>Phar::convertToExecutable()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      Using Phar::convertToExecutable():

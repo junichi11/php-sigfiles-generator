@@ -26,22 +26,18 @@
   <div id="layout-content"><div id="function.copy" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">copy</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">copy</span> &mdash; <span class="dc-title">Copies file</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">copy</span> &mdash; <span class="dc-title">Copies file</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.copy-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>copy</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$source</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$dest</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>copy</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$from</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$to</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">resource</span><span class="type"></span></span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Makes a copy of the file <code class="parameter">source</code> to
-   <code class="parameter">dest</code>.
+   Makes a copy of the file <code class="parameter">from</code> to
+   <code class="parameter">to</code>.
   </p>
   <p class="para">
    If you wish to move a file, use the <span class="function"><a href="function.rename.html" class="function">rename()</a></span> function.
@@ -53,10 +49,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">source</code></dt>
+<code class="parameter">from</code></dt>
 
      <dd>
 
@@ -68,12 +63,12 @@
     
     
      <dt>
-<code class="parameter">dest</code></dt>
+<code class="parameter">to</code></dt>
 
      <dd>
 
       <p class="para">
-       The destination path. If <code class="parameter">dest</code> is a URL, the
+       The destination path. If <code class="parameter">to</code> is a URL, the
        copy operation may fail if the wrapper does not support overwriting of
        existing files.
       </p>
@@ -115,7 +110,7 @@
  <div class="refsect1 examples" id="refsect1-function.copy-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2622">
+   <div class="example" id="example-2133">
     <p><strong>Example #1 <span class="function"><strong>copy()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -27,15 +27,15 @@
  <h1 class="title">The mysqli_driver class</h1>
  
  
- <div class="partintro"><p class="verinfo">(PHP 5, PHP 7)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5, PHP 7, PHP 8)</p>
  
 
   <div class="section" id="mysqli-driver.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-    The <strong class="classname">mysqli_driver</strong> class is an instance of the monostate
+    The <span class="classname"><strong class="classname">mysqli_driver</strong></span> class is an instance of the monostate
     pattern, i.e. there is only one driver which can be accessed though an arbitrary
-    amount of <strong class="classname">mysqli_driver</strong> instances.
+    amount of <span class="classname"><strong class="classname">mysqli_driver</strong></span> instances.
    </p>
   </div>
 
@@ -45,69 +45,52 @@
  
 
    <div class="classsynopsis">
-    <div class="ooclass"></div>
- 
+    <div class="ooclass">
+     
+    </div>
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
-      <strong class="classname">mysqli_driver</strong>
+      <span class="modifier">final</span>
+      <span class="modifier">class</span> <strong class="classname">mysqli_driver</strong>
      </span>
      {</div>
 
- 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
     <div class="fieldsynopsis">
      <span class="modifier">public</span>
      <span class="modifier">readonly</span>
      <span class="type">string</span>
-      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.client-info">$<var class="varname">client_info</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.client-info">$<var class="varname">client_info</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="modifier">readonly</span>
-     <span class="type">string</span>
-      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.client-version">$<var class="varname">client_version</var></a></var>
-    ;</div>
-
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
-     <span class="modifier">readonly</span>
-     <span class="type">string</span>
-      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.driver-version">$<var class="varname">driver_version</var></a></var>
-    ;</div>
-
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
-     <span class="modifier">readonly</span>
-     <span class="type">bool</span>
-      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.embedded">$<var class="varname">embedded</var></a></var>
-    ;</div>
-
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
-     <span class="type">bool</span>
-      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.reconnect">$<var class="varname">reconnect</var></a></var>
-    ;</div>
-
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
      <span class="type">int</span>
-      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.report-mode">$<var class="varname">report_mode</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.client-version">$<var class="varname">client_version</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.driver-version">$<var class="varname">driver_version</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">bool</span>
+      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.embedded">$<var class="varname">embedded</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">bool</span>
+      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.reconnect">$<var class="varname">reconnect</var></a></var><span class="initializer"> = false</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.report-mode">$<var class="varname">report_mode</var></a></var>;</div>
 
  
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="mysqli-driver.embedded-server-end.html" class="methodname">embedded_server_end</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="mysqli-driver.embedded-server-start.html" class="methodname">embedded_server_start</a></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$arguments</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$groups</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><a href="mysqli-driver.embedded-server-end.html" class="methodname">embedded_server_end</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="mysqli-driver.embedded-server-start.html" class="methodname">embedded_server_start</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$arguments</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$groups</code></span>): <span class="type">bool</span></div>
 
    }</div>
 
@@ -117,7 +100,6 @@
   <div class="section" id="mysqli-driver.props">
    <h2 class="title">Properties</h2>
    <dl>
-
     
      <dt id="mysqli-driver.props.client-info"><var class="varname">client_info</var></dt>
 
@@ -142,6 +124,9 @@
      <dd>
 
       <p class="para">The MySQLi Driver version</p>
+      <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This property has
+      been <em class="emphasis">deprecated</em> as of PHP 8.1.0. Relying on this
+      property is highly discouraged.</p></div>
      </dd>
 
     
@@ -151,6 +136,8 @@
      <dd>
 
       <p class="para">Whether MySQLi Embedded support is enabled</p>
+      <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This property has
+      been <em class="emphasis">removed</em> as of PHP 8.0.0.</p></div>
      </dd>
 
     

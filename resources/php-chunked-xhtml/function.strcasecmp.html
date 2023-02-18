@@ -26,20 +26,19 @@
   <div id="layout-content"><div id="function.strcasecmp" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strcasecmp</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strcasecmp</span> &mdash; <span class="dc-title">Binary safe case-insensitive string comparison</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">strcasecmp</span> &mdash; <span class="dc-title">Binary safe case-insensitive string comparison</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.strcasecmp-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>strcasecmp</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str1</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$str2</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>strcasecmp</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string1</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$string2</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Binary safe case-insensitive string comparison.
+   The comparision is not locale aware; only ASCII letters are compared in a
+   case-insensitive way.
   </p>
  </div>
 
@@ -48,10 +47,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">str1</code></dt>
+<code class="parameter">string1</code></dt>
 
      <dd>
 
@@ -63,7 +61,7 @@
     
     
      <dt>
-<code class="parameter">str2</code></dt>
+<code class="parameter">string2</code></dt>
 
      <dd>
 
@@ -82,9 +80,9 @@
  <div class="refsect1 returnvalues" id="refsect1-function.strcasecmp-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns &lt; 0 if <code class="parameter">str1</code> is less than
-   <code class="parameter">str2</code>; &gt; 0 if <code class="parameter">str1</code>
-   is greater than <code class="parameter">str2</code>, and 0 if they are
+   Returns &lt; 0 if <code class="parameter">string1</code> is less than
+   <code class="parameter">string2</code>; &gt; 0 if <code class="parameter">string1</code>
+   is greater than <code class="parameter">string2</code>, and 0 if they are
    equal.
   </p>
  </div>
@@ -93,7 +91,7 @@
  <div class="refsect1 examples" id="refsect1-function.strcasecmp-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5357">
+   <div class="example" id="example-4848">
     <p><strong>Example #1 <span class="function"><strong>strcasecmp()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

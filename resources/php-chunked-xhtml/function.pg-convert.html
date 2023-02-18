@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.pg-convert" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_convert</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_convert</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_convert</span> &mdash; <span class="dc-title">
    Convert associative array values into forms suitable for SQL statements
   </span></p>
 
@@ -35,35 +35,24 @@
  <div class="refsect1 description" id="refsect1-function.pg-convert-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_convert</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$table_name</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$assoc_array</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>pg_convert</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.pgsql-connection.html" class="type PgSql\Connection">PgSql\Connection</a></span> <code class="parameter">$connection</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$table_name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$values</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span><br>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_convert()</strong></span> checks and converts the values in
-   <code class="parameter">assoc_array</code> into suitable values for use in an SQL
+   <code class="parameter">values</code> into suitable values for use in an SQL
    statement. Precondition for <span class="function"><strong>pg_convert()</strong></span> is the 
    existence of a table <code class="parameter">table_name</code> which has at least
-   as many columns as <code class="parameter">assoc_array</code> has elements. The
+   as many columns as <code class="parameter">values</code> has elements. The
    fieldnames in <code class="parameter">table_name</code> must match the indices in
-   <code class="parameter">assoc_array</code> and the corresponding datatypes must be
+   <code class="parameter">values</code> and the corresponding datatypes must be
    compatible. Returns an array with the converted values on success, <strong><code>false</code></strong>
    otherwise.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    Since PHP 5.6.0, it accepts boolean values, converting them to PostgreSQL
-    booleans. String representations of boolean values are also supported. <strong><code>null</code></strong> is
+    Boolean values are accepted and converted to PostgreSQL booleans.
+    String representations of boolean values are also supported. <strong><code>null</code></strong> is
     converted to PostgreSQL NULL.
-   </p>
-   <p class="para">
-    Prior to PHP 5.6.0, if there are boolean fields in <code class="parameter">table_name</code> 
-    don&#039;t use the constant <strong><code>true</code></strong> in <code class="parameter">assoc_array</code>. It will be
-    converted to the string &#039;TRUE&#039; which is not a valid entry for boolean fields
-    in PostgreSQL. Use one of &quot;t&quot;, &quot;true&quot;, 1, &quot;y&quot;, &quot;yes&quot; instead.
    </p>
   </p></blockquote>
  </div>
@@ -73,16 +62,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">connection</code></dt>
 
      <dd>
 
-      <p class="para">
-       PostgreSQL database connection resource.
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span> instance.</p>
      </dd>
 
     
@@ -100,7 +86,7 @@
     
     
      <dt>
-<code class="parameter">assoc_array</code></dt>
+<code class="parameter">values</code></dt>
 
      <dd>
 
@@ -112,7 +98,7 @@
     
     
      <dt>
-<code class="parameter">options</code></dt>
+<code class="parameter">flags</code></dt>
 
      <dd>
 
@@ -133,15 +119,43 @@
  <div class="refsect1 returnvalues" id="refsect1-function.pg-convert-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   An <span class="type">array</span> of converted values, or <strong><code>false</code></strong> on error.
+   An <span class="type">array</span> of converted values,  or <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.pg-convert-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">connection</code> parameter expects an <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.pg-convert-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2328">
+   <div class="example" id="example-1882">
     <p><strong>Example #1 <span class="function"><strong>pg_convert()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -151,37 +165,6 @@
     </div>
 
    </div>
-  </p>
- </div>
-
-
- <div class="refsect1 changelog" id="refsect1-function.pg-convert-changelog">
-  <h3 class="title">Changelog</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>Version</th>
-       <th>Description</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.6.0</td>
-       <td>
-        No longer experimental. Boolean/NULL data types are supported. Unknown/unsupported
-        data types are escaped without validation. <span class="function"><strong>pg_convert()</strong></span> can
-        be used with any data types.
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
   </p>
  </div>
 

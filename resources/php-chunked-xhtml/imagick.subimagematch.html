@@ -33,11 +33,7 @@
  <div class="refsect1 description" id="refsect1-imagick.subimagematch-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Imagick::subImageMatch</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.imagick.html" class="type Imagick">Imagick</a></span> <code class="parameter">$Imagick</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$offset</code> = ?</span>
-   , <span class="methodparam"><span class="type">float</span> <code class="parameter reference">&$similarity</code> = ?</span>
-   ) : <span class="type"><a href="class.imagick.html" class="type Imagick">Imagick</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Imagick::subImageMatch</strong></span>(<span class="methodparam"><span class="type"><a href="class.imagick.html" class="type Imagick">Imagick</a></span> <code class="parameter">$Imagick</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$offset</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">float</span> <code class="parameter reference">&$similarity</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="class.imagick.html" class="type Imagick">Imagick</a></span></div>
 
   <p class="para rdfs-comment">
    Searches for a subimage in the current image and returns a similarity image such that an exact match location is completely white and if none of the pixels match, black, otherwise some gray level in-between.
@@ -51,7 +47,6 @@
  <div class="refsect1 parameters" id="refsect1-imagick.subimagematch-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">Imagick</code></dt>
@@ -107,7 +102,7 @@
  <div class="refsect1 examples" id="refsect1-imagick.subimagematch-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-    <div class="example" id="example-3392">
+    <div class="example" id="example-2908">
       <p><strong>Example #1  <span class="function"><strong>Imagick::subImageMatch()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">

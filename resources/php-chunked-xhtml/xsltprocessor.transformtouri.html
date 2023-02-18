@@ -26,17 +26,13 @@
   <div id="layout-content"><div id="xsltprocessor.transformtouri" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">XSLTProcessor::transformToUri</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">XSLTProcessor::transformToUri</span> &mdash; <span class="dc-title">Transform to URI</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">XSLTProcessor::transformToUri</span> &mdash; <span class="dc-title">Transform to URI</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-xsltprocessor.transformtouri-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   
-   <span class="methodname"><strong>XSLTProcessor::transformToURI</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.domdocument.html" class="type DOMDocument">DOMDocument</a></span> <code class="parameter">$doc</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$uri</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>XSLTProcessor::transformToURI</strong></span>(<span class="methodparam"><span class="type"><a href="class.domdocument.html" class="type DOMDocument">DOMDocument</a></span> <code class="parameter">$doc</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$uri</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Transforms the source node to an URI applying the stylesheet given by the
@@ -48,7 +44,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">doc</code></dt>
@@ -88,7 +83,7 @@
  <div class="refsect1 examples" id="refsect1-xsltprocessor.transformtouri-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="xmlwriter-set-indent.example.mixed-content">
+   <div class="example" id="example-5448">
     <p><strong>Example #1 Transforming to a HTML file</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

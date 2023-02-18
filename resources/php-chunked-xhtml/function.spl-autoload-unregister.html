@@ -26,15 +26,13 @@
   <div id="layout-content"><div id="function.spl-autoload-unregister" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">spl_autoload_unregister</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">spl_autoload_unregister</span> &mdash; <span class="dc-title">Unregister given function as __autoload() implementation</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">spl_autoload_unregister</span> &mdash; <span class="dc-title">Unregister given function as __autoload() implementation</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.spl-autoload-unregister-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>spl_autoload_unregister</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$autoload_function</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>spl_autoload_unregister</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Removes a function from the autoload queue. If the queue
@@ -52,10 +50,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">autoload_function</code></dt>
+<code class="parameter">callback</code></dt>
 
      <dd>
 

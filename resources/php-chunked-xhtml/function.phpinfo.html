@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.phpinfo" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">phpinfo</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">phpinfo</span> &mdash; <span class="dc-title">Outputs information about PHP&#039;s configuration</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">phpinfo</span> &mdash; <span class="dc-title">Outputs information about PHP&#039;s configuration</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.phpinfo-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>phpinfo</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>INFO_ALL</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>phpinfo</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>INFO_ALL</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Outputs a large amount of information about the current state of  PHP. 
@@ -61,7 +59,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">flags</code></dt>
@@ -184,7 +181,7 @@
  <div class="refsect1 examples" id="refsect1-function.phpinfo-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-559">
+   <div class="example" id="example-574">
     <p><strong>Example #1 <span class="function"><strong>phpinfo()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -223,7 +220,6 @@
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.phpversion.html" class="function" rel="rdfs-seeAlso">phpversion()</a> - Gets the current PHP version</span></li>
     <li class="member"><span class="function"><a href="function.phpcredits.html" class="function" rel="rdfs-seeAlso">phpcredits()</a> - Prints out the credits for PHP</span></li>
-    <li class="member"><span class="function"><strong>php_logo_guid()</strong></span></li>
     <li class="member"><span class="function"><a href="function.ini-get.html" class="function" rel="rdfs-seeAlso">ini_get()</a> - Gets the value of a configuration option</span></li>
     <li class="member"><span class="function"><a href="function.ini-set.html" class="function" rel="rdfs-seeAlso">ini_set()</a> - Sets the value of a configuration option</span></li>
     <li class="member"><span class="function"><a href="function.get-loaded-extensions.html" class="function" rel="rdfs-seeAlso">get_loaded_extensions()</a> - Returns an array with the names of all modules compiled and loaded</span></li>

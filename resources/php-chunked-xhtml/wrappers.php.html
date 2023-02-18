@@ -48,8 +48,8 @@
     input or output stream of the PHP process.  The stream references a
     duplicate file descriptor, so if you open <var class="filename">php://stdin</var>
     and later close it, you close only your copy of the descriptor-the actual
-    stream referenced by <strong><code>STDIN</code></strong> is unaffected.  Note that
-    PHP exhibited buggy behavior in this regard until PHP 5.2.1.  It is
+    stream referenced by <strong><code>STDIN</code></strong> is unaffected.
+    It is
     recommended that you simply use the constants <strong><code>STDIN</code></strong>,
     <strong><code>STDOUT</code></strong> and <strong><code>STDERR</code></strong> instead of
     manually opening streams using these wrappers.
@@ -66,11 +66,7 @@
    <h4 class="title">php://input</h4>
    <p class="simpara">
     <var class="filename">php://input</var> is a read-only stream that allows you to
-    read raw data from the request body. In the case of POST requests, it is
-    preferable to use <var class="filename">php://input</var> instead of <var class="varname">$HTTP_RAW_POST_DATA</var> as it does not depend
-    on special <var class="filename">php.ini</var> directives. Moreover, for those cases where
-    <var class="varname">$HTTP_RAW_POST_DATA</var> is not populated by default, it is a
-    potentially less memory intensive alternative to activating <a href="ini.core.html#ini.always-populate-raw-post-data" class="link">always_populate_raw_post_data</a>.
+    read raw data from the request body.
     <var class="filename">php://input</var> is not available with
     <code class="literal">enctype=&quot;multipart/form-data&quot;</code>.
    </p>
@@ -324,7 +320,7 @@
 
  <div class="refsect1 examples" id="refsect1-wrappers.php-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="serializable.example.basic">
+  <div class="example" id="example-402">
    <p><strong>Example #1 php://temp/maxmemory</strong></p>
    <div class="example-contents"><p>
     This optional parameter allows setting the memory limit before
@@ -338,7 +334,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-383">
+  <div class="example" id="example-403">
    <p><strong>Example #2 php://filter/resource=&lt;stream to be filtered&gt;</strong></p>
    <div class="example-contents"><p>
     This parameter must be located at
@@ -353,7 +349,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-384">
+  <div class="example" id="example-404">
    <p><strong>Example #3 php://filter/read=&lt;filter list to apply to read chain&gt;</strong></p>
    <div class="example-contents"><p>
     This parameter takes one or more
@@ -367,7 +363,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-385">
+  <div class="example" id="example-405">
    <p><strong>Example #4 php://filter/write=&lt;filter list to apply to write chain&gt;</strong></p>
    <div class="example-contents"><p>
     This parameter takes one or more
@@ -381,7 +377,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-386">
+  <div class="example" id="example-406">
    <p><strong>Example #5 php://memory and php://temp are not reusable</strong></p>
    <div class="example-contents"><p>
     <var class="filename">php://memory</var> and <var class="filename">php://temp</var>

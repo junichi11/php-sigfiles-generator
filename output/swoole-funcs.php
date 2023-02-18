@@ -7,7 +7,7 @@ namespace {
 	/**
 	 * Async and non-blocking hostname to IP lookup
 	 * @param string $hostname <p>The host name.</p>
-	 * @param callable $callback callback ( <code>string</code> <code>$hostname</code> , <code>string</code> <code>$ip</code> ) : <code>mixed</code>   <code>hostname</code>  <p>The host name.</p>   <code>IP</code>  <p>The IP address.</p>
+	 * @param callable $callback callback(<code>string</code> <code>$hostname</code>, <code>string</code> <code>$ip</code>): <code>mixed</code>   <code>hostname</code>  <p>The host name.</p>   <code>IP</code>  <p>The IP address.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.swoole-async-dns-lookup.php
 	 * @since PECL swoole >= 1.9.0
@@ -17,7 +17,7 @@ namespace {
 	/**
 	 * Read file stream asynchronously
 	 * @param string $filename <p>The filename of the file being read.</p>
-	 * @param callable $callback callback ( <code>string</code> <code>$filename</code> , <code>string</code> <code>$content</code> ) : <code>mixed</code>   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content readed from the file stream.</p>
+	 * @param callable $callback callback(<code>string</code> <code>$filename</code>, <code>string</code> <code>$content</code>): <code>mixed</code>   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content readed from the file stream.</p>
 	 * @param int $chunk_size <p>The chunk length.</p>
 	 * @param int $offset <p>The offset.</p>
 	 * @return bool <p>Whether the read is succeed.</p>
@@ -29,7 +29,7 @@ namespace {
 	/**
 	 * Read a file asynchronously
 	 * @param string $filename <p>The filename of the file being read.</p>
-	 * @param callable $callback callback ( <code>string</code> <code>$filename</code> , <code>string</code> <code>$content</code> ) : <code>mixed</code>   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content readed from the file.</p>
+	 * @param callable $callback callback(<code>string</code> <code>$filename</code>, <code>string</code> <code>$content</code>): <code>mixed</code>   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content read from the file.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.swoole-async-readfile.php
 	 * @since PECL swoole >= 1.9.0
@@ -39,7 +39,7 @@ namespace {
 	/**
 	 * Update the async I/O options
 	 * @param array $settings
-	 * @return void
+	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.swoole-async-set.php
 	 * @since PECL swoole >= 1.9.0
 	 */
@@ -70,6 +70,15 @@ namespace {
 	function swoole_async_writefile(string $filename, string $content, callable $callback = null, int $flags = 0): bool {}
 
 	/**
+	 * Clear errors in the socket or on the last error code
+	 * <p>Clear errors in the socket or on the last error code.</p>
+	 * @return void <p>No value is returned.</p>
+	 * @link https://php.net/manual/en/function.swoole-clear-error.php
+	 * @since PECL swoole >= 4.6.0
+	 */
+	function swoole_clear_error(): void {}
+
+	/**
 	 * Get the file description which are ready to read/write or error
 	 * @param array $read_array
 	 * @param array $write_array
@@ -96,6 +105,17 @@ namespace {
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_errno(): int {}
+
+	/**
+	 * Output error messages to the log
+	 * <p>Output error messages to the log.</p>
+	 * @param int $level <p>Log Level, constants can be used: <b><code>SWOOLE_LOG_DEBUG</code></b>, <b><code>SWOOLE_LOG_TRACE</code></b>, <b><code>SWOOLE_LOG_INFO</code></b>, <b><code>SWOOLE_LOG_NOTICE</code></b>, <b><code>SWOOLE_LOG_WARNING</code></b>, <b><code>SWOOLE_LOG_ERROR</code></b>, <b><code>SWOOLE_LOG_NONE</code></b></p>
+	 * @param string $msg <p>Message content to be written to the log.</p>
+	 * @return void <p>No value is returned.</p>
+	 * @link https://php.net/manual/en/function.swoole-error-log.php
+	 * @since PECL swoole >= 4.5.8
+	 */
+	function swoole_error_log(int $level, string $msg): void {}
 
 	/**
 	 * Add new callback functions of a socket into the EventLoop

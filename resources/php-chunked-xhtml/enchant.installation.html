@@ -37,4 +37,33 @@
   <strong class="option configure">--with-enchant[=dir]</strong> option when compiling
   PHP.
  </p>
+ <p class="para">
+  Windows users must enable <var class="filename">php_enchant.dll</var>
+  in order to use this extension.
+ </p>
+ <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <strong>Additional setup on Windows</strong><br />
+  <p class="para">
+   In order for this extension to work, there are
+<acronym title="Dynamic Link Library">DLL</acronym> files that must be available to the Windows
+system <var class="envar">PATH</var>. For information on how to do this, see the
+<acronym title="Frequently Asked Questions">FAQ</acronym> entitled &quot;<a href="faq.installation.html#faq.installation.addtopath" class="link">How do I add my PHP directory to the PATH
+on Windows</a>&quot;. Although copying DLL
+files from the PHP folder into the Windows system directory also works
+(because the system directory is by default in the system&#039;s
+<var class="envar">PATH</var>), this is not recommended.
+<em class="emphasis">This extension requires the following files to be in the
+<var class="envar">PATH</var>:</em> 
+   <var class="filename">libenchant.dll</var>,
+   <var class="filename">glib-2.dll</var>,
+   <var class="filename">gmodule-2.dll</var>.
+  </p>
+  <p class="para">
+   Furthermore, it is necessary to copy at least one of the shipped providers in
+   <var class="filename">lib/enchant/</var> to <var class="filename">C:\enchant_plugins</var>.
+   This path can be customized by creating the registry value
+   <code class="literal">HKEY_CURRENT_USER\SOFTWARE\Enchant\Config\Module_Dir</code>
+   and setting it to the desired path.
+  </p>
+ </p></blockquote>
 </div></div></div></body></html>

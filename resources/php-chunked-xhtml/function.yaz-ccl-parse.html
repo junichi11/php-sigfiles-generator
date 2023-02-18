@@ -32,11 +32,7 @@
  <div class="refsect1 description" id="refsect1-function.yaz-ccl-parse-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>yaz_ccl_parse</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$id</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$result</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>yaz_ccl_parse</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$id</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$result</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    This function invokes a CCL parser. It converts a given CCL FIND query to
@@ -53,7 +49,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">id</code></dt>
@@ -127,7 +122,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.yaz-ccl-parse-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-5105">
+  <div class="example" id="example-4605">
    <p><strong>Example #1 CCL Parsing</strong></p>
    <div class="example-contents"><p>
     We will try to search using CCL. In the example below,  

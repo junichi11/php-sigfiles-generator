@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.get-loaded-extensions" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">get_loaded_extensions</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">get_loaded_extensions</span> &mdash; <span class="dc-title">Returns an array with the names of all modules compiled and loaded</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">get_loaded_extensions</span> &mdash; <span class="dc-title">Returns an array with the names of all modules compiled and loaded</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.get-loaded-extensions-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>get_loaded_extensions</strong></span>
-    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$zend_extensions</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>get_loaded_extensions</strong></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$zend_extensions</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    This function returns the names of all the modules compiled and
@@ -48,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">zend_extensions</code></dt>
@@ -79,7 +76,7 @@
  <div class="refsect1 examples" id="refsect1-function.get-loaded-extensions-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-534">
+   <div class="example" id="example-549">
     <p><strong>Example #1 <span class="function"><strong>get_loaded_extensions()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

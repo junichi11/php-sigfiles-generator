@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-yaf-route-interface.route-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Route_Interface::route</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.yaf-request-abstract.html" class="type Yaf_Request_Abstract">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Route_Interface::route</strong></span>(<span class="methodparam"><span class="type"><a href="class.yaf-request-abstract.html" class="type Yaf_Request_Abstract">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
     <span class="methodname"><strong>Yaf_Route_Interface::route()</strong></span> is the only method
@@ -49,7 +47,7 @@
   </p>
   <p class="para">
     if this method return <strong><code>true</code></strong>, then the route process will be end. otherwise,
-    <a href="class.yaf-router.html" class="classname">Yaf_Router</a> will call next route in the route stack
+    <span class="classname"><a href="class.yaf-router.html" class="classname">Yaf_Router</a></span> will call next route in the route stack
     to route request.
   </p>
 
@@ -72,7 +70,6 @@
  <div class="refsect1 parameters" id="refsect1-yaf-route-interface.route-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">request</code></dt>
@@ -80,7 +77,7 @@
     <dd>
 
      <p class="para">
-       A <a href="class.yaf-request-abstract.html" class="classname">Yaf_Request_Abstract</a> instance.
+       A <span class="classname"><a href="class.yaf-request-abstract.html" class="classname">Yaf_Request_Abstract</a></span> instance.
      </p>
     </dd>
 

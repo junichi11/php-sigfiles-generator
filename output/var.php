@@ -16,14 +16,14 @@ namespace {
 	function boolval(mixed $value): bool {}
 
 	/**
-	 * Dumps a string representation of an internal zend value to output
-	 * <p>Dumps a string representation of an internal zend value to output.</p>
-	 * @param mixed $value <p>The variable to dump.</p>
-	 * @param mixed $values <p>Further variables to dump.</p>
+	 * Dumps a string representation of an internal zval structure to output
+	 * <p>Dumps a string representation of an internal zval (Zend value) structure to output. This is mostly useful for understanding or debugging implementation details of the Zend Engine or PHP extensions.</p>
+	 * @param mixed $value <p>The variable or value to dump.</p>
+	 * @param mixed $values <p>Further variables or values to dump.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.debug-zval-dump.php
 	 * @see var_dump(), debug_backtrace()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function debug_zval_dump(mixed $value, mixed ...$values): void {}
 
@@ -49,6 +49,17 @@ namespace {
 	function floatval(mixed $value): float {}
 
 	/**
+	 * Gets the type name of a variable in a way that is suitable for debugging
+	 * <p>Returns the resolved name of the PHP variable <code>value</code>. This function will resolve objects to their class name, resources to their resource type name, and scalar values to their common name as would be used in type declarations.</p><p>This function differs from <code>gettype()</code> in that it returns type names that are more consistent with actual usage, rather than those present for historical reasons.</p>
+	 * @param mixed $value <p>The variable being type checked.</p>
+	 * @return string <p>Possible values for the returned string are:</p>   Type + State Return Value Notes     null  <code>"null"</code>  -   Booleans (true or false)  <code>"bool"</code>  -   Integers  <code>"int"</code>  -   Floats  <code>"float"</code>  -   Strings  <code>"string"</code>  -   Arrays  <code>"array"</code>  -   Resources  <code>"resource (resourcename)"</code>  -   Resources (Closed)  <code>"resource (closed)"</code>  Example: A file stream after being closed with fclose.   Objects from Named Classes  The full name of the class including its namespace e.g. <code>Foo\Bar</code>  -   Objects from Anonymous Classes  <code>"class@anonymous"</code>   Anonymous classes are those created through the $x = new class { ... } syntax
+	 * @link https://php.net/manual/en/function.get-debug-type.php
+	 * @see gettype(), get_class()
+	 * @since PHP 8
+	 */
+	function get_debug_type(mixed $value): string {}
+
+	/**
 	 * Returns an array of all defined variables
 	 * <p>This function returns a multidimensional array containing a list of all defined variables, be them environment, server or user-defined variables, within the scope that <b>get_defined_vars()</b> is called.</p>
 	 * @return array <p>A multidimensional array with all the variables.</p>
@@ -61,24 +72,24 @@ namespace {
 	/**
 	 * Returns an integer identifier for the given resource
 	 * <p>This function provides a type-safe way for generating the integer identifier for a resource.</p>
-	 * @param resource $res <p>The evaluated resource handle.</p>
-	 * @return int <p>The <code>int</code> identifier for the given <code>res</code>.</p><p>This function is essentially an <code>int</code> cast of <code>res</code> to make it easier to retrieve the resource ID.</p>
+	 * @param resource $resource <p>The evaluated resource handle.</p>
+	 * @return int <p>The <code>int</code> identifier for the given <code>resource</code>.</p><p>This function is essentially an <code>int</code> cast of <code>resource</code> to make it easier to retrieve the resource ID.</p>
 	 * @link https://php.net/manual/en/function.get-resource-id.php
 	 * @see get_resource_type()
 	 * @since PHP 8
 	 */
-	function get_resource_id($res): int {}
+	function get_resource_id($resource): int {}
 
 	/**
 	 * Returns the resource type
 	 * <p>This function gets the type of the given resource.</p>
-	 * @param resource $handle <p>The evaluated resource handle.</p>
-	 * @return string <p>If the given <code>handle</code> is a resource, this function will return a string representing its type. If the type is not identified by this function, the return value will be the string <code>Unknown</code>.</p><p>This function will return <b><code>null</code></b> and generate an error if <code>handle</code> is not a <code>resource</code>.</p>
+	 * @param resource $resource <p>The evaluated resource handle.</p>
+	 * @return string <p>If the given <code>resource</code> is a resource, this function will return a string representing its type. If the type is not identified by this function, the return value will be the string <code>Unknown</code>.</p><p>This function will return <b><code>null</code></b> and generate an error if <code>resource</code> is not a <code>resource</code>.</p>
 	 * @link https://php.net/manual/en/function.get-resource-type.php
 	 * @see get_resource_id()
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7, PHP 8
 	 */
-	function get_resource_type($handle): string {}
+	function get_resource_type($resource): string {}
 
 	/**
 	 * Get the type of a variable
@@ -86,7 +97,7 @@ namespace {
 	 * @param mixed $value <p>The variable being type checked.</p>
 	 * @return string <p>Possible values for the returned string are:</p><ul> <li> <code>"boolean"</code> </li> <li> <code>"integer"</code> </li> <li> <code>"double"</code> (for historical reasons <code>"double"</code> is returned in case of a <code>float</code>, and not simply <code>"float"</code>) </li> <li> <code>"string"</code> </li> <li> <code>"array"</code> </li> <li> <code>"object"</code> </li> <li> <code>"resource"</code> </li> <li> <code>"resource (closed)"</code> as of PHP 7.2.0 </li> <li> <code>"NULL"</code> </li> <li> <code>"unknown type"</code> </li> </ul>
 	 * @link https://php.net/manual/en/function.gettype.php
-	 * @see settype(), get_class(), is_array(), is_bool(), is_callable(), is_float(), is_int(), is_null(), is_numeric(), is_object(), is_resource(), is_scalar(), is_string(), function_exists(), method_exists()
+	 * @see get_debug_type(), settype(), get_class(), is_array(), is_bool(), is_callable(), is_float(), is_int(), is_null(), is_numeric(), is_object(), is_resource(), is_scalar(), is_string(), function_exists(), method_exists()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function gettype(mixed $value): string {}
@@ -126,7 +137,7 @@ namespace {
 	function is_bool(mixed $value): bool {}
 
 	/**
-	 * Verify that the contents of a variable can be called as a function
+	 * Verify that a value can be called as a function from the current scope.
 	 * <p>Verify that a value is a <code>callable</code>.</p>
 	 * @param mixed $value <p>The value to check</p>
 	 * @param bool $syntax_only <p>If set to <b><code>true</code></b> the function only verifies that <code>value</code> might be a function or method. It will only reject simple variables that are not strings, or an array that does not have a valid structure to be used as a callback. The valid ones are supposed to have only 2 entries, the first of which is an object or a string, and the second a string.</p>
@@ -140,7 +151,7 @@ namespace {
 
 	/**
 	 * Verify that the contents of a variable is a countable value
-	 * <p>Verify that the contents of a variable is an <code>array</code> or an object implementing Countable</p>
+	 * <p>Verify that the contents of a variable is an <code>array</code> or an object implementing <code>Countable</code></p>
 	 * @param mixed $value <p>The value to check</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if <code>value</code> is countable, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.is-countable.php
@@ -193,7 +204,7 @@ namespace {
 
 	/**
 	 * Verify that the contents of a variable is an iterable value
-	 * <p>Verify that the contents of a variable is accepted by the <code>iterable</code> pseudo-type, i.e. that it is either an <code>array</code> or an object implementing Traversable</p>
+	 * <p>Verify that the contents of a variable is accepted by the <code>iterable</code> pseudo-type, i.e. that it is either an <code>array</code> or an object implementing <code>Traversable</code></p>
 	 * @param mixed $value <p>The value to check</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if <code>value</code> is iterable, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.is-iterable.php
@@ -348,7 +359,7 @@ namespace {
 
 	/**
 	 * Dumps information about a variable
-	 * <p>This function displays structured information about one or more expressions that includes its type and value. Arrays and objects are explored recursively with values indented to show structure.</p><p>All public, private and protected properties of objects will be returned in the output unless the object implements a __debugInfo() method (implemented in PHP 5.6.0).</p><p>As with anything that outputs its result directly to the browser, the output-control functions can be used to capture the output of this function, and save it in a <code>string</code> (for example).</p>
+	 * <p>This function displays structured information about one or more expressions that includes its type and value. Arrays and objects are explored recursively with values indented to show structure.</p><p>All public, private and protected properties of objects will be returned in the output unless the object implements a __debugInfo() method.</p><p>As with anything that outputs its result directly to the browser, the output-control functions can be used to capture the output of this function, and save it in a <code>string</code> (for example).</p>
 	 * @param mixed $value <p>The expression to dump.</p>
 	 * @param mixed $values <p>Further expressions to dump.</p>
 	 * @return void <p>No value is returned.</p>
@@ -363,11 +374,11 @@ namespace {
 	 * <p><b>var_export()</b> gets structured information about the given variable. It is similar to <code>var_dump()</code> with one exception: the returned representation is valid PHP code.</p>
 	 * @param mixed $value <p>The variable you want to export.</p>
 	 * @param bool $return <p>If used and set to <b><code>true</code></b>, <b>var_export()</b> will return the variable representation instead of outputting it.</p>
-	 * @return string|null <p>Returns the variable representation when the <code>return</code> parameter is used and evaluates to <b><code>true</code></b>. Otherwise, this function will return <b><code>null</code></b>.</p>
+	 * @return ?string <p>Returns the variable representation when the <code>return</code> parameter is used and evaluates to <b><code>true</code></b>. Otherwise, this function will return <b><code>null</code></b>.</p>
 	 * @link https://php.net/manual/en/function.var-export.php
 	 * @see print_r(), serialize(), var_dump()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
-	function var_export(mixed $value, bool $return = false): string|null {}
+	function var_export(mixed $value, bool $return = false): ?string {}
 
 }

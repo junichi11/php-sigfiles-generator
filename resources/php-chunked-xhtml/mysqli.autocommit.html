@@ -27,24 +27,18 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli::autocommit</h1>
   <h1 class="refname">mysqli_autocommit</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli::autocommit</span> -- <span class="refname">mysqli_autocommit</span> &mdash; <span class="dc-title">Turns on or off auto-committing database modifications</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mysqli::autocommit</span> -- <span class="refname">mysqli_autocommit</span> &mdash; <span class="dc-title">Turns on or off auto-committing database modifications</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-mysqli.autocommit-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>mysqli::autocommit</strong></span>
-    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$mode</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>mysqli::autocommit</strong></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$enable</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysqli_autocommit</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$link</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$mode</code></span>
-   ) : <span class="type">bool</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>mysqli_autocommit</strong></span>(<span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$mysql</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$enable</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Turns on or off auto-commit mode on queries for the database connection.
@@ -60,18 +54,17 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-link</code></dt>
+
+<code class="parameter">mysql</code></dt>
 <dd>
-<p class="para">Procedural style only: A link identifier
+<p class="para">Procedural style only: A <span class="classname"><a href="class.mysqli.html" class="classname">mysqli</a></span> object
 returned by <span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span> or <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span>
 </p></dd>
 
     
      <dt>
-<code class="parameter">mode</code></dt>
+<code class="parameter">enable</code></dt>
 
      <dd>
 
@@ -95,22 +88,11 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
  </div>
 
 
- <div class="refsect1 notes" id="refsect1-mysqli.autocommit-notes">
-  <h3 class="title">Notes</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
-    This function does not work with non transactional table types (like
-    MyISAM or ISAM).
-   </p>
-  </p></blockquote>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-mysqli.autocommit-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1662">
+  <div class="example" id="example-1418">
    <p><strong>Example #1 <span class="methodname"><strong>mysqli::autocommit()</strong></span> example</strong></p>
-   <div class="example-contents"><p>Object oriented style</p></div>
+   <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;Tell&nbsp;mysqli&nbsp;to&nbsp;throw&nbsp;an&nbsp;exception&nbsp;if&nbsp;an&nbsp;error&nbsp;occurs&nbsp;*/<br /></span><span style="color: #0000BB">mysqli_report</span><span style="color: #007700">(</span><span style="color: #0000BB">MYSQLI_REPORT_ERROR&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MYSQLI_REPORT_STRICT</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;The&nbsp;table&nbsp;engine&nbsp;has&nbsp;to&nbsp;support&nbsp;transactions&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;IF&nbsp;NOT&nbsp;EXISTS&nbsp;language&nbsp;(<br />&nbsp;&nbsp;&nbsp;&nbsp;Code&nbsp;text&nbsp;NOT&nbsp;NULL,<br />&nbsp;&nbsp;&nbsp;&nbsp;Speakers&nbsp;int(11)&nbsp;NOT&nbsp;NULL<br />&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;ENGINE=InnoDB&nbsp;DEFAULT&nbsp;CHARSET=utf8mb4;"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Turn&nbsp;autocommit&nbsp;off&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">autocommit</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;@@autocommit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch_row</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Autocommit&nbsp;is&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]);<br /><br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Prepare&nbsp;insert&nbsp;statement&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'INSERT&nbsp;INTO&nbsp;language(Code,&nbsp;Speakers)&nbsp;VALUES&nbsp;(?,?)'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bind_param</span><span style="color: #007700">(</span><span style="color: #DD0000">'ss'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$language_code</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$native_speakers</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Insert&nbsp;some&nbsp;values&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$language_code&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'DE'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$native_speakers&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">50_123_456</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$language_code&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'FR'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$native_speakers&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">40_546_321</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Commit&nbsp;the&nbsp;data&nbsp;in&nbsp;the&nbsp;database.&nbsp;This&nbsp;doesn't&nbsp;set&nbsp;autocommit=true&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">commit</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"Committed&nbsp;2&nbsp;rows&nbsp;in&nbsp;the&nbsp;database\n"</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;@@autocommit"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch_row</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Autocommit&nbsp;is&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Try&nbsp;to&nbsp;insert&nbsp;more&nbsp;values&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$language_code&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'PL'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$native_speakers&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">30_555_444</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$language_code&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'DK'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$native_speakers&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5_222_444</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Setting&nbsp;autocommit=true&nbsp;will&nbsp;trigger&nbsp;a&nbsp;commit&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">autocommit</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"Committed&nbsp;2&nbsp;row&nbsp;in&nbsp;the&nbsp;database\n"</span><span style="color: #007700">;<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">mysqli_sql_exception&nbsp;$exception</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">rollback</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;</span><span style="color: #0000BB">$exception</span><span style="color: #007700">;<br />}</span>
@@ -140,6 +122,17 @@ Committed 2 row in the database
 </pre></div>
    </div>
   </div>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-mysqli.autocommit-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    This function does not work with non transactional table types (like
+    MyISAM or ISAM).
+   </p>
+  </p></blockquote>
  </div>
 
 

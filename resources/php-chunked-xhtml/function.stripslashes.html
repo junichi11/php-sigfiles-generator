@@ -26,24 +26,20 @@
   <div id="layout-content"><div id="function.stripslashes" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stripslashes</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stripslashes</span> &mdash; <span class="dc-title">Un-quotes a quoted string</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">stripslashes</span> &mdash; <span class="dc-title">Un-quotes a quoted string</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.stripslashes-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>stripslashes</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>stripslashes</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Un-quotes a quoted string.
   </p>
   <p class="para">
-   An example use of <span class="function"><strong>stripslashes()</strong></span> is when the PHP
-   directive <a href="info.configuration.html#ini.magic-quotes-gpc" class="link">magic_quotes_gpc</a>
-   is <code class="literal">on</code> (it was on by default before PHP 5.4), and you aren&#039;t inserting
+   <span class="function"><strong>stripslashes()</strong></span> can be used if you aren&#039;t inserting
    this data into a place (such as a database) that requires escaping.
    For example, if you&#039;re simply outputting data straight from an HTML form.
   </p>
@@ -54,7 +50,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -87,7 +82,7 @@
  <div class="refsect1 examples" id="refsect1-function.stripslashes-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5362">
+   <div class="example" id="example-4853">
     <p><strong>Example #1 A <span class="function"><strong>stripslashes()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -106,7 +101,7 @@
    </p>
   </p></blockquote>
   <p class="para">
-   <div class="example" id="example-5363">
+   <div class="example" id="example-4854">
     <p><strong>Example #2 Using <span class="function"><strong>stripslashes()</strong></span> on an array</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

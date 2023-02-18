@@ -12,18 +12,18 @@ namespace {
 	 * @return string <p>Returns the escaped string.</p>
 	 * @link https://php.net/manual/en/function.addcslashes.php
 	 * @see stripcslashes(), stripslashes(), addslashes(), htmlspecialchars(), quotemeta()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function addcslashes(string $string, string $characters): string {}
 
 	/**
 	 * Quote string with slashes
-	 * <p>Returns a string with backslashes added before characters that need to be escaped. These characters are:</p><p>A use case of <b>addslashes()</b> is escaping the aforementioned characters in a string that is to be evaluated by PHP:</p><p>Prior to PHP 5.4.0, the PHP directive magic_quotes_gpc was <code>on</code> by default and it essentially ran <b>addslashes()</b> on all GET, POST and COOKIE data. <b>addslashes()</b> must not be used on strings that have already been escaped with magic_quotes_gpc, as the strings will be double escaped. <code>get_magic_quotes_gpc()</code> can be used to check if magic_quotes_gpc is <code>on</code>.</p><p>The <b>addslashes()</b> is sometimes incorrectly used to try to prevent SQL Injection. Instead, database-specific escaping functions and/or prepared statements should be used.</p>
+	 * <p>Returns a string with backslashes added before characters that need to be escaped. These characters are:</p><p>A use case of <b>addslashes()</b> is escaping the aforementioned characters in a string that is to be evaluated by PHP:</p><p>The <b>addslashes()</b> is sometimes incorrectly used to try to prevent SQL Injection. Instead, database-specific escaping functions and/or prepared statements should be used.</p>
 	 * @param string $string <p>The string to be escaped.</p>
 	 * @return string <p>Returns the escaped string.</p>
 	 * @link https://php.net/manual/en/function.addslashes.php
 	 * @see stripcslashes(), stripslashes(), addcslashes(), htmlspecialchars(), quotemeta(), get_magic_quotes_gpc()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function addslashes(string $string): string {}
 
@@ -34,7 +34,7 @@ namespace {
 	 * @return string <p>Returns the hexadecimal representation of the given string.</p>
 	 * @link https://php.net/manual/en/function.bin2hex.php
 	 * @see hex2bin(), pack()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function bin2hex(string $string): string {}
 
@@ -45,9 +45,9 @@ namespace {
 	 * @param string $characters <p>You can also specify the characters you want to strip, by means of the <code>characters</code> parameter. Simply list all characters that you want to be stripped. With <code>..</code> you can specify a range of characters.</p>
 	 * @return string
 	 * @link https://php.net/manual/en/function.chop.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function chop(string $string, string $characters = " \n\r\t\v\0"): string {}
+	function chop(string $string, string $characters = " \n\r\t\v\x00"): string {}
 
 	/**
 	 * Generate a single-byte string from a number
@@ -55,8 +55,8 @@ namespace {
 	 * @param int $codepoint <p>An integer between 0 and 255.</p> <p>Values outside the valid range (0..255) will be bitwise and'ed with 255, which is equivalent to the following algorithm:</p> <code> while&nbsp;($bytevalue&nbsp;&lt;&nbsp;0)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;$bytevalue&nbsp;+=&nbsp;256;<br>}<br>$bytevalue&nbsp;%=&nbsp;256; </code>
 	 * @return string <p>A single-character string containing the specified byte.</p>
 	 * @link https://php.net/manual/en/function.chr.php
-	 * @see sprintf(), ord(), mb_chr()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @see sprintf(), ord(), mb_chr(), IntlChar::chr()
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function chr(int $codepoint): string {}
 
@@ -68,8 +68,8 @@ namespace {
 	 * @param string $separator <p>The line ending sequence.</p>
 	 * @return string <p>Returns the chunked string.</p>
 	 * @link https://php.net/manual/en/function.chunk-split.php
-	 * @see str_split(), explode(), split(), wordwrap()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @see str_split(), explode(), wordwrap()
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function chunk_split(string $string, int $length = 76, string $separator = "\r\n"): string {}
 
@@ -93,7 +93,7 @@ namespace {
 	 * @return string|false <p>Returns the decoded data as a string or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.convert-uudecode.php
 	 * @see convert_uuencode()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function convert_uudecode(string $string): string|false {}
 
@@ -104,7 +104,7 @@ namespace {
 	 * @return string <p>Returns the uuencoded data.</p>
 	 * @link https://php.net/manual/en/function.convert-uuencode.php
 	 * @see convert_uudecode(), base64_encode()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function convert_uuencode(string $string): string {}
 
@@ -116,7 +116,7 @@ namespace {
 	 * @return array|string <p>Depending on <code>mode</code> <b>count_chars()</b> returns one of the following:</p><ul> <li>  0 - an array with the byte-value as key and the frequency of every byte as value.  </li> <li>  1 - same as 0 but only byte-values with a frequency greater than zero are listed.  </li> <li>  2 - same as 0 but only byte-values with a frequency equal to zero are listed.  </li> <li>  3 - a string containing all unique characters is returned.  </li> <li>  4 - a string containing all not used characters is returned.  </li> </ul>
 	 * @link https://php.net/manual/en/function.count-chars.php
 	 * @see strpos(), substr_count()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function count_chars(string $string, int $mode = 0): array|string {}
 
@@ -127,19 +127,19 @@ namespace {
 	 * @return int <p>Returns the crc32 checksum of <code>string</code> as an integer.</p>
 	 * @link https://php.net/manual/en/function.crc32.php
 	 * @see hash(), md5(), sha1()
-	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7, PHP 8
 	 */
 	function crc32(string $string): int {}
 
 	/**
 	 * One-way string hashing
 	 * <p><b>crypt()</b> will return a hashed string using the standard Unix DES-based algorithm or alternative algorithms.</p><p>The <code>salt</code> parameter is optional. However, <b>crypt()</b> creates a weak hash without the <code>salt</code>, and raises an <b><code>E_NOTICE</code></b> error without it. Make sure to specify a strong enough salt for better security.</p><p><code>password_hash()</code> uses a strong hash, generates a strong salt, and applies proper rounds automatically. <code>password_hash()</code> is a simple <b>crypt()</b> wrapper and compatible with existing password hashes. Use of <code>password_hash()</code> is encouraged.</p><p>The hash type is triggered by the salt argument. If no salt is provided, PHP will auto-generate either a standard two character (DES) salt, or a twelve character (MD5), depending on the availability of MD5 crypt(). PHP sets a constant named <b><code>CRYPT_SALT_LENGTH</code></b> which indicates the longest valid salt allowed by the available hashes.</p><p>The standard DES-based <b>crypt()</b> returns the salt as the first two characters of the output. It also only uses the first eight characters of <code>string</code>, so longer strings that start with the same eight characters will generate the same result (when the same salt is used).</p><p>The following hash types are supported:</p>
-	 * @param string $string <p>The string to be hashed.</p> <b>Caution</b> <p>Using the <b><code>CRYPT_BLOWFISH</code></b> algorithm, will result in the <code>string</code> parameter being truncated to a maximum length of 72 characters.</p>
+	 * @param string $string <p>The string to be hashed.</p> <b>Caution</b> <p>Using the <b><code>CRYPT_BLOWFISH</code></b> algorithm, will result in the <code>string</code> parameter being truncated to a maximum length of 72 bytes.</p>
 	 * @param string $salt <p>An optional salt string to base the hashing on. If not provided, the behaviour is defined by the algorithm implementation and can lead to unexpected results.</p>
 	 * @return string <p>Returns the hashed string or a string that is shorter than 13 characters and is guaranteed to differ from the salt on failure.</p><p><b>Warning</b></p> <p>When validating passwords, a string comparison function that isn't vulnerable to timing attacks should be used to compare the output of <b>crypt()</b> to the previously known hash. PHP provides <code>hash_equals()</code> for this purpose.</p>
 	 * @link https://php.net/manual/en/function.crypt.php
 	 * @see hash_equals(), password_hash(), md5()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function crypt(string $string, string $salt): string {}
 
@@ -149,10 +149,10 @@ namespace {
 	 * @param string $separator <p>The boundary string.</p>
 	 * @param string $string <p>The input string.</p>
 	 * @param int $limit <p>If <code>limit</code> is set and positive, the returned array will contain a maximum of <code>limit</code> elements with the last element containing the rest of <code>string</code>.</p> <p>If the <code>limit</code> parameter is negative, all components except the last -<code>limit</code> are returned.</p> <p>If the <code>limit</code> parameter is zero, then this is treated as 1.</p>
-	 * @return array <p>Returns an <code>array</code> of <code>string</code>s created by splitting the <code>string</code> parameter on boundaries formed by the <code>separator</code>.</p><p>If <code>separator</code> is an empty <code>string</code> (""), <b>explode()</b> will return <b><code>false</code></b>. If <code>separator</code> contains a value that is not contained in <code>string</code> and a negative <code>limit</code> is used, then an empty <code>array</code> will be returned, otherwise an <code>array</code> containing <code>string</code> will be returned.</p>
+	 * @return array <p>Returns an <code>array</code> of <code>string</code>s created by splitting the <code>string</code> parameter on boundaries formed by the <code>separator</code>.</p><p>If <code>separator</code> is an empty <code>string</code> (""), <b>explode()</b> throws a <code>ValueError</code>. If <code>separator</code> contains a value that is not contained in <code>string</code> and a negative <code>limit</code> is used, then an empty <code>array</code> will be returned, otherwise an <code>array</code> containing <code>string</code> will be returned. If <code>separator</code> values appear at the start or end of <code>string</code>, said values will be added as an empty <code>array</code> value either in the first or last position of the returned <code>array</code> respectively.</p>
 	 * @link https://php.net/manual/en/function.explode.php
 	 * @see preg_split(), str_split(), mb_split(), str_word_count(), strtok(), implode()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function explode(string $separator, string $string, int $limit = PHP_INT_MAX): array {}
 
@@ -160,12 +160,12 @@ namespace {
 	 * Write a formatted string to a stream
 	 * <p>Write a string produced according to <code>format</code> to the stream resource specified by <code>stream</code>.</p>
 	 * @param resource $stream <p>A file system pointer <code>resource</code> that is typically created using <code>fopen()</code>.</p>
-	 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code> and <code>G</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2). The precision specifier stands for the number of digits after the decimal point since PHP 5.2.1. In earlier versions, it was taken as number of significant digits (one less).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware). Available as of PHP 5.0.3.    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>integer</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>double</code>  <code>g</code>, <code>G</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>
+	 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code>, <code>G</code>, <code>h</code> and <code>H</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware).    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>int</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>float</code>  <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>, <code>g</code>, <code>G</code>, <code>h</code>, <code>H</code>
 	 * @param mixed $values
 	 * @return int <p>Returns the length of the string written.</p>
 	 * @link https://php.net/manual/en/function.fprintf.php
 	 * @see printf(), sprintf(), vprintf(), vsprintf(), vfprintf(), sscanf(), fscanf(), number_format(), date()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function fprintf($stream, string $format, mixed ...$values): int {}
 
@@ -173,14 +173,14 @@ namespace {
 	 * Returns the translation table used by htmlspecialchars() and htmlentities()
 	 * <p><b>get_html_translation_table()</b> will return the translation table that is used internally for <code>htmlspecialchars()</code> and <code>htmlentities()</code>.</p><p><b>Note</b>:</p><p>Special characters can be encoded in several ways. E.g. <code>"</code> can be encoded as <code>&amp;quot;</code>, <code>&amp;#34;</code> or <code>&amp;#x22</code>. <b>get_html_translation_table()</b> returns only the form used by <code>htmlspecialchars()</code> and <code>htmlentities()</code>.</p>
 	 * @param int $table <p>Which table to return. Either <b><code>HTML_ENTITIES</code></b> or <b><code>HTML_SPECIALCHARS</code></b>.</p>
-	 * @param int $flags <p>A bitmask of one or more of the following flags, which specify which quotes the table will contain as well as which document type the table is for. The default is <code>ENT_COMPAT | ENT_HTML401</code>.</p> <b>Available <code>flags</code> constants</b>   Constant Name Description     <b><code>ENT_COMPAT</code></b> Table will contain entities for double-quotes, but not for single-quotes.   <b><code>ENT_QUOTES</code></b> Table will contain entities for both double and single quotes.   <b><code>ENT_NOQUOTES</code></b> Table will neither contain entities for single quotes nor for double quotes.   <b><code>ENT_HTML401</code></b> Table for HTML 4.01.   <b><code>ENT_XML1</code></b> Table for XML 1.   <b><code>ENT_XHTML</code></b> Table for XHTML.   <b><code>ENT_HTML5</code></b> Table for HTML 5.
+	 * @param int $flags <p>A bitmask of one or more of the following flags, which specify which quotes the table will contain as well as which document type the table is for. The default is <code>ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401</code>.</p> <b>Available <code>flags</code> constants</b>   Constant Name Description     <b><code>ENT_COMPAT</code></b> Table will contain entities for double-quotes, but not for single-quotes.   <b><code>ENT_QUOTES</code></b> Table will contain entities for both double and single quotes.   <b><code>ENT_NOQUOTES</code></b> Table will neither contain entities for single quotes nor for double quotes.   <b><code>ENT_SUBSTITUTE</code></b>  Replace invalid code unit sequences with a Unicode Replacement Character U+FFFD (UTF-8) or &amp;#xFFFD; (otherwise) instead of returning an empty string.    <b><code>ENT_HTML401</code></b> Table for HTML 4.01.   <b><code>ENT_XML1</code></b> Table for XML 1.   <b><code>ENT_XHTML</code></b> Table for XHTML.   <b><code>ENT_HTML5</code></b> Table for HTML 5.
 	 * @param string $encoding <p>Encoding to use. If omitted, the default value for this argument is UTF-8.</p> <p>The following character sets are supported:</p> <b>Supported charsets</b>   Charset Aliases Description     ISO-8859-1 ISO8859-1  Western European, Latin-1.    ISO-8859-5 ISO8859-5  Little used cyrillic charset (Latin/Cyrillic).    ISO-8859-15 ISO8859-15  Western European, Latin-9. Adds the Euro sign, French and Finnish letters missing in Latin-1 (ISO-8859-1).    UTF-8 &nbsp;  ASCII compatible multi-byte 8-bit Unicode.    cp866 ibm866, 866  DOS-specific Cyrillic charset.    cp1251 Windows-1251, win-1251, 1251  Windows-specific Cyrillic charset.    cp1252 Windows-1252, 1252  Windows specific charset for Western European.    KOI8-R koi8-ru, koi8r  Russian.    BIG5 950  Traditional Chinese, mainly used in Taiwan.    GB2312 936  Simplified Chinese, national standard character set.    BIG5-HKSCS &nbsp;  Big5 with Hong Kong extensions, Traditional Chinese.    Shift_JIS SJIS, SJIS-win, cp932, 932  Japanese    EUC-JP EUCJP, eucJP-win  Japanese    MacRoman &nbsp;  Charset that was used by Mac OS.    <code>''</code> &nbsp;  An empty string activates detection from script encoding (Zend multibyte), default_charset and current locale (see <code>nl_langinfo()</code> and <code>setlocale()</code>), in this order. Not recommended.     <p><b>Note</b>:  Any other character sets are not recognized. The default encoding will be used instead and a warning will be emitted. </p>
 	 * @return array <p>Returns the translation table as an array, with the original characters as keys and entities as values.</p>
 	 * @link https://php.net/manual/en/function.get-html-translation-table.php
 	 * @see htmlspecialchars(), htmlentities(), html_entity_decode()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function get_html_translation_table(int $table = HTML_SPECIALCHARS, int $flags = ENT_COMPAT, string $encoding = "UTF-8"): array {}
+	function get_html_translation_table(int $table = HTML_SPECIALCHARS, int $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, string $encoding = "UTF-8"): array {}
 
 	/**
 	 * Convert logical Hebrew text to visual text
@@ -190,7 +190,7 @@ namespace {
 	 * @return string <p>Returns the visual string.</p>
 	 * @link https://php.net/manual/en/function.hebrev.php
 	 * @see hebrevc()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function hebrev(string $string, int $max_chars_per_line = 0): string {}
 
@@ -213,7 +213,7 @@ namespace {
 	 * @return string|false <p>Returns the binary representation of the given data or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.hex2bin.php
 	 * @see bin2hex(), unpack()
-	 * @since PHP 5 >= 5.4.0, PHP 7
+	 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 	 */
 	function hex2bin(string $string): string|false {}
 
@@ -221,75 +221,75 @@ namespace {
 	 * Convert HTML entities to their corresponding characters
 	 * <p><b>html_entity_decode()</b> is the opposite of <code>htmlentities()</code> in that it converts HTML entities in the <code>string</code> to their corresponding characters.</p><p>More precisely, this function decodes all the entities (including all numeric entities) that a) are necessarily valid for the chosen document type &mdash; i.e., for XML, this function does not decode named entities that might be defined in some DTD &mdash; and b) whose character or characters are in the coded character set associated with the chosen encoding and are permitted in the chosen document type. All other entities are left as is.</p>
 	 * @param string $string <p>The input string.</p>
-	 * @param int $flags <p>A bitmask of one or more of the following flags, which specify how to handle quotes and which document type to use. The default is <code>ENT_COMPAT | ENT_HTML401</code>.</p> <b>Available <code>flags</code> constants</b>   Constant Name Description     <b><code>ENT_COMPAT</code></b> Will convert double-quotes and leave single-quotes alone.   <b><code>ENT_QUOTES</code></b> Will convert both double and single quotes.   <b><code>ENT_NOQUOTES</code></b> Will leave both double and single quotes unconverted.   <b><code>ENT_HTML401</code></b>  Handle code as HTML 4.01.    <b><code>ENT_XML1</code></b>  Handle code as XML 1.    <b><code>ENT_XHTML</code></b>  Handle code as XHTML.    <b><code>ENT_HTML5</code></b>  Handle code as HTML 5.
-	 * @param string|null $encoding <p>An optional argument defining the encoding used when converting characters.</p> <p>If omitted, <code>encoding</code> defaults to the value of the default_charset configuration option.</p> <p>Although this argument is technically optional, you are highly encouraged to specify the correct value for your code if the default_charset configuration option may be set incorrectly for the given input.</p> <p>The following character sets are supported:</p> <b>Supported charsets</b>   Charset Aliases Description     ISO-8859-1 ISO8859-1  Western European, Latin-1.    ISO-8859-5 ISO8859-5  Little used cyrillic charset (Latin/Cyrillic).    ISO-8859-15 ISO8859-15  Western European, Latin-9. Adds the Euro sign, French and Finnish letters missing in Latin-1 (ISO-8859-1).    UTF-8 &nbsp;  ASCII compatible multi-byte 8-bit Unicode.    cp866 ibm866, 866  DOS-specific Cyrillic charset.    cp1251 Windows-1251, win-1251, 1251  Windows-specific Cyrillic charset.    cp1252 Windows-1252, 1252  Windows specific charset for Western European.    KOI8-R koi8-ru, koi8r  Russian.    BIG5 950  Traditional Chinese, mainly used in Taiwan.    GB2312 936  Simplified Chinese, national standard character set.    BIG5-HKSCS &nbsp;  Big5 with Hong Kong extensions, Traditional Chinese.    Shift_JIS SJIS, SJIS-win, cp932, 932  Japanese    EUC-JP EUCJP, eucJP-win  Japanese    MacRoman &nbsp;  Charset that was used by Mac OS.    <code>''</code> &nbsp;  An empty string activates detection from script encoding (Zend multibyte), default_charset and current locale (see <code>nl_langinfo()</code> and <code>setlocale()</code>), in this order. Not recommended.     <p><b>Note</b>:  Any other character sets are not recognized. The default encoding will be used instead and a warning will be emitted. </p>
+	 * @param int $flags <p>A bitmask of one or more of the following flags, which specify how to handle quotes and which document type to use. The default is <code>ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401</code>.</p> <b>Available <code>flags</code> constants</b>   Constant Name Description     <b><code>ENT_COMPAT</code></b> Will convert double-quotes and leave single-quotes alone.   <b><code>ENT_QUOTES</code></b> Will convert both double and single quotes.   <b><code>ENT_NOQUOTES</code></b> Will leave both double and single quotes unconverted.   <b><code>ENT_SUBSTITUTE</code></b>  Replace invalid code unit sequences with a Unicode Replacement Character U+FFFD (UTF-8) or &amp;#xFFFD; (otherwise) instead of returning an empty string.    <b><code>ENT_HTML401</code></b>  Handle code as HTML 4.01.    <b><code>ENT_XML1</code></b>  Handle code as XML 1.    <b><code>ENT_XHTML</code></b>  Handle code as XHTML.    <b><code>ENT_HTML5</code></b>  Handle code as HTML 5.
+	 * @param ?string $encoding <p>An optional argument defining the encoding used when converting characters.</p> <p>If omitted, <code>encoding</code> defaults to the value of the default_charset configuration option.</p> <p>Although this argument is technically optional, you are highly encouraged to specify the correct value for your code if the default_charset configuration option may be set incorrectly for the given input.</p> <p>The following character sets are supported:</p> <b>Supported charsets</b>   Charset Aliases Description     ISO-8859-1 ISO8859-1  Western European, Latin-1.    ISO-8859-5 ISO8859-5  Little used cyrillic charset (Latin/Cyrillic).    ISO-8859-15 ISO8859-15  Western European, Latin-9. Adds the Euro sign, French and Finnish letters missing in Latin-1 (ISO-8859-1).    UTF-8 &nbsp;  ASCII compatible multi-byte 8-bit Unicode.    cp866 ibm866, 866  DOS-specific Cyrillic charset.    cp1251 Windows-1251, win-1251, 1251  Windows-specific Cyrillic charset.    cp1252 Windows-1252, 1252  Windows specific charset for Western European.    KOI8-R koi8-ru, koi8r  Russian.    BIG5 950  Traditional Chinese, mainly used in Taiwan.    GB2312 936  Simplified Chinese, national standard character set.    BIG5-HKSCS &nbsp;  Big5 with Hong Kong extensions, Traditional Chinese.    Shift_JIS SJIS, SJIS-win, cp932, 932  Japanese    EUC-JP EUCJP, eucJP-win  Japanese    MacRoman &nbsp;  Charset that was used by Mac OS.    <code>''</code> &nbsp;  An empty string activates detection from script encoding (Zend multibyte), default_charset and current locale (see <code>nl_langinfo()</code> and <code>setlocale()</code>), in this order. Not recommended.     <p><b>Note</b>:  Any other character sets are not recognized. The default encoding will be used instead and a warning will be emitted. </p>
 	 * @return string <p>Returns the decoded string.</p>
 	 * @link https://php.net/manual/en/function.php-entity-decode.php
 	 * @see htmlentities(), htmlspecialchars(), get_html_translation_table(), urldecode()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
-	function html_entity_decode(string $string, int $flags = ENT_COMPAT, string|null $encoding = null): string {}
+	function html_entity_decode(string $string, int $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, ?string $encoding = null): string {}
 
 	/**
 	 * Convert all applicable characters to HTML entities
 	 * <p>This function is identical to <code>htmlspecialchars()</code> in all ways, except with <b>htmlentities()</b>, all characters which have HTML character entity equivalents are translated into these entities.</p><p>If you want to decode instead (the reverse) you can use <code>html_entity_decode()</code>.</p>
 	 * @param string $string <p>The input string.</p>
-	 * @param int $flags <p>A bitmask of one or more of the following flags, which specify how to handle quotes, invalid code unit sequences and the used document type. The default is <code>ENT_COMPAT | ENT_HTML401</code>.</p> <b>Available <code>flags</code> constants</b>   Constant Name Description     <b><code>ENT_COMPAT</code></b> Will convert double-quotes and leave single-quotes alone.   <b><code>ENT_QUOTES</code></b> Will convert both double and single quotes.   <b><code>ENT_NOQUOTES</code></b> Will leave both double and single quotes unconverted.   <b><code>ENT_IGNORE</code></b>  Silently discard invalid code unit sequences instead of returning an empty string. Using this flag is discouraged as it may have security implications.    <b><code>ENT_SUBSTITUTE</code></b>  Replace invalid code unit sequences with a Unicode Replacement Character U+FFFD (UTF-8) or &amp;#FFFD; (otherwise) instead of returning an empty string.    <b><code>ENT_DISALLOWED</code></b>  Replace invalid code points for the given document type with a Unicode Replacement Character U+FFFD (UTF-8) or &amp;#FFFD; (otherwise) instead of leaving them as is. This may be useful, for instance, to ensure the well-formedness of XML documents with embedded external content.    <b><code>ENT_HTML401</code></b>  Handle code as HTML 4.01.    <b><code>ENT_XML1</code></b>  Handle code as XML 1.    <b><code>ENT_XHTML</code></b>  Handle code as XHTML.    <b><code>ENT_HTML5</code></b>  Handle code as HTML 5.
-	 * @param string|null $encoding <p>An optional argument defining the encoding used when converting characters.</p> <p>If omitted, <code>encoding</code> defaults to the value of the default_charset configuration option.</p> <p>Although this argument is technically optional, you are highly encouraged to specify the correct value for your code if the default_charset configuration option may be set incorrectly for the given input.</p> <p>The following character sets are supported:</p> <b>Supported charsets</b>   Charset Aliases Description     ISO-8859-1 ISO8859-1  Western European, Latin-1.    ISO-8859-5 ISO8859-5  Little used cyrillic charset (Latin/Cyrillic).    ISO-8859-15 ISO8859-15  Western European, Latin-9. Adds the Euro sign, French and Finnish letters missing in Latin-1 (ISO-8859-1).    UTF-8 &nbsp;  ASCII compatible multi-byte 8-bit Unicode.    cp866 ibm866, 866  DOS-specific Cyrillic charset.    cp1251 Windows-1251, win-1251, 1251  Windows-specific Cyrillic charset.    cp1252 Windows-1252, 1252  Windows specific charset for Western European.    KOI8-R koi8-ru, koi8r  Russian.    BIG5 950  Traditional Chinese, mainly used in Taiwan.    GB2312 936  Simplified Chinese, national standard character set.    BIG5-HKSCS &nbsp;  Big5 with Hong Kong extensions, Traditional Chinese.    Shift_JIS SJIS, SJIS-win, cp932, 932  Japanese    EUC-JP EUCJP, eucJP-win  Japanese    MacRoman &nbsp;  Charset that was used by Mac OS.    <code>''</code> &nbsp;  An empty string activates detection from script encoding (Zend multibyte), default_charset and current locale (see <code>nl_langinfo()</code> and <code>setlocale()</code>), in this order. Not recommended.     <p><b>Note</b>:  Any other character sets are not recognized. The default encoding will be used instead and a warning will be emitted. </p>
+	 * @param int $flags <p>A bitmask of one or more of the following flags, which specify how to handle quotes, invalid code unit sequences and the used document type. The default is <code>ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401</code>.</p> <b>Available <code>flags</code> constants</b>   Constant Name Description     <b><code>ENT_COMPAT</code></b> Will convert double-quotes and leave single-quotes alone.   <b><code>ENT_QUOTES</code></b> Will convert both double and single quotes.   <b><code>ENT_NOQUOTES</code></b> Will leave both double and single quotes unconverted.   <b><code>ENT_IGNORE</code></b>  Silently discard invalid code unit sequences instead of returning an empty string. Using this flag is discouraged as it may have security implications.    <b><code>ENT_SUBSTITUTE</code></b>  Replace invalid code unit sequences with a Unicode Replacement Character U+FFFD (UTF-8) or &amp;#FFFD; (otherwise) instead of returning an empty string.    <b><code>ENT_DISALLOWED</code></b>  Replace invalid code points for the given document type with a Unicode Replacement Character U+FFFD (UTF-8) or &amp;#FFFD; (otherwise) instead of leaving them as is. This may be useful, for instance, to ensure the well-formedness of XML documents with embedded external content.    <b><code>ENT_HTML401</code></b>  Handle code as HTML 4.01.    <b><code>ENT_XML1</code></b>  Handle code as XML 1.    <b><code>ENT_XHTML</code></b>  Handle code as XHTML.    <b><code>ENT_HTML5</code></b>  Handle code as HTML 5.
+	 * @param ?string $encoding <p>An optional argument defining the encoding used when converting characters.</p> <p>If omitted, <code>encoding</code> defaults to the value of the default_charset configuration option.</p> <p>Although this argument is technically optional, you are highly encouraged to specify the correct value for your code if the default_charset configuration option may be set incorrectly for the given input.</p> <p>The following character sets are supported:</p> <b>Supported charsets</b>   Charset Aliases Description     ISO-8859-1 ISO8859-1  Western European, Latin-1.    ISO-8859-5 ISO8859-5  Little used cyrillic charset (Latin/Cyrillic).    ISO-8859-15 ISO8859-15  Western European, Latin-9. Adds the Euro sign, French and Finnish letters missing in Latin-1 (ISO-8859-1).    UTF-8 &nbsp;  ASCII compatible multi-byte 8-bit Unicode.    cp866 ibm866, 866  DOS-specific Cyrillic charset.    cp1251 Windows-1251, win-1251, 1251  Windows-specific Cyrillic charset.    cp1252 Windows-1252, 1252  Windows specific charset for Western European.    KOI8-R koi8-ru, koi8r  Russian.    BIG5 950  Traditional Chinese, mainly used in Taiwan.    GB2312 936  Simplified Chinese, national standard character set.    BIG5-HKSCS &nbsp;  Big5 with Hong Kong extensions, Traditional Chinese.    Shift_JIS SJIS, SJIS-win, cp932, 932  Japanese    EUC-JP EUCJP, eucJP-win  Japanese    MacRoman &nbsp;  Charset that was used by Mac OS.    <code>''</code> &nbsp;  An empty string activates detection from script encoding (Zend multibyte), default_charset and current locale (see <code>nl_langinfo()</code> and <code>setlocale()</code>), in this order. Not recommended.     <p><b>Note</b>:  Any other character sets are not recognized. The default encoding will be used instead and a warning will be emitted. </p>
 	 * @param bool $double_encode <p>When <code>double_encode</code> is turned off PHP will not encode existing html entities. The default is to convert everything.</p>
 	 * @return string <p>Returns the encoded string.</p><p>If the input <code>string</code> contains an invalid code unit sequence within the given <code>encoding</code> an empty string will be returned, unless either the <b><code>ENT_IGNORE</code></b> or <b><code>ENT_SUBSTITUTE</code></b> flags are set.</p>
 	 * @link https://php.net/manual/en/function.phpentities.php
 	 * @see html_entity_decode(), get_html_translation_table(), htmlspecialchars(), nl2br(), urlencode()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function htmlentities(string $string, int $flags = ENT_COMPAT, string|null $encoding = null, bool $double_encode = true): string {}
+	function htmlentities(string $string, int $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, ?string $encoding = null, bool $double_encode = true): string {}
 
 	/**
 	 * Convert special characters to HTML entities
 	 * <p>Certain characters have special significance in HTML, and should be represented by HTML entities if they are to preserve their meanings. This function returns a string with these conversions made. If you require all input substrings that have associated named entities to be translated, use <code>htmlentities()</code> instead.</p><p>If the input string passed to this function and the final document share the same character set, this function is sufficient to prepare input for inclusion in most contexts of an HTML document. If, however, the input can represent characters that are not coded in the final document character set and you wish to retain those characters (as numeric or named entities), both this function and <code>htmlentities()</code> (which only encodes substrings that have named entity equivalents) may be insufficient. You may have to use <code>mb_encode_numericentity()</code> instead.</p><p></p>
 	 * @param string $string <p>The <code>string</code> being converted.</p>
-	 * @param int $flags <p>A bitmask of one or more of the following flags, which specify how to handle quotes, invalid code unit sequences and the used document type. The default is <code>ENT_COMPAT | ENT_HTML401</code>.</p> <b>Available <code>flags</code> constants</b>   Constant Name Description     <b><code>ENT_COMPAT</code></b> Will convert double-quotes and leave single-quotes alone.   <b><code>ENT_QUOTES</code></b> Will convert both double and single quotes.   <b><code>ENT_NOQUOTES</code></b> Will leave both double and single quotes unconverted.   <b><code>ENT_IGNORE</code></b>  Silently discard invalid code unit sequences instead of returning an empty string. Using this flag is discouraged as it may have security implications.    <b><code>ENT_SUBSTITUTE</code></b>  Replace invalid code unit sequences with a Unicode Replacement Character U+FFFD (UTF-8) or &amp;#xFFFD; (otherwise) instead of returning an empty string.    <b><code>ENT_DISALLOWED</code></b>  Replace invalid code points for the given document type with a Unicode Replacement Character U+FFFD (UTF-8) or &amp;#xFFFD; (otherwise) instead of leaving them as is. This may be useful, for instance, to ensure the well-formedness of XML documents with embedded external content.    <b><code>ENT_HTML401</code></b>  Handle code as HTML 4.01.    <b><code>ENT_XML1</code></b>  Handle code as XML 1.    <b><code>ENT_XHTML</code></b>  Handle code as XHTML.    <b><code>ENT_HTML5</code></b>  Handle code as HTML 5.
-	 * @param string|null $encoding <p>An optional argument defining the encoding used when converting characters.</p> <p>If omitted, <code>encoding</code> defaults to the value of the default_charset configuration option.</p> <p>Although this argument is technically optional, you are highly encouraged to specify the correct value for your code if the default_charset configuration option may be set incorrectly for the given input.</p> <p>For the purposes of this function, the encodings <code>ISO-8859-1</code>, <code>ISO-8859-15</code>, <code>UTF-8</code>, <code>cp866</code>, <code>cp1251</code>, <code>cp1252</code>, and <code>KOI8-R</code> are effectively equivalent, provided the <code>string</code> itself is valid for the encoding, as the characters affected by <b>htmlspecialchars()</b> occupy the same positions in all of these encodings.</p> <p>The following character sets are supported:</p> <b>Supported charsets</b>   Charset Aliases Description     ISO-8859-1 ISO8859-1  Western European, Latin-1.    ISO-8859-5 ISO8859-5  Little used cyrillic charset (Latin/Cyrillic).    ISO-8859-15 ISO8859-15  Western European, Latin-9. Adds the Euro sign, French and Finnish letters missing in Latin-1 (ISO-8859-1).    UTF-8 &nbsp;  ASCII compatible multi-byte 8-bit Unicode.    cp866 ibm866, 866  DOS-specific Cyrillic charset.    cp1251 Windows-1251, win-1251, 1251  Windows-specific Cyrillic charset.    cp1252 Windows-1252, 1252  Windows specific charset for Western European.    KOI8-R koi8-ru, koi8r  Russian.    BIG5 950  Traditional Chinese, mainly used in Taiwan.    GB2312 936  Simplified Chinese, national standard character set.    BIG5-HKSCS &nbsp;  Big5 with Hong Kong extensions, Traditional Chinese.    Shift_JIS SJIS, SJIS-win, cp932, 932  Japanese    EUC-JP EUCJP, eucJP-win  Japanese    MacRoman &nbsp;  Charset that was used by Mac OS.    <code>''</code> &nbsp;  An empty string activates detection from script encoding (Zend multibyte), default_charset and current locale (see <code>nl_langinfo()</code> and <code>setlocale()</code>), in this order. Not recommended.     <p><b>Note</b>:  Any other character sets are not recognized. The default encoding will be used instead and a warning will be emitted. </p>
+	 * @param int $flags <p>A bitmask of one or more of the following flags, which specify how to handle quotes, invalid code unit sequences and the used document type. The default is <code>ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401</code>.</p> <b>Available <code>flags</code> constants</b>   Constant Name Description     <b><code>ENT_COMPAT</code></b> Will convert double-quotes and leave single-quotes alone.   <b><code>ENT_QUOTES</code></b> Will convert both double and single quotes.   <b><code>ENT_NOQUOTES</code></b> Will leave both double and single quotes unconverted.   <b><code>ENT_IGNORE</code></b>  Silently discard invalid code unit sequences instead of returning an empty string. Using this flag is discouraged as it may have security implications.    <b><code>ENT_SUBSTITUTE</code></b>  Replace invalid code unit sequences with a Unicode Replacement Character U+FFFD (UTF-8) or &amp;#xFFFD; (otherwise) instead of returning an empty string.    <b><code>ENT_DISALLOWED</code></b>  Replace invalid code points for the given document type with a Unicode Replacement Character U+FFFD (UTF-8) or &amp;#xFFFD; (otherwise) instead of leaving them as is. This may be useful, for instance, to ensure the well-formedness of XML documents with embedded external content.    <b><code>ENT_HTML401</code></b>  Handle code as HTML 4.01.    <b><code>ENT_XML1</code></b>  Handle code as XML 1.    <b><code>ENT_XHTML</code></b>  Handle code as XHTML.    <b><code>ENT_HTML5</code></b>  Handle code as HTML 5.
+	 * @param ?string $encoding <p>An optional argument defining the encoding used when converting characters.</p> <p>If omitted, <code>encoding</code> defaults to the value of the default_charset configuration option.</p> <p>Although this argument is technically optional, you are highly encouraged to specify the correct value for your code if the default_charset configuration option may be set incorrectly for the given input.</p> <p>For the purposes of this function, the encodings <code>ISO-8859-1</code>, <code>ISO-8859-15</code>, <code>UTF-8</code>, <code>cp866</code>, <code>cp1251</code>, <code>cp1252</code>, and <code>KOI8-R</code> are effectively equivalent, provided the <code>string</code> itself is valid for the encoding, as the characters affected by <b>htmlspecialchars()</b> occupy the same positions in all of these encodings.</p> <p>The following character sets are supported:</p> <b>Supported charsets</b>   Charset Aliases Description     ISO-8859-1 ISO8859-1  Western European, Latin-1.    ISO-8859-5 ISO8859-5  Little used cyrillic charset (Latin/Cyrillic).    ISO-8859-15 ISO8859-15  Western European, Latin-9. Adds the Euro sign, French and Finnish letters missing in Latin-1 (ISO-8859-1).    UTF-8 &nbsp;  ASCII compatible multi-byte 8-bit Unicode.    cp866 ibm866, 866  DOS-specific Cyrillic charset.    cp1251 Windows-1251, win-1251, 1251  Windows-specific Cyrillic charset.    cp1252 Windows-1252, 1252  Windows specific charset for Western European.    KOI8-R koi8-ru, koi8r  Russian.    BIG5 950  Traditional Chinese, mainly used in Taiwan.    GB2312 936  Simplified Chinese, national standard character set.    BIG5-HKSCS &nbsp;  Big5 with Hong Kong extensions, Traditional Chinese.    Shift_JIS SJIS, SJIS-win, cp932, 932  Japanese    EUC-JP EUCJP, eucJP-win  Japanese    MacRoman &nbsp;  Charset that was used by Mac OS.    <code>''</code> &nbsp;  An empty string activates detection from script encoding (Zend multibyte), default_charset and current locale (see <code>nl_langinfo()</code> and <code>setlocale()</code>), in this order. Not recommended.     <p><b>Note</b>:  Any other character sets are not recognized. The default encoding will be used instead and a warning will be emitted. </p>
 	 * @param bool $double_encode <p>When <code>double_encode</code> is turned off PHP will not encode existing html entities, the default is to convert everything.</p>
 	 * @return string <p>The converted <code>string</code>.</p><p>If the input <code>string</code> contains an invalid code unit sequence within the given <code>encoding</code> an empty string will be returned, unless either the <b><code>ENT_IGNORE</code></b> or <b><code>ENT_SUBSTITUTE</code></b> flags are set.</p>
 	 * @link https://php.net/manual/en/function.phpspecialchars.php
 	 * @see get_html_translation_table(), htmlspecialchars_decode(), strip_tags(), htmlentities(), nl2br()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function htmlspecialchars(string $string, int $flags = ENT_COMPAT, string|null $encoding = null, bool $double_encode = true): string {}
+	function htmlspecialchars(string $string, int $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, ?string $encoding = null, bool $double_encode = true): string {}
 
 	/**
 	 * Convert special HTML entities back to characters
 	 * <p>This function is the opposite of <code>htmlspecialchars()</code>. It converts special HTML entities back to characters.</p><p>The converted entities are: <code>&amp;amp;</code>, <code>&amp;quot;</code> (when <b><code>ENT_NOQUOTES</code></b> is not set), <code>&amp;#039;</code> (when <b><code>ENT_QUOTES</code></b> is set), <code>&amp;lt;</code> and <code>&amp;gt;</code>.</p>
 	 * @param string $string <p>The string to decode.</p>
-	 * @param int $flags <p>A bitmask of one or more of the following flags, which specify how to handle quotes and which document type to use. The default is <code>ENT_COMPAT | ENT_HTML401</code>.</p> <b>Available <code>flags</code> constants</b>   Constant Name Description     <b><code>ENT_COMPAT</code></b> Will convert double-quotes and leave single-quotes alone.   <b><code>ENT_QUOTES</code></b> Will convert both double and single quotes.   <b><code>ENT_NOQUOTES</code></b> Will leave both double and single quotes unconverted.   <b><code>ENT_HTML401</code></b>  Handle code as HTML 4.01.    <b><code>ENT_XML1</code></b>  Handle code as XML 1.    <b><code>ENT_XHTML</code></b>  Handle code as XHTML.    <b><code>ENT_HTML5</code></b>  Handle code as HTML 5.
+	 * @param int $flags <p>A bitmask of one or more of the following flags, which specify how to handle quotes and which document type to use. The default is <code>ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401</code>.</p> <b>Available <code>flags</code> constants</b>   Constant Name Description     <b><code>ENT_COMPAT</code></b> Will convert double-quotes and leave single-quotes alone.   <b><code>ENT_QUOTES</code></b> Will convert both double and single quotes.   <b><code>ENT_NOQUOTES</code></b> Will leave both double and single quotes unconverted.   <b><code>ENT_SUBSTITUTE</code></b>  Replace invalid code unit sequences with a Unicode Replacement Character U+FFFD (UTF-8) or &amp;#xFFFD; (otherwise) instead of returning an empty string.    <b><code>ENT_HTML401</code></b>  Handle code as HTML 4.01.    <b><code>ENT_XML1</code></b>  Handle code as XML 1.    <b><code>ENT_XHTML</code></b>  Handle code as XHTML.    <b><code>ENT_HTML5</code></b>  Handle code as HTML 5.
 	 * @return string <p>Returns the decoded string.</p>
 	 * @link https://php.net/manual/en/function.phpspecialchars-decode.php
 	 * @see htmlspecialchars(), html_entity_decode(), get_html_translation_table()
-	 * @since PHP 5 >= 5.1.0, PHP 7
+	 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 	 */
-	function htmlspecialchars_decode(string $string, int $flags = ENT_COMPAT): string {}
+	function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401): string {}
 
 	/**
 	 * Join array elements with a string
 	 * <p>Alternative signature (not supported with named arguments):</p><p>Legacy signature (deprecated as of PHP 7.4.0, removed as of PHP 8.0.0):</p><p>Join array elements with a <code>separator</code> string.</p>
-	 * @param string $separator <p>Defaults to an empty string.</p>
+	 * @param string $separator <p>Optional. Defaults to an empty string.</p>
 	 * @param array $array <p>The array of strings to implode.</p>
 	 * @return string <p>Returns a string containing a string representation of all the array elements in the same order, with the separator string between each element.</p>
 	 * @link https://php.net/manual/en/function.implode.php
 	 * @see explode(), preg_split(), http_build_query()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function implode(string $separator, array $array): string {}
 
 	/**
 	 * Alias of implode()
 	 * <p>This function is an alias of: <code>implode()</code>.</p>
-	 * @param string $separator <p>Defaults to an empty string.</p>
+	 * @param string $separator <p>Optional. Defaults to an empty string.</p>
 	 * @param array $array <p>The array of strings to implode.</p>
 	 * @return string
 	 * @link https://php.net/manual/en/function.join.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function join(string $separator, array $array): string {}
 
@@ -300,7 +300,7 @@ namespace {
 	 * @return string <p>Returns the resulting string.</p>
 	 * @link https://php.net/manual/en/function.lcfirst.php
 	 * @see ucfirst(), strtolower(), strtoupper(), ucwords()
-	 * @since PHP 5 >= 5.3.0, PHP 7
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 	 */
 	function lcfirst(string $string): string {}
 
@@ -315,7 +315,7 @@ namespace {
 	 * @return int <p>This function returns the Levenshtein-Distance between the two argument strings or -1, if one of the argument strings is longer than the limit of 255 characters.</p>
 	 * @link https://php.net/manual/en/function.levenshtein.php
 	 * @see soundex(), similar_text(), metaphone()
-	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7, PHP 8
 	 */
 	function levenshtein(string $string1, string $string2, int $insertion_cost = 1, int $replacement_cost = 1, int $deletion_cost = 1): int {}
 
@@ -325,7 +325,7 @@ namespace {
 	 * @return array <p><b>localeconv()</b> returns data based upon the current locale as set by <code>setlocale()</code>. The associative array that is returned contains the following fields:</p>   Array element Description     decimal_point Decimal point character   thousands_sep Thousands separator   grouping Array containing numeric groupings   int_curr_symbol International currency symbol (i.e. USD)   currency_symbol Local currency symbol (i.e. $)   mon_decimal_point Monetary decimal point character   mon_thousands_sep Monetary thousands separator   mon_grouping Array containing monetary groupings   positive_sign Sign for positive values   negative_sign Sign for negative values   int_frac_digits International fractional digits   frac_digits Local fractional digits   p_cs_precedes  <b><code>true</code></b> if currency_symbol precedes a positive value, <b><code>false</code></b> if it succeeds one    p_sep_by_space  <b><code>true</code></b> if a space separates currency_symbol from a positive value, <b><code>false</code></b> otherwise    n_cs_precedes  <b><code>true</code></b> if currency_symbol precedes a negative value, <b><code>false</code></b> if it succeeds one    n_sep_by_space  <b><code>true</code></b> if a space separates currency_symbol from a negative value, <b><code>false</code></b> otherwise    p_sign_posn  <ul> <li>0 - Parentheses surround the quantity and currency_symbol</li> <li>1 - The sign string precedes the quantity and currency_symbol</li> <li>2 - The sign string succeeds the quantity and currency_symbol</li> <li>3 - The sign string immediately precedes the currency_symbol</li> <li>4 - The sign string immediately succeeds the currency_symbol</li> </ul>    n_sign_posn  <ul> <li>0 - Parentheses surround the quantity and currency_symbol</li> <li>1 - The sign string precedes the quantity and currency_symbol</li> <li>2 - The sign string succeeds the quantity and currency_symbol</li> <li>3 - The sign string immediately precedes the currency_symbol</li> <li>4 - The sign string immediately succeeds the currency_symbol</li> </ul>    <p>The <code>p_sign_posn</code>, and <code>n_sign_posn</code> contain a string of formatting options. Each number representing one of the above listed conditions.</p><p>The grouping fields contain arrays that define the way numbers should be grouped. For example, the monetary grouping field for the nl_NL locale (in UTF-8 mode with the euro sign), would contain a 2 item array with the values 3 and 3. The higher the index in the array, the farther left the grouping is. If an array element is equal to <b><code>CHAR_MAX</code></b>, no further grouping is done. If an array element is equal to 0, the previous element should be used.</p>
 	 * @link https://php.net/manual/en/function.localeconv.php
 	 * @see setlocale()
-	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7, PHP 8
 	 */
 	function localeconv(): array {}
 
@@ -337,9 +337,9 @@ namespace {
 	 * @return string <p>This function returns a string with whitespace stripped from the beginning of <code>string</code>. Without the second parameter, <b>ltrim()</b> will strip these characters:</p><ul> <li>  " " (ASCII <code>32</code> (<code>0x20</code>)), an ordinary space.  </li> <li>  "\t" (ASCII <code>9</code> (<code>0x09</code>)), a tab.  </li> <li>  "\n" (ASCII <code>10</code> (<code>0x0A</code>)), a new line (line feed).  </li> <li>  "\r" (ASCII <code>13</code> (<code>0x0D</code>)), a carriage return.  </li> <li>  "\0" (ASCII <code>0</code> (<code>0x00</code>)), the <code>NUL</code>-byte.  </li> <li>  "\v" (ASCII <code>11</code> (<code>0x0B</code>)), a vertical tab.  </li> </ul>
 	 * @link https://php.net/manual/en/function.ltrim.php
 	 * @see trim(), rtrim()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function ltrim(string $string, string $characters = " \n\r\t\v\0"): string {}
+	function ltrim(string $string, string $characters = " \n\r\t\v\x00"): string {}
 
 	/**
 	 * Calculate the md5 hash of a string
@@ -349,7 +349,7 @@ namespace {
 	 * @return string <p>Returns the hash as a 32-character hexadecimal number.</p>
 	 * @link https://php.net/manual/en/function.md5.php
 	 * @see md5_file(), sha1_file(), crc32(), sha1(), hash(), crypt(), password_hash()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function md5(string $string, bool $binary = false): string {}
 
@@ -361,7 +361,7 @@ namespace {
 	 * @return string|false <p>Returns a string on success, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.md5-file.php
 	 * @see md5(), sha1_file(), crc32()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function md5_file(string $filename, bool $binary = false): string|false {}
 
@@ -372,7 +372,7 @@ namespace {
 	 * @param int $max_phonemes <p>This parameter restricts the returned metaphone key to <code>max_phonemes</code> <i>characters</i> in length. However, the resulting phonemes are always transcribed completely, so the resulting string length may be slightly longer than <code>max_phonemes</code>. The default value of <code>0</code> means no restriction.</p>
 	 * @return string <p>Returns the metaphone key as a string.</p>
 	 * @link https://php.net/manual/en/function.metaphone.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function metaphone(string $string, int $max_phonemes = 0): string {}
 
@@ -396,7 +396,7 @@ namespace {
 	 * @return string <p>Returns the altered string.</p>
 	 * @link https://php.net/manual/en/function.nl2br.php
 	 * @see htmlspecialchars(), htmlentities(), wordwrap(), str_replace()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function nl2br(string $string, bool $use_xhtml = true): string {}
 
@@ -407,7 +407,7 @@ namespace {
 	 * @return string|false <p>Returns the element as a string, or <b><code>false</code></b> if <code>item</code> is not valid.</p>
 	 * @link https://php.net/manual/en/function.nl-langinfo.php
 	 * @see setlocale(), localeconv()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function nl_langinfo(int $item): string|false {}
 
@@ -416,14 +416,14 @@ namespace {
 	 * <p>Formats a number with grouped thousands and optionally decimal digits.</p>
 	 * @param float $num <p>The number being formatted.</p>
 	 * @param int $decimals <p>Sets the number of decimal digits. If <code>0</code>, the <code>decimal_separator</code> is omitted from the return value.</p>
-	 * @param string|null $decimal_separator <p>Sets the separator for the decimal point.</p>
-	 * @param string|null $thousands_separator <p>Sets the thousands separator.</p>
+	 * @param ?string $decimal_separator <p>Sets the separator for the decimal point.</p>
+	 * @param ?string $thousands_separator <p>Sets the thousands separator.</p>
 	 * @return string <p>A formatted version of <code>num</code>.</p>
 	 * @link https://php.net/manual/en/function.number-format.php
 	 * @see money_format(), sprintf(), printf(), sscanf()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function number_format(float $num, int $decimals = 0, string|null $decimal_separator = ".", string|null $thousands_separator = ","): string {}
+	function number_format(float $num, int $decimals = 0, ?string $decimal_separator = ".", ?string $thousands_separator = ","): string {}
 
 	/**
 	 * Convert the first byte of a string to a value between 0 and 255
@@ -431,8 +431,8 @@ namespace {
 	 * @param string $character <p>A character.</p>
 	 * @return int <p>An integer between 0 and 255.</p>
 	 * @link https://php.net/manual/en/function.ord.php
-	 * @see chr(), mb_ord()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @see chr(), mb_ord(), IntlChar::ord()
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function ord(string $character): int {}
 
@@ -444,19 +444,19 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.parse-str.php
 	 * @see parse_url(), pathinfo(), http_build_query(), urldecode()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function parse_str(string $string, array &$result): void {}
 
 	/**
 	 * Output a formatted string
 	 * <p>Produces output according to <code>format</code>.</p>
-	 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code> and <code>G</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2). The precision specifier stands for the number of digits after the decimal point since PHP 5.2.1. In earlier versions, it was taken as number of significant digits (one less).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware). Available as of PHP 5.0.3.    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>integer</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>double</code>  <code>g</code>, <code>G</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>
+	 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code>, <code>G</code>, <code>h</code> and <code>H</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware).    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>int</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>float</code>  <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>, <code>g</code>, <code>G</code>, <code>h</code>, <code>H</code>
 	 * @param mixed $values
 	 * @return int <p>Returns the length of the outputted string.</p>
 	 * @link https://php.net/manual/en/function.printf.php
 	 * @see print, sprintf(), fprintf(), vprintf(), vsprintf(), vfprintf(), sscanf(), fscanf(), number_format(), date(), flush()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function printf(string $format, mixed ...$values): int {}
 
@@ -467,7 +467,7 @@ namespace {
 	 * @return string <p>Returns the 8-bit binary string.</p>
 	 * @link https://php.net/manual/en/function.quoted-printable-decode.php
 	 * @see quoted_printable_encode()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function quoted_printable_decode(string $string): string {}
 
@@ -478,7 +478,7 @@ namespace {
 	 * @return string <p>Returns the encoded string.</p>
 	 * @link https://php.net/manual/en/function.quoted-printable-encode.php
 	 * @see quoted_printable_decode(), iconv_mime_encode()
-	 * @since PHP 5 >= 5.3.0, PHP 7
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 	 */
 	function quoted_printable_encode(string $string): string {}
 
@@ -488,8 +488,8 @@ namespace {
 	 * @param string $string <p>The input string.</p>
 	 * @return string <p>Returns the string with meta characters quoted, or <b><code>false</code></b> if an empty string is given as <code>string</code>.</p>
 	 * @link https://php.net/manual/en/function.quotemeta.php
-	 * @see addslashes(), addcslashes(), htmlentities(), htmlspecialchars(), nl2br(), stripslashes(), stripcslashes(), ereg(), preg_quote()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @see addslashes(), addcslashes(), htmlentities(), htmlspecialchars(), nl2br(), stripslashes(), stripcslashes(), preg_quote()
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function quotemeta(string $string): string {}
 
@@ -501,19 +501,19 @@ namespace {
 	 * @return string <p>Returns the modified string.</p>
 	 * @link https://php.net/manual/en/function.rtrim.php
 	 * @see trim(), ltrim()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function rtrim(string $string, string $characters = " \n\r\t\v\0"): string {}
+	function rtrim(string $string, string $characters = " \n\r\t\v\x00"): string {}
 
 	/**
 	 * Set locale information
-	 * <p>Alternative signature (not supported with named arguments):</p><p>Sets locale information.</p><p>The locale information is maintained per process, not per thread. If you are running PHP on a multithreaded server API , you may experience sudden changes in locale settings while a script is running, though the script itself never called <b>setlocale()</b>. This happens due to other scripts running in different threads of the same process at the same time, changing the process-wide locale using <b>setlocale()</b>. On Windows, locale information is maintained per thread as of PHP 5.6.20 and PHP 7.0.5, respectively.</p>
+	 * <p>Alternative signature (not supported with named arguments):</p><p>Sets locale information.</p><p>The locale information is maintained per process, not per thread. If you are running PHP on a multithreaded server API , you may experience sudden changes in locale settings while a script is running, though the script itself never called <b>setlocale()</b>. This happens due to other scripts running in different threads of the same process at the same time, changing the process-wide locale using <b>setlocale()</b>. On Windows, locale information is maintained per thread as of PHP 7.0.5.</p>
 	 * @param int $category <p><code>category</code> is a named constant specifying the category of the functions affected by the locale setting:</p><ul> <li>  <b><code>LC_ALL</code></b> for all of the below  </li> <li>  <b><code>LC_COLLATE</code></b> for string comparison, see <code>strcoll()</code>  </li> <li>  <b><code>LC_CTYPE</code></b> for character classification and conversion, for example <code>strtoupper()</code>  </li> <li>  <b><code>LC_MONETARY</code></b> for <code>localeconv()</code>  </li> <li>  <b><code>LC_NUMERIC</code></b> for decimal separator (See also <code>localeconv()</code>)  </li> <li>  <b><code>LC_TIME</code></b> for date and time formatting with <code>strftime()</code>  </li> <li>  <b><code>LC_MESSAGES</code></b> for system responses (available if PHP was compiled with <code>libintl</code>)  </li> </ul>
 	 * @param string $locales <p>If <code>locales</code> is the empty string <code>""</code>, the locale names will be set from the values of environment variables with the same names as the above categories, or from "LANG".</p> <p>If <code>locales</code> is <code>"0"</code>, the locale setting is not affected, only the current setting is returned.</p> <p>If <code>locales</code> is followed by additional parameters then each parameter is tried to be set as new locale until success. This is useful if a locale is known under different names on different systems or for providing a fallback for a possibly not available locale.</p>
 	 * @param string $rest <p>Optional string parameters to try as locale settings until success.</p>
 	 * @return string|false <p>Returns the new current locale, or <b><code>false</code></b> if the locale functionality is not implemented on your platform, the specified locale does not exist or the category name is invalid.</p><p>An invalid category name also causes a warning message. Category/locale names can be found in RFC 1766 and ISO 639. Different systems have different naming schemes for locales.</p><p><b>Note</b>:</p><p>The return value of <b>setlocale()</b> depends on the system that PHP is running. It returns exactly what the system <code>setlocale</code> function returns.</p>
 	 * @link https://php.net/manual/en/function.setlocale.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function setlocale(int $category, string $locales, string ...$rest): string|false {}
 
@@ -525,7 +525,7 @@ namespace {
 	 * @return string <p>Returns the sha1 hash as a string.</p>
 	 * @link https://php.net/manual/en/function.sha1.php
 	 * @see sha1_file(), crc32(), md5(), hash(), crypt(), password_hash()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function sha1(string $string, bool $binary = false): string {}
 
@@ -537,7 +537,7 @@ namespace {
 	 * @return string|false <p>Returns a string on success, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.sha1-file.php
 	 * @see sha1(), md5_file(), crc32()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function sha1_file(string $filename, bool $binary = false): string|false {}
 
@@ -550,30 +550,30 @@ namespace {
 	 * @return int <p>Returns the number of matching chars in both strings.</p><p>The number of matching characters is calculated by finding the longest first common substring, and then doing this for the prefixes and the suffixes, recursively. The lengths of all found common substrings are added.</p>
 	 * @link https://php.net/manual/en/function.similar-text.php
 	 * @see levenshtein(), soundex()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function similar_text(string $string1, string $string2, float &$percent = null): int {}
 
 	/**
 	 * Calculate the soundex key of a string
-	 * <p>Calculates the soundex key of <code>string</code>.</p><p>Soundex keys have the property that words pronounced similarly produce the same soundex key, and can thus be used to simplify searches in databases where you know the pronunciation but not the spelling. This soundex function returns a string 4 characters long, starting with a letter.</p><p>This particular soundex function is one described by Donald Knuth in "The Art Of Computer Programming, vol. 3: Sorting And Searching", Addison-Wesley (1973), pp. 391-392.</p>
+	 * <p>Calculates the soundex key of <code>string</code>.</p><p>Soundex keys have the property that words pronounced similarly produce the same soundex key, and can thus be used to simplify searches in databases where you know the pronunciation but not the spelling.</p><p>This particular soundex function is one described by Donald Knuth in "The Art Of Computer Programming, vol. 3: Sorting And Searching", Addison-Wesley (1973), pp. 391-392.</p>
 	 * @param string $string <p>The input string.</p>
-	 * @return string <p>Returns the soundex key as a <code>string</code>.</p>
+	 * @return string <p>Returns the soundex key as a <code>string</code> with four characters. If at least one letter is contained in <code>string</code>, the returned string starts with a letter. Otherwise <code>"0000"</code> is returned.</p>
 	 * @link https://php.net/manual/en/function.soundex.php
 	 * @see levenshtein(), metaphone(), similar_text()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function soundex(string $string): string {}
 
 	/**
 	 * Return a formatted string
 	 * <p>Returns a string produced according to the formatting string <code>format</code>.</p>
-	 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code> and <code>G</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2). The precision specifier stands for the number of digits after the decimal point since PHP 5.2.1. In earlier versions, it was taken as number of significant digits (one less).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware). Available as of PHP 5.0.3.    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>integer</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>double</code>  <code>g</code>, <code>G</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>
+	 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code>, <code>G</code>, <code>h</code> and <code>H</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware).    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>int</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>float</code>  <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>, <code>g</code>, <code>G</code>, <code>h</code>, <code>H</code>
 	 * @param mixed $values
 	 * @return string <p>Returns a string produced according to the formatting string <code>format</code>.</p>
 	 * @link https://php.net/manual/en/function.sprintf.php
 	 * @see printf(), fprintf(), vprintf(), vsprintf(), vfprintf(), sscanf(), fscanf(), number_format(), date()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function sprintf(string $format, mixed ...$values): string {}
 
@@ -586,7 +586,7 @@ namespace {
 	 * @return array|int|null <p>If only two parameters were passed to this function, the values parsed will be returned as an array. Otherwise, if optional parameters are passed, the function will return the number of assigned values. The optional parameters must be passed by reference.</p><p>If there are more substrings expected in the <code>format</code> than there are available within <code>string</code>, <b><code>null</code></b> will be returned.</p>
 	 * @link https://php.net/manual/en/function.sscanf.php
 	 * @see printf(), sprintf(), fprintf(), vprintf(), vsprintf(), vfprintf(), fscanf(), number_format(), date()
-	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7, PHP 8
 	 */
 	function sscanf(string $string, string $format, mixed &...$vars): array|int|null {}
 
@@ -618,15 +618,15 @@ namespace {
 	 * Parse a CSV string into an array
 	 * <p>Parses a string input for fields in CSV format and returns an array containing the fields read.</p><p><b>Note</b>:</p><p>The locale settings are taken into account by this function. If <code>LC_CTYPE</code> is e.g. <code>en_US.UTF-8</code>, strings in one-byte encodings may be read wrongly by this function.</p>
 	 * @param string $string <p>The string to parse.</p>
-	 * @param string $separator <p>Set the field delimiter (one character only).</p>
-	 * @param string $enclosure <p>Set the field enclosure character (one character only).</p>
-	 * @param string $escape <p>Set the escape character (at most one character). Defaults as a backslash (<code>\</code>) An empty string (<code>""</code>) disables the proprietary escape mechanism.</p> <p><b>Note</b>:  Usually an <code>enclosure</code> character is escaped inside a field by doubling it; however, the <code>escape</code> character can be used as an alternative. So for the default parameter values <code>""</code> and <code>\"</code> have the same meaning. Other than allowing to escape the <code>enclosure</code> character the <code>escape</code> character has no special meaning; it isn't even meant to escape itself. </p>
+	 * @param string $separator <p>Set the field delimiter (one single-byte character only).</p>
+	 * @param string $enclosure <p>Set the field enclosure character (one single-byte character only).</p>
+	 * @param string $escape <p>Set the escape character (at most one single-byte character). Defaults as a backslash (<code>\</code>) An empty string (<code>""</code>) disables the proprietary escape mechanism.</p> <p><b>Note</b>:  Usually an <code>enclosure</code> character is escaped inside a field by doubling it; however, the <code>escape</code> character can be used as an alternative. So for the default parameter values <code>""</code> and <code>\"</code> have the same meaning. Other than allowing to escape the <code>enclosure</code> character the <code>escape</code> character has no special meaning; it isn't even meant to escape itself. </p>
 	 * @return array <p>Returns an indexed array containing the fields read.</p>
 	 * @link https://php.net/manual/en/function.str-getcsv.php
 	 * @see fgetcsv()
-	 * @since PHP 5 >= 5.3.0, PHP 7
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 	 */
-	function str_getcsv(string $string, string $separator = ",", string $enclosure = "\"", string $escape = '\\'): array {}
+	function str_getcsv(string $string, string $separator = ",", string $enclosure = "\"", string $escape = "\\"): array {}
 
 	/**
 	 * Case-insensitive version of str_replace()
@@ -638,7 +638,7 @@ namespace {
 	 * @return string|array <p>Returns a string or an array of replacements.</p>
 	 * @link https://php.net/manual/en/function.str-ireplace.php
 	 * @see str_replace(), preg_replace(), strtr()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function str_ireplace(array|string $search, array|string $replace, string|array $subject, int &$count = null): string|array {}
 
@@ -651,7 +651,7 @@ namespace {
 	 * @param int $pad_type <p>Optional argument <code>pad_type</code> can be <b><code>STR_PAD_RIGHT</code></b>, <b><code>STR_PAD_LEFT</code></b>, or <b><code>STR_PAD_BOTH</code></b>. If <code>pad_type</code> is not specified it is assumed to be <b><code>STR_PAD_RIGHT</code></b>.</p>
 	 * @return string <p>Returns the padded string.</p>
 	 * @link https://php.net/manual/en/function.str-pad.php
-	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7, PHP 8
 	 */
 	function str_pad(string $string, int $length, string $pad_string = " ", int $pad_type = STR_PAD_RIGHT): string {}
 
@@ -663,7 +663,7 @@ namespace {
 	 * @return string <p>Returns the repeated string.</p>
 	 * @link https://php.net/manual/en/function.str-repeat.php
 	 * @see str_pad(), substr_count()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function str_repeat(string $string, int $times): string {}
 
@@ -677,7 +677,7 @@ namespace {
 	 * @return string|array <p>This function returns a string or an array with the replaced values.</p>
 	 * @link https://php.net/manual/en/function.str-replace.php
 	 * @see str_ireplace(), substr_replace(), preg_replace(), strtr()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function str_replace(array|string $search, array|string $replace, string|array $subject, int &$count = null): string|array {}
 
@@ -687,7 +687,7 @@ namespace {
 	 * @param string $string <p>The input string.</p>
 	 * @return string <p>Returns the ROT13 version of the given string.</p>
 	 * @link https://php.net/manual/en/function.str-rot13.php
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function str_rot13(string $string): string {}
 
@@ -698,7 +698,7 @@ namespace {
 	 * @return string <p>Returns the shuffled string.</p>
 	 * @link https://php.net/manual/en/function.str-shuffle.php
 	 * @see shuffle(), rand()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function str_shuffle(string $string): string {}
 
@@ -709,8 +709,8 @@ namespace {
 	 * @param int $length <p>Maximum length of the chunk.</p>
 	 * @return array <p>If the optional <code>length</code> parameter is specified, the returned array will be broken down into chunks with each being <code>length</code> in length, otherwise each chunk will be one character in length.</p><p><b><code>false</code></b> is returned if <code>length</code> is less than 1. If the <code>length</code> length exceeds the length of <code>string</code>, the entire string is returned as the first (and only) array element.</p>
 	 * @link https://php.net/manual/en/function.str-split.php
-	 * @see chunk_split(), preg_split(), explode(), count_chars(), str_word_count()
-	 * @since PHP 5, PHP 7
+	 * @see mb_str_split(), chunk_split(), preg_split(), explode(), count_chars(), str_word_count()
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function str_split(string $string, int $length = 1): array {}
 
@@ -728,28 +728,28 @@ namespace {
 
 	/**
 	 * Return information about words used in a string
-	 * <p>Counts the number of words inside <code>string</code>. If the optional <code>format</code> is not specified, then the return value will be an integer representing the number of words found. In the event the <code>format</code> is specified, the return value will be an array, content of which is dependent on the <code>format</code>. The possible value for the <code>format</code> and the resultant outputs are listed below.</p><p>For the purpose of this function, 'word' is defined as a locale dependent string containing alphabetic characters, which also may contain, but not start with "'" and "-" characters.</p>
+	 * <p>Counts the number of words inside <code>string</code>. If the optional <code>format</code> is not specified, then the return value will be an integer representing the number of words found. In the event the <code>format</code> is specified, the return value will be an array, content of which is dependent on the <code>format</code>. The possible value for the <code>format</code> and the resultant outputs are listed below.</p><p>For the purpose of this function, 'word' is defined as a locale dependent string containing alphabetic characters, which also may contain, but not start with "'" and "-" characters. Note that multibyte locales are not supported.</p>
 	 * @param string $string <p>The string</p>
 	 * @param int $format <p>Specify the return value of this function. The current supported values are:</p><ul> <li>  0 - returns the number of words found  </li> <li>  1 - returns an array containing all the words found inside the <code>string</code>  </li> <li>  2 - returns an associative array, where the key is the numeric position of the word inside the <code>string</code> and the value is the actual word itself  </li> </ul>
-	 * @param string|null $characters <p>A list of additional characters which will be considered as 'word'</p>
+	 * @param ?string $characters <p>A list of additional characters which will be considered as 'word'</p>
 	 * @return array|int <p>Returns an array or an integer, depending on the <code>format</code> chosen.</p>
 	 * @link https://php.net/manual/en/function.str-word-count.php
-	 * @see explode(), preg_split(), split(), count_chars(), substr_count()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @see explode(), preg_split(), count_chars(), substr_count()
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
-	function str_word_count(string $string, int $format = 0, string|null $characters = null): array|int {}
+	function str_word_count(string $string, int $format = 0, ?string $characters = null): array|int {}
 
 	/**
 	 * Binary safe case-insensitive string comparison
-	 * <p>Binary safe case-insensitive string comparison.</p>
-	 * @param string $str1 <p>The first string</p>
-	 * @param string $str2 <p>The second string</p>
-	 * @return int <p>Returns &lt; 0 if <code>str1</code> is less than <code>str2</code>; &gt; 0 if <code>str1</code> is greater than <code>str2</code>, and 0 if they are equal.</p>
+	 * <p>Binary safe case-insensitive string comparison. The comparision is not locale aware; only ASCII letters are compared in a case-insensitive way.</p>
+	 * @param string $string1 <p>The first string</p>
+	 * @param string $string2 <p>The second string</p>
+	 * @return int <p>Returns &lt; 0 if <code>string1</code> is less than <code>string2</code>; &gt; 0 if <code>string1</code> is greater than <code>string2</code>, and 0 if they are equal.</p>
 	 * @link https://php.net/manual/en/function.strcasecmp.php
 	 * @see strcmp(), preg_match(), substr_compare(), strncasecmp(), stristr(), substr()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function strcasecmp(string $str1, string $str2): int {}
+	function strcasecmp(string $string1, string $string2): int {}
 
 	/**
 	 * Alias of strstr()
@@ -759,21 +759,21 @@ namespace {
 	 * @param bool $before_needle <p>If <b><code>true</code></b>, <b>strstr()</b> returns the part of the <code>haystack</code> before the first occurrence of the <code>needle</code> (excluding the needle).</p>
 	 * @return string|false
 	 * @link https://php.net/manual/en/function.strchr.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strchr(string $haystack, string $needle, bool $before_needle = false): string|false {}
 
 	/**
 	 * Binary safe string comparison
 	 * <p>Note that this comparison is case sensitive.</p>
-	 * @param string $str1 <p>The first string.</p>
-	 * @param string $str2 <p>The second string.</p>
-	 * @return int <p>Returns &lt; 0 if <code>str1</code> is less than <code>str2</code>; &gt; 0 if <code>str1</code> is greater than <code>str2</code>, and 0 if they are equal.</p>
+	 * @param string $string1 <p>The first string.</p>
+	 * @param string $string2 <p>The second string.</p>
+	 * @return int <p>Returns &lt; 0 if <code>string1</code> is less than <code>string2</code>; &gt; 0 if <code>string1</code> is greater than <code>string2</code>, and 0 if they are equal.</p>
 	 * @link https://php.net/manual/en/function.strcmp.php
 	 * @see strcasecmp(), preg_match(), substr_compare(), strncmp(), strstr(), substr()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function strcmp(string $str1, string $str2): int {}
+	function strcmp(string $string1, string $string2): int {}
 
 	/**
 	 * Locale based string comparison
@@ -783,33 +783,33 @@ namespace {
 	 * @return int <p>Returns &lt; 0 if <code>string1</code> is less than <code>string2</code>; &gt; 0 if <code>string1</code> is greater than <code>string2</code>, and 0 if they are equal.</p>
 	 * @link https://php.net/manual/en/function.strcoll.php
 	 * @see preg_match(), strcmp(), strcasecmp(), substr(), stristr(), strncasecmp(), strncmp(), strstr(), setlocale()
-	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7, PHP 8
 	 */
 	function strcoll(string $string1, string $string2): int {}
 
 	/**
 	 * Find length of initial segment not matching mask
-	 * <p>Returns the length of the initial segment of <code>string</code> which does <i>not</i> contain any of the characters in <code>characters</code>.</p><p>If <code>offset</code> and <code>length</code> are omitted, then all of <code>string</code> will be examined. If they are included, then the effect will be the same as calling <code>strcspn(substr($subject, $start, $length), $mask)</code> (see substr for more information).</p>
+	 * <p>Returns the length of the initial segment of <code>string</code> which does <i>not</i> contain any of the characters in <code>characters</code>.</p><p>If <code>offset</code> and <code>length</code> are omitted, then all of <code>string</code> will be examined. If they are included, then the effect will be the same as calling <code>strcspn(substr($string, $offset, $length), $characters)</code> (see substr for more information).</p>
 	 * @param string $string <p>The string to examine.</p>
 	 * @param string $characters <p>The string containing every disallowed character.</p>
 	 * @param int $offset <p>The position in <code>string</code> to start searching.</p> <p>If <code>offset</code> is given and is non-negative, then <b>strcspn()</b> will begin examining <code>string</code> at the <code>offset</code>'th position. For instance, in the string '<code>abcdef</code>', the character at position <code>0</code> is '<code>a</code>', the character at position <code>2</code> is '<code>c</code>', and so forth.</p> <p>If <code>offset</code> is given and is negative, then <b>strcspn()</b> will begin examining <code>string</code> at the <code>offset</code>'th position from the end of <code>string</code>.</p>
-	 * @param int|null $length <p>The length of the segment from <code>string</code> to examine.</p> <p>If <code>length</code> is given and is non-negative, then <code>string</code> will be examined for <code>length</code> characters after the starting position.</p> <p>If <code>length</code> is given and is negative, then <code>string</code> will be examined from the starting position up to <code>length</code> characters from the end of <code>string</code>.</p>
+	 * @param ?int $length <p>The length of the segment from <code>string</code> to examine.</p> <p>If <code>length</code> is given and is non-negative, then <code>string</code> will be examined for <code>length</code> characters after the starting position.</p> <p>If <code>length</code> is given and is negative, then <code>string</code> will be examined from the starting position up to <code>length</code> characters from the end of <code>string</code>.</p>
 	 * @return int <p>Returns the length of the initial segment of <code>string</code> which consists entirely of characters <i>not</i> in <code>characters</code>.</p><p><b>Note</b>:</p><p>When a <code>offset</code> parameter is set, the returned length is counted starting from this position, not from the beginning of <code>string</code>.</p>
 	 * @link https://php.net/manual/en/function.strcspn.php
 	 * @see strspn()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function strcspn(string $string, string $characters, int $offset = 0, int|null $length = null): int {}
+	function strcspn(string $string, string $characters, int $offset = 0, ?int $length = null): int {}
 
 	/**
 	 * Strip HTML and PHP tags from a string
 	 * <p>This function tries to return a string with all NULL bytes, HTML and PHP tags stripped from a given <code>string</code>. It uses the same tag stripping state machine as the <code>fgetss()</code> function.</p>
 	 * @param string $string <p>The input string.</p>
-	 * @param array|string|null $allowed_tags <p>You can use the optional second parameter to specify tags which should not be stripped. These are either given as <code>string</code>, or as of PHP 7.4.0, as <code>array</code>. Refer to the example below regarding the format of this parameter.</p> <p><b>Note</b>:</p><p>HTML comments and PHP tags are also stripped. This is hardcoded and can not be changed with <code>allowed_tags</code>.</p>  <p><b>Note</b>:</p><p>In PHP 5.3.4 and later, self-closing XHTML tags are ignored and only non-self-closing tags should be used in <code>allowed_tags</code>. For example, to allow both <code>&lt;br&gt;</code> and <code>&lt;br/&gt;</code>, you should use:</p>   <code> &lt;&#63;php<br>strip_tags($input,&nbsp;'&lt;br&gt;');<br>&#63;&gt;  </code>
+	 * @param array|string|null $allowed_tags <p>You can use the optional second parameter to specify tags which should not be stripped. These are either given as <code>string</code>, or as of PHP 7.4.0, as <code>array</code>. Refer to the example below regarding the format of this parameter.</p> <p><b>Note</b>:</p><p>HTML comments and PHP tags are also stripped. This is hardcoded and can not be changed with <code>allowed_tags</code>.</p>  <p><b>Note</b>:</p><p>Self-closing XHTML tags are ignored and only non-self-closing tags should be used in <code>allowed_tags</code>. For example, to allow both <code>&lt;br&gt;</code> and <code>&lt;br/&gt;</code>, you should use:</p>   <code> &lt;&#63;php<br>strip_tags($input,&nbsp;'&lt;br&gt;');<br>&#63;&gt;  </code>
 	 * @return string <p>Returns the stripped string.</p>
 	 * @link https://php.net/manual/en/function.strip-tags.php
 	 * @see htmlspecialchars()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strip_tags(string $string, array|string|null $allowed_tags = null): string {}
 
@@ -820,7 +820,7 @@ namespace {
 	 * @return string <p>Returns the unescaped string.</p>
 	 * @link https://php.net/manual/en/function.stripcslashes.php
 	 * @see addcslashes()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function stripcslashes(string $string): string {}
 
@@ -830,21 +830,21 @@ namespace {
 	 * @param string $haystack <p>The string to search in.</p>
 	 * @param string $needle <p>Note that the <code>needle</code> may be a string of one or more characters.</p> <p>Prior to PHP 8.0.0, if <code>needle</code> is not a string, it is converted to an integer and applied as the ordinal value of a character. This behavior is deprecated as of PHP 7.3.0, and relying on it is highly discouraged. Depending on the intended behavior, the <code>needle</code> should either be explicitly cast to string, or an explicit call to <code>chr()</code> should be performed.</p>
 	 * @param int $offset <p>If specified, search will start this number of characters counted from the beginning of the string. If the offset is negative, the search will start this number of characters counted from the end of the string.</p>
-	 * @return int|false <p>Returns the position of where the needle exists relative to the beginnning of the <code>haystack</code> string (independent of offset). Also note that string positions start at 0, and not 1.</p><p>Returns <b><code>false</code></b> if the needle was not found.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+	 * @return int|false <p>Returns the position of where the needle exists relative to the beginning of the <code>haystack</code> string (independent of offset). Also note that string positions start at 0, and not 1.</p><p>Returns <b><code>false</code></b> if the needle was not found.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.stripos.php
 	 * @see mb_stripos(), str_contains(), str_ends_with(), str_starts_with(), strpos(), strrpos(), strripos(), stristr(), substr(), str_ireplace()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function stripos(string $haystack, string $needle, int $offset = 0): int|false {}
 
 	/**
 	 * Un-quotes a quoted string
-	 * <p>Un-quotes a quoted string.</p><p>An example use of <b>stripslashes()</b> is when the PHP directive magic_quotes_gpc is <code>on</code> (it was on by default before PHP 5.4), and you aren't inserting this data into a place (such as a database) that requires escaping. For example, if you're simply outputting data straight from an HTML form.</p>
+	 * <p>Un-quotes a quoted string.</p><p><b>stripslashes()</b> can be used if you aren't inserting this data into a place (such as a database) that requires escaping. For example, if you're simply outputting data straight from an HTML form.</p>
 	 * @param string $string <p>The input string.</p>
 	 * @return string <p>Returns a string with backslashes stripped off. (<code>\'</code> becomes <code>'</code> and so on.) Double backslashes (<code>\\</code>) are made into a single backslash (<code>\</code>).</p>
 	 * @link https://php.net/manual/en/function.stripslashes.php
 	 * @see addslashes(), get_magic_quotes_gpc()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function stripslashes(string $string): string {}
 
@@ -857,7 +857,7 @@ namespace {
 	 * @return string|false <p>Returns the matched substring. If <code>needle</code> is not found, returns <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.stristr.php
 	 * @see strstr(), strrchr(), stripos(), strpbrk(), preg_match()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function stristr(string $haystack, string $needle, bool $before_needle = false): string|false {}
 
@@ -868,7 +868,7 @@ namespace {
 	 * @return int <p>The length of the <code>string</code> on success, and <code>0</code> if the <code>string</code> is empty.</p>
 	 * @link https://php.net/manual/en/function.strlen.php
 	 * @see count(), grapheme_strlen(), iconv_strlen(), mb_strlen()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strlen(string $string): int {}
 
@@ -880,7 +880,7 @@ namespace {
 	 * @return int <p>Similar to other string comparison functions, this one returns &lt; 0 if <code>string1</code> is less than <code>string2</code> &gt; 0 if <code>string1</code> is greater than <code>string2</code>, and 0 if they are equal.</p>
 	 * @link https://php.net/manual/en/function.strnatcasecmp.php
 	 * @see preg_match(), strcmp(), strcasecmp(), substr(), stristr(), strncasecmp(), strncmp(), strstr(), setlocale()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strnatcasecmp(string $string1, string $string2): int {}
 
@@ -892,35 +892,35 @@ namespace {
 	 * @return int <p>Similar to other string comparison functions, this one returns &lt; 0 if <code>string1</code> is less than <code>string2</code>; &gt; 0 if <code>string1</code> is greater than <code>string2</code>, and 0 if they are equal.</p>
 	 * @link https://php.net/manual/en/function.strnatcmp.php
 	 * @see preg_match(), strcasecmp(), substr(), stristr(), strcmp(), strncmp(), strncasecmp(), strnatcasecmp(), strstr(), natsort(), natcasesort()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strnatcmp(string $string1, string $string2): int {}
 
 	/**
 	 * Binary safe case-insensitive string comparison of the first n characters
 	 * <p>This function is similar to <code>strcasecmp()</code>, with the difference that you can specify the (upper limit of the) number of characters from each string to be used in the comparison.</p>
-	 * @param string $str1 <p>The first string.</p>
-	 * @param string $str2 <p>The second string.</p>
-	 * @param int $len <p>The length of strings to be used in the comparison.</p>
-	 * @return int <p>Returns &lt; 0 if <code>str1</code> is less than <code>str2</code>; &gt; 0 if <code>str1</code> is greater than <code>str2</code>, and 0 if they are equal.</p>
+	 * @param string $string1 <p>The first string.</p>
+	 * @param string $string2 <p>The second string.</p>
+	 * @param int $length <p>The length of strings to be used in the comparison.</p>
+	 * @return int <p>Returns &lt; 0 if <code>string1</code> is less than <code>string2</code>; &gt; 0 if <code>string1</code> is greater than <code>string2</code>, and 0 if they are equal.</p>
 	 * @link https://php.net/manual/en/function.strncasecmp.php
 	 * @see strncmp(), preg_match(), substr_compare(), strcasecmp(), stristr(), substr()
-	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7, PHP 8
 	 */
-	function strncasecmp(string $str1, string $str2, int $len): int {}
+	function strncasecmp(string $string1, string $string2, int $length): int {}
 
 	/**
 	 * Binary safe string comparison of the first n characters
 	 * <p>This function is similar to <code>strcmp()</code>, with the difference that you can specify the (upper limit of the) number of characters from each string to be used in the comparison.</p><p>Note that this comparison is case sensitive.</p>
-	 * @param string $str1 <p>The first string.</p>
-	 * @param string $str2 <p>The second string.</p>
-	 * @param int $len <p>Number of characters to use in the comparison.</p>
-	 * @return int <p>Returns &lt; 0 if <code>str1</code> is less than <code>str2</code>; &gt; 0 if <code>str1</code> is greater than <code>str2</code>, and 0 if they are equal.</p>
+	 * @param string $string1 <p>The first string.</p>
+	 * @param string $string2 <p>The second string.</p>
+	 * @param int $length <p>Number of characters to use in the comparison.</p>
+	 * @return int <p>Returns &lt; 0 if <code>string1</code> is less than <code>string2</code>; &gt; 0 if <code>string1</code> is greater than <code>string2</code>, and 0 if they are equal.</p>
 	 * @link https://php.net/manual/en/function.strncmp.php
 	 * @see strncasecmp(), preg_match(), substr_compare(), strcmp(), strstr(), substr()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function strncmp(string $str1, string $str2, int $len): int {}
+	function strncmp(string $string1, string $string2, int $length): int {}
 
 	/**
 	 * Search a string for any of a set of characters
@@ -930,7 +930,7 @@ namespace {
 	 * @return string|false <p>Returns a string starting from the character found, or <b><code>false</code></b> if it is not found.</p>
 	 * @link https://php.net/manual/en/function.strpbrk.php
 	 * @see strpos(), strstr(), preg_match()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function strpbrk(string $string, string $characters): string|false {}
 
@@ -943,7 +943,7 @@ namespace {
 	 * @return int|false <p>Returns the position of where the needle exists relative to the beginning of the <code>haystack</code> string (independent of offset). Also note that string positions start at 0, and not 1.</p><p>Returns <b><code>false</code></b> if the needle was not found.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.strpos.php
 	 * @see stripos(), str_contains(), str_ends_with(), str_starts_with(), strrpos(), strripos(), strstr(), strpbrk(), substr(), preg_match()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strpos(string $haystack, string $needle, int $offset = 0): int|false {}
 
@@ -955,7 +955,7 @@ namespace {
 	 * @return string|false <p>This function returns the portion of string, or <b><code>false</code></b> if <code>needle</code> is not found.</p>
 	 * @link https://php.net/manual/en/function.strrchr.php
 	 * @see strstr(), strrpos()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strrchr(string $haystack, string $needle): string|false {}
 
@@ -965,7 +965,7 @@ namespace {
 	 * @param string $string <p>The string to be reversed.</p>
 	 * @return string <p>Returns the reversed string.</p>
 	 * @link https://php.net/manual/en/function.strrev.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strrev(string $string): string {}
 
@@ -978,7 +978,7 @@ namespace {
 	 * @return int|false <p>Returns the position where the needle exists relative to the beginnning of the <code>haystack</code> string (independent of search direction or offset).</p><p><b>Note</b>:  String positions start at 0, and not 1. </p><p>Returns <b><code>false</code></b> if the needle was not found.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.strripos.php
 	 * @see strpos(), stripos(), strrpos(), strrchr(), stristr(), substr()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function strripos(string $haystack, string $needle, int $offset = 0): int|false {}
 
@@ -991,23 +991,23 @@ namespace {
 	 * @return int|false <p>Returns the position where the needle exists relative to the beginning of the <code>haystack</code> string (independent of search direction or offset).</p><p><b>Note</b>:  String positions start at 0, and not 1. </p><p>Returns <b><code>false</code></b> if the needle was not found.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.strrpos.php
 	 * @see strpos(), stripos(), strripos(), strrchr(), substr()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strrpos(string $haystack, string $needle, int $offset = 0): int|false {}
 
 	/**
 	 * Finds the length of the initial segment of a string consisting entirely of characters contained within a given mask
-	 * <p>Finds the length of the initial segment of <code>string</code> that contains <i>only</i> characters from <code>characters</code>.</p><p>If <code>offset</code> and <code>length</code> are omitted, then all of <code>string</code> will be examined. If they are included, then the effect will be the same as calling <code>strspn(substr($subject, $start, $length), $mask)</code> (see substr for more information).</p><p>The line of code:</p>
+	 * <p>Finds the length of the initial segment of <code>string</code> that contains <i>only</i> characters from <code>characters</code>.</p><p>If <code>offset</code> and <code>length</code> are omitted, then all of <code>string</code> will be examined. If they are included, then the effect will be the same as calling <code>strspn(substr($string, $offset, $length), $characters)</code> (see substr for more information).</p><p>The line of code:</p>
 	 * @param string $string <p>The string to examine.</p>
 	 * @param string $characters <p>The list of allowable characters.</p>
 	 * @param int $offset <p>The position in <code>string</code> to start searching.</p> <p>If <code>offset</code> is given and is non-negative, then <b>strspn()</b> will begin examining <code>string</code> at the <code>offset</code>'th position. For instance, in the string '<code>abcdef</code>', the character at position <code>0</code> is '<code>a</code>', the character at position <code>2</code> is '<code>c</code>', and so forth.</p> <p>If <code>offset</code> is given and is negative, then <b>strspn()</b> will begin examining <code>string</code> at the <code>offset</code>'th position from the end of <code>string</code>.</p>
-	 * @param int|null $length <p>The length of the segment from <code>string</code> to examine.</p> <p>If <code>length</code> is given and is non-negative, then <code>string</code> will be examined for <code>length</code> characters after the starting position.</p> <p>If <code>length</code> is given and is negative, then <code>string</code> will be examined from the starting position up to <code>length</code> characters from the end of <code>string</code>.</p>
+	 * @param ?int $length <p>The length of the segment from <code>string</code> to examine.</p> <p>If <code>length</code> is given and is non-negative, then <code>string</code> will be examined for <code>length</code> characters after the starting position.</p> <p>If <code>length</code> is given and is negative, then <code>string</code> will be examined from the starting position up to <code>length</code> characters from the end of <code>string</code>.</p>
 	 * @return int <p>Returns the length of the initial segment of <code>string</code> which consists entirely of characters in <code>characters</code>.</p><p><b>Note</b>:</p><p>When a <code>offset</code> parameter is set, the returned length is counted starting from this position, not from the beginning of <code>string</code>.</p>
 	 * @link https://php.net/manual/en/function.strspn.php
 	 * @see strcspn()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function strspn(string $string, string $characters, int $offset = 0, int|null $length = null): int {}
+	function strspn(string $string, string $characters, int $offset = 0, ?int $length = null): int {}
 
 	/**
 	 * Find the first occurrence of a string
@@ -1018,19 +1018,19 @@ namespace {
 	 * @return string|false <p>Returns the portion of string, or <b><code>false</code></b> if <code>needle</code> is not found.</p>
 	 * @link https://php.net/manual/en/function.strstr.php
 	 * @see stristr(), strrchr(), strpos(), strpbrk(), preg_match()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strstr(string $haystack, string $needle, bool $before_needle = false): string|false {}
 
 	/**
 	 * Tokenize string
-	 * <p>Alternative signature (not supported with named arguments):</p><p><b>strtok()</b> splits a string (<code>string</code>) into smaller strings (tokens), with each token being delimited by any character from <code>token</code>. That is, if you have a string like "This is an example string" you could tokenize this string into its individual words by using the space character as the <code>token</code>.</p><p>Note that only the first call to strtok uses the <code>string</code> argument. Every subsequent call to strtok only needs the <code>token</code> to use, as it keeps track of where it is in the current string. To start over, or to tokenize a new string you simply call strtok with the <code>string</code> argument again to initialize it. Note that you may put multiple tokens in the <code>token</code> parameter. The string will be tokenized when any one of the characters in the <code>token</code> argument is found.</p>
+	 * <p>Alternative signature (not supported with named arguments):</p><p><b>strtok()</b> splits a string (<code>string</code>) into smaller strings (tokens), with each token being delimited by any character from <code>token</code>. That is, if you have a string like "This is an example string" you could tokenize this string into its individual words by using the space character as the <code>token</code>.</p><p>Note that only the first call to strtok uses the <code>string</code> argument. Every subsequent call to strtok only needs the <code>token</code> to use, as it keeps track of where it is in the current string. To start over, or to tokenize a new string you simply call strtok with the <code>string</code> argument again to initialize it. Note that you may put multiple tokens in the <code>token</code> parameter. The string will be tokenized when any one of the characters in the <code>token</code> argument is found.</p><p><b>Note</b>:</p><p>This function behaves slightly different from what one may expect being familiar with <code>explode()</code>. First, a sequence of two or more contiguous <code>token</code> characters in the parsed string is considered to be a single delimiter. Also, a <code>token</code> situated at the start or end of the string is ignored. For example, if a string <code>";aaa;;bbb;"</code> is used, successive calls to <b>strtok()</b> with <code>";"</code> as a <code>token</code> would return strings "aaa" and "bbb", and then <b><code>false</code></b>. As a result, the string will be split into only two elements, while <code>explode(";", $string)</code> would return an array of 5 elements.</p>
 	 * @param string $string <p>The <code>string</code> being split up into smaller strings (tokens).</p>
 	 * @param string $token <p>The delimiter used when splitting up <code>string</code>.</p>
 	 * @return string|false <p>A <code>string</code> token, or <b><code>false</code></b> if no more tokens are available.</p>
 	 * @link https://php.net/manual/en/function.strtok.php
-	 * @see split(), explode()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @see explode()
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strtok(string $string, string $token): string|false {}
 
@@ -1041,7 +1041,7 @@ namespace {
 	 * @return string <p>Returns the lowercased string.</p>
 	 * @link https://php.net/manual/en/function.strtolower.php
 	 * @see strtoupper(), ucfirst(), ucwords(), mb_strtolower()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strtolower(string $string): string {}
 
@@ -1052,7 +1052,7 @@ namespace {
 	 * @return string <p>Returns the uppercased string.</p>
 	 * @link https://php.net/manual/en/function.strtoupper.php
 	 * @see strtolower(), ucfirst(), ucwords(), mb_strtoupper()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strtoupper(string $string): string {}
 
@@ -1065,7 +1065,7 @@ namespace {
 	 * @return string <p>Returns the translated <code>string</code>.</p>
 	 * @link https://php.net/manual/en/function.strtr.php
 	 * @see str_replace(), preg_replace()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function strtr(string $string, string $from, string $to): string {}
 
@@ -1073,14 +1073,14 @@ namespace {
 	 * Return part of a string
 	 * <p>Returns the portion of <code>string</code> specified by the <code>offset</code> and <code>length</code> parameters.</p>
 	 * @param string $string <p>The input string.</p>
-	 * @param int $offset <p>If <code>offset</code> is non-negative, the returned string will start at the <code>offset</code>'th position in <code>string</code>, counting from zero. For instance, in the string '<code>abcdef</code>', the character at position <code>0</code> is '<code>a</code>', the character at position <code>2</code> is '<code>c</code>', and so forth.</p> <p>If <code>offset</code> is negative, the returned string will start at the <code>offset</code>'th character from the end of <code>string</code>.</p> <p>If <code>string</code> is less than <code>offset</code> characters long, <b><code>false</code></b> will be returned.</p> <p></p> <p><b>Example #1 Using a negative <code>offset</code></b></p>  <code> &lt;&#63;php<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;-1);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;returns&nbsp;"f"<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;-2);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;returns&nbsp;"ef"<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;-3,&nbsp;1);&nbsp;//&nbsp;returns&nbsp;"d"<br>&#63;&gt;  </code>
-	 * @param int|null $length <p>If <code>length</code> is given and is positive, the string returned will contain at most <code>length</code> characters beginning from <code>offset</code> (depending on the length of <code>string</code>).</p> <p>If <code>length</code> is given and is negative, then that many characters will be omitted from the end of <code>string</code> (after the start position has been calculated when a <code>offset</code> is negative). If <code>offset</code> denotes the position of this truncation or beyond, <b><code>false</code></b> will be returned.</p> <p>If <code>length</code> is given and is <code>0</code>, <b><code>false</code></b> or <b><code>null</code></b>, an empty string will be returned.</p> <p>If <code>length</code> is omitted, the substring starting from <code>offset</code> until the end of the string will be returned.</p>  <p><b>Example #2 Using a negative <code>length</code></b></p>  <code> &lt;&#63;php<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;0,&nbsp;-1);&nbsp;&nbsp;//&nbsp;returns&nbsp;"abcde"<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;2,&nbsp;-1);&nbsp;&nbsp;//&nbsp;returns&nbsp;"cde"<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;4,&nbsp;-4);&nbsp;&nbsp;//&nbsp;returns&nbsp;false<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;-3,&nbsp;-1);&nbsp;//&nbsp;returns&nbsp;"de"<br>&#63;&gt;  </code>
-	 * @return string <p>Returns the extracted part of <code>string</code>; or <b><code>false</code></b> on failure, or an empty string.</p>
+	 * @param int $offset <p>If <code>offset</code> is non-negative, the returned string will start at the <code>offset</code>'th position in <code>string</code>, counting from zero. For instance, in the string '<code>abcdef</code>', the character at position <code>0</code> is '<code>a</code>', the character at position <code>2</code> is '<code>c</code>', and so forth.</p> <p>If <code>offset</code> is negative, the returned string will start at the <code>offset</code>'th character from the end of <code>string</code>.</p> <p>If <code>string</code> is less than <code>offset</code> characters long, an empty string will be returned.</p> <p></p> <p><b>Example #1 Using a negative <code>offset</code></b></p>  <code> &lt;&#63;php<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;-1);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;returns&nbsp;"f"<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;-2);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;returns&nbsp;"ef"<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;-3,&nbsp;1);&nbsp;//&nbsp;returns&nbsp;"d"<br>&#63;&gt;  </code>
+	 * @param ?int $length <p>If <code>length</code> is given and is positive, the string returned will contain at most <code>length</code> characters beginning from <code>offset</code> (depending on the length of <code>string</code>).</p> <p>If <code>length</code> is given and is negative, then that many characters will be omitted from the end of <code>string</code> (after the start position has been calculated when a <code>offset</code> is negative). If <code>offset</code> denotes the position of this truncation or beyond, an empty string will be returned.</p> <p>If <code>length</code> is given and is <code>0</code>, <b><code>false</code></b> or <b><code>null</code></b>, an empty string will be returned.</p> <p>If <code>length</code> is omitted, the substring starting from <code>offset</code> until the end of the string will be returned.</p>  <p><b>Example #2 Using a negative <code>length</code></b></p>  <code> &lt;&#63;php<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;0,&nbsp;-1);&nbsp;&nbsp;//&nbsp;returns&nbsp;"abcde"<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;2,&nbsp;-1);&nbsp;&nbsp;//&nbsp;returns&nbsp;"cde"<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;4,&nbsp;-4);&nbsp;&nbsp;//&nbsp;returns&nbsp;"";&nbsp;prior&nbsp;to&nbsp;PHP&nbsp;8.0.0,&nbsp;false&nbsp;was&nbsp;returned<br>$rest&nbsp;=&nbsp;substr("abcdef",&nbsp;-3,&nbsp;-1);&nbsp;//&nbsp;returns&nbsp;"de"<br>&#63;&gt;  </code>
+	 * @return string <p>Returns the extracted part of <code>string</code>, or an empty string.</p>
 	 * @link https://php.net/manual/en/function.substr.php
 	 * @see strrchr(), substr_replace(), preg_match(), trim(), mb_substr(), wordwrap()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function substr(string $string, int $offset, int|null $length = null): string {}
+	function substr(string $string, int $offset, ?int $length = null): string {}
 
 	/**
 	 * Binary safe comparison of two strings from an offset, up to length characters
@@ -1088,14 +1088,14 @@ namespace {
 	 * @param string $haystack <p>The main string being compared.</p>
 	 * @param string $needle <p>The secondary string being compared.</p>
 	 * @param int $offset <p>The start position for the comparison. If negative, it starts counting from the end of the string.</p>
-	 * @param int|null $length <p>The length of the comparison. The default value is the largest of the length of the <code>needle</code> compared to the length of <code>haystack</code> minus the <code>offset</code>.</p>
+	 * @param ?int $length <p>The length of the comparison. The default value is the largest of the length of the <code>needle</code> compared to the length of <code>haystack</code> minus the <code>offset</code>.</p>
 	 * @param bool $case_insensitive <p>If <code>case_insensitive</code> is <b><code>true</code></b>, comparison is case insensitive.</p>
 	 * @return int <p>Returns &lt; 0 if <code>haystack</code> from position <code>offset</code> is less than <code>needle</code>, &gt; 0 if it is greater than <code>needle</code>, and 0 if they are equal. If <code>offset</code> is equal to (prior to PHP 7.2.18, 7.3.5) or greater than the length of <code>haystack</code>, or the <code>length</code> is set and is less than 0, <b>substr_compare()</b> prints a warning and returns <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.substr-compare.php
 	 * @see strncmp()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
-	function substr_compare(string $haystack, string $needle, int $offset, int|null $length = null, bool $case_insensitive = false): int {}
+	function substr_compare(string $haystack, string $needle, int $offset, ?int $length = null, bool $case_insensitive = false): int {}
 
 	/**
 	 * Count the number of substring occurrences
@@ -1103,13 +1103,13 @@ namespace {
 	 * @param string $haystack <p>The string to search in</p>
 	 * @param string $needle <p>The substring to search for</p>
 	 * @param int $offset <p>The offset where to start counting. If the offset is negative, counting starts from the end of the string.</p>
-	 * @param int|null $length <p>The maximum length after the specified offset to search for the substring. It outputs a warning if the offset plus the length is greater than the <code>haystack</code> length. A negative length counts from the end of <code>haystack</code>.</p>
+	 * @param ?int $length <p>The maximum length after the specified offset to search for the substring. It outputs a warning if the offset plus the length is greater than the <code>haystack</code> length. A negative length counts from the end of <code>haystack</code>.</p>
 	 * @return int <p>This function returns an <code>int</code>.</p>
 	 * @link https://php.net/manual/en/function.substr-count.php
 	 * @see count_chars(), strpos(), substr(), strstr()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function substr_count(string $haystack, string $needle, int $offset = 0, int|null $length = null): int {}
+	function substr_count(string $haystack, string $needle, int $offset = 0, ?int $length = null): int {}
 
 	/**
 	 * Replace text within a portion of a string
@@ -1121,7 +1121,7 @@ namespace {
 	 * @return string|array <p>The result string is returned. If <code>string</code> is an array then array is returned.</p>
 	 * @link https://php.net/manual/en/function.substr-replace.php
 	 * @see str_replace(), substr()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function substr_replace(array|string $string, array|string $replace, array|int $offset, array|int|null $length = null): string|array {}
 
@@ -1133,9 +1133,9 @@ namespace {
 	 * @return string <p>The trimmed string.</p>
 	 * @link https://php.net/manual/en/function.trim.php
 	 * @see ltrim(), rtrim(), str_replace()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function trim(string $string, string $characters = " \n\r\t\v\0"): string {}
+	function trim(string $string, string $characters = " \n\r\t\v\x00"): string {}
 
 	/**
 	 * Make a string's first character uppercase
@@ -1144,19 +1144,19 @@ namespace {
 	 * @return string <p>Returns the resulting string.</p>
 	 * @link https://php.net/manual/en/function.ucfirst.php
 	 * @see lcfirst(), strtolower(), strtoupper(), ucwords()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function ucfirst(string $string): string {}
 
 	/**
 	 * Uppercase the first character of each word in a string
-	 * <p>Returns a string with the first character of each word in <code>string</code> capitalized, if that character is alphabetic.</p><p>The definition of a word is any string of characters that is immediately after any character listed in the <code>separators</code> parameter (By default these are: space, form-feed, newline, carriage return, horizontal tab, and vertical tab).</p>
+	 * <p>Returns a string with the first character of each word in <code>string</code> capitalized, if that character is alphabetic.</p><p>For this function, a word is a string of characters that are not listed in the <code>separators</code> parameter. By default, these are: space, horizontal tab, carriage return, newline, form-feed and vertical tab.</p>
 	 * @param string $string <p>The input string.</p>
 	 * @param string $separators <p>The optional <code>separators</code> contains the word separator characters.</p>
 	 * @return string <p>Returns the modified string.</p>
 	 * @link https://php.net/manual/en/function.ucwords.php
 	 * @see strtoupper(), strtolower(), ucfirst(), mb_convert_case()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function ucwords(string $string, string $separators = " \t\r\n\f\v"): string {}
 
@@ -1164,36 +1164,36 @@ namespace {
 	 * Write a formatted string to a stream
 	 * <p>Write a string produced according to <code>format</code> to the stream resource specified by <code>stream</code>.</p><p>Operates as <code>fprintf()</code> but accepts an array of arguments, rather than a variable number of arguments.</p>
 	 * @param resource $stream
-	 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code> and <code>G</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2). The precision specifier stands for the number of digits after the decimal point since PHP 5.2.1. In earlier versions, it was taken as number of significant digits (one less).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware). Available as of PHP 5.0.3.    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>integer</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>double</code>  <code>g</code>, <code>G</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>
+	 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code>, <code>G</code>, <code>h</code> and <code>H</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware).    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>int</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>float</code>  <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>, <code>g</code>, <code>G</code>, <code>h</code>, <code>H</code>
 	 * @param array $values
 	 * @return int <p>Returns the length of the outputted string.</p>
 	 * @link https://php.net/manual/en/function.vfprintf.php
 	 * @see printf(), sprintf(), fprintf(), vprintf(), vsprintf(), sscanf(), fscanf(), number_format(), date()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function vfprintf($stream, string $format, array $values): int {}
 
 	/**
 	 * Output a formatted string
 	 * <p>Display array values as a formatted string according to <code>format</code> (which is described in the documentation for <code>sprintf()</code>).</p><p>Operates as <code>printf()</code> but accepts an array of arguments, rather than a variable number of arguments.</p>
-	 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code> and <code>G</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2). The precision specifier stands for the number of digits after the decimal point since PHP 5.2.1. In earlier versions, it was taken as number of significant digits (one less).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware). Available as of PHP 5.0.3.    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>integer</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>double</code>  <code>g</code>, <code>G</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>
+	 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code>, <code>G</code>, <code>h</code> and <code>H</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware).    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>int</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>float</code>  <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>, <code>g</code>, <code>G</code>, <code>h</code>, <code>H</code>
 	 * @param array $values
 	 * @return int <p>Returns the length of the outputted string.</p>
 	 * @link https://php.net/manual/en/function.vprintf.php
 	 * @see printf(), sprintf(), fprintf(), vsprintf(), vfprintf(), sscanf(), fscanf(), number_format(), date()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function vprintf(string $format, array $values): int {}
 
 	/**
 	 * Return a formatted string
 	 * <p>Operates as <code>sprintf()</code> but accepts an array of arguments, rather than a variable number of arguments.</p>
-	 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code> and <code>G</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2). The precision specifier stands for the number of digits after the decimal point since PHP 5.2.1. In earlier versions, it was taken as number of significant digits (one less).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware). Available as of PHP 5.0.3.    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>integer</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>double</code>  <code>g</code>, <code>G</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>
+	 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code>, <code>G</code>, <code>h</code> and <code>H</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware).    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>int</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>float</code>  <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>, <code>g</code>, <code>G</code>, <code>h</code>, <code>H</code>
 	 * @param array $values
 	 * @return string <p>Return array values as a formatted string according to <code>format</code>.</p>
 	 * @link https://php.net/manual/en/function.vsprintf.php
 	 * @see printf(), sprintf(), fprintf(), vprintf(), vfprintf(), sscanf(), fscanf(), number_format(), date()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function vsprintf(string $format, array $values): string {}
 
@@ -1207,7 +1207,7 @@ namespace {
 	 * @return string <p>Returns the given string wrapped at the specified length.</p>
 	 * @link https://php.net/manual/en/function.wordwrap.php
 	 * @see nl2br(), chunk_split()
-	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7, PHP 8
 	 */
 	function wordwrap(string $string, int $width = 75, string $break = "\n", bool $cut_long_words = false): string {}
 

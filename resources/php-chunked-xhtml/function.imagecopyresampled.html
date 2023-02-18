@@ -26,24 +26,13 @@
   <div id="layout-content"><div id="function.imagecopyresampled" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecopyresampled</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagecopyresampled</span> &mdash; <span class="dc-title">Copy and resize part of an image with resampling</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagecopyresampled</span> &mdash; <span class="dc-title">Copy and resize part of an image with resampling</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagecopyresampled-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagecopyresampled</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$dst_image</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$src_image</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_x</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_y</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_x</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_y</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_w</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_h</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_w</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_h</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>imagecopyresampled</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$dst_image</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$src_image</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_x</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_y</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$src_x</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$src_y</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_width</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_height</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$src_width</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$src_height</code></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>imagecopyresampled()</strong></span> copies a rectangular
@@ -54,10 +43,10 @@
   <p class="para">
    In other words, <span class="function"><strong>imagecopyresampled()</strong></span> will take a 
    rectangular area from <code class="parameter">src_image</code> of width 
-   <code class="parameter">src_w</code> and height <code class="parameter">src_h</code> at 
+   <code class="parameter">src_width</code> and height <code class="parameter">src_height</code> at 
    position (<code class="parameter">src_x</code>,<code class="parameter">src_y</code>) 
    and place it in a rectangular area of <code class="parameter">dst_image</code> 
-   of width <code class="parameter">dst_w</code> and height <code class="parameter">dst_h</code>
+   of width <code class="parameter">dst_width</code> and height <code class="parameter">dst_height</code>
    at position (<code class="parameter">dst_x</code>,<code class="parameter">dst_y</code>).
   </p>
   <p class="para">
@@ -75,7 +64,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">dst_image</code></dt>
@@ -146,7 +134,7 @@
     
     
      <dt>
-<code class="parameter">dst_w</code></dt>
+<code class="parameter">dst_width</code></dt>
 
      <dd>
 
@@ -158,7 +146,7 @@
     
     
      <dt>
-<code class="parameter">dst_h</code></dt>
+<code class="parameter">dst_height</code></dt>
 
      <dd>
 
@@ -170,7 +158,7 @@
     
     
      <dt>
-<code class="parameter">src_w</code></dt>
+<code class="parameter">src_width</code></dt>
 
      <dd>
 
@@ -180,7 +168,7 @@
     
     
      <dt>
-<code class="parameter">src_h</code></dt>
+<code class="parameter">src_height</code></dt>
 
      <dd>
 
@@ -200,10 +188,40 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagecopyresampled-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">dst_image</code> and <code class="parameter">src_image</code> expect
+       <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> instances now; previously, <span class="type">resource</span>s
+       were expected.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagecopyresampled-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3124">
+   <div class="example" id="example-2640">
     <p><strong>Example #1 Simple example</strong></p>
     <div class="example-contents"><p>
      This example will resample an image to half its original size.
@@ -226,7 +244,7 @@ something similar to:</p></div>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3125">
+   <div class="example" id="example-2641">
     <p><strong>Example #2 Resampling an image proportionally</strong></p>
     <div class="example-contents"><p>
      This example will display an image with the maximum width,

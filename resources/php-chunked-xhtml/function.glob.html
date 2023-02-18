@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.glob" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">glob</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">glob</span> &mdash; <span class="dc-title">Find pathnames matching a pattern</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">glob</span> &mdash; <span class="dc-title">Find pathnames matching a pattern</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.glob-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>glob</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>glob</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    The <span class="function"><strong>glob()</strong></span> function searches for all the pathnames
@@ -51,7 +48,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">pattern</code></dt>
@@ -147,7 +143,7 @@
        <blockquote class="note"><p><strong class="note">Note</strong>: 
         <span class="simpara">
          The <strong><code>GLOB_BRACE</code></strong> flag is not available on some non GNU
-         systems, like Solaris.
+         systems, like Solaris or Alpine Linux.
         </span>
        </p></blockquote>
       </p>
@@ -178,7 +174,7 @@
  <div class="refsect1 examples" id="refsect1-function.glob-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2668">
+   <div class="example" id="example-2181">
     <p><strong>Example #1 
      Convenient way how <span class="function"><strong>glob()</strong></span> can replace
      <span class="function"><a href="function.opendir.html" class="function">opendir()</a></span> and friends.

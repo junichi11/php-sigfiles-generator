@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="function.imagecreatefrompng.html">« imagecreatefrompng</a></li>
-      <li style="float: right;"><a href="function.imagecreatefromwbmp.html">imagecreatefromwbmp »</a></li>
+      <li style="float: right;"><a href="function.imagecreatefromtga.html">imagecreatefromtga »</a></li>
     </ul>
   </div>
 </div>
@@ -26,19 +26,17 @@
   <div id="layout-content"><div id="function.imagecreatefromstring" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecreatefromstring</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagecreatefromstring</span> &mdash; <span class="dc-title">Create a new image from the image stream in the string</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagecreatefromstring</span> &mdash; <span class="dc-title">Create a new image from the image stream in the string</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagecreatefromstring-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagecreatefromstring</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$image</code></span>
-   ) : <span class="type">resource</span></div>
+   <span class="methodname"><strong>imagecreatefromstring</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>imagecreatefromstring()</strong></span> returns an image identifier
-   representing the image obtained from the given <code class="parameter">image</code>.
+   representing the image obtained from the given <code class="parameter">data</code>.
    These types will be automatically detected if your build of PHP supports 
    them: JPEG, PNG, GIF, BMP, WBMP, GD2, and WEBP.
   </p>
@@ -48,10 +46,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">image</code></dt>
+<code class="parameter">data</code></dt>
 
      <dd>
 
@@ -69,9 +66,18 @@
  <div class="refsect1 returnvalues" id="refsect1-function.imagecreatefromstring-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   An image resource will be returned on success. <strong><code>false</code></strong> is returned if
+   An image object will be returned on success. <strong><code>false</code></strong> is returned if
    the image type is unsupported, the data is not in a recognised format,
    or the image is corrupt and cannot be loaded.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.imagecreatefromstring-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   <span class="function"><strong>imagecreatefromstring()</strong></span> raises an E_WARNING level error,
+   if the data is not in a recognized format.
   </p>
  </div>
 
@@ -90,6 +96,14 @@
 
     <tbody class="tbody">
      <tr>
+      <td>8.0.0</td>
+      <td>
+       On success, this function returns a <span class="classname"><a href="class.gdimage.html" class="classname">GDImage</a></span> instance now;
+       previously, a <span class="type">resource</span> was returned.
+      </td>
+     </tr>
+
+     <tr>
       <td>7.3.0</td>
       <td>
        WEBP is supported now (if supported by the libgd in use).
@@ -103,19 +117,10 @@
  </div>
 
 
- <div class="refsect1 errors" id="refsect1-function.imagecreatefromstring-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">
-   <span class="function"><strong>imagecreatefromstring()</strong></span> raises an E_WARNING level error,
-   if the data is not in a recognized format.
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.imagecreatefromstring-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3135">
+   <div class="example" id="example-2651">
     <p><strong>Example #1 <span class="function"><strong>imagecreatefromstring()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

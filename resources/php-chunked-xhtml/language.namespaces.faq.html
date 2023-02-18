@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="language.namespaces.rules.html">« Name resolution rules</a></li>
-      <li style="float: right;"><a href="language.errors.html">Errors »</a></li>
+      <li style="float: right;"><a href="language.enumerations.html">Enumerations »</a></li>
     </ul>
   </div>
 </div>
@@ -124,7 +124,7 @@
     write this code if you wish:
    </p>
    <p class="para">
-    <div class="example" id="example-296">
+    <div class="example" id="example-307">
      <p><strong>Example #1 Accessing global classes outside a namespace</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -139,7 +139,7 @@
     This is functionally equivalent to:
    </p>
    <p class="para">
-    <div class="example" id="example-297">
+    <div class="example" id="example-308">
      <p><strong>Example #2 Accessing global classes outside a namespace</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -154,11 +154,11 @@
   <div class="sect2" id="language.namespaces.faq.globalclass">
    <h3 class="title">How do I use internal or global classes in a namespace?</h3>
    <p class="para">
-    <div class="example" id="example-298">
+    <div class="example" id="example-309">
      <p><strong>Example #3 Accessing internal classes in namespaces</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;\</span><span style="color: #0000BB">stdClass</span><span style="color: #007700">;<br /><br />function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(\</span><span style="color: #0000BB">ArrayObject&nbsp;$typehintexample&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)&nbsp;{}<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;\</span><span style="color: #0000BB">DirectoryIterator</span><span style="color: #007700">::</span><span style="color: #0000BB">CURRENT_AS_FILEINFO</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;extending&nbsp;an&nbsp;internal&nbsp;or&nbsp;global&nbsp;class<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MyException&nbsp;</span><span style="color: #007700">extends&nbsp;\</span><span style="color: #0000BB">Exception&nbsp;</span><span style="color: #007700">{}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;\</span><span style="color: #0000BB">stdClass</span><span style="color: #007700">;<br /><br />function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(\</span><span style="color: #0000BB">ArrayObject&nbsp;$parameter_type_example&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)&nbsp;{}<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;\</span><span style="color: #0000BB">DirectoryIterator</span><span style="color: #007700">::</span><span style="color: #0000BB">CURRENT_AS_FILEINFO</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;extending&nbsp;an&nbsp;internal&nbsp;or&nbsp;global&nbsp;class<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MyException&nbsp;</span><span style="color: #007700">extends&nbsp;\</span><span style="color: #0000BB">Exception&nbsp;</span><span style="color: #007700">{}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -172,11 +172,11 @@
     namespace?
    </h3>
    <p class="para">
-    <div class="example" id="example-299">
+    <div class="example" id="example-310">
      <p><strong>Example #4 Accessing internal classes, functions or constants in namespaces</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">;<br /><br />class&nbsp;</span><span style="color: #0000BB">MyClass&nbsp;</span><span style="color: #007700">{}<br /><br /></span><span style="color: #FF8000">//&nbsp;using&nbsp;a&nbsp;class&nbsp;from&nbsp;the&nbsp;current&nbsp;namespace&nbsp;as&nbsp;a&nbsp;type&nbsp;hint<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">MyClass&nbsp;$typehintexample&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)&nbsp;{}<br /></span><span style="color: #FF8000">//&nbsp;another&nbsp;way&nbsp;to&nbsp;use&nbsp;a&nbsp;class&nbsp;from&nbsp;the&nbsp;current&nbsp;namespace&nbsp;as&nbsp;a&nbsp;type&nbsp;hint<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(\</span><span style="color: #0000BB">foo</span><span style="color: #007700">\</span><span style="color: #0000BB">MyClass&nbsp;$typehintexample&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)&nbsp;{}<br /><br /></span><span style="color: #FF8000">//&nbsp;extending&nbsp;a&nbsp;class&nbsp;from&nbsp;the&nbsp;current&nbsp;namespace<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Extended&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">MyClass&nbsp;</span><span style="color: #007700">{}<br /><br /></span><span style="color: #FF8000">//&nbsp;accessing&nbsp;a&nbsp;global&nbsp;function<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;\</span><span style="color: #0000BB">globalfunc</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;accessing&nbsp;a&nbsp;global&nbsp;constant<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;\</span><span style="color: #0000BB">INI_ALL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">;<br /><br />class&nbsp;</span><span style="color: #0000BB">MyClass&nbsp;</span><span style="color: #007700">{}<br /><br /></span><span style="color: #FF8000">//&nbsp;using&nbsp;a&nbsp;class&nbsp;from&nbsp;the&nbsp;current&nbsp;namespace&nbsp;as&nbsp;a&nbsp;parameter&nbsp;type<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">MyClass&nbsp;$parameter_type_example&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)&nbsp;{}<br /></span><span style="color: #FF8000">//&nbsp;another&nbsp;way&nbsp;to&nbsp;use&nbsp;a&nbsp;class&nbsp;from&nbsp;the&nbsp;current&nbsp;namespace&nbsp;as&nbsp;a&nbsp;parameter&nbsp;type<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(\</span><span style="color: #0000BB">foo</span><span style="color: #007700">\</span><span style="color: #0000BB">MyClass&nbsp;$parameter_type_example&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)&nbsp;{}<br /><br /></span><span style="color: #FF8000">//&nbsp;extending&nbsp;a&nbsp;class&nbsp;from&nbsp;the&nbsp;current&nbsp;namespace<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Extended&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">MyClass&nbsp;</span><span style="color: #007700">{}<br /><br /></span><span style="color: #FF8000">//&nbsp;accessing&nbsp;a&nbsp;global&nbsp;function<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;\</span><span style="color: #0000BB">globalfunc</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;accessing&nbsp;a&nbsp;global&nbsp;constant<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;\</span><span style="color: #0000BB">INI_ALL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -193,7 +193,7 @@
     Names that begin with a <code class="literal">\</code> always resolve to what they
     look like, so <code class="literal">\my\name</code> is in fact <code class="literal">my\name</code>,
     and <code class="literal">\Exception</code> is <code class="literal">Exception</code>.
-    <div class="example" id="example-300">
+    <div class="example" id="example-311">
      <p><strong>Example #5 Fully Qualified names</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -220,7 +220,7 @@
     Otherwise, the current namespace name is prepended to <code class="literal">my\name</code>.
    </p>
    <p class="para">
-    <div class="example" id="example-301">
+    <div class="example" id="example-312">
      <p><strong>Example #6 Qualified names</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -247,7 +247,7 @@
     Otherwise, the current namespace name is prepended to <code class="literal">name</code>.
    </p>
    <p class="para">
-    <div class="example" id="example-302">
+    <div class="example" id="example-313">
      <p><strong>Example #7 Unqualified class names</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -277,7 +277,7 @@
     is used if it exists.
    </p>
    <p class="para">
-    <div class="example" id="example-303">
+    <div class="example" id="example-314">
      <p><strong>Example #8 Unqualified function or constant names</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -368,7 +368,7 @@
     It is very important to realize that because the backslash is used as an escape character
     within strings, it should always be doubled when used inside a string.  Otherwise
     there is a risk of unintended consequences:
-    <div class="example" id="example-304">
+    <div class="example" id="example-315">
      <p><strong>Example #9 Dangers of using namespaced names inside a double-quoted string</strong></p>
      <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -389,7 +389,7 @@
     produce a notice explaining that PHP assumed <code class="literal">FOO</code> was the value
     of the constant.  Any constant, qualified or fully qualified, that contains a
     backslash will produce a fatal error if not found.
-    <div class="example" id="example-305">
+    <div class="example" id="example-316">
      <p><strong>Example #10 Undefined constants</strong></p>
      <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -406,7 +406,7 @@
    <p class="para">
     Any attempt to define a namespaced constant that is a special, built-in constant
     results in a fatal error
-    <div class="example" id="example-306">
+    <div class="example" id="example-317">
      <p><strong>Example #11 Undefined constants</strong></p>
      <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">

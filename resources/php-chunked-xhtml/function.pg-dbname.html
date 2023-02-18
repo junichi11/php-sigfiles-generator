@@ -26,21 +26,18 @@
   <div id="layout-content"><div id="function.pg-dbname" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_dbname</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_dbname</span> &mdash; <span class="dc-title">Get the database name</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_dbname</span> &mdash; <span class="dc-title">Get the database name</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.pg-dbname-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_dbname</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code> = ?</span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>pg_dbname</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a href="class.pgsql-connection.html" class="type PgSql\Connection">PgSql\Connection</a></span><span class="type"></span></span> <code class="parameter">$connection</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_dbname()</strong></span> returns the name of the database
-   that the given PostgreSQL <code class="parameter">connection</code>
-   resource.
+   that the given PostgreSQL <code class="parameter">connection</code> instance.
   </p>
  </div>
 
@@ -49,19 +46,16 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">connection</code></dt>
 
      <dd>
 
-      <p class="para">
-       PostgreSQL database connection resource.  When 
-       <code class="parameter">connection</code> is not present, the default connection 
-       is used. The default connection is the last connection made by 
-       <span class="function"><a href="function.pg-connect.html" class="function">pg_connect()</a></span> or <span class="function"><a href="function.pg-pconnect.html" class="function">pg_pconnect()</a></span>.
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span> instance.
+When <code class="parameter">connection</code> is <strong><code>null</code></strong>, the default connection is used.
+The default connection is the last connection made by <span class="function"><a href="function.pg-connect.html" class="function">pg_connect()</a></span>
+or <span class="function"><a href="function.pg-pconnect.html" class="function">pg_pconnect()</a></span>.</p>
      </dd>
 
     
@@ -75,15 +69,50 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    A <span class="type">string</span> containing the name of the database the 
-   <code class="parameter">connection</code> is to, or <strong><code>false</code></strong> on error.
+   <code class="parameter">connection</code> is to.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.pg-dbname-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">connection</code> parameter expects an <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">connection</code> is now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
  
  <div class="refsect1 examples" id="refsect1-function.pg-dbname-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2331">
+   <div class="example" id="example-1885">
     <p><strong>Example #1 <span class="function"><strong>pg_dbname()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

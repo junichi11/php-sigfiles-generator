@@ -43,12 +43,7 @@
  <div class="refsect1 description" id="refsect1-function.ldap-control-paged-result-response-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ldap_control_paged_result_response</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$cookie</code> = ?</span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$estimated</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>ldap_control_paged_result_response</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$link</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$cookie</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$estimated</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Retrieve the pagination information send by the server.
@@ -60,7 +55,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">link</code></dt>
@@ -68,7 +62,7 @@
      <dd>
 
       <p class="para">
-       An LDAP link identifier, returned by <span class="function"><a href="function.ldap-connect.html" class="function">ldap_connect()</a></span>.
+       An LDAP resource, returned by <span class="function"><a href="function.ldap-connect.html" class="function">ldap_connect()</a></span>.
       </p>
      </dd>
 
@@ -136,6 +130,13 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        This function has been removed.
+       </td>
+      </tr>
+
       <tr>
        <td>7.4.0</td>
        <td>

@@ -34,8 +34,7 @@
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="para">This extension was deprecated in PHP 5.5.0, and it was removed in PHP 7.0.0.
 Instead, the <a href="book.mysqli.html" class="link">MySQLi</a> or <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> extension should be used.
-See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide and
-<a href="faq.databases.html#faq.databases.mysql.deprecated" class="link">related FAQ</a> for more information.
+See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide.
 Alternatives to this function include:</p>
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="mysqli.insert-id.html" class="function">mysqli_insert_id()</a></span></li>
@@ -47,9 +46,7 @@ Alternatives to this function include:</p>
  <div class="refsect1 description" id="refsect1-function.mysql-insert-id-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysql_insert_id</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>mysql_insert_id</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Retrieves the ID generated for an AUTO_INCREMENT column by the previous 
@@ -62,10 +59,9 @@ Alternatives to this function include:</p>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-link_identifier</code></dt>
+
+<code class="parameter">link_identifier</code></dt>
 <dd>
 <p class="para">The MySQL connection. If the
 link identifier is not specified, the last link opened by
@@ -95,7 +91,7 @@ with no arguments. If no connection is found or established, an
  <div class="refsect1 examples" id="refsect1-function.mysql-insert-id-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1994">
+   <div class="example" id="example-1749">
     <p><strong>Example #1 <span class="function"><strong>mysql_insert_id()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

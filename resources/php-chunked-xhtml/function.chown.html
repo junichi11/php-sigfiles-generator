@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.chown" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">chown</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">chown</span> &mdash; <span class="dc-title">Changes file owner</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">chown</span> &mdash; <span class="dc-title">Changes file owner</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.chown-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>chown</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$user</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>chown</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$user</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Attempts to change the owner of the file <code class="parameter">filename</code>
@@ -50,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">filename</code></dt>
@@ -92,7 +88,7 @@
  <div class="refsect1 examples" id="refsect1-function.chown-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2620">
+   <div class="example" id="example-2131">
     <p><strong>Example #1 Simple <span class="function"><strong>chown()</strong></span> usage</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

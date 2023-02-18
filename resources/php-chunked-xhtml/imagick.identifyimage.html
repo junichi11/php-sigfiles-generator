@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-imagick.identifyimage-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Imagick::identifyImage</strong></span>
-    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$appendRawOutput</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Imagick::identifyImage</strong></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$appendRawOutput</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Identifies an image and returns the attributes.  Attributes include
@@ -48,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">appendRawOutput</code></dt>
@@ -75,10 +72,18 @@
   </p>
  </div>
 
+
+ <div class="refsect1 errors" id="refsect1-imagick.identifyimage-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Throws ImagickException on error.
+  </p>
+ </div>
+
  
  <div class="refsect1 examples" id="refsect1-imagick.identifyimage-examples">
   <p class="para">
-   <div class="example" id="example-3285">
+   <div class="example" id="example-2801">
    <p><strong>Example #1 Example Result Format</strong></p>
    <div class="example-contents screen">
 <div class="examplescode"><pre class="examplescode">Array
@@ -108,14 +113,6 @@
    </div>
    </div>
    </p>
- </div>
-
-
- <div class="refsect1 errors" id="refsect1-imagick.identifyimage-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">
-   Throws ImagickException on error.
-  </p>
  </div>
 
 

@@ -9,13 +9,19 @@ namespace {
 	 * @link https://php.net/manual/en/class.error.php
 	 * @since PHP 7, PHP 8
 	 */
-	class Error extends \Throwable {
+	class Error implements \Throwable {
 
 		/**
 		 * @var string <p>The error message</p>
 		 * @link https://php.net/manual/en/class.error.php#error.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.error.php#error.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The error code</p>
@@ -27,7 +33,7 @@ namespace {
 		 * @var string <p>The filename where the error happened</p>
 		 * @link https://php.net/manual/en/class.error.php#error.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the error happened</p>
@@ -36,25 +42,37 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.error.php#error.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.error.php#error.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the error
 		 * <p>Error can not be cloned, so this method results in fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/error.clone.php
 		 * @since PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * Construct the error object
 		 * <p>Constructs the Error.</p>
 		 * @param string $message <p>The error message.</p>
 		 * @param int $code <p>The error code.</p>
-		 * @param \Throwable $previous <p>The previous throwable used for the exception chaining.</p>
+		 * @param ?\Throwable $previous <p>The previous throwable used for the exception chaining.</p>
 		 * @return self
 		 * @link https://php.net/manual/en/error.construct.php
 		 * @since PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
 
 		/**
 		 * String representation of the error
@@ -68,11 +86,11 @@ namespace {
 		/**
 		 * Gets the error code
 		 * <p>Returns the error code.</p>
-		 * @return mixed <p>Returns the error code as <code>int</code></p>
+		 * @return int <p>Returns the error code as <code>int</code></p>
 		 * @link https://php.net/manual/en/error.getcode.php
 		 * @since PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the error occurred
@@ -104,11 +122,11 @@ namespace {
 		/**
 		 * Returns previous Throwable
 		 * <p>Returns previous Throwable (the third parameter of <code>Error::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/error.getprevious.php
 		 * @since PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace

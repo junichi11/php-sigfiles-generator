@@ -132,7 +132,7 @@ namespace {
 		 * @param bool $softCommit <p>This will refresh the 'view' of the index in a more performant manner, but without "on-disk" guarantees. (Solr4.0+)</p> <p>A soft commit is much faster since it only makes index changes visible and does not fsync index files or write a new index descriptor. If the JVM crashes or there is a loss of power, changes that occurred after the last hard commit will be lost. Search collections that have near-real-time requirements (that want index changes to be quickly visible to searches) will want to soft commit often but hard commit less frequently.</p>
 		 * @param bool $waitSearcher <p>block until a new searcher is opened and registered as the main query searcher, making the changes visible.</p>
 		 * @param bool $expungeDeletes <p>Merge segments with deletes away. (Solr1.4+)</p>
-		 * @return SolrUpdateResponse <p>Returns a SolrUpdateResponse object on success or throws an exception on failure.</p>
+		 * @return SolrUpdateResponse <p>Returns a <code>SolrUpdateResponse</code> object on success or throws an exception on failure.</p>
 		 * @link https://php.net/manual/en/solrclient.commit.php
 		 * @since PECL solr >= 0.9.2
 		 */
@@ -317,7 +317,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -329,13 +335,25 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.line
 		 */
 		protected $line;
+
+		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
 
 		/**
 		 * @var int <p>The line in c-space source file where exception was generated</p>
@@ -362,7 +380,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -376,11 +394,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -419,13 +437,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -738,8 +756,8 @@ namespace {
 		/**
 		 * Add a field to be used to group results
 		 * <p>The name of the field by which to group results. The field must be single-valued, and either be indexed or a field type that has a value source and works in a function query, such as ExternalFileField. It must also be a string-based field, such as StrField or TextField Uses group.field parameter</p>
-		 * @param string $value
-		 * @return SolrQuery
+		 * @param string $value <p>The name of the field.</p>
+		 * @return SolrQuery <p>Returns an instance of <code>SolrQuery</code>.</p>
 		 * @link https://php.net/manual/en/solrquery.addgroupfield.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -896,7 +914,7 @@ namespace {
 		/**
 		 * Returns true if group expanding is enabled
 		 * <p>Returns <b><code>true</code></b> if group expanding is enabled</p>
-		 * @return bool
+		 * @return bool <p>Returns whether group expanding is enabled.</p>
 		 * @link https://php.net/manual/en/solrquery.getexpand.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -905,7 +923,7 @@ namespace {
 		/**
 		 * Returns the expand filter queries
 		 * <p>Returns the expand filter queries</p>
-		 * @return array
+		 * @return array <p>Returns the expand filter queries.</p>
 		 * @link https://php.net/manual/en/solrquery.getexpandfilterqueries.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -914,7 +932,7 @@ namespace {
 		/**
 		 * Returns the expand query expand.q parameter
 		 * <p>Returns the expand query expand.q parameter</p>
-		 * @return array
+		 * @return array <p>Returns the expand query.</p>
 		 * @link https://php.net/manual/en/solrquery.getexpandquery.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -923,7 +941,7 @@ namespace {
 		/**
 		 * Returns The number of rows to display in each group (expand.rows)
 		 * <p>Returns The number of rows to display in each group (expand.rows)</p>
-		 * @return int
+		 * @return int <p>Returns the number of rows.</p>
 		 * @link https://php.net/manual/en/solrquery.getexpandrows.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -932,7 +950,7 @@ namespace {
 		/**
 		 * Returns an array of fields
 		 * <p>Returns an array of fields</p>
-		 * @return array
+		 * @return array <p>Returns an array of fields.</p>
 		 * @link https://php.net/manual/en/solrquery.getexpandsortfields.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -1345,7 +1363,7 @@ namespace {
 
 		/**
 		 * Returns the deviation factor from the ideal fragment size
-		 * <p>Returns the factor by which the regex fragmenter can deviate from the ideal fragment size to accomodate the regular expression</p>
+		 * <p>Returns the factor by which the regex fragmenter can deviate from the ideal fragment size to accommodate the regular expression</p>
 		 * @return float <p>Returns a double on success and <b><code>null</code></b> if not set.</p>
 		 * @link https://php.net/manual/en/solrquery.gethighlightregexslop.php
 		 * @since PECL solr >= 0.9.2
@@ -2174,9 +2192,9 @@ namespace {
 
 		/**
 		 * If true, the result of the first field grouping command is used as the main result list in the response, using group.format=simple
-		 * <p>If true, the result of the first field grouping command is used as the main result list in the response, using group.format=simple.</p>
-		 * @param string $value
-		 * @return SolrQuery
+		 * <p>If <b><code>true</code></b>, the result of the first field grouping command is used as the main result list in the response, using <code>group.format=simple</code>.</p>
+		 * @param string $value <p>If <b><code>true</code></b>, the result of the first field grouping command is used as the main result list in the response.</p>
+		 * @return SolrQuery <p>Returns an instance of <code>SolrQuery</code>.</p>
 		 * @link https://php.net/manual/en/solrquery.setgroupmain.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -2238,7 +2256,7 @@ namespace {
 		 * <p>Specify a formatter for the highlight output.</p>
 		 * @param string $formatter <p>Currently the only legal value is "simple"</p>
 		 * @param string $field_override <p>The name of the field.</p>
-		 * @return SolrQuery
+		 * @return SolrQuery <p>Returns an instance of <code>SolrQuery</code>.</p>
 		 * @link https://php.net/manual/en/solrquery.sethighlightformatter.php
 		 * @since PECL solr >= 0.9.2
 		 */
@@ -2353,7 +2371,7 @@ namespace {
 		 * <p>Sets the text which appears before a highlighted term</p>
 		 * @param string $simplePost <p>Sets the text which appears after a highlighted term</p> <p></p><pre>The default is &lt;/em&gt;</pre>
 		 * @param string $field_override <p>The name of the field.</p>
-		 * @return SolrQuery
+		 * @return SolrQuery <p>Returns an instance of <code>SolrQuery</code>.</p>
 		 * @link https://php.net/manual/en/solrquery.sethighlightsimplepost.php
 		 * @since PECL solr >= 0.9.2
 		 */
@@ -3213,7 +3231,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -3225,7 +3249,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -3234,13 +3258,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -3254,11 +3290,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -3297,13 +3333,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -3533,7 +3569,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -3545,13 +3587,25 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.line
 		 */
 		protected $line;
+
+		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
 
 		/**
 		 * @var int <p>The line in c-space source file where exception was generated</p>
@@ -3578,7 +3632,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -3592,11 +3646,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -3635,13 +3689,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -3673,7 +3727,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -3685,13 +3745,25 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.line
 		 */
 		protected $line;
+
+		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
 
 		/**
 		 * @var int <p>The line in c-space source file where exception was generated</p>
@@ -3718,7 +3790,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -3732,11 +3804,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -3775,13 +3847,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -3876,7 +3948,7 @@ namespace {
 		 * Adds a child document for block indexing
 		 * <p>Adds a child document to construct a document block with nested documents.</p>
 		 * @param \SolrInputDocument $child <p>A <code>SolrInputDocument</code> object.</p>
-		 * @return void
+		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/solrinputdocument.addchilddocument.php
 		 * @since PECL solr >= 2.3.0
 		 */
@@ -3886,7 +3958,7 @@ namespace {
 		 * Adds an array of child documents
 		 * <p>Adds an array of child documents to the current input document.</p>
 		 * @param array $docs <p>An <code>array</code> of <code>SolrInputDocument</code> objects.</p>
-		 * @return void
+		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/solrinputdocument.addchilddocuments.php
 		 * @since PECL solr >= 2.3.0
 		 */
@@ -4042,7 +4114,7 @@ namespace {
 		 * <p>Sets the index-time boost value for a field. This replaces the current boost value for this field.</p>
 		 * @param string $fieldName <p>The name of the field.</p>
 		 * @param float $fieldBoostValue <p>The index time boost value.</p>
-		 * @return bool
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/solrinputdocument.setfieldboost.php
 		 * @since PECL solr >= 0.9.2
 		 */
@@ -4078,7 +4150,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -4090,13 +4168,25 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.line
 		 */
 		protected $line;
+
+		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
 
 		/**
 		 * @var int <p>The line in c-space source file where exception was generated</p>
@@ -4123,7 +4213,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -4137,11 +4227,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -4180,13 +4270,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -4824,8 +4914,8 @@ namespace {
 		/**
 		 * Add a field to be used to group results
 		 * <p>The name of the field by which to group results. The field must be single-valued, and either be indexed or a field type that has a value source and works in a function query, such as ExternalFileField. It must also be a string-based field, such as StrField or TextField Uses group.field parameter</p>
-		 * @param string $value
-		 * @return SolrQuery
+		 * @param string $value <p>The name of the field.</p>
+		 * @return SolrQuery <p>Returns an instance of <code>SolrQuery</code>.</p>
 		 * @link https://php.net/manual/en/solrquery.addgroupfield.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -4937,7 +5027,7 @@ namespace {
 		/**
 		 * Returns true if group expanding is enabled
 		 * <p>Returns <b><code>true</code></b> if group expanding is enabled</p>
-		 * @return bool
+		 * @return bool <p>Returns whether group expanding is enabled.</p>
 		 * @link https://php.net/manual/en/solrquery.getexpand.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -4946,7 +5036,7 @@ namespace {
 		/**
 		 * Returns the expand filter queries
 		 * <p>Returns the expand filter queries</p>
-		 * @return array
+		 * @return array <p>Returns the expand filter queries.</p>
 		 * @link https://php.net/manual/en/solrquery.getexpandfilterqueries.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -4955,7 +5045,7 @@ namespace {
 		/**
 		 * Returns the expand query expand.q parameter
 		 * <p>Returns the expand query expand.q parameter</p>
-		 * @return array
+		 * @return array <p>Returns the expand query.</p>
 		 * @link https://php.net/manual/en/solrquery.getexpandquery.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -4964,7 +5054,7 @@ namespace {
 		/**
 		 * Returns The number of rows to display in each group (expand.rows)
 		 * <p>Returns The number of rows to display in each group (expand.rows)</p>
-		 * @return int
+		 * @return int <p>Returns the number of rows.</p>
 		 * @link https://php.net/manual/en/solrquery.getexpandrows.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -4973,7 +5063,7 @@ namespace {
 		/**
 		 * Returns an array of fields
 		 * <p>Returns an array of fields</p>
-		 * @return array
+		 * @return array <p>Returns an array of fields.</p>
 		 * @link https://php.net/manual/en/solrquery.getexpandsortfields.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -5386,7 +5476,7 @@ namespace {
 
 		/**
 		 * Returns the deviation factor from the ideal fragment size
-		 * <p>Returns the factor by which the regex fragmenter can deviate from the ideal fragment size to accomodate the regular expression</p>
+		 * <p>Returns the factor by which the regex fragmenter can deviate from the ideal fragment size to accommodate the regular expression</p>
 		 * @return float <p>Returns a double on success and <b><code>null</code></b> if not set.</p>
 		 * @link https://php.net/manual/en/solrquery.gethighlightregexslop.php
 		 * @since PECL solr >= 0.9.2
@@ -6115,9 +6205,9 @@ namespace {
 
 		/**
 		 * If true, the result of the first field grouping command is used as the main result list in the response, using group.format=simple
-		 * <p>If true, the result of the first field grouping command is used as the main result list in the response, using group.format=simple.</p>
-		 * @param string $value
-		 * @return SolrQuery
+		 * <p>If <b><code>true</code></b>, the result of the first field grouping command is used as the main result list in the response, using <code>group.format=simple</code>.</p>
+		 * @param string $value <p>If <b><code>true</code></b>, the result of the first field grouping command is used as the main result list in the response.</p>
+		 * @return SolrQuery <p>Returns an instance of <code>SolrQuery</code>.</p>
 		 * @link https://php.net/manual/en/solrquery.setgroupmain.php
 		 * @since PECL solr >= 2.2.0
 		 */
@@ -6179,7 +6269,7 @@ namespace {
 		 * <p>Specify a formatter for the highlight output.</p>
 		 * @param string $formatter <p>Currently the only legal value is "simple"</p>
 		 * @param string $field_override <p>The name of the field.</p>
-		 * @return SolrQuery
+		 * @return SolrQuery <p>Returns an instance of <code>SolrQuery</code>.</p>
 		 * @link https://php.net/manual/en/solrquery.sethighlightformatter.php
 		 * @since PECL solr >= 0.9.2
 		 */
@@ -6294,7 +6384,7 @@ namespace {
 		 * <p>Sets the text which appears before a highlighted term</p>
 		 * @param string $simplePost <p>Sets the text which appears after a highlighted term</p> <p></p><pre>The default is &lt;/em&gt;</pre>
 		 * @param string $field_override <p>The name of the field.</p>
-		 * @return SolrQuery
+		 * @return SolrQuery <p>Returns an instance of <code>SolrQuery</code>.</p>
 		 * @link https://php.net/manual/en/solrquery.sethighlightsimplepost.php
 		 * @since PECL solr >= 0.9.2
 		 */
@@ -7002,7 +7092,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -7014,13 +7110,25 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.line
 		 */
 		protected $line;
+
+		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
 
 		/**
 		 * @var int <p>The line in c-space source file where exception was generated</p>
@@ -7047,7 +7155,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -7061,11 +7169,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -7104,13 +7212,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace

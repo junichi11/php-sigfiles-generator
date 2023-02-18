@@ -26,27 +26,20 @@
   <div id="layout-content"><div id="function.openssl-pkcs7-encrypt" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_pkcs7_encrypt</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_pkcs7_encrypt</span> &mdash; <span class="dc-title">Encrypt an S/MIME message</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_pkcs7_encrypt</span> &mdash; <span class="dc-title">Encrypt an S/MIME message</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-pkcs7-encrypt-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_pkcs7_encrypt</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$infile</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$outfile</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$recipcerts</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$headers</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$cipherid</code><span class="initializer"> = OPENSSL_CIPHER_RC2_40</span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>openssl_pkcs7_encrypt</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$input_filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$output_filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type"><a href="class.opensslcertificate.html" class="type OpenSSLCertificate">OpenSSLCertificate</a></span>|<span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$certificate</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$headers</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$cipher_algo</code><span class="initializer"> = <strong><code>OPENSSL_CIPHER_AES_128_CBC</code></strong></span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_pkcs7_encrypt()</strong></span> takes the contents of the
-   file named <code class="parameter">infile</code> and encrypts them using an RC2
+   file named <code class="parameter">input_filename</code> and encrypts them using an RC2
    40-bit cipher so that they can only be read by the intended recipients
-   specified by <code class="parameter">recipcerts</code>.
+   specified by <code class="parameter">certificate</code>.
   </p>
  </div>
 
@@ -55,10 +48,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">infile</code></dt>
+<code class="parameter">input_filename</code></dt>
 
      <dd>
 
@@ -69,7 +61,7 @@
     
     
      <dt>
-<code class="parameter">outfile</code></dt>
+<code class="parameter">output_filename</code></dt>
 
      <dd>
 
@@ -80,7 +72,7 @@
     
     
      <dt>
-<code class="parameter">recipcerts</code></dt>
+<code class="parameter">certificate</code></dt>
 
      <dd>
 
@@ -124,7 +116,7 @@
     
     
      <dt>
-<code class="parameter">cipherid</code></dt>
+<code class="parameter">cipher_algo</code></dt>
 
      <dd>
 
@@ -148,10 +140,47 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.openssl-pkcs7-encrypt-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.1.0</td>
+      <td>
+       The default cipher algorithm (<code class="parameter">cipher_algo</code>) is now
+       AES-128-CBC (<strong><code>OPENSSL_CIPHER_AES_128_CBC</code></strong>). Previously,
+       PKCS7/CMS was used (<strong><code>OPENSSL_CIPHER_RC2_40</code></strong>).
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">certificate</code> accepts an <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL X.509 CSR</code> was accepted.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.openssl-pkcs7-encrypt-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-930">
+   <div class="example" id="example-934">
     <p><strong>Example #1 <span class="function"><strong>openssl_pkcs7_encrypt()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

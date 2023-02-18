@@ -76,7 +76,7 @@ namespace Ds {
 		/**
 		 * Updates all values by applying a callback function to each value
 		 * <p>Updates all values by applying a <code>callback</code> function to each value in the deque.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>mixed</code> <p>A <code>callable</code> to apply to each value in the deque.</p> <p>The callback should return what the value should be replaced by.</p>
+		 * @param callable $callback <p></p> callback(<code>mixed</code> <code>$value</code>): <code>mixed</code> <p>A <code>callable</code> to apply to each value in the deque.</p> <p>The callback should return what the value should be replaced by.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-deque.apply.php
 		 * @since PECL ds >= 1.0.0
@@ -123,7 +123,7 @@ namespace Ds {
 		/**
 		 * Creates a new deque using a callable to determine which values to include
 		 * <p>Creates a new deque using a <code>callable</code> to determine which values to include.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the value should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
+		 * @param callable $callback <p></p>callback(<code>mixed</code> <code>$value</code>): <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the value should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
 		 * @return Ds\Deque <p>A new deque containing all the values for which either the <code>callback</code> returned <b><code>true</code></b>, or all values that convert to <b><code>true</code></b> if a <code>callback</code> was not provided.</p>
 		 * @link https://php.net/manual/en/ds-deque.filter.php
 		 * @since PECL ds >= 1.0.0
@@ -201,7 +201,7 @@ namespace Ds {
 		/**
 		 * Returns the result of applying a callback to each value
 		 * <p>Returns the result of applying a <code>callback</code> function to each value in the deque.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>mixed</code> <p>A <code>callable</code> to apply to each value in the deque.</p> <p>The callable should return what the new value will be in the new deque.</p>
+		 * @param callable $callback <p></p>callback(<code>mixed</code> <code>$value</code>): <code>mixed</code> <p>A <code>callable</code> to apply to each value in the deque.</p> <p>The callable should return what the new value will be in the new deque.</p>
 		 * @return Ds\Deque <p>The result of applying a <code>callback</code> to each value in the deque.</p><p><b>Note</b>:</p><p>The values of the current instance won't be affected.</p>
 		 * @link https://php.net/manual/en/ds-deque.map.php
 		 * @since PECL ds >= 1.0.0
@@ -211,7 +211,7 @@ namespace Ds {
 		/**
 		 * Returns the result of adding all given values to the deque
 		 * <p>Returns the result of adding all given values to the deque.</p>
-		 * @param mixed $values <p>A traversable object or an <code>array</code>.</p>
+		 * @param mixed $values <p>A <code>traversable</code> object or an <code>array</code>.</p>
 		 * @return Ds\Deque <p>The result of adding all given values to the deque, effectively the same as adding the values to a copy, then returning that copy.</p><p><b>Note</b>:</p><p>The current instance won't be affected.</p>
 		 * @link https://php.net/manual/en/ds-deque.merge.php
 		 * @since PECL ds >= 1.0.0
@@ -240,7 +240,7 @@ namespace Ds {
 		/**
 		 * Reduces the deque to a single value using a callback function
 		 * <p>Reduces the deque to a single value using a callback function.</p>
-		 * @param callable $callback callback ( <code>mixed</code> <code>$carry</code> , <code>mixed</code> <code>$value</code> ) : <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
+		 * @param callable $callback callback(<code>mixed</code> <code>$carry</code>, <code>mixed</code> <code>$value</code>): <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
 		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>null</code></b>.</p>
 		 * @return mixed <p>The return value of the final callback.</p>
 		 * @link https://php.net/manual/en/ds-deque.reduce.php
@@ -320,7 +320,7 @@ namespace Ds {
 		/**
 		 * Sorts the deque in-place
 		 * <p>Sorts the deque in-place, using an optional <code>comparator</code> function.</p>
-		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
+		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-deque.sort.php
 		 * @since PECL ds >= 1.0.0
@@ -330,7 +330,7 @@ namespace Ds {
 		/**
 		 * Returns a sorted copy
 		 * <p>Returns a sorted copy, using an optional <code>comparator</code> function.</p>
-		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
+		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
 		 * @return Ds\Deque <p>Returns a sorted copy of the deque.</p>
 		 * @link https://php.net/manual/en/ds-deque.sorted.php
 		 * @since PECL ds >= 1.0.0
@@ -421,7 +421,7 @@ namespace Ds {
 		/**
 		 * Updates all values by applying a callback function to each value
 		 * <p>Updates all values by applying a <code>callback</code> function to each value in the map.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$key</code> , <code>mixed</code> <code>$value</code> ) : <code>mixed</code> <p>A <code>callable</code> to apply to each value in the map.</p> <p>The callback should return what the value should be replaced by.</p>
+		 * @param callable $callback <p></p> callback(<code>mixed</code> <code>$key</code>, <code>mixed</code> <code>$value</code>): <code>mixed</code> <p>A <code>callable</code> to apply to each value in the map.</p> <p>The callback should return what the value should be replaced by.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-map.apply.php
 		 * @since PECL ds >= 1.0.0
@@ -468,7 +468,7 @@ namespace Ds {
 		/**
 		 * Creates a new map using a callable to determine which pairs to include
 		 * <p>Creates a new map using a <code>callable</code> to determine which pairs to include.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$key</code> , <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the pair should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
+		 * @param callable $callback <p></p>callback(<code>mixed</code> <code>$key</code>, <code>mixed</code> <code>$value</code>): <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the pair should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
 		 * @return Ds\Map <p>A new map containing all the pairs for which either the <code>callback</code> returned <b><code>true</code></b>, or all values that convert to <b><code>true</code></b> if a <code>callback</code> was not provided.</p>
 		 * @link https://php.net/manual/en/ds-map.filter.php
 		 * @since PECL ds >= 1.0.0
@@ -546,7 +546,7 @@ namespace Ds {
 		/**
 		 * Sorts the map in-place by key
 		 * <p>Sorts the map in-place by key, using an optional <code>comparator</code> function.</p>
-		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
+		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-map.ksort.php
 		 * @since PECL ds >= 1.0.0
@@ -556,7 +556,7 @@ namespace Ds {
 		/**
 		 * Returns a copy, sorted by key
 		 * <p>Returns a copy sorted by key, using an optional <code>comparator</code> function.</p>
-		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
+		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
 		 * @return Ds\Map <p>Returns a copy of the map, sorted by key.</p>
 		 * @link https://php.net/manual/en/ds-map.ksorted.php
 		 * @since No version information available, might only be in Git
@@ -575,7 +575,7 @@ namespace Ds {
 		/**
 		 * Returns the result of applying a callback to each value
 		 * <p>Returns the result of applying a <code>callback</code> function to each value of the map.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$key</code> , <code>mixed</code> <code>$value</code> ) : <code>mixed</code> <p>A <code>callable</code> to apply to each value in the map.</p> <p>The callable should return what the key will be mapped to in the resulting map.</p>
+		 * @param callable $callback <p></p>callback(<code>mixed</code> <code>$key</code>, <code>mixed</code> <code>$value</code>): <code>mixed</code> <p>A <code>callable</code> to apply to each value in the map.</p> <p>The callable should return what the key will be mapped to in the resulting map.</p>
 		 * @return Ds\Map <p>The result of applying a <code>callback</code> to each value in the map.</p><p><b>Note</b>:</p><p>The keys and values of the current instance won't be affected.</p>
 		 * @link https://php.net/manual/en/ds-map.map.php
 		 * @since PECL ds >= 1.0.0
@@ -584,9 +584,9 @@ namespace Ds {
 
 		/**
 		 * Returns the result of adding all given associations
-		 * <p>Returns the result of associating all keys of a given traversable object or <code>array</code> with their corresponding values, combined with the current instance.</p><p><b>Note</b>:</p><p>Values of the current instance will be overwritten by those provided where keys are equal.</p>
-		 * @param mixed $values <p>A traversable object or an <code>array</code>.</p>
-		 * @return Ds\Map <p>The result of associating all keys of a given traversable object or <code>array</code> with their corresponding values, combined with the current instance.</p><p><b>Note</b>:</p><p>The current instance won't be affected.</p>
+		 * <p>Returns the result of associating all keys of a given <code>traversable</code> object or <code>array</code> with their corresponding values, combined with the current instance.</p><p><b>Note</b>:</p><p>Values of the current instance will be overwritten by those provided where keys are equal.</p>
+		 * @param mixed $values <p>A <code>traversable</code> object or an <code>array</code>.</p>
+		 * @return Ds\Map <p>The result of associating all keys of a given <code>traversable</code> object or <code>array</code> with their corresponding values, combined with the current instance.</p><p><b>Note</b>:</p><p>The current instance won't be affected.</p>
 		 * @link https://php.net/manual/en/ds-map.merge.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -614,8 +614,8 @@ namespace Ds {
 
 		/**
 		 * Associates all key-value pairs of a traversable object or array
-		 * <p>Associates all key-value <code>pairs</code> of a traversable object or <code>array</code>.</p><p><b>Note</b>:</p><p>Keys of type <code>object</code> are supported. If an object implements <b>Ds\Hashable</b>, equality will be determined by the object's <code>equals</code> function. If an object does not implement <b>Ds\Hashable</b>, objects must be references to the same instance to be considered equal.</p>
-		 * @param mixed $pairs <p>traversable object or <code>array</code>.</p>
+		 * <p>Associates all key-value <code>pairs</code> of a <code>traversable</code> object or <code>array</code>.</p><p><b>Note</b>:</p><p>Keys of type <code>object</code> are supported. If an object implements <b>Ds\Hashable</b>, equality will be determined by the object's <code>equals</code> function. If an object does not implement <b>Ds\Hashable</b>, objects must be references to the same instance to be considered equal.</p>
+		 * @param mixed $pairs <p><code>traversable</code> object or <code>array</code>.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-map.putall.php
 		 * @since PECL ds >= 1.0.2
@@ -625,7 +625,7 @@ namespace Ds {
 		/**
 		 * Reduces the map to a single value using a callback function
 		 * <p>Reduces the map to a single value using a callback function.</p>
-		 * @param callable $callback callback ( <code>mixed</code> <code>$carry</code> , <code>mixed</code> <code>$key</code> , <code>mixed</code> <code>$value</code> ) : <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>key</code>  <p>The key of the current iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
+		 * @param callable $callback callback(<code>mixed</code> <code>$carry</code>, <code>mixed</code> <code>$key</code>, <code>mixed</code> <code>$value</code>): <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>key</code>  <p>The key of the current iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
 		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>null</code></b>.</p>
 		 * @return mixed <p>The return value of the final callback.</p>
 		 * @link https://php.net/manual/en/ds-map.reduce.php
@@ -686,7 +686,7 @@ namespace Ds {
 		/**
 		 * Sorts the map in-place by value
 		 * <p>Sorts the map in-place by value, using an optional <code>comparator</code> function.</p>
-		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
+		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-map.sort.php
 		 * @since PECL ds >= 1.0.0
@@ -696,7 +696,7 @@ namespace Ds {
 		/**
 		 * Returns a copy, sorted by value
 		 * <p>Returns a copy, sorted by value using an optional <code>comparator</code> function.</p>
-		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
+		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
 		 * @return Ds\Map <p>Returns a copy of the map, sorted by value.</p>
 		 * @link https://php.net/manual/en/ds-map.sorted.php
 		 * @since PECL ds >= 1.0.0
@@ -1027,7 +1027,7 @@ namespace Ds {
 		/**
 		 * Updates all values by applying a callback function to each value
 		 * <p>Updates all values by applying a <code>callback</code> function to each value in the sequence.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>mixed</code> <p>A <code>callable</code> to apply to each value in the sequence.</p> <p>The callback should return what the value should be replaced by.</p>
+		 * @param callable $callback <p></p> callback(<code>mixed</code> <code>$value</code>): <code>mixed</code> <p>A <code>callable</code> to apply to each value in the sequence.</p> <p>The callback should return what the value should be replaced by.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-sequence.apply.php
 		 * @since PECL ds >= 1.0.0
@@ -1056,7 +1056,7 @@ namespace Ds {
 		/**
 		 * Creates a new sequence using a callable to determine which values to include
 		 * <p>Creates a new sequence using a <code>callable</code> to determine which values to include.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the value should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
+		 * @param callable $callback <p></p>callback(<code>mixed</code> <code>$value</code>): <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the value should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
 		 * @return Ds\Sequence <p>A new sequence containing all the values for which either the <code>callback</code> returned <b><code>true</code></b>, or all values that convert to <b><code>true</code></b> if a <code>callback</code> was not provided.</p>
 		 * @link https://php.net/manual/en/ds-sequence.filter.php
 		 * @since PECL ds >= 1.0.0
@@ -1125,7 +1125,7 @@ namespace Ds {
 		/**
 		 * Returns the result of applying a callback to each value
 		 * <p>Returns the result of applying a <code>callback</code> function to each value in the sequence.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>mixed</code> <p>A <code>callable</code> to apply to each value in the sequence.</p> <p>The callable should return what the new value will be in the new sequence.</p>
+		 * @param callable $callback <p></p>callback(<code>mixed</code> <code>$value</code>): <code>mixed</code> <p>A <code>callable</code> to apply to each value in the sequence.</p> <p>The callable should return what the new value will be in the new sequence.</p>
 		 * @return Ds\Sequence <p>The result of applying a <code>callback</code> to each value in the sequence.</p><p><b>Note</b>:</p><p>The values of the current instance won't be affected.</p>
 		 * @link https://php.net/manual/en/ds-sequence.map.php
 		 * @since PECL ds >= 1.0.0
@@ -1135,7 +1135,7 @@ namespace Ds {
 		/**
 		 * Returns the result of adding all given values to the sequence
 		 * <p>Returns the result of adding all given values to the sequence.</p>
-		 * @param mixed $values <p>A traversable object or an <code>array</code>.</p>
+		 * @param mixed $values <p>A <code>traversable</code> object or an <code>array</code>.</p>
 		 * @return Ds\Sequence <p>The result of adding all given values to the sequence, effectively the same as adding the values to a copy, then returning that copy.</p><p><b>Note</b>:</p><p>The current instance won't be affected.</p>
 		 * @link https://php.net/manual/en/ds-sequence.merge.php
 		 * @since PECL ds >= 1.0.0
@@ -1164,7 +1164,7 @@ namespace Ds {
 		/**
 		 * Reduces the sequence to a single value using a callback function
 		 * <p>Reduces the sequence to a single value using a callback function.</p>
-		 * @param callable $callback callback ( <code>mixed</code> <code>$carry</code> , <code>mixed</code> <code>$value</code> ) : <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
+		 * @param callable $callback callback(<code>mixed</code> <code>$carry</code>, <code>mixed</code> <code>$value</code>): <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
 		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>null</code></b>.</p>
 		 * @return mixed <p>The return value of the final callback.</p>
 		 * @link https://php.net/manual/en/ds-sequence.reduce.php
@@ -1244,7 +1244,7 @@ namespace Ds {
 		/**
 		 * Sorts the sequence in-place
 		 * <p>Sorts the sequence in-place, using an optional <code>comparator</code> function.</p>
-		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
+		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-sequence.sort.php
 		 * @since PECL ds >= 1.0.0
@@ -1254,7 +1254,7 @@ namespace Ds {
 		/**
 		 * Returns a sorted copy
 		 * <p>Returns a sorted copy, using an optional <code>comparator</code> function.</p>
-		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
+		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
 		 * @return Ds\Sequence <p>Returns a sorted copy of the sequence.</p>
 		 * @link https://php.net/manual/en/ds-sequence.sorted.php
 		 * @since PECL ds >= 1.0.0
@@ -1364,7 +1364,7 @@ namespace Ds {
 		/**
 		 * Creates a new set using a callable to determine which values to include
 		 * <p>Creates a new set using a <code>callable</code> to determine which values to include.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the value should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
+		 * @param callable $callback <p></p> callback(<code>mixed</code> <code>$value</code>): <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the value should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
 		 * @return Ds\Set <p>A new set containing all the values for which either the <code>callback</code> returned <b><code>true</code></b>, or all values that convert to <b><code>true</code></b> if a <code>callback</code> was not provided.</p>
 		 * @link https://php.net/manual/en/ds-set.filter.php
 		 * @since PECL ds >= 1.0.0
@@ -1431,7 +1431,7 @@ namespace Ds {
 		/**
 		 * Returns the result of adding all given values to the set
 		 * <p>Returns the result of adding all given values to the set.</p>
-		 * @param mixed $values <p>A traversable object or an <code>array</code>.</p>
+		 * @param mixed $values <p>A <code>traversable</code> object or an <code>array</code>.</p>
 		 * @return Ds\Set <p>The result of adding all given values to the set, effectively the same as adding the values to a copy, then returning that copy.</p><p><b>Note</b>:</p><p>The current instance won't be affected.</p>
 		 * @link https://php.net/manual/en/ds-set.merge.php
 		 * @since PECL ds >= 1.0.3
@@ -1441,7 +1441,7 @@ namespace Ds {
 		/**
 		 * Reduces the set to a single value using a callback function
 		 * <p>Reduces the set to a single value using a callback function.</p>
-		 * @param callable $callback callback ( <code>mixed</code> <code>$carry</code> , <code>mixed</code> <code>$value</code> ) : <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
+		 * @param callable $callback callback(<code>mixed</code> <code>$carry</code>, <code>mixed</code> <code>$value</code>): <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
 		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>null</code></b>.</p>
 		 * @return mixed <p>The return value of the final callback.</p>
 		 * @link https://php.net/manual/en/ds-set.reduce.php
@@ -1491,7 +1491,7 @@ namespace Ds {
 		/**
 		 * Sorts the set in-place
 		 * <p>Sorts the set in-place, using an optional <code>comparator</code> function.</p>
-		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
+		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-set.sort.php
 		 * @since PECL ds >= 1.0.0
@@ -1501,7 +1501,7 @@ namespace Ds {
 		/**
 		 * Returns a sorted copy
 		 * <p>Returns a sorted copy, using an optional <code>comparator</code> function.</p>
-		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
+		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
 		 * @return Ds\Set <p>Returns a sorted copy of the set.</p>
 		 * @link https://php.net/manual/en/ds-set.sorted.php
 		 * @since PECL ds >= 1.0.0
@@ -1665,7 +1665,7 @@ namespace Ds {
 		/**
 		 * Updates all values by applying a callback function to each value
 		 * <p>Updates all values by applying a <code>callback</code> function to each value in the vector.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>mixed</code> <p>A <code>callable</code> to apply to each value in the vector.</p> <p>The callback should return what the value should be replaced by.</p>
+		 * @param callable $callback <p></p> callback(<code>mixed</code> <code>$value</code>): <code>mixed</code> <p>A <code>callable</code> to apply to each value in the vector.</p> <p>The callback should return what the value should be replaced by.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-vector.apply.php
 		 * @since PECL ds >= 1.0.0
@@ -1712,7 +1712,7 @@ namespace Ds {
 		/**
 		 * Creates a new vector using a callable to determine which values to include
 		 * <p>Creates a new vector using a <code>callable</code> to determine which values to include.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the value should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
+		 * @param callable $callback <p></p>callback(<code>mixed</code> <code>$value</code>): <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the value should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
 		 * @return Ds\Vector <p>A new vector containing all the values for which either the <code>callback</code> returned <b><code>true</code></b>, or all values that convert to <b><code>true</code></b> if a <code>callback</code> was not provided.</p>
 		 * @link https://php.net/manual/en/ds-vector.filter.php
 		 * @since PECL ds >= 1.0.0
@@ -1790,7 +1790,7 @@ namespace Ds {
 		/**
 		 * Returns the result of applying a callback to each value
 		 * <p>Returns the result of applying a <code>callback</code> function to each value in the vector.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>mixed</code> <p>A <code>callable</code> to apply to each value in the vector.</p> <p>The callable should return what the new value will be in the new vector.</p>
+		 * @param callable $callback <p></p>callback(<code>mixed</code> <code>$value</code>): <code>mixed</code> <p>A <code>callable</code> to apply to each value in the vector.</p> <p>The callable should return what the new value will be in the new vector.</p>
 		 * @return Ds\Vector <p>The result of applying a <code>callback</code> to each value in the vector.</p><p><b>Note</b>:</p><p>The values of the current instance won't be affected.</p>
 		 * @link https://php.net/manual/en/ds-vector.map.php
 		 * @since PECL ds >= 1.0.0
@@ -1800,7 +1800,7 @@ namespace Ds {
 		/**
 		 * Returns the result of adding all given values to the vector
 		 * <p>Returns the result of adding all given values to the vector.</p>
-		 * @param mixed $values <p>A traversable object or an <code>array</code>.</p>
+		 * @param mixed $values <p>A <code>traversable</code> object or an <code>array</code>.</p>
 		 * @return Ds\Vector <p>The result of adding all given values to the vector, effectively the same as adding the values to a copy, then returning that copy.</p><p><b>Note</b>:</p><p>The current instance won't be affected.</p>
 		 * @link https://php.net/manual/en/ds-vector.merge.php
 		 * @since PECL ds >= 1.0.0
@@ -1829,7 +1829,7 @@ namespace Ds {
 		/**
 		 * Reduces the vector to a single value using a callback function
 		 * <p>Reduces the vector to a single value using a callback function.</p>
-		 * @param callable $callback callback ( <code>mixed</code> <code>$carry</code> , <code>mixed</code> <code>$value</code> ) : <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
+		 * @param callable $callback callback(<code>mixed</code> <code>$carry</code>, <code>mixed</code> <code>$value</code>): <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
 		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>null</code></b>.</p>
 		 * @return mixed <p>The return value of the final callback.</p>
 		 * @link https://php.net/manual/en/ds-vector.reduce.php
@@ -1909,7 +1909,7 @@ namespace Ds {
 		/**
 		 * Sorts the vector in-place
 		 * <p>Sorts the vector in-place, using an optional <code>comparator</code> function.</p>
-		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
+		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-vector.sort.php
 		 * @since PECL ds >= 1.0.0
@@ -1919,7 +1919,7 @@ namespace Ds {
 		/**
 		 * Returns a sorted copy
 		 * <p>Returns a sorted copy, using an optional <code>comparator</code> function.</p>
-		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
+		 * @param callable $comparator <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code> <b>Caution</b> <p>Returning <i>non-integer</i> values from the comparison function, such as <code>float</code>, will result in an internal cast to <code>int</code> of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.</p>
 		 * @return Ds\Vector <p>Returns a sorted copy of the vector.</p>
 		 * @link https://php.net/manual/en/ds-vector.sorted.php
 		 * @since PECL ds >= 1.0.0

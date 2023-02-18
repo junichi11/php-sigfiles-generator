@@ -140,11 +140,31 @@
      <div class="informalexample">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"a"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;0&nbsp;==&nbsp;0&nbsp;-&gt;&nbsp;true<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #DD0000">"1"&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"01"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;1&nbsp;==&nbsp;1&nbsp;-&gt;&nbsp;true<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #DD0000">"10"&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"1e1"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;10&nbsp;==&nbsp;10&nbsp;-&gt;&nbsp;true<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">100&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"1e2"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;100&nbsp;==&nbsp;100&nbsp;-&gt;&nbsp;true<br /><br /></span><span style="color: #007700">switch&nbsp;(</span><span style="color: #DD0000">"a"</span><span style="color: #007700">)&nbsp;{<br />case&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"0"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;break;<br />case&nbsp;</span><span style="color: #DD0000">"a"</span><span style="color: #007700">:&nbsp;</span><span style="color: #FF8000">//&nbsp;never&nbsp;reached&nbsp;because&nbsp;"a"&nbsp;is&nbsp;already&nbsp;matched&nbsp;with&nbsp;0<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"a"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;break;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"a"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #DD0000">"1"&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"01"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #DD0000">"10"&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"1e1"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">100&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"1e2"</span><span style="color: #007700">);<br /><br />switch&nbsp;(</span><span style="color: #DD0000">"a"</span><span style="color: #007700">)&nbsp;{<br />case&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"0"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;break;<br />case&nbsp;</span><span style="color: #DD0000">"a"</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"a"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;break;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
 
+      <p class="para">Output of the above example in PHP 7:</p>
+      <div class="example-contents screen">
+<div class="cdata"><pre>
+bool(true)
+bool(true)
+bool(true)
+bool(true)
+0
+</pre></div>
+      </div>
+      <p class="para">Output of the above example in PHP 8:</p>
+      <div class="example-contents screen">
+<div class="cdata"><pre>
+bool(false)
+bool(true)
+bool(true)
+bool(true)
+a
+</pre></div>
+      </div>      
      </div>
     </p>
    </div>
@@ -231,7 +251,7 @@
 
 
    <p class="para">
-    <div class="example" id="example-116">
+    <div class="example" id="example-114">
      <p><strong>Example #1 Boolean/null comparison</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -245,7 +265,7 @@
 
 
    <p class="para">
-    <div class="example" id="example-117">
+    <div class="example" id="example-115">
      <p><strong>Example #2 Transcription of standard array comparison</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -286,7 +306,7 @@
     <h3 class="title">Ternary Operator</h3>
     <p class="para">
      Another conditional operator is the &quot;?:&quot; (or ternary) operator.
-     <div class="example" id="example-118">
+     <div class="example" id="example-116">
       <p><strong>Example #3 Assigning a default value</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -321,15 +341,17 @@
     <blockquote class="note"><p><strong class="note">Note</strong>: 
      <p class="para">
       It is recommended to avoid &quot;stacking&quot; ternary expressions.
-      PHP&#039;s behaviour when using more than one ternary operator within a single
-      statement is non-obvious compared to other languages.
-      Indeed prior to PHP 8.0.0, ternary expressions were evaluated from left to
-      right, instead of right to left like most other programming languages.
-      <div class="example" id="example-119">
+      PHP&#039;s behaviour when using more than one unparenthesized ternary operator within a single
+      expression is non-obvious compared to other languages.
+      Indeed prior to PHP 8.0.0, ternary expressions were evaluated left-associative,
+      instead of right-associative like most other programming languages.
+      Relying on left-associativity is deprecated as of PHP 7.4.0.
+      As of PHP 8.0.0, the ternary operator is non-associative.
+      <div class="example" id="example-117">
        <p><strong>Example #4 Non-obvious Ternary Behaviour</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;on&nbsp;first&nbsp;glance,&nbsp;the&nbsp;following&nbsp;appears&nbsp;to&nbsp;output&nbsp;'true'<br /></span><span style="color: #007700">echo&nbsp;(</span><span style="color: #0000BB">true</span><span style="color: #007700">?</span><span style="color: #DD0000">'true'</span><span style="color: #007700">:</span><span style="color: #0000BB">false</span><span style="color: #007700">?</span><span style="color: #DD0000">'t'</span><span style="color: #007700">:</span><span style="color: #DD0000">'f'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;however,&nbsp;the&nbsp;actual&nbsp;output&nbsp;of&nbsp;the&nbsp;above&nbsp;is&nbsp;'t'&nbsp;prior&nbsp;to&nbsp;PHP&nbsp;8.0.0<br />//&nbsp;this&nbsp;is&nbsp;because&nbsp;ternary&nbsp;expressions&nbsp;are&nbsp;evaluated&nbsp;from&nbsp;left&nbsp;to&nbsp;right<br /><br />//&nbsp;the&nbsp;following&nbsp;is&nbsp;a&nbsp;more&nbsp;obvious&nbsp;version&nbsp;of&nbsp;the&nbsp;same&nbsp;code&nbsp;as&nbsp;above<br /></span><span style="color: #007700">echo&nbsp;((</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">'true'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;?&nbsp;</span><span style="color: #DD0000">'t'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">'f'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;here,&nbsp;one&nbsp;can&nbsp;see&nbsp;that&nbsp;the&nbsp;first&nbsp;expression&nbsp;is&nbsp;evaluated&nbsp;to&nbsp;'true',&nbsp;which<br />//&nbsp;in&nbsp;turn&nbsp;evaluates&nbsp;to&nbsp;(bool)true,&nbsp;thus&nbsp;returning&nbsp;the&nbsp;true&nbsp;branch&nbsp;of&nbsp;the<br />//&nbsp;second&nbsp;ternary&nbsp;expression.<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;on&nbsp;first&nbsp;glance,&nbsp;the&nbsp;following&nbsp;appears&nbsp;to&nbsp;output&nbsp;'true'<br /></span><span style="color: #007700">echo&nbsp;(</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">'true'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">false&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">'t'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">'f'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;however,&nbsp;the&nbsp;actual&nbsp;output&nbsp;of&nbsp;the&nbsp;above&nbsp;is&nbsp;'t'&nbsp;prior&nbsp;to&nbsp;PHP&nbsp;8.0.0<br />//&nbsp;this&nbsp;is&nbsp;because&nbsp;ternary&nbsp;expressions&nbsp;are&nbsp;left-associative<br /><br />//&nbsp;the&nbsp;following&nbsp;is&nbsp;a&nbsp;more&nbsp;obvious&nbsp;version&nbsp;of&nbsp;the&nbsp;same&nbsp;code&nbsp;as&nbsp;above<br /></span><span style="color: #007700">echo&nbsp;((</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">'true'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;?&nbsp;</span><span style="color: #DD0000">'t'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">'f'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;here,&nbsp;one&nbsp;can&nbsp;see&nbsp;that&nbsp;the&nbsp;first&nbsp;expression&nbsp;is&nbsp;evaluated&nbsp;to&nbsp;'true',&nbsp;which<br />//&nbsp;in&nbsp;turn&nbsp;evaluates&nbsp;to&nbsp;(bool)true,&nbsp;thus&nbsp;returning&nbsp;the&nbsp;true&nbsp;branch&nbsp;of&nbsp;the<br />//&nbsp;second&nbsp;ternary&nbsp;expression.<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
        </div>
@@ -343,7 +365,7 @@
     <h3 class="title">Null Coalescing Operator</h3>
     <p class="para">
      Further exists the &quot;??&quot; (or null coalescing) operator.
-     <div class="example" id="example-120">
+     <div class="example" id="example-118">
       <p><strong>Example #5 Assigning a default value</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -375,7 +397,7 @@
     <blockquote class="note"><p><strong class="note">Note</strong>: 
      <p class="para">
       Please note that the null coalescing operator allows for simple nesting:
-      <div class="example" id="example-121">
+      <div class="example" id="example-119">
        <p><strong>Example #6 Nesting null coalescing operator</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

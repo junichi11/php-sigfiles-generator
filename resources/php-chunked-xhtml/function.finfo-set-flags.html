@@ -27,23 +27,17 @@
  <div class="refnamediv">
   <h1 class="refname">finfo_set_flags</h1>
   <h1 class="refname">finfo::set_flags</h1>
-  <p class="verinfo">(PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">finfo_set_flags</span> -- <span class="refname">finfo::set_flags</span> &mdash; <span class="dc-title">Set libmagic configuration options</span></p>
+  <p class="verinfo">(PHP &gt;= 5.3.0, PHP 7, PHP 8, PECL fileinfo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">finfo_set_flags</span> -- <span class="refname">finfo::set_flags</span> &mdash; <span class="dc-title">Set libmagic configuration options</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.finfo-set-flags-description">
   <h3 class="title">Description</h3>
   <p class="para">Procedural style</p>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><a href="finfo.set-flags.html" class="methodname">finfo_set_flags</a></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$finfo</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><a href="finfo.set-flags.html" class="methodname">finfo_set_flags</a></span>(<span class="methodparam"><span class="type"><a href="class.finfo.html" class="type finfo">finfo</a></span> <code class="parameter">$finfo</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>): <span class="type">bool</span></div>
 
-  <p class="para rdfs-comment">Object oriented style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="finfo.set-flags.html" class="methodname">finfo::set_flags</a></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-   ) : <span class="type">bool</span></div>
+  <p class="para rdfs-comment">Object-oriented style</p>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="finfo.set-flags.html" class="methodname">finfo::set_flags</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>): <span class="type">bool</span></div>
 
 
   <p class="para rdfs-comment">
@@ -57,16 +51,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">finfo</code></dt>
 
      <dd>
 
-      <p class="para">
-       Fileinfo resource returned by <span class="function"><a href="function.finfo-open.html" class="function">finfo_open()</a></span>.
-      </p>
+      <p class="para">An <span class="classname"><a href="class.finfo.html" class="classname">finfo</a></span> instance, returned by <span class="function"><a href="function.finfo-open.html" class="function">finfo_open()</a></span>.</p>
      </dd>
 
     
@@ -96,4 +87,32 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.finfo-set-flags-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">finfo</code> parameter expects an <span class="classname"><a href="class.finfo.html" class="classname">finfo</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+ 
 </div></div></div></body></html>

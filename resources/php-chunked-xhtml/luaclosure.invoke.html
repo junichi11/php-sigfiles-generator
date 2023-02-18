@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-luaclosure.invoke-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>LuaClosure::__invoke</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$args</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>LuaClosure::__invoke</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$args</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
 
@@ -51,7 +49,6 @@ currently not documented; only its argument list is available.
  <div class="refsect1 parameters" id="refsect1-luaclosure.invoke-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">args</code></dt>
@@ -79,11 +76,11 @@ currently not documented; only its argument list is available.
 
  <div class="refsect1 examples" id="refsect1-luaclosure.invoke-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3980">
+  <div class="example" id="example-3482">
    <p><strong>Example #1 <span class="function"><strong>LuaClosure::__invoke()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$lua&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Lua</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$closure&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$lua</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">eval</span><span style="color: #007700">(&lt;&lt;&lt;CODE<br /></span><span style="color: #DD0000">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(function&nbsp;()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("hello&nbsp;world")<br />&nbsp;&nbsp;&nbsp;&nbsp;end)<br /></span><span style="color: #007700">CODE<br />);<br /><br /></span><span style="color: #0000BB">$lua</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">call</span><span style="color: #007700">(</span><span style="color: #0000BB">$closure</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/*&nbsp;after&nbsp;PHP&nbsp;5.3&nbsp;*/<br /></span><span style="color: #0000BB">$closure</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$lua&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Lua</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$closure&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$lua</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">eval</span><span style="color: #007700">(&lt;&lt;&lt;CODE<br /></span><span style="color: #DD0000">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(function&nbsp;()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("hello&nbsp;world")<br />&nbsp;&nbsp;&nbsp;&nbsp;end)<br /></span><span style="color: #007700">CODE<br />);<br /><br /></span><span style="color: #0000BB">$lua</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">call</span><span style="color: #007700">(</span><span style="color: #0000BB">$closure</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$closure</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

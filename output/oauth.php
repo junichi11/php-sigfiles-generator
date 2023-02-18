@@ -319,7 +319,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -331,7 +337,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -340,13 +346,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -360,11 +378,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -394,13 +412,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -431,9 +449,9 @@ namespace {
 
 		/**
 		 * Constructs a new OAuthProvider object
-		 * <p>Initiates a new OAuthProvider <code>object</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Initiates a new <code>OAuthProvider</code> <code>object</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param array $params_array <p>Setting these optional parameters is limited to the CLI SAPI.</p>
-		 * @return self <p>An OAuthProvider <code>object</code>.</p>
+		 * @return self <p>An <code>OAuthProvider</code> <code>object</code>.</p>
 		 * @link https://php.net/manual/en/oauthprovider.construct.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
@@ -513,7 +531,7 @@ namespace {
 		 * is2LeggedEndpoint
 		 * <p>The 2-legged flow, or request signing. It does not require a token.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param mixed $params_array
-		 * @return void <p>An OAuthProvider <code>object</code>.</p>
+		 * @return void <p>An <code>OAuthProvider</code> <code>object</code>.</p>
 		 * @link https://php.net/manual/en/oauthprovider.is2leggedendpoint.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
@@ -541,8 +559,8 @@ namespace {
 
 		/**
 		 * Report a problem
-		 * <p>Pass in a problem as an OAuthException, with possible problems listed in the OAuth constants section.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $oauthexception <p>The OAuthException.</p>
+		 * <p>Pass in a problem as an <code>OAuthException</code>, with possible problems listed in the OAuth constants section.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * @param string $oauthexception <p>The <code>OAuthException</code>.</p>
 		 * @param bool $send_headers
 		 * @return string <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/oauthprovider.reportproblem.php

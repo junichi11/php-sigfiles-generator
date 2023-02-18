@@ -26,15 +26,13 @@
   <div id="layout-content"><div id="function.date-parse" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">date_parse</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">date_parse</span> &mdash; <span class="dc-title">Returns associative array with detailed info about given date/time</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">date_parse</span> &mdash; <span class="dc-title">Returns associative array with detailed info about given date/time</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.date-parse-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>date_parse</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>date_parse</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>): <span class="type">array</span></div>
 
  </div>
 
@@ -43,7 +41,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">datetime</code></dt>
@@ -113,7 +110,7 @@
  <div class="refsect1 examples" id="refsect1-function.date-parse-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2562">
+   <div class="example" id="example-2074">
     <p><strong>Example #1 A <span class="function"><strong>date_parse()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -148,7 +145,7 @@ Array
    <a href="datetime.formats.relative.html" class="link">Relative formats</a> do not
    influence the values parsed from absolute formats, but are parsed into the
    &quot;relative&quot; element.
-   <div class="example" id="example-2563">
+   <div class="example" id="example-2075">
     <p><strong>Example #2 <span class="function"><strong>date_parse()</strong></span> with relative formats</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,19 +26,14 @@
   <div id="layout-content"><div id="function.htmlspecialchars" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">htmlspecialchars</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">htmlspecialchars</span> &mdash; <span class="dc-title">Convert special characters to HTML entities</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">htmlspecialchars</span> &mdash; <span class="dc-title">Convert special characters to HTML entities</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.htmlspecialchars-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>htmlspecialchars</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>ENT_COMPAT</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$double_encode</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>htmlspecialchars</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$double_encode</code><span class="initializer"> = <strong><code>true</code></strong></span></span><br>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Certain characters have special significance in HTML, and should
@@ -113,7 +108,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -135,7 +129,7 @@
       <p class="para">
        A bitmask of one or more of the following flags, which specify how to handle quotes,
        invalid code unit sequences and the used document type. The default is
-       <code class="literal">ENT_COMPAT | ENT_HTML401</code>.
+       <code class="literal">ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401</code>.
        <table class="doctable table">
         <caption><strong>Available <code class="parameter">flags</code> constants</strong></caption>
         
@@ -451,10 +445,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.htmlspecialchars-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.1.0</td>
+      <td>
+       <code class="parameter">flags</code> changed from <strong><code>ENT_COMPAT</code></strong> to <strong><code>ENT_QUOTES</code></strong> | <strong><code>ENT_SUBSTITUTE</code></strong> | <strong><code>ENT_HTML401</code></strong>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.htmlspecialchars-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5304">
+   <div class="example" id="example-4793">
     <p><strong>Example #1 <span class="function"><strong>htmlspecialchars()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

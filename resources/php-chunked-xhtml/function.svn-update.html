@@ -33,11 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.svn-update-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>svn_update</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$revno</code><span class="initializer"> = SVN_REVISION_HEAD</span></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recurse</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>svn_update</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$revno</code><span class="initializer"> = SVN_REVISION_HEAD</span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recurse</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Update working copy at <code class="parameter">path</code> to revision
@@ -51,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">path</code></dt>
@@ -103,16 +98,6 @@
  </div>
 
 
- <div class="refsect1 notes" id="refsect1-function.svn-update-notes">
-  <h3 class="title">Notes</h3>
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-<em class="emphasis">EXPERIMENTAL</em>. The behaviour of this function, its name, and
-surrounding documentation may change without notice in a future release of PHP.
-This function should be used at your own risk.
-</p></div>
- </div>
-
-
  
 
  
@@ -120,7 +105,7 @@ This function should be used at your own risk.
  <div class="refsect1 examples" id="refsect1-function.svn-update-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5097">
+   <div class="example" id="example-4597">
     <p><strong>Example #1 Basic example</strong></p>
     <div class="example-contents"><p>
      This example demonstrates basic usage of this function:
@@ -141,6 +126,16 @@ something similar to:</p></div>
     </div>
    </div>
   </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.svn-update-notes">
+  <h3 class="title">Notes</h3>
+  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
+<em class="emphasis">EXPERIMENTAL</em>. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of PHP.
+This function should be used at your own risk.
+</p></div>
  </div>
 
 

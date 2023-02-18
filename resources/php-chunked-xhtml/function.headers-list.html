@@ -26,22 +26,26 @@
   <div id="layout-content"><div id="function.headers-list" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">headers_list</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">headers_list</span> &mdash; <span class="dc-title">Returns a list of response headers sent (or ready to send)</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">headers_list</span> &mdash; <span class="dc-title">Returns a list of response headers sent (or ready to send)</span></p>
 
  </div>
- 
+
  <div class="refsect1 description" id="refsect1-function.headers-list-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>headers_list</strong></span>
-    (
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>headers_list</strong></span>(): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>headers_list()</strong></span> will return a list of headers to be sent
    to the browser / client.  To determine whether or not these headers have
    been sent yet, use <span class="function"><a href="function.headers-sent.html" class="function">headers_sent()</a></span>.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.headers-list-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -56,27 +60,26 @@
  <div class="refsect1 examples" id="refsect1-function.headers-list-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4953">
-    <p><strong>Example #1 Examples using <span class="function"><strong>headers_list()</strong></span></strong></p>
+   <div class="example" id="example-4453">
+    <p><strong>Example #1 Example using <span class="function"><strong>headers_list()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;setcookie()&nbsp;will&nbsp;add&nbsp;a&nbsp;response&nbsp;header&nbsp;on&nbsp;its&nbsp;own&nbsp;*/<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Define&nbsp;a&nbsp;custom&nbsp;response&nbsp;header<br />&nbsp;&nbsp;&nbsp;This&nbsp;will&nbsp;be&nbsp;ignored&nbsp;by&nbsp;most&nbsp;clients&nbsp;*/<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"X-Sample-Test:&nbsp;foo"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Specify&nbsp;plain&nbsp;text&nbsp;content&nbsp;in&nbsp;our&nbsp;response&nbsp;*/<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-type:&nbsp;text/plain'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;What&nbsp;headers&nbsp;are&nbsp;going&nbsp;to&nbsp;be&nbsp;sent?&nbsp;*/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">headers_list</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;setcookie()&nbsp;will&nbsp;add&nbsp;a&nbsp;response&nbsp;header&nbsp;on&nbsp;its&nbsp;own&nbsp;*/<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Define&nbsp;a&nbsp;custom&nbsp;response&nbsp;header<br />&nbsp;&nbsp;&nbsp;This&nbsp;will&nbsp;be&nbsp;ignored&nbsp;by&nbsp;most&nbsp;clients&nbsp;*/<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Example-Test:&nbsp;foo"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Specify&nbsp;plain&nbsp;text&nbsp;content&nbsp;in&nbsp;our&nbsp;response&nbsp;*/<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;text/plain;&nbsp;charset=UTF-8'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;What&nbsp;headers&nbsp;are&nbsp;going&nbsp;to&nbsp;be&nbsp;sent?&nbsp;*/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">headers_list</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
-    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-array(4) {
+array(3) {
   [0]=&gt;
-  string(23) &quot;X-Powered-By: PHP/5.1.3&quot;
-  [1]=&gt;
   string(19) &quot;Set-Cookie: foo=bar&quot;
+  [1]=&gt;
+  string(17) &quot;Example-Test: foo&quot;
   [2]=&gt;
-  string(18) &quot;X-Sample-Test: foo&quot;
-  [3]=&gt;
-  string(24) &quot;Content-type: text/plain&quot;
+  string(39) &quot;Content-Type: text/plain; charset=UTF-8&quot;
 }
 
 </pre></div>

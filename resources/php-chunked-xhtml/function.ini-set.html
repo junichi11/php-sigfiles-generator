@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="function.ini-restore.html">« ini_restore</a></li>
-      <li style="float: right;"><a href="function.main.html">main »</a></li>
+      <li style="float: right;"><a href="function.memory-get-peak-usage.html">memory_get_peak_usage »</a></li>
     </ul>
   </div>
 </div>
@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.ini-set" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ini_set</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ini_set</span> &mdash; <span class="dc-title">Sets the value of a configuration option</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ini_set</span> &mdash; <span class="dc-title">Sets the value of a configuration option</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.ini-set-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ini_set</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$option</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>ini_set</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$option</code></span>, <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">float</span>|<span class="type">bool</span>|<span class="type">null</span></span> <code class="parameter">$value</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Sets the value of the given configuration option.  The configuration option
@@ -50,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">option</code></dt>
@@ -93,10 +89,38 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.ini-set-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.1.0</td>
+      <td>
+       <code class="parameter">value</code> now accepts any scalar type (including <strong><code>null</code></strong>).
+       Previously, only <span class="type">string</span> values were accepted.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.ini-set-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-549">
+   <div class="example" id="example-564">
     <p><strong>Example #1 Setting an ini option</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

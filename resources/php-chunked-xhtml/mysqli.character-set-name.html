@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Returns the default character set for the database connection</title>
+  <title>Returns the current character set of the database connection</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,7 +19,7 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="class.mysqli.html">mysqli</a></li>
-    <li>Returns the default character set for the database connection</li>
+    <li>Returns the current character set of the database connection</li>
   </ul>
 </div>
 <div id="layout">
@@ -27,26 +27,21 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli::character_set_name</h1>
   <h1 class="refname">mysqli_character_set_name</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli::character_set_name</span> -- <span class="refname">mysqli_character_set_name</span> &mdash; <span class="dc-title">Returns the default character set for the database connection</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mysqli::character_set_name</span> -- <span class="refname">mysqli_character_set_name</span> &mdash; <span class="dc-title">Returns the current character set of the database connection</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-mysqli.character-set-name-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>mysqli::character_set_name</strong></span>
-    (
-   ) : <span class="type">string</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>mysqli::character_set_name</strong></span>(): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysqli_character_set_name</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$link</code></span>
-   ) : <span class="type">string</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>mysqli_character_set_name</strong></span>(<span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$mysql</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
-   Returns the current character set for the database connection.
+   Returns the current character set of the database connection.
   </p>
  </div>
 
@@ -55,12 +50,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-link</code></dt>
+
+<code class="parameter">mysql</code></dt>
 <dd>
-<p class="para">Procedural style only: A link identifier
+<p class="para">Procedural style only: A <span class="classname"><a href="class.mysqli.html" class="classname">mysqli</a></span> object
 returned by <span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span> or <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span>
 </p></dd>
 
@@ -72,18 +66,18 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
 
  <div class="refsect1 returnvalues" id="refsect1-mysqli.character-set-name-returnvalues">
   <h3 class="title">Return Values</h3>
-  <p class="para">The default character set for the current connection</p>
+  <p class="para">The current character set of the connection</p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-mysqli.character-set-name-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1665">
+  <div class="example" id="example-1421">
    <p><strong>Example #1 <span class="methodname"><strong>mysqli::character_set_name()</strong></span> example</strong></p>
-   <div class="example-contents"><p>Object oriented style</p></div>
+   <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Open&nbsp;a&nbsp;connection&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;check&nbsp;connection&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Connect&nbsp;failed:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;exit();<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;Print&nbsp;current&nbsp;character&nbsp;set&nbsp;*/<br /></span><span style="color: #0000BB">$charset&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">character_set_name</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">printf&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"Current&nbsp;character&nbsp;set&nbsp;is&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$charset</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />mysqli_report</span><span style="color: #007700">(</span><span style="color: #0000BB">MYSQLI_REPORT_ERROR&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MYSQLI_REPORT_STRICT</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Set&nbsp;the&nbsp;default&nbsp;character&nbsp;set&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set_charset</span><span style="color: #007700">(</span><span style="color: #DD0000">'utf8mb4'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Print&nbsp;current&nbsp;character&nbsp;set&nbsp;*/<br /></span><span style="color: #0000BB">$charset&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">character_set_name</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Current&nbsp;character&nbsp;set&nbsp;is&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$charset</span><span style="color: #007700">);</span>
 </span>
 </code></div>
    </div>
@@ -91,7 +85,7 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
    <div class="example-contents"><p>Procedural style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Open&nbsp;a&nbsp;connection&nbsp;*/<br /></span><span style="color: #0000BB">$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;check&nbsp;connection&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Connect&nbsp;failed:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;exit();<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;Print&nbsp;current&nbsp;character&nbsp;set&nbsp;*/<br /></span><span style="color: #0000BB">$charset&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_character_set_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"Current&nbsp;character&nbsp;set&nbsp;is&nbsp;%s\n"</span><span style="color: #007700">,</span><span style="color: #0000BB">$charset</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;close&nbsp;connection&nbsp;*/<br /></span><span style="color: #0000BB">mysqli_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />mysqli_report</span><span style="color: #007700">(</span><span style="color: #0000BB">MYSQLI_REPORT_ERROR&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MYSQLI_REPORT_STRICT</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Set&nbsp;the&nbsp;default&nbsp;character&nbsp;set&nbsp;*/<br /></span><span style="color: #0000BB">mysqli_set_charset</span><span style="color: #007700">(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'utf8mb4'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Print&nbsp;current&nbsp;character&nbsp;set&nbsp;*/<br /></span><span style="color: #0000BB">$charset&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_character_set_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Current&nbsp;character&nbsp;set&nbsp;is&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$charset</span><span style="color: #007700">);</span>
 </span>
 </code></div>
    </div>
@@ -99,7 +93,7 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
    <div class="example-contents"><p>The above examples will output:</p></div>
    <div class="example-contents screen">
 <div class="cdata"><pre>
-Current character set is latin1_swedish_ci
+Current character set is utf8mb4
 </pre></div>
    </div>
   </div>
@@ -110,8 +104,7 @@ Current character set is latin1_swedish_ci
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="mysqli.set-charset.html" class="function" rel="rdfs-seeAlso">mysqli_set_charset()</a> - Sets the default client character set</span></li>
-    <li class="member"><span class="function"><strong>mysqli_client_encoding()</strong></span></li>
+    <li class="member"><span class="function"><a href="mysqli.set-charset.html" class="function" rel="rdfs-seeAlso">mysqli_set_charset()</a> - Sets the client character set</span></li>
     <li class="member"><span class="function"><a href="mysqli.real-escape-string.html" class="function" rel="rdfs-seeAlso">mysqli_real_escape_string()</a> - Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection</span></li>
    </ul>
   </p>

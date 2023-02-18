@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.ob-get-status" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ob_get_status</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ob_get_status</span> &mdash; <span class="dc-title">Get status of output buffers</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ob_get_status</span> &mdash; <span class="dc-title">Get status of output buffers</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.ob-get-status-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ob_get_status</strong></span>
-    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$full_status</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>ob_get_status</strong></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$full_status</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>ob_get_status()</strong></span> returns status information on either
@@ -49,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">full_status</code></dt>
@@ -92,7 +89,7 @@
     <caption><strong>Simple <span class="function"><strong>ob_get_status()</strong></span> results</strong></caption>
     <thead><tr><th>Key</th><th>Value</th>
     </tr></thead><tbody><tr class="seglistitem"><td class="seg">level</td><td class="seg">Output nesting level</td></tr>
-    <tr class="seglistitem"><td class="seg">type</td><td class="seg"><code class="literal">PHP_OUTPUT_HANDLER_INTERNAL (0)</code> or <code class="literal">PHP_OUTPUT_HANDLER_USER (1)</code></td></tr>
+    <tr class="seglistitem"><td class="seg">type</td><td class="seg"><code class="literal">0</code> (internal handler) or <code class="literal">1</code> (user supplied handler)</td></tr>
     <tr class="seglistitem"><td class="seg">status</td><td class="seg">One of <code class="literal">PHP_OUTPUT_HANDLER_START</code> (0), <code class="literal">PHP_OUTPUT_HANDLER_CONT</code> (1) or <code class="literal">PHP_OUTPUT_HANDLER_END</code> (2)</td></tr>
     <tr class="seglistitem"><td class="seg">name</td><td class="seg">Name of active output handler or &#039; default output handler&#039; if none is set</td></tr>
     <tr class="seglistitem"><td class="seg">del</td><td class="seg">Erase-flag as set by <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span></td></tr>

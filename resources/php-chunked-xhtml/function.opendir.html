@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.opendir" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">opendir</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">opendir</span> &mdash; <span class="dc-title">Open directory handle</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">opendir</span> &mdash; <span class="dc-title">Open directory handle</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.opendir-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>opendir</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code> = ?</span>
-   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>opendir</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$directory</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">resource</span><span class="type"></span></span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Opens up a directory handle to be used in subsequent
@@ -50,10 +47,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">path</code></dt>
+<code class="parameter">directory</code></dt>
 
      <dd>
 
@@ -98,17 +94,44 @@
 Upon failure, an <strong><code>E_WARNING</code></strong> is emitted.
 </p>
   <p class="para">
-   This may happen if <code class="parameter">path</code> is not a valid directory,
+   This may happen if <code class="parameter">directory</code> is not a valid directory,
    the directory can not be opened due to permission restrictions,
    or due to filesystem errors.
   </p>
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.opendir-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">context</code> is now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.opendir-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2609">
+   <div class="example" id="example-2120">
     <p><strong>Example #1 <span class="function"><strong>opendir()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

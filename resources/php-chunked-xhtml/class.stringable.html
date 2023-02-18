@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Stringable interface</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="weakmap.offsetunset.html">« WeakMap::offsetUnset</a></li>
+      <li style="float: right;"><a href="stringable.tostring.html">Stringable::__toString »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="reserved.interfaces.html">Predefined Interfaces and Classes</a></li>
+    <li>The Stringable interface</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.stringable" class="reference">
+
+ <h1 class="title">The Stringable interface</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 8)</p>
+
+
+  <div class="section" id="stringable.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    The <span class="interfacename"><strong class="interfacename">Stringable</strong></span> interface denotes a class as
+    having a <a href="language.oop5.magic.html#object.tostring" class="link">__toString()</a> method.  Unlike most interfaces,
+    <span class="interfacename"><strong class="interfacename">Stringable</strong></span> is implicitly present on any class that
+    has the magic <a href="language.oop5.magic.html#object.tostring" class="link">__toString()</a> method defined, although it
+    can and should be declared explicitly.
+   </p>
+   <p class="para">
+    Its primary value is to allow functions to type check against the union
+    type <code class="literal">string|Stringable</code> to accept either a string primitive
+    or an object that can be cast to a string.
+   </p>
+  </div>
+
+
+  <div class="section" id="stringable.synopsis">
+   <h2 class="title">Interface synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="oointerface">
+      <span class="modifier">interface</span> <strong class="interfacename">Stringable</strong></span> {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="stringable.tostring.html" class="methodname">__toString</a></span>(): <span class="type">string</span></div>
+
+   }</div>
+
+
+  </div>
+
+  <div class="section" id="stringable.examples">
+   <h2 class="title">Stringable Examples</h2>
+   <p class="para">
+    <div class="example" id="stringable.basic-example">
+     <p><strong>Example #1 Basic Stringable Usage</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">IPv4Address&nbsp;</span><span style="color: #007700">implements&nbsp;</span><span style="color: #0000BB">Stringable&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: #0000BB">string&nbsp;$oct1</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: #0000BB">string&nbsp;$oct2</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: #0000BB">string&nbsp;$oct3</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: #0000BB">string&nbsp;$oct4</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">string&nbsp;$oct1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string&nbsp;$oct2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string&nbsp;$oct3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string&nbsp;$oct4</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">oct1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$oct1</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">oct2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$oct2</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">oct3&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$oct3</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">oct4&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$oct4</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__toString</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">string&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">oct1</span><span style="color: #DD0000">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">oct2</span><span style="color: #DD0000">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">oct3</span><span style="color: #DD0000">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">oct4</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />function&nbsp;</span><span style="color: #0000BB">showStuff</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">|</span><span style="color: #0000BB">Stringable&nbsp;$value</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;A&nbsp;Stringable&nbsp;will&nbsp;get&nbsp;converted&nbsp;to&nbsp;a&nbsp;string&nbsp;here&nbsp;by&nbsp;calling<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;__toString.<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">print&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$ip&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">IPv4Address</span><span style="color: #007700">(</span><span style="color: #DD0000">'123'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'234'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'42'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'9'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">showStuff</span><span style="color: #007700">(</span><span style="color: #0000BB">$ip</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+     <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+123.234.42.9
+</pre></div>
+     </div>
+    </div>
+   </p>
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="stringable.tostring.html">Stringable::__toString</a> — Gets a string representation of the object</li></ul>
+</div>
+</div></div></body></html>

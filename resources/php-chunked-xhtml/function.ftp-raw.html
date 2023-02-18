@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.ftp-raw" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ftp_raw</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ftp_raw</span> &mdash; <span class="dc-title">Sends an arbitrary command to an FTP server</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ftp_raw</span> &mdash; <span class="dc-title">Sends an arbitrary command to an FTP server</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.ftp-raw-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ftp_raw</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$ftp</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$command</code></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>ftp_raw</strong></span>(<span class="methodparam"><span class="type"><a href="class.ftp-connection.html" class="type FTP\Connection">FTP\Connection</a></span> <code class="parameter">$ftp</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$command</code></span>): <span class="type"><span class="type">?</span><span class="type">array</span></span></div>
 
   <p class="para rdfs-comment">
    Sends an arbitrary <code class="parameter">command</code> to the FTP server. 
@@ -46,16 +43,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">ftp</code></dt>
 
      <dd>
 
-      <p class="para">
-       The link identifier of the FTP connection.
-      </p>
+       <p class="para">An <span class="classname"><a href="class.ftp-connection.html" class="classname">FTP\Connection</a></span> instance.</p>
      </dd>
 
     
@@ -79,20 +73,49 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ftp-raw-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the server&#039;s response as an array of strings.
-   No parsing is performed on the response string, nor does 
-   <span class="function"><strong>ftp_raw()</strong></span> determine if the command succeeded.  
+   Returns the server&#039;s response as an array of strings, or <strong><code>null</code></strong> on failure.
+   No parsing is performed on the response string, nor does
+   <span class="function"><strong>ftp_raw()</strong></span> determine if the command succeeded.
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.ftp-raw-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">ftp</code> parameter expects an <span class="classname"><a href="class.ftp-connection.html" class="classname">FTP\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+ 
  <div class="refsect1 examples" id="refsect1-function.ftp-raw-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4802">
+   <div class="example" id="example-4303">
     <p><strong>Example #1 Using <span class="function"><strong>ftp_raw()</strong></span> to login to an FTP server manually.</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"ftp.example.com"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as:&nbsp;<br />&nbsp;&nbsp;&nbsp;ftp_login($fp,&nbsp;"joeblow",&nbsp;"secret");&nbsp;*/<br /></span><span style="color: #0000BB">ftp_raw</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"USER&nbsp;joeblow"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ftp_raw</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PASS&nbsp;secret"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$ftp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"ftp.example.com"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as:&nbsp;<br />&nbsp;&nbsp;&nbsp;ftp_login($ftp,&nbsp;"joeblow",&nbsp;"secret");&nbsp;*/<br /></span><span style="color: #0000BB">ftp_raw</span><span style="color: #007700">(</span><span style="color: #0000BB">$ftp</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"USER&nbsp;joeblow"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ftp_raw</span><span style="color: #007700">(</span><span style="color: #0000BB">$ftp</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PASS&nbsp;secret"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

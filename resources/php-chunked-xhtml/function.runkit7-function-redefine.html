@@ -35,24 +35,9 @@
  <div class="refsect1 description" id="refsect1-function.runkit7-function-redefine-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>runkit7_function_redefine</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$funcname</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$arglist</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return_by_reference</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$doc_comment</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$return_type</code> = ?</span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$is_strict</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>runkit7_function_redefine</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$argument_list</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$return_by_reference</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$doc_comment</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$return_type</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_strict</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
 
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>runkit7_function_redefine</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$funcname</code></span>
-   , <span class="methodparam"><span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span> <code class="parameter">$closure</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$doc_comment</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$return_type</code> = ?</span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$is_strict</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>runkit7_function_redefine</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span> <code class="parameter">$closure</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$doc_comment</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$return_type</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_strict</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
 
 
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">By default, only
@@ -67,10 +52,9 @@ override internal functions, you must enable the
  <div class="refsect1 parameters" id="refsect1-function.runkit7-function-redefine-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
-<code class="parameter">funcname</code></dt>
+<code class="parameter">function_name</code></dt>
 
     <dd>
 
@@ -82,7 +66,7 @@ override internal functions, you must enable the
    
     
      <dt>
-<code class="parameter">arglist</code></dt>
+<code class="parameter">argument_list</code></dt>
 
      <dd>
 
@@ -111,7 +95,7 @@ override internal functions, you must enable the
      <dd>
 
       <p class="para">
-       A <a href="class.closure.html" class="classname">closure</a> that defines the function.
+       A <span class="classname"><a href="class.closure.html" class="classname">closure</a></span> that defines the function.
       </p>
      </dd>
 
@@ -180,7 +164,7 @@ override internal functions, you must enable the
  <div class="refsect1 examples" id="refsect1-function.runkit7-function-redefine-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-573">
+   <div class="example" id="example-588">
     <p><strong>Example #1 A <span class="function"><strong>runkit7_function_redefine()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

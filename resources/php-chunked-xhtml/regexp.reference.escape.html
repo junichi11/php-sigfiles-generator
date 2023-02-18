@@ -66,7 +66,6 @@
   </p>
   <p class="para">
    <dl>
-
     
      <dt>
 <em class="emphasis">\a</em></dt>
@@ -246,7 +245,6 @@
   </p>
   <p class="para">
    <dl>
-
     
      <dt>
 <em class="emphasis">\040</em></dt>
@@ -360,7 +358,6 @@
   </p>
   <p class="para">
    <dl>
-
     
      <dt>
 <em class="emphasis">\d</em></dt>
@@ -382,7 +379,7 @@
 <em class="emphasis">\h</em></dt>
 
      <dd>
-<span class="simpara">any horizontal whitespace character (since PHP 5.2.4)</span></dd>
+<span class="simpara">any horizontal whitespace character</span></dd>
 
     
     
@@ -390,7 +387,7 @@
 <em class="emphasis">\H</em></dt>
 
      <dd>
-<span class="simpara">any character that is not a horizontal whitespace character (since PHP 5.2.4)</span></dd>
+<span class="simpara">any character that is not a horizontal whitespace character</span></dd>
 
     
     
@@ -414,7 +411,7 @@
 <em class="emphasis">\v</em></dt>
 
      <dd>
-<span class="simpara">any vertical whitespace character (since PHP 5.2.4)</span></dd>
+<span class="simpara">any vertical whitespace character</span></dd>
 
     
     
@@ -422,7 +419,7 @@
 <em class="emphasis">\V</em></dt>
 
      <dd>
-<span class="simpara">any character that is not a vertical whitespace character (since PHP 5.2.4)</span></dd>
+<span class="simpara">any character that is not a vertical whitespace character</span></dd>
 
     
     
@@ -481,7 +478,6 @@
   </p>
   <p class="para">
    <dl>
-
     
      <dt>
 <em class="emphasis">\b</em></dt>
@@ -577,12 +573,16 @@
    regexp metacharacters in the pattern. For example:
    <code class="literal">\w+\Q.$.\E$</code> will match one or more word characters,
    followed by literals <code class="literal">.$.</code> and anchored at the end of
-   the string.
+   the string. Note that this does not change the behavior of 
+   delimiters; for instance the pattern <code class="literal">#\Q#\E#$</code>
+   is not valid, because the second <code class="literal">#</code> marks the end
+   of the pattern, and the <code class="literal">\E#</code> is interpreted as invalid
+   modifiers.
   </p>
 
   <p class="para">
-   <code class="literal">\K</code> can be used to reset the match start since
-   PHP 5.2.4. For example, the pattern <code class="literal">foo\Kbar</code> matches
+   <code class="literal">\K</code> can be used to reset the match start. 
+   For example, the pattern <code class="literal">foo\Kbar</code> matches
    &quot;foobar&quot;, but reports that it has matched &quot;bar&quot;. The use of
    <code class="literal">\K</code> does not interfere with the setting of captured
    substrings. For example, when the pattern <code class="literal">(foo)\Kbar</code>

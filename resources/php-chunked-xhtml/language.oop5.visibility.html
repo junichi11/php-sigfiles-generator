@@ -27,9 +27,9 @@
   <h2 class="title">Visibility</h2>
   <p class="para">
    The visibility of a property, a method or (as of PHP 7.1.0) a constant can be defined by prefixing
-   the declaration with the keywords <em class="emphasis">public</em>,
-   <em class="emphasis">protected</em> or
-   <em class="emphasis">private</em>. Class members declared public can be
+   the declaration with the keywords <code class="literal">public</code>,
+   <code class="literal">protected</code> or
+   <code class="literal">private</code>. Class members declared public can be
    accessed everywhere. Members declared protected can be accessed
    only within the class itself and by inheriting and parent
    classes. Members declared as private may only be accessed by the
@@ -39,12 +39,12 @@
   <div class="sect2" id="language.oop5.visibility-members">
    <h3 class="title">Property Visibility</h3>
    <p class="para">
-    Class properties must be defined as public, private, or
-    protected. If declared using <em class="emphasis">var</em>,
-    the property will be defined as public.
+    Class properties may be defined as public, private, or
+    protected. Properties declared without any explicit visibility
+    keyword are defined as public.
    </p>
    <p class="para">
-    <div class="example" id="example-222">
+    <div class="example" id="example-230">
      <p><strong>Example #1 Property declaration</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -65,7 +65,7 @@
     keyword are defined as public.
    </p>
    <p class="para">
-    <div class="example" id="example-223">
+    <div class="example" id="example-231">
      <p><strong>Example #2 Method Declaration</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -86,7 +86,7 @@
     keyword are defined as public.
    </p>
    <p class="para">
-    <div class="example" id="example-224">
+    <div class="example" id="example-232">
      <p><strong>Example #3 Constant Declaration as of PHP 7.1.0</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -107,7 +107,7 @@
     because the implementation specific details are already known when inside
     those objects.
    </p>
-   <div class="example" id="example-225">
+   <div class="example" id="example-233">
     <p><strong>Example #4 Accessing private members of the same object type</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

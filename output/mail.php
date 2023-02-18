@@ -25,7 +25,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> if the mail was successfully accepted for delivery, <b><code>false</code></b> otherwise.</p><p>It is important to note that just because the mail was accepted for delivery, it does NOT mean the mail will actually reach the intended destination.</p>
 	 * @link https://php.net/manual/en/function.mail.php
 	 * @see mb_send_mail(), imap_mail()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function mail(string $to, string $subject, string $message, array|string $additional_headers = [], string $additional_params = ""): bool {}
 

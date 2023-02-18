@@ -26,17 +26,13 @@
   <div id="layout-content"><div id="function.date" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">date</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">date</span> &mdash; <span class="dc-title">Format a local time/date</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">date</span> &mdash; <span class="dc-title">Format a local time/date</span></p>
 
  </div>
   
  <div class="refsect1 description" id="refsect1-function.date-description">
   <h3 class="title">Description</h3>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>date</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$timestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">string</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>date</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$timestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns a string formatted according to the given format string using the
@@ -50,7 +46,6 @@
  <div class="refsect1 parameters" id="refsect1-function.date-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">format</code></dt>
@@ -95,11 +90,8 @@ words, it defaults to the value of <span class="function"><a href="function.time
   <h3 class="title">Errors/Exceptions</h3>
    
    <p class="para">
-Every call to a date/time function will generate a <strong><code>E_NOTICE</code></strong>
-if the time zone is not valid, and/or a <strong><code>E_STRICT</code></strong>
-or <strong><code>E_WARNING</code></strong> message
-if using the system settings or the <var class="varname">TZ</var> environment
-variable. See also <span class="function"><a href="function.date-default-timezone-set.html" class="function">date_default_timezone_set()</a></span></p>
+Every call to a date/time function will generate a <strong><code>E_WARNING</code></strong>
+if the time zone is not valid. See also <span class="function"><a href="function.date-default-timezone-set.html" class="function">date_default_timezone_set()</a></span></p>
  
  </div>
 
@@ -136,11 +128,11 @@ variable. See also <span class="function"><a href="function.date-default-timezon
  <div class="refsect1 examples" id="refsect1-function.date-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2571">
+   <div class="example" id="example-2083">
     <p><strong>Example #1 <span class="function"><strong>date()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;set&nbsp;the&nbsp;default&nbsp;timezone&nbsp;to&nbsp;use.&nbsp;Available&nbsp;since&nbsp;PHP&nbsp;5.1<br /></span><span style="color: #0000BB">date_default_timezone_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'UTC'</span><span style="color: #007700">);<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;Prints&nbsp;something&nbsp;like:&nbsp;Monday<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"l"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Prints&nbsp;something&nbsp;like:&nbsp;Monday&nbsp;8th&nbsp;of&nbsp;August&nbsp;2005&nbsp;03:12:46&nbsp;PM<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'l&nbsp;jS&nbsp;\of&nbsp;F&nbsp;Y&nbsp;h:i:s&nbsp;A'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Prints:&nbsp;July&nbsp;1,&nbsp;2000&nbsp;is&nbsp;on&nbsp;a&nbsp;Saturday<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"July&nbsp;1,&nbsp;2000&nbsp;is&nbsp;on&nbsp;a&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"l"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2000</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">/*&nbsp;use&nbsp;the&nbsp;constants&nbsp;in&nbsp;the&nbsp;format&nbsp;parameter&nbsp;*/<br />//&nbsp;prints&nbsp;something&nbsp;like:&nbsp;Wed,&nbsp;25&nbsp;Sep&nbsp;2013&nbsp;15:28:57&nbsp;-0700<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #0000BB">DATE_RFC2822</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;prints&nbsp;something&nbsp;like:&nbsp;2000-07-01T00:00:00+00:00<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #0000BB">DATE_ATOM</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2000</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;set&nbsp;the&nbsp;default&nbsp;timezone&nbsp;to&nbsp;use.<br /></span><span style="color: #0000BB">date_default_timezone_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'UTC'</span><span style="color: #007700">);<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;Prints&nbsp;something&nbsp;like:&nbsp;Monday<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"l"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Prints&nbsp;something&nbsp;like:&nbsp;Monday&nbsp;8th&nbsp;of&nbsp;August&nbsp;2005&nbsp;03:12:46&nbsp;PM<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'l&nbsp;jS&nbsp;\of&nbsp;F&nbsp;Y&nbsp;h:i:s&nbsp;A'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Prints:&nbsp;July&nbsp;1,&nbsp;2000&nbsp;is&nbsp;on&nbsp;a&nbsp;Saturday<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"July&nbsp;1,&nbsp;2000&nbsp;is&nbsp;on&nbsp;a&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"l"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2000</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">/*&nbsp;use&nbsp;the&nbsp;constants&nbsp;in&nbsp;the&nbsp;format&nbsp;parameter&nbsp;*/<br />//&nbsp;prints&nbsp;something&nbsp;like:&nbsp;Wed,&nbsp;25&nbsp;Sep&nbsp;2013&nbsp;15:28:57&nbsp;-0700<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #0000BB">DATE_RFC2822</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;prints&nbsp;something&nbsp;like:&nbsp;2000-07-01T00:00:00+00:00<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #0000BB">DATE_ATOM</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2000</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -152,7 +144,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
    expanded by escaping it with a preceding backslash. If the character with
    a backslash is already a special sequence, you may need to also escape
    the backslash.
-   <div class="example" id="example-2572">
+   <div class="example" id="example-2084">
     <p><strong>Example #2 Escaping characters in <span class="function"><strong>date()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -167,7 +159,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
    It is possible to use <span class="function"><strong>date()</strong></span> and
    <span class="function"><a href="function.mktime.html" class="function">mktime()</a></span> together to find dates in the future
    or the past.
-   <div class="example" id="example-2573">
+   <div class="example" id="example-2085">
     <p><strong>Example #3 <span class="function"><strong>date()</strong></span> and <span class="function"><a href="function.mktime.html" class="function">mktime()</a></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -192,7 +184,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
    other characters may be assigned meaning in future PHP versions.
    When escaping, be sure to use single quotes to prevent characters
    like \n from becoming newlines.
-   <div class="example" id="example-2574">
+   <div class="example" id="example-2086">
     <p><strong>Example #4 <span class="function"><strong>date()</strong></span> Formatting</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -204,9 +196,9 @@ variable. See also <span class="function"><a href="function.date-default-timezon
    </div>
   </p>
   <p class="para">
-   To format dates in other languages, you should use the
-   <span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span> and <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span>
-   functions instead of <span class="function"><strong>date()</strong></span>.
+   To format dates in other languages,
+   <span class="methodname"><a href="intldateformatter.format.html" class="methodname">IntlDateFormatter::format()</a></span>
+   can be used instead of <span class="function"><strong>date()</strong></span>.
   </p>
  </div>
 
@@ -225,7 +217,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
   <div class="tip"><strong class="tip">Tip</strong>
    <p class="para">
     Timestamp of the start of the request is available in
-    <var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER['REQUEST_TIME']</a></var> since PHP 5.1.
+    <var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER['REQUEST_TIME']</a></var>.
    </p>
   </div>
  </div>
@@ -240,7 +232,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
     <li class="member"><span class="function"><a href="function.getdate.html" class="function" rel="rdfs-seeAlso">getdate()</a> - Get date/time information</span></li>
     <li class="member"><span class="function"><a href="function.getlastmod.html" class="function" rel="rdfs-seeAlso">getlastmod()</a> - Gets time of last page modification</span></li>
     <li class="member"><span class="function"><a href="function.mktime.html" class="function" rel="rdfs-seeAlso">mktime()</a> - Get Unix timestamp for a date</span></li>
-    <li class="member"><span class="function"><a href="function.strftime.html" class="function" rel="rdfs-seeAlso">strftime()</a> - Format a local time/date according to locale settings</span></li>
+    <li class="member"><span class="methodname"><a href="intldateformatter.format.html" class="methodname" rel="rdfs-seeAlso">IntlDateFormatter::format()</a> - Format the date/time value as a string</span></li>
     <li class="member"><span class="function"><a href="function.time.html" class="function" rel="rdfs-seeAlso">time()</a> - Return current Unix timestamp</span></li>
     <li class="member"><span class="function"><a href="datetimeimmutable.construct.html" class="function" rel="rdfs-seeAlso">DateTimeImmutable::__construct()</a> - Returns new DateTimeImmutable object</span></li>
     <li class="member"><a href="class.datetimeinterface.html#datetime.constants.types" class="link">Predefined DateTime Constants</a></li>

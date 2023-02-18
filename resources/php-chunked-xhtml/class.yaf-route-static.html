@@ -34,17 +34,17 @@
   <div class="section" id="yaf-route-static.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-     Defaultly, <a href="class.yaf-router.html" class="classname">Yaf_Router</a> only have a
-     <strong class="classname">Yaf_Route_Static</strong> as its default route.
+     Defaultly, <span class="classname"><a href="class.yaf-router.html" class="classname">Yaf_Router</a></span> only have a
+     <span class="classname"><strong class="classname">Yaf_Route_Static</strong></span> as its default route.
    </p>
    <p class="para">
-     And <strong class="classname">Yaf_Route_Static</strong> is designed to handle the
+     And <span class="classname"><strong class="classname">Yaf_Route_Static</strong></span> is designed to handle the
      80% requirement. 
    </p>
    <p class="para">
-     please *NOTE* that it is unnecessary to instance a <strong class="classname">Yaf_Route_Static</strong>, also 
-     unecesary to add it into <a href="class.yaf-router.html" class="classname">Yaf_Router</a>&#039;s routes stack,
-     since there is always be one in <a href="class.yaf-router.html" class="classname">Yaf_Router</a>&#039;s
+     please *NOTE* that it is unnecessary to instance a <span class="classname"><strong class="classname">Yaf_Route_Static</strong></span>, also 
+     unecesary to add it into <span class="classname"><a href="class.yaf-router.html" class="classname">Yaf_Router</a></span>&#039;s routes stack,
+     since there is always be one in <span class="classname"><a href="class.yaf-router.html" class="classname">Yaf_Router</a></span>&#039;s
      routes stack, and always be called at the last time.
    </p>
   </div>
@@ -60,29 +60,18 @@
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
-      <strong class="classname">Yaf_Route_Static</strong>
+      <span class="modifier">class</span> <strong class="classname">Yaf_Route_Static</strong>
      </span>
      
-     <span class="oointerface">implements 
-      <span class="interfacename"><a href="class.yaf-router.html" class="interfacename">Yaf_Router</a></span>
-     </span>
-     {</div>
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a href="class.yaf-router.html" class="interfacename">Yaf_Router</a></span> {</div>
 
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-route-static.assemble.html" class="methodname">assemble</a></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$info</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$query</code> = ?</span>
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-route-static.match.html" class="methodname">match</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$uri</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-route-static.route.html" class="methodname">route</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.yaf-request-abstract.html" class="type Yaf_Request_Abstract">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><a href="yaf-route-static.assemble.html" class="methodname">assemble</a></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$info</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$query</code><span class="initializer"> = ?</span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-route-static.match.html" class="methodname">match</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$uri</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-route-static.route.html" class="methodname">route</a></span>(<span class="methodparam"><span class="type"><a href="class.yaf-request-abstract.html" class="type Yaf_Request_Abstract">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>): <span class="type">bool</span></div>
 
    }</div>
 

@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.shell-exec" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">shell_exec</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">shell_exec</span> &mdash; <span class="dc-title">Execute command via shell and return the complete output as a string</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">shell_exec</span> &mdash; <span class="dc-title">Execute command via shell and return the complete output as a string</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.shell-exec-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>shell_exec</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$cmd</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>shell_exec</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$command</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    This function is identical to the <a href="language.operators.execution.html" class="link">backtick operator</a>.
@@ -54,10 +52,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">cmd</code></dt>
+<code class="parameter">command</code></dt>
 
      <dd>
 
@@ -76,8 +73,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.shell-exec-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The output from the executed command or <strong><code>null</code></strong> if an error occurred or the
-   command produces no output.
+   A <span class="type">string</span> containing the output from the executed command, <strong><code>false</code></strong> if the pipe
+   cannot be established or <strong><code>null</code></strong> if an error occurs or the command produces no output.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
@@ -90,10 +87,19 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.shell-exec-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   An <strong><code>E_WARNING</code></strong> level error is generated
+   when the pipe cannot be established.
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.shell-exec-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3811">
+   <div class="example" id="example-3332">
     <p><strong>Example #1 A <span class="function"><strong>shell_exec()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.ob-start" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ob_start</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ob_start</span> &mdash; <span class="dc-title">Turn on output buffering</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ob_start</span> &mdash; <span class="dc-title">Turn on output buffering</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.ob-start-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ob_start</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$chunk_size</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>PHP_OUTPUT_HANDLER_STDFLAGS</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>ob_start</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$chunk_size</code><span class="initializer"> = 0</span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>PHP_OUTPUT_HANDLER_STDFLAGS</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    This function will turn output buffering on. While output buffering is
@@ -68,6 +64,10 @@
    functions are active, output is being filtered sequentially
    through each of them in nesting order.
   </p>
+  <p class="para">
+   If output buffering is still active when the script ends, PHP outputs the
+   contents automatically.
+  </p>
  </div>
 
 
@@ -75,7 +75,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">callback</code></dt>
@@ -99,13 +98,9 @@
       </p>
       <p class="para">
        <div class="methodsynopsis dc-description">
-        <span class="methodname"><span class="replaceable">handler</span></span>
-         ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$buffer</code></span>
-        , <span class="methodparam"><span class="type">int</span> <code class="parameter">$phase</code> = ?</span>
-        ) : <span class="type">string</span></div>
+        <span class="methodname"><span class="replaceable">handler</span></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$buffer</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$phase</code><span class="initializer"> = ?</span></span>): <span class="type">string</span></div>
 
        <dl>
-
         
          <dt>
 <code class="parameter">buffer</code></dt>
@@ -177,10 +172,6 @@
        length to equal or exceed <code class="parameter">chunk_size</code>. The default
        value <code class="literal">0</code> means that the output function will only be
        called when the output buffer is closed.
-      </p>
-      <p class="para">
-       Prior to PHP 5.4.0, the value <code class="literal">1</code> was a special case
-       value that set the chunk size to 4096 bytes.
       </p>
      </dd>
 
@@ -266,7 +257,7 @@
  <div class="refsect1 examples" id="refsect1-function.ob-start-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="ffi.examples.array">
+   <div class="example" id="example-529">
     <p><strong>Example #1 User defined callback function example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -289,11 +280,11 @@
   </p>
 
   <p class="para">
-   <div class="example" id="ffi.examples.enum">
-    <p><strong>Example #2 Creating an uneraseable output buffer in a way compatible with both PHP 5.3 and 5.4</strong></p>
+   <div class="example" id="function.ob-start.flags-bc">
+    <p><strong>Example #2 Creating an unerasable output buffer</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">version_compare</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_VERSION</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'5.4.0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&gt;='</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">ob_start</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_OUTPUT_HANDLER_STDFLAGS&nbsp;</span><span style="color: #007700">^<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">PHP_OUTPUT_HANDLER_REMOVABLE</span><span style="color: #007700">);<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">ob_start</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />ob_start</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_OUTPUT_HANDLER_STDFLAGS&nbsp;</span><span style="color: #007700">^&nbsp;</span><span style="color: #0000BB">PHP_OUTPUT_HANDLER_REMOVABLE</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

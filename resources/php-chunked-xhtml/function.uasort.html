@@ -26,22 +26,19 @@
   <div id="layout-content"><div id="function.uasort" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">uasort</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">uasort</span> &mdash; <span class="dc-title">Sort an array with a user-defined comparison function and maintain index association</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">uasort</span> &mdash; <span class="dc-title">Sort an array with a user-defined comparison function and maintain index association</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.uasort-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>uasort</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$array</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>uasort</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$array</code></span>, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   This function sorts an array such that array indices maintain their
-   correlation with the array elements they are associated with, using a
-   user-defined comparison function.
+   Sorts <code class="parameter">array</code> in place such that its keys
+   maintain their correlation with the values they are associated with,
+   using a user-defined comparison function.
   </p>
   <p class="para">
    This is used mainly when sorting associative arrays where the actual
@@ -49,7 +46,14 @@
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
  <p class="para">
-  If two members compare as equal, their relative order in the sorted array is undefined.
+  If two members compare as equal, they retain their original order.
+  Prior to PHP 8.0.0, their relative order in the sorted array was undefined.
+ </p>
+</p></blockquote>
+
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <p class="para">
+    Resets array&#039;s internal pointer to the first element.
  </p>
 </p></blockquote>
 
@@ -60,7 +64,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">array</code></dt>
@@ -80,9 +83,10 @@
      <dd>
 
       <p class="para">
-       See <span class="function"><a href="function.usort.html" class="function">usort()</a></span> and <span class="function"><a href="function.uksort.html" class="function">uksort()</a></span> for
-       examples of user-defined comparison functions.
+       The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.
       </p>
+      <div class="methodsynopsis dc-description"><span class="methodname"><span class="replaceable">callback</span></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$a</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$b</code></span>): <span class="type">int</span></div>
+
      </dd>
 
     
@@ -95,15 +99,43 @@
  <div class="refsect1 returnvalues" id="refsect1-function.uasort-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
+   Always returns <strong><code>true</code></strong>.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.uasort-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  If <code class="parameter">callback</code> expects a parameter to be passed
+  by reference, this function will now emit an <strong><code>E_WARNING</code></strong>.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.uasort-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5520">
+   <div class="example" id="example-5017">
     <p><strong>Example #1 Basic <span class="function"><strong>uasort()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -146,12 +178,12 @@ Array
 
  <div class="refsect1 seealso" id="refsect1-function.uasort-seealso">
   <h3 class="title">See Also</h3>
-  <p class="para">
-   <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.usort.html" class="function" rel="rdfs-seeAlso">usort()</a> - Sort an array by values using a user-defined comparison function</span></li>
-    <li class="member">The <a href="array.sorting.html" class="link">comparison of array sorting functions</a></li>
-   </ul>
-  </p>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="function.usort.html" class="function" rel="rdfs-seeAlso">usort()</a> - Sort an array by values using a user-defined comparison function</span></li>
+   <li class="member"><span class="function"><a href="function.uksort.html" class="function" rel="rdfs-seeAlso">uksort()</a> - Sort an array by keys using a user-defined comparison function</span></li>
+   <li class="member">The <a href="array.sorting.html" class="link">comparison of array sorting functions</a></li>
+  </ul>
  </div>
+
 
 </div></div></div></body></html>

@@ -33,10 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.isset-description">
  <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>isset</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$var</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$vars</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>isset</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$var</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$vars</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Determine if a variable is considered set,
@@ -65,7 +62,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">var</code></dt>
@@ -108,7 +104,7 @@
  <div class="refsect1 examples" id="refsect1-function.isset-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5787">
+   <div class="example" id="example-5237">
     <p><strong>Example #1 <span class="function"><strong>isset()</strong></span> Examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -131,12 +127,8 @@
 
    </div>
   </p>
-  <div class="example" id="example-5788">
+  <div class="example" id="example-5238">
    <p><strong>Example #2 <span class="function"><strong>isset()</strong></span> on String Offsets</strong></p>
-   <div class="example-contents"><p>
-    PHP 5.4 changes how <span class="function"><strong>isset()</strong></span> behaves
-    when passed string offsets.
-   </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$expected_array_got_string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'somestring'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'some_key'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'0'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #0000BB">0.5</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'0.5'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'0&nbsp;Mostel'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -144,18 +136,7 @@
 </code></div>
    </div>
 
-   <div class="example-contents"><p>Output of the above example in PHP 5.3:</p></div>
-   <div class="example-contents screen">
-<div class="cdata"><pre>
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-</pre></div>
-   </div>
-   <div class="example-contents"><p>Output of the above example in PHP 5.4:</p></div>
+   <div class="example-contents"><p>The above example will output:</p></div>
    <div class="example-contents screen">
 <div class="cdata"><pre>
 bool(false)

@@ -6,14 +6,14 @@ namespace {
 
 	/**
 	 * Absolute value
-	 * <p>Returns the absolute value of <code>number</code>.</p>
-	 * @param mixed $number <p>The numeric value to process</p>
-	 * @return int|float <p>The absolute value of <code>number</code>. If the argument <code>number</code> is of type <code>float</code>, the return type is also <code>float</code>, otherwise it is <code>int</code> (as <code>float</code> usually has a bigger value range than <code>int</code>).</p>
+	 * <p>Returns the absolute value of <code>num</code>.</p>
+	 * @param int|float $num <p>The numeric value to process</p>
+	 * @return int|float <p>The absolute value of <code>num</code>. If the argument <code>num</code> is of type <code>float</code>, the return type is also <code>float</code>, otherwise it is <code>int</code> (as <code>float</code> usually has a bigger value range than <code>int</code>).</p>
 	 * @link https://php.net/manual/en/function.abs.php
 	 * @see gmp_abs(), gmp_sign()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function abs(mixed $number): int|float {}
+	function abs(int|float $num): int|float {}
 
 	/**
 	 * Arc cosine
@@ -22,7 +22,7 @@ namespace {
 	 * @return float <p>The arc cosine of <code>num</code> in radians.</p>
 	 * @link https://php.net/manual/en/function.acos.php
 	 * @see cos(), acosh(), asin(), atan()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function acos(float $num): float {}
 
@@ -33,7 +33,7 @@ namespace {
 	 * @return float <p>The inverse hyperbolic cosine of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.acosh.php
 	 * @see cosh(), acos(), asinh(), atanh()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function acosh(float $num): float {}
 
@@ -44,7 +44,7 @@ namespace {
 	 * @return float <p>The arc sine of <code>num</code> in radians</p>
 	 * @link https://php.net/manual/en/function.asin.php
 	 * @see sin(), asinh(), acos(), atan()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function asin(float $num): float {}
 
@@ -55,7 +55,7 @@ namespace {
 	 * @return float <p>The inverse hyperbolic sine of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.asinh.php
 	 * @see sinh(), asin(), acosh(), atanh()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function asinh(float $num): float {}
 
@@ -66,7 +66,7 @@ namespace {
 	 * @return float <p>The arc tangent of <code>num</code> in radians.</p>
 	 * @link https://php.net/manual/en/function.atan.php
 	 * @see tan(), atanh(), asin(), acos()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function atan(float $num): float {}
 
@@ -78,7 +78,7 @@ namespace {
 	 * @return float <p>The arc tangent of <code>y</code>/<code>x</code> in radians.</p>
 	 * @link https://php.net/manual/en/function.atan2.php
 	 * @see atan()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function atan2(float $y, float $x): float {}
 
@@ -89,7 +89,7 @@ namespace {
 	 * @return float <p>Inverse hyperbolic tangent of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.atanh.php
 	 * @see tanh(), atan(), asinh(), acosh()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function atanh(float $num): float {}
 
@@ -102,7 +102,7 @@ namespace {
 	 * @return string <p><code>num</code> converted to base <code>to_base</code></p>
 	 * @link https://php.net/manual/en/function.base-convert.php
 	 * @see intval()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function base_convert(string $num, int $from_base, int $to_base): string {}
 
@@ -113,20 +113,20 @@ namespace {
 	 * @return int|float <p>The decimal value of <code>binary_string</code></p>
 	 * @link https://php.net/manual/en/function.bindec.php
 	 * @see decbin(), octdec(), hexdec(), base_convert()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function bindec(string $binary_string): int|float {}
 
 	/**
 	 * Round fractions up
-	 * <p>Returns the next highest integer value by rounding up <code>value</code> if necessary.</p>
-	 * @param float $value <p>The value to round</p>
-	 * @return float <p><code>value</code> rounded up to the next highest integer. The return value of <b>ceil()</b> is still of type <code>float</code> as the value range of <code>float</code> is usually bigger than that of <code>int</code>.</p>
+	 * <p>Returns the next highest integer value by rounding up <code>num</code> if necessary.</p>
+	 * @param int|float $num <p>The value to round</p>
+	 * @return float <p><code>num</code> rounded up to the next highest integer. The return value of <b>ceil()</b> is still of type <code>float</code> as the value range of <code>float</code> is usually bigger than that of <code>int</code>.</p>
 	 * @link https://php.net/manual/en/function.ceil.php
 	 * @see floor(), round()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function ceil(float $value): float {}
+	function ceil(int|float $num): float {}
 
 	/**
 	 * Cosine
@@ -135,7 +135,7 @@ namespace {
 	 * @return float <p>The cosine of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.cos.php
 	 * @see acos(), sin(), tan(), deg2rad()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function cos(float $num): float {}
 
@@ -146,7 +146,7 @@ namespace {
 	 * @return float <p>The hyperbolic cosine of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.cosh.php
 	 * @see cos(), acosh(), sinh(), tanh()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function cosh(float $num): float {}
 
@@ -157,7 +157,7 @@ namespace {
 	 * @return string <p>Binary string representation of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.decbin.php
 	 * @see bindec(), decoct(), dechex(), base_convert(), printf(), sprintf()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function decbin(int $num): string {}
 
@@ -168,7 +168,7 @@ namespace {
 	 * @return string <p>Hexadecimal string representation of <code>num</code>.</p>
 	 * @link https://php.net/manual/en/function.dechex.php
 	 * @see hexdec(), decbin(), decoct(), base_convert()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function dechex(int $num): string {}
 
@@ -179,7 +179,7 @@ namespace {
 	 * @return string <p>Octal string representation of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.decoct.php
 	 * @see octdec(), decbin(), dechex(), base_convert()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function decoct(int $num): string {}
 
@@ -190,7 +190,7 @@ namespace {
 	 * @return float <p>The radian equivalent of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.deg2rad.php
 	 * @see rad2deg()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function deg2rad(float $num): float {}
 
@@ -201,7 +201,7 @@ namespace {
 	 * @return float <p>'e' raised to the power of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.exp.php
 	 * @see log(), pow()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function exp(float $num): float {}
 
@@ -212,7 +212,7 @@ namespace {
 	 * @return float <p>'e' to the power of <code>num</code> minus one</p>
 	 * @link https://php.net/manual/en/function.expm1.php
 	 * @see log1p(), exp()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function expm1(float $num): float {}
 
@@ -230,14 +230,14 @@ namespace {
 
 	/**
 	 * Round fractions down
-	 * <p>Returns the next lowest integer value (as float) by rounding down <code>value</code> if necessary.</p>
-	 * @param float $value <p>The numeric value to round</p>
-	 * @return float <p><code>value</code> rounded to the next lowest integer. The return value of <b>floor()</b> is still of type <code>float</code> because the value range of <code>float</code> is usually bigger than that of <code>int</code>. This function returns <b><code>false</code></b> in case of an error (e.g. passing an array).</p>
+	 * <p>Returns the next lowest integer value (as float) by rounding down <code>num</code> if necessary.</p>
+	 * @param int|float $num <p>The numeric value to round</p>
+	 * @return float <p><code>num</code> rounded to the next lowest integer. The return value of <b>floor()</b> is still of type <code>float</code> because the value range of <code>float</code> is usually bigger than that of <code>int</code>. This function returns <b><code>false</code></b> in case of an error (e.g. passing an array).</p>
 	 * @link https://php.net/manual/en/function.floor.php
 	 * @see ceil(), round()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function floor(float $value): float {}
+	function floor(int|float $num): float {}
 
 	/**
 	 * Returns the floating point remainder (modulo) of the division of the arguments
@@ -247,7 +247,7 @@ namespace {
 	 * @return float <p>The floating point remainder of <code>num1</code>/<code>num2</code></p>
 	 * @link https://php.net/manual/en/function.fmod.php
 	 * @see intdiv()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function fmod(float $num1, float $num2): float {}
 
@@ -257,7 +257,7 @@ namespace {
 	 * @return int <p>The largest possible random value returned by <code>rand()</code></p>
 	 * @link https://php.net/manual/en/function.getrandmax.php
 	 * @see rand(), srand(), mt_getrandmax()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function getrandmax(): int {}
 
@@ -268,7 +268,7 @@ namespace {
 	 * @return int|float <p>The decimal representation of <code>hex_string</code></p>
 	 * @link https://php.net/manual/en/function.hexdec.php
 	 * @see dechex(), bindec(), octdec(), base_convert()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function hexdec(string $hex_string): int|float {}
 
@@ -279,7 +279,7 @@ namespace {
 	 * @param float $y <p>Length of second side</p>
 	 * @return float <p>Calculated length of the hypotenuse</p>
 	 * @link https://php.net/manual/en/function.hypot.php
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function hypot(float $x, float $y): float {}
 
@@ -291,7 +291,7 @@ namespace {
 	 * @return int <p>The integer quotient of the division of <code>num1</code> by <code>num2</code>.</p>
 	 * @link https://php.net/manual/en/function.intdiv.php
 	 * @see fmod()
-	 * @since PHP 7
+	 * @since PHP 7, PHP 8
 	 */
 	function intdiv(int $num1, int $num2): int {}
 
@@ -302,7 +302,7 @@ namespace {
 	 * @return bool <p><b><code>true</code></b> if <code>num</code> is a legal finite number within the allowed range for a PHP float on this platform, else <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.is-finite.php
 	 * @see is_infinite(), is_nan()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function is_finite(float $num): bool {}
 
@@ -313,7 +313,7 @@ namespace {
 	 * @return bool <p><b><code>true</code></b> if <code>num</code> is infinite, else <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.is-infinite.php
 	 * @see is_finite(), is_nan()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function is_infinite(float $num): bool {}
 
@@ -324,7 +324,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> if <code>num</code> is 'not a number', else <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.is-nan.php
 	 * @see is_finite(), is_infinite()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function is_nan(float $num): bool {}
 
@@ -334,7 +334,7 @@ namespace {
 	 * @return float <p>A pseudo random float value between 0.0 and 1.0, inclusive.</p>
 	 * @link https://php.net/manual/en/function.lcg-value.php
 	 * @see rand(), mt_rand()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function lcg_value(): float {}
 
@@ -346,7 +346,7 @@ namespace {
 	 * @return float <p>The logarithm of <code>num</code> to <code>base</code>, if given, or the natural logarithm.</p>
 	 * @link https://php.net/manual/en/function.log.php
 	 * @see log10(), exp(), pow()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function log(float $num, float $base = M_E): float {}
 
@@ -357,7 +357,7 @@ namespace {
 	 * @return float <p>The base-10 logarithm of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.log10.php
 	 * @see log()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function log10(float $num): float {}
 
@@ -368,7 +368,7 @@ namespace {
 	 * @return float <p>log(1 + <code>num</code>)</p>
 	 * @link https://php.net/manual/en/function.log1p.php
 	 * @see expm1(), log(), log10()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function log1p(float $num): float {}
 
@@ -380,7 +380,7 @@ namespace {
 	 * @return mixed <p><b>max()</b> returns the parameter value considered "highest" according to standard comparisons. If multiple values of different types evaluate as equal (e.g. <code>0</code> and <code>'abc'</code>) the first provided to the function will be returned.</p><p>If an empty array is passed, then <b><code>false</code></b> will be returned and an <b><code>E_WARNING</code></b> error will be emitted.</p>
 	 * @link https://php.net/manual/en/function.max.php
 	 * @see min(), count()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function max(mixed $value, mixed ...$values): mixed {}
 
@@ -392,7 +392,7 @@ namespace {
 	 * @return mixed <p><b>min()</b> returns the parameter value considered "lowest" according to standard comparisons. If multiple values of different types evaluate as equal (e.g. <code>0</code> and <code>'abc'</code>) the first provided to the function will be returned.</p><p>If an empty array is passed, then <b><code>false</code></b> will be returned and an <b><code>E_WARNING</code></b> error will be emitted.</p>
 	 * @link https://php.net/manual/en/function.min.php
 	 * @see max(), count()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function min(mixed $value, mixed ...$values): mixed {}
 
@@ -402,7 +402,7 @@ namespace {
 	 * @return int <p>Returns the maximum random value returned by a call to <code>mt_rand()</code> without arguments, which is the maximum value that can be used for its <code>max</code> parameter without the result being scaled up (and therefore less random).</p>
 	 * @link https://php.net/manual/en/function.mt-getrandmax.php
 	 * @see mt_rand(), mt_srand(), getrandmax()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function mt_getrandmax(): int {}
 
@@ -412,7 +412,7 @@ namespace {
 	 * @return int <p>A random integer value between <code>min</code> (or 0) and <code>max</code> (or <code>mt_getrandmax()</code>, inclusive), or <b><code>false</code></b> if <code>max</code> is less than <code>min</code>.</p>
 	 * @link https://php.net/manual/en/function.mt-rand.php
 	 * @see mt_srand(), mt_getrandmax(), random_int(), random_bytes(), openssl_random_pseudo_bytes(), rand()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function mt_rand(): int {}
 
@@ -424,7 +424,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.mt-srand.php
 	 * @see mt_rand(), mt_getrandmax(), srand()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function mt_srand(int $seed = 0, int $mode = MT_RAND_MT19937): void {}
 
@@ -435,7 +435,7 @@ namespace {
 	 * @return int|float <p>The decimal representation of <code>octal_string</code></p>
 	 * @link https://php.net/manual/en/function.octdec.php
 	 * @see decoct(), bindec(), hexdec(), base_convert()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function octdec(string $octal_string): int|float {}
 
@@ -444,21 +444,21 @@ namespace {
 	 * <p>Returns an approximation of pi. Also, you can use the <b><code>M_PI</code></b> constant which yields identical results to <b>pi()</b>.</p>
 	 * @return float <p>The value of pi as float.</p>
 	 * @link https://php.net/manual/en/function.pi.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function pi(): float {}
 
 	/**
 	 * Exponential expression
-	 * <p>Returns <code>base</code> raised to the power of <code>exp</code>.</p><p><b>Note</b>:</p><p>In PHP 5.6 onwards, you may prefer to use the &#42;&#42; operator.</p>
-	 * @param int|float $base <p>The base to use</p>
-	 * @param int|float $exp <p>The exponent</p>
-	 * @return int|float <p><code>base</code> raised to the power of <code>exp</code>. If both arguments are non-negative integers and the result can be represented as an integer, the result will be returned with <code>int</code> type, otherwise it will be returned as a <code>float</code>.</p>
+	 * <p>Returns <code>num</code> raised to the power of <code>exponent</code>.</p><p><b>Note</b>:</p><p>It is possible to use the &#42;&#42; operator instead.</p>
+	 * @param mixed $num <p>The base to use</p>
+	 * @param mixed $exponent <p>The exponent</p>
+	 * @return int|float|object <p><code>num</code> raised to the power of <code>exponent</code>. If both arguments are non-negative integers and the result can be represented as an integer, the result will be returned with <code>int</code> type, otherwise it will be returned as a <code>float</code>.</p>
 	 * @link https://php.net/manual/en/function.pow.php
 	 * @see exp(), sqrt(), bcpow(), gmp_pow()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function pow(int|float $base, int|float $exp): int|float {}
+	function pow(mixed $num, mixed $exponent): int|float|object {}
 
 	/**
 	 * Converts the radian number to the equivalent number in degrees
@@ -467,7 +467,7 @@ namespace {
 	 * @return float <p>The equivalent of <code>num</code> in degrees</p>
 	 * @link https://php.net/manual/en/function.rad2deg.php
 	 * @see deg2rad()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function rad2deg(float $num): float {}
 
@@ -477,22 +477,22 @@ namespace {
 	 * @return int <p>A pseudo random value between <code>min</code> (or 0) and <code>max</code> (or <code>getrandmax()</code>, inclusive).</p>
 	 * @link https://php.net/manual/en/function.rand.php
 	 * @see srand(), getrandmax(), mt_rand(), random_int(), random_bytes(), openssl_random_pseudo_bytes()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function rand(): int {}
 
 	/**
 	 * Rounds a float
-	 * <p>Returns the rounded value of <code>val</code> to specified <code>precision</code> (number of digits after the decimal point). <code>precision</code> can also be negative or zero (default).</p>
-	 * @param float $val <p>The value to round.</p>
-	 * @param int $precision <p>The optional number of decimal digits to round to.</p> <p>If the <code>precision</code> is positive, <code>val</code> is rounded to <code>precision</code> significant digits after the decimal point.</p> <p>If the <code>precision</code> is negative, <code>val</code> is rounded to <code>precision</code> significant digits before the decimal point, i.e. to the nearest multiple of <code>pow(10, -precision)</code>, e.g. for a <code>precision</code> of -1 <code>val</code> is rounded to tens, for a <code>precision</code> of -2 to hundreds, etc.</p>
-	 * @param int $mode <p>Use one of the following constants to specify the mode in which rounding occurs.</p>   Constants Description     <b><code>PHP_ROUND_HALF_UP</code></b>  Rounds <code>val</code> away from zero when it is half way there, making 1.5 into 2 and -1.5 into -2.    <b><code>PHP_ROUND_HALF_DOWN</code></b>  Rounds <code>val</code> towards zero when it is half way there, making 1.5 into 1 and -1.5 into -1.    <b><code>PHP_ROUND_HALF_EVEN</code></b>  Rounds <code>val</code> towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2.    <b><code>PHP_ROUND_HALF_ODD</code></b>  Rounds <code>val</code> towards the nearest odd value when it is half way there, making 1.5 into 1 and and 2.5 into 3.
+	 * <p>Returns the rounded value of <code>num</code> to specified <code>precision</code> (number of digits after the decimal point). <code>precision</code> can also be negative or zero (default).</p>
+	 * @param int|float $num <p>The value to round.</p>
+	 * @param int $precision <p>The optional number of decimal digits to round to.</p> <p>If the <code>precision</code> is positive, <code>num</code> is rounded to <code>precision</code> significant digits after the decimal point.</p> <p>If the <code>precision</code> is negative, <code>num</code> is rounded to <code>precision</code> significant digits before the decimal point, i.e. to the nearest multiple of <code>pow(10, -precision)</code>, e.g. for a <code>precision</code> of -1 <code>num</code> is rounded to tens, for a <code>precision</code> of -2 to hundreds, etc.</p>
+	 * @param int $mode <p>Use one of the following constants to specify the mode in which rounding occurs.</p>   Constants Description     <b><code>PHP_ROUND_HALF_UP</code></b>  Rounds <code>num</code> away from zero when it is half way there, making 1.5 into 2 and -1.5 into -2.    <b><code>PHP_ROUND_HALF_DOWN</code></b>  Rounds <code>num</code> towards zero when it is half way there, making 1.5 into 1 and -1.5 into -1.    <b><code>PHP_ROUND_HALF_EVEN</code></b>  Rounds <code>num</code> towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2.    <b><code>PHP_ROUND_HALF_ODD</code></b>  Rounds <code>num</code> towards the nearest odd value when it is half way there, making 1.5 into 1 and 2.5 into 3.
 	 * @return float <p>The value rounded to the given <code>precision</code> as a <code>float</code>.</p>
 	 * @link https://php.net/manual/en/function.round.php
 	 * @see ceil(), floor(), number_format()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function round(float $val, int $precision = 0, int $mode = PHP_ROUND_HALF_UP): float {}
+	function round(int|float $num, int $precision = 0, int $mode = PHP_ROUND_HALF_UP): float {}
 
 	/**
 	 * Sine
@@ -501,7 +501,7 @@ namespace {
 	 * @return float <p>The sine of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.sin.php
 	 * @see asin(), sinh(), cos(), tan(), deg2rad()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function sin(float $num): float {}
 
@@ -512,7 +512,7 @@ namespace {
 	 * @return float <p>The hyperbolic sine of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.sinh.php
 	 * @see sin(), asinh(), cosh(), tanh()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function sinh(float $num): float {}
 
@@ -523,20 +523,21 @@ namespace {
 	 * @return float <p>The square root of <code>num</code> or the special value <code>NAN</code> for negative numbers.</p>
 	 * @link https://php.net/manual/en/function.sqrt.php
 	 * @see pow()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function sqrt(float $num): float {}
 
 	/**
 	 * Seed the random number generator
-	 * <p>Seeds the random number generator with <code>seed</code> or with a random value if no <code>seed</code> is given.</p><p><b>Note</b>: There is no need to seed the random number generator with <b>srand()</b> or <code>mt_srand()</code> as this is done automatically. </p><p><b>Note</b>: As of PHP 7.1.0, <b>srand()</b> has been made an alias of <code>mt_srand()</code>.</p>
+	 * <p>Seeds the random number generator with <code>seed</code> or with a random value if <code>seed</code> is <code>0</code>.</p><p><b>Note</b>: There is no need to seed the random number generator with <b>srand()</b> or <code>mt_srand()</code> as this is done automatically. </p><p><b>Note</b>: As of PHP 7.1.0, <b>srand()</b> has been made an alias of <code>mt_srand()</code>.</p>
 	 * @param int $seed <p>An arbitrary <code>int</code> seed value.</p>
+	 * @param int $mode
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.srand.php
 	 * @see rand(), getrandmax(), mt_srand()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function srand(int $seed = null): void {}
+	function srand(int $seed = 0, int $mode = MT_RAND_MT19937): void {}
 
 	/**
 	 * Tangent
@@ -545,7 +546,7 @@ namespace {
 	 * @return float <p>The tangent of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.tan.php
 	 * @see atan(), atan2(), sin(), cos(), tanh(), deg2rad()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function tan(float $num): float {}
 
@@ -556,7 +557,7 @@ namespace {
 	 * @return float <p>The hyperbolic tangent of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.tanh.php
 	 * @see tan(), atanh(), sinh(), cosh()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function tanh(float $num): float {}
 
@@ -586,7 +587,7 @@ namespace {
 	define('M_E', 2.718281828459);
 
 	/**
-	 * PHP 5.2.0
+	 * Euler constant
 	 */
 	define('M_EULER', 0.57721566490153);
 
@@ -601,7 +602,7 @@ namespace {
 	define('M_LN2', 0.69314718055995);
 
 	/**
-	 * PHP 5.2.0
+	 * log_e(pi)
 	 */
 	define('M_LNPI', 1.1447298858494);
 
@@ -641,12 +642,12 @@ namespace {
 	define('M_SQRT2', 1.4142135623731);
 
 	/**
-	 * PHP 5.2.0
+	 * sqrt(3)
 	 */
 	define('M_SQRT3', 1.7320508075689);
 
 	/**
-	 * PHP 5.2.0
+	 * sqrt(pi)
 	 */
 	define('M_SQRTPI', 1.7724538509055);
 
@@ -656,22 +657,22 @@ namespace {
 	define('NAN', NAN);
 
 	/**
-	 * PHP 5.3.0
+	 * Round halves down
 	 */
 	define('PHP_ROUND_HALF_DOWN', 2);
 
 	/**
-	 * PHP 5.3.0
+	 * Round halves to even numbers
 	 */
 	define('PHP_ROUND_HALF_EVEN', 3);
 
 	/**
-	 * PHP 5.3.0
+	 * Round halves to odd numbers
 	 */
 	define('PHP_ROUND_HALF_ODD', 4);
 
 	/**
-	 * PHP 5.3.0
+	 * Round halves up
 	 */
 	define('PHP_ROUND_HALF_UP', 1);
 

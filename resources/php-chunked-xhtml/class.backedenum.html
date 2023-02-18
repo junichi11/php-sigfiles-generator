@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The BackedEnum interface</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="unitenum.cases.html">« UnitEnum::cases</a></li>
+      <li style="float: right;"><a href="backedenum.from.html">BackedEnum::from »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="reserved.interfaces.html">Predefined Interfaces and Classes</a></li>
+    <li>The BackedEnum interface</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.backedenum" class="reference">
+ <h1 class="title">The BackedEnum interface</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 8 &gt;= 8.1.0)</p>
+
+
+  <div class="section" id="backedenum.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    The <span class="classname"><strong class="classname">BackedEnum</strong></span> interface is automatically applied to backed
+    enumerations by the engine.  It may not be implemented by user-defined classes.
+    Enumerations may not override its methods, as default implementations are provided
+    by the engine.  It is available only for type checks.
+   </p>
+  </div>
+
+
+  <div class="section" id="backedenum.synopsis">
+   <h2 class="title">Interface synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="oointerface"><span class="modifier">interface</span> <strong class="interfacename">BackedEnum</strong></span><span class="ooclass">
+      <span class="modifier">extends</span>
+       <a href="class.unitenum.html" class="classname">UnitEnum</a>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="backedenum.from.html" class="methodname">from</a></span>(<span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$value</code></span>): <span class="type"><span class="type static">static</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="backedenum.tryfrom.html" class="methodname">tryFrom</a></span>(<span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$value</code></span>): <span class="type"><span class="type">?</span><span class="type"><span class="type static">static</span></span></span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited methods */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="unitenum.cases.html" class="methodname">UnitEnum::cases</a></span>(): <span class="type">array</span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+ 
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="backedenum.from.html">BackedEnum::from</a> — Maps a scalar to an enum instance</li><li><a href="backedenum.tryfrom.html">BackedEnum::tryFrom</a> — Maps a scalar to an enum instance or null</li></ul>
+</div>
+</div></div></body></html>

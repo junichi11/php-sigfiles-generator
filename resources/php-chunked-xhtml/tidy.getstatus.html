@@ -27,22 +27,17 @@
  <div class="refnamediv">
   <h1 class="refname">tidy::getStatus</h1>
   <h1 class="refname">tidy_get_status</h1>
-  <p class="verinfo">(PHP 5, PHP 7, PECL tidy &gt;= 0.5.2)</p><p class="refpurpose"><span class="refname">tidy::getStatus</span> -- <span class="refname">tidy_get_status</span> &mdash; <span class="dc-title">Get status of specified document</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL tidy &gt;= 0.5.2)</p><p class="refpurpose"><span class="refname">tidy::getStatus</span> -- <span class="refname">tidy_get_status</span> &mdash; <span class="dc-title">Get status of specified document</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-tidy.getstatus-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>tidy::getStatus</strong></span>
-    (
-   ) : <span class="type">int</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>tidy::getStatus</strong></span>(): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>tidy_get_status</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.tidy.html" class="type tidy">tidy</a></span> <code class="parameter">$tidy</code></span>
-   ) : <span class="type">int</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>tidy_get_status</strong></span>(<span class="methodparam"><span class="type"><a href="class.tidy.html" class="type tidy">tidy</a></span> <code class="parameter">$tidy</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Returns the status for the specified tidy <code class="parameter">tidy</code>.
@@ -54,7 +49,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">tidy</code></dt>
@@ -62,7 +56,7 @@
      <dd>
 
       <p class="para">
-       The <a href="class.tidy.html" class="classname">Tidy</a> object.
+       The <span class="classname"><a href="class.tidy.html" class="classname">Tidy</a></span> object.
       </p>
      </dd>
 
@@ -85,7 +79,7 @@
  <div class="refsect1 examples" id="refsect1-tidy.getstatus-examples">
   <h3 class="title">Examples</h3>  
   <p class="para">
-   <div class="example" id="example-4317">
+   <div class="example" id="example-3813">
     <p><strong>Example #1 <span class="function"><strong>tidy::getStatus()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

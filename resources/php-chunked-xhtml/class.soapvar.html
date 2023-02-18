@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="soapparam.soapparam.html">« SoapParam::SoapParam</a></li>
+      <li style="float: left;"><a href="soapparam.construct.html">« SoapParam::__construct</a></li>
       <li style="float: right;"><a href="soapvar.construct.html">SoapVar::__construct »</a></li>
     </ul>
   </div>
@@ -28,7 +28,7 @@
  <h1 class="title">The SoapVar class</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5, PHP 7)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5, PHP 7, PHP 8)</p>
 
 
   <div class="section" id="soapvar.intro">
@@ -44,42 +44,117 @@
 
 
    <div class="classsynopsis">
-    <div class="ooclass"></div>
-
+    <div class="ooclass">
+     
+    </div>
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
-      <strong class="classname">SoapVar</strong>
+      <span class="modifier">class</span> <strong class="classname">SoapVar</strong>
      </span>
      {</div>
 
-    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.soapvar.html#soapvar.props.enc-type">$<var class="varname">enc_type</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
+      <var class="varname"><a href="class.soapvar.html#soapvar.props.enc-value">$<var class="varname">enc_value</var></a></var><span class="initializer"> = null</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span>
+      <var class="varname"><a href="class.soapvar.html#soapvar.props.enc-stype">$<var class="varname">enc_stype</var></a></var><span class="initializer"> = null</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span>
+      <var class="varname"><a href="class.soapvar.html#soapvar.props.enc-ns">$<var class="varname">enc_ns</var></a></var><span class="initializer"> = null</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span>
+      <var class="varname"><a href="class.soapvar.html#soapvar.props.enc-name">$<var class="varname">enc_name</var></a></var><span class="initializer"> = null</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span>
+      <var class="varname"><a href="class.soapvar.html#soapvar.props.enc-namens">$<var class="varname">enc_namens</var></a></var><span class="initializer"> = null</span>;</div>
+
+
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="constructorsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="soapvar.construct.html" class="methodname">__construct</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$data</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$typeName</code><span class="initializer"> = &quot;&quot;</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$typeNamespace</code><span class="initializer"> = &quot;&quot;</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$nodeName</code><span class="initializer"> = &quot;&quot;</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$nodeNamespace</code><span class="initializer"> = &quot;&quot;</span></span>
-   )</div>
-
-    <div class="methodsynopsis dc-description">
-   <span class="methodname"><a href="soapvar.soapvar.html" class="methodname">SoapVar</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$data</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$type_name</code> = ?</span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$type_namespace</code> = ?</span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$node_name</code> = ?</span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$node_namespace</code> = ?</span>
-   )</div>
+   <span class="modifier">public</span> <span class="methodname"><a href="soapvar.construct.html" class="methodname">__construct</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$data</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$encoding</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$typeName</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$typeNamespace</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$nodeName</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$nodeNamespace</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>)</div>
 
    }</div>
 
-
   </div>
 
+  <div class="section" id="soapvar.props">
+   <h2 class="title">Properties</h2>
+   <dl>
+    
+     <dt id="soapvar.props.enc-name"><var class="varname">enc_name</var></dt>
+
+     <dd>
+
+      <p class="para">
+      </p>
+     </dd>
+
+    
+    
+     <dt id="soapvar.props.enc-namens"><var class="varname">enc_namens</var></dt>
+
+     <dd>
+
+      <p class="para">
+      </p>
+     </dd>
+
+    
+    
+     <dt id="soapvar.props.enc-ns"><var class="varname">enc_ns</var></dt>
+
+     <dd>
+
+      <p class="para">
+      </p>
+     </dd>
+
+    
+    
+     <dt id="soapvar.props.enc-type"><var class="varname">enc_type</var></dt>
+
+     <dd>
+
+      <p class="para">
+      </p>
+     </dd>
+
+    
+    
+     <dt id="soapvar.props.enc-stype"><var class="varname">enc_stype</var></dt>
+
+     <dd>
+
+      <p class="para">
+      </p>
+     </dd>
+
+    
+    
+     <dt id="soapvar.props.enc-value"><var class="varname">enc_value</var></dt>
+
+     <dd>
+
+      <p class="para">
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </div>
  </div>
 
  
@@ -89,13 +164,6 @@
 
 
 
-
-
-
-
-
-
-
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="soapvar.construct.html">SoapVar::__construct</a> — SoapVar constructor</li><li><a href="soapvar.soapvar.html">SoapVar::SoapVar</a> — SoapVar constructor</li></ul>
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="soapvar.construct.html">SoapVar::__construct</a> — SoapVar constructor</li></ul>
 </div>
 </div></div></body></html>

@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.get-headers" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">get_headers</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">get_headers</span> &mdash; <span class="dc-title">Fetches all the headers sent by the server in response to an HTTP request</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">get_headers</span> &mdash; <span class="dc-title">Fetches all the headers sent by the server in response to an HTTP request</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.get-headers-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>get_headers</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$url</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$format</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code> = ?</span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>get_headers</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$url</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$associative</code><span class="initializer"> = <strong><code>false</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">resource</span><span class="type"></span></span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>get_headers()</strong></span> returns an array with the headers sent
@@ -50,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">url</code></dt>
@@ -65,12 +60,12 @@
     
     
      <dt>
-<code class="parameter">format</code></dt>
+<code class="parameter">associative</code></dt>
 
      <dd>
 
       <p class="para">
-       If the optional <code class="parameter">format</code> parameter is set to non-zero,
+       If the optional <code class="parameter">associative</code> parameter is set to true,
        <span class="function"><strong>get_headers()</strong></span> parses the response and sets the 
        array&#039;s keys.
       </p>
@@ -85,7 +80,8 @@
 
       <p class="para">
        A valid context resource created with
-       <span class="function"><a href="function.stream-context-create.html" class="function">stream_context_create()</a></span>.
+       <span class="function"><a href="function.stream-context-create.html" class="function">stream_context_create()</a></span>, or <strong><code>null</code></strong> to use the
+       default context.
       </p>
      </dd>
 
@@ -120,6 +116,13 @@
 
      <tbody class="tbody">
       <tr>
+       <td>8.0.0</td>
+       <td>
+        The <code class="parameter">associative</code> has been changed from <span class="type">int</span> to <span class="type">bool</span>.
+       </td>
+      </tr>
+
+      <tr>
        <td>7.1.0</td>
        <td>
         The <code class="parameter">context</code> parameter was added.
@@ -137,11 +140,11 @@
  <div class="refsect1 examples" id="refsect1-function.get-headers-examples">
  <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4354">
+   <div class="example" id="example-3850">
     <p><strong>Example #1 <span class="function"><strong>get_headers()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$url&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'http://www.example.com'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">get_headers</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">get_headers</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$url&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'http://www.example.com'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">get_headers</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">get_headers</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -178,7 +181,7 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-4355">
+   <div class="example" id="example-3851">
     <p><strong>Example #2 <span class="function"><strong>get_headers()</strong></span> using HEAD example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,25 +26,20 @@
   <div id="layout-content"><div id="function.openssl-pkcs7-decrypt" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_pkcs7_decrypt</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_pkcs7_decrypt</span> &mdash; <span class="dc-title">Decrypts an S/MIME encrypted message</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_pkcs7_decrypt</span> &mdash; <span class="dc-title">Decrypts an S/MIME encrypted message</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-pkcs7-decrypt-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_pkcs7_decrypt</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$infilename</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$outfilename</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$recipcert</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$recipkey</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>openssl_pkcs7_decrypt</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$input_filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$output_filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type"><a href="class.opensslcertificate.html" class="type OpenSSLCertificate">OpenSSLCertificate</a></span>|<span class="type">string</span></span> <code class="parameter">$certificate</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type"><a href="class.opensslasymmetrickey.html" class="type OpenSSLAsymmetricKey">OpenSSLAsymmetricKey</a></span>|<span class="type"><a href="class.opensslcertificate.html" class="type OpenSSLCertificate">OpenSSLCertificate</a></span>|<span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$private_key</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Decrypts the S/MIME encrypted message contained in the file specified by
-   <code class="parameter">infilename</code> using the certificate and its
-   associated private key specified by <code class="parameter">recipcert</code> and
-   <code class="parameter">recipkey</code>.
+   <code class="parameter">input_filename</code> using the certificate and its
+   associated private key specified by <code class="parameter">certificate</code> and
+   <code class="parameter">private_key</code>.
   </p>
  </div>
 
@@ -53,10 +48,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">infilename</code></dt>
+<code class="parameter">input_filename</code></dt>
 
      <dd>
 
@@ -67,20 +61,20 @@
     
     
      <dt>
-<code class="parameter">outfilename</code></dt>
+<code class="parameter">output_filename</code></dt>
 
      <dd>
 
       <p class="para">
        The decrypted message is written to the file specified by
-       <code class="parameter">outfilename</code>.
+       <code class="parameter">output_filename</code>.
       </p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">recipcert</code></dt>
+<code class="parameter">certificate</code></dt>
 
      <dd>
 
@@ -91,7 +85,7 @@
     
     
      <dt>
-<code class="parameter">recipkey</code></dt>
+<code class="parameter">private_key</code></dt>
 
      <dd>
 
@@ -114,10 +108,40 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.openssl-pkcs7-decrypt-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">private_key</code> accepts an <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span>
+       or <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL key</code> or <code class="literal">OpenSSL X.509 CSR</code>
+       was accepted.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.openssl-pkcs7-decrypt-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-929">
+   <div class="example" id="example-933">
     <p><strong>Example #1 <span class="function"><strong>openssl_pkcs7_decrypt()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

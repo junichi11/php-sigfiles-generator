@@ -347,7 +347,7 @@ namespace {
 		 * @param string $host <p>comma separated host:port pairs, each corresponding to a zk server. e.g. "127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002"</p>
 		 * @param callable $watcher_cb <p>the global watcher callback function. When notifications are triggered this function will be invoked.</p>
 		 * @param int $recv_timeout <p>the timeout for this session, only valid if the connections is currently connected (ie. last watcher state is ZOO_CONNECTED_STATE).</p>
-		 * @return self
+		 * @return self <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/zookeeper.construct.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
@@ -367,7 +367,7 @@ namespace {
 
 		/**
 		 * Close the zookeeper handle and free up any resources
-		 * @return void
+		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/zookeeper.close.php
 		 * @since PECL zookeeper >= 0.5.0
 		 */
@@ -379,7 +379,7 @@ namespace {
 		 * @param string $host <p>Comma separated host:port pairs, each corresponding to a zk server. e.g. "127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002"</p>
 		 * @param callable $watcher_cb <p>The global watcher callback function. When notifications are triggered this function will be invoked.</p>
 		 * @param int $recv_timeout <p>The timeout for this session, only valid if the connections is currently connected (ie. last watcher state is ZOO_CONNECTED_STATE).</p>
-		 * @return void
+		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/zookeeper.connect.php
 		 * @since PECL zookeeper >= 0.2.0
 		 */
@@ -459,7 +459,7 @@ namespace {
 
 		/**
 		 * Get instance of ZookeeperConfig
-		 * @return ZookeeperConfig <p>Returns instance of ZookeeperConfig.</p>
+		 * @return ZookeeperConfig <p>Returns instance of <code>ZookeeperConfig</code>.</p>
 		 * @link https://php.net/manual/en/zookeeper.getconfig.php
 		 * @since PECL zookeeper >= 0.6.0, ZooKeeper >= 3.5.0
 		 */
@@ -563,7 +563,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -575,7 +581,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -584,13 +590,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -604,11 +622,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -638,13 +656,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -677,7 +695,7 @@ namespace {
 		 * @param string $members <p>Comma separated list of servers to be added to the ensemble. Each has a configuration line for a server to be added (as would appear in a configuration file), only for maj. quorums.</p>
 		 * @param int $version <p>The expected version of the node. The function will fail if the actual version of the node does not match the expected version. If -1 is used the version check will not take place.</p>
 		 * @param array $stat <p>If not NULL, will hold the value of stat for the path on return.</p>
-		 * @return void
+		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/zookeeperconfig.add.php
 		 * @since PECL zookeeper >= 0.6.0, ZooKeeper >= 3.5.0
 		 */
@@ -698,7 +716,7 @@ namespace {
 		 * @param string $id_list <p>Comma separated list of server IDs to be removed from the ensemble. Each has an id of a server to be removed, only for maj. quorums.</p>
 		 * @param int $version <p>The expected version of the node. The function will fail if the actual version of the node does not match the expected version. If -1 is used the version check will not take place.</p>
 		 * @param array $stat <p>If not NULL, will hold the value of stat for the path on return.</p>
-		 * @return void
+		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/zookeeperconfig.remove.php
 		 * @since PECL zookeeper >= 0.6.0, ZooKeeper >= 3.5.0
 		 */
@@ -709,7 +727,7 @@ namespace {
 		 * @param string $members <p>Comma separated list of new membership (e.g., contents of a membership configuration file) - for use only with a non-incremental reconfiguration.</p>
 		 * @param int $version <p>The expected version of the node. The function will fail if the actual version of the node does not match the expected version. If -1 is used the version check will not take place.</p>
 		 * @param array $stat <p>If not NULL, will hold the value of stat for the path on return.</p>
-		 * @return void
+		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/zookeeperconfig.set.php
 		 * @since PECL zookeeper >= 0.6.0, ZooKeeper >= 3.5.0
 		 */
@@ -727,7 +745,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -739,7 +763,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -748,13 +772,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -768,11 +804,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -802,13 +838,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -840,7 +876,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -852,7 +894,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -861,13 +903,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -881,11 +935,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -915,13 +969,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -953,7 +1007,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -965,7 +1025,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -974,13 +1034,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -994,11 +1066,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -1028,13 +1100,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -1066,7 +1138,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -1078,7 +1156,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -1087,13 +1165,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -1107,11 +1197,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -1141,13 +1231,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -1179,7 +1269,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -1191,7 +1287,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -1200,13 +1296,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -1220,11 +1328,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -1254,13 +1362,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -1292,7 +1400,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -1304,7 +1418,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -1313,13 +1427,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -1333,11 +1459,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -1367,13 +1493,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -1397,7 +1523,7 @@ namespace {
 	/**
 	 * Calls callbacks for pending operations
 	 * <p>The <b>zookeeper_dispatch()</b> function calls the callbacks passwd by operations like <code>Zookeeper::get()</code> or <code>Zookeeper::exists()</code>.</p><p>Since version 0.4.0, this function must be called manually to achieve asynchronous operations. If you want that to be done automatically, you also can declare ticks at the beginning of your program.</p><p>After PHP 7.1, you can ignore this function. This extension uses EG(vm_interrupt) to implement async dispatch.</p>
-	 * @return void
+	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.zookeeper-dispatch.php
 	 * @since PECL zookeeper >= 0.4.0
 	 */

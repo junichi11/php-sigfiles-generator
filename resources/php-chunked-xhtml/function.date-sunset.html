@@ -26,23 +26,22 @@
   <div id="layout-content"><div id="function.date-sunset" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">date_sunset</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">date_sunset</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">date_sunset</span> &mdash; <span class="dc-title">
    Returns time of sunset for a given day and location
   </span></p>
 
  </div>
 
+ <div id="function.date-sunset-refsynopsisdiv">
+  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function has been
+<em class="emphasis">DEPRECATED</em> as of PHP 8.1.0. Relying on this function
+is highly discouraged.</p></div>
+ </div>
+
  <div class="refsect1 description" id="refsect1-function.date-sunset-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>date_sunset</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestamp</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$returnFormat</code><span class="initializer"> = <strong><code>SUNFUNCS_RET_STRING</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">float</span>|<span class="type">null</span></span> <code class="parameter">$latitude</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">float</span>|<span class="type">null</span></span> <code class="parameter">$longitude</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">float</span>|<span class="type">null</span></span> <code class="parameter">$zenith</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">float</span>|<span class="type">null</span></span> <code class="parameter">$utcOffset</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">float</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>date_sunset</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$timestamp</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$returnFormat</code><span class="initializer"> = <strong><code>SUNFUNCS_RET_STRING</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">float</span><span class="type"></span></span> <code class="parameter">$latitude</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">float</span><span class="type"></span></span> <code class="parameter">$longitude</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">float</span><span class="type"></span></span> <code class="parameter">$zenith</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">float</span><span class="type"></span></span> <code class="parameter">$utcOffset</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">float</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
    <p class="para rdfs-comment">
     <span class="function"><strong>date_sunset()</strong></span> returns the sunset time for a given
@@ -55,7 +54,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">timestamp</code></dt>
@@ -212,19 +210,6 @@
  </div>
 
 
- <div class="refsect1 errors" id="refsect1-function.date-sunset-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-   
-   <p class="para">
-Every call to a date/time function will generate a <strong><code>E_NOTICE</code></strong>
-if the time zone is not valid, and/or a <strong><code>E_STRICT</code></strong>
-or <strong><code>E_WARNING</code></strong> message
-if using the system settings or the <var class="varname">TZ</var> environment
-variable. See also <span class="function"><a href="function.date-default-timezone-set.html" class="function">date_default_timezone_set()</a></span></p>
- 
- </div>
-
-
  <div class="refsect1 returnvalues" id="refsect1-function.date-sunset-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
@@ -233,6 +218,16 @@ variable. See also <span class="function"><a href="function.date-default-timezon
    sun does not set at all, which happens inside the polar circles for part of
    the year.
   </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.date-sunset-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+   
+   <p class="para">
+Every call to a date/time function will generate a <strong><code>E_WARNING</code></strong>
+if the time zone is not valid. See also <span class="function"><a href="function.date-default-timezone-set.html" class="function">date_default_timezone_set()</a></span></p>
+ 
  </div>
 
  
@@ -251,10 +246,17 @@ variable. See also <span class="function"><a href="function.date-default-timezon
 
      <tbody class="tbody">
       <tr>
+       <td>8.1.0</td>
+       <td>
+        This function has been deprecated in favor of <span class="function"><a href="function.date-sun-info.html" class="function">date_sun_info()</a></span>.
+       </td>
+      </tr>
+
+      <tr>
        <td>8.0.0</td>
        <td>
         <code class="parameter">latitude</code>, <code class="parameter">longitude</code>,
-        <code class="parameter">zenith</code> and <code class="parameter">latitude</code> are nullable now.
+        <code class="parameter">zenith</code> and <code class="parameter">utcOffset</code> are nullable now.
        </td>
       </tr>
 
@@ -269,7 +271,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
  <div class="refsect1 examples" id="refsect1-function.date-sunset-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2569">
+   <div class="example" id="example-2081">
     <p><strong>Example #1 <span class="function"><strong>date_sunset()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -286,7 +288,7 @@ Mon Dec 20 2004, sunset time : 18:13
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-2570">
+   <div class="example" id="example-2082">
     <p><strong>Example #2 No sunset</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

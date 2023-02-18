@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Executes an SQL statement, returning a result set as a PDOStatement object</title>
+  <title>Prepares and executes an SQL statement without placeholders</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,59 +19,40 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="class.pdo.html">PDO</a></li>
-    <li>Executes an SQL statement, returning a result set as a PDOStatement object</li>
+    <li>Prepares and executes an SQL statement without placeholders</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="pdo.query" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDO::query</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)</p><p class="refpurpose"><span class="refname">PDO::query</span> &mdash; <span class="dc-title">
-   Executes an SQL statement, returning a result set as a PDOStatement object
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.2.0)</p><p class="refpurpose"><span class="refname">PDO::query</span> &mdash; <span class="dc-title">
+   Prepares and executes an SQL statement without placeholders
   </span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-pdo.query-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDO::query</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$statement</code></span>
-   ) : <span class="type"><a href="class.pdostatement.html" class="type PDOStatement">PDOStatement</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDO::query</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$fetchMode</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type"><a href="class.pdostatement.html" class="type PDOStatement">PDOStatement</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
 
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDO::query</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$statement</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$fetch_style</code><span class="initializer"> = PDO::FETCH_COLUMN</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$colno</code></span>
-   ) : <span class="type"><a href="class.pdostatement.html" class="type PDOStatement">PDOStatement</a></span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>PDO::query</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$fetchMode</code><span class="initializer"> = PDO::FETCH_COLUMN</span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$colno</code></span>): <span class="type"><span class="type"><a href="class.pdostatement.html" class="type PDOStatement">PDOStatement</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
 
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDO::query</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$statement</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$fetch_style</code><span class="initializer"> = PDO::FETCH_CLASS</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$classname</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$ctorargs</code></span>
-   ) : <span class="type"><a href="class.pdostatement.html" class="type PDOStatement">PDOStatement</a></span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>PDO::query</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$fetchMode</code><span class="initializer"> = PDO::FETCH_CLASS</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$classname</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$constructorArgs</code></span><br>): <span class="type"><span class="type"><a href="class.pdostatement.html" class="type PDOStatement">PDOStatement</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
 
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDO::query</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$statement</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$fetch_style</code><span class="initializer"> = PDO::FETCH_INTO</span></span>
-   , <span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>
-   ) : <span class="type"><a href="class.pdostatement.html" class="type PDOStatement">PDOStatement</a></span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>PDO::query</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$fetchMode</code><span class="initializer"> = PDO::FETCH_INTO</span></span>, <span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>): <span class="type"><span class="type"><a href="class.pdostatement.html" class="type PDOStatement">PDOStatement</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>PDO::query()</strong></span> executes an SQL statement in
-   a single function call, returning the result set (if any) returned by the
-   statement as a PDOStatement object.
+   <span class="function"><strong>PDO::query()</strong></span> prepares and executes an SQL statement in
+   a single function call, returning the statement as a <span class="classname"><a href="class.pdostatement.html" class="classname">PDOStatement</a></span> object.
   </p>
   <p class="para">
    For a query that you need to issue multiple times, you will realize better
-   performance if you prepare a PDOStatement object using
+   performance if you prepare a <span class="classname"><a href="class.pdostatement.html" class="classname">PDOStatement</a></span> object using
    <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span> and issue the statement with multiple
    calls to <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span>.
   </p>
@@ -79,16 +60,15 @@
    If you do not fetch all of the data in a result set before issuing your
    next call to <span class="function"><strong>PDO::query()</strong></span>, your call may fail. Call
    <span class="function"><a href="pdostatement.closecursor.html" class="function">PDOStatement::closeCursor()</a></span> to release the database
-   resources associated with the PDOStatement object before issuing your
+   resources associated with the <span class="classname"><a href="class.pdostatement.html" class="classname">PDOStatement</a></span> object before issuing your
    next call to <span class="function"><strong>PDO::query()</strong></span>.
   </p>
 
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    If more than one argument is passed to this function, the remaining arguments
-    will be treated as though you called
-    <span class="function"><a href="pdostatement.setfetchmode.html" class="function">PDOStatement::setFetchMode()</a></span> on the resultant statement
-    object.
+    If the <code class="parameter">query</code> contains placeholders, the statement
+    must be prepared and executed separately using <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span> and 
+    <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span> methods.
    </p>
   </p></blockquote>
 
@@ -98,10 +78,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">statement</code></dt>
+<code class="parameter">query</code></dt>
 
       <dd>
 
@@ -109,7 +88,30 @@
         The SQL statement to prepare and execute.
        </p>
        <p class="para">
-        Data inside the query should be <a href="pdo.quote.html" class="link">properly escaped</a>.
+        If the SQL contains placeholders, <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span> and 
+        <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span> must be used instead.
+        Alternatively, the SQL can be prepared manually before calling 
+        <span class="function"><strong>PDO::query()</strong></span>, with the data properly formatted using
+        <span class="function"><a href="pdo.quote.html" class="function">PDO::quote()</a></span> if the driver supports it.
+       </p>
+      </dd>
+
+     
+    
+     <dt>
+<code class="parameter">fetchMode</code></dt>
+
+      <dd>
+
+       <p class="para">
+        The default fetch mode for the returned <span class="classname"><a href="class.pdostatement.html" class="classname">PDOStatement</a></span>.
+        It must be one of the <a href="pdo.constants.html" class="link"><code class="literal">PDO::FETCH_*</code></a> constants.
+       </p>
+       <p class="para">
+        If this argument is passed to the function, the remaining arguments
+        will be treated as though <span class="methodname"><a href="pdostatement.setfetchmode.html" class="methodname">PDOStatement::setFetchMode()</a></span>
+        was called on the resultant statement object.
+        The subsequent arguments vary depending on the selected fetch mode.
        </p>
       </dd>
 
@@ -122,8 +124,7 @@
  <div class="refsect1 returnvalues" id="refsect1-pdo.query-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-    <span class="function"><strong>PDO::query()</strong></span> returns a PDOStatement object, or <strong><code>false</code></strong>
-    on failure.
+    Returns a <span class="classname"><a href="class.pdostatement.html" class="classname">PDOStatement</a></span> object or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -131,13 +132,8 @@
  <div class="refsect1 examples" id="refsect1-pdo.query-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1017">
-    <p><strong>Example #1 Demonstrate PDO::query</strong></p>
-    <div class="example-contents"><p>
-     A nice feature of <span class="function"><strong>PDO::query()</strong></span> is that it
-     enables you to iterate over the rowset returned by a
-     successfully executed SELECT statement.
-    </p></div>
+   <div class="example" id="example-1024">
+    <p><strong>Example #1 SQL with no placeholders can be executed using <span class="function"><strong>PDO::query()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'SELECT&nbsp;name,&nbsp;color,&nbsp;calories&nbsp;FROM&nbsp;fruit&nbsp;ORDER&nbsp;BY&nbsp;name'</span><span style="color: #007700">;<br />foreach&nbsp;(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"\t"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'color'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"\t"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'calories'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>

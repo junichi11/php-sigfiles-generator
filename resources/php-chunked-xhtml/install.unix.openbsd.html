@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="install.unix.hpux.html">« HP-UX specific installation notes</a></li>
+      <li style="float: left;"><a href="install.unix.commandline.html">« CGI and command line setups</a></li>
       <li style="float: right;"><a href="install.unix.solaris.html">Solaris specific installation tips »</a></li>
     </ul>
   </div>
@@ -44,7 +44,7 @@
     or <var class="filename">php-imap</var>.  You need to use the <strong class="command">phpxs</strong>
     command to activate and deactivate these modules in your <var class="filename">php.ini</var>.
    </p>
-   <div class="example" id="install.unix.nginx.configure.ini">
+   <div class="example" id="install.unix.openbsd.ports.example">
     <p><strong>Example #1 OpenBSD Package Install Example</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode"># pkg_add php
@@ -109,17 +109,5 @@ Follow the instructions shown with each package!
     </span>
    </li>
   </ul>
- </div>
-   
- <div class="sect2" id="install.unix.openbsd.older">
-  <h3 class="title">Older Releases</h3>
-  <p class="simpara">
-   Older releases of OpenBSD used the FLAVORS system to compile up
-   a statically linked PHP.  Since it is hard to generate binary packages using
-   this method, it is now deprecated.  You can still use the old stable
-   ports trees if you wish, but they are unsupported by the OpenBSD team.
-   If you have any comments about this, the current maintainer for the port
-   is Anil Madhavapeddy (avsm at openbsd dot org).
-  </p>
  </div>
 </div></div></div></body></html>

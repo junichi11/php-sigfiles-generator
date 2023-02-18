@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.crypt" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">crypt</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">crypt</span> &mdash; <span class="dc-title">One-way string hashing</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">crypt</span> &mdash; <span class="dc-title">One-way string hashing</span></p>
 
  </div>
  
@@ -38,10 +38,7 @@ is not (yet) binary safe!</p></div>
  <div class="refsect1 description" id="refsect1-function.crypt-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>crypt</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$salt</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>crypt</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$salt</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>crypt()</strong></span> will return a hashed string using the
@@ -139,7 +136,6 @@ is not (yet) binary safe!</p></div>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -153,7 +149,7 @@ is not (yet) binary safe!</p></div>
        <p class="para">
         Using the <strong><code>CRYPT_BLOWFISH</code></strong> algorithm, will result
         in the <code class="parameter">string</code> parameter being truncated to a
-        maximum length of 72 characters.
+        maximum length of 72 bytes.
        </p>
       </div>
      </dd>
@@ -226,7 +222,7 @@ is not (yet) binary safe!</p></div>
  <div class="refsect1 examples" id="refsect1-function.crypt-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5289">
+   <div class="example" id="example-4777">
     <p><strong>Example #1 <span class="function"><strong>crypt()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -238,7 +234,7 @@ is not (yet) binary safe!</p></div>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5290">
+   <div class="example" id="example-4778">
     <p><strong>Example #2 Using <span class="function"><strong>crypt()</strong></span> with htpasswd</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -250,7 +246,7 @@ is not (yet) binary safe!</p></div>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5291">
+   <div class="example" id="example-4779">
     <p><strong>Example #3 Using <span class="function"><strong>crypt()</strong></span> with different hash types</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="reflectionclass.implementsinterface" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionClass::implementsInterface</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionClass::implementsInterface</span> &mdash; <span class="dc-title">Implements interface</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionClass::implementsInterface</span> &mdash; <span class="dc-title">Implements interface</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-reflectionclass.implementsinterface-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::implementsInterface</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.reflectionclass.html" class="type ReflectionClass">ReflectionClass</a></span>|<span class="type">string</span></span> <code class="parameter">$interface</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::implementsInterface</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="class.reflectionclass.html" class="type ReflectionClass">ReflectionClass</a></span>|<span class="type">string</span></span> <code class="parameter">$interface</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Checks whether it implements an interface.
@@ -47,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">interface</code></dt>
@@ -78,7 +75,7 @@
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
    <span class="methodname"><strong>ReflectionClass::implementsInterface()</strong></span> throws an
-   <a href="class.reflectionexception.html" class="classname">ReflectionException</a> if <code class="parameter">interface</code>
+   <span class="classname"><a href="class.reflectionexception.html" class="classname">ReflectionException</a></span> if <code class="parameter">interface</code>
    is not an interface.
   </p>
  </div>

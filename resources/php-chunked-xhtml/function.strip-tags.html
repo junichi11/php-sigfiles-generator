@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.strip-tags" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strip_tags</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strip_tags</span> &mdash; <span class="dc-title">Strip HTML and PHP tags from a string</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">strip_tags</span> &mdash; <span class="dc-title">Strip HTML and PHP tags from a string</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.strip-tags-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>strip_tags</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$allowed_tags</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>strip_tags</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$allowed_tags</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    This function tries to return a string with all NULL bytes, HTML and PHP tags stripped
@@ -50,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -83,8 +79,7 @@
       </p></blockquote>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
-        In PHP 5.3.4 and later, self-closing
-        XHTML tags are ignored and only non-self-closing tags should be used in
+        Self-closing XHTML tags are ignored and only non-self-closing tags should be used in
         <code class="parameter">allowed_tags</code>. For example,
         to allow both <code class="literal">&lt;br&gt;</code> and
         <code class="literal">&lt;br/&gt;</code>, you should use:
@@ -155,7 +150,7 @@
  <div class="refsect1 examples" id="refsect1-function.strip-tags-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5360">
+   <div class="example" id="example-4851">
     <p><strong>Example #1 <span class="function"><strong>strip_tags()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

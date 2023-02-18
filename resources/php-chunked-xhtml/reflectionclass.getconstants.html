@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="reflectionclass.getconstants" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionClass::getConstants</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionClass::getConstants</span> &mdash; <span class="dc-title">Gets constants</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionClass::getConstants</span> &mdash; <span class="dc-title">Gets constants</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-reflectionclass.getconstants-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::getConstants</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$filter</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::getConstants</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$filter</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Gets all defined constants from a class, regardless of their visibility.
@@ -47,7 +45,6 @@
  <div class="refsect1 parameters" id="refsect1-reflectionclass.getconstants-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">filter</code></dt>

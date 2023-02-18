@@ -26,21 +26,18 @@
   <div id="layout-content"><div id="function.openssl-x509-parse" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_x509_parse</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_x509_parse</span> &mdash; <span class="dc-title">Parse an X509 certificate and return the information as an array</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_x509_parse</span> &mdash; <span class="dc-title">Parse an X509 certificate and return the information as an array</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-x509-parse-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_x509_parse</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$x509cert</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$shortnames</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>openssl_x509_parse</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="class.opensslcertificate.html" class="type OpenSSLCertificate">OpenSSLCertificate</a></span>|<span class="type">string</span></span> <code class="parameter">$certificate</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$short_names</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_x509_parse()</strong></span> returns information about the
-   supplied <code class="parameter">x509cert</code>, including fields such as subject
+   supplied <code class="parameter">certificate</code>, including fields such as subject
    name, issuer name, purposes, valid from and valid to dates etc.
   </p>
  </div>
@@ -50,10 +47,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">x509cert</code></dt>
+<code class="parameter">certificate</code></dt>
 
      <dd>
 
@@ -65,13 +61,13 @@
     
     
      <dt>
-<code class="parameter">shortnames</code></dt>
+<code class="parameter">short_names</code></dt>
 
      <dd>
 
       <p class="para">
-       <code class="parameter">shortnames</code> controls how the data is indexed in the
-       array - if <code class="parameter">shortnames</code> is <strong><code>true</code></strong> (the default) then
+       <code class="parameter">short_names</code> controls how the data is indexed in the
+       array - if <code class="parameter">short_names</code> is <strong><code>true</code></strong> (the default) then
        fields will be indexed with the short name form, otherwise, the long name
        form will be used - e.g.: CN is the shortname form of commonName.
       </p>
@@ -92,5 +88,32 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.openssl-x509-parse-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">certificate</code> accepts an <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL X.509</code> was accepted.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
 
 </div></div></div></body></html>

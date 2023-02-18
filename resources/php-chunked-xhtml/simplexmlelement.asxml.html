@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="simplexmlelement.asxml" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SimpleXMLElement::asXML</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">SimpleXMLElement::asXML</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SimpleXMLElement::asXML</span> &mdash; <span class="dc-title">
    Return a well-formed XML string based on SimpleXML element
   </span></p>
 
@@ -34,9 +34,7 @@
  <div class="refsect1 description" id="refsect1-simplexmlelement.asxml-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>SimpleXMLElement::asXML</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code> = ?</span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>SimpleXMLElement::asXML</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$filename</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">string</span>|<span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    The <code class="literal">asXML</code> method formats the parent object&#039;s data
@@ -49,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">filename</code></dt>
@@ -57,7 +54,7 @@
      <dd>
 
       <p class="para">
-       If specified, the function writes the data to the file rather than
+       If a <span class="type">string</span> value is provided, the function writes the data to the file rather than
        returning it.
       </p>
      </dd>
@@ -80,10 +77,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-simplexmlelement.asxml-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">filename</code> is nullable now.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-simplexmlelement.asxml-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5940">
+   <div class="example" id="example-5390">
     <p><strong>Example #1 Get XML</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -111,7 +135,7 @@
   </p>
   <p class="para">
    <code class="literal">asXML</code> also works on Xpath results:
-   <div class="example" id="example-5941">
+   <div class="example" id="example-5391">
     <p><strong>Example #2 Using asXML() on <span class="methodname"><a href="simplexmlelement.xpath.html" class="methodname">SimpleXMLElement::xpath()</a></span> results</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

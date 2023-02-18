@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.oci-error" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">oci_error</h1>
-  <p class="verinfo">(PHP 5, PHP 7, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_error</span> &mdash; <span class="dc-title">Returns the last error found</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_error</span> &mdash; <span class="dc-title">Returns the last error found</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.oci-error-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>oci_error</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$resource</code> = ?</span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>oci_error</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">resource</span><span class="type"></span></span> <code class="parameter">$connection_or_statement</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns the last error found.
@@ -51,19 +49,18 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">resource</code></dt>
+<code class="parameter">connection_or_statement</code></dt>
 
      <dd>
 
       <p class="para">
-       For most errors, <code class="parameter">resource</code> is the
+       For most errors, <code class="parameter">connection_or_statement</code> is the
        resource handle that was passed to the failing function call.
        For connection errors with <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span>,
        <span class="function"><a href="function.oci-new-connect.html" class="function">oci_new_connect()</a></span> or 
-       <span class="function"><a href="function.oci-pconnect.html" class="function">oci_pconnect()</a></span> do not pass <code class="parameter">resource</code>.
+       <span class="function"><a href="function.oci-pconnect.html" class="function">oci_pconnect()</a></span> <strong><code>null</code></strong> should be passed.
       </p>
      </dd>
 
@@ -138,10 +135,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.oci-error-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0, PECL OCI8 3.0.0</td>
+      <td>
+       <code class="parameter">connection_or_statement</code> is now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.oci-error-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2246">
+   <div class="example" id="example-1805">
     <p><strong>Example #1 Displaying the Oracle error message after a connection error</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -153,7 +177,7 @@
    </div>
   </p>
    <p class="para">
-   <div class="example" id="example-2247">
+   <div class="example" id="example-1806">
     <p><strong>Example #2 Displaying the Oracle error message after a parsing error</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -165,7 +189,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2248">
+   <div class="example" id="example-1807">
     <p><strong>Example #3 Displaying the Oracle error message, the problematic statement,
      and the position of the problem of an execution error</strong></p>
     <div class="example-contents">

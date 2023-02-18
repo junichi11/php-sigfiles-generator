@@ -396,7 +396,7 @@ array(2) {
  <div class="sect2" id="migration71.incompatible.datetime-microseconds">
   <h3 class="title">DateTime constructor incorporates microseconds</h3>
   <p class="para">
-   <a href="class.datetime.html" class="classname">DateTime</a> and <a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a>
+   <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> and <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span>
    now properly incorporate microseconds when constructed from the current time,
    either explicitly or with a relative string (e.g. <code class="literal">&quot;first day of next
    month&quot;</code>). This means that naive comparisons of two newly created
@@ -414,12 +414,12 @@ array(2) {
  </div>
 
  <div class="sect2" id="migration71.incompatible.fatal-errors-to-error-exceptions">
-  <h3 class="title">Fatal errors to <a href="class.error.html" class="classname">Error</a> exceptions conversions</h3>
+  <h3 class="title">Fatal errors to <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exceptions conversions</h3>
   <p class="para">
    In the Date extension, invalid serialization data for
-   <a href="class.datetime.html" class="classname">DateTime</a> or <a href="class.dateperiod.html" class="classname">DatePeriod</a> classes,
+   <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> or <span class="classname"><a href="class.dateperiod.html" class="classname">DatePeriod</a></span> classes,
    or timezone initialization failure from serialized data, will now throw an
-   <a href="class.error.html" class="classname">Error</a> exception from the
+   <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception from the
    <span class="methodname"><strong>__wakeup()</strong></span> or <span class="methodname"><strong>__set_state()</strong></span>
    methods, instead of resulting in a fatal error.
   </p>
@@ -427,118 +427,118 @@ array(2) {
   <p class="para">
    In the DBA extension, data modification functions (such as
    <span class="function"><a href="function.dba-insert.html" class="function">dba_insert()</a></span>) will now throw an
-   <a href="class.error.html" class="classname">Error</a> exception instead of triggering a catchable
+   <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception instead of triggering a catchable
    fatal error if the key does not contain exactly two elements.
   </p>
 
   <p class="para">
    In the DOM extension, invalid schema or RelaxNG validation contexts will now
-   throw an <a href="class.error.html" class="classname">Error</a> exception instead of resulting in a
+   throw an <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception instead of resulting in a
    fatal error. Similarly, attempting to register a node class that does not
    extend the appropriate base class, or attempting to read an invalid property
    or write to a readonly property, will also now throw an
-   <a href="class.error.html" class="classname">Error</a> exception.
+   <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception.
   </p>
 
   <p class="para">
    In the IMAP extension, email addresses longer than 16385 bytes will throw an
-   <a href="class.error.html" class="classname">Error</a> exception instead of resulting in a fatal error.
+   <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception instead of resulting in a fatal error.
   </p>
 
   <p class="para">
    In the Intl extension, failing to call the parent constructor in a class
-   extending <a href="class.collator.html" class="classname">Collator</a> before invoking the parent methods
-   will now throw an <a href="class.error.html" class="classname">Error</a> instead of resulting in a
+   extending <span class="classname"><a href="class.collator.html" class="classname">Collator</a></span> before invoking the parent methods
+   will now throw an <span class="classname"><a href="class.error.html" class="classname">Error</a></span> instead of resulting in a
    recoverable fatal error. Also, cloning a
-   <a href="class.transliterator.html" class="classname">Transliterator</a> object will now throw an
-   <a href="class.error.html" class="classname">Error</a> exception on failure to clone the internal
+   <span class="classname"><a href="class.transliterator.html" class="classname">Transliterator</a></span> object will now throw an
+   <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception on failure to clone the internal
    transliterator instead of resulting in a fatal error.
   </p>
 
   <p class="para">
    In the LDAP extension, providing an unknown modification type to
    <span class="function"><strong>ldap_batch_modify()</strong></span> will now throw an
-   <a href="class.error.html" class="classname">Error</a> exception instead of resulting in a fatal error.
+   <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception instead of resulting in a fatal error.
   </p>
 
   <p class="para">
    In the mbstring extension, the <span class="function"><a href="function.mb-ereg.html" class="function">mb_ereg()</a></span> and
    <span class="function"><a href="function.mb-eregi.html" class="function">mb_eregi()</a></span> functions will now throw a
-   <a href="class.parseerror.html" class="classname">ParseError</a> exception if an invalid PHP expression is
+   <span class="classname"><a href="class.parseerror.html" class="classname">ParseError</a></span> exception if an invalid PHP expression is
    provided and the &#039;e&#039; option is used.
   </p>
 
   <p class="para">
    In the Mcrypt extension, the <span class="function"><a href="function.mcrypt-encrypt.html" class="function">mcrypt_encrypt()</a></span> and
    <span class="function"><a href="function.mcrypt-decrypt.html" class="function">mcrypt_decrypt()</a></span> will now throw an
-   <a href="class.error.html" class="classname">Error</a> exception instead of resulting in a fatal error
+   <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception instead of resulting in a fatal error
    if mcrypt cannot be initialized.
   </p>
 
   <p class="para">
    In the mysqli extension, attempting to read an invalid property or write to
-   a readonly property will now throw an <a href="class.error.html" class="classname">Error</a> exception
+   a readonly property will now throw an <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception
    instead of resulting in a fatal error.
   </p>
 
   <p class="para">
    In the Reflection extension, failing to retrieve a reflection object or
-   retrieve an object property will now throw an <a href="class.error.html" class="classname">Error</a>
+   retrieve an object property will now throw an <span class="classname"><a href="class.error.html" class="classname">Error</a></span>
    exception instead of resulting in a fatal error.
   </p>
 
   <p class="para">
    In the Session extension, custom session handlers that do not return strings
-   for session IDs will now throw an <a href="class.error.html" class="classname">Error</a> exception
+   for session IDs will now throw an <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception
    instead of resulting in a fatal error when a function is called that must
    generate a session ID.
   </p>
 
   <p class="para">
    In the SimpleXML extension, creating an unnamed or duplicate attribute will
-   now throw an <a href="class.error.html" class="classname">Error</a> exception instead of resulting in
+   now throw an <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception instead of resulting in
    a fatal error.
   </p>
 
   <p class="para">
    In the SPL extension, attempting to clone an
-   <strong class="classname">SplDirectory</strong> object will now throw an
-   <a href="class.error.html" class="classname">Error</a> exception instead of resulting in a fatal
+   <span class="classname"><strong class="classname">SplDirectory</strong></span> object will now throw an
+   <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception instead of resulting in a fatal
    error. Similarly, calling <span class="methodname"><a href="arrayiterator.append.html" class="methodname">ArrayIterator::append()</a></span> when
-   iterating over an object will also now throw an <a href="class.error.html" class="classname">Error</a>
+   iterating over an object will also now throw an <span class="classname"><a href="class.error.html" class="classname">Error</a></span>
    exception.
   </p>
 
   <p class="para">
    In the standard extension, the <span class="function"><a href="function.assert.html" class="function">assert()</a></span> function, when
    provided with a string argument as its first parameter, will now throw a
-   <a href="class.parseerror.html" class="classname">ParseError</a> exception instead of resulting in a
+   <span class="classname"><a href="class.parseerror.html" class="classname">ParseError</a></span> exception instead of resulting in a
    catchable fatal error if the PHP code is invalid. Similarly, calling
    <span class="function"><a href="function.forward-static-call.html" class="function">forward_static_call()</a></span> outside of a class scope will now
-   throw an <a href="class.error.html" class="classname">Error</a> exception.
+   throw an <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception.
   </p>
 
   <p class="para">
-   In the Tidy extension, creating a <a href="class.tidynode.html" class="classname">tidyNode</a> manually
-   will now throw an <a href="class.error.html" class="classname">Error</a> exception instead of
+   In the Tidy extension, creating a <span class="classname"><a href="class.tidynode.html" class="classname">tidyNode</a></span> manually
+   will now throw an <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception instead of
    resulting in a fatal error.
   </p>
 
   <p class="para">
    In the WDDX extension, a circular reference when serializing will now throw
-   an <a href="class.error.html" class="classname">Error</a> exception instead of resulting in a fatal
+   an <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception instead of resulting in a fatal
    error.
   </p>
 
   <p class="para">
    In the XML-RPC extension, a circular reference when serializing will now
-   throw an instance of <a href="class.error.html" class="classname">Error</a> exception instead of
+   throw an instance of <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception instead of
    resulting in a fatal error.
   </p>
 
   <p class="para">
    In the Zip extension, the <span class="methodname"><a href="ziparchive.addglob.html" class="methodname">ZipArchive::addGlob()</a></span>
-   method will now throw an <a href="class.error.html" class="classname">Error</a> exception instead of
+   method will now throw an <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception instead of
    resulting in a fatal error if glob support is not available.
   </p>
  </div>

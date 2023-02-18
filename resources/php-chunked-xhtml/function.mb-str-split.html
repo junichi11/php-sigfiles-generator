@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.mb-str-split" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mb_str_split</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.4.0)</p><p class="refpurpose"><span class="refname">mb_str_split</span> &mdash; <span class="dc-title">Given a multibyte string, return an array of its characters</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.4.0, PHP 8)</p><p class="refpurpose"><span class="refname">mb_str_split</span> &mdash; <span class="dc-title">Given a multibyte string, return an array of its characters</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.mb-str-split-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mb_str_split</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 1</span></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>mb_str_split</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 1</span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    This function will return an array of strings, it is a version of <span class="function"><a href="function.str-split.html" class="function">str_split()</a></span> with support for encodings of variable character size as well as fixed-size encodings of 1,2 or 4 byte characters.
@@ -51,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>

@@ -140,16 +140,16 @@ The behaviour of these functions is affected by settings in <var class="filename
 
      <tr>
       <td><a href="apcu.configuration.html#ini.apcu.use-request-time" class="link">apc.use_request_time</a></td>
-      <td>&quot;1&quot;</td>
+      <td>&quot;0&quot;</td>
       <td>PHP_INI_ALL</td>
-      <td class="empty">&nbsp;</td>
+      <td>Prior to APCu 5.1.19, the default was &quot;1&quot;.</td>
      </tr>
 
      <tr>
       <td><a href="apcu.configuration.html#ini.apcu.serializer" class="link">apc.serializer</a></td>
-      <td>&quot;default&quot;</td>
+      <td>&quot;php&quot;</td>
       <td>PHP_INI_SYSTEM</td>
-      <td class="empty">&nbsp;</td>
+      <td>Prior to APCu 5.1.15, the default was &quot;default&quot;.</td>
      </tr>
 
      <tr>
@@ -179,7 +179,6 @@ the configuration directives.</p>
  
  <p class="para">
   <dl>
-
    
     <dt id="ini.apcu.enabled">
      <code class="parameter">apc.enabled</code>

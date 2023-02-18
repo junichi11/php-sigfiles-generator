@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.spl-object-hash" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">spl_object_hash</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">spl_object_hash</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">spl_object_hash</span> &mdash; <span class="dc-title">
    Return hash id for given object
   </span></p>
 
@@ -34,15 +34,14 @@
  <div class="refsect1 description" id="refsect1-function.spl-object-hash-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>spl_object_hash</strong></span>
-    ( <span class="methodparam"><span class="type">object</span> <code class="parameter">$obj</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>spl_object_hash</strong></span>(<span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    This function returns a unique identifier for the object. This id can be
    used as a hash key for storing objects, or for identifying an object, as long
    as the object is not destroyed. Once the object is destroyed, its hash may 
-   be reused for other objects.
+   be reused for other objects. This behavior is similar to
+   <span class="function"><a href="function.spl-object-id.html" class="function">spl_object_id()</a></span>.
   </p>
  </div>
 
@@ -51,7 +50,6 @@
    <h3 class="title">Parameters</h3>
    <p class="para">
     <dl>
-
      
       <dt>
 <code class="parameter">object</code></dt>
@@ -82,7 +80,7 @@
  <div class="refsect1 examples" id="refsect1-function.spl-object-hash-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4183">
+   <div class="example" id="example-3684">
     <p><strong>Example #1 A <span class="function"><strong>spl_object_hash()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -105,4 +103,13 @@
   </p></blockquote>
  </div>
  
+ <div class="refsect1 seealso" id="refsect1-function.spl-object-hash-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.spl-object-id.html" class="function" rel="rdfs-seeAlso">spl_object_id()</a> - Return the integer object handle for given object</span></li>
+   </ul>
+  </p>
+ </div>
+
 </div></div></div></body></html>

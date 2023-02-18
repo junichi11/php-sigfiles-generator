@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.strcmp" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strcmp</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strcmp</span> &mdash; <span class="dc-title">Binary safe string comparison</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">strcmp</span> &mdash; <span class="dc-title">Binary safe string comparison</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.strcmp-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>strcmp</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str1</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$str2</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>strcmp</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string1</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$string2</code></span>): <span class="type">int</span></div>
 
   <p class="simpara">
    Note that this comparison is case sensitive.
@@ -48,10 +45,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">str1</code></dt>
+<code class="parameter">string1</code></dt>
 
      <dd>
 
@@ -63,7 +59,7 @@
     
     
      <dt>
-<code class="parameter">str2</code></dt>
+<code class="parameter">string2</code></dt>
 
      <dd>
 
@@ -82,9 +78,9 @@
  <div class="refsect1 returnvalues" id="refsect1-function.strcmp-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns &lt; 0 if <code class="parameter">str1</code> is less than
-   <code class="parameter">str2</code>; &gt; 0 if <code class="parameter">str1</code>
-   is greater than <code class="parameter">str2</code>, and 0 if they are
+   Returns &lt; 0 if <code class="parameter">string1</code> is less than
+   <code class="parameter">string2</code>; &gt; 0 if <code class="parameter">string1</code>
+   is greater than <code class="parameter">string2</code>, and 0 if they are
    equal.
   </p>
  </div>
@@ -93,7 +89,7 @@
  <div class="refsect1 examples" id="refsect1-function.strcmp-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5358">
+   <div class="example" id="example-4849">
     <p><strong>Example #1 <span class="function"><strong>strcmp()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

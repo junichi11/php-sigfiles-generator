@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="reflectionclass.getconstructor" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionClass::getConstructor</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionClass::getConstructor</span> &mdash; <span class="dc-title">Gets the constructor of the class</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionClass::getConstructor</span> &mdash; <span class="dc-title">Gets the constructor of the class</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-reflectionclass.getconstructor-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::getConstructor</strong></span>
-    (
-   ) : <span class="type"><span class="type"><a href="class.reflectionmethod.html" class="type ReflectionMethod">ReflectionMethod</a></span>|<span class="type">null</span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::getConstructor</strong></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.reflectionmethod.html" class="type ReflectionMethod">ReflectionMethod</a></span></span></div>
 
   <p class="para rdfs-comment">
    Gets the constructor of the reflected class.
@@ -53,7 +51,7 @@
  <div class="refsect1 returnvalues" id="refsect1-reflectionclass.getconstructor-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   A <a href="class.reflectionmethod.html" class="classname">ReflectionMethod</a> object reflecting the class&#039; constructor, or <strong><code>null</code></strong> if the class
+   A <span class="classname"><a href="class.reflectionmethod.html" class="classname">ReflectionMethod</a></span> object reflecting the class&#039; constructor, or <strong><code>null</code></strong> if the class
    has no constructor.
   </p>
  </div>
@@ -62,7 +60,7 @@
  <div class="refsect1 examples" id="refsect1-reflectionclass.getconstructor-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5665">
+   <div class="example" id="example-5102">
     <p><strong>Example #1 Basic usage of <span class="methodname"><strong>ReflectionClass::getConstructor()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

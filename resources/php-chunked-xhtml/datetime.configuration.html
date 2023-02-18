@@ -75,7 +75,7 @@ The behaviour of these functions is affected by settings in <var class="filename
       <td><a href="datetime.configuration.html#ini.date.timezone" class="link">date.timezone</a></td>
       <td>&quot;&quot;</td>
       <td>PHP_INI_ALL</td>
-      <td>Available as of PHP 5.1.0.</td>
+      <td class="empty">&nbsp;</td>
      </tr>
 
     </tbody>
@@ -91,7 +91,6 @@ the configuration directives.</p>
 
  <p class="para">
   <dl>
-
    
     <dt id="ini.date.default-latitude">
      <code class="parameter">date.default_latitude</code>
@@ -101,7 +100,9 @@ the configuration directives.</p>
     <dd>
 
      <p class="para">
-      The default latitude.
+      The default latitude
+      ranging from <code class="literal">0</code> at the equator,
+      to <code class="literal">+90</code> northward, and <code class="literal">-90</code> southward.
      </p>
     </dd>
 
@@ -116,7 +117,9 @@ the configuration directives.</p>
     <dd>
 
      <p class="para">
-      The default longitude.
+      The default longitude
+      ranging from <code class="literal">0</code> at the prime meridian
+      to <code class="literal">+180</code> eastward and <code class="literal">−180</code> westward.
      </p>
     </dd>
 
@@ -161,9 +164,8 @@ the configuration directives.</p>
     <dd>
 
      <p class="para">
-      The default timezone used by all date/time functions. Prior to PHP 5.4.0,
-      this would only work if the <var class="varname">TZ</var> environment variable
-      was not set. The precedence order for which timezone is used if none
+      The default timezone used by all date/time functions.
+      The precedence order for which timezone is used if none
       is explicitly mentioned is described in the
       <span class="function"><a href="function.date-default-timezone-get.html" class="function">date_default_timezone_get()</a></span> page. See <a href="timezones.html" class="xref">List of Supported Timezones</a> for a list of supported timezones.
      </p>

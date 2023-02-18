@@ -32,7 +32,7 @@
   </p>
   <p class="para">
    Valid (aka. well-formed) BCMath numbers are strings which match the regular expression
-   <code class="literal">/^[+-]?[0]*[1-9]*[.]?[0-9]*$/</code>.
+   <code class="literal">/^[+-]?[0-9]*(\.[0-9]*)?$/</code>.
   </p>
   <div class="caution"><strong class="caution">Caution</strong>
    <p class="para">
@@ -40,7 +40,7 @@
     a <span class="type">string</span> as operand may not have the desired effect due to the
     way PHP converts <span class="type">float</span> values to <span class="type">string</span>, namely
     that the <span class="type">string</span> may be in exponential notation (which is not
-    supported by BCMath), and that the decimal separator is locale dependent
+    supported by BCMath), and that, prior to PHP 8.0.0, the decimal separator is locale dependent
     (while BCMath always expects a decimal point).
    </p>
    <div class="informalexample">

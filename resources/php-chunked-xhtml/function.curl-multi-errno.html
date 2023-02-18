@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.curl-multi-errno" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">curl_multi_errno</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.1.0)</p><p class="refpurpose"><span class="refname">curl_multi_errno</span> &mdash; <span class="dc-title">Return the last multi curl error number</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.1.0, PHP 8)</p><p class="refpurpose"><span class="refname">curl_multi_errno</span> &mdash; <span class="dc-title">Return the last multi curl error number</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.curl-multi-errno-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>curl_multi_errno</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.curlmultihandle.html" class="type CurlMultiHandle">CurlMultiHandle</a></span> <code class="parameter">$multi_handle</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>curl_multi_errno</strong></span>(<span class="methodparam"><span class="type"><a href="class.curlmultihandle.html" class="type CurlMultiHandle">CurlMultiHandle</a></span> <code class="parameter">$multi_handle</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Return an integer containing the last multi curl error number.
@@ -46,7 +44,6 @@
  <div class="refsect1 parameters" id="refsect1-function.curl-multi-errno-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
     <dt>
 <code class="parameter">multi_handle</code>
 </dt>
@@ -90,7 +87,7 @@
      <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">multi_handle</code> expects a <a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a>
+  <code class="parameter">multi_handle</code> expects a <span class="classname"><a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a></span>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>

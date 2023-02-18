@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.nl2br" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">nl2br</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">nl2br</span> &mdash; <span class="dc-title">Inserts HTML line breaks before all newlines in a string</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">nl2br</span> &mdash; <span class="dc-title">Inserts HTML line breaks before all newlines in a string</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.nl2br-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>nl2br</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_xhtml</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>nl2br</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_xhtml</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns <code class="parameter">string</code> with <code class="code">&lt;br /&gt;</code> or 
@@ -50,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -92,7 +88,7 @@
  <div class="refsect1 examples" id="refsect1-function.nl2br-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5316">
+   <div class="example" id="example-4805">
     <p><strong>Example #1 Using <span class="function"><strong>nl2br()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -109,7 +105,7 @@ foo isn&#039;t&lt;br /&gt;
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5317">
+   <div class="example" id="example-4806">
     <p><strong>Example #2 Generating valid HTML markup using the <code class="parameter">use_xhtml</code> parameter</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -126,7 +122,7 @@ This is my HTML document
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5318">
+   <div class="example" id="example-4807">
     <p><strong>Example #3 Various newline separators</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

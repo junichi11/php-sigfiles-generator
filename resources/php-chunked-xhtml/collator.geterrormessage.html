@@ -27,30 +27,22 @@
  <div class="refnamediv">
   <h1 class="refname">Collator::getErrorMessage</h1>
   <h1 class="refname">collator_get_error_message</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">Collator::getErrorMessage</span> -- <span class="refname">collator_get_error_message</span> &mdash; <span class="dc-title">Get text for collator&#039;s last error code</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">Collator::getErrorMessage</span> -- <span class="refname">collator_get_error_message</span> &mdash; <span class="dc-title">Get text for collator&#039;s last error code</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-collator.geterrormessage-description">
   <h3 class="title">Description</h3>
   <p class="para">
-   Object oriented style
+   Object-oriented style
   </p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>
-   
-   <span class="methodname"><strong>Collator::getErrorMessage</strong></span>
-    (
-   ) : <span class="type">string</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Collator::getErrorMessage</strong></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Procedural style
   </p>
-  <div class="methodsynopsis dc-description">
-   
-   <span class="methodname"><strong>collator_get_error_message</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.collator.html" class="type Collator">Collator</a></span> <code class="parameter">$coll</code></span>
-   ) : <span class="type">string</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>collator_get_error_message</strong></span>(<span class="methodparam"><span class="type"><a href="class.collator.html" class="type Collator">Collator</a></span> <code class="parameter">$object</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Retrieves the message for the last error.
@@ -62,15 +54,14 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">coll</code></dt>
+<code class="parameter">object</code></dt>
 
      <dd>
 
       <p class="para">
-       <a href="class.collator.html" class="classname">Collator</a> object.
+       <span class="classname"><a href="class.collator.html" class="classname">Collator</a></span> object.
       </p>
      </dd>
 
@@ -85,7 +76,8 @@
  <div class="refsect1 returnvalues" id="refsect1-collator.geterrormessage-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Description of an error occurred in the last Collator <acronym title="Application Programming Interface">API</acronym> function call.
+   Description of an error occurred in the last Collator <acronym title="Application Programming Interface">API</acronym> function call,
+    or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -93,7 +85,7 @@
  <div class="refsect1 examples" id="refsect1-collator.geterrormessage-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2767">
+   <div class="example" id="example-2279">
     <p><strong>Example #1 <span class="function"><strong>collator_get_error_message()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

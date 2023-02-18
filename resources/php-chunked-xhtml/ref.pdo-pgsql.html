@@ -64,13 +64,60 @@ $ ./configure --with-pdo-pgsql
 
 
 
+   
+
+<div class="section" id="pdo-pgsql.constants">
+ <h2 class="title">Predefined Constants</h2>
+ <p class="simpara">The constants below are defined by
+this driver, and will only be available when the extension has been either
+compiled into PHP or dynamically loaded at runtime. In addition, these
+driver-specific constants should only be used if you are using this driver.
+Using driver-specific attributes with another driver may result in
+unexpected behaviour. <span class="function"><a href="pdo.getattribute.html" class="function">PDO::getAttribute()</a></span> may be used to
+obtain the <strong><code>PDO::ATTR_DRIVER_NAME</code></strong> attribute to check the
+driver, if your code can run against multiple drivers.</p>
+ <dl>
+  
+  
+   <dt id="pdo.constants.pgsql-attr-disable-prepares">
+    <strong><code>PDO::PGSQL_ATTR_DISABLE_PREPARES</code></strong>
+     (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Send the query and the parameters to the server together in a single
+     call, avoiding the need to create a named prepared statement separately.
+     If the query is only going to be executed once this can reduce latency by
+     avoiding an unnecessary server round-trip.
+    </p>
+   </dd>
+
+  
+  
+ </dl>
+
+</div>
+
+
+
+
+
+   <div class="section" id="pdo-pgsql.general-notes">
+    <h2 class="title">General notes</h2>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      <code class="literal">bytea</code> fields are returned as streams.
+     </p>
+    </p></blockquote>
+   </div>
 
   </div>
 
   
 
   
-
 
 
 

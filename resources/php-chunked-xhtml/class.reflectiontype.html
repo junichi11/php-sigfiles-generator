@@ -28,14 +28,20 @@
  <h1 class="title">The ReflectionType class</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 7)</p>
+ <div class="partintro"><p class="verinfo">(PHP 7, PHP 8)</p>
 
 
   <div class="section" id="reflectiontype.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-    The <strong class="classname">ReflectionType</strong> class reports
-    information about a function&#039;s return type.
+    The <span class="classname"><strong class="classname">ReflectionType</strong></span> class reports
+    information about a function&#039;s parameter/return type or a class&#039;s property type.
+    The Reflection extension declares the following subtypes:
+    <ul class="simplelist">
+     <li class="member"><span class="classname"><a href="class.reflectionnamedtype.html" class="classname">ReflectionNamedType</a></span> (as of PHP 7.1.0)</li>
+     <li class="member"><span class="classname"><a href="class.reflectionuniontype.html" class="classname">ReflectionUnionType</a></span> (as of PHP 8.0.0)</li>
+     <li class="member"><span class="classname"><a href="class.reflectionintersectiontype.html" class="classname">ReflectionIntersectionType</a></span> (as of PHP 8.1.0)</li>
+    </ul>
    </p>
   </div>
 
@@ -45,27 +51,23 @@
 
 
    <div class="classsynopsis">
-    <div class="ooclass"></div>
-
+    <div class="ooclass">
+     
+    </div>
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
       <span class="modifier">abstract</span>
-      <strong class="classname">ReflectionType</strong>
+      <span class="modifier">class</span> <strong class="classname">ReflectionType</strong>
      </span>
-     {</div>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a href="class.stringable.html" class="interfacename">Stringable</a></span> {</div>
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
-    
     <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectiontype.allowsnull.html" class="methodname">allowsNull</a></span>
-    (
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="reflectiontype.tostring.html" class="methodname">__toString</a></span>
-    (
-   ) : <span class="type">string</span></div>
-
+   <span class="modifier">public</span> <span class="methodname"><a href="reflectiontype.allowsnull.html" class="methodname">allowsNull</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectiontype.tostring.html" class="methodname">__toString</a></span>(): <span class="type">string</span></div>
 
    }</div>
 
@@ -88,7 +90,7 @@
       <tr>
        <td>8.0.0</td>
        <td>
-        <strong class="classname">ReflectionType</strong> has become abstract and <span class="function"><strong>ReflectionType::isBuiltin()</strong></span>
+        <span class="classname"><strong class="classname">ReflectionType</strong></span> has become abstract and <span class="function"><strong>ReflectionType::isBuiltin()</strong></span>
         has been moved to <span class="function"><a href="reflectionnamedtype.isbuiltin.html" class="function">ReflectionNamedType::isBuiltin()</a></span>.
        </td>
       </tr>

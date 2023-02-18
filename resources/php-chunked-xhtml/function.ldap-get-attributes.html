@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.ldap-get-attributes" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ldap_get_attributes</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ldap_get_attributes</span> &mdash; <span class="dc-title">Get attributes from a search result entry</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ldap_get_attributes</span> &mdash; <span class="dc-title">Get attributes from a search result entry</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.ldap-get-attributes-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ldap_get_attributes</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$ldap</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$entry</code></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>ldap_get_attributes</strong></span>(<span class="methodparam"><span class="type"><a href="class.ldap-connection.html" class="type LDAP\Connection">LDAP\Connection</a></span> <code class="parameter">$ldap</code></span>, <span class="methodparam"><span class="type"><span class="type LDAP\ResultEntry">LDAP\ResultEntry</span></span> <code class="parameter">$entry</code></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Reads attributes and values from an entry in the search result. 
@@ -70,7 +67,6 @@ return_value[&quot;attribute&quot;][i] = (i+1)th value of the attribute
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">ldap</code></dt>
@@ -78,7 +74,7 @@ return_value[&quot;attribute&quot;][i] = (i+1)th value of the attribute
      <dd>
 
       <p class="para">
-       An LDAP link identifier, returned by <span class="function"><a href="function.ldap-connect.html" class="function">ldap_connect()</a></span>.
+       An <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span> instance, returned by <span class="function"><a href="function.ldap-connect.html" class="function">ldap_connect()</a></span>.
       </p>
      </dd>
 
@@ -90,6 +86,7 @@ return_value[&quot;attribute&quot;][i] = (i+1)th value of the attribute
      <dd>
 
       <p class="para">
+       An <span class="classname"><a href="class.ldap-result-entry.html" class="classname">LDAP\ResultEntry</a></span> instance.
       </p>
      </dd>
 
@@ -109,10 +106,46 @@ return_value[&quot;attribute&quot;][i] = (i+1)th value of the attribute
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.ldap-get-attributes-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">ldap</code> parameter expects an <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">entry</code> parameter expects an <span class="classname"><a href="class.ldap-result-entry.html" class="classname">LDAP\ResultEntry</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.ldap-get-attributes-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4857">
+   <div class="example" id="example-4358">
     <p><strong>Example #1 
      Show the list of attributes held for a particular directory entry
     </strong></p>

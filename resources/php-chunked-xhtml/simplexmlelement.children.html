@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="simplexmlelement.children" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SimpleXMLElement::children</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">SimpleXMLElement::children</span> &mdash; <span class="dc-title">Finds children of given node</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SimpleXMLElement::children</span> &mdash; <span class="dc-title">Finds children of given node</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-simplexmlelement.children-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>SimpleXMLElement::children</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$ns</code> = ?</span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_prefix</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>SimpleXMLElement::children</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$namespaceOrPrefix</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$isPrefix</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span></span></div>
 
   <p class="para rdfs-comment">
    This method finds the children of an element. The result follows normal
@@ -52,10 +49,9 @@ or anything else which can examine objects.</span></p></blockquote>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">ns</code></dt>
+<code class="parameter">namespaceOrPrefix</code></dt>
 
      <dd>
 
@@ -67,14 +63,14 @@ or anything else which can examine objects.</span></p></blockquote>
     
     
      <dt>
-<code class="parameter">is_prefix</code></dt>
+<code class="parameter">isPrefix</code></dt>
 
      <dd>
 
       <p class="para">
-       If <code class="parameter">is_prefix</code> is <strong><code>true</code></strong>,
-       <code class="parameter">ns</code> will be regarded as a prefix. If <strong><code>false</code></strong>,
-       <code class="parameter">ns</code> will be regarded as a namespace
+       If <code class="parameter">isPrefix</code> is <strong><code>true</code></strong>,
+       <code class="parameter">namespaceOrPrefix</code> will be regarded as a prefix. If <strong><code>false</code></strong>,
+       <code class="parameter">namespaceOrPrefix</code> will be regarded as a namespace
        <acronym title="Uniform Resource Locator">URL</acronym>.
       </p>
      </dd>
@@ -89,8 +85,9 @@ or anything else which can examine objects.</span></p></blockquote>
  <div class="refsect1 returnvalues" id="refsect1-simplexmlelement.children-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a <a href="class.simplexmlelement.html" class="classname">SimpleXMLElement</a> element, whether the node 
-   has children or not.
+   Returns a <span class="classname"><a href="class.simplexmlelement.html" class="classname">SimpleXMLElement</a></span> element, whether the node 
+   has children or not, unless the node represents an attribute, in which case
+   <strong><code>null</code></strong> is returned.
   </p>
  </div>
 
@@ -98,7 +95,7 @@ or anything else which can examine objects.</span></p></blockquote>
  <div class="refsect1 examples" id="refsect1-simplexmlelement.children-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5943">
+   <div class="example" id="example-5393">
     <p><strong>Example #1 Traversing a <code class="literal">children()</code> pseudo-array</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -115,7 +112,7 @@ begot a daughter who begot a son; and that son begot a son
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5944">
+   <div class="example" id="example-5394">
     <p><strong>Example #2 Using namespaces</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -137,26 +134,13 @@ int(1)
   </p>
  </div>
 
-
- <div class="refsect1 notes" id="refsect1-simplexmlelement.children-notes">
-  <h3 class="title">Notes</h3>
-
-  <p class="simpara">
-   <span class="methodname"><strong>SimpleXMLElement::children()</strong></span> returns a node 
-   object no matter if the current node has children or not. Use
-   <span class="function"><a href="function.count.html" class="function">count()</a></span> on the return value to see if there are any
-   children. As of PHP 5.3.0, <span class="methodname"><a href="simplexmlelement.count.html" class="methodname">SimpleXMLElement::count()</a></span>
-   may be used instead.
-  </p>
- </div>
-
  
  <div class="refsect1 seealso" id="refsect1-simplexmlelement.children-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="methodname"><a href="simplexmlelement.count.html" class="methodname" rel="rdfs-seeAlso">SimpleXMLElement::count()</a> - Counts the children of an element</span></li>
-    <li class="member"><span class="function"><a href="function.count.html" class="function" rel="rdfs-seeAlso">count()</a> - Count all elements in an array, or something in an object</span></li>
+    <li class="member"><span class="function"><a href="function.count.html" class="function" rel="rdfs-seeAlso">count()</a> - Counts all elements in an array or in a Countable object</span></li>
    </ul>
   </p>
  </div>

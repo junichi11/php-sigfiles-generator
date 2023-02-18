@@ -34,8 +34,8 @@
  <div class="refsect1 description" id="refsect1-wrappers.http-description">
   <h3 class="title">Description</h3>
   <p class="para">
-   Allows read-only access to files/resources via HTTP 1.0,
-   using the HTTP GET method. A <code class="literal">Host:</code> header is sent with the request
+   Allows read-only access to files/resources via HTTP.
+   By default, a HTTP 1.0 GET is used. A <code class="literal">Host:</code> header is sent with the request
    to handle name-based virtual hosts.  If you have configured
    a <a href="filesystem.configuration.html#ini.user-agent" class="link">user_agent</a> string using
    your <var class="filename">php.ini</var> file or the stream context, it will also be included
@@ -148,7 +148,7 @@
 
  <div class="refsect1 examples" id="refsect1-wrappers.http-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-381">
+  <div class="example" id="wrappers.http.example.basic">
    <p><strong>Example #1 Detecting which URL we ended up on after redirects</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

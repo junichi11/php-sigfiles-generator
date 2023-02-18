@@ -26,12 +26,12 @@
   <div id="layout-content"><div id="language.oop5.final" class="sect1">
   <h2 class="title">Final Keyword</h2>
   <p class="para">
-   The final keyword prevents child classes from overriding a method by
-   prefixing the definition with <em class="emphasis">final</em>. If the class
+   The final keyword prevents child classes from overriding a method or constant by
+   prefixing the definition with <code class="literal">final</code>. If the class
    itself is being defined final then it cannot be extended.
   </p>
   <p class="para">
-   <div class="example" id="language.oop5.traits.static.ex1">
+   <div class="example" id="example-271">
     <p><strong>Example #1 Final methods example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -43,21 +43,36 @@
   </div>
   </p>
   <p class="para">
-   <div class="example" id="language.oop5.traits.static.ex2">
+   <div class="example" id="example-272">
     <p><strong>Example #2 Final class example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">final&nbsp;class&nbsp;</span><span style="color: #0000BB">BaseClass&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"BaseClass::test()&nbsp;called\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Here&nbsp;it&nbsp;doesn't&nbsp;matter&nbsp;if&nbsp;you&nbsp;specify&nbsp;the&nbsp;function&nbsp;as&nbsp;final&nbsp;or&nbsp;not<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">final&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">moreTesting</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"BaseClass::moreTesting()&nbsp;called\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">ChildClass&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">BaseClass&nbsp;</span><span style="color: #007700">{<br />}<br /></span><span style="color: #FF8000">//&nbsp;Results&nbsp;in&nbsp;Fatal&nbsp;error:&nbsp;Class&nbsp;ChildClass&nbsp;may&nbsp;not&nbsp;inherit&nbsp;from&nbsp;final&nbsp;class&nbsp;(BaseClass)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">final&nbsp;class&nbsp;</span><span style="color: #0000BB">BaseClass&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"BaseClass::test()&nbsp;called\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;As&nbsp;the&nbsp;class&nbsp;is&nbsp;already&nbsp;final,&nbsp;the&nbsp;final&nbsp;keyword&nbsp;is&nbsp;redundant<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">final&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">moreTesting</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"BaseClass::moreTesting()&nbsp;called\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">ChildClass&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">BaseClass&nbsp;</span><span style="color: #007700">{<br />}<br /></span><span style="color: #FF8000">//&nbsp;Results&nbsp;in&nbsp;Fatal&nbsp;error:&nbsp;Class&nbsp;ChildClass&nbsp;may&nbsp;not&nbsp;inherit&nbsp;from&nbsp;final&nbsp;class&nbsp;(BaseClass)<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
   </p>
+  <p class="para">
+   <div class="example" id="language.oop5.final.example.php81">
+    <p><strong>Example #3 Final constants example as of PHP 8.1.0</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;final&nbsp;public&nbsp;const&nbsp;</span><span style="color: #0000BB">X&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">;<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">Bar&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;const&nbsp;</span><span style="color: #0000BB">X&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Fatal&nbsp;error:&nbsp;Bar::X&nbsp;cannot&nbsp;override&nbsp;final&nbsp;constant&nbsp;Foo::X<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <span class="simpara">
-    Properties and constants cannot be declared final, only classes and methods 
-    may be declared as final.
+    Properties cannot be declared final: only classes, methods, and constants (as of PHP 8.1.0) may be declared as final.
+   </span>
+   <span class="simpara">
+    As of PHP 8.0.0, private methods may not be declared final except for the constructor.
    </span>
   </p></blockquote>
  </div></div></div></body></html>

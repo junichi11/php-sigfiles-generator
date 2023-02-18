@@ -26,21 +26,14 @@
   <div id="layout-content"><div id="function.ldap-exop" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ldap_exop</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.2.0)</p><p class="refpurpose"><span class="refname">ldap_exop</span> &mdash; <span class="dc-title">Performs an extended operation</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">ldap_exop</span> &mdash; <span class="dc-title">Performs an extended operation</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.ldap-exop-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ldap_exop</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$reqoid</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$reqdata</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$serverctrls</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$retdata</code> = ?</span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$retoid</code> = ?</span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="methodname"><strong>ldap_exop</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.ldap-connection.html" class="type LDAP\Connection">LDAP\Connection</a></span> <code class="parameter">$ldap</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$reqoid</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$reqdata</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$serverctrls</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$retdata</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$retoid</code><span class="initializer"> = ?</span></span><br>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    Performs an extended operation on the specified <code class="parameter">link</code> with
@@ -53,15 +46,14 @@
  <div class="refsect1 parameters" id="refsect1-function.ldap-exop-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
-<code class="parameter">link</code></dt>
+<code class="parameter">ldap</code></dt>
 
     <dd>
 
      <p class="para">
-       An LDAP link identifier, returned by <span class="function"><a href="function.ldap-connect.html" class="function">ldap_connect()</a></span>.
+      An <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span> instance, returned by <span class="function"><a href="function.ldap-connect.html" class="function">ldap_connect()</a></span>.
      </p>
     </dd>
 
@@ -157,6 +149,14 @@
 
      <tbody class="tbody">
       <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">ldap</code> parameter expects an <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+      <tr>
        <td>7.3</td>
        <td>
         Support for <code class="parameter">serverctrls</code> added
@@ -174,7 +174,7 @@
  <div class="refsect1 examples" id="refsect1-function.ldap-exop-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4856">
+   <div class="example" id="example-4357">
     <p><strong>Example #1 Whoami extended operation</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.idate" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">idate</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">idate</span> &mdash; <span class="dc-title">Format a local time/date as integer</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">idate</span> &mdash; <span class="dc-title">Format a local time/date as integer</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.idate-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>idate</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$timestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>idate</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$timestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns a number formatted according to the given format string using the
@@ -55,7 +52,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">format</code></dt>
@@ -209,11 +205,8 @@ words, it defaults to the value of <span class="function"><a href="function.time
   <h3 class="title">Errors/Exceptions</h3>
    
    <p class="para">
-Every call to a date/time function will generate a <strong><code>E_NOTICE</code></strong>
-if the time zone is not valid, and/or a <strong><code>E_STRICT</code></strong>
-or <strong><code>E_WARNING</code></strong> message
-if using the system settings or the <var class="varname">TZ</var> environment
-variable. See also <span class="function"><a href="function.date-default-timezone-set.html" class="function">date_default_timezone_set()</a></span></p>
+Every call to a date/time function will generate a <strong><code>E_WARNING</code></strong>
+if the time zone is not valid. See also <span class="function"><a href="function.date-default-timezone-set.html" class="function">date_default_timezone_set()</a></span></p>
  
  </div>
 
@@ -250,7 +243,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
  <div class="refsect1 examples" id="refsect1-function.idate-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2580">
+   <div class="example" id="example-2092">
     <p><strong>Example #1 <span class="function"><strong>idate()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

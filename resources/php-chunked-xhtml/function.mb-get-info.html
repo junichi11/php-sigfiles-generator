@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.mb-get-info" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mb_get_info</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mb_get_info</span> &mdash; <span class="dc-title">Get internal settings of mbstring</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mb_get_info</span> &mdash; <span class="dc-title">Get internal settings of mbstring</span></p>
 
  </div>
    
  <div class="refsect1 description" id="refsect1-function.mb-get-info-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mb_get_info</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$type</code><span class="initializer"> = &quot;all&quot;</span></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>mb_get_info</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$type</code><span class="initializer"> = &quot;all&quot;</span></span>): <span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="simpara">
    <span class="function"><strong>mb_get_info()</strong></span> returns the internal setting parameters of mbstring.
@@ -47,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">type</code></dt>
@@ -55,14 +52,25 @@
      <dd>
 
       <p class="para">
-       If <code class="parameter">type</code> isn&#039;t specified or is specified to
-       &quot;all&quot;, an <span class="type">array</span> having the elements &quot;internal_encoding&quot;,
-       &quot;http_output&quot;, &quot;http_input&quot;, &quot;func_overload&quot;, &quot;mail_charset&quot;,
-       &quot;mail_header_encoding&quot;, &quot;mail_body_encoding&quot; will be returned. 
+       If <code class="parameter">type</code> is not specified or is specified as <code class="literal">&quot;all&quot;</code>,
+       <code class="literal">&quot;internal_encoding&quot;</code>, <code class="literal">&quot;http_input&quot;</code>,
+       <code class="literal">&quot;http_output&quot;</code>, <code class="literal">&quot;http_output_conv_mimetypes&quot;</code>,
+       <code class="literal">&quot;mail_charset&quot;</code>, <code class="literal">&quot;mail_header_encoding&quot;</code>,
+       <code class="literal">&quot;mail_body_encoding&quot;</code>, <code class="literal">&quot;illegal_chars&quot;</code>,
+       <code class="literal">&quot;encoding_translation&quot;</code>, <code class="literal">&quot;language&quot;</code>,
+       <code class="literal">&quot;detect_order&quot;</code>, <code class="literal">&quot;substitute_character&quot;</code>
+       and <code class="literal">&quot;strict_detection&quot;</code>
+       will be returned. 
       </p>
       <p class="para">
-       If <code class="parameter">type</code> is specified as &quot;http_output&quot;,
-       &quot;http_input&quot;, &quot;internal_encoding&quot;, &quot;func_overload&quot;,
+       If <code class="parameter">type</code> is specified as
+       <code class="literal">&quot;internal_encoding&quot;</code>, <code class="literal">&quot;http_input&quot;</code>,
+       <code class="literal">&quot;http_output&quot;</code>, <code class="literal">&quot;http_output_conv_mimetypes&quot;</code>,
+       <code class="literal">&quot;mail_charset&quot;</code>, <code class="literal">&quot;mail_header_encoding&quot;</code>,
+       <code class="literal">&quot;mail_body_encoding&quot;</code>, <code class="literal">&quot;illegal_chars&quot;</code>,
+       <code class="literal">&quot;encoding_translation&quot;</code>, <code class="literal">&quot;language&quot;</code>,
+       <code class="literal">&quot;detect_order&quot;</code>, <code class="literal">&quot;substitute_character&quot;</code>
+       or <code class="literal">&quot;strict_detection&quot;</code>
        the specified setting parameter will be returned.
       </p>
      </dd>
@@ -81,6 +89,34 @@
    is not specified, otherwise a specific <code class="parameter">type</code>,
     or <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-get-info-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       The <code class="parameter">type</code>s <code class="literal">&quot;func_overload&quot;</code>
+       and <code class="literal">&quot;func_overload_list&quot;</code> are no longer supported.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

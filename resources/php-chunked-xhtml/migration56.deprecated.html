@@ -59,10 +59,10 @@ B
  </div>
 
  <div class="sect2" id="migration56.deprecated.raw-post-data">
-  <h3 class="title"><var class="varname">$HTTP_RAW_POST_DATA</var> and <a href="ini.core.html#ini.always-populate-raw-post-data" class="link">always_populate_raw_post_data</a></h3>
+  <h3 class="title"><var class="varname">$HTTP_RAW_POST_DATA</var> and <code class="literal">always_populate_raw_post_data</code></h3>
 
   <p class="para">
-   <a href="ini.core.html#ini.always-populate-raw-post-data" class="link">always_populate_raw_post_data</a>
+   <code class="literal">always_populate_raw_post_data</code>
    will now generate an <strong><code>E_DEPRECATED</code></strong> error when
    <var class="varname">$HTTP_RAW_POST_DATA</var> is populated.
    New code should use
@@ -71,7 +71,7 @@ B
    in a future release. You can opt in for the new behaviour (in which
    <var class="varname">$HTTP_RAW_POST_DATA</var> is never defined hence no
    <strong><code>E_DEPRECATED</code></strong> error will be generated) by setting
-   <a href="ini.core.html#ini.always-populate-raw-post-data" class="link">always_populate_raw_post_data</a>
+   <code class="literal">always_populate_raw_post_data</code>
    to <code class="literal">-1</code>.
   </p>
  </div>

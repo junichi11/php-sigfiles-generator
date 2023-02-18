@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.array-unshift" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_unshift</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_unshift</span> &mdash; <span class="dc-title">Prepend one or more elements to the beginning of an array</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">array_unshift</span> &mdash; <span class="dc-title">Prepend one or more elements to the beginning of an array</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.array-unshift-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>array_unshift</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$array</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>array_unshift</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$array</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>array_unshift()</strong></span> prepends passed elements to the front
@@ -44,13 +41,18 @@
    order.  All numerical array keys will be modified to start counting from
    zero while literal keys won&#039;t be changed.
   </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <p class="para">
+    Resets array&#039;s internal pointer to the first element.
+ </p>
+</p></blockquote>
+
  </div>
 
  <div class="refsect1 parameters" id="refsect1-function.array-unshift-parameters">
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">array</code></dt>
@@ -121,7 +123,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-unshift-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5479">
+   <div class="example" id="example-4974">
     <p><strong>Example #1 <span class="function"><strong>array_unshift()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

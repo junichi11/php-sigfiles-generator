@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Foward to another action</title>
+  <title>Forward to another action</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,39 +19,25 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="class.yaf-controller-abstract.html">Yaf_Controller_Abstract</a></li>
-    <li>Foward to another action</li>
+    <li>Forward to another action</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="yaf-controller-abstract.forward" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Yaf_Controller_Abstract::forward</h1>
-  <p class="verinfo">(Yaf &gt;=1.0.0)</p><p class="refpurpose"><span class="refname">Yaf_Controller_Abstract::forward</span> &mdash; <span class="dc-title">Foward to another action</span></p>
+  <p class="verinfo">(Yaf &gt;=1.0.0)</p><p class="refpurpose"><span class="refname">Yaf_Controller_Abstract::forward</span> &mdash; <span class="dc-title">Forward to another action</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-yaf-controller-abstract.forward-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Controller_Abstract::forward</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$action</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$paramters</code> = ?</span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Controller_Abstract::forward</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$action</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$paramters</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
 
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Controller_Abstract::forward</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$controller</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$action</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$paramters</code> = ?</span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>Yaf_Controller_Abstract::forward</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$controller</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$action</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$paramters</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
 
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Controller_Abstract::forward</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$module</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$controller</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$action</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$paramters</code> = ?</span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>Yaf_Controller_Abstract::forward</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$module</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$controller</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$action</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$paramters</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    forward current execution process to other action.
@@ -68,7 +54,6 @@
  <div class="refsect1 parameters" id="refsect1-yaf-controller-abstract.forward-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">module</code></dt>
@@ -123,9 +108,17 @@
  </div>
 
 
+ <div class="refsect1 returnvalues" id="refsect1-yaf-controller-abstract.forward-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-yaf-controller-abstract.forward-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4409">
+  <div class="example" id="example-3905">
    <p><strong>Example #1 <span class="function"><strong>Yaf_Controller_Abstract::forward()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -142,15 +135,6 @@ something similar to:</p></div>
 </pre></div>
    </div>
   </div>
- </div>
-
-
-
- <div class="refsect1 returnvalues" id="refsect1-yaf-controller-abstract.forward-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-    return FALSE on failure
-  </p>
  </div>
 
 

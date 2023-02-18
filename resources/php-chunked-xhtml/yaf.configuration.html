@@ -124,7 +124,6 @@ the configuration directives.</p>
 
  <p class="para">
   <dl>
-
    
      <dt id="ini.yaf.library">
       <code class="parameter">yaf.library</code>
@@ -181,19 +180,19 @@ the configuration directives.</p>
      <dd>
 
       <p class="para">
-        When this value is On, if <a href="class.yaf-loader.html" class="classname">Yaf_Loader</a> can not
+        When this value is On, if <span class="classname"><a href="class.yaf-loader.html" class="classname">Yaf_Loader</a></span> can not
         find a class, it will return <strong><code>false</code></strong>, then give chance to other auto
         load function to be called.      
       </p>
       <p class="para">
-        When this value is Off, if <a href="class.yaf-loader.html" class="classname">Yaf_Loader</a> can not
+        When this value is Off, if <span class="classname"><a href="class.yaf-loader.html" class="classname">Yaf_Loader</a></span> can not
         find a class, it will return <strong><code>true</code></strong>, and make the class autoloading
         failed immediately.
       </p>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
         Yaf will register its loader during a instantiation of  
-        <a href="class.yaf-application.html" class="classname">Yaf_Application</a>, so any other auto loaders
+        <span class="classname"><a href="class.yaf-application.html" class="classname">Yaf_Application</a></span>, so any other auto loaders
         which is register before the instantiation will be called before
         <span class="methodname"><a href="yaf-loader.autoload.html" class="methodname">Yaf_Loader::autoload()</a></span>.
        </p>
@@ -308,8 +307,8 @@ the configuration directives.</p>
        <p class="para">
         That is, if this value is &quot;product&quot;, Yaf will use the section named
         &quot;product&quot; in the ini config file(the first parameter of the
-        <a href="class.yaf-application.html" class="classname">Yaf_Application</a>) as the final config of the
-        <a href="class.yaf-application.html" class="classname">Yaf_Application</a>.
+        <span class="classname"><a href="class.yaf-application.html" class="classname">Yaf_Application</a></span>) as the final config of the
+        <span class="classname"><a href="class.yaf-application.html" class="classname">Yaf_Application</a></span>.
       </p>
      </dd>
 
@@ -324,7 +323,7 @@ the configuration directives.</p>
      <dd>
 
       <p class="para">
-       Only works as of PHP 5.3, if this value is On, All classes of Yaf will
+       If this value is On, All classes of Yaf will
        named in namespace style.
       </p>
       <p class="para">
@@ -336,7 +335,7 @@ Yaf_Request_Http  =&gt; \Yaf\Request\Http
         </pre></div>
        </div>
        There is a exception, that is some classes like
-       <a href="class.yaf-controller-abstract.html" class="classname">Yaf_Controller_Abstract</a>.
+       <span class="classname"><a href="class.yaf-controller-abstract.html" class="classname">Yaf_Controller_Abstract</a></span>.
        The last component is a keyword of PHP, could not be used as a class
        name, so for such classes:
        <div class="example-contents screen">

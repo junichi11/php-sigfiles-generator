@@ -59,6 +59,17 @@
    </p>
   </div>
 
+  <div class="sect3" id="migration80.other-changes.functions.standard">
+   <h4 class="title">Standard</h4>
+
+   <p class="para">
+    The math functions <span class="function"><a href="function.abs.html" class="function">abs()</a></span>, <span class="function"><a href="function.ceil.html" class="function">ceil()</a></span>,
+    <span class="function"><a href="function.floor.html" class="function">floor()</a></span> and <span class="function"><a href="function.round.html" class="function">round()</a></span> now properly heed
+    <a href="language.types.declarations.html#language.types.declarations.strict" class="link">the <code class="literal">strict_types</code> directive</a>.
+    Previously, they coerced the first argument even in strict type mode.
+   </p>
+  </div>
+
   <div class="sect3" id="migration80.other-changes.functions.zip">
    <h4 class="title">Zip</h4>
 
@@ -122,7 +133,7 @@
    <h4 class="title">Date and Time</h4>
 
    <p class="para">
-    <a href="class.dateperiod.html" class="classname">DatePeriod</a> now implements <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span>
+    <span class="classname"><a href="class.dateperiod.html" class="classname">DatePeriod</a></span> now implements <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span>
     (instead of <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>).
    </p>
   </div>
@@ -131,7 +142,7 @@
    <h4 class="title">DOM</h4>
 
    <p class="para">
-    <a href="class.domnamednodemap.html" class="classname">DOMNamedNodeMap</a> and <a href="class.domnodelist.html" class="classname">DOMNodeList</a> now implement
+    <span class="classname"><a href="class.domnamednodemap.html" class="classname">DOMNamedNodeMap</a></span> and <span class="classname"><a href="class.domnodelist.html" class="classname">DOMNodeList</a></span> now implement
     <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> (instead of
     <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>).
    </p>
@@ -141,7 +152,7 @@
    <h4 class="title">Intl</h4>
 
    <p class="para">
-    <a href="class.intlbreakiterator.html" class="classname">IntlBreakIterator</a> and <a href="class.resourcebundle.html" class="classname">ResourceBundle</a> now implement
+    <span class="classname"><a href="class.intlbreakiterator.html" class="classname">IntlBreakIterator</a></span> and <span class="classname"><a href="class.resourcebundle.html" class="classname">ResourceBundle</a></span> now implement
     <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> (instead of <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>).
    </p>
   </div>
@@ -197,7 +208,7 @@
    <h4 class="title">PDO</h4>
 
    <p class="para">
-    <a href="class.pdostatement.html" class="classname">PDOStatement</a> now implements
+    <span class="classname"><a href="class.pdostatement.html" class="classname">PDOStatement</a></span> now implements
     <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> (instead of
     <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>).
    </p>
@@ -225,7 +236,7 @@
     </li>
     <li class="listitem">
      <p class="para">
-      <a href="class.mysqli-result.html" class="classname">mysqli_result</a> now implements
+      <span class="classname"><a href="class.mysqli-result.html" class="classname">mysqli_result</a></span> now implements
       <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> (instead of
       <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>).
      </p>
@@ -257,10 +268,10 @@
    <h4 class="title">SimpleXML</h4>
 
    <p class="para">
-    <a href="class.simplexmlelement.html" class="classname">SimpleXMLElement</a> now implements
+    <span class="classname"><a href="class.simplexmlelement.html" class="classname">SimpleXMLElement</a></span> now implements
     <span class="interfacename"><a href="class.recursiveiterator.html" class="interfacename">RecursiveIterator</a></span> and absorbed the functionality of
-    <a href="class.simplexmliterator.html" class="classname">SimpleXMLIterator</a>. <a href="class.simplexmliterator.html" class="classname">SimpleXMLIterator</a> is an empty
-    extension of <a href="class.simplexmlelement.html" class="classname">SimpleXMLElement</a>.
+    <span class="classname"><a href="class.simplexmliterator.html" class="classname">SimpleXMLIterator</a></span>. <span class="classname"><a href="class.simplexmliterator.html" class="classname">SimpleXMLIterator</a></span> is an empty
+    extension of <span class="classname"><a href="class.simplexmlelement.html" class="classname">SimpleXMLElement</a></span>.
    </p>
   </div>
  </div>
@@ -273,7 +284,7 @@
     <p class="para">
      com.dotnet_version
      is a new INI directive to choose the version of the .NET framework to use for
-     <a href="class.dotnet.html" class="classname">dotnet</a> objects.
+     <span class="classname"><a href="class.dotnet.html" class="classname">dotnet</a></span> objects.
     </p>
    </li>
    <li class="listitem">

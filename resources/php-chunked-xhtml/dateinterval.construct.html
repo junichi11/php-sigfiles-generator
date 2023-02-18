@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="dateinterval.construct" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">DateInterval::__construct</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">DateInterval::__construct</span> &mdash; <span class="dc-title">Creates a new DateInterval object</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateInterval::__construct</span> &mdash; <span class="dc-title">Creates a new DateInterval object</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-dateinterval.construct-description">
   <h3 class="title">Description</h3>
   <div class="constructorsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DateInterval::__construct</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$duration</code></span>
-   )</div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DateInterval::__construct</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$duration</code></span>)</div>
 
   <p class="para rdfs-comment">
    Creates a new DateInterval object.
@@ -47,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">duration</code></dt>
@@ -99,8 +96,8 @@
           <tr>
            <td><code class="literal">W</code></td>
            <td>
-            weeks. These get converted into days,
-            so can not be combined with <code class="literal">D</code>.
+            weeks. Converted into days.
+            Prior to PHP 8.0.0, can not be combined with <code class="literal">D</code>.
            </td>
           </tr>
 
@@ -164,44 +161,126 @@
  <div class="refsect1 errors" id="refsect1-dateinterval.construct-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Throws an <a href="class.exception.html" class="classname">Exception</a> when the <code class="parameter">duration</code>
+   Throws an <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> when the <code class="parameter">duration</code>
    cannot be parsed as an interval.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-dateinterval.construct-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="literal">W</code> can be combined with <code class="literal">D</code>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-dateinterval.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2546">
-    <p><strong>Example #1 <a href="class.dateinterval.html" class="classname">DateInterval</a> example</strong></p>
+   <div class="example" id="example-2058">
+    <p><strong>Example #1 <span class="classname"><a href="class.dateinterval.html" class="classname">DateInterval</a></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$interval&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P2Y4DT6H8M'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$interval</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$interval&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P1W2D'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$interval</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
-    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents"><p>Output of the above example in PHP 8:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-object(DateInterval)#1 (8) {
+object(DateInterval)#1 (16) {
   [&quot;y&quot;]=&gt;
-  int(2)
+  int(0)
   [&quot;m&quot;]=&gt;
   int(0)
   [&quot;d&quot;]=&gt;
-  int(4)
+  int(9)
   [&quot;h&quot;]=&gt;
-  int(6)
+  int(0)
   [&quot;i&quot;]=&gt;
-  int(8)
+  int(0)
   [&quot;s&quot;]=&gt;
+  int(0)
+  [&quot;f&quot;]=&gt;
+  float(0)
+  [&quot;weekday&quot;]=&gt;
+  int(0)
+  [&quot;weekday_behavior&quot;]=&gt;
+  int(0)
+  [&quot;first_last_day_of&quot;]=&gt;
   int(0)
   [&quot;invert&quot;]=&gt;
   int(0)
   [&quot;days&quot;]=&gt;
   bool(false)
+  [&quot;special_type&quot;]=&gt;
+  int(0)
+  [&quot;special_amount&quot;]=&gt;
+  int(0)
+  [&quot;have_weekday_relative&quot;]=&gt;
+  int(0)
+  [&quot;have_special_relative&quot;]=&gt;
+  int(0)
+}
+</pre></div>
+    </div>
+    <div class="example-contents"><p>Output of the above example in PHP 7:</p></div>
+    <div class="example-contents screen">
+     <div class="cdata"><pre>
+object(DateInterval)#1 (16) {
+  [&quot;y&quot;]=&gt;
+  int(0)
+  [&quot;m&quot;]=&gt;
+  int(0)
+  [&quot;d&quot;]=&gt;
+  int(2)
+  [&quot;h&quot;]=&gt;
+  int(0)
+  [&quot;i&quot;]=&gt;
+  int(0)
+  [&quot;s&quot;]=&gt;
+  int(0)
+  [&quot;f&quot;]=&gt;
+  float(0)
+  [&quot;weekday&quot;]=&gt;
+  int(0)
+  [&quot;weekday_behavior&quot;]=&gt;
+  int(0)
+  [&quot;first_last_day_of&quot;]=&gt;
+  int(0)
+  [&quot;invert&quot;]=&gt;
+  int(0)
+  [&quot;days&quot;]=&gt;
+  bool(false)
+  [&quot;special_type&quot;]=&gt;
+  int(0)
+  [&quot;special_amount&quot;]=&gt;
+  int(0)
+  [&quot;have_weekday_relative&quot;]=&gt;
+  int(0)
+  [&quot;have_special_relative&quot;]=&gt;
+  int(0)
 }
 </pre></div>
     </div>

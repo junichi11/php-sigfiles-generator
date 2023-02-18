@@ -44,7 +44,7 @@
    <div class="sect2">
     <h3 class="title">Use of return</h3>
     <p class="para">
-     <div class="example" id="example-171">
+     <div class="example" id="example-170">
       <p><strong>Example #1 Use of <span class="function"><a href="function.return.html" class="function">return</a></span></strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -61,11 +61,11 @@
      obtained by returning an array.
     </p>
     <p class="para">
-     <div class="example" id="example-172">
+     <div class="example" id="example-171">
       <p><strong>Example #2 Returning an array to get multiple values</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">small_numbers</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array&nbsp;(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">);<br />}<br />list&nbsp;(</span><span style="color: #0000BB">$zero</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$one</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$two</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">small_numbers</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">small_numbers</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">];<br />}<br /></span><span style="color: #FF8000">//&nbsp;Array&nbsp;destructuring&nbsp;will&nbsp;collect&nbsp;each&nbsp;member&nbsp;of&nbsp;the&nbsp;array&nbsp;individually<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">$zero</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$one</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$two</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">small_numbers</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Prior&nbsp;to&nbsp;7.1.0,&nbsp;the&nbsp;only&nbsp;equivalent&nbsp;alternative&nbsp;is&nbsp;using&nbsp;list()&nbsp;construct<br /></span><span style="color: #007700">list(</span><span style="color: #0000BB">$zero</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$one</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$two</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">small_numbers</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -78,7 +78,7 @@
      variable:
     </p>
     <p class="para">
-     <div class="example" id="example-173">
+     <div class="example" id="example-172">
       <p><strong>Example #3 Returning a reference from a function</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

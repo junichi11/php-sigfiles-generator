@@ -26,18 +26,22 @@
   <div id="layout-content"><div id="function.curl-multi-close" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">curl_multi_close</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">curl_multi_close</span> &mdash; <span class="dc-title">Close a set of cURL handles</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">curl_multi_close</span> &mdash; <span class="dc-title">Close a set of cURL handles</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.curl-multi-close-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>curl_multi_close</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.curlmultihandle.html" class="type CurlMultiHandle">CurlMultiHandle</a></span> <code class="parameter">$multi_handle</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>curl_multi_close</strong></span>(<span class="methodparam"><span class="type"><a href="class.curlmultihandle.html" class="type CurlMultiHandle">CurlMultiHandle</a></span> <code class="parameter">$multi_handle</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
-  <p class="para rdfs-comment">
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <p class="para">
+  This function has no effect. Prior to PHP 8.0.0, this function was used to close the resource.
+ </p>
+</p></blockquote>
+
+  <p class="para">
    Closes a set of cURL handles.
   </p>
  </div>
@@ -47,7 +51,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
 <code class="parameter">multi_handle</code>
 </dt>
@@ -85,7 +88,7 @@
      <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">multi_handle</code> expects a <a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a>
+  <code class="parameter">multi_handle</code> expects a <span class="classname"><a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a></span>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>
@@ -100,7 +103,7 @@
  <div class="refsect1 examples" id="refsect1-function.curl-multi-close-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4715">
+   <div class="example" id="example-4216">
     <p><strong>Example #1 <span class="function"><strong>curl_multi_close()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This example will create two cURL handles, add them to a multi

@@ -6,7 +6,7 @@ namespace {
 
 	/**
 	 * Stop and destory a timer.
-	 * <p>Stop and destory a timer</p>
+	 * <p>Object-oriented style (method):</p><p>Stop and destory a timer</p>
 	 * @param int $timer_id
 	 * @return void
 	 * @link https://php.net/manual/en/swoole-server.cleartimer.php
@@ -37,6 +37,41 @@ namespace {
 	define('SWOOLE_IPC_UNSOCK', null);
 
 	define('SWOOLE_KEEP', null);
+
+	/**
+	 * Debug log. Available as of swoole 2.1.2.
+	 */
+	define('SWOOLE_LOG_DEBUG', null);
+
+	/**
+	 * Error log. Available as of swoole 2.1.2.
+	 */
+	define('SWOOLE_LOG_ERROR', null);
+
+	/**
+	 * Info log. Available as of swoole 2.1.2.
+	 */
+	define('SWOOLE_LOG_INFO', null);
+
+	/**
+	 * None log. Available as of swoole 4.3.2.
+	 */
+	define('SWOOLE_LOG_NONE', null);
+
+	/**
+	 * Notice log. Available as of swoole 2.1.2.
+	 */
+	define('SWOOLE_LOG_NOTICE', null);
+
+	/**
+	 * Trace log. Available as of swoole 2.1.2.
+	 */
+	define('SWOOLE_LOG_TRACE', null);
+
+	/**
+	 * Warning log. Available as of swoole 2.1.2.
+	 */
+	define('SWOOLE_LOG_WARNING', null);
 
 	define('SWOOLE_MUTEX', null);
 
@@ -108,7 +143,7 @@ namespace Swoole {
 		 * Async and non-blocking hostname to IP lookup.
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $hostname <p>The host name.</p>
-		 * @param callable $callback callback ( <code>string</code> <code>$hostname</code> , <code>string</code> <code>$ip</code> ) : <code>mixed</code>   <code>hostname</code>  <p>The host name.</p>   <code>IP</code>  <p>The IP address.</p>
+		 * @param callable $callback callback(<code>string</code> <code>$hostname</code>, <code>string</code> <code>$ip</code>): <code>mixed</code>   <code>hostname</code>  <p>The host name.</p>   <code>IP</code>  <p>The IP address.</p>
 		 * @return void
 		 * @link https://php.net/manual/en/swoole-async.dnslookup.php
 		 * @since PECL swoole >= 1.9.0
@@ -118,7 +153,7 @@ namespace Swoole {
 		/**
 		 * Read file stream asynchronously.
 		 * @param string $filename <p>The name of the file.</p>
-		 * @param callable $callback callback ( <code>string</code> <code>$filename</code> , <code>string</code> <code>$content</code> ) : <code>mixed</code>   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content readed from the file stream.</p>
+		 * @param callable $callback callback(<code>string</code> <code>$filename</code>, <code>string</code> <code>$content</code>): <code>mixed</code>   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content readed from the file stream.</p>
 		 * @param int $chunk_size <p>The chunk length.</p>
 		 * @param int $offset <p>The offset.</p>
 		 * @return bool <p>Whether the read is succeed.</p>
@@ -130,7 +165,7 @@ namespace Swoole {
 		/**
 		 * Read a file asynchronously.
 		 * @param string $filename <p>The filename of the file being read.</p>
-		 * @param callable $callback callback ( <code>string</code> <code>$filename</code> , <code>string</code> <code>$content</code> ) : <code>mixed</code>   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content readed from the file.</p>
+		 * @param callable $callback callback(<code>string</code> <code>$filename</code>, <code>string</code> <code>$content</code>): <code>mixed</code>   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content readed from the file.</p>
 		 * @return void
 		 * @link https://php.net/manual/en/swoole-async.readfile.php
 		 * @since PECL swoole >= 1.9.0
@@ -1041,7 +1076,13 @@ namespace Swoole {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -1053,13 +1094,25 @@ namespace Swoole {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.line
 		 */
 		protected $line;
+
+		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
 	}
 
 }
@@ -1438,7 +1491,7 @@ namespace Swoole\Http {
 
 		/**
 		 * Stop and destory a timer.
-		 * <p>Stop and destory a timer</p>
+		 * <p>Object-oriented style (method):</p><p>Stop and destory a timer</p>
 		 * @param int $timer_id
 		 * @return void
 		 * @link https://php.net/manual/en/swoole-server.cleartimer.php
@@ -1514,13 +1567,14 @@ namespace Swoole\Http {
 
 		/**
 		 * Get the connection info by file description.
-		 * @param int $fd
-		 * @param int $reactor_id
-		 * @return ReturnType
+		 * @param int $fd <p>File descriptors.</p>
+		 * @param int $reactor_id <p>The Reactor thread ID where the connection is made.</p>
+		 * @param bool $ignore_error <p>Whether to ignore errors, if set to true, connection information will be returned even if the connection is closed.</p>
+		 * @return array <p>Returns information about the client connection.</p>
 		 * @link https://php.net/manual/en/swoole-server.getclientinfo.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function getClientInfo(int $fd, int $reactor_id = null): \ReturnType {}
+		public function getClientInfo(int $fd, int $reactor_id = null, bool $ignore_error = null): array {}
 
 		/**
 		 * Get all of the established connections.
@@ -1909,7 +1963,13 @@ namespace Swoole\MySQL {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -1921,13 +1981,25 @@ namespace Swoole\MySQL {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.line
 		 */
 		protected $line;
+
+		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
 	}
 
 }
@@ -2014,22 +2086,22 @@ namespace Swoole {
 		/**
 		 * Send signal to the child process.
 		 * <p>Send signal to the child process.</p>
-		 * @param int $pid
-		 * @param string $signal_no
-		 * @return void
+		 * @param int $pid <p>Process pid</p>
+		 * @param int $signal_no <p>Signal to be sent</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/swoole-process.kill.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public static function kill(int $pid, string $signal_no = null): void {}
+		public static function kill(int $pid, int $signal_no = null): bool {}
 
 		/**
 		 * Set name of the process.
-		 * @param string $process_name
-		 * @return void
+		 * @param string $process_name <p>Set name of the process.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/swoole-process.name.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function name(string $process_name): void {}
+		public function name(string $process_name): bool {}
 
 		/**
 		 * Read and pop data from the message queue.
@@ -2216,7 +2288,7 @@ namespace Swoole\Redis {
 
 		/**
 		 * Stop and destory a timer.
-		 * <p>Stop and destory a timer</p>
+		 * <p>Object-oriented style (method):</p><p>Stop and destory a timer</p>
 		 * @param int $timer_id
 		 * @return void
 		 * @link https://php.net/manual/en/swoole-server.cleartimer.php
@@ -2303,13 +2375,14 @@ namespace Swoole\Redis {
 
 		/**
 		 * Get the connection info by file description.
-		 * @param int $fd
-		 * @param int $reactor_id
-		 * @return ReturnType
+		 * @param int $fd <p>File descriptors.</p>
+		 * @param int $reactor_id <p>The Reactor thread ID where the connection is made.</p>
+		 * @param bool $ignore_error <p>Whether to ignore errors, if set to true, connection information will be returned even if the connection is closed.</p>
+		 * @return array <p>Returns information about the client connection.</p>
 		 * @link https://php.net/manual/en/swoole-server.getclientinfo.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function getClientInfo(int $fd, int $reactor_id = null): \ReturnType {}
+		public function getClientInfo(int $fd, int $reactor_id = null, bool $ignore_error = null): array {}
 
 		/**
 		 * Get all of the established connections.
@@ -2644,7 +2717,7 @@ namespace Swoole {
 
 		/**
 		 * Stop and destory a timer.
-		 * <p>Stop and destory a timer</p>
+		 * <p>Object-oriented style (method):</p><p>Stop and destory a timer</p>
 		 * @param int $timer_id
 		 * @return void
 		 * @link https://php.net/manual/en/swoole-server.cleartimer.php
@@ -2720,13 +2793,14 @@ namespace Swoole {
 
 		/**
 		 * Get the connection info by file description.
-		 * @param int $fd
-		 * @param int $reactor_id
-		 * @return ReturnType
+		 * @param int $fd <p>File descriptors.</p>
+		 * @param int $reactor_id <p>The Reactor thread ID where the connection is made.</p>
+		 * @param bool $ignore_error <p>Whether to ignore errors, if set to true, connection information will be returned even if the connection is closed.</p>
+		 * @return array <p>Returns information about the client connection.</p>
 		 * @link https://php.net/manual/en/swoole-server.getclientinfo.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function getClientInfo(int $fd, int $reactor_id = null): \ReturnType {}
+		public function getClientInfo(int $fd, int $reactor_id = null, bool $ignore_error = null): array {}
 
 		/**
 		 * Get all of the established connections.

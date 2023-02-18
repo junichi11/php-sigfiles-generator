@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.curl-setopt" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">curl_setopt</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">curl_setopt</span> &mdash; <span class="dc-title">Set an option for a cURL transfer</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">curl_setopt</span> &mdash; <span class="dc-title">Set an option for a cURL transfer</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.curl-setopt-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>curl_setopt</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.curlhandle.html" class="type CurlHandle">CurlHandle</a></span> <code class="parameter">$handle</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>curl_setopt</strong></span>(<span class="methodparam"><span class="type"><a href="class.curlhandle.html" class="type CurlHandle">CurlHandle</a></span> <code class="parameter">$handle</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Sets an option on the given cURL session handle.
@@ -49,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
 <code class="parameter">handle</code>
 </dt>
@@ -104,19 +99,6 @@
           </tr>
 
           <tr>
-           <td style="vertical-align: top;"><strong><code>CURLOPT_BINARYTRANSFER</code></strong></td>
-           <td style="vertical-align: top;">
-            <strong><code>true</code></strong> to return the raw output when
-            <strong><code>CURLOPT_RETURNTRANSFER</code></strong> is used.
-           </td>
-           <td style="vertical-align: top;">
-            From PHP 5.1.3, this option has no effect: the raw output will
-            always be returned when
-            <strong><code>CURLOPT_RETURNTRANSFER</code></strong> is used.
-           </td>
-          </tr>
-
-          <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_COOKIESESSION</code></strong></td>
            <td style="vertical-align: top;">
             <strong><code>true</code></strong> to mark this as a new cookie &quot;session&quot;. It will force libcurl
@@ -137,8 +119,7 @@
             on secure transfers.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.19.1. 
-            Available since PHP 5.3.2. 
+            Added in cURL 7.19.1.
             Requires <strong><code>CURLOPT_VERBOSE</code></strong> to be on to have an effect.
            </td>
           </tr>
@@ -152,7 +133,6 @@
            </td>
            <td style="vertical-align: top;">
             Added in 7.15.2.
-            Available since PHP 5.5.0.
            </td>
           </tr>
 
@@ -259,9 +239,8 @@
            <td style="vertical-align: top;">
             <strong><code>true</code></strong> to follow any
             <code class="literal">&quot;Location: &quot;</code> header that the server sends as
-            part of the HTTP header (note this is recursive, PHP will follow as
-            many <code class="literal">&quot;Location: &quot;</code> headers that it is sent,
-            unless <strong><code>CURLOPT_MAXREDIRS</code></strong> is set).
+            part of the HTTP header.
+            See also <strong><code>CURLOPT_MAXREDIRS</code></strong>.
            </td>
            <td style="vertical-align: top;">
            </td>
@@ -336,7 +315,7 @@
             the number of small packets on the network.
            </td>
            <td style="vertical-align: top;">
-            Available since PHP 5.2.1 for versions compiled with libcurl 7.11.2 or
+            Available for versions compiled with libcurl 7.11.2 or
             greater.
            </td>
           </tr>
@@ -376,7 +355,7 @@
             <strong><code>true</code></strong> to track the handle&#039;s request string.
            </td>
            <td style="vertical-align: top;">
-            Available since PHP 5.1.3. The <strong><code>CURLINFO_</code></strong>
+            The <strong><code>CURLINFO_</code></strong>
             prefix is intentional.
            </td>
           </tr>
@@ -418,7 +397,7 @@
             <strong><code>false</code></strong> to get the raw HTTP response body.
            </td>
            <td style="vertical-align: top;">
-            Available as of PHP 5.5.0 if built against libcurl &gt;= 7.16.2.
+            Available if built against libcurl &gt;= 7.16.2.
            </td>
           </tr>
 
@@ -730,22 +709,6 @@
           </tr>
 
           <tr>
-           <td style="vertical-align: top;"><strong><code>CURLOPT_CLOSEPOLICY</code></strong></td>
-           <td style="vertical-align: top;">
-            One of the <strong><code>CURLCLOSEPOLICY_*</code></strong> values.
-            <blockquote class="note"><p><strong class="note">Note</strong>: 
-             <p class="para">
-              This option is deprecated, as it was never implemented in cURL and
-              never had any effect.
-             </p>
-            </p></blockquote>
-           </td>
-           <td style="vertical-align: top;">
-            Removed in PHP 5.6.0.
-           </td>
-          </tr>
-
-          <tr>
            <td><strong><code>CURLOPT_CONNECTTIMEOUT</code></strong></td>
            <td style="vertical-align: top;">
             The number of seconds to wait while trying to connect. Use 0 to
@@ -766,7 +729,7 @@
             timeouts with a minimum timeout allowed of one second.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.16.2. Available since PHP 5.2.3.
+            Added in cURL 7.16.2.
            </td>
           </tr>
 
@@ -945,6 +908,9 @@
            <td style="vertical-align: top;">
             The maximum amount of HTTP redirections to follow. Use this option
             alongside <strong><code>CURLOPT_FOLLOWLOCATION</code></strong>.
+            Default value of <code class="literal">20</code> is set to prevent infinite redirects.
+            Setting to <code class="literal">-1</code> allows inifinite redirects, and <code class="literal">0</code>
+            refuses all redirects.
            </td>
            <td style="vertical-align: top;">
            </td>
@@ -968,7 +934,7 @@
             specific type of redirect occurs.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.19.1. Available since PHP 5.3.2.
+            Added in cURL 7.19.1.
            </td>
           </tr>
 
@@ -1124,10 +1090,11 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SSL_VERIFYHOST</code></strong></td>
            <td style="vertical-align: top;">
-            <code class="literal">1</code> to check the existence of a common name in the
-            SSL peer certificate. <code class="literal">2</code> to check the existence of
-            a common name and also verify that it matches the hostname
-            provided. <code class="literal">0</code> to not check the names. In production environments the value of this option
+            <code class="literal">2</code> to verify that a Common Name field or a Subject Alternate Name
+            field in the SSL peer certificate matches the provided hostname.
+            <code class="literal">0</code> to not check the names.
+            <code class="literal">1</code> should not be used.
+            In production environments the value of this option
             should be kept at <code class="literal">2</code> (default value).
            </td>
            <td style="vertical-align: top;">
@@ -1250,7 +1217,7 @@
             supports them. If set to <code class="literal">0</code> (default) keepalive probes are disabled.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.25.0. Available since PHP 5.5.0.
+            Added in cURL 7.25.0.
            </td>
           </tr>
 
@@ -1263,7 +1230,7 @@
             The default is <code class="literal">60</code>.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.25.0. Available since PHP 5.5.0.
+            Added in cURL 7.25.0.
            </td>
           </tr>
 
@@ -1276,7 +1243,7 @@
             The default is <code class="literal">60</code>.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.25.0. Available since PHP 5.5.0.
+            Added in cURL 7.25.0.
            </td>
           </tr>
 
@@ -1290,10 +1257,13 @@
             a <code class="literal">&quot;304 Not Modified&quot;</code> header will be returned
             assuming <strong><code>CURLOPT_HEADER</code></strong> is <strong><code>true</code></strong>.
             Use <strong><code>CURL_TIMECOND_IFUNMODSINCE</code></strong> for the reverse
-            effect. <strong><code>CURL_TIMECOND_IFMODSINCE</code></strong> is the
-            default.
+            effect. Use <strong><code>CURL_TIMECOND_NONE</code></strong> to ignore
+            <strong><code>CURLOPT_TIMEVALUE</code></strong> and always return the page.
+            <strong><code>CURL_TIMECOND_NONE</code></strong> is the default.
            </td>
            <td style="vertical-align: top;">
+            Before cURL 7.46.0 the default was
+            <strong><code>CURL_TIMECOND_IFMODSINCE</code></strong>.
            </td>
           </tr>
 
@@ -1317,7 +1287,7 @@
             timeouts with a minimum timeout allowed of one second.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.16.2. Available since PHP 5.2.3.
+            Added in cURL 7.16.2.
            </td>
           </tr>
 
@@ -1325,8 +1295,7 @@
            <td style="vertical-align: top;"><strong><code>CURLOPT_TIMEVALUE</code></strong></td>
            <td style="vertical-align: top;">
             The time in seconds since January 1st, 1970. The time will be used
-            by <strong><code>CURLOPT_TIMECONDITION</code></strong>. By default,
-            <strong><code>CURL_TIMECOND_IFMODSINCE</code></strong> is used.
+            by <strong><code>CURLOPT_TIMECONDITION</code></strong>.
            </td>
            <td style="vertical-align: top;">
            </td>
@@ -1355,7 +1324,7 @@
             Defaults to unlimited speed.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.15.5. Available since PHP 5.4.0.
+            Added in cURL 7.15.5.
            </td>
           </tr>
 
@@ -1368,7 +1337,7 @@
             Defaults to unlimited speed.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.15.5. Available since PHP 5.4.0.
+            Added in cURL 7.15.5.
            </td>
           </tr>
 
@@ -1412,7 +1381,7 @@
             <strong><code>CURLFTPMETHOD_SINGLECWD</code></strong>.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.15.1. Available since PHP 5.3.0.
+            Added in cURL 7.15.1.
            </td>
           </tr>
 
@@ -1519,7 +1488,7 @@
             <code class="literal">&quot;RELOAD&quot;</code> loads all cookies from the files specified by <strong><code>CURLOPT_COOKIEFILE</code></strong>.
            </td>
            <td style="vertical-align: top;">
-            Available since PHP 5.5.0 and cURL 7.14.1.
+            Available since cURL 7.14.1.
            </td>
           </tr>
 
@@ -1706,7 +1675,7 @@
              <code class="literal">multipart/form-data</code>.
             </span>
             <span class="simpara">
-             Files can be sent using <a href="class.curlfile.html" class="classname">CURLFile</a>,
+             Files can be sent using <span class="classname"><a href="class.curlfile.html" class="classname">CURLFile</a></span> or <span class="classname"><a href="class.curlstringfile.html" class="classname">CURLStringFile</a></span>,
              in which case <code class="parameter">value</code> must be an array.
             </span>
            </td>
@@ -2198,7 +2167,17 @@
             The user name to use in authentication.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.19.1. Available since PHP 5.5.0.
+            Added in cURL 7.19.1.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_PASSWORD</code></strong></td>
+           <td style="vertical-align: top;">
+            The password to use in authentication.
+           </td>
+           <td style="vertical-align: top;">
+            Added in cURL 7.19.1.
            </td>
           </tr>
 
@@ -2319,7 +2298,7 @@
             </code>
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.21.3. Available since PHP 5.5.0.
+            Added in cURL 7.21.3.
            </td>
           </tr>
 
@@ -2528,7 +2507,7 @@
       <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">handle</code> expects a <a href="class.curlhandle.html" class="classname">CurlHandle</a>
+  <code class="parameter">handle</code> expects a <span class="classname"><a href="class.curlhandle.html" class="classname">CurlHandle</a></span>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>
@@ -2604,7 +2583,7 @@
  <div class="refsect1 examples" id="refsect1-function.curl-setopt-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4723">
+   <div class="example" id="example-4223">
     <p><strong>Example #1 Initializing a new cURL session and fetching a web page</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -2636,6 +2615,8 @@
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.curl-setopt-array.html" class="function" rel="rdfs-seeAlso">curl_setopt_array()</a> - Set multiple options for a cURL transfer</span></li>
+    <li class="member"><span class="classname"><a href="class.curlfile.html" class="classname">CURLFile</a></span></li>
+    <li class="member"><span class="classname"><a href="class.curlstringfile.html" class="classname">CURLStringFile</a></span></li>
    </ul>
   </p>
  </div>

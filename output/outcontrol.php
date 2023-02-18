@@ -6,11 +6,11 @@ namespace {
 
 	/**
 	 * Flush system output buffer
-	 * <p>Flushes the system write buffers of PHP and whatever backend PHP is using (CGI, a web server, etc). This attempts to push current output all the way to the browser with a few caveats.</p><p><b>flush()</b> may not be able to override the buffering scheme of your web server and it has no effect on any client-side buffering in the browser. It also doesn't affect PHP's userspace output buffering mechanism. This means you will have to call both <code>ob_flush()</code> and <b>flush()</b> to flush the ob output buffers if you are using those.</p><p>Several servers, especially on Win32, will still buffer the output from your script until it terminates before transmitting the results to the browser.</p><p>Server modules for Apache like mod_gzip may do buffering of their own that will cause <b>flush()</b> to not result in data being sent immediately to the client.</p><p>Even the browser may buffer its input before displaying it. Netscape, for example, buffers text until it receives an end-of-line or the beginning of a tag, and it won't render tables until the &lt;/table&gt; tag of the outermost table is seen.</p><p>Some versions of Microsoft Internet Explorer will only start to display the page after they have received 256 bytes of output, so you may need to send extra whitespace before flushing to get those browsers to display the page.</p>
+	 * <p>Flushes the system write buffers of PHP and whatever backend PHP is using (CGI, a web server, etc). This attempts to push current output all the way to the browser with a few caveats.</p><p><b>flush()</b> may not be able to override the buffering scheme of your web server and it has no effect on any client-side buffering in the browser. It also doesn't affect PHP's userspace output buffering mechanism. This means <code>ob_flush()</code> should be called before <b>flush()</b> to flush the output buffers if they are in use.</p><p>Several servers, especially on Win32, will still buffer the output from your script until it terminates before transmitting the results to the browser.</p><p>Server modules for Apache like mod_gzip may do buffering of their own that will cause <b>flush()</b> to not result in data being sent immediately to the client.</p><p>Even the browser may buffer its input before displaying it. Netscape, for example, buffers text until it receives an end-of-line or the beginning of a tag, and it won't render tables until the &lt;/table&gt; tag of the outermost table is seen.</p><p>Some versions of Microsoft Internet Explorer will only start to display the page after they have received 256 bytes of output, so you may need to send extra whitespace before flushing to get those browsers to display the page.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.flush.php
 	 * @see ob_flush(), ob_clean(), ob_end_flush(), ob_end_clean()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function flush(): void {}
 
@@ -20,7 +20,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ob-clean.php
 	 * @see ob_flush(), ob_end_flush(), ob_end_clean()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function ob_clean(): bool {}
 
@@ -30,7 +30,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure. Reasons for failure are first that you called the function without an active buffer or that for some reason a buffer could not be deleted (possible for special buffer).</p>
 	 * @link https://php.net/manual/en/function.ob-end-clean.php
 	 * @see ob_start(), ob_get_contents(), ob_flush()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function ob_end_clean(): bool {}
 
@@ -40,7 +40,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure. Reasons for failure are first that you called the function without an active buffer or that for some reason a buffer could not be deleted (possible for special buffer).</p>
 	 * @link https://php.net/manual/en/function.ob-end-flush.php
 	 * @see ob_start(), ob_get_contents(), ob_get_flush(), ob_flush(), ob_end_clean()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function ob_end_flush(): bool {}
 
@@ -50,7 +50,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ob-flush.php
 	 * @see ob_get_contents(), ob_clean(), ob_end_flush(), ob_end_clean()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function ob_flush(): bool {}
 
@@ -60,7 +60,7 @@ namespace {
 	 * @return string|false <p>Returns the contents of the output buffer and end output buffering. If output buffering isn't active then <b><code>false</code></b> is returned.</p>
 	 * @link https://php.net/manual/en/function.ob-get-clean.php
 	 * @see ob_get_contents(), ob_start()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function ob_get_clean(): string|false {}
 
@@ -70,7 +70,7 @@ namespace {
 	 * @return string|false <p>This will return the contents of the output buffer or <b><code>false</code></b>, if output buffering isn't active.</p>
 	 * @link https://php.net/manual/en/function.ob-get-contents.php
 	 * @see ob_start(), ob_get_length()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function ob_get_contents(): string|false {}
 
@@ -80,7 +80,7 @@ namespace {
 	 * @return string|false <p>Returns the output buffer or <b><code>false</code></b> if no buffering is active.</p>
 	 * @link https://php.net/manual/en/function.ob-get-flush.php
 	 * @see ob_end_clean(), ob_end_flush(), ob_list_handlers()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function ob_get_flush(): string|false {}
 
@@ -90,7 +90,7 @@ namespace {
 	 * @return int|false <p>Returns the length of the output buffer contents, in bytes, or <b><code>false</code></b> if no buffering is active.</p>
 	 * @link https://php.net/manual/en/function.ob-get-length.php
 	 * @see ob_start(), ob_get_contents()
-	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7, PHP 8
 	 */
 	function ob_get_length(): int|false {}
 
@@ -100,7 +100,7 @@ namespace {
 	 * @return int <p>Returns the level of nested output buffering handlers or zero if output buffering is not active.</p>
 	 * @link https://php.net/manual/en/function.ob-get-level.php
 	 * @see ob_start(), ob_get_contents()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function ob_get_level(): int {}
 
@@ -108,35 +108,35 @@ namespace {
 	 * Get status of output buffers
 	 * <p><b>ob_get_status()</b> returns status information on either the top level output buffer or all active output buffer levels if <code>full_status</code> is set to <b><code>true</code></b>.</p>
 	 * @param bool $full_status <p><b><code>true</code></b> to return all active output buffer levels. If <b><code>false</code></b> or not set, only the top level output buffer is returned.</p>
-	 * @return array <p>If called without the <code>full_status</code> parameter or with <code>full_status</code> = <b><code>false</code></b> a simple array with the following elements is returned:</p>  <pre>Array ( [level] =&gt; 2 [type] =&gt; 0 [status] =&gt; 0 [name] =&gt; URL-Rewriter [del] =&gt; 1 )</pre>    <b>Simple <b>ob_get_status()</b> results</b> KeyValue levelOutput nesting level type<code>PHP_OUTPUT_HANDLER_INTERNAL (0)</code> or <code>PHP_OUTPUT_HANDLER_USER (1)</code> statusOne of <code>PHP_OUTPUT_HANDLER_START</code> (0), <code>PHP_OUTPUT_HANDLER_CONT</code> (1) or <code>PHP_OUTPUT_HANDLER_END</code> (2) nameName of active output handler or ' default output handler' if none is set delErase-flag as set by <code>ob_start()</code> <p>If called with <code>full_status</code> = <b><code>true</code></b> an array with one element for each active output buffer level is returned. The output level is used as key of the top level array and each array element itself is another array holding status information on one active output level.</p>  <pre> Array ( [0] =&gt; Array ( [chunk_size] =&gt; 0 [size] =&gt; 40960 [block_size] =&gt; 10240 [type] =&gt; 1 [status] =&gt; 0 [name] =&gt; default output handler [del] =&gt; 1 ) [1] =&gt; Array ( [chunk_size] =&gt; 0 [size] =&gt; 40960 [block_size] =&gt; 10240 [type] =&gt; 0 [buffer_size] =&gt; 0 [status] =&gt; 0 [name] =&gt; URL-Rewriter [del] =&gt; 1 ) ) </pre>  <p>The full output contains these additional elements:</p> <b>Full <b>ob_get_status()</b> results</b> KeyValue chunk_sizeChunk size as set by <code>ob_start()</code> size... blocksize...
+	 * @return array <p>If called without the <code>full_status</code> parameter or with <code>full_status</code> = <b><code>false</code></b> a simple array with the following elements is returned:</p>  <pre>Array ( [level] =&gt; 2 [type] =&gt; 0 [status] =&gt; 0 [name] =&gt; URL-Rewriter [del] =&gt; 1 )</pre>    <b>Simple <b>ob_get_status()</b> results</b> KeyValue levelOutput nesting level type<code>0</code> (internal handler) or <code>1</code> (user supplied handler) statusOne of <code>PHP_OUTPUT_HANDLER_START</code> (0), <code>PHP_OUTPUT_HANDLER_CONT</code> (1) or <code>PHP_OUTPUT_HANDLER_END</code> (2) nameName of active output handler or ' default output handler' if none is set delErase-flag as set by <code>ob_start()</code> <p>If called with <code>full_status</code> = <b><code>true</code></b> an array with one element for each active output buffer level is returned. The output level is used as key of the top level array and each array element itself is another array holding status information on one active output level.</p>  <pre> Array ( [0] =&gt; Array ( [chunk_size] =&gt; 0 [size] =&gt; 40960 [block_size] =&gt; 10240 [type] =&gt; 1 [status] =&gt; 0 [name] =&gt; default output handler [del] =&gt; 1 ) [1] =&gt; Array ( [chunk_size] =&gt; 0 [size] =&gt; 40960 [block_size] =&gt; 10240 [type] =&gt; 0 [buffer_size] =&gt; 0 [status] =&gt; 0 [name] =&gt; URL-Rewriter [del] =&gt; 1 ) ) </pre>  <p>The full output contains these additional elements:</p> <b>Full <b>ob_get_status()</b> results</b> KeyValue chunk_sizeChunk size as set by <code>ob_start()</code> size... blocksize...
 	 * @link https://php.net/manual/en/function.ob-get-status.php
 	 * @see ob_get_level(), ob_list_handlers()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function ob_get_status(bool $full_status = false): array {}
 
 	/**
 	 * ob_start callback function to gzip output buffer
 	 * <p><b>ob_gzhandler()</b> is intended to be used as a callback function for <code>ob_start()</code> to help facilitate sending gz-encoded data to web browsers that support compressed web pages. Before <b>ob_gzhandler()</b> actually sends compressed data, it determines what type of content encoding the browser will accept ("gzip", "deflate" or none at all) and will return its output accordingly. All browsers are supported since it's up to the browser to send the correct header saying that it accepts compressed web pages. If a browser doesn't support compressed pages this function returns <b><code>false</code></b>.</p>
-	 * @param string $buffer
-	 * @param int $mode
-	 * @return string
+	 * @param string $data
+	 * @param int $flags
+	 * @return string|false
 	 * @link https://php.net/manual/en/function.ob-gzhandler.php
 	 * @see ob_start(), ob_end_flush()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
-	function ob_gzhandler(string $buffer, int $mode): string {}
+	function ob_gzhandler(string $data, int $flags): string|false {}
 
 	/**
 	 * Turn implicit flush on/off
 	 * <p><b>ob_implicit_flush()</b> will turn implicit flushing on or off. Implicit flushing will result in a flush operation after every output call, so that explicit calls to <code>flush()</code> will no longer be needed.</p>
-	 * @param int $flag <p><code>1</code> to turn implicit flushing on, <code>0</code> otherwise.</p>
+	 * @param bool $enable <p><code>true</code> to turn implicit flushing on, <code>false</code> otherwise.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.ob-implicit-flush.php
 	 * @see flush(), ob_start(), ob_end_flush()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function ob_implicit_flush(int $flag = 1): void {}
+	function ob_implicit_flush(bool $enable = true): void {}
 
 	/**
 	 * List all output handlers in use
@@ -144,20 +144,20 @@ namespace {
 	 * @return array <p>This will return an array with the output handlers in use (if any). If output_buffering is enabled or an anonymous function was used with <code>ob_start()</code>, <b>ob_list_handlers()</b> will return "default output handler".</p>
 	 * @link https://php.net/manual/en/function.ob-list-handlers.php
 	 * @see ob_end_clean(), ob_end_flush(), ob_get_flush(), ob_start()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function ob_list_handlers(): array {}
 
 	/**
 	 * Turn on output buffering
-	 * <p>This function will turn output buffering on. While output buffering is active no output is sent from the script (other than headers), instead the output is stored in an internal buffer.</p><p>The contents of this internal buffer may be copied into a string variable using <code>ob_get_contents()</code>. To output what is stored in the internal buffer, use <code>ob_end_flush()</code>. Alternatively, <code>ob_end_clean()</code> will silently discard the buffer contents.</p><p>Some web servers (e.g. Apache) change the working directory of a script when calling the callback function. You can change it back by e.g. <code>chdir(dirname($_SERVER['SCRIPT_FILENAME']))</code> in the callback function.</p><p>Output buffers are stackable, that is, you may call <b>ob_start()</b> while another <b>ob_start()</b> is active. Just make sure that you call <code>ob_end_flush()</code> the appropriate number of times. If multiple output callback functions are active, output is being filtered sequentially through each of them in nesting order.</p>
-	 * @param callable $callback <p>An optional <code>callback</code> function may be specified. This function takes a string as a parameter and should return a string. The function will be called when the output buffer is flushed (sent) or cleaned (with <code>ob_flush()</code>, <code>ob_clean()</code> or similar function) or when the output buffer is flushed to the browser at the end of the request. When <code>callback</code> is called, it will receive the contents of the output buffer as its parameter and is expected to return a new output buffer as a result, which will be sent to the browser. If the <code>callback</code> is not a callable function, this function will return <b><code>false</code></b>. This is the callback signature:</p> <p></p> handler ( <code>string</code> <code>$buffer</code> , <code>int</code> <code>$phase</code> = &#63; ) : <code>string</code>   <code>buffer</code>   Contents of the output buffer.    <code>phase</code>   Bitmask of <b><code>PHP_OUTPUT_HANDLER_&#42;</code></b> constants.    <p>If <code>callback</code> returns <b><code>false</code></b> original input is sent to the browser.</p> <p>The <code>callback</code> parameter may be bypassed by passing a <b><code>null</code></b> value.</p> <p><code>ob_end_clean()</code>, <code>ob_end_flush()</code>, <code>ob_clean()</code>, <code>ob_flush()</code> and <b>ob_start()</b> may not be called from a callback function. If you call them from callback function, the behavior is undefined. If you would like to delete the contents of a buffer, return "" (a null string) from callback function. You can't even call functions using the output buffering functions like <code>print_r($expression, true)</code> or <code>highlight_file($filename, true)</code> from a callback function.</p> <p><b>Note</b>:</p><p><code>ob_gzhandler()</code> function exists to facilitate sending gz-encoded data to web browsers that support compressed web pages. <code>ob_gzhandler()</code> determines what type of content encoding the browser will accept and will return its output accordingly.</p>
-	 * @param int $chunk_size <p>If the optional parameter <code>chunk_size</code> is passed, the buffer will be flushed after any output call which causes the buffer's length to equal or exceed <code>chunk_size</code>. The default value <code>0</code> means that the output function will only be called when the output buffer is closed.</p> <p>Prior to PHP 5.4.0, the value <code>1</code> was a special case value that set the chunk size to 4096 bytes.</p>
+	 * <p>This function will turn output buffering on. While output buffering is active no output is sent from the script (other than headers), instead the output is stored in an internal buffer.</p><p>The contents of this internal buffer may be copied into a string variable using <code>ob_get_contents()</code>. To output what is stored in the internal buffer, use <code>ob_end_flush()</code>. Alternatively, <code>ob_end_clean()</code> will silently discard the buffer contents.</p><p>Some web servers (e.g. Apache) change the working directory of a script when calling the callback function. You can change it back by e.g. <code>chdir(dirname($_SERVER['SCRIPT_FILENAME']))</code> in the callback function.</p><p>Output buffers are stackable, that is, you may call <b>ob_start()</b> while another <b>ob_start()</b> is active. Just make sure that you call <code>ob_end_flush()</code> the appropriate number of times. If multiple output callback functions are active, output is being filtered sequentially through each of them in nesting order.</p><p>If output buffering is still active when the script ends, PHP outputs the contents automatically.</p>
+	 * @param callable $callback <p>An optional <code>callback</code> function may be specified. This function takes a string as a parameter and should return a string. The function will be called when the output buffer is flushed (sent) or cleaned (with <code>ob_flush()</code>, <code>ob_clean()</code> or similar function) or when the output buffer is flushed to the browser at the end of the request. When <code>callback</code> is called, it will receive the contents of the output buffer as its parameter and is expected to return a new output buffer as a result, which will be sent to the browser. If the <code>callback</code> is not a callable function, this function will return <b><code>false</code></b>. This is the callback signature:</p> <p></p> handler(<code>string</code> <code>$buffer</code>, <code>int</code> <code>$phase</code> = &#63;): <code>string</code>   <code>buffer</code>   Contents of the output buffer.    <code>phase</code>   Bitmask of <b><code>PHP_OUTPUT_HANDLER_&#42;</code></b> constants.    <p>If <code>callback</code> returns <b><code>false</code></b> original input is sent to the browser.</p> <p>The <code>callback</code> parameter may be bypassed by passing a <b><code>null</code></b> value.</p> <p><code>ob_end_clean()</code>, <code>ob_end_flush()</code>, <code>ob_clean()</code>, <code>ob_flush()</code> and <b>ob_start()</b> may not be called from a callback function. If you call them from callback function, the behavior is undefined. If you would like to delete the contents of a buffer, return "" (a null string) from callback function. You can't even call functions using the output buffering functions like <code>print_r($expression, true)</code> or <code>highlight_file($filename, true)</code> from a callback function.</p> <p><b>Note</b>:</p><p><code>ob_gzhandler()</code> function exists to facilitate sending gz-encoded data to web browsers that support compressed web pages. <code>ob_gzhandler()</code> determines what type of content encoding the browser will accept and will return its output accordingly.</p>
+	 * @param int $chunk_size <p>If the optional parameter <code>chunk_size</code> is passed, the buffer will be flushed after any output call which causes the buffer's length to equal or exceed <code>chunk_size</code>. The default value <code>0</code> means that the output function will only be called when the output buffer is closed.</p>
 	 * @param int $flags <p>The <code>flags</code> parameter is a bitmask that controls the operations that can be performed on the output buffer. The default is to allow output buffers to be cleaned, flushed and removed, which can be set explicitly via <b><code>PHP_OUTPUT_HANDLER_CLEANABLE</code></b> | <b><code>PHP_OUTPUT_HANDLER_FLUSHABLE</code></b> | <b><code>PHP_OUTPUT_HANDLER_REMOVABLE</code></b>, or <b><code>PHP_OUTPUT_HANDLER_STDFLAGS</code></b> as shorthand.</p> <p>Each flag controls access to a set of functions, as described below:</p>   Constant Functions     <b><code>PHP_OUTPUT_HANDLER_CLEANABLE</code></b>  <code>ob_clean()</code>, <code>ob_end_clean()</code>, and <code>ob_get_clean()</code>.    <b><code>PHP_OUTPUT_HANDLER_FLUSHABLE</code></b>  <code>ob_end_flush()</code>, <code>ob_flush()</code>, and <code>ob_get_flush()</code>.    <b><code>PHP_OUTPUT_HANDLER_REMOVABLE</code></b>  <code>ob_end_clean()</code>, <code>ob_end_flush()</code>, and <code>ob_get_flush()</code>.
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ob-start.php
 	 * @see ob_get_contents(), ob_end_clean(), ob_end_flush(), ob_implicit_flush(), ob_gzhandler(), ob_iconv_handler(), mb_output_handler(), ob_tidyhandler()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function ob_start(callable $callback = null, int $chunk_size = 0, int $flags = PHP_OUTPUT_HANDLER_STDFLAGS): bool {}
 
@@ -169,7 +169,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.output-add-rewrite-var.php
 	 * @see output_reset_rewrite_vars(), ob_flush(), ob_list_handlers()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function output_add_rewrite_var(string $name, string $value): bool {}
 
@@ -179,47 +179,47 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.output-reset-rewrite-vars.php
 	 * @see output_add_rewrite_var(), ob_flush(), ob_list_handlers()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function output_reset_rewrite_vars(): bool {}
 
 	/**
-	 * <p>Indicates that the output buffer has been cleaned.</p> <p>Available since PHP 5.4.</p>
+	 * <p>Indicates that the output buffer has been cleaned.</p>
 	 */
 	define('PHP_OUTPUT_HANDLER_CLEAN', 2);
 
 	/**
-	 * <p>Controls whether an output buffer created by <code>ob_start()</code> can be cleaned.</p> <p>Available since PHP 5.4.</p>
+	 * <p>Controls whether an output buffer created by <code>ob_start()</code> can be cleaned.</p>
 	 */
 	define('PHP_OUTPUT_HANDLER_CLEANABLE', 16);
 
 	/**
-	 * <p>Indicates that the buffer has been flushed, but output buffering will continue.</p> <p>As of PHP 5.4, this is an alias for <b><code>PHP_OUTPUT_HANDLER_WRITE</code></b>.</p>
+	 * <p>Indicates that the buffer has been flushed, but output buffering will continue.</p> <p>This is an alias for <b><code>PHP_OUTPUT_HANDLER_WRITE</code></b>.</p>
 	 */
 	define('PHP_OUTPUT_HANDLER_CONT', 0);
 
 	/**
-	 * <p>Indicates that output buffering has ended.</p> <p>As of PHP 5.4, this is an alias for <b><code>PHP_OUTPUT_HANDLER_FINAL</code></b>.</p>
+	 * <p>Indicates that output buffering has ended.</p> <p>This is an alias for <b><code>PHP_OUTPUT_HANDLER_FINAL</code></b>.</p>
 	 */
 	define('PHP_OUTPUT_HANDLER_END', 8);
 
 	/**
-	 * <p>Indicates that this is the final output buffering operation.</p> <p>Available since PHP 5.4.</p>
+	 * <p>Indicates that this is the final output buffering operation.</p>
 	 */
 	define('PHP_OUTPUT_HANDLER_FINAL', 8);
 
 	/**
-	 * <p>Indicates that the buffer has been flushed.</p> <p>Available since PHP 5.4.</p>
+	 * <p>Indicates that the buffer has been flushed.</p>
 	 */
 	define('PHP_OUTPUT_HANDLER_FLUSH', 4);
 
 	/**
-	 * <p>Controls whether an output buffer created by <code>ob_start()</code> can be flushed.</p> <p>Available since PHP 5.4.</p>
+	 * <p>Controls whether an output buffer created by <code>ob_start()</code> can be flushed.</p>
 	 */
 	define('PHP_OUTPUT_HANDLER_FLUSHABLE', 32);
 
 	/**
-	 * <p>Controls whether an output buffer created by <code>ob_start()</code> can be removed before the end of the script.</p> <p>Available since PHP 5.4.</p>
+	 * <p>Controls whether an output buffer created by <code>ob_start()</code> can be removed before the end of the script.</p>
 	 */
 	define('PHP_OUTPUT_HANDLER_REMOVABLE', 64);
 
@@ -229,12 +229,12 @@ namespace {
 	define('PHP_OUTPUT_HANDLER_START', 1);
 
 	/**
-	 * <p>The default set of output buffer flags; currently equivalent to <b><code>PHP_OUTPUT_HANDLER_CLEANABLE</code></b> | <b><code>PHP_OUTPUT_HANDLER_FLUSHABLE</code></b> | <b><code>PHP_OUTPUT_HANDLER_REMOVABLE</code></b>.</p> <p>Available since PHP 5.4.</p>
+	 * <p>The default set of output buffer flags; currently equivalent to <b><code>PHP_OUTPUT_HANDLER_CLEANABLE</code></b> | <b><code>PHP_OUTPUT_HANDLER_FLUSHABLE</code></b> | <b><code>PHP_OUTPUT_HANDLER_REMOVABLE</code></b>.</p>
 	 */
 	define('PHP_OUTPUT_HANDLER_STDFLAGS', 112);
 
 	/**
-	 * <p>Indicates that the output buffer is being flushed, and had data to output.</p> <p>Available since PHP 5.4.</p>
+	 * <p>Indicates that the output buffer is being flushed, and had data to output.</p>
 	 */
 	define('PHP_OUTPUT_HANDLER_WRITE', 0);
 

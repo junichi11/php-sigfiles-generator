@@ -33,10 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.gnupg-sign-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>gnupg_sign</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$identifier</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$plaintext</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>gnupg_sign</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$identifier</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$plaintext</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Signs the given <code class="parameter">plaintext</code> with the keys, which were
@@ -51,7 +48,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">identifier</code></dt>
@@ -59,7 +55,7 @@
      <dd>
 
       <p class="para">The gnupg identifier, from a call to
-<span class="function"><a href="function.gnupg-init.html" class="function">gnupg_init()</a></span> or <strong class="classname">gnupg</strong>.</p>
+<span class="function"><a href="function.gnupg-init.html" class="function">gnupg_init()</a></span> or <span class="classname"><strong class="classname">gnupg</strong></span>.</p>
      </dd>
 
     
@@ -93,7 +89,7 @@
  <div class="refsect1 examples" id="refsect1-function.gnupg-sign-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3674">
+   <div class="example" id="example-3195">
     <p><strong>Example #1 Procedural <span class="function"><strong>gnupg_sign()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -103,7 +99,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3675">
+   <div class="example" id="example-3196">
     <p><strong>Example #2 OO <span class="function"><strong>gnupg_sign()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

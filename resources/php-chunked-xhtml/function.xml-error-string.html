@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.xml-error-string" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">xml_error_string</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">xml_error_string</span> &mdash; <span class="dc-title">Get XML parser error string</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">xml_error_string</span> &mdash; <span class="dc-title">Get XML parser error string</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.xml-error-string-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>xml_error_string</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$error_code</code></span>
-   ) : <span class="type"><span class="type">string</span>|<span class="type">null</span></span></div>
+   <span class="methodname"><strong>xml_error_string</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$error_code</code></span>): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
 
   <p class="para rdfs-comment">
    Gets the XML parser error string associated with the given 
@@ -48,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">error_code</code></dt>

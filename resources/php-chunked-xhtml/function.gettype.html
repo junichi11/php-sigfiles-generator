@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.gettype-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>gettype</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>gettype</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns the type of the PHP variable <code class="parameter">value</code>. For
@@ -48,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">value</code></dt>
@@ -109,10 +106,40 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.gettype-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.2.0</td>
+       <td>
+        Closed resources are now reported as <code class="literal">&#039;resource (closed)&#039;</code>.
+        Previously the returned value for closed resources were <code class="literal">&#039;unknown type&#039;</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.gettype-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5771">
+   <div class="example" id="example-5220">
     <p><strong>Example #1 <span class="function"><strong>gettype()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -137,45 +164,16 @@ string
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.gettype-changelog">
-  <h3 class="title">Changelog</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>Version</th>
-       <th>Description</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>7.2.0</td>
-       <td>
-        Closed resources are now reported as <code class="literal">&#039;resource (closed)&#039;</code>. 
-        Previously the returned value for closed resources were <code class="literal">&#039;unknown type&#039;</code>.
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 seealso" id="refsect1-function.gettype-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.get-debug-type.html" class="function" rel="rdfs-seeAlso">get_debug_type()</a> - Gets the type name of a variable in a way that is suitable for debugging</span></li>
     <li class="member"><span class="function"><a href="function.settype.html" class="function" rel="rdfs-seeAlso">settype()</a> - Set the type of a variable</span></li>
     <li class="member"><span class="function"><a href="function.get-class.html" class="function" rel="rdfs-seeAlso">get_class()</a> - Returns the name of the class of an object</span></li>
     <li class="member"><span class="function"><a href="function.is-array.html" class="function" rel="rdfs-seeAlso">is_array()</a> - Finds whether a variable is an array</span></li>
     <li class="member"><span class="function"><a href="function.is-bool.html" class="function" rel="rdfs-seeAlso">is_bool()</a> - Finds out whether a variable is a boolean</span></li>
-    <li class="member"><span class="function"><a href="function.is-callable.html" class="function" rel="rdfs-seeAlso">is_callable()</a> - Verify that the contents of a variable can be called as a function</span></li>
+    <li class="member"><span class="function"><a href="function.is-callable.html" class="function" rel="rdfs-seeAlso">is_callable()</a> - Verify that a value can be called as a function from the current scope.</span></li>
     <li class="member"><span class="function"><a href="function.is-float.html" class="function" rel="rdfs-seeAlso">is_float()</a> - Finds whether the type of a variable is float</span></li>
     <li class="member"><span class="function"><a href="function.is-int.html" class="function" rel="rdfs-seeAlso">is_int()</a> - Find whether the type of a variable is integer</span></li>
     <li class="member"><span class="function"><a href="function.is-null.html" class="function" rel="rdfs-seeAlso">is_null()</a> - Finds whether a variable is null</span></li>

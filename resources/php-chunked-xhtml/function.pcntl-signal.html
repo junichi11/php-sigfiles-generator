@@ -26,22 +26,18 @@
   <div id="layout-content"><div id="function.pcntl-signal" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pcntl_signal</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pcntl_signal</span> &mdash; <span class="dc-title">Installs a signal handler</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pcntl_signal</span> &mdash; <span class="dc-title">Installs a signal handler</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.pcntl-signal-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pcntl_signal</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$signo</code></span>
-   , <span class="methodparam"><span class="type"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>|<span class="type">int</span></span> <code class="parameter">$handler</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$restart_syscalls</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>pcntl_signal</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$signal</code></span>, <span class="methodparam"><span class="type"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>|<span class="type">int</span></span> <code class="parameter">$handler</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$restart_syscalls</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    The <span class="function"><strong>pcntl_signal()</strong></span> function installs a new
-   signal handler or replaces the current signal handler for the signal indicated by <code class="parameter">signo</code>.
+   signal handler or replaces the current signal handler for the signal indicated by <code class="parameter">signal</code>.
   </p>
  </div>
 
@@ -50,10 +46,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">signo</code></dt>
+<code class="parameter">signal</code></dt>
 
      <dd>
 
@@ -82,16 +77,12 @@
       </p>
       <p class="para">
        <div class="methodsynopsis dc-description">
-        <span class="methodname"><span class="replaceable">handler</span></span>
-         ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$signo</code></span>
-        , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$siginfo</code></span>
-        ) : <span class="type"><span class="type void">void</span></span></div>
+        <span class="methodname"><span class="replaceable">handler</span></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$signo</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$siginfo</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
        <dl>
-
         
          <dt>
-<code class="parameter">signo</code></dt>
+<code class="parameter">signal</code></dt>
 
          <dd>
 
@@ -188,7 +179,7 @@
  <div class="refsect1 examples" id="refsect1-function.pcntl-signal-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3776">
+   <div class="example" id="example-3297">
     <p><strong>Example #1 <span class="function"><strong>pcntl_signal()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -33,14 +33,7 @@
  <div class="refsect1 description" id="refsect1-errorexception.construct-description">
   <h3 class="title">Description</h3>
   <div class="constructorsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ErrorException::__construct</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code><span class="initializer"> = &quot;&quot;</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$code</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$severity</code><span class="initializer"> = E_ERROR</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code><span class="initializer"> = __FILE__</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$lineno</code><span class="initializer"> = __LINE__</span></span>
-   , <span class="methodparam"><span class="type"><a href="class.exception.html" class="type Exception">Exception</a></span> <code class="parameter">$previous</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   )</div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ErrorException::__construct</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code><span class="initializer"> = &quot;&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$code</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$severity</code><span class="initializer"> = <strong><code>E_ERROR</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$filename</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$line</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span><span class="type"></span></span> <code class="parameter">$previous</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>)</div>
 
   <p class="para rdfs-comment">
    Constructs the Exception.
@@ -52,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">message</code></dt>
@@ -109,7 +101,7 @@
     
     
      <dt>
-<code class="parameter">lineno</code></dt>
+<code class="parameter">line</code></dt>
 
      <dd>
 
@@ -134,6 +126,35 @@
    </dl>
 
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-errorexception.construct-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">filename</code> and <code class="parameter">line</code> are nullable now.
+       Previously, their defaults were <strong><code>__FILE__</code></strong> and
+       <strong><code>__LINE__</code></strong>, respectively.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

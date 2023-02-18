@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.file-exists" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">file_exists</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">file_exists</span> &mdash; <span class="dc-title">Checks whether a file or directory exists</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">file_exists</span> &mdash; <span class="dc-title">Checks whether a file or directory exists</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.file-exists-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>file_exists</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>file_exists</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Checks whether a file or directory exists.
@@ -47,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">filename</code></dt>
@@ -96,10 +93,18 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.file-exists-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+Upon failure, an <strong><code>E_WARNING</code></strong> is emitted.
+</p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.file-exists-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2634">
+   <div class="example" id="example-2146">
     <p><strong>Example #1 Testing whether a file exists</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -110,14 +115,6 @@
 
    </div>
   </p>
- </div>
-
-
- <div class="refsect1 errors" id="refsect1-function.file-exists-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">
-Upon failure, an <strong><code>E_WARNING</code></strong> is emitted.
-</p>
  </div>
 
 
@@ -141,7 +138,7 @@ can also be used with <em class="emphasis">some</em> URL wrappers.  Refer to
     <li class="member"><span class="function"><a href="function.is-writable.html" class="function" rel="rdfs-seeAlso">is_writable()</a> - Tells whether the filename is writable</span></li>
     <li class="member"><span class="function"><a href="function.is-file.html" class="function" rel="rdfs-seeAlso">is_file()</a> - Tells whether the filename is a regular file</span></li>
     <li class="member"><span class="function"><a href="function.file.html" class="function" rel="rdfs-seeAlso">file()</a> - Reads entire file into an array</span></li>
-    <li class="member"><a href="class.splfileinfo.html" class="classname">SplFileInfo</a></li>
+    <li class="member"><span class="classname"><a href="class.splfileinfo.html" class="classname">SplFileInfo</a></span></li>
    </ul>
   </p>
  </div>

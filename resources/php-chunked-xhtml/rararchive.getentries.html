@@ -33,17 +33,12 @@
 
  <div class="refsect1 description" id="refsect1-rararchive.getentries-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style (method):</p>
+  <p class="para">Object-oriented style (method):</p>
    <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>RarArchive::getEntries</strong></span>
-    (
-    ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>RarArchive::getEntries</strong></span>(): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">Procedural style:</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>rar_list</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.rararchive.html" class="type RarArchive">RarArchive</a></span> <code class="parameter">$rarfile</code></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>rar_list</strong></span>(<span class="methodparam"><span class="type"><a href="class.rararchive.html" class="type RarArchive">RarArchive</a></span> <code class="parameter">$rarfile</code></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Get entries list (files and directories) from the RAR archive.
@@ -65,7 +60,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">rarfile</code></dt>
@@ -125,8 +119,8 @@
  <div class="refsect1 examples" id="refsect1-rararchive.getentries-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-781">
-    <p><strong>Example #1 Object oriented style</strong></p>
+   <div class="example" id="example-784">
+    <p><strong>Example #1 Object-oriented style</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$rar_arch&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">RarArchive</span><span style="color: #007700">::</span><span style="color: #0000BB">open</span><span style="color: #007700">(</span><span style="color: #DD0000">'solid.rar'</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$rar_arch&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">FALSE</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">"Could&nbsp;not&nbsp;open&nbsp;RAR&nbsp;archive."</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$rar_entries&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$rar_arch</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getEntries</span><span style="color: #007700">();<br />if&nbsp;(</span><span style="color: #0000BB">$rar_entries&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">FALSE</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">"Could&nbsp;not&nbsp;retrieve&nbsp;entries."</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"Found&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$rar_entries</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;entries.\n"</span><span style="color: #007700">;<br /><br />foreach&nbsp;(</span><span style="color: #0000BB">$rar_entries&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">$rar_arch</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -146,7 +140,7 @@ RarEntry for file &quot;unrardll.txt&quot; (2ed64b6e)
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-782">
+   <div class="example" id="example-785">
     <p><strong>Example #2 Procedural style</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

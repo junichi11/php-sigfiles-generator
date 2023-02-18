@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.realpath" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">realpath</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">realpath</span> &mdash; <span class="dc-title">Returns canonicalized absolute pathname</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">realpath</span> &mdash; <span class="dc-title">Returns canonicalized absolute pathname</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.realpath-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>realpath</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>realpath</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>realpath()</strong></span> expands all symbolic links and
@@ -50,7 +48,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">path</code></dt>
@@ -122,7 +119,7 @@
  <div class="refsect1 examples" id="refsect1-function.realpath-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2698">
+   <div class="example" id="example-2212">
     <p><strong>Example #1 <span class="function"><strong>realpath()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -139,7 +136,7 @@
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-2699">
+   <div class="example" id="example-2213">
     <p><strong>Example #2 <span class="function"><strong>realpath()</strong></span> on Windows</strong></p>
     <div class="example-contents"><p>
      On windows <span class="function"><strong>realpath()</strong></span> will change unix style paths to

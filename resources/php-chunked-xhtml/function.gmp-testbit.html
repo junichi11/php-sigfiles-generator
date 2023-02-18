@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.gmp-testbit" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gmp_testbit</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">gmp_testbit</span> &mdash; <span class="dc-title">Tests if a bit is set</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">gmp_testbit</span> &mdash; <span class="dc-title">Tests if a bit is set</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.gmp-testbit-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>gmp_testbit</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$num</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>gmp_testbit</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$num</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Tests if the specified bit is set.
@@ -48,14 +45,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">num</code></dt>
 
      <dd>
 
-      <p class="para">A <a href="class.gmp.html" class="classname">GMP</a> object, an <span class="type">int</span> or a numeric <span class="type">string</span>.</p> 
+      <p class="para">A <span class="classname"><a href="class.gmp.html" class="classname">GMP</a></span> object, an <span class="type">int</span> or a numeric <span class="type">string</span>.</p> 
      </dd>
 
     
@@ -80,7 +76,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.gmp-testbit-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>true</code></strong> if the bit is set in resource <code class="parameter">$a</code>, 
+   Returns <strong><code>true</code></strong> if the bit is set in <code class="parameter">num</code>, 
    otherwise <strong><code>false</code></strong>.
   </p>
  </div>
@@ -99,7 +95,7 @@
  <div class="refsect1 examples" id="refsect1-function.gmp-testbit-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3586">
+   <div class="example" id="example-3101">
     <p><strong>Example #1 <span class="function"><strong>gmp_testbit()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

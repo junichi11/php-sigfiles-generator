@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="splfileobject.seek" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SplFileObject::seek</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">SplFileObject::seek</span> &mdash; <span class="dc-title">Seek to specified line</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SplFileObject::seek</span> &mdash; <span class="dc-title">Seek to specified line</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-splfileobject.seek-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>SplFileObject::seek</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$line_pos</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>SplFileObject::seek</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$line</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Seek to specified line in the file.
@@ -47,10 +45,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">line_pos</code></dt>
+<code class="parameter">line</code></dt>
 
      <dd>
 
@@ -77,8 +74,8 @@
  <div class="refsect1 errors" id="refsect1-splfileobject.seek-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Throws a <a href="class.logicexception.html" class="classname">LogicException</a> if the 
-   <code class="parameter">line_pos</code> is negative.
+   Throws a <span class="classname"><a href="class.logicexception.html" class="classname">LogicException</a></span> if the 
+   <code class="parameter">line</code> is negative.
   </p>
  </div>
 
@@ -86,7 +83,7 @@
  <div class="refsect1 examples" id="refsect1-splfileobject.seek-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="splfileobject.fputcsv.examples.basic">
+   <div class="example" id="example-3736">
     <p><strong>Example #1 <span class="methodname"><strong>SplFileObject::seek()</strong></span> example</strong></p>
     <div class="example-contents"><p>This example outputs the third line of the script which is found at position 2.</p></div>
     <div class="example-contents">

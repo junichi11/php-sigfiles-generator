@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.is-object-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>is_object</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>is_object</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Finds whether the given variable is an object.
@@ -47,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">value</code></dt>
@@ -75,23 +72,6 @@
  </div>
 
 
- <div class="refsect1 examples" id="refsect1-function.is-object-examples">
-  <h3 class="title">Examples</h3>
-  <p class="para">
-   <div class="example" id="example-5783">
-    <p><strong>Example #1 <span class="function"><strong>is_object()</strong></span> example</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Declare&nbsp;a&nbsp;simple&nbsp;function&nbsp;to&nbsp;return&nbsp;an&nbsp;<br />//&nbsp;array&nbsp;from&nbsp;our&nbsp;object<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">get_students</span><span style="color: #007700">(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">is_object</span><span style="color: #007700">(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">students</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Declare&nbsp;a&nbsp;new&nbsp;class&nbsp;instance&nbsp;and&nbsp;fill&nbsp;up&nbsp;<br />//&nbsp;some&nbsp;values<br /></span><span style="color: #0000BB">$obj&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">stdClass</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">students&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'Kalle'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Ross'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Felipe'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">get_students</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">get_students</span><span style="color: #007700">(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-   </div>
-  </p>
- </div>
-
-
  <div class="refsect1 changelog" id="refsect1-function.is-object-changelog">
   <h3 class="title">Changelog</h3>
   <p class="para">
@@ -110,7 +90,7 @@
        <td>7.2.0</td>
        <td>
         <span class="function"><strong>is_object()</strong></span> now returns <strong><code>true</code></strong> for unserialized objects without 
-        a class definition (class of <strong class="classname">__PHP_Incomplete_Class</strong>). Previously 
+        a class definition (class of <span class="classname"><strong class="classname">__PHP_Incomplete_Class</strong></span>). Previously 
         <strong><code>false</code></strong> was returned.
        </td>
       </tr>
@@ -119,6 +99,23 @@
     
    </table>
 
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.is-object-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-5233">
+    <p><strong>Example #1 <span class="function"><strong>is_object()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Declare&nbsp;a&nbsp;simple&nbsp;function&nbsp;to&nbsp;return&nbsp;an&nbsp;<br />//&nbsp;array&nbsp;from&nbsp;our&nbsp;object<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">get_students</span><span style="color: #007700">(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">is_object</span><span style="color: #007700">(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">students</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Declare&nbsp;a&nbsp;new&nbsp;class&nbsp;instance&nbsp;and&nbsp;fill&nbsp;up&nbsp;<br />//&nbsp;some&nbsp;values<br /></span><span style="color: #0000BB">$obj&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">stdClass</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">students&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'Kalle'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Ross'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Felipe'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">get_students</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">get_students</span><span style="color: #007700">(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
   </p>
  </div>
 

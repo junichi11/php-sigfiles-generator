@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.array-unique" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_unique</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_unique</span> &mdash; <span class="dc-title">Removes duplicate values from an array</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">array_unique</span> &mdash; <span class="dc-title">Removes duplicate values from an array</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.array-unique-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>array_unique</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SORT_STRING</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>array_unique</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SORT_STRING</code></strong></span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Takes an input <code class="parameter">array</code> and returns a new array
@@ -61,7 +58,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">array</code></dt>
@@ -157,7 +153,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-unique-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5477">
+   <div class="example" id="example-4972">
     <p><strong>Example #1 <span class="function"><strong>array_unique()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -180,7 +176,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5478">
+   <div class="example" id="example-4973">
     <p><strong>Example #2 <span class="function"><strong>array_unique()</strong></span> and types</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -202,7 +198,18 @@ array(2) {
   </p>
  </div>
 
- 
+
+ <div class="refsect1 notes" id="refsect1-function.array-unique-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    Note that <span class="function"><strong>array_unique()</strong></span> is not intended to
+    work on multi dimensional arrays.
+   </span>
+  </p></blockquote>
+ </div>
+
+
  <div class="refsect1 seealso" id="refsect1-function.array-unique-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">
@@ -210,17 +217,6 @@ array(2) {
     <li class="member"><span class="function"><a href="function.array-count-values.html" class="function" rel="rdfs-seeAlso">array_count_values()</a> - Counts all the values of an array</span></li>
    </ul>
   </p>
- </div>
-
-
- <div class="refsect1 notes" id="refsect1-function.array-unique-notes">
-  <h3 class="title">Notes</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <span class="simpara">
-    Note that <span class="function"><strong>array_unique()</strong></span> is not intended to 
-    work on multi dimensional arrays.
-   </span>
-  </p></blockquote>
  </div>
 
 

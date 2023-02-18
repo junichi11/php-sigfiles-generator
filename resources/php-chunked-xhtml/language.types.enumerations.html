@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Enumerations</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="language.types.object.html">« Objects</a></li>
+      <li style="float: right;"><a href="language.types.resource.html">Resources »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.types.html">Types</a></li>
+    <li>Enumerations</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="language.types.enumerations" class="sect1">
+ <h2 class="title">Enumerations</h2>
+
+ <div class="sect2" id="language.types.enumerations.basics">
+  <h3 class="title">Basic Enumerations</h3>
+
+  <p class="para">
+   Enumerations are a restricting layer on top of classes and class constants,
+   intended to provide a way to define a closed set of possible values for a type.
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />enum&nbsp;Suit<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Hearts</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Diamonds</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Clubs</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Spades</span><span style="color: #007700">;<br />}<br /><br />function&nbsp;</span><span style="color: #0000BB">do_stuff</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit&nbsp;$s</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;...<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">do_stuff</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Spades</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+
+  <p class="simpara">
+   For a full discussion, see the
+   <a href="language.enumerations.html" class="link">Enumerations</a> chapter.
+  </p>
+
+ </div>
+ 
+ <div class="sect2" id="language.types.enumerations.casting">
+  <h3 class="title">Casting</h3>
+  
+  <p class="para">
+   If an <span class="type"><span class="type enum">enum</span></span> is converted to an <span class="type">object</span>, it is not
+   modified. If an <span class="type"><span class="type enum">enum</span></span> is converted to an <span class="type">array</span>,
+   an array with a single <code class="literal">name</code> key (for Pure enums) or
+   an array with both <code class="literal">name</code> and <code class="literal">value</code> keys
+   (for Backed enums) is created.  All other cast types will result in an error.
+  </p>
+ </div>
+</div></div></div></body></html>

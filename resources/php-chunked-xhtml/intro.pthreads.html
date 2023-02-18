@@ -30,6 +30,11 @@
    for multi-threading in PHP. PHP applications can create, read, write,
    execute and synchronize with Threads, Workers and Threaded objects.
   </p>
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="simpara">
+    This extension is considered unmaintained and dead.
+   </p>
+  </div>
   <div class="tip"><strong class="tip">Tip</strong>
    <p class="simpara">
     Consider using <a href="book.parallel.html" class="link">parallel</a> instead.
@@ -48,12 +53,12 @@
    </p>
   </div>
   <p class="para">
-   The <a href="class.threaded.html" class="classname">Threaded</a> class forms the basis of the
+   The <span class="classname"><a href="class.threaded.html" class="classname">Threaded</a></span> class forms the basis of the
    functionality that allows pthreads to operate. It exposes synchronization
    methods and some useful interfaces for the programmer.
   </p>
   <p class="para">
-   The <a href="class.thread.html" class="classname">Thread</a> class enables for threads to be created by
+   The <span class="classname"><a href="class.thread.html" class="classname">Thread</a></span> class enables for threads to be created by
    simply extending it and implementing a <code class="literal">run</code> method. Any
    members can be written to and read by any context with a reference to the
    thread. Any context can also execute any public and protected methods. 
@@ -63,7 +68,7 @@
    thread can start and join it.
   </p>
   <p class="para">
-   The <a href="class.worker.html" class="classname">Worker</a> class has a persistent state, and will be
+   The <span class="classname"><a href="class.worker.html" class="classname">Worker</a></span> class has a persistent state, and will be
    available from the call to <span class="methodname"><a href="thread.start.html" class="methodname">Thread::start()</a></span> (an
    inherited method) until the object goes out of scope, or is explicitly
    shutdown (via <span class="methodname"><a href="worker.shutdown.html" class="methodname">Worker::shutdown()</a></span>). Any context with a
@@ -75,25 +80,25 @@
    need.
   </p>
   <p class="para">
-   The <a href="class.pool.html" class="classname">Pool</a> class is used to create a group of workers
-   to distribute <a href="class.threaded.html" class="classname">Threaded</a> objects amongst them. It is
+   The <span class="classname"><a href="class.pool.html" class="classname">Pool</a></span> class is used to create a group of workers
+   to distribute <span class="classname"><a href="class.threaded.html" class="classname">Threaded</a></span> objects amongst them. It is
    the easiest and most efficient way of using multiple threads in PHP
    applications.
   </p>
   <div class="caution"><strong class="caution">Caution</strong>
    <p class="para">
-    The <a href="class.pool.html" class="classname">Pool</a> class does not extend the
-    <a href="class.threaded.html" class="classname">Threaded</a> class, and so pool-based objects are
+    The <span class="classname"><a href="class.pool.html" class="classname">Pool</a></span> class does not extend the
+    <span class="classname"><a href="class.threaded.html" class="classname">Threaded</a></span> class, and so pool-based objects are
     considered a normal PHP objects. As such, its instances of it should not be
     shared amongst different contexts.
    </p>
   </div>
   <p class="para">
-   The <a href="class.volatile.html" class="classname">Volatile</a> class is new to pthreads v3. It is used
-   to denote mutable <a href="class.threaded.html" class="classname">Threaded</a> properties of
-   <a href="class.threaded.html" class="classname">Threaded</a> classes (since these are now immutable by
+   The <span class="classname"><a href="class.volatile.html" class="classname">Volatile</a></span> class is new to pthreads v3. It is used
+   to denote mutable <span class="classname"><a href="class.threaded.html" class="classname">Threaded</a></span> properties of
+   <span class="classname"><a href="class.threaded.html" class="classname">Threaded</a></span> classes (since these are now immutable by
    default). It is also used to store PHP arrays in
-   <a href="class.threaded.html" class="classname">Threaded</a> contexts.
+   <span class="classname"><a href="class.threaded.html" class="classname">Threaded</a></span> contexts.
   </p>
   <p class="para">
    Synchronization is an important ability when threading. All of the objects
@@ -104,13 +109,13 @@
    <span class="methodname"><a href="threaded.wait.html" class="methodname">Threaded::wait()</a></span> on an object will cause the context
    to wait for another context to call
    <span class="methodname"><a href="threaded.notify.html" class="methodname">Threaded::notify()</a></span> on the same object. This mechanism
-   allows for powerful synchronization between <a href="class.threaded.html" class="classname">Threaded</a>
+   allows for powerful synchronization between <span class="classname"><a href="class.threaded.html" class="classname">Threaded</a></span>
    objects in PHP.
   </p>
   <div class="caution"><strong class="caution">Caution</strong>
   <p class="para">
    Any objects that are intended for use in the multi-threaded parts of your
-   application should extend <a href="class.threaded.html" class="classname">Threaded</a>.
+   application should extend <span class="classname"><a href="class.threaded.html" class="classname">Threaded</a></span>.
   </p>
   </div>
   <p class="para">

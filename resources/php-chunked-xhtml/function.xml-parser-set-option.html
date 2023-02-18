@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.xml-parser-set-option" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">xml_parser_set_option</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">xml_parser_set_option</span> &mdash; <span class="dc-title">Set options in an XML parser</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">xml_parser_set_option</span> &mdash; <span class="dc-title">Set options in an XML parser</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.xml-parser-set-option-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>xml_parser_set_option</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.xmlparser.html" class="type XMLParser">XMLParser</a></span> <code class="parameter">$parser</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$value</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>xml_parser_set_option</strong></span>(<span class="methodparam"><span class="type"><a href="class.xmlparser.html" class="type XMLParser">XMLParser</a></span> <code class="parameter">$parser</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>, <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Sets an option in an XML parser.
@@ -49,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">parser</code></dt>
@@ -176,7 +171,7 @@
       <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">parser</code> expects an <a href="class.xmlparser.html" class="classname">XMLParser</a>
+  <code class="parameter">parser</code> expects an <span class="classname"><a href="class.xmlparser.html" class="classname">XMLParser</a></span>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>

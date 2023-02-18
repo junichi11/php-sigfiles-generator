@@ -37,7 +37,6 @@ been compiled into PHP or dynamically loaded at runtime.
   <span class="function"><a href="function.curl-getinfo.html" class="function">curl_getinfo()</a></span> documentation.
  </p>
  <dl>
-
   
    <dt id="constant.curlopt-autoreferer">
     <strong><code>CURLOPT_AUTOREFERER</code></strong>
@@ -47,7 +46,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.1.0
+
     </span>
    </dd>
 
@@ -61,7 +60,22 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.1.0
+
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.curlopt-doh-url">
+    <strong><code>CURLOPT_DOH_URL</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Provides the DNS-over-HTTPS URL.
+     Available as of PHP 8.1.0 and cURL 7.62.0.
     </span>
    </dd>
 
@@ -103,7 +117,7 @@ been compiled into PHP or dynamically loaded at runtime.
      <dd>
 
        <span class="simpara">
-         Available since PHP 5.2.0
+
        </span>
      </dd>
 
@@ -159,7 +173,7 @@ been compiled into PHP or dynamically loaded at runtime.
      <dd>
 
        <span class="simpara">
-         Available since PHP 5.2.0
+
        </span>
      </dd>
 
@@ -173,7 +187,7 @@ been compiled into PHP or dynamically loaded at runtime.
      <dd>
 
        <span class="simpara">
-         Available since PHP 5.2.0
+
        </span>
      </dd>
 
@@ -187,7 +201,7 @@ been compiled into PHP or dynamically loaded at runtime.
      <dd>
 
        <span class="simpara">
-         Available since PHP 5.2.0
+
        </span>
      </dd>
 
@@ -201,7 +215,7 @@ been compiled into PHP or dynamically loaded at runtime.
      <dd>
 
        <span class="simpara">
-         Available since PHP 5.2.0
+
        </span>
      </dd>
 
@@ -215,7 +229,7 @@ been compiled into PHP or dynamically loaded at runtime.
      <dd>
 
        <span class="simpara">
-         Available since PHP 5.2.4
+
        </span>
      </dd>
 
@@ -229,7 +243,7 @@ been compiled into PHP or dynamically loaded at runtime.
      <dd>
 
        <span class="simpara">
-         Available since PHP 5.1.0
+
        </span>
      </dd>
 
@@ -292,6 +306,21 @@ been compiled into PHP or dynamically loaded at runtime.
 
   
   
+   <dt id="constant.curlopt-issuercert-blob">
+    <strong><code>CURLOPT_ISSUERCERT_BLOB</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Issuer SSL certificate from memory blob.
+     Available as of PHP 8.1.0 and cURL 7.71.0.
+    </span>
+   </dd>
+
+  
+  
    <dt id="constant.curlopt-url">
     <strong><code>CURLOPT_URL</code></strong>
     (<span class="type">int</span>)
@@ -315,6 +344,66 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.curlopt-proxy-issuercert">
+    <strong><code>CURLOPT_PROXY_ISSUERCERT</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Proxy issuer SSL certificate filename.
+     Available as of PHP 8.1.0 and cURL 7.71.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.curlopt-proxy-issuercert-blob">
+    <strong><code>CURLOPT_PROXY_ISSUERCERT_BLOB</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Proxy issuer SSL certificate from memory blob.
+     Available as of PHP 8.1.0 and cURL 7.71.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.curlopt-proxy-sslcert-blob">
+    <strong><code>CURLOPT_PROXY_SSLCERT_BLOB</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     SSL proxy client certificate from memory blob.
+     Available as of PHP 8.1.0 and cURL 7.71.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.curlopt-proxy-sslkey-blob">
+    <strong><code>CURLOPT_PROXY_SSLKEY_BLOB</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Private key for proxy cert from memory blob.
+     Available as of PHP 8.1.0 and cURL 7.71.0.
     </span>
    </dd>
 
@@ -623,7 +712,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.2.1
+
     </span>
    </dd>
 
@@ -651,7 +740,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.3.0
+
     </span>
    </dd>
 
@@ -777,7 +866,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.14.1
+     Available since cURL 7.14.1
     </span>
    </dd>
 
@@ -797,6 +886,21 @@ been compiled into PHP or dynamically loaded at runtime.
 
   
   
+   <dt id="constant.curlopt-sslcert-blob">
+    <strong><code>CURLOPT_SSLCERT_BLOB</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     SSL client certificate from memory blob.
+     Available as of PHP 8.1.0 and cURL 7.71.0.
+    </span>
+   </dd>
+
+  
+  
    <dt id="constant.curlopt-sslcertpasswd">
     <strong><code>CURLOPT_SSLCERTPASSWD</code></strong>
     (<span class="type">int</span>)
@@ -806,6 +910,21 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.curlopt-sslkey-blob">
+    <strong><code>CURLOPT_SSLKEY_BLOB</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Private key for client cert from memory blob.
+     Available as of PHP 8.1.0 and cURL 7.71.0.
     </span>
    </dd>
 
@@ -931,7 +1050,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-      Available since PHP 5.5.19 and 5.6.3
+
     </span>
    </dd>
 
@@ -945,7 +1064,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-      Available since PHP 5.5.19 and 5.6.3
+
     </span>
    </dd>
 
@@ -959,7 +1078,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-      Available since PHP 5.5.19 and 5.6.3
+
     </span>
    </dd>
 
@@ -1212,20 +1331,6 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      
-    </span>
-   </dd>
-
-  
-  
-   <dt id="constant.curlopt-closepolicy">
-    <strong><code>CURLOPT_CLOSEPOLICY</code></strong>
-    (<span class="type">int</span>)
-   </dt>
-
-   <dd>
-
-    <span class="simpara">
-     Removed in PHP 5.6.0.
     </span>
    </dd>
 
@@ -1785,7 +1890,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.4.0 and cURL 7.15.5
+     Available since cURL 7.15.5
     </span>
    </dd>
 
@@ -1799,7 +1904,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.4.0 and cURL 7.15.5
+     Available since cURL 7.15.5
     </span>
    </dd>
 
@@ -1833,76 +1938,6 @@ been compiled into PHP or dynamically loaded at runtime.
 
   
   
-   <dt id="constant.curlclosepolicy-least-recently-used">
-    <strong><code>CURLCLOSEPOLICY_LEAST_RECENTLY_USED</code></strong>
-    (<span class="type">int</span>)
-   </dt>
-
-   <dd>
-
-    <span class="simpara">
-     Removed in PHP 5.6.0.
-    </span>
-   </dd>
-
-  
-  
-   <dt id="constant.curlclosepolicy-least-traffic">
-    <strong><code>CURLCLOSEPOLICY_LEAST_TRAFFIC</code></strong>
-    (<span class="type">int</span>)
-   </dt>
-
-   <dd>
-
-    <span class="simpara">
-     Removed in PHP 5.6.0.
-    </span>
-   </dd>
-
-  
-  
-   <dt id="constant.curlclosepolicy-slowest">
-    <strong><code>CURLCLOSEPOLICY_SLOWEST</code></strong>
-    (<span class="type">int</span>)
-   </dt>
-
-   <dd>
-
-    <span class="simpara">
-     Removed in PHP 5.6.0.
-    </span>
-   </dd>
-
-  
-  
-   <dt id="constant.curlclosepolicy-callback">
-    <strong><code>CURLCLOSEPOLICY_CALLBACK</code></strong>
-    (<span class="type">int</span>)
-   </dt>
-
-   <dd>
-
-    <span class="simpara">
-     Removed in PHP 5.6.0.
-    </span>
-   </dd>
-
-  
-  
-   <dt id="constant.curlclosepolicy-oldest">
-    <strong><code>CURLCLOSEPOLICY_OLDEST</code></strong>
-    (<span class="type">int</span>)
-   </dt>
-
-   <dd>
-
-    <span class="simpara">
-     Removed in PHP 5.6.0.
-    </span>
-   </dd>
-
-  
-  
    <dt id="constant.curlinfo-private">
     <strong><code>CURLINFO_PRIVATE</code></strong>
     (<span class="type">int</span>)
@@ -1911,7 +1946,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.2.4
+
     </span>
    </dd>
 
@@ -1939,7 +1974,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     As of PHP 5.5.0 and cURL 7.10.8, this is a legacy alias of
+     As of cURL 7.10.8, this is a legacy alias of
      <strong><code>CURLINFO_RESPONSE_CODE</code></strong>
     </span>
    </dd>
@@ -1954,7 +1989,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.10.8
+     Available since cURL 7.10.8
     </span>
    </dd>
 
@@ -1968,7 +2003,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.1.3
+
     </span>
    </dd>
 
@@ -2234,7 +2269,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.3.7
+
     </span>
    </dd>
 
@@ -2248,7 +2283,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.4.7
+
     </span>
    </dd>
 
@@ -2262,7 +2297,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.4.7
+
     </span>
    </dd>
 
@@ -2276,7 +2311,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.4.7
+
     </span>
    </dd>
 
@@ -2290,7 +2325,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.4.7
+
     </span>
    </dd>
 
@@ -2380,6 +2415,20 @@ been compiled into PHP or dynamically loaded at runtime.
 
   
   
+   <dt id="constant.curl-timecond-none">
+    <strong><code>CURL_TIMECOND_NONE</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+
+    </span>
+   </dd>
+
+  
+  
    <dt id="constant.curl-timecond-ifmodsince">
     <strong><code>CURL_TIMECOND_IFMODSINCE</code></strong>
     (<span class="type">int</span>)
@@ -2444,6 +2493,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     Asynchronous DNS resolves.
      Available since PHP 7.3.0 and cURL 7.10.7
     </span>
    </dd>
@@ -2472,6 +2522,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     Character conversions supported.
      Available since PHP 7.3.0 and cURL 7.15.4
     </span>
    </dd>
@@ -2486,6 +2537,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     Debug memory tracking supported.
      Available since PHP 7.3.6 and cURL 7.19.6
     </span>
    </dd>
@@ -2500,6 +2552,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     Built with debug capabilities.
      Available since PHP 7.3.0 and cURL 7.10.6
     </span>
    </dd>
@@ -2514,6 +2567,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     Built against a GSS-API library.
      Available since PHP 7.3.0 and cURL 7.38.0
     </span>
    </dd>
@@ -2528,6 +2582,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     Negotiate auth is supported.
      Available since PHP 7.3.0 and cURL 7.10.6 (deprecated since 7.38.0)
     </span>
    </dd>
@@ -2542,6 +2597,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     Internationized Domain Names are supported.
      Available since PHP 7.3.0 and cURL 7.12.0
     </span>
    </dd>
@@ -2570,6 +2626,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     NTLM auth is supported.
      Available since PHP 7.3.0 and cURL 7.10.6
     </span>
    </dd>
@@ -2584,6 +2641,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     NTLM delegation to winbind helper is supported.
      Available since PHP 7.3.0 and cURL 7.22.0
     </span>
    </dd>
@@ -2598,7 +2656,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     
+     IPv6-enabled.
     </span>
    </dd>
 
@@ -2612,7 +2670,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     
+     Kerberos V4 auth is supported.
     </span>
    </dd>
 
@@ -2626,6 +2684,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     Kerberos V5 auth is supported.
      Available since PHP 7.0.7 and cURL 7.40.0
     </span>
    </dd>
@@ -2640,7 +2699,23 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.24 and 5.6.8 and cURL 7.33.0
+     HTTP2 support built-in.
+     Available since cURL 7.33.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.curl-version-largefile">
+    <strong><code>CURL_VERSION_LARGEFILE</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Supports files larger than 2GB.
+     Available since cURL 7.33.0
     </span>
    </dd>
 
@@ -2654,6 +2729,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     Mozilla&#039;s Public Suffix List, used for cookie domain verification.
      Available since PHP 7.3.6 and cURL 7.47.0
     </span>
    </dd>
@@ -2668,6 +2744,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     SPNEGO auth is supported.
      Available since PHP 7.3.0 and cURL 7.10.8
     </span>
    </dd>
@@ -2682,6 +2759,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     Built against Windows SSPI.
      Available since PHP 7.3.0 and cURL 7.13.2
     </span>
    </dd>
@@ -2696,7 +2774,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     
+     SSL options are present.
     </span>
    </dd>
 
@@ -2710,6 +2788,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     TLS-SRP auth is supported.
      Available since PHP 7.3.0 and cURL 7.21.4
     </span>
    </dd>
@@ -2724,6 +2803,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
+     Unix domain sockets support.
      Available since PHP 7.0.7 and cURL 7.40.0
     </span>
    </dd>
@@ -2738,7 +2818,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     
+     libz features are present.
     </span>
    </dd>
 
@@ -3676,7 +3756,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.3.0 and cURL 7.16.1.
+     Available since cURL 7.16.1.
     </span>
    </dd>
 
@@ -3690,7 +3770,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.1.0
+
     </span>
    </dd>
 
@@ -3704,7 +3784,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.1.0
+
     </span>
    </dd>
 
@@ -3718,7 +3798,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.1.0
+
     </span>
    </dd>
 
@@ -3760,7 +3840,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.2.10 and cURL 7.10.
+     Available since cURL 7.10.
     </span>
    </dd>
 
@@ -3886,7 +3966,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.24 and 5.6.8 and cURL 7.33.0
+     Available since cURL 7.33.0
     </span>
    </dd>
 
@@ -4096,7 +4176,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.25.0
+     Available since cURL 7.25.0
     </span>
    </dd>
 
@@ -4110,7 +4190,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.25.0
+     Available since cURL 7.25.0
     </span>
    </dd>
 
@@ -4138,7 +4218,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.19.1
+     Available since cURL 7.19.1
     </span>
    </dd>
 
@@ -4460,7 +4540,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.25.0
+     Available since cURL 7.25.0
     </span>
    </dd>
 
@@ -4474,7 +4554,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.25.0
+     Available since cURL 7.25.0
     </span>
    </dd>
 
@@ -4488,7 +4568,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.25.0
+     Available since cURL 7.25.0
     </span>
    </dd>
 
@@ -4502,7 +4582,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.16.0.
+     Available since cURL 7.16.0.
     </span>
    </dd>
 
@@ -4516,7 +4596,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.16.3.
+     Available since cURL 7.16.3.
     </span>
    </dd>
 
@@ -4718,22 +4798,6 @@ been compiled into PHP or dynamically loaded at runtime.
 
   
   
-   <dt id="constant.curl-wrappers-enabled">
-    <strong><code>CURL_WRAPPERS_ENABLED</code></strong>
-    (<span class="type">int</span>)
-   </dt>
-
-   <dd>
-
-    <span class="simpara">
-     Defined if PHP was configured with
-     <strong class="option configure">--with-curlwrappers</strong>.
-     Moved to PECL in PHP 5.5.0.
-    </span>
-   </dd>
-
-  
-  
    <dt id="constant.curlpause-all">
     <strong><code>CURLPAUSE_ALL</code></strong>
     (<span class="type">int</span>)
@@ -4742,7 +4806,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.18.0.
+     Available since cURL 7.18.0.
     </span>
    </dd>
 
@@ -4756,7 +4820,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.18.0.
+     Available since cURL 7.18.0.
     </span>
    </dd>
 
@@ -4770,7 +4834,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.18.0.
+     Available since cURL 7.18.0.
     </span>
    </dd>
 
@@ -4784,7 +4848,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.18.0.
+     Available since cURL 7.18.0.
     </span>
    </dd>
 
@@ -4798,7 +4862,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.18.0.
+     Available since cURL 7.18.0.
     </span>
    </dd>
 
@@ -4812,7 +4876,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.0 and cURL 7.18.0.
+     Available since cURL 7.18.0.
     </span>
    </dd>
 
@@ -4826,7 +4890,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 7.0.0 and cURL 7.43.0.
+     Available since cURL 7.43.0.
     </span>
    </dd>
 
@@ -4840,7 +4904,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 7.0.0 and cURL 7.43.0.
+     Available since cURL 7.43.0.
     </span>
    </dd>
 
@@ -4854,7 +4918,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 7.0.0 and cURL 7.43.0.
+     Available since cURL 7.43.0.
     </span>
    </dd>
 
@@ -4868,7 +4932,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.23 and PHP 5.6.7 and cURL 7.18.0.
+     Available since cURL 7.18.0.
     </span>
    </dd>
 
@@ -4882,7 +4946,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Available since PHP 5.5.23 and PHP 5.6.7 and cURL 7.18.0.
+     Available since cURL 7.18.0.
     </span>
    </dd>
 

@@ -26,24 +26,17 @@
   <div id="layout-content"><div id="function.imagefilter" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagefilter</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagefilter</span> &mdash; <span class="dc-title">Applies a filter to an image</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagefilter</span> &mdash; <span class="dc-title">Applies a filter to an image</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagefilter-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagefilter</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$filtertype</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg1</code> = ?</span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg2</code> = ?</span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg3</code> = ?</span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg4</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>imagefilter</strong></span>(<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$image</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$filter</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">int</span>|<span class="type">float</span>|<span class="type">bool</span></span> <code class="parameter">...$args</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>imagefilter()</strong></span> applies the given filter
-   <code class="parameter">filtertype</code> on the <code class="parameter">image</code>.
+   <code class="parameter">filter</code> on the <code class="parameter">image</code>.
   </p>
  </div>
 
@@ -51,22 +44,21 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-image</code></dt>
+
+<code class="parameter">image</code></dt>
 <dd>
-<p class="para">An image resource, returned by one of the image creation functions,
+<p class="para">A <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> object, returned by one of the image creation functions,
 such as <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
 
     
      <dt>
-<code class="parameter">filtertype</code></dt>
+<code class="parameter">filter</code></dt>
 
      <dd>
 
       <p class="para">
-       <code class="parameter">filtertype</code> can be one of the following:
+       <code class="parameter">filter</code> can be one of the following:
        <ul class="itemizedlist">
         <li class="listitem">
          <span class="simpara">
@@ -86,14 +78,14 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
         <li class="listitem">
          <span class="simpara">
           <strong><code>IMG_FILTER_BRIGHTNESS</code></strong>: Changes the brightness
-          of the image. Use <code class="parameter">arg1</code> to set the level of
+          of the image. Use <code class="parameter">args</code> to set the level of
           brightness. The range for the brightness is -255 to 255.
          </span>
         </li>
         <li class="listitem">
          <span class="simpara">
           <strong><code>IMG_FILTER_CONTRAST</code></strong>: Changes the contrast of
-          the image. Use <code class="parameter">arg1</code> to set the level of
+          the image. Use <code class="parameter">args</code> to set the level of
           contrast.
          </span>
         </li>
@@ -101,7 +93,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
          <span class="simpara">
           <strong><code>IMG_FILTER_COLORIZE</code></strong>: Like
           <strong><code>IMG_FILTER_GRAYSCALE</code></strong>, except you can specify the
-          color. Use <code class="parameter">arg1</code>, <code class="parameter">arg2</code> and
+          color. Use <code class="parameter">args</code>, <code class="parameter">arg2</code> and
           <code class="parameter">arg3</code> in the form of
           <code class="parameter">red</code>, <code class="parameter">green</code>,
           <code class="parameter">blue</code> and <code class="parameter">arg4</code> for the
@@ -139,20 +131,20 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
         <li class="listitem">
          <span class="simpara">
           <strong><code>IMG_FILTER_SMOOTH</code></strong>: Makes the image smoother.
-          Use <code class="parameter">arg1</code> to set the level of smoothness.
+          Use <code class="parameter">args</code> to set the level of smoothness.
          </span>
         </li>
         <li class="listitem">
          <span class="simpara">
           <strong><code>IMG_FILTER_PIXELATE</code></strong>: Applies pixelation effect 
-          to the image, use <code class="parameter">arg1</code> to set the block size 
+          to the image, use <code class="parameter">args</code> to set the block size 
           and <code class="parameter">arg2</code> to set the pixelation effect mode.
          </span>
         </li>
         <li class="listitem">
          <span class="simpara">
           <strong><code>IMG_FILTER_SCATTER</code></strong>: Applies scatter effect 
-          to the image, use <code class="parameter">arg1</code> and 
+          to the image, use <code class="parameter">args</code> and 
           <code class="parameter">arg2</code> to define the effect strength and 
           additionally <code class="parameter">arg3</code> to only apply the 
           on select pixel colors.
@@ -165,7 +157,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
     
     
      <dt>
-<code class="parameter">arg1</code></dt>
+<code class="parameter">args</code></dt>
 
      <dd>
 
@@ -308,6 +300,14 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
 
      <tbody class="tbody">
       <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
+  instance now; previously, a <span class="type">resource</span> was expected.
+ </td>
+</tr>
+
+      <tr>
        <td>7.4.0</td>
        <td>
         Scatter support (<strong><code>IMG_FILTER_SCATTER</code></strong>) was added.
@@ -324,7 +324,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imagefilter-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3153">
+   <div class="example" id="example-2669">
     <p><strong>Example #1 <span class="function"><strong>imagefilter()</strong></span> grayscale example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -336,7 +336,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3154">
+   <div class="example" id="example-2670">
     <p><strong>Example #2 <span class="function"><strong>imagefilter()</strong></span> brightness example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -348,7 +348,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3155">
+   <div class="example" id="example-2671">
     <p><strong>Example #3 <span class="function"><strong>imagefilter()</strong></span> colorize example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -360,7 +360,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
    </div>
   </p>
   <p class="para">
-   <div class="example" id="imagecrop.example.basic">
+   <div class="example" id="example-2672">
     <p><strong>Example #4 <span class="function"><strong>imagefilter()</strong></span> negate example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -372,7 +372,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3157">
+   <div class="example" id="example-2673">
     <p><strong>Example #5 <span class="function"><strong>imagefilter()</strong></span> pixelate example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -392,7 +392,7 @@ something similar to:</p></div>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3158">
+   <div class="example" id="example-2674">
     <p><strong>Example #6 <span class="function"><strong>imagefilter()</strong></span> scatter example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

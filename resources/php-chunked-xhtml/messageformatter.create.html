@@ -28,43 +28,27 @@
   <h1 class="refname">MessageFormatter::create</h1>
   <h1 class="refname">MessageFormatter::__construct</h1>
   <h1 class="refname">msgfmt_create</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">MessageFormatter::create</span> -- <span class="refname">MessageFormatter::__construct</span> -- <span class="refname">msgfmt_create</span> &mdash; <span class="dc-title">Constructs a new Message Formatter</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">MessageFormatter::create</span> -- <span class="refname">MessageFormatter::__construct</span> -- <span class="refname">msgfmt_create</span> &mdash; <span class="dc-title">Constructs a new Message Formatter</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-messageformatter.create-description">
   <h3 class="title">Description</h3>
   <p class="para">
-   Object oriented style (method)
+   Object-oriented style (method)
   </p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>
-   <span class="modifier">static</span>
-   
-   <span class="methodname"><strong>MessageFormatter::create</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-   ) : <span class="type"><a href="class.messageformatter.html" class="type MessageFormatter">MessageFormatter</a></span></div>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>MessageFormatter::create</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>): <span class="type"><span class="type">?</span><span class="type"><a href="class.messageformatter.html" class="type MessageFormatter">MessageFormatter</a></span></span></div>
 
   <p class="para rdfs-comment">
-   Object oriented style (constructor):
+   Object-oriented style (constructor):
   </p>
-  <div class="constructorsynopsis dc-description">
-   <span class="modifier">public</span>
-   <span class="methodname"><strong>MessageFormatter::__construct</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-   )</div>
+  <div class="constructorsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>MessageFormatter::__construct</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>)</div>
 
   <p class="para rdfs-comment">
    Procedural style
   </p>
-  <div class="methodsynopsis dc-description">
-   
-   <span class="methodname"><strong>msgfmt_create</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-   ) : <span class="type"><a href="class.messageformatter.html" class="type MessageFormatter">MessageFormatter</a></span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>msgfmt_create</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>): <span class="type"><span class="type">?</span><span class="type"><a href="class.messageformatter.html" class="type MessageFormatter">MessageFormatter</a></span></span></div>
 
   <p class="para rdfs-comment">
    Constructs a new Message Formatter
@@ -76,7 +60,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">locale</code></dt>
@@ -114,7 +97,7 @@
  <div class="refsect1 returnvalues" id="refsect1-messageformatter.create-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The formatter <span class="type">object</span>
+   The formatter <span class="type">object</span>, or <strong><code>null</code></strong> on failure.
   </p>
  </div>
 
@@ -122,7 +105,7 @@
  <div class="refsect1 errors" id="refsect1-messageformatter.create-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   When invoked as constructor, on failure an <a href="class.intlexception.html" class="classname">IntlException</a>
+   When invoked as constructor, on failure an <span class="classname"><a href="class.intlexception.html" class="classname">IntlException</a></span>
    is thrown.
   </p>
  </div>
@@ -130,7 +113,7 @@
 
  <div class="refsect1 examples" id="refsect1-messageformatter.create-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2845">
+  <div class="example" id="example-2358">
    <p><strong>Example #1 <span class="function"><strong>msgfmt_create()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -140,7 +123,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-2846">
+  <div class="example" id="example-2359">
    <p><strong>Example #2 OO example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

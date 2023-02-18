@@ -25,11 +25,11 @@ namespace wkhtmltox\Image {
 		/**
 		 * Perform Image conversion
 		 * <p>Performs conversion of the input buffer</p>
-		 * @return string|null <p>Where the return value is used, it will be populated with the contents of the conversion buffer</p>
+		 * @return ?string <p>Where the return value is used, it will be populated with the contents of the conversion buffer</p>
 		 * @link https://php.net/manual/en/wkhtmltox-image-converter.convert.php
 		 * @since wkhtmltox >= 0.1.0
 		 */
-		public function convert(): string|null {}
+		public function convert(): ?string {}
 
 		/**
 		 * Determine version of Converter
@@ -75,11 +75,11 @@ namespace wkhtmltox\PDF {
 		/**
 		 * Perform PDF conversion
 		 * <p>Performs conversion of all previously added Objects</p>
-		 * @return string|null <p>Where the return value is used, it will be populated with the contents of the conversion buffer</p>
+		 * @return ?string <p>Where the return value is used, it will be populated with the contents of the conversion buffer</p>
 		 * @link https://php.net/manual/en/wkhtmltox-pdf-converter.convert.php
 		 * @since wkhtmltox >= 0.1.0
 		 */
-		public function convert(): string|null {}
+		public function convert(): ?string {}
 
 		/**
 		 * Determine version of Converter

@@ -26,25 +26,25 @@
   <div id="layout-content"><div id="function.sodium-memcmp" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sodium_memcmp</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.2.0)</p><p class="refpurpose"><span class="refname">sodium_memcmp</span> &mdash; <span class="dc-title">Test for equality in constant-time</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">sodium_memcmp</span> &mdash; <span class="dc-title">Test for equality in constant-time</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.sodium-memcmp-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>sodium_memcmp</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string1</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string2</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>sodium_memcmp</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string1</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$string2</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
-
+   Compare two strings in constant-time.
   </p>
-
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-currently not documented; only its argument list is available.
-</p></div>
+  <p class="para">
+   In practice, you almost always want to use <span class="function"><a href="function.hash-equals.html" class="function">hash_equals()</a></span> instead,
+   since it provides the same logic but returns a <span class="type">bool</span> instead of an
+   <span class="type">int</span>. However, if you&#039;re using the return value of a comparison in a
+   calculation that&#039;s timing-sensitive, and worried about timing leaks with bool-to-int
+   conversions, <span class="function"><strong>sodium_memcmp()</strong></span> is an ideal replacement.
+  </p>
 
  </div>
 
@@ -52,7 +52,6 @@ currently not documented; only its argument list is available.
  <div class="refsect1 parameters" id="refsect1-function.sodium-memcmp-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">string1</code></dt>
@@ -60,7 +59,7 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      String to compare
      </p>
     </dd>
 
@@ -72,7 +71,7 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      Other string to compare
      </p>
     </dd>
 
@@ -85,7 +84,7 @@ currently not documented; only its argument list is available.
  <div class="refsect1 returnvalues" id="refsect1-function.sodium-memcmp-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   
+   Returns <code class="literal">0</code> if both strings are equal; <code class="literal">-1</code> otherwise.
   </p>
  </div>
 

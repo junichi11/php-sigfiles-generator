@@ -26,9 +26,11 @@
   <div id="layout-content"><div id="openssl.resources" class="section">
   <h2 class="title">Resource Types</h2>
   <p class="para">
-   There are 3 resource types defined in the OpenSSL module. The first one is
-   a pkey (public or private key) identifier, the second one is a X509
-   certificate identifier and the third one is a CSR (certificate signing
-   request) identifier.
+   Prior to PHP 8.0.0, there were 3 resource types defined in the OpenSSL module:
+   <ul class="simplelist">
+    <li class="member"><code class="literal">OpenSSL key</code></li>
+    <li class="member"><code class="literal">OpenSSL X.509</code></li>
+    <li class="member"><code class="literal">OpenSSL X.509 CSR</code></li>
+   </ul>
   </p>
  </div></div></div></body></html>

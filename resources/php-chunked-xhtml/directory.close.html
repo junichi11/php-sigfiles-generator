@@ -26,21 +26,42 @@
   <div id="layout-content"><div id="directory.close" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Directory::close</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">Directory::close</span> &mdash; <span class="dc-title">Close directory handle</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">Directory::close</span> &mdash; <span class="dc-title">Close directory handle</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-directory.close-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Directory::close</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$dir_handle</code> = ?</span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Directory::close</strong></span>(): <span class="type"><span class="type void">void</span></span></div>
 
-  <p class="para rdfs-comment">
-   Same as <span class="function"><a href="function.closedir.html" class="function">closedir()</a></span>, only <code class="parameter">
-   dir_handle</code> defaults to <var class="varname">$this->handle</var>.
-  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-directory.close-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       No parameter is accepted. Previously, a directory handle could be passed as argument.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

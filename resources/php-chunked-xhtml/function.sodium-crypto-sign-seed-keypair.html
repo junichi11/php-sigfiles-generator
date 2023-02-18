@@ -26,24 +26,22 @@
   <div id="layout-content"><div id="function.sodium-crypto-sign-seed-keypair" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sodium_crypto_sign_seed_keypair</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.2.0)</p><p class="refpurpose"><span class="refname">sodium_crypto_sign_seed_keypair</span> &mdash; <span class="dc-title">Deterministically derive the key pair from a single key</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">sodium_crypto_sign_seed_keypair</span> &mdash; <span class="dc-title">Deterministically derive the key pair from a single key</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.sodium-crypto-sign-seed-keypair-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>sodium_crypto_sign_seed_keypair</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$seed</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>sodium_crypto_sign_seed_keypair</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$seed</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
-
+   Clamps the seed to form a secret key, derives the public key, and returns the two as a keypair.
   </p>
-
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-currently not documented; only its argument list is available.
-</p></div>
+  <p class="para">
+   The <code class="literal">*_seed_keypair</code> functions are ideal for generating a keypair from a
+   password and salt. Use the result as a <code class="parameter">seed</code> to generate the desired keys.
+  </p>
 
  </div>
 
@@ -51,7 +49,6 @@ currently not documented; only its argument list is available.
  <div class="refsect1 parameters" id="refsect1-function.sodium-crypto-sign-seed-keypair-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">seed</code></dt>
@@ -59,7 +56,7 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      Some cryptographic input. Must be 32 bytes.
      </p>
     </dd>
 
@@ -72,7 +69,7 @@ currently not documented; only its argument list is available.
  <div class="refsect1 returnvalues" id="refsect1-function.sodium-crypto-sign-seed-keypair-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   
+   Keypair (secret key and public key)
   </p>
  </div>
 

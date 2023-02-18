@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="reflectionclass.newinstance" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionClass::newInstance</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionClass::newInstance</span> &mdash; <span class="dc-title">Creates a new class instance from given arguments</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionClass::newInstance</span> &mdash; <span class="dc-title">Creates a new class instance from given arguments</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-reflectionclass.newinstance-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::newInstance</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$args</code></span>
-   ) : <span class="type">object</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::newInstance</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$args</code></span>): <span class="type">object</span></div>
 
   <p class="para rdfs-comment">
    Creates a new instance of the class. The given arguments are passed to the
@@ -49,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">args</code></dt>
@@ -80,10 +77,10 @@
  <div class="refsect1 errors" id="refsect1-reflectionclass.newinstance-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   A <a href="class.reflectionexception.html" class="classname">ReflectionException</a> if the class constructor is not public.
+   A <span class="classname"><a href="class.reflectionexception.html" class="classname">ReflectionException</a></span> if the class constructor is not public.
   </p>
   <p class="para">
-   A <a href="class.reflectionexception.html" class="classname">ReflectionException</a> if the class does not have a constructor
+   A <span class="classname"><a href="class.reflectionexception.html" class="classname">ReflectionException</a></span> if the class does not have a constructor
    and the <code class="parameter">args</code> parameter contains one or more parameters.
   </p>
  </div>

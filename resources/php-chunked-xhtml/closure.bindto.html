@@ -35,11 +35,7 @@
  <div class="refsect1 description" id="refsect1-closure.bindto-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Closure::bindTo</strong></span>
-    ( <span class="methodparam"><span class="type">object</span> <code class="parameter">$newthis</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$newscope</code>
-   <span class="initializer"> = &quot;static&quot;</span></span>
-   ) : <span class="type"><span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Closure::bindTo</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">object</span><span class="type"></span></span> <code class="parameter">$newThis</code></span>, <span class="methodparam"><span class="type"><span class="type">object</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$newScope</code><span class="initializer"> = &quot;static&quot;</span></span>): <span class="type"><span class="type">?</span><span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span></span></div>
 
   <p class="para rdfs-comment">
    Create and return a new <a href="functions.anonymous.html" class="link">anonymous
@@ -53,13 +49,13 @@
    which determines which private and protected members the anonymous
    function will be able to access. Namely, the members that will be
    visible are the same as if the anonymous function were a method of
-   the class given as value of the <code class="parameter">newscope</code>
+   the class given as value of the <code class="parameter">newScope</code>
    parameter.
   </p>
 
   <p class="para">
    Static closures cannot have any bound object (the value of the parameter
-   <code class="parameter">newthis</code> should be <strong><code>null</code></strong>), but this function can
+   <code class="parameter">newThis</code> should be <strong><code>null</code></strong>), but this function can
    nevertheless be used to change their class scope.
   </p>
 
@@ -84,10 +80,9 @@
  <div class="refsect1 parameters" id="refsect1-closure.bindto-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
-<code class="parameter">newthis</code></dt>
+<code class="parameter">newThis</code></dt>
 
     <dd>
 
@@ -100,7 +95,7 @@
    
    
     <dt>
-<code class="parameter">newscope</code></dt>
+<code class="parameter">newScope</code></dt>
 
     <dd>
 
@@ -122,15 +117,15 @@
  <div class="refsect1 returnvalues" id="refsect1-closure.bindto-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the newly created <a href="class.closure.html" class="classname">Closure</a> object
-    or <strong><code>false</code></strong> on failure
+   Returns the newly created <span class="classname"><a href="class.closure.html" class="classname">Closure</a></span> object
+   or <strong><code>null</code></strong> on failure.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-closure.bindto-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-369">
+  <div class="example" id="example-384">
    <p><strong>Example #1 <span class="function"><strong>Closure::bindTo()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -27,6 +27,15 @@
  <h1>Changelog</h1>
 
  <p class="para">The following changes have been made to classes/functions/methods of this extension.</p>
- <table class='doctable table' rules='groups'><thead><tr><th>Version</th><th>Function</th><th>Description</th></tr></thead></tbody></table>
+ <table class='doctable table' rules='groups'><thead><tr><th>Version</th><th>Function</th><th>Description</th></tr></thead><tbody class="gen-changelog v"><tr><td>8.1.0</td><td><a href='mysqli-driver.report-mode.html'>mysqli_driver::$report_mode</a></td><td>The default value is now MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT.
+       Previously, it was MYSQLI_REPORT_OFF.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli-result.fetch-all.html'>mysqli_result::fetch_all</a></td><td>Now also available when linking against libmysqlclient.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli-stmt.execute.html'>mysqli_stmt::execute</a></td><td>The optional params parameter has been added.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli-stmt.next-result.html'>mysqli_stmt::next_result</a></td><td>Now also available when linking against libmysqlclient.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.get-client-info.html'>mysqli::$client_info</a></td><td>Calling mysqli_get_client_info with the
+       mysql argument has been deprecated.
+       This function never required a parameter, but incorrectly allowed it as
+       an optional parameter.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.get-client-info.html'>mysqli::$client_info</a></td><td>The object-oriented style mysqli::get_client_info
+       has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.init.html'>mysqli::init</a></td><td>The object-oriented style mysqli::init method
+       has been deprecated.
+       Replace calls to parent::init with
+       parent::__construct.</td></tr></tbody><tbody class="gen-changelog v8-1-0"><tr><td>8.0.0</td><td><a href='mysqli-result.fetch-object.html'>mysqli_result::fetch_object</a></td><td>constructor_args now accepts [] for constructors with 0 parameters;
+       previously an exception was thrown.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli-stmt.construct.html'>mysqli_stmt::__construct</a></td><td>query is now nullable.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.begin-transaction.html'>mysqli::begin_transaction</a></td><td>name is now nullable.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.commit.html'>mysqli::commit</a></td><td>name is now nullable.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.rollback.html'>mysqli::rollback</a></td><td>name is now nullable.</td></tr></tbody></table>
 </div>
 </div></div></body></html>

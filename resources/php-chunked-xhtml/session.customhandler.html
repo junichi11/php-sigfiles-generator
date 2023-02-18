@@ -28,9 +28,9 @@
   <p class="para">
    To implement database storage, or any other storage method, you
    will need to use <span class="function"><a href="function.session-set-save-handler.html" class="function">session_set_save_handler()</a></span> to
-   create a set of user-level storage functions. As of PHP 5.4.0 you may create session handlers
-   using the <a href="class.sessionhandlerinterface.html" class="classname">SessionHandlerInterface</a> or extend internal PHP handlers by inheriting
-   from <a href="class.sessionhandler.html" class="classname">SessionHandler</a>.
+   create a set of user-level storage functions. A session handlers may be created
+   using the <span class="classname"><a href="class.sessionhandlerinterface.html" class="classname">SessionHandlerInterface</a></span> or extending PHP&#039;s internal handlers by inheriting
+   from <span class="classname"><a href="class.sessionhandler.html" class="classname">SessionHandler</a></span>.
   </p>
   <p class="para">
    The callbacks specified in <span class="function"><a href="function.session-set-save-handler.html" class="function">session_set_save_handler()</a></span> are methods

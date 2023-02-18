@@ -33,13 +33,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
-   
-   <span class="methodname"><strong>EventHttp::accept</strong></span>
-    ( <span class="methodparam">
+   <span class="methodname"><strong>EventHttp::accept</strong></span>(<span class="methodparam">
     <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
      <code class="parameter">$socket</code>
-   </span>
-   ) : <span class="type">bool</span></div>
+   </span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Makes an HTTP server accept connections on the specified socket stream or
@@ -67,7 +64,6 @@
  <div class="refsect1 parameters" id="refsect1-eventhttp.accept-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 
@@ -90,13 +86,13 @@
  <div class="refsect1 returnvalues" id="refsect1-eventhttp.accept-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>true</code></strong> on success. Otherwise <strong><code>false</code></strong>.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-eventhttp.accept-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4761">
+  <div class="example" id="example-4262">
    <p><strong>Example #1 
     <span class="function"><strong>EventHttp::accept()</strong></span> example</strong></p>
    <div class="example-contents">

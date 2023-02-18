@@ -26,18 +26,22 @@
   <div id="layout-content"><div id="function.imagedestroy" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagedestroy</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagedestroy</span> &mdash; <span class="dc-title">Destroy an image</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagedestroy</span> &mdash; <span class="dc-title">Destroy an image</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagedestroy-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagedestroy</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>imagedestroy</strong></span>(<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$image</code></span>): <span class="type">bool</span></div>
 
-  <p class="para rdfs-comment">
-   <span class="function"><strong>imagedestroy()</strong></span> frees any memory associated
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <p class="para">
+  This function has no effect. Prior to PHP 8.0.0, this function was used to close the resource.
+ </p>
+</p></blockquote>
+
+  <p class="para">
+   Prior to PHP 8.0.0, <span class="function"><strong>imagedestroy()</strong></span> freed any memory associated
    with image <code class="parameter">image</code>.
   </p>
  </div>
@@ -46,12 +50,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-image</code></dt>
+
+<code class="parameter">image</code></dt>
 <dd>
-<p class="para">An image resource, returned by one of the image creation functions,
+<p class="para">A <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> object, returned by one of the image creation functions,
 such as <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
 
    </dl>
@@ -66,11 +69,47 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagedestroy-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       This function is a <acronym>NOP</acronym> now.
+      </td>
+     </tr>
+
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
+  instance now; previously, a <span class="type">resource</span> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagedestroy-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3145">
-    <p><strong>Example #1 Using <span class="function"><strong>imagedestroy()</strong></span> example</strong></p>
+   <div class="example" id="example-2661">
+    <p><strong>Example #1 Using <span class="function"><strong>imagedestroy()</strong></span> prior to PHP 8.0.0</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;create&nbsp;a&nbsp;100&nbsp;x&nbsp;100&nbsp;image<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;alter&nbsp;or&nbsp;save&nbsp;the&nbsp;image<br /><br />//&nbsp;frees&nbsp;image&nbsp;from&nbsp;memory<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>

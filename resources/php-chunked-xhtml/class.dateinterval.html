@@ -28,7 +28,7 @@
  <h1 class="title">The DateInterval class</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p>
 
 
   <div class="section" id="dateinterval.intro">
@@ -39,15 +39,15 @@
    <p class="para">
     A date interval stores either a fixed amount of time (in years, months,
     days, hours etc) or a relative time string in the format that
-    <a href="class.datetime.html" class="classname">DateTime</a>&#039;s constructor supports.
+    <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span>&#039;s constructor supports.
    </p>
    <p class="para">
     More specifically, the information in an object of the
-    <strong class="classname">DateInterval</strong> class is an instruction to get from
+    <span class="classname"><strong class="classname">DateInterval</strong></span> class is an instruction to get from
     one date/time to another date/time. This process is not always reversible.
    </p>
    <p class="para">
-    A common way to create a <strong class="classname">DateInterval</strong> object
+    A common way to create a <span class="classname"><strong class="classname">DateInterval</strong></span> object
     is by calculating the difference between two date/time objects through
     <span class="function"><a href="datetime.diff.html" class="function">DateTimeInterface::diff()</a></span>.
    </p>
@@ -59,88 +59,61 @@
 
 
    <div class="classsynopsis">
-    <div class="ooclass"></div>
-
+    <div class="ooclass">
+     
+    </div>
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
-      <strong class="classname">DateInterval</strong>
+      <span class="modifier">class</span> <strong class="classname">DateInterval</strong>
      </span>
      {</div>
-
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
     <div class="fieldsynopsis">
      <span class="modifier">public</span>
      <span class="type">int</span>
-      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.y">$<var class="varname">y</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.y">$<var class="varname">y</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="type">int</span>
-      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.m">$<var class="varname">m</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.m">$<var class="varname">m</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="type">int</span>
-      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.d">$<var class="varname">d</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.d">$<var class="varname">d</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="type">int</span>
-      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.h">$<var class="varname">h</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.h">$<var class="varname">h</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="type">int</span>
-      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.i">$<var class="varname">i</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.i">$<var class="varname">i</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="type">int</span>
-      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.s">$<var class="varname">s</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.s">$<var class="varname">s</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="type">float</span>
-      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.f">$<var class="varname">f</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.f">$<var class="varname">f</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="type">int</span>
-      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.invert">$<var class="varname">invert</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.invert">$<var class="varname">invert</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
-      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.days">$<var class="varname">days</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.days">$<var class="varname">days</var></a></var>;</div>
 
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="constructorsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="dateinterval.construct.html" class="methodname">__construct</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$duration</code></span>
-   )</div>
+   <span class="modifier">public</span> <span class="methodname"><a href="dateinterval.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$duration</code></span>)</div>
 
-    
-    <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="dateinterval.createfromdatestring.html" class="methodname">createFromDateString</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>
-   ) : <span class="type"><span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="dateinterval.format.html" class="methodname">format</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   ) : <span class="type">string</span></div>
-
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="dateinterval.createfromdatestring.html" class="methodname">createFromDateString</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>): <span class="type"><span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="dateinterval.format.html" class="methodname">format</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>): <span class="type">string</span></div>
 
    }</div>
 
@@ -150,7 +123,6 @@
   <div class="section" id="dateinterval.props">
    <h2 class="title">Properties</h2>
    <dl>
-
     
      <dt id="dateinterval.props.y"><var class="varname">y</var></dt>
 
@@ -253,10 +225,6 @@
        days between the start and end dates. Otherwise,
        <var class="varname">days</var> will be <strong><code>false</code></strong>.
       </p>
-      <p class="para">
-       Before PHP 5.4.20/5.5.4 instead of <strong><code>false</code></strong> you will receive -99999 upon
-       accessing the property.
-      </p>
      </dd>
 
     
@@ -293,8 +261,6 @@
  </div>
 
  
-
-
 
 
 

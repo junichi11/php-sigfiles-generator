@@ -26,17 +26,13 @@
   <div id="layout-content"><div id="function.imagecolorat" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecolorat</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagecolorat</span> &mdash; <span class="dc-title">Get the index of the color of a pixel</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagecolorat</span> &mdash; <span class="dc-title">Get the index of the color of a pixel</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagecolorat-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagecolorat</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$x</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$y</code></span>
-   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>imagecolorat</strong></span>(<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$image</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$x</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$y</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns the index of the color of the pixel at the
@@ -54,12 +50,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-image</code></dt>
+
+<code class="parameter">image</code></dt>
 <dd>
-<p class="para">An image resource, returned by one of the image creation functions,
+<p class="para">A <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> object, returned by one of the image creation functions,
 such as <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
 
     
@@ -104,10 +99,39 @@ operator</a> for testing the return value of this
 function.</p></div>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagecolorat-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
+  instance now; previously, a <span class="type">resource</span> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagecolorat-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3104">
+   <div class="example" id="example-2620">
     <p><strong>Example #1 Access distinct RGB values</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -126,7 +150,7 @@ int(180)
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-3105">
+   <div class="example" id="example-2621">
     <p><strong>Example #2 Human-readable RGB values using <span class="function"><a href="function.imagecolorsforindex.html" class="function">imagecolorsforindex()</a></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

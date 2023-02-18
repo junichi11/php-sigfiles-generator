@@ -257,6 +257,17 @@ namespace {
 	function ssh2_scp_send($session, string $local_file, string $remote_file, int $create_mode = 0644): bool {}
 
 	/**
+	 * Send EOF to stream
+	 * <p>Sends an EOF to the stream; this is typically used to close standard input, while keeping output and error alive. For example, one can send a remote process some data over standard input, close it to start processing, and still be able to read out the results without creating additional files.</p>
+	 * @param resource $channel <p>An SSH stream; can be acquired through functions like <code>ssh2_fetch_stream()</code> or <code>ssh2_connect()</code>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
+	 * @link https://php.net/manual/en/function.ssh2-send-eof.php
+	 * @see ssh2_fetch_stream()
+	 * @since PECL ssh2 >= 1.3
+	 */
+	function ssh2_send_eof($channel): bool {}
+
+	/**
 	 * Initialize SFTP subsystem
 	 * <p>Request the SFTP subsystem from an already connected SSH2 server.</p>
 	 * @param resource $session <p>An SSH connection link identifier, obtained from a call to <code>ssh2_connect()</code>.</p>
@@ -282,7 +293,7 @@ namespace {
 
 	/**
 	 * Stat a symbolic link
-	 * <p>Stats a symbolic link on the remote filesystem <i>without</i> following the link.</p><p>This function is similar to using the <code>lstat()</code> function with the ssh2.sftp:// wrapper in PHP 5 and returns the same values.</p>
+	 * <p>Stats a symbolic link on the remote filesystem <i>without</i> following the link.</p><p>This function is similar to using the <code>lstat()</code> function with the ssh2.sftp:// wrapper and returns the same values.</p>
 	 * @param resource $sftp <p>An SSH2 SFTP resource opened by <code>ssh2_sftp()</code>.</p>
 	 * @param string $path <p>Path to the remote symbolic link.</p>
 	 * @return array <p>See the documentation for <code>stat()</code> for details on the values which may be returned.</p>
@@ -297,7 +308,7 @@ namespace {
 	 * <p>Creates a directory on the remote file server with permissions set to <code>mode</code>.</p><p>This function is similar to using <code>mkdir()</code> with the ssh2.sftp:// wrapper.</p>
 	 * @param resource $sftp <p>An SSH2 SFTP resource opened by <code>ssh2_sftp()</code>.</p>
 	 * @param string $dirname <p>Path of the new directory.</p>
-	 * @param int $mode <p>Permissions on the new directory.</p>
+	 * @param int $mode <p>Permissions on the new directory. The actual mode is affected by the current umask.</p>
 	 * @param bool $recursive <p>If <code>recursive</code> is <b><code>true</code></b> any parent directories required for <code>dirname</code> will be automatically created as well.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-sftp-mkdir.php
@@ -357,7 +368,7 @@ namespace {
 
 	/**
 	 * Stat a file on a remote filesystem
-	 * <p>Stats a file on the remote filesystem following any symbolic links.</p><p>This function is similar to using the <code>stat()</code> function with the ssh2.sftp:// wrapper in PHP 5 and returns the same values.</p>
+	 * <p>Stats a file on the remote filesystem following any symbolic links.</p><p>This function is similar to using the <code>stat()</code> function with the ssh2.sftp:// wrapper and returns the same values.</p>
 	 * @param resource $sftp <p>An SSH2 SFTP resource opened by <code>ssh2_sftp()</code>.</p>
 	 * @param string $path
 	 * @return array <p>See the documentation for <code>stat()</code> for details on the values which may be returned.</p>
@@ -397,16 +408,16 @@ namespace {
 	 * <p>Open a shell at the remote end and allocate a stream for it.</p>
 	 * @param resource $session <p>An SSH connection link identifier, obtained from a call to <code>ssh2_connect()</code>.</p>
 	 * @param string $term_type <p><code>term_type</code> should correspond to one of the entries in the target system's <code>/etc/termcap</code> file.</p>
-	 * @param array $env <p><code>env</code> may be passed as an associative array of name/value pairs to set in the target environment.</p>
+	 * @param ?array $env <p><code>env</code> may be passed as an associative array of name/value pairs to set in the target environment.</p>
 	 * @param int $width <p>Width of the virtual terminal.</p>
 	 * @param int $height <p>Height of the virtual terminal.</p>
 	 * @param int $width_height_type <p><code>width_height_type</code> should be one of <b><code>SSH2_TERM_UNIT_CHARS</code></b> or <b><code>SSH2_TERM_UNIT_PIXELS</code></b>.</p>
-	 * @return resource
+	 * @return resource|false <p>Returns a stream resource on success, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-shell.php
 	 * @see ssh2_exec(), ssh2_tunnel(), ssh2_fetch_stream()
 	 * @since PECL ssh2 >= 0.9.0
 	 */
-	function ssh2_shell($session, string $term_type = "vanilla", array $env = null, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS) {}
+	function ssh2_shell($session, string $term_type = "vanilla", ?array $env = null, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS) {}
 
 	/**
 	 * Open a tunnel through a remote server

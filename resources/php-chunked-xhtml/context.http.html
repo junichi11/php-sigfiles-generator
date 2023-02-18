@@ -43,7 +43,6 @@
   <h3 class="title">Options</h3>
   <p class="para">
    <dl>
-
     
      <dt id="context.http.method">
       <code class="parameter">method</code>
@@ -74,7 +73,10 @@
        Additional headers to be sent during request. Values
        in this option will override other values (such as
        <code class="literal">User-agent:</code>, <code class="literal">Host:</code>,
-       and <code class="literal">Authentication:</code>).
+       and <code class="literal">Authentication:</code>),
+       even when following <code class="literal">Location:</code> redirects.
+       Thus it is not recommended to set a <code class="literal">Host:</code> header,
+       if <code class="parameter">follow_location</code> is enabled.
       </p>
      </dd>
 
@@ -140,7 +142,7 @@
 
       <p class="para">
        When set to <strong><code>true</code></strong>, the entire URI will be used when
-       constructing the request.  (i.e.
+       constructing the request.  (e.g.
        <code class="literal">GET http://www.example.com/path/to/file.html HTTP/1.0</code>).
        While this is a non-standard request format, some
        proxy servers require it.
@@ -199,7 +201,8 @@
        HTTP protocol version.
       </p>
       <p class="para">
-       Defaults to <code class="literal">1.0</code>.
+       Defaults to <code class="literal">1.1</code> as of PHP 8.0.0;
+       prior to that version the default was <code class="literal">1.0</code>.
       </p>
      </dd>
 
@@ -250,7 +253,7 @@
  <div class="refsect1 examples" id="refsect1-context.http-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-377">
+   <div class="example" id="context.http.example-post">
     <p><strong>Example #1 Fetch a page and send POST data</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -262,7 +265,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="iterator.example.basic">
+   <div class="example" id="context.http.example-fetch-ignore-redirect">
     <p><strong>Example #2 Ignore redirects but fetch headers and content </strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

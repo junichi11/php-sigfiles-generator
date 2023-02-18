@@ -26,20 +26,14 @@
   <div id="layout-content"><div id="function.preg-match-all" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">preg_match_all</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">preg_match_all</span> &mdash; <span class="dc-title">Perform a global regular expression match</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">preg_match_all</span> &mdash; <span class="dc-title">Perform a global regular expression match</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.preg-match-all-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>preg_match_all</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$subject</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$matches</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>PREG_PATTERN_ORDER</code></strong></span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span>|<span class="type">null</span></span></div>
+   <span class="methodname"><strong>preg_match_all</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$subject</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$matches</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span><br>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Searches <code class="parameter">subject</code> for all matches to the regular
@@ -58,7 +52,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">pattern</code></dt>
@@ -107,7 +100,6 @@
        sense to use <strong><code>PREG_PATTERN_ORDER</code></strong> together with
        <strong><code>PREG_SET_ORDER</code></strong>):
        <dl>
-
         
          <dt>
 <strong><code>PREG_PATTERN_ORDER</code></strong></dt>
@@ -332,9 +324,16 @@ Array
  <div class="refsect1 returnvalues" id="refsect1-function.preg-match-all-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the number of full pattern matches (which might be zero),
-   or <strong><code>false</code></strong> if an error occurred.
+   Returns the number of full pattern matches (which might be zero), or <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.preg-match-all-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+If the regex pattern passed does not compile to a valid regex, an <strong><code>E_WARNING</code></strong> is emitted.
+</p>
  </div>
 
 
@@ -371,7 +370,7 @@ Array
  <div class="refsect1 examples" id="refsect1-function.preg-match-all-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5247">
+   <div class="example" id="example-4746">
     <p><strong>Example #1 Getting all phone numbers out of some text.</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -383,7 +382,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5248">
+   <div class="example" id="example-4747">
     <p><strong>Example #2 Find matching HTML tags (greedy)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -411,11 +410,11 @@ part 4: &lt;/a&gt;
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5249">
+   <div class="example" id="example-4748">
     <p><strong>Example #3 Using named subpattern</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$str&nbsp;</span><span style="color: #007700">=&nbsp;&lt;&lt;&lt;FOO<br /></span><span style="color: #DD0000">a:&nbsp;1<br />b:&nbsp;2<br />c:&nbsp;3<br /></span><span style="color: #007700">FOO;<br /><br /></span><span style="color: #0000BB">preg_match_all</span><span style="color: #007700">(</span><span style="color: #DD0000">'/(?P&lt;name&gt;\w+):&nbsp;(?P&lt;digit&gt;\d+)/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$matches</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;This&nbsp;also&nbsp;works&nbsp;in&nbsp;PHP&nbsp;5.2.2&nbsp;(PCRE&nbsp;7.0)&nbsp;and&nbsp;later,&nbsp;however&nbsp;<br />&nbsp;*&nbsp;the&nbsp;above&nbsp;form&nbsp;is&nbsp;recommended&nbsp;for&nbsp;backwards&nbsp;compatibility&nbsp;*/<br />//&nbsp;preg_match_all('/(?&lt;name&gt;\w+):&nbsp;(?&lt;digit&gt;\d+)/',&nbsp;$str,&nbsp;$matches);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$matches</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$str&nbsp;</span><span style="color: #007700">=&nbsp;&lt;&lt;&lt;FOO<br /></span><span style="color: #DD0000">a:&nbsp;1<br />b:&nbsp;2<br />c:&nbsp;3<br /></span><span style="color: #007700">FOO;<br /><br /></span><span style="color: #0000BB">preg_match_all</span><span style="color: #007700">(</span><span style="color: #DD0000">'/(?P&lt;name&gt;\w+):&nbsp;(?P&lt;digit&gt;\d+)/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$matches</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Alternative&nbsp;*/<br />//&nbsp;preg_match_all('/(?&lt;name&gt;\w+):&nbsp;(?&lt;digit&gt;\d+)/',&nbsp;$str,&nbsp;$matches);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$matches</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

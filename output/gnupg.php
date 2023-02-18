@@ -120,6 +120,15 @@ namespace {
 	function gnupg_export($identifier, string $fingerprint): string {}
 
 	/**
+	 * Returns the engine info
+	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
+	 * @return array <p>Returns an array with engine info consting of <code>protocol</code>, <code>file_name</code> and <code>home_dir</code>.</p>
+	 * @link https://php.net/manual/en/function.gnupg-getengineinfo.php
+	 * @since PECL gnupg >= 1.5
+	 */
+	function gnupg_getengineinfo($identifier): array {}
+
+	/**
 	 * Returns the errortext, if a function fails
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @return string <p>Returns an errortext, if an error has occurred, otherwise <b><code>false</code></b>.</p>
@@ -127,6 +136,15 @@ namespace {
 	 * @since PECL gnupg >= 0.1
 	 */
 	function gnupg_geterror($identifier): string {}
+
+	/**
+	 * Returns the error info
+	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
+	 * @return array <p>Returns an array with error info.</p>
+	 * @link https://php.net/manual/en/function.gnupg-geterrorinfo.php
+	 * @since PECL gnupg >= 1.5
+	 */
+	function gnupg_geterrorinfo($identifier): array {}
 
 	/**
 	 * Returns the currently active protocol for all operations
@@ -150,11 +168,12 @@ namespace {
 
 	/**
 	 * Initialize a connection
+	 * @param ?array $options <p>Must be an associative array. It is used to change the default configuration of the crypto engine.</p> <b>Configuration overrides</b>   key type description     file_name <code>string</code>  It is the file name of the executable program implementing this protocol which is usually path of the <code>gpg</code> executable.    home_dir <code>string</code>  It is the directory name of the configuration directory. It also overrides <code>GNUPGHOME</code> environment variable that is used for the same purpose.
 	 * @return resource <p>A GnuPG <code>resource</code> connection used by other GnuPG functions.</p>
 	 * @link https://php.net/manual/en/function.gnupg-init.php
 	 * @since PECL gnupg >= 0.4
 	 */
-	function gnupg_init() {}
+	function gnupg_init(?array $options = null) {}
 
 	/**
 	 * Returns an array with information about all keys that matches the given pattern

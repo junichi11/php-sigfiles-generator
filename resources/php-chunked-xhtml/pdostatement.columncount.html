@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="pdostatement.columncount" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDOStatement::columnCount</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)</p><p class="refpurpose"><span class="refname">PDOStatement::columnCount</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.2.0)</p><p class="refpurpose"><span class="refname">PDOStatement::columnCount</span> &mdash; <span class="dc-title">
    Returns the number of columns in the result set
   </span></p>
 
@@ -34,9 +34,7 @@
  <div class="refsect1 description" id="refsect1-pdostatement.columncount-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::columnCount</strong></span>
-    (
-   ) : <span class="type">int</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::columnCount</strong></span>(): <span class="type">int</span></div>
 
 
   <p class="para rdfs-comment">
@@ -52,8 +50,14 @@
    <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span>, an accurate column count will not be
    available until you invoke <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span>.
   </p>
-
  </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-pdostatement.columncount-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
 
  <div class="refsect1 returnvalues" id="refsect1-pdostatement.columncount-returnvalues">
   <h3 class="title">Return Values</h3>
@@ -68,7 +72,7 @@
  <div class="refsect1 examples" id="refsect1-pdostatement.columncount-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1029">
+   <div class="example" id="example-1036">
     <p><strong>Example #1 Counting columns</strong></p>
     <div class="example-contents"><p>
      This example demonstrates how <span class="function"><strong>PDOStatement::columnCount()</strong></span>

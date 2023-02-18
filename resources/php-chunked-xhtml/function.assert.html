@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.assert" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">assert</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">assert</span> &mdash; <span class="dc-title">Checks if assertion is <strong><code>false</code></strong></span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">assert</span> &mdash; <span class="dc-title">Checks if assertion is <strong><code>false</code></strong></span></p>
 
  </div>
 
@@ -34,17 +34,10 @@
   <h3 class="title">Description</h3>
   <p class="para">PHP 5 and 7</p>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>assert</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$assertion</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$description</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>assert</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$assertion</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$description</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">PHP 7</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>assert</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$assertion</code></span>
-   , <span class="methodparam"><span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span> <code class="parameter">$exception</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>assert</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$assertion</code></span>, <span class="methodparam"><span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span> <code class="parameter">$exception</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>assert()</strong></span> will check the given
@@ -167,12 +160,12 @@
          <li class="member">
           <code class="literal">1</code>: throw when the assertion fails, either by
           throwing the object provided as the <code class="parameter">exception</code>
-          or by throwing a new <a href="class.assertionerror.html" class="classname">AssertionError</a> object if
+          or by throwing a new <span class="classname"><a href="class.assertionerror.html" class="classname">AssertionError</a></span> object if
           <code class="parameter">exception</code> wasn&#039;t provided
          </li>
          <li class="member">
           <code class="literal">0</code>: use or generate a
-          <a href="class.throwable.html" class="classname">Throwable</a> as described above, but only
+          <span class="classname"><a href="class.throwable.html" class="classname">Throwable</a></span> as described above, but only
           generate a warning based on that object rather than throwing it
           (compatible with PHP 5 behaviour)
          </li>
@@ -193,7 +186,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">assertion</code></dt>
@@ -239,7 +231,7 @@
 
       <p class="para">
        In PHP 7, the second parameter can be a
-       <a href="class.throwable.html" class="classname">Throwable</a> object instead of a descriptive
+       <span class="classname"><a href="class.throwable.html" class="classname">Throwable</a></span> object instead of a descriptive
        <span class="type">string</span>, in which case this is the object that will be
        thrown if the assertion fails and the
        <a href="info.configuration.html#ini.assert.exception" class="link">assert.exception</a>
@@ -277,6 +269,22 @@
 
      <tbody class="tbody">
       <tr>
+       <td>8.0.0</td>
+       <td>
+        Declaring a function called <code class="literal">assert()</code> inside a namespace is
+        no longer allowed, and issues <strong><code>E_COMPILE_ERROR</code></strong>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.3.0</td>
+       <td>
+        Declaring a function called <code class="literal">assert()</code> inside a namespace 
+        became deprecated. Such declaration now emits an <strong><code>E_DEPRECATED</code></strong>.
+       </td>
+      </tr>
+
+      <tr>
        <td>7.2.0</td>
        <td>
         Usage of a <span class="type">string</span> as the <code class="parameter">assertion</code>
@@ -294,7 +302,7 @@
         function. <code class="parameter">assertion</code> can now be an expression.
         The second parameter is now interpreted either as an
         <code class="parameter">exception</code> (if a
-        <a href="class.throwable.html" class="classname">Throwable</a> object is given), or as the
+        <span class="classname"><a href="class.throwable.html" class="classname">Throwable</a></span> object is given), or as the
         <code class="parameter">description</code> supported from PHP 5.4.8 onwards.
        </td>
       </tr>
@@ -312,7 +320,7 @@
   <div class="refsect2 unknown-examplet" id="refsect2-function.assert-unknown-examplet">
    <h4 class="title">Traditional assertions (PHP 5 and 7)</h4>
    <p class="para">
-    <div class="example" id="example-519">
+    <div class="example" id="example-534">
      <p><strong>Example #1 Handle a failed assertion with a custom handler</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -324,7 +332,7 @@
     </div>
    </p>
    <p class="para">
-    <div class="example" id="example-520">
+    <div class="example" id="example-535">
      <p><strong>Example #2 Using a custom handler to print a description</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -346,7 +354,7 @@
 
   <div class="refsect2 unknown-unknown-exampleu" id="refsect2-function.assert-unknown-unknown-exampleu">
    <h4 class="title">Expectations (PHP 7 only)</h4>
-   <div class="example" id="example-521">
+   <div class="example" id="example-536">
     <p><strong>Example #3 Expectations without a custom exception</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -390,7 +398,7 @@ Stack trace:
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-522">
+   <div class="example" id="example-537">
     <p><strong>Example #4 Expectations with a custom exception</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

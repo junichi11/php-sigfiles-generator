@@ -26,21 +26,25 @@
   <div id="layout-content"><div id="function.sys-getloadavg" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sys_getloadavg</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.3, PHP 7)</p><p class="refpurpose"><span class="refname">sys_getloadavg</span> &mdash; <span class="dc-title">Gets system load average</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.3, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">sys_getloadavg</span> &mdash; <span class="dc-title">Gets system load average</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.sys-getloadavg-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>sys_getloadavg</strong></span>
-    (
-   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>sys_getloadavg</strong></span>(): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns three samples representing the average system load
    (the number of processes in the system run queue) over the last 1, 5 and 15
    minutes, respectively. Returns <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.sys-getloadavg-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -56,7 +60,7 @@
  <div class="refsect1 examples" id="refsect1-function.sys-getloadavg-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4010">
+   <div class="example" id="example-3512">
     <p><strong>Example #1 A <span class="function"><strong>sys_getloadavg()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

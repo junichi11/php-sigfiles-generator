@@ -32,8 +32,8 @@
     that can be imported from the global namespace with a use statement.
    </p>
 
-  <div class="example" id="example-329">
-   <p><strong>Example #1 Using target specification to restrict where attributes can be used</strong></p>
+  <div class="example" id="example-343">
+   <p><strong>Example #1 Simple Attribute Class</strong></p>
 
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -49,8 +49,8 @@
    argument to the <code class="literal">#[Attribute]</code> declaration.
   </p>
 
-  <div class="example" id="example-330">
-   <p><strong>Example #2 Simple Attribute Class</strong></p>
+  <div class="example" id="example-344">
+   <p><strong>Example #2 Using target specification to restrict where attributes can be used</strong></p>
 
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -61,17 +61,29 @@
 
 
     <div class="example-contents"><p>
-     Declaring <strong class="classname">MyAttribute</strong> on another type will now throw an exception during
-     the call to <span class="function"><strong>ReflectionAttribute::newInstance()</strong></span>
+     Declaring <span class="classname"><strong class="classname">MyAttribute</strong></span> on another type will now throw an exception during
+     the call to <span class="function"><a href="reflectionattribute.newinstance.html" class="function">ReflectionAttribute::newInstance()</a></span>
     </p></div>
    </div>
+
+   <p class="para">The following targets can be specified:</p>
+   
+   <ul class="simplelist">
+    <li class="member"><strong><code>Attribute::TARGET_CLASS</code></strong></li>
+    <li class="member"><strong><code>Attribute::TARGET_FUNCTION</code></strong></li>
+    <li class="member"><strong><code>Attribute::TARGET_METHOD</code></strong></li>
+    <li class="member"><strong><code>Attribute::TARGET_PROPERTY</code></strong></li>
+    <li class="member"><strong><code>Attribute::TARGET_CLASS_CONSTANT</code></strong></li>
+    <li class="member"><strong><code>Attribute::TARGET_PARAMETER</code></strong></li>
+    <li class="member"><strong><code>Attribute::TARGET_ALL</code></strong></li>
+   </ul>
 
    <p class="para">
     By default an attribute can only be used once per declaration. If the attribute should be repeatable on declarations it must
     be specified as part of the bitmask to the <code class="literal">#[Attribute]</code> declaration.
    </p>
 
-   <div class="example" id="example-331">
+   <div class="example" id="example-345">
     <p><strong>Example #3 Using IS_REPEATABLE to allow attribute on a declaration multiple times</strong></p>
 
     <div class="example-contents">

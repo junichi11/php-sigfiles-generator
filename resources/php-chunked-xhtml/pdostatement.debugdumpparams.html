@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="pdostatement.debugdumpparams" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDOStatement::debugDumpParams</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.9.0)</p><p class="refpurpose"><span class="refname">PDOStatement::debugDumpParams</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.9.0)</p><p class="refpurpose"><span class="refname">PDOStatement::debugDumpParams</span> &mdash; <span class="dc-title">
    Dump an SQL prepared command
   </span></p>
 
@@ -34,9 +34,7 @@
  <div class="refsect1 description" id="refsect1-pdostatement.debugdumpparams-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::debugDumpParams</strong></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::debugDumpParams</strong></span>(): <span class="type"><span class="type">?</span><span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    Dumps the information contained by a prepared statement directly on the
@@ -63,17 +61,55 @@ the output of this function, and save it in a
  </div>
 
 
+ <div class="refsect1 parameters" id="refsect1-pdostatement.debugdumpparams-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
  <div class="refsect1 returnvalues" id="refsect1-pdostatement.debugdumpparams-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   No value is returned.
+   Returns <strong><code>null</code></strong>, or <strong><code>false</code></strong> in case of an error.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-pdostatement.debugdumpparams-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.2.0</td>
+       <td>
+        <span class="methodname"><strong>PDOStatement::debugDumpParams()</strong></span> now returns the SQL sent to
+        the database, including the full, raw query (including the replaced placeholders with
+        their bounded values). Note, that this will only be available if emulated prepared
+        statements are turned on.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-pdostatement.debugdumpparams-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1030">
+  <div class="example" id="example-1037">
    <p><strong>Example #1 <span class="function"><strong>PDOStatement::debugDumpParams()</strong></span> example with named parameters</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -103,7 +139,7 @@ param_type=2
    </div>
   </div>
 
-  <div class="example" id="example-1031">
+  <div class="example" id="example-1038">
    <p><strong>Example #2 <span class="function"><strong>PDOStatement::debugDumpParams()</strong></span> example with unnamed parameters</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -132,38 +168,6 @@ param_type=2
 </pre></div>
    </div>
   </div>
- </div>
-
-
- <div class="refsect1 changelog" id="refsect1-pdostatement.debugdumpparams-changelog">
-  <h3 class="title">Changelog</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>Version</th>
-       <th>Description</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>7.2.0</td>
-       <td>
-        <span class="methodname"><strong>PDOStatement::debugDumpParams()</strong></span> now returns the SQL sent to 
-        the database, including the full, raw query (including the replaced placeholders with 
-        their bounded values). Note, that this will only be available if emulated prepared 
-        statements are turned on.
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
  </div>
 
 

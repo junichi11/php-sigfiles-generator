@@ -64,7 +64,7 @@
      <p class="para">
       If you assign, pass, or return an undefined variable by reference, 
       it will get created.
-      <div class="example" id="example-332">
+      <div class="example" id="example-346">
        <p><strong>Example #1 Using references with undefined variables</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -88,17 +88,20 @@
       </div>
 
      </div>
-     <a href="language.oop5.basic.html#language.oop5.basic.new" class="link">new</a>
-     returns a reference automatically, thus it is syntactically invalid.
-     For more information, see <a href="language.oop5.references.html" class="link">Objects
-     and references</a>.)
+    </p>
+    <p class="para">
+     Using the same syntax with a function that does <em class="emphasis">not</em>
+     return by reference will give an error, as will using it with the result
+     of the <a href="language.oop5.basic.html#language.oop5.basic.new" class="link">new</a> operator.
+     Although objects are passed around as pointers, these are not the same as references,
+     as explained under <a href="language.oop5.references.html" class="link">Objects and references</a>.
     </p>
     <div class="warning"><strong class="warning">Warning</strong>
      <p class="para">
       If you assign a reference to a variable declared <code class="literal">global</code>
       inside a function, the reference will be visible only inside the function.
       You can avoid this by using the <var class="varname"><a href="reserved.variables.globals.html" class="classname">$GLOBALS</a></var> array.
-      <div class="example" id="example-333">
+      <div class="example" id="example-347">
        <p><strong>Example #2 Referencing global variables inside functions</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -117,7 +120,7 @@
      <p class="para">
       If you assign a value to a variable with references in a 
       <a href="control-structures.foreach.html" class="link">foreach</a> statement, the references are modified too.
-      <div class="example" id="example-334">
+      <div class="example" id="example-348">
        <p><strong>Example #3 References and foreach statement</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

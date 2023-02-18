@@ -33,10 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.gnupg-setsignmode-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>gnupg_setsignmode</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$identifier</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$signmode</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>gnupg_setsignmode</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$identifier</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$signmode</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Sets the mode for signing.
@@ -48,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">identifier</code></dt>
@@ -56,7 +52,7 @@
      <dd>
 
       <p class="para">The gnupg identifier, from a call to
-<span class="function"><a href="function.gnupg-init.html" class="function">gnupg_init()</a></span> or <strong class="classname">gnupg</strong>.</p>
+<span class="function"><a href="function.gnupg-init.html" class="function">gnupg_init()</a></span> or <span class="classname"><strong class="classname">gnupg</strong></span>.</p>
      </dd>
 
     
@@ -96,7 +92,7 @@
  <div class="refsect1 examples" id="refsect1-function.gnupg-setsignmode-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3672">
+   <div class="example" id="example-3193">
     <p><strong>Example #1 Procedural <span class="function"><strong>gnupg_setsignmode()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -106,11 +102,11 @@
     </div>
 
    </div>
-   <div class="example" id="example-3673">
+   <div class="example" id="example-3194">
     <p><strong>Example #2 OO <span class="function"><strong>gnupg_setsignmode()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$gpg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$gpg&nbsp;</span><span style="color: #007700">-&gt;&nbsp;</span><span style="color: #0000BB">setsignmode</span><span style="color: #007700">(</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">::</span><span style="color: #0000BB">SIG_MODE_DETACH</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;produce&nbsp;a&nbsp;detached&nbsp;signature<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$gpg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$gpg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setsignmode</span><span style="color: #007700">(</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">::</span><span style="color: #0000BB">SIG_MODE_DETACH</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;produce&nbsp;a&nbsp;detached&nbsp;signature<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

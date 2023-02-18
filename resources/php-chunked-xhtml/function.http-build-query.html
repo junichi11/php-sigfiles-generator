@@ -26,19 +26,14 @@
   <div id="layout-content"><div id="function.http-build-query" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">http_build_query</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">http_build_query</span> &mdash; <span class="dc-title">Generate URL-encoded query string</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">http_build_query</span> &mdash; <span class="dc-title">Generate URL-encoded query string</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.http-build-query-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>http_build_query</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$query_data</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$numeric_prefix</code> = ?</span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$arg_separator</code> = ?</span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$enc_type</code><span class="initializer"> = <strong><code>PHP_QUERY_RFC1738</code></strong></span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>http_build_query</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$data</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$numeric_prefix</code><span class="initializer"> = &quot;&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$arg_separator</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$encoding_type</code><span class="initializer"> = <strong><code>PHP_QUERY_RFC1738</code></strong></span></span><br>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Generates a URL-encoded query string from the associative (or indexed)
@@ -51,10 +46,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">query_data</code></dt>
+<code class="parameter">data</code></dt>
 
      <dd>
 
@@ -62,12 +56,12 @@
        May be an array or object containing properties.
       </p>
       <p class="para">
-       If <code class="parameter">query_data</code> is an array, it may be a simple
+       If <code class="parameter">data</code> is an array, it may be a simple
        one-dimensional structure, or an array of arrays (which in
        turn may contain other arrays).
       </p>
       <p class="para">
-       If <code class="parameter">query_data</code> is an object, then only public
+       If <code class="parameter">data</code> is an object, then only public
        properties will be incorporated into the result.
       </p>
      </dd>
@@ -107,7 +101,7 @@
     
     
      <dt>
-<code class="parameter">enc_type</code></dt>
+<code class="parameter">encoding_type</code></dt>
 
      <dd>
 
@@ -115,14 +109,14 @@
        By default, <strong><code>PHP_QUERY_RFC1738</code></strong>.
       </p>
       <p class="para">
-       If <code class="parameter">enc_type</code> is
+       If <code class="parameter">encoding_type</code> is
        <strong><code>PHP_QUERY_RFC1738</code></strong>, then encoding is performed per
        <a href="http://www.faqs.org/rfcs/rfc1738" class="link external">&raquo;&nbsp;RFC 1738</a> and the
        <code class="literal">application/x-www-form-urlencoded</code> media type, which
        implies that spaces are encoded as plus (<code class="literal">+</code>) signs.
       </p>
       <p class="para">
-       If <code class="parameter">enc_type</code> is
+       If <code class="parameter">encoding_type</code> is
        <strong><code>PHP_QUERY_RFC3986</code></strong>, then encoding is performed
        according to <a href="http://www.faqs.org/rfcs/rfc3986" class="link external">&raquo;&nbsp;RFC 3986</a>, and
        spaces will be percent encoded (<code class="literal">%20</code>).
@@ -146,11 +140,11 @@
 
  <div class="refsect1 examples" id="refsect1-function.http-build-query-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4358">
+  <div class="example" id="example-3854">
    <p><strong>Example #1 Simple usage of <span class="function"><strong>http_build_query()</strong></span></strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$data&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'foo'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'baz'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'boom'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cow'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'milk'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'php'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'hypertext&nbsp;processor'<br /></span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">http_build_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">http_build_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&amp;amp;'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$data&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'foo'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'baz'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'boom'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cow'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'milk'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'null'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'php'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'hypertext&nbsp;processor'<br /></span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">http_build_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">http_build_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&amp;amp;'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -164,11 +158,11 @@ foo=bar&amp;amp;baz=boom&amp;amp;cow=milk&amp;amp;php=hypertext+processor
    </div>
   </div>
 
-  <div class="example" id="example-4359">
+  <div class="example" id="example-3855">
    <p><strong>Example #2 <span class="function"><strong>http_build_query()</strong></span> with numerically index elements.</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$data&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'baz'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'boom'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'cow'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'milk'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'php'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'hypertext&nbsp;processor'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">http_build_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">http_build_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'myvar_'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$data&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'baz'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'boom'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'cow'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'milk'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'php'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'hypertext&nbsp;processor'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">http_build_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">http_build_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'myvar_'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -176,12 +170,12 @@ foo=bar&amp;amp;baz=boom&amp;amp;cow=milk&amp;amp;php=hypertext+processor
    <div class="example-contents"><p>The above example will output:</p></div>
    <div class="example-contents screen">
 <div class="cdata"><pre>
-0=foo&amp;1=bar&amp;2=baz&amp;3=boom&amp;cow=milk&amp;php=hypertext+processor
-myvar_0=foo&amp;myvar_1=bar&amp;myvar_2=baz&amp;myvar_3=boom&amp;cow=milk&amp;php=hypertext+processor
+0=foo&amp;1=bar&amp;2=baz&amp;4=boom&amp;cow=milk&amp;php=hypertext+processor
+myvar_0=foo&amp;myvar_1=bar&amp;myvar_2=baz&amp;myvar_4=boom&amp;cow=milk&amp;php=hypertext+processor
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-4360">
+  <div class="example" id="example-3856">
    <p><strong>Example #3 <span class="function"><strong>http_build_query()</strong></span> with complex arrays</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -213,11 +207,11 @@ children%5Bsally%5D%5Bsex%5D=F&amp;flags_0=CEO
    </p></div>
   </div>
 
-  <div class="example" id="example-4361">
+  <div class="example" id="example-3857">
    <p><strong>Example #4 Using <span class="function"><strong>http_build_query()</strong></span> with an object</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">parentClass&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pub&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'publicParent'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;</span><span style="color: #0000BB">$prot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'protectedParent'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$priv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'privateParent'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pub_bar&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Null</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;</span><span style="color: #0000BB">$prot_bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Null</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$priv_bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Null</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">pub_bar&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">childClass</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prot_bar&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">childClass</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">priv_bar&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">childClass</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">childClass&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pub&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'publicChild'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;</span><span style="color: #0000BB">$prot&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'protectedChild'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$priv&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'privateChild'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$parent&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">parentClass</span><span style="color: #007700">();<br /><br />echo&nbsp;</span><span style="color: #0000BB">http_build_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$parent</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">parentClass&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pub&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'publicParent'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;</span><span style="color: #0000BB">$prot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'protectedParent'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$priv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'privateParent'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pub_bar&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;</span><span style="color: #0000BB">$prot_bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$priv_bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">pub_bar&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">childClass</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prot_bar&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">childClass</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">priv_bar&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">childClass</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">childClass&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pub&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'publicChild'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;</span><span style="color: #0000BB">$prot&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'protectedChild'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$priv&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'privateChild'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$parent&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">parentClass</span><span style="color: #007700">();<br /><br />echo&nbsp;</span><span style="color: #0000BB">http_build_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$parent</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

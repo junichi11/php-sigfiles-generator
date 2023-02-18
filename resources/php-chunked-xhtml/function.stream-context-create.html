@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.stream-context-create" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stream_context_create</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stream_context_create</span> &mdash; <span class="dc-title">Creates a stream context</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">stream_context_create</span> &mdash; <span class="dc-title">Creates a stream context</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.stream-context-create-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>stream_context_create</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$params</code> = ?</span>
-   ) : <span class="type">resource</span></div>
+   <span class="methodname"><strong>stream_context_create</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$params</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Creates and returns a stream context with any options supplied in
@@ -48,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">options</code></dt>
@@ -57,10 +53,10 @@
 
       <p class="para">
        Must be an associative array of associative arrays in the format
-       <code class="literal">$arr[&#039;wrapper&#039;][&#039;option&#039;] = $value</code>. Refer to <a href="context.html" class="link">context options</a> for a list of available wrappers and options.
+       <code class="literal">$arr[&#039;wrapper&#039;][&#039;option&#039;] = $value</code>, or <strong><code>null</code></strong>. Refer to <a href="context.html" class="link">context options</a> for a list of available wrappers and options.
       </p>
       <p class="para">
-       Default to an empty array.
+       Defaults to <strong><code>null</code></strong>.
       </p>
      </dd>
 
@@ -73,7 +69,7 @@
 
       <p class="para">
        Must be an associative array in the format
-       <code class="literal">$arr[&#039;parameter&#039;] = $value</code>.
+       <code class="literal">$arr[&#039;parameter&#039;] = $value</code>, or <strong><code>null</code></strong>.
        Refer to <a href="context.params.html" class="link">context parameters</a> for
        a listing of standard stream parameters.
       </p>
@@ -94,9 +90,36 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.stream-context-create-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">options</code> and <code class="parameter">params</code> are now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.stream-context-create-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4274">
+  <div class="example" id="example-3769">
    <p><strong>Example #1 Using <span class="function"><strong>stream_context_create()</strong></span></strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

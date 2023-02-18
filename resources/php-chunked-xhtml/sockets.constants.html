@@ -32,7 +32,6 @@ will only be available when the extension has either
 been compiled into PHP or dynamically loaded at runtime.
 </p>
  <dl>
-
   
    <dt id="constant.af-unix">
     <strong><code>AF_UNIX</code></strong> 
@@ -266,7 +265,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     This constant is only available in PHP 5.4.10 or later on platforms that
+     This constant is only available on platforms that
      support the <strong><code>SO_REUSEPORT</code></strong> socket option: this
      includes macOS and FreeBSD, but does not include Linux or Windows.
     </span>
@@ -465,7 +464,90 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      Used to disable Nagle TCP algorithm.
-     Added in PHP 5.2.7. 
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.so-mark">
+    <strong><code>SO_MARK</code></strong> 
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.1.0 
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.so-user-cookie">
+    <strong><code>SO_USER_COOKIE</code></strong> 
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.1.0 
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.so-acceptfilter">
+    <strong><code>SO_ACCEPTFILTER</code></strong> 
+    (<span class="type">string</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.1.0 
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.so-donttrunc">
+    <strong><code>SO_DONTTRUNC</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.1.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.so-wantmore">
+    <strong><code>SO_WANTMORE</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.1.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.tcp-defer-accept">
+    <strong><code>TCP_DEFER_ACCEPT</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.1.0
     </span>
    </dd>
 
@@ -549,7 +631,6 @@ been compiled into PHP or dynamically loaded at runtime.
  </p>
 
  <dl>
-
   
    <dt id="constant.socket-eintr">
     <strong><code>SOCKET_EINTR</code></strong> 
@@ -1076,7 +1157,6 @@ been compiled into PHP or dynamically loaded at runtime.
  </p>
 
  <dl>
-
   
   
   
@@ -1328,7 +1408,6 @@ been compiled into PHP or dynamically loaded at runtime.
  </p>
 
  <dl>
-
   
    <dt id="constant.socket-eperm">
     <strong><code>SOCKET_EPERM</code></strong> 
@@ -2252,6 +2331,34 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      Wrong medium type.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-scmrights">
+    <strong><code>SCM_RIGHTS</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+      Send or receive a set of  open  file  descriptors  from  another process.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-credentials">
+    <strong><code>SCM_CREDENTIALS</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+
     </span>
    </dd>
 

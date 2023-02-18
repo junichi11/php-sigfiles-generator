@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.curl-strerror" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">curl_strerror</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p><p class="refpurpose"><span class="refname">curl_strerror</span> &mdash; <span class="dc-title">Return string describing the given error code</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">curl_strerror</span> &mdash; <span class="dc-title">Return string describing the given error code</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.curl-strerror-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>curl_strerror</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$error_code</code></span>
-   ) : <span class="type"><span class="type">string</span>|<span class="type">null</span></span></div>
+   <span class="methodname"><strong>curl_strerror</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$error_code</code></span>): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
 
   <p class="para rdfs-comment">
    Returns a text error message describing the given error code.
@@ -47,7 +45,6 @@
  <div class="refsect1 parameters" id="refsect1-function.curl-strerror-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">error_code</code></dt>
@@ -76,7 +73,7 @@
  <div class="refsect1 examples" id="refsect1-function.curl-strerror-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4727">
+   <div class="example" id="example-4227">
     <p><strong>Example #1 <span class="function"><a href="function.curl-errno.html" class="function">curl_errno()</a></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

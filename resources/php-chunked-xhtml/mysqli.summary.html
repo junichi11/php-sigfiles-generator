@@ -28,8 +28,8 @@
  <h1>The MySQLi Extension Function Summary</h1>
 
 
- <table class="doctable table">
-  <caption><strong>Summary of <a href="class.mysqli.html" class="classname">mysqli</a> methods</strong></caption>
+ <table id="mysqli.summary.classtable" class="doctable table">
+  <caption><strong>Summary of <span class="classname"><a href="class.mysqli.html" class="classname">mysqli</a></span> methods</strong></caption>
   
    <thead>
     <tr>
@@ -180,10 +180,9 @@
     </tr>
 
     <tr>
-     <td><span class="methodname"><a href="mysqli.character-set-name.html" class="methodname">mysqli::character_set_name()</a></span>,<a href="mysqli.character-set-name.html" class="link">
-      mysqli::client_encoding</a></td>
+     <td><span class="methodname"><a href="mysqli.character-set-name.html" class="methodname">mysqli::character_set_name()</a></span></td>
      <td><span class="function"><a href="mysqli.character-set-name.html" class="function">mysqli_character_set_name()</a></span></td>
-     <td><span class="function"><strong>mysqli_client_encoding()</strong></span></td>
+     <td>N/A</td>
      <td>Returns the default character set for the database connection</td>
     </tr>
 
@@ -245,7 +244,7 @@
     </tr>
 
     <tr>
-     <td><span class="methodname"><a href="function.mysqli-get-client-stats.html" class="methodname">mysqli::get_client_stats()</a></span></td>
+     <td>N/A</td>
      <td><span class="function"><a href="function.mysqli-get-client-stats.html" class="function">mysqli_get_client_stats()</a></span></td>
      <td>N/A</td>
      <td>Returns client per-process statistics. Available only with <a href="book.mysqlnd.html" class="link">mysqlnd</a>.</td>
@@ -436,8 +435,8 @@
  </table>
 
 
- <table class="doctable table">
-  <caption><strong>Summary of <a href="class.mysqli-stmt.html" class="classname">mysqli_stmt</a> methods</strong></caption>
+ <table id="mysqli.summary.methods" class="doctable table">
+  <caption><strong>Summary of <span class="classname"><a href="class.mysqli-stmt.html" class="classname">mysqli_stmt</a></span> methods</strong></caption>
   
    <thead>
     <tr>
@@ -504,7 +503,7 @@
     <tr>
      <td><a href="mysqli-stmt.param-count.html" class="link">$mysqli_stmt::param_count</a></td>
      <td><span class="function"><a href="mysqli-stmt.param-count.html" class="function">mysqli_stmt_param_count()</a></span></td>
-     <td><span class="function"><strong>mysqli_param_count()</strong></span></td>
+     <td>N/A</td>
      <td>Returns the number of parameter for the given statement</td>
     </tr>
 
@@ -536,14 +535,14 @@
     <tr>
      <td><span class="methodname"><a href="mysqli-stmt.bind-param.html" class="methodname">mysqli_stmt::bind_param()</a></span></td>
      <td><span class="function"><a href="mysqli-stmt.bind-param.html" class="function">mysqli_stmt_bind_param()</a></span></td>
-     <td><span class="function"><strong>mysqli_bind_param()</strong></span></td>
+     <td>N/A</td>
      <td>Binds variables to a prepared statement as parameters</td>
     </tr>
 
     <tr>
      <td><span class="methodname"><a href="mysqli-stmt.bind-result.html" class="methodname">mysqli_stmt::bind_result()</a></span></td>
      <td><span class="function"><a href="mysqli-stmt.bind-result.html" class="function">mysqli_stmt_bind_result()</a></span></td>
-     <td><span class="function"><strong>mysqli_bind_result()</strong></span></td>
+     <td>N/A</td>
      <td>Binds variables to a prepared statement for result storage</td>
     </tr>
 
@@ -571,7 +570,7 @@
     <tr>
      <td><span class="methodname"><a href="mysqli-stmt.fetch.html" class="methodname">mysqli_stmt::fetch()</a></span></td>
      <td><span class="function"><a href="mysqli-stmt.fetch.html" class="function">mysqli_stmt_fetch()</a></span></td>
-     <td><span class="function"><strong>mysqli_fetch()</strong></span></td>
+     <td>N/A</td>
      <td>Fetch results from a prepared statement into the bound variables</td>
     </tr>
 
@@ -634,14 +633,14 @@
     <tr>
      <td><span class="methodname"><a href="mysqli-stmt.result-metadata.html" class="methodname">mysqli_stmt::result_metadata()</a></span></td>
      <td><span class="function"><a href="mysqli-stmt.result-metadata.html" class="function">mysqli_stmt_result_metadata()</a></span></td>
-     <td><span class="function"><strong>mysqli_get_metadata()</strong></span></td>
+     <td>N/A</td>
      <td>Returns result set metadata from a prepared statement</td>
     </tr>
 
     <tr>
      <td><span class="methodname"><a href="mysqli-stmt.send-long-data.html" class="methodname">mysqli_stmt::send_long_data()</a></span></td>
      <td><span class="function"><a href="mysqli-stmt.send-long-data.html" class="function">mysqli_stmt_send_long_data()</a></span></td>
-     <td><span class="function"><strong>mysqli_send_long_data()</strong></span></td>
+     <td>N/A</td>
      <td>Send data in blocks</td>
     </tr>
 
@@ -657,8 +656,8 @@
  </table>
 
 
- <table class="doctable table">
-  <caption><strong>Summary of <a href="class.mysqli-result.html" class="classname">mysqli_result</a> methods</strong></caption>
+ <table id="mysqli.summary.resultmethods" class="doctable table">
+  <caption><strong>Summary of <span class="classname"><a href="class.mysqli-result.html" class="classname">mysqli_result</a></span> methods</strong></caption>
   
    <thead>
     <tr>
@@ -740,6 +739,13 @@
     </tr>
 
     <tr>
+     <td><span class="methodname"><a href="mysqli-result.fetch-column.html" class="methodname">mysqli_result::fetch_column()</a></span></td>
+     <td><span class="function"><a href="mysqli-result.fetch-column.html" class="function">mysqli_fetch_column()</a></span></td>
+     <td>N/A</td>
+     <td>Fetch a single column from the next row of a result set</td>
+    </tr>
+
+    <tr>
      <td><span class="methodname"><a href="mysqli-result.fetch-field-direct.html" class="methodname">mysqli_result::fetch_field_direct()</a></span></td>
      <td><span class="function"><a href="mysqli-result.fetch-field-direct.html" class="function">mysqli_fetch_field_direct()</a></span></td>
      <td>N/A</td>
@@ -795,8 +801,8 @@
  </table>
 
 
- <table class="doctable table">
-  <caption><strong>Summary of <a href="class.mysqli-driver.html" class="classname">mysqli_driver</a> methods</strong></caption>
+ <table id="mysqli.summary.drivermethods" class="doctable table">
+  <caption><strong>Summary of <span class="classname"><a href="class.mysqli-driver.html" class="classname">mysqli_driver</a></span> methods</strong></caption>
   
    <thead>
     <tr>

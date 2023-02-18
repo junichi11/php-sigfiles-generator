@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.posix-setuid" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">posix_setuid</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">posix_setuid</span> &mdash; <span class="dc-title">Set the UID of the current process</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">posix_setuid</span> &mdash; <span class="dc-title">Set the UID of the current process</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.posix-setuid-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>posix_setuid</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$user_id</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>posix_setuid</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$user_id</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Set the real user ID of the current process. This is a privileged
@@ -49,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">user_id</code></dt>
@@ -79,7 +76,7 @@
  <div class="refsect1 examples" id="refsect1-function.posix-setuid-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3801">
+   <div class="example" id="example-3322">
     <p><strong>Example #1 <span class="function"><strong>posix_setuid()</strong></span> example</strong></p>
     <div class="example-contents"><p>This example will show the current user id and then set
      it to a different value.</p></div>

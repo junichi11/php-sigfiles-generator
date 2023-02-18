@@ -11,7 +11,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> if <code>filename</code> was compiled successfully or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.opcache-compile-file.php
 	 * @see opcache_invalidate()
-	 * @since PHP 5 >= 5.5.5, PHP 7, PECL ZendOpcache > 7.0.2
+	 * @since PHP 5 >= 5.5.5, PHP 7, PHP 8, PECL ZendOpcache > 7.0.2
 	 */
 	function opcache_compile_file(string $filename): bool {}
 
@@ -21,51 +21,51 @@ namespace {
 	 * @return array|false <p>Returns an array of information, including ini, blacklist and version</p>
 	 * @link https://php.net/manual/en/function.opcache-get-configuration.php
 	 * @see opcache_get_status()
-	 * @since PHP 5 >= 5.5.0, PHP 7, PECL ZendOpcache > 7.0.2
+	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL ZendOpcache > 7.0.2
 	 */
 	function opcache_get_configuration(): array|false {}
 
 	/**
 	 * Get status information about the cache
-	 * <p>This function returns state information about the cache instance</p>
+	 * <p>This function returns state information about the in-memory cache instance. It will not return any information about the file cache.</p>
 	 * @param bool $include_scripts <p>Include script specific state information</p>
 	 * @return array|false <p>Returns an array of information, optionally containing script specific state information, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.opcache-get-status.php
 	 * @see opcache_get_configuration()
-	 * @since PHP 5 >= 5.5.0, PHP 7, PECL ZendOpcache > 7.0.2
+	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL ZendOpcache > 7.0.2
 	 */
 	function opcache_get_status(bool $include_scripts = true): array|false {}
 
 	/**
 	 * Invalidates a cached script
-	 * <p>This function invalidates a particular script from the opcode cache. If <code>force</code> is unset or <b><code>false</code></b>, the script will only be invalidated if the modification time of the script is newer than the cached opcodes.</p>
+	 * <p>This function invalidates a particular script from the opcode cache. If <code>force</code> is unset or <b><code>false</code></b>, the script will only be invalidated if the modification time of the script is newer than the cached opcodes. This function only invalidates in-memory cache and not file cache.</p>
 	 * @param string $filename <p>The path to the script being invalidated.</p>
 	 * @param bool $force <p>If set to <b><code>true</code></b>, the script will be invalidated regardless of whether invalidation is necessary.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if the opcode cache for <code>filename</code> was invalidated or if there was nothing to invalidate, or <b><code>false</code></b> if the opcode cache is disabled.</p>
 	 * @link https://php.net/manual/en/function.opcache-invalidate.php
 	 * @see opcache_compile_file(), opcache_reset()
-	 * @since PHP 5 >= 5.5.0, PHP 7, PECL ZendOpcache >= 7.0.0
+	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL ZendOpcache >= 7.0.0
 	 */
 	function opcache_invalidate(string $filename, bool $force = false): bool {}
 
 	/**
 	 * Tells whether a script is cached in OPCache
-	 * <p>This function checks if a PHP script has been cached in OPCache. This can be used to more easily detect the "warming" of the cache for a particular script.</p>
+	 * <p>This function checks if a PHP script has been cached in OPCache. This can be used to more easily detect the "warming" of the cache for a particular script. This function only checks in-memory cache, not file cache.</p>
 	 * @param string $filename <p>The path to the PHP script to be checked.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if <code>filename</code> is cached in OPCache, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.opcache-is-script-cached.php
 	 * @see opcache_compile_file()
-	 * @since PHP 5 >= 5.5.11, PHP 7, PECL ZendOpcache >= 7.0.4
+	 * @since PHP 5 >= 5.5.11, PHP 7, PHP 8, PECL ZendOpcache >= 7.0.4
 	 */
 	function opcache_is_script_cached(string $filename): bool {}
 
 	/**
 	 * Resets the contents of the opcode cache
-	 * <p>This function resets the entire opcode cache. After calling <b>opcache_reset()</b>, all scripts will be reloaded and reparsed the next time they are hit.</p>
+	 * <p>This function resets the entire opcode cache. After calling <b>opcache_reset()</b>, all scripts will be reloaded and reparsed the next time they are hit. This function only resets in-memory cache, not the file cache.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if the opcode cache was reset, or <b><code>false</code></b> if the opcode cache is disabled.</p>
 	 * @link https://php.net/manual/en/function.opcache-reset.php
 	 * @see opcache_invalidate()
-	 * @since PHP 5 >= 5.5.0, PHP 7, PECL ZendOpcache >= 7.0.0
+	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL ZendOpcache >= 7.0.0
 	 */
 	function opcache_reset(): bool {}
 

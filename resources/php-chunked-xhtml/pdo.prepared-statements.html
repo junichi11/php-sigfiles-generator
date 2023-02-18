@@ -63,7 +63,7 @@
   the capabilities of the database.
  </p>
  <p class="para">
-  <div class="example" id="example-993">
+  <div class="example" id="example-999">
    <p><strong>Example #1 Repeated inserts using prepared statements</strong></p>
    <div class="example-contents"><p>
     This example performs an INSERT query by substituting a <code class="literal">name</code>
@@ -79,7 +79,7 @@
   </div>
  </p>
  <p class="para">
-  <div class="example" id="odbc-primarykeys.example.basic">
+  <div class="example" id="example-1000">
    <p><strong>Example #2 Repeated inserts using prepared statements</strong></p>
    <div class="example-contents"><p>
     This example performs an INSERT query by substituting a <code class="literal">name</code>
@@ -95,7 +95,7 @@
   </div>
  </p>
  <p class="para">
-  <div class="example" id="odbc-procedurecolumns.example.basic">
+  <div class="example" id="example-1001">
    <p><strong>Example #3 Fetching data using prepared statements</strong></p>
    <div class="example-contents"><p>
     This example fetches data based on a key value supplied by a form.
@@ -104,7 +104,7 @@
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;REGISTRY&nbsp;where&nbsp;name&nbsp;=&nbsp;?"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">])))&nbsp;{<br />&nbsp;&nbsp;while&nbsp;(</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$row</span><span style="color: #007700">);<br />&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;REGISTRY&nbsp;where&nbsp;name&nbsp;=&nbsp;?"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">([</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">]]);<br />foreach&nbsp;(</span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$row</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -112,7 +112,7 @@
   </div>
  </p>
  <p class="para">
-  <div class="example" id="odbc-procedures.example.basic">
+  <div class="example" id="example-1002">
    <p><strong>Example #4 Calling a stored procedure with an output parameter</strong></p>
    <div class="example-contents"><p>
     If the database driver supports it, an application may also bind parameters for
@@ -132,7 +132,7 @@
   </div>
  </p>
  <p class="para">
-  <div class="example" id="example-997">
+  <div class="example" id="example-1003">
    <p><strong>Example #5 Calling a stored procedure with an input/output parameter</strong></p>
    <div class="example-contents"><p>
     Developers may also specify parameters that hold values both input and output;
@@ -150,11 +150,11 @@
   </div>
  </p>
  <p class="para">
-  <div class="example" id="example-998">
+  <div class="example" id="example-1004">
    <p><strong>Example #6 Invalid use of placeholder</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;REGISTRY&nbsp;where&nbsp;name&nbsp;LIKE&nbsp;'%?%'"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">]));<br /><br /></span><span style="color: #FF8000">//&nbsp;placeholder&nbsp;must&nbsp;be&nbsp;used&nbsp;in&nbsp;the&nbsp;place&nbsp;of&nbsp;the&nbsp;whole&nbsp;value<br /></span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;REGISTRY&nbsp;where&nbsp;name&nbsp;LIKE&nbsp;?"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"%</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">name</span><span style="color: #007700">]</span><span style="color: #DD0000">%"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;REGISTRY&nbsp;where&nbsp;name&nbsp;LIKE&nbsp;'%?%'"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">([</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">]]);<br /><br /></span><span style="color: #FF8000">//&nbsp;placeholder&nbsp;must&nbsp;be&nbsp;used&nbsp;in&nbsp;the&nbsp;place&nbsp;of&nbsp;the&nbsp;whole&nbsp;value<br /></span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;REGISTRY&nbsp;where&nbsp;name&nbsp;LIKE&nbsp;?"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">([</span><span style="color: #DD0000">"%</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">name</span><span style="color: #007700">]</span><span style="color: #DD0000">%"</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.bcsub" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">bcsub</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">bcsub</span> &mdash; <span class="dc-title">Subtract one arbitrary precision number from another</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">bcsub</span> &mdash; <span class="dc-title">Subtract one arbitrary precision number from another</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.bcsub-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>bcsub</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$num1</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$num2</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$scale</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>bcsub</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$num1</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$num2</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$scale</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Subtracts the <code class="parameter">num2</code> from the
@@ -50,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">num1</code></dt>
@@ -76,8 +71,8 @@
 
     
     <dt>
-<code class="parameter">
-scale</code></dt>
+
+<code class="parameter">scale</code></dt>
 <dd>
 <p class="para">This optional parameter is used to set the number
 of digits after the decimal place in the result. If omitted, it will default to the scale set
@@ -127,7 +122,7 @@ this has not been set.</p></dd>
 
  <div class="refsect1 examples" id="refsect1-function.bcsub-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3539">
+  <div class="example" id="example-3054">
    <p><strong>Example #1 <span class="function"><strong>bcsub()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

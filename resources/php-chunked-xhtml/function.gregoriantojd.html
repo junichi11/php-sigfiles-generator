@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.gregoriantojd" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gregoriantojd</h1> 
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">gregoriantojd</span> &mdash; <span class="dc-title">Converts a Gregorian date to Julian Day Count</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">gregoriantojd</span> &mdash; <span class="dc-title">Converts a Gregorian date to Julian Day Count</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.gregoriantojd-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>gregoriantojd</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$month</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$day</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$year</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>gregoriantojd</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$month</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$day</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$year</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    The valid range for the Gregorian calendar is from November 25, 4714 B.C. to at least December 31, 9999 A.D.</p>
@@ -57,7 +53,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">month</code></dt>
@@ -117,7 +112,7 @@
  <div class="refsect1 examples" id="refsect1-function.gregoriantojd-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2500">
+   <div class="example" id="example-2013">
     <p><strong>Example #1 Calendar functions</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -134,7 +129,7 @@
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-2501">
+   <div class="example" id="example-2014">
     <p><strong>Example #2 Overflow behavior</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

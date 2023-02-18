@@ -33,11 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.svn-add-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>svn_add</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recursive</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$force</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>svn_add</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recursive</code><span class="initializer"> = <strong><code>true</code></strong></span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$force</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Adds the file, directory or symbolic link at <code class="parameter">path</code>
@@ -52,7 +48,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">path</code></dt>
@@ -107,16 +102,6 @@
  </div>
 
 
- <div class="refsect1 notes" id="refsect1-function.svn-add-notes">
-  <h3 class="title">Notes</h3>
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-<em class="emphasis">EXPERIMENTAL</em>. The behaviour of this function, its name, and
-surrounding documentation may change without notice in a future release of PHP.
-This function should be used at your own risk.
-</p></div>
- </div>
-
-
  
 
  
@@ -124,7 +109,7 @@ This function should be used at your own risk.
  <div class="refsect1 examples" id="refsect1-function.svn-add-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5081">
+   <div class="example" id="example-4581">
     <p><strong>Example #1 <span class="function"><strong>svn_add()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      In a working directory where <strong class="userinput"><code>svn status</code></strong>
@@ -149,6 +134,16 @@ This function should be used at your own risk.
     </p></div>
    </div>
   </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.svn-add-notes">
+  <h3 class="title">Notes</h3>
+  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
+<em class="emphasis">EXPERIMENTAL</em>. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of PHP.
+This function should be used at your own risk.
+</p></div>
  </div>
 
 

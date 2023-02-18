@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="function.fseek.html">« fseek</a></li>
-      <li style="float: right;"><a href="function.ftell.html">ftell »</a></li>
+      <li style="float: right;"><a href="function.fsync.html">fsync »</a></li>
     </ul>
   </div>
 </div>
@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.fstat" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">fstat</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">fstat</span> &mdash; <span class="dc-title">Gets information about a file using an open file pointer</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">fstat</span> &mdash; <span class="dc-title">Gets information about a file using an open file pointer</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.fstat-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>fstat</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>fstat</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Gathers the statistics of the file opened by the file
@@ -50,7 +48,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">stream</code></dt>
@@ -81,7 +78,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
  <div class="refsect1 examples" id="refsect1-function.fstat-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2664">
+   <div class="example" id="example-2176">
     <p><strong>Example #1 <span class="function"><strong>fstat()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

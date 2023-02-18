@@ -34,15 +34,15 @@
 
  <p class="para">
   Many fatal and recoverable fatal errors have been converted to exceptions in
-  PHP 7. These error exceptions inherit from the <a href="class.error.html" class="classname">Error</a>
-  class, which itself implements the <a href="class.throwable.html" class="classname">Throwable</a>
+  PHP 7. These error exceptions inherit from the <span class="classname"><a href="class.error.html" class="classname">Error</a></span>
+  class, which itself implements the <span class="classname"><a href="class.throwable.html" class="classname">Throwable</a></span>
   interface (the new base interface all exceptions inherit).
  </p>
 
  <p class="para">
   This means that custom error handlers may no longer be triggered because
   exceptions may be thrown instead (causing new fatal errors for uncaught
-  <a href="class.error.html" class="classname">Error</a> exceptions).
+  <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exceptions).
  </p>
 
  <p class="para">
@@ -55,22 +55,22 @@
  <div class="sect3" id="migration70.incompatible.error-handling.set-exception-handler">
   <h4 class="title">
    <span class="function"><a href="function.set-exception-handler.html" class="function">set_exception_handler()</a></span> is no longer guaranteed to
-   receive <a href="class.exception.html" class="classname">Exception</a> objects
+   receive <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> objects
   </h4>
 
   <p class="para">
    Code that implements an exception handler registered with
    <span class="function"><a href="function.set-exception-handler.html" class="function">set_exception_handler()</a></span> using a type declaration of
-   <a href="class.exception.html" class="classname">Exception</a> will cause a fatal error when an
-   <a href="class.error.html" class="classname">Error</a> object is thrown.
+   <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> will cause a fatal error when an
+   <span class="classname"><a href="class.error.html" class="classname">Error</a></span> object is thrown.
   </p>
 
   <p class="para">
    If the handler needs to work on both PHP 5 and 7, you should remove the
    type declaration from the handler, while code that is being migrated to
    work on PHP 7 exclusively can simply replace the
-   <a href="class.exception.html" class="classname">Exception</a> type declaration with
-   <a href="class.throwable.html" class="classname">Throwable</a> instead.
+   <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> type declaration with
+   <span class="classname"><a href="class.throwable.html" class="classname">Throwable</a></span> instead.
   </p>
 
   <div class="informalexample">
@@ -90,16 +90,16 @@
   <p class="para">
    Previously, some internal classes would return <strong><code>null</code></strong> or an unusable object
    when the constructor failed. All internal classes will now throw an
-   <a href="class.exception.html" class="classname">Exception</a> in this case in the same way that user
+   <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> in this case in the same way that user
    classes already had to.
   </p>
  </div>
 
  <div class="sect3" id="migration70.incompatible.error-handling.parse">
-  <h4 class="title">Parse errors throw <a href="class.parseerror.html" class="classname">ParseError</a></h4>
+  <h4 class="title">Parse errors throw <span class="classname"><a href="class.parseerror.html" class="classname">ParseError</a></span></h4>
 
   <p class="para">
-   Parser errors now throw a <a href="class.parseerror.html" class="classname">ParseError</a> object. Error
+   Parser errors now throw a <span class="classname"><a href="class.parseerror.html" class="classname">ParseError</a></span> object. Error
    handling for <span class="function"><a href="function.eval.html" class="function">eval()</a></span> should now include a <a href="language.exceptions.html#language.exceptions.catch" class="link"><code class="literal">catch</code></a> block
    that can handle this error.
   </p>
@@ -556,10 +556,10 @@ int(1)
  </div>
 
  <div class="sect3" id="migration70.incompatible.foreach.object">
-  <h4 class="title">Iteration of non-<a href="class.traversable.html" class="classname">Traversable</a> objects</h4>
+  <h4 class="title">Iteration of non-<span class="classname"><a href="class.traversable.html" class="classname">Traversable</a></span> objects</h4>
 
   <p class="para">
-   Iterating over a non-<a href="class.traversable.html" class="classname">Traversable</a> object will now
+   Iterating over a non-<span class="classname"><a href="class.traversable.html" class="classname">Traversable</a></span> object will now
    have the same behaviour as iterating over by-reference arrays. This
    results in the
    <a href="migration70.incompatible.html#migration70.incompatible.foreach.by-ref" class="link">improved behaviour when modifying an array during iteration</a>
@@ -592,7 +592,7 @@ int(1)
 
   <p class="para">
    Bitwise shifts by negative numbers will now throw an
-   <a href="class.arithmeticerror.html" class="classname">ArithmeticError</a>:
+   <span class="classname"><a href="class.arithmeticerror.html" class="classname">ArithmeticError</a></span>:
   </p>
   <div class="informalexample">
    <div class="example-contents">
@@ -638,7 +638,7 @@ Stack trace:
    modulus (%) operators, an E_WARNING would be emitted and
    <strong><code>false</code></strong> would be returned. Now, the divide operator
    returns a float as either +INF, -INF, or NAN, as specified by IEEE 754. The modulus operator E_WARNING
-   has been removed and will throw a <a href="class.divisionbyzeroerror.html" class="classname">DivisionByZeroError</a>
+   has been removed and will throw a <span class="classname"><a href="class.divisionbyzeroerror.html" class="classname">DivisionByZeroError</a></span>
    exception.
   </p>
   <div class="informalexample">
@@ -785,7 +785,7 @@ string(3) &quot;foo&quot;
    All ereg* functions
   </h4>
   <p class="para">
-   All <a href="book.regex.html" class="link">ereg</a> functions were removed. 
+   All <code class="literal">ereg</code> functions were removed.
    <a href="book.pcre.html" class="link">PCRE</a> is a recommended alternative.
   </p>
  </div>
@@ -794,14 +794,14 @@ string(3) &quot;foo&quot;
   <h4 class="title"><a href="book.mcrypt.html" class="link">mcrypt</a> aliases</h4>
 
   <p class="para">
-   The deprecated <span class="function"><a href="function.mcrypt-generic-end.html" class="function">mcrypt_generic_end()</a></span> function has been
+   The deprecated <span class="function"><strong>mcrypt_generic_end()</strong></span> function has been
    removed in favour of <span class="function"><a href="function.mcrypt-generic-deinit.html" class="function">mcrypt_generic_deinit()</a></span>.
   </p>
 
   <p class="para">
-   Additionally, the deprecated <span class="function"><a href="function.mcrypt-ecb.html" class="function">mcrypt_ecb()</a></span>,
-   <span class="function"><a href="function.mcrypt-cbc.html" class="function">mcrypt_cbc()</a></span>, <span class="function"><a href="function.mcrypt-cfb.html" class="function">mcrypt_cfb()</a></span> and
-   <span class="function"><a href="function.mcrypt-ofb.html" class="function">mcrypt_ofb()</a></span> functions have been removed in favour of
+   Additionally, the deprecated <span class="function"><strong>mcrypt_ecb()</strong></span>,
+   <span class="function"><strong>mcrypt_cbc()</strong></span>, <span class="function"><strong>mcrypt_cfb()</strong></span> and
+   <span class="function"><strong>mcrypt_ofb()</strong></span> functions have been removed in favour of
    using <span class="function"><a href="function.mcrypt-decrypt.html" class="function">mcrypt_decrypt()</a></span> with the appropriate
    <strong><code>MCRYPT_MODE_*</code></strong> constant.
   </p>
@@ -837,8 +837,8 @@ string(3) &quot;foo&quot;
   <h4 class="title"><a href="book.intl.html" class="link">intl</a> aliases</h4>
 
   <p class="para">
-   The deprecated <span class="function"><a href="intldateformatter.settimezoneid.html" class="function">datefmt_set_timezone_id()</a></span> and
-   <span class="methodname"><a href="intldateformatter.settimezoneid.html" class="methodname">IntlDateFormatter::setTimeZoneID()</a></span> aliases have been
+   The deprecated <span class="function"><strong>datefmt_set_timezone_id()</strong></span> and
+   <span class="methodname"><strong>IntlDateFormatter::setTimeZoneID()</strong></span> aliases have been
    removed in favour of <span class="function"><a href="intldateformatter.settimezone.html" class="function">datefmt_set_timezone()</a></span> and
    <span class="methodname"><a href="intldateformatter.settimezone.html" class="methodname">IntlDateFormatter::setTimeZone()</a></span>, respectively.
   </p>
@@ -944,12 +944,12 @@ string(3) &quot;foo&quot;
   <ul class="itemizedlist">
    <li class="listitem">
     <span class="simpara">
-     <a href="ini.core.html#ini.always-populate-raw-post-data" class="link"><code class="parameter">always_populate_raw_post_data</code></a>
+     <code class="parameter">always_populate_raw_post_data</code>
     </span>
    </li>
    <li class="listitem">
     <span class="simpara">
-     <a href="ini.core.html#ini.asp-tags" class="link"><code class="parameter">asp_tags</code></a>
+     <code class="parameter">asp_tags</code>
     </span>
    </li>
   </ul>

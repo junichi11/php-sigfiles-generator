@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.debug-backtrace" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">debug_backtrace</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">debug_backtrace</span> &mdash; <span class="dc-title">Generates a backtrace</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">debug_backtrace</span> &mdash; <span class="dc-title">Generates a backtrace</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.debug-backtrace-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>debug_backtrace</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = DEBUG_BACKTRACE_PROVIDE_OBJECT</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>debug_backtrace</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>DEBUG_BACKTRACE_PROVIDE_OBJECT</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = 0</span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>debug_backtrace()</strong></span> generates a PHP backtrace.
@@ -48,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">options</code></dt>
@@ -56,7 +52,7 @@
      <dd>
 
       <p class="para">
-       As of 5.3.6, this parameter is a bitmask for the following options:
+       This parameter is a bitmask for the following options:
        <table class="doctable table">
         <caption><strong><span class="function"><strong>debug_backtrace()</strong></span> options</strong></caption>
         
@@ -80,8 +76,6 @@
         
        </table>
 
-       Before 5.3.6, the only values recognized are <strong><code>true</code></strong> or <strong><code>false</code></strong>, which are the same as 
-       setting or not setting the <strong><code>DEBUG_BACKTRACE_PROVIDE_OBJECT</code></strong> option respectively.
       </p>
      </dd>
 
@@ -93,7 +87,7 @@
      <dd>
 
       <p class="para">
-       As of 5.4.0, this parameter can be used to limit the number of stack frames returned.
+       This parameter can be used to limit the number of stack frames returned.
        By default (<code class="parameter">limit</code>=<code class="literal">0</code>) it returns all stack frames.
       </p>
      </dd>
@@ -198,7 +192,7 @@
  <div class="refsect1 examples" id="refsect1-function.debug-backtrace-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-484">
+   <div class="example" id="example-500">
     <p><strong>Example #1 <span class="function"><strong>debug_backtrace()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -11,7 +11,7 @@ namespace {
 	 * @return string <p>Returns a string containing the requested number of cryptographically secure random bytes.</p>
 	 * @link https://php.net/manual/en/function.random-bytes.php
 	 * @see random_int(), openssl_random_pseudo_bytes(), bin2hex()
-	 * @since PHP 7
+	 * @since PHP 7, PHP 8
 	 */
 	function random_bytes(int $length): string {}
 
@@ -23,7 +23,7 @@ namespace {
 	 * @return int <p>Returns a cryptographically secure random integer in the range <code>min</code> to <code>max</code>, inclusive.</p>
 	 * @link https://php.net/manual/en/function.random-int.php
 	 * @see random_bytes()
-	 * @since PHP 7
+	 * @since PHP 7, PHP 8
 	 */
 	function random_int(int $min, int $max): int {}
 

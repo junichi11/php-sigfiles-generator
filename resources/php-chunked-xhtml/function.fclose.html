@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="function.diskfreespace.html">« diskfreespace</a></li>
-      <li style="float: right;"><a href="function.feof.html">feof »</a></li>
+      <li style="float: right;"><a href="function.fdatasync.html">fdatasync »</a></li>
     </ul>
   </div>
 </div>
@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.fclose" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">fclose</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">fclose</span> &mdash; <span class="dc-title">Closes an open file pointer</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">fclose</span> &mdash; <span class="dc-title">Closes an open file pointer</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.fclose-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>fclose</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>fclose</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    The file pointed to by <code class="parameter">stream</code> is closed.
@@ -47,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">stream</code></dt>
@@ -78,7 +75,7 @@
  <div class="refsect1 examples" id="refsect1-function.fclose-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2626">
+   <div class="example" id="example-2137">
     <p><strong>Example #1 A simple <span class="function"><strong>fclose()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

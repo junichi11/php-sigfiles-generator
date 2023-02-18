@@ -134,6 +134,11 @@ class PhpMethod extends SigFileElement {
                 continue;
             }
             $type = Html::queryFirstValue($this->xpath(), '*[@class="type"]', $param);
+            if ($type === "?") {
+                // e.g. function.apache-note.html
+                // <span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span>
+                $type = implode("", Html::queryValues($this->xpath(), '*[@class="type"]', $param));
+            }
             $reference = false;
             $name = Html::querySingleValue($this->xpath(), '*[@class="parameter"]', $param, true);
             if (!$name) {
@@ -205,7 +210,11 @@ class PhpMethod extends SigFileElement {
     protected function detectMethodNode(): ?DOMNode {
         $nodes = Html::queryNodes($this->xpath(), '//div[@class="methodsynopsis dc-description"]', null, true);
         if ($nodes->length === 0) {
-            $nodes = Html::queryNodes($this->xpath(), '//div[@class="constructorsynopsis dc-description"]', null, false);
+            $nodes = Html::queryNodes($this->xpath(), '//div[@class="constructorsynopsis dc-description"]', null, true);
+        }
+        if ($nodes->length === 0) {
+            // e.g. phar.destruct.html
+            $nodes = Html::queryNodes($this->xpath(), '//div[@class="destructorsynopsis dc-description"]', null, false);
         }
         if ($nodes->length === 1) {
             return $nodes->item(0);

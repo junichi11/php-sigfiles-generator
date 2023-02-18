@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.getlastmod" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">getlastmod</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">getlastmod</span> &mdash; <span class="dc-title">Gets time of last page modification</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">getlastmod</span> &mdash; <span class="dc-title">Gets time of last page modification</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.getlastmod-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>getlastmod</strong></span>
-    (
-   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>getlastmod</strong></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Gets the time of the last modification of the main script of execution.
@@ -44,6 +42,12 @@
    If you&#039;re interested in getting the last modification time
    of a different file, consider using <span class="function"><a href="function.filemtime.html" class="function">filemtime()</a></span>.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.getlastmod-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -60,7 +64,7 @@
  <div class="refsect1 examples" id="refsect1-function.getlastmod-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-539">
+   <div class="example" id="example-554">
     <p><strong>Example #1 <span class="function"><strong>getlastmod()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

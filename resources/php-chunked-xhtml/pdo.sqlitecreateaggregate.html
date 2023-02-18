@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="pdo.sqlitecreateaggregate" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDO::sqliteCreateAggregate</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo_sqlite &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">PDO::sqliteCreateAggregate</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo_sqlite &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">PDO::sqliteCreateAggregate</span> &mdash; <span class="dc-title">
    Registers an aggregating User Defined Function for use in SQL statements
   </span></p>
 
@@ -35,12 +35,7 @@
  <div class="refsect1 description" id="refsect1-pdo.sqlitecreateaggregate-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDO::sqliteCreateAggregate</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$step_func</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$finalize_func</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$num_args</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDO::sqliteCreateAggregate</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$step_func</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$finalize_func</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$num_args</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
 
   <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
 <em class="emphasis">EXPERIMENTAL</em>. The behaviour of this function, its name, and
@@ -62,7 +57,6 @@ This function should be used at your own risk.
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">function_name</code></dt>
@@ -89,15 +83,9 @@ This function should be used at your own risk.
       <p class="para">
        This function need to be defined as:
        <div class="methodsynopsis dc-description">
-        <span class="methodname"><span class="replaceable">step</span></span>
-         ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$context</code></span>
-        , <span class="methodparam"><span class="type">int</span> <code class="parameter">$rownumber</code></span>
-        , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-        , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
-        ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+        <span class="methodname"><span class="replaceable">step</span></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$context</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$rownumber</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span><br>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
        <dl>
-
         
          <dt>
 <code class="parameter">context</code></dt>
@@ -173,13 +161,9 @@ This function should be used at your own risk.
       <p class="para">
        This function need to be defined as:
        <div class="methodsynopsis dc-description">
-        <span class="methodname"><span class="replaceable">fini</span></span>
-         ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$context</code></span>
-        , <span class="methodparam"><span class="type">int</span> <code class="parameter">$rowcount</code></span>
-        ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+        <span class="methodname"><span class="replaceable">fini</span></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$context</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$rowcount</code></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
        <dl>
-
         
          <dt>
 <code class="parameter">context</code></dt>
@@ -242,7 +226,7 @@ This function should be used at your own risk.
  <div class="refsect1 examples" id="refsect1-pdo.sqlitecreateaggregate-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1080">
+   <div class="example" id="example-1087">
     <p><strong>Example #1 max_length aggregation function example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

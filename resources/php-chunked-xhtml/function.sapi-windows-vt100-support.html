@@ -26,23 +26,20 @@
   <div id="layout-content"><div id="function.sapi-windows-vt100-support" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sapi_windows_vt100_support</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.2.0)</p><p class="refpurpose"><span class="refname">sapi_windows_vt100_support</span> &mdash; <span class="dc-title">Get or set VT100 support for the specified stream associated to an output buffer of a Windows console.</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">sapi_windows_vt100_support</span> &mdash; <span class="dc-title">Get or set VT100 support for the specified stream associated to an output buffer of a Windows console.</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.sapi-windows-vt100-support-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>sapi_windows_vt100_support</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$enable</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>sapi_windows_vt100_support</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">bool</span><span class="type"></span></span> <code class="parameter">$enable</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   If <code class="parameter">enable</code> is omitted, the function returns <strong><code>true</code></strong> if the stream <code class="parameter">stream</code> has VT100 control codes enabled, <strong><code>false</code></strong> otherwise.
+   If <code class="parameter">enable</code> is <strong><code>null</code></strong>, the function returns <strong><code>true</code></strong> if the stream <code class="parameter">stream</code> has VT100 control codes enabled, <strong><code>false</code></strong> otherwise.
   </p>
   <p class="para">
-   If <code class="parameter">enable</code> is specified, the function will try to enable or disable the VT100 features of the stream <code class="parameter">stream</code>.
+   If <code class="parameter">enable</code> is a <span class="type">bool</span>, the function will try to enable or disable the VT100 features of the stream <code class="parameter">stream</code>.
    If the feature has been successfully enabled (or disabled), the function will return <strong><code>true</code></strong>, or <strong><code>false</code></strong> otherwise.
   </p>
   <p class="para">
@@ -63,7 +60,6 @@
  <div class="refsect1 parameters" id="refsect1-function.sapi-windows-vt100-support-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">stream</code></dt>
@@ -83,7 +79,7 @@
     <dd>
 
      <p class="para">
-      If specified, the VT100 feature will be enabled (if <strong><code>true</code></strong>) or disabled (if <strong><code>false</code></strong>).
+      If <span class="type">bool</span>, the VT100 feature will be enabled (if <strong><code>true</code></strong>) or disabled (if <strong><code>false</code></strong>).
      </p>
     </dd>
 
@@ -96,17 +92,44 @@
  <div class="refsect1 returnvalues" id="refsect1-function.sapi-windows-vt100-support-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   If <code class="parameter">enable</code> is not specified: returns <strong><code>true</code></strong> if the VT100 feature is enabled, <strong><code>false</code></strong> otherwise.
+   If <code class="parameter">enable</code> is <strong><code>null</code></strong>: returns <strong><code>true</code></strong> if the VT100 feature is enabled, <strong><code>false</code></strong> otherwise.
   </p>
   <p class="para">
-   If <code class="parameter">enable</code> is specified: Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
+   If <code class="parameter">enable</code> is a <span class="type">bool</span>: Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.sapi-windows-vt100-support-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">enable</code> is now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
  
  <div class="refsect1 examples" id="refsect1-function.sapi-windows-vt100-support-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4006">
+  <div class="example" id="example-3508">
    <p><strong>Example #1 <span class="function"><strong>sapi_windows_vt100_support()</strong></span> default state</strong></p>
    <div class="example-contents"><p>
     By default, <strong><code>STDOUT</code></strong> and <strong><code>STDERR</code></strong> have the VT100 feature enabled.
@@ -133,7 +156,7 @@ something similar to:</p></div>
     true false<br />
    </div>
   </div>
-  <div class="example" id="example-4007">
+  <div class="example" id="example-3509">
    <p><strong>Example #2 <span class="function"><strong>sapi_windows_vt100_support()</strong></span> changing state</strong></p>
    <div class="example-contents"><p>
     You won&#039;t be able to enable the VT100 feature of <strong><code>STDOUT</code></strong> or <strong><code>STDERR</code></strong> if the stream is redirected.
@@ -149,7 +172,7 @@ true false
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-4008">
+  <div class="example" id="example-3510">
    <p><strong>Example #3 Example usage of VT100 support enabled</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

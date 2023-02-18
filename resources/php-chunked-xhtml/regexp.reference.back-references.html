@@ -42,7 +42,7 @@
    A &quot;forward back reference&quot; can make sense when a repetition
    is involved and the subpattern to the right has participated
    in an earlier iteration. See the section
-   entitled &quot;Backslash&quot; above for further details of  the  handling
+   <a href="regexp.reference.escape.html" class="link">escape sequences</a> for further details of  the  handling
    of digits following a backslash.
   </p>
   <p class="para">
@@ -96,7 +96,7 @@
    example above, or by a quantifier with a minimum of zero.
   </p>
   <p class="para">
-   As of PHP 5.2.2, the <code class="literal">\g</code> escape sequence can be
+   The <code class="literal">\g</code> escape sequence can be
    used for absolute and relative referencing of subpatterns.
    This escape sequence must be followed by an unsigned number or a negative
    number, optionally enclosed in braces. The sequences <code class="literal">\1</code>,
@@ -117,10 +117,9 @@
   </p>
   <p class="para">
    Back references to the named subpatterns can be achieved by
-   <code class="literal">(?P=name)</code> or, since PHP 5.2.2, also by
-   <code class="literal">\k&lt;name&gt;</code> or <code class="literal">\k&#039;name&#039;</code>.
-   Additionally PHP 5.2.4 added support for <code class="literal">\k{name}</code>
-   and <code class="literal">\g{name}</code>, and PHP 5.2.7 for
-   <code class="literal">\g&lt;name&gt;</code> and <code class="literal">\g&#039;name&#039;</code>.
+   <code class="literal">(?P=name)</code>,
+   <code class="literal">\k&lt;name&gt;</code>, <code class="literal">\k&#039;name&#039;</code>,
+   <code class="literal">\k{name}</code>, <code class="literal">\g{name}</code>,
+   <code class="literal">\g&lt;name&gt;</code> or <code class="literal">\g&#039;name&#039;</code>.
   </p>
  </div></div></div></body></html>

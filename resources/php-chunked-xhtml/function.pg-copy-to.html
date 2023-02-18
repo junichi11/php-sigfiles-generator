@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.pg-copy-to" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_copy_to</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_copy_to</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_copy_to</span> &mdash; <span class="dc-title">
    Copy a table to an array
   </span></p>
 
@@ -35,12 +35,7 @@
  <div class="refsect1 description" id="refsect1-function.pg-copy-to-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_copy_to</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$table_name</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code> = ?</span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$null_as</code> = ?</span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>pg_copy_to</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.pgsql-connection.html" class="type PgSql\Connection">PgSql\Connection</a></span> <code class="parameter">$connection</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$table_name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code><span class="initializer"> = &quot;\t&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$null_as</code><span class="initializer"> = &quot;\\\\N&quot;</span></span><br>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_copy_to()</strong></span> copies a table to an array. It
@@ -54,16 +49,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">connection</code></dt>
 
      <dd>
 
-      <p class="para">
-       PostgreSQL database connection resource.
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span> instance.</p>
      </dd>
 
     
@@ -81,13 +73,13 @@
     
     
      <dt>
-<code class="parameter">delimiter</code></dt>
+<code class="parameter">separator</code></dt>
 
      <dd>
 
       <p class="para">
        The token that separates values for each field in each element of
-       <code class="parameter">rows</code>.  Default is <code class="literal">TAB</code>.
+       <code class="parameter">rows</code>.  Default is <code class="literal">\t</code>.
       </p>
      </dd>
 
@@ -100,7 +92,7 @@
 
       <p class="para">
        How SQL <code class="literal">NULL</code> values are represented in the
-       <code class="parameter">rows</code>.  Default is \N (&quot;\\N&quot;).
+       <code class="parameter">rows</code>.  Default is <code class="literal">\\N</code> (<code class="literal">&quot;\\\\N&quot;</code>).
       </p>
      </dd>
 
@@ -114,16 +106,43 @@
  <div class="refsect1 returnvalues" id="refsect1-function.pg-copy-to-returnvalues">
   <h3 class="title">Return Values</h3>
    <p class="para">
-    An <span class="type">array</span> with one element for each line of <code class="literal">COPY</code> data.
-    It returns <strong><code>false</code></strong> on failure.
+    An <span class="type">array</span> with one element for each line of <code class="literal">COPY</code> data,  or <strong><code>false</code></strong> on failure.
    </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.pg-copy-to-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">connection</code> parameter expects an <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.pg-copy-to-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2330">
+   <div class="example" id="example-1884">
     <p><strong>Example #1 <span class="function"><strong>pg_copy_to()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

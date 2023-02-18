@@ -26,17 +26,13 @@
   <div id="layout-content"><div id="function.array-udiff" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_udiff</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_udiff</span> &mdash; <span class="dc-title">Computes the difference of arrays by using a callback function for data comparison</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">array_udiff</span> &mdash; <span class="dc-title">Computes the difference of arrays by using a callback function for data comparison</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.array-udiff-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>array_udiff</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">...$arrays</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$value_compare_func</code></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>array_udiff</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">...$arrays</code></span>, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$value_compare_func</code></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Computes the difference of arrays by using a callback function for data
@@ -49,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">array</code></dt>
@@ -86,7 +81,7 @@
       <p class="para">
        The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.
       </p>
-      <div class="methodsynopsis dc-description"><span class="methodname"><span class="replaceable">callback</span></span> ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$a</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$b</code></span> ) : <span class="type">int</span></div>
+      <div class="methodsynopsis dc-description"><span class="methodname"><span class="replaceable">callback</span></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$a</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$b</code></span>): <span class="type">int</span></div>
 
      </dd>
 
@@ -107,7 +102,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-udiff-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5472">
+   <div class="example" id="example-4967">
     <p><strong>Example #1 <span class="function"><strong>array_udiff()</strong></span> example using stdClass Objects</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -139,7 +134,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5473">
+   <div class="example" id="example-4968">
     <p><strong>Example #2 <span class="function"><strong>array_udiff()</strong></span> example using DateTime Objects</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

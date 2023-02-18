@@ -42,7 +42,7 @@ LNUM             [0-9]+
 DNUM             ([0-9]*)[\.]{LNUM}) | ({LNUM}[\.][0-9]*)
 EXPONENT_DNUM    (({LNUM} | {DNUM}) [eE][+-]? {LNUM})
 INT_NUM_STRING   {WHITESPACES} [+-]? {LNUM} {WHITESPACES}
-FLOAT_NUM_STRING {WHITESPACES} [+-]? {EXPONENT_DNUM} {WHITESPACES}
+FLOAT_NUM_STRING {WHITESPACES} [+-]? ({DNUM} | {EXPONENT_DNUM}) {WHITESPACES}
 NUM_STRING       ({INT_NUM_STRING} | {FLOAT_NUM_STRING})
 </pre></div>
   </div>
@@ -86,7 +86,7 @@ NUM_STRING       ({INT_NUM_STRING} | {FLOAT_NUM_STRING})
     <li class="listitem">
      <span class="simpara">
       The <span class="type">string</span> is not numeric, throw a
-      <a href="class.typeerror.html" class="classname">TypeError</a>.
+      <span class="classname"><a href="class.typeerror.html" class="classname">TypeError</a></span>.
      </span>
     </li>
    </ol>
@@ -119,6 +119,8 @@ NUM_STRING       ({INT_NUM_STRING} | {FLOAT_NUM_STRING})
      </span>
     </li>
    </ul>
+   Prior to PHP 7.1.0, neither <strong><code>E_NOTICE</code></strong>
+   nor <strong><code>E_WARNING</code></strong> was raised.
   </p>
 
   <div class="informalexample">

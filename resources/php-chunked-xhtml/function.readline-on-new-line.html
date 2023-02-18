@@ -26,20 +26,23 @@
   <div id="layout-content"><div id="function.readline-on-new-line" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">readline_on_new_line</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">readline_on_new_line</span> &mdash; <span class="dc-title">Inform readline that the cursor has moved to a new line</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">readline_on_new_line</span> &mdash; <span class="dc-title">Inform readline that the cursor has moved to a new line</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.readline-on-new-line-description">
   <h3 class="title">Description</h3>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>readline_on_new_line</strong></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>readline_on_new_line</strong></span>(): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Tells readline that the cursor has moved to a new line.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.readline-on-new-line-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -50,5 +53,15 @@
   </p>
  </div>
 
+
+ <div class="refsect1 notes" id="refsect1-function.readline-on-new-line-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    This function is only available if supported by the underlying readline library.
+    It is not supported on Windows.
+   </p>
+  </p></blockquote>
+ </div>
 
 </div></div></div></body></html>

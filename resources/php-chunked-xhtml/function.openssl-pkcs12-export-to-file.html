@@ -26,25 +26,19 @@
   <div id="layout-content"><div id="function.openssl-pkcs12-export-to-file" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_pkcs12_export_to_file</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.2, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_pkcs12_export_to_file</span> &mdash; <span class="dc-title">Exports a PKCS#12 Compatible Certificate Store File</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.2, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_pkcs12_export_to_file</span> &mdash; <span class="dc-title">Exports a PKCS#12 Compatible Certificate Store File</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-pkcs12-export-to-file-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_pkcs12_export_to_file</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$x509</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$priv_key</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$pass</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>openssl_pkcs12_export_to_file</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type"><a href="class.opensslcertificate.html" class="type OpenSSLCertificate">OpenSSLCertificate</a></span>|<span class="type">string</span></span> <code class="parameter">$certificate</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$output_filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type"><a href="class.opensslasymmetrickey.html" class="type OpenSSLAsymmetricKey">OpenSSLAsymmetricKey</a></span>|<span class="type"><a href="class.opensslcertificate.html" class="type OpenSSLCertificate">OpenSSLCertificate</a></span>|<span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$private_key</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$passphrase</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_pkcs12_export_to_file()</strong></span> stores
-   <code class="parameter">x509</code> into a file named by
-   <code class="parameter">filename</code> in a PKCS#12 file format.
+   <code class="parameter">certificate</code> into a file named by
+   <code class="parameter">output_filename</code> in a PKCS#12 file format.
   </p>
  </div>
 
@@ -53,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
  <dt>
 <code class="parameter">x509</code></dt>
@@ -68,7 +61,7 @@
 
     
      <dt>
-<code class="parameter">filename</code></dt>
+<code class="parameter">output_filename</code></dt>
 
      <dd>
 
@@ -80,7 +73,7 @@
     
     
      <dt>
-<code class="parameter">priv_key</code></dt>
+<code class="parameter">private_key</code></dt>
 
      <dd>
 
@@ -93,7 +86,7 @@
     
     
      <dt>
-<code class="parameter">pass</code></dt>
+<code class="parameter">passphrase</code></dt>
 
      <dd>
 
@@ -105,7 +98,7 @@
     
     
      <dt>
-<code class="parameter">args</code></dt>
+<code class="parameter">options</code></dt>
 
      <dd>
 
@@ -153,5 +146,42 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.openssl-pkcs12-export-to-file-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">certificate</code> accepts an <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL X.509 CSR</code> was accepted.
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">private_key</code> accepts an <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span>
+       or <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL key</code> or <code class="literal">OpenSSL X.509</code>
+       was accepted.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
 
 </div></div></div></body></html>

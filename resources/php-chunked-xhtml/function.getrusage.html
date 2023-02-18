@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.getrusage" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">getrusage</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">getrusage</span> &mdash; <span class="dc-title">Gets the current resource usages</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">getrusage</span> &mdash; <span class="dc-title">Gets the current resource usages</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.getrusage-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>getrusage</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>getrusage</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0</span></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    This is an interface to <strong class="command">getrusage(2)</strong>. It gets data returned
@@ -48,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">mode</code></dt>
@@ -78,23 +75,6 @@
  </div>
 
 
- <div class="refsect1 examples" id="refsect1-function.getrusage-examples">
-  <h3 class="title">Examples</h3>
-  <p class="para">
-   <div class="example" id="example-544">
-    <p><strong>Example #1 <span class="function"><strong>getrusage()</strong></span> example</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$dat&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">getrusage</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_oublock"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;block&nbsp;output&nbsp;operations<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_inblock"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;block&nbsp;input&nbsp;operations<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_msgsnd"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;IPC&nbsp;messages&nbsp;sent<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_msgrcv"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;IPC&nbsp;messages&nbsp;received<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_maxrss"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;maximum&nbsp;resident&nbsp;set&nbsp;size<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_ixrss"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;integral&nbsp;shared&nbsp;memory&nbsp;size<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_idrss"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;integral&nbsp;unshared&nbsp;data&nbsp;size<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_minflt"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;page&nbsp;reclaims&nbsp;(soft&nbsp;page&nbsp;faults)<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_majflt"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;page&nbsp;faults&nbsp;(hard&nbsp;page&nbsp;faults)<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_nsignals"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;signals&nbsp;received<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_nvcsw"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;voluntary&nbsp;context&nbsp;switches<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_nivcsw"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;involuntary&nbsp;context&nbsp;switches<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_nswap"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;swaps<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_utime.tv_usec"</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;user&nbsp;time&nbsp;used&nbsp;(microseconds)<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_utime.tv_sec"</span><span style="color: #007700">];&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;user&nbsp;time&nbsp;used&nbsp;(seconds)<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_stime.tv_usec"</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;system&nbsp;time&nbsp;used&nbsp;(microseconds)<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-   </div>
-  </p>
- </div>
-
-
  <div class="refsect1 changelog" id="refsect1-function.getrusage-changelog">
   <h3 class="title">Changelog</h3>
   <p class="para">
@@ -120,6 +100,23 @@
     
    </table>
 
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.getrusage-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-559">
+    <p><strong>Example #1 <span class="function"><strong>getrusage()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$dat&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">getrusage</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_oublock"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;block&nbsp;output&nbsp;operations<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_inblock"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;block&nbsp;input&nbsp;operations<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_msgsnd"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;IPC&nbsp;messages&nbsp;sent<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_msgrcv"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;IPC&nbsp;messages&nbsp;received<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_maxrss"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;maximum&nbsp;resident&nbsp;set&nbsp;size<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_ixrss"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;integral&nbsp;shared&nbsp;memory&nbsp;size<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_idrss"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;integral&nbsp;unshared&nbsp;data&nbsp;size<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_minflt"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;page&nbsp;reclaims&nbsp;(soft&nbsp;page&nbsp;faults)<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_majflt"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;page&nbsp;faults&nbsp;(hard&nbsp;page&nbsp;faults)<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_nsignals"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;signals&nbsp;received<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_nvcsw"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;voluntary&nbsp;context&nbsp;switches<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_nivcsw"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;involuntary&nbsp;context&nbsp;switches<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_nswap"</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;number&nbsp;of&nbsp;swaps<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_utime.tv_usec"</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;user&nbsp;time&nbsp;used&nbsp;(microseconds)<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_utime.tv_sec"</span><span style="color: #007700">];&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;user&nbsp;time&nbsp;used&nbsp;(seconds)<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$dat</span><span style="color: #007700">[</span><span style="color: #DD0000">"ru_stime.tv_usec"</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;system&nbsp;time&nbsp;used&nbsp;(microseconds)<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
   </p>
  </div>
 

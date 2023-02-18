@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.imap-msgno" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imap_msgno</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imap_msgno</span> &mdash; <span class="dc-title">Gets the message sequence number for the given UID</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imap_msgno</span> &mdash; <span class="dc-title">Gets the message sequence number for the given UID</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imap-msgno-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imap_msgno</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$message_uid</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>imap_msgno</strong></span>(<span class="methodparam"><span class="type"><a href="class.imap-connection.html" class="type IMAP\Connection">IMAP\Connection</a></span> <code class="parameter">$imap</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$message_uid</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Returns the message sequence number for the given 
@@ -50,13 +47,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-imap</code></dt>
+
+<code class="parameter">imap</code></dt>
 <dd>
-<p class="para">An IMAP stream returned by
-<span class="function"><a href="function.imap-open.html" class="function">imap_open()</a></span>.</p></dd>
+<p class="para">An <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span> instance.</p></dd>
 
     
      <dt>
@@ -83,6 +78,35 @@ imap</code></dt>
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imap-msgno-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">imap</code> parameter expects an <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+ 
  <div class="refsect1 seealso" id="refsect1-function.imap-msgno-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">

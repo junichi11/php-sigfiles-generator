@@ -28,13 +28,13 @@
  <h1 class="title">The SessionIdInterface interface</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.1, PHP 7)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.1, PHP 7, PHP 8)</p>
 
 
   <div class="section" id="sessionidinterface.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-    <strong class="classname">SessionIdInterface</strong> is an interface which defines optional methods
+    <span class="classname"><strong class="classname">SessionIdInterface</strong></span> is an interface which defines optional methods
     for creating a custom session handler. In order to pass a custom
     session handler to <span class="function"><a href="function.session-set-save-handler.html" class="function">session_set_save_handler()</a></span> using its
     <abbr class="abbrev">OOP</abbr> invocation, the class can implement this interface.
@@ -47,25 +47,21 @@
 
 
   <div class="section" id="sessionidinterface.synopsis">
-   <h2 class="title">Class synopsis</h2>
+   <h2 class="title">Interface synopsis</h2>
 
 
    <div class="classsynopsis">
-    <div class="ooclass"></div>
-
+    <div class="ooclass">
+     
+    </div>
 
     <div class="classsynopsisinfo">
-     <span class="ooclass">
-      <strong class="classname">SessionIdInterface</strong>
-     </span>
-     {</div>
+     <span class="oointerface">
+      <span class="modifier">interface</span> <strong class="interfacename">SessionIdInterface</strong></span> {</div>
 
-    
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a href="sessionidinterface.create-sid.html" class="methodname">create_sid</a></span>
-    (
-   ) : <span class="type">string</span></div>
+   <span class="modifier">public</span> <span class="methodname"><a href="sessionidinterface.create-sid.html" class="methodname">create_sid</a></span>(): <span class="type">string</span></div>
 
    }</div>
 

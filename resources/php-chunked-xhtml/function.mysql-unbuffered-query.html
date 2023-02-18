@@ -34,8 +34,7 @@
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="para">This extension was deprecated in PHP 5.5.0, and it was removed in PHP 7.0.0.
 Instead, the <a href="book.mysqli.html" class="link">MySQLi</a> or <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> extension should be used.
-See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide and
-<a href="faq.databases.html#faq.databases.mysql.deprecated" class="link">related FAQ</a> for more information.
+See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide.
 Alternatives to this function include:</p>
    <ul class="simplelist">
     <li class="member">See: <a href="mysqlinfo.concepts.buffering.html" class="link">Buffered and Unbuffered queries</a></li>
@@ -46,10 +45,7 @@ Alternatives to this function include:</p>
  <div class="refsect1 description" id="refsect1-function.mysql-unbuffered-query-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysql_unbuffered_query</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
-   ) : <span class="type">resource</span></div>
+   <span class="methodname"><strong>mysql_unbuffered_query</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>): <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>mysql_unbuffered_query()</strong></span> sends the SQL query
@@ -72,7 +68,6 @@ Alternatives to this function include:</p>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">query</code></dt>
@@ -89,8 +84,8 @@ Alternatives to this function include:</p>
 
     
     <dt>
-<code class="parameter">
-link_identifier</code></dt>
+
+<code class="parameter">link_identifier</code></dt>
 <dd>
 <p class="para">The MySQL connection. If the
 link identifier is not specified, the last link opened by

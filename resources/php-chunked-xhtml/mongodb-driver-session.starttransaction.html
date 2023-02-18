@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-mongodb-driver-session.starttransaction-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Session::startTransaction</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Session::startTransaction</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = ?</span></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Starts a multi-document transaction associated with the session. At any given
@@ -60,7 +58,6 @@
  <div class="refsect1 parameters" id="refsect1-mongodb-driver-session.starttransaction-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">options</code></dt>
@@ -108,7 +105,7 @@
          
          <tr>
           <td>readConcern</td>
-          <td><a href="class.mongodb-driver-readconcern.html" class="classname">MongoDB\Driver\ReadConcern</a></td>
+          <td><span class="classname"><a href="class.mongodb-driver-readconcern.html" class="classname">MongoDB\Driver\ReadConcern</a></span></td>
           <td>
            <p class="para">
             A read concern to apply to the operation.
@@ -125,7 +122,7 @@
          
          <tr>
           <td>readPreference</td>
-          <td><a href="class.mongodb-driver-readpreference.html" class="classname">MongoDB\Driver\ReadPreference</a></td>
+          <td><span class="classname"><a href="class.mongodb-driver-readpreference.html" class="classname">MongoDB\Driver\ReadPreference</a></span></td>
           <td>
            <p class="para">
             A read preference to use for selecting a server for the operation.
@@ -137,7 +134,7 @@
          
          <tr>
           <td>writeConcern</td>
-          <td><a href="class.mongodb-driver-writeconcern.html" class="classname">MongoDB\Driver\WriteConcern</a></td>
+          <td><span class="classname"><a href="class.mongodb-driver-writeconcern.html" class="classname">MongoDB\Driver\WriteConcern</a></span></td>
           <td>
            <p class="para">
             A write concern to apply to the operation.
@@ -170,9 +167,9 @@
  <div class="refsect1 errors" id="refsect1-mongodb-driver-session.starttransaction-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <ul class="simplelist">
-   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> on argument parsing errors.</li>
-   <li class="member">Throws <a href="class.mongodb-driver-exception-commandexception.html" class="classname">MongoDB\Driver\Exception\CommandException</a> if the transaction could not be started because of a server-side problem (e.g. a lock could not be obtained).</li>
-   <li class="member">Throws <a href="class.mongodb-driver-exception-runtimeexception.html" class="classname">MongoDB\Driver\Exception\RuntimeException</a> if the transaction could not be started (e.g. a transaction was already started).</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a></span> on argument parsing errors.</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-commandexception.html" class="classname">MongoDB\Driver\Exception\CommandException</a></span> if the transaction could not be started because of a server-side problem (e.g. a lock could not be obtained).</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-runtimeexception.html" class="classname">MongoDB\Driver\Exception\RuntimeException</a></span> if the transaction could not be started (e.g. a transaction was already started).</li>
   </ul>
  </div>
 

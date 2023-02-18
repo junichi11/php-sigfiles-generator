@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.php-sapi-name" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">php_sapi_name</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">php_sapi_name</span> &mdash; <span class="dc-title">Returns the type of interface between web server and PHP</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">php_sapi_name</span> &mdash; <span class="dc-title">Returns the type of interface between web server and PHP</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.php-sapi-name-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>php_sapi_name</strong></span>
-    (
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>php_sapi_name</strong></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="simpara">
    Returns a lowercase string that describes the type of interface
@@ -44,6 +42,12 @@
    values depending on the exact SAPI used. Possible values are listed
    below.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.php-sapi-name-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -68,7 +72,7 @@
  <div class="refsect1 examples" id="refsect1-function.php-sapi-name-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-553">
+   <div class="example" id="example-568">
     <p><strong>Example #1 <span class="function"><strong>php_sapi_name()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This example checks for the substring <code class="literal">cgi</code>

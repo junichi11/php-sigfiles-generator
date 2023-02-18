@@ -55,8 +55,8 @@ declare (directive)
   <a href="control-structures.declare.html#control-structures.declare.encoding" class="link">encoding</a>
   directive) and the <code class="literal">strict_types</code> directive (See for more
   information the
-  <a href="language.types.declarations.html#language.types.declarations.strict" class="link">strict</a>
-  section on the Function arguments page)
+  <a href="language.types.declarations.html#language.types.declarations.strict" class="link">strict typing</a>
+  section on the type declarations page)
  </p>
 
  <p class="para">
@@ -121,19 +121,7 @@ declare (directive)
    <p><strong>Example #1 Tick usage example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">declare(</span><span style="color: #0000BB">ticks</span><span style="color: #007700">=</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;A&nbsp;function&nbsp;called&nbsp;on&nbsp;each&nbsp;tick&nbsp;event<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">tick_handler</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"tick_handler()&nbsp;called\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">register_tick_function</span><span style="color: #007700">(</span><span style="color: #DD0000">'tick_handler'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /><br />if&nbsp;(</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;print(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-   </div>
-
-  </div>
- </p>
- <p class="para">
-  <div class="example" id="example-139">
-   <p><strong>Example #2 Ticks usage example</strong></p>
-   <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">tick_handler</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"tick_handler()&nbsp;called\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">tick_handler</span><span style="color: #007700">();<br /><br />if&nbsp;(</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">tick_handler</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;print(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">tick_handler</span><span style="color: #007700">();<br />}<br /></span><span style="color: #0000BB">tick_handler</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">declare(</span><span style="color: #0000BB">ticks</span><span style="color: #007700">=</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;A&nbsp;function&nbsp;called&nbsp;on&nbsp;each&nbsp;tick&nbsp;event<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">tick_handler</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"tick_handler()&nbsp;called\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">register_tick_function</span><span style="color: #007700">(</span><span style="color: #DD0000">'tick_handler'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;causes&nbsp;a&nbsp;tick&nbsp;event<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;causes&nbsp;a&nbsp;tick&nbsp;event<br /><br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;causes&nbsp;a&nbsp;tick&nbsp;event<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">print(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;causes&nbsp;a&nbsp;tick&nbsp;event<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -149,8 +137,8 @@ declare (directive)
   <h3 class="title">Encoding</h3>
   <p class="para">
     A script&#039;s encoding can be specified per-script using the <code class="literal">encoding</code> directive.
-  <div class="example" id="example-140">
-   <p><strong>Example #3 Declaring an encoding for the script.</strong></p>
+  <div class="example" id="example-139">
+   <p><strong>Example #2 Declaring an encoding for the script.</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">declare(</span><span style="color: #0000BB">encoding</span><span style="color: #007700">=</span><span style="color: #DD0000">'ISO-8859-1'</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;code&nbsp;here<br /></span><span style="color: #0000BB">?&gt;</span>

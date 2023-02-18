@@ -56,7 +56,7 @@
    </p>
 
    <p class="para">
-    <div class="example" id="example-422">
+    <div class="example" id="example-438">
      <p><strong>Example #1 File Upload Form</strong></p>
      <div class="example-contents"><p>
       A file upload screen can be built by creating a special form which
@@ -105,7 +105,6 @@
     the file upload name <em class="emphasis">userfile</em>, as used in the example 
     script above. This can be any name.
     <dl>
-
      
       <dt>
 <var class="varname"><a href="reserved.variables.files.html" class="classname">$_FILES['userfile']['name']</a></var></dt>
@@ -172,6 +171,19 @@
       </dd>
 
      
+     
+      <dt>
+<var class="varname"><a href="reserved.variables.files.html" class="classname">$_FILES['userfile']['full_path']</a></var></dt>
+
+      <dd>
+
+       <p class="para">
+        The full path as submitted by the browser. This value does not always contain a real directory structure, and cannot be trusted.
+        Available as of PHP 8.1.0.
+       </p>
+      </dd>
+
+     
     </dl>
 
    </p>
@@ -186,7 +198,7 @@
     script will not work. This environment variable can also be used
     to make sure that other operations are working on uploaded files,
     as well.
-    <div class="example" id="example-423">
+    <div class="example" id="example-439">
      <p><strong>Example #2 Validating file uploads</strong></p>
      <div class="example-contents"><p>
       See also the function entries for <span class="function"><a href="function.is-uploaded-file.html" class="function">is_uploaded_file()</a></span> 
@@ -228,7 +240,7 @@
     The file will be deleted from the temporary directory at the end
     of the request if it has not been moved away or renamed.
    </p>
-    <div class="example" id="example-424">
+    <div class="example" id="example-440">
      <p><strong>Example #3 Uploading array of files</strong></p>
      <div class="example-contents"><p>
       PHP supports <a href="faq.html.html#faq.html.arrays" class="link">HTML array feature</a>

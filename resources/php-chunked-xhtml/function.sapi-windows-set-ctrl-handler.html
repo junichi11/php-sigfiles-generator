@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.sapi-windows-set-ctrl-handler" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sapi_windows_set_ctrl_handler</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.4.0)</p><p class="refpurpose"><span class="refname">sapi_windows_set_ctrl_handler</span> &mdash; <span class="dc-title">Set or remove a CTRL event handler</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.4.0, PHP 8)</p><p class="refpurpose"><span class="refname">sapi_windows_set_ctrl_handler</span> &mdash; <span class="dc-title">Set or remove a CTRL event handler</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.sapi-windows-set-ctrl-handler-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>sapi_windows_set_ctrl_handler</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callable</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$add</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>sapi_windows_set_ctrl_handler</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span><span class="type"></span></span> <code class="parameter">$handler</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$add</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Sets or removes a <code class="literal">CTRL</code> event handler, which allows Windows
@@ -50,10 +47,9 @@
  <div class="refsect1 parameters" id="refsect1-function.sapi-windows-set-ctrl-handler-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
-<code class="parameter">callable</code></dt>
+<code class="parameter">handler</code></dt>
 
     <dd>
 
@@ -62,12 +58,9 @@
       whenever a <code class="literal">CTRL+C</code> or <code class="literal">CTRL+BREAK</code> event
       occurs. The function is supposed to have the following signature:
       <div class="methodsynopsis dc-description">
-       <span class="methodname"><strong>handler</strong></span>
-        ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$event</code></span>
-       ) : <span class="type"><span class="type void">void</span></span></div>
+       <span class="methodname"><strong>handler</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$event</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
       <dl>
-
        
         <dt>
 <code class="parameter">event</code></dt>
@@ -84,7 +77,7 @@
        
       </dl>
 
-      Setting a <strong><code>null</code></strong> <code class="parameter">callable</code> causes the process to ignore
+      Setting a <strong><code>null</code></strong> <code class="parameter">handler</code> causes the process to ignore
       <code class="literal">CTRL+C</code> events, but not <code class="literal">CTRL+BREAK</code> events.
      </p>
     </dd>
@@ -117,7 +110,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.sapi-windows-set-ctrl-handler-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4005">
+  <div class="example" id="sapi-windows-set-ctrl-handler.example.basic">
    <p><strong>Example #1 Basic <span class="function"><strong>sapi_windows_set_ctrl_handler()</strong></span> Usage</strong></p>
    <div class="example-contents"><p>
      This example shows how to intercept <code class="literal">CTRL</code> events.

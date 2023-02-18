@@ -34,7 +34,6 @@
     the Zend engine, and SAPI modules.
    </p>
    <dl>
-
     
      <dt id="constant.php-version">
       <strong><code>PHP_VERSION</code></strong> 
@@ -60,7 +59,7 @@
 
       <span class="simpara">
        The current PHP &quot;major&quot; version as an integer (e.g., int(5) 
-       from version &quot;5.2.7-extra&quot;). Available since PHP 5.2.7.
+       from version &quot;5.2.7-extra&quot;).
       </span>
      </dd>
 
@@ -75,7 +74,7 @@
 
       <span class="simpara">
        The current PHP &quot;minor&quot; version as an integer (e.g., int(2) 
-       from version &quot;5.2.7-extra&quot;). Available since PHP 5.2.7.
+       from version &quot;5.2.7-extra&quot;).
       </span>
      </dd>
 
@@ -90,7 +89,7 @@
 
       <span class="simpara">
        The current PHP &quot;release&quot; version as an integer (e.g., int(7) 
-       from version &quot;5.2.7-extra&quot;). Available since PHP 5.2.7.
+       from version &quot;5.2.7-extra&quot;).
       </span>
      </dd>
 
@@ -106,7 +105,6 @@
       <span class="simpara">
        The current PHP version as an integer, useful for 
        version comparisons (e.g., int(50207) from version &quot;5.2.7-extra&quot;).
-       Available since PHP 5.2.7.
       </span>
      </dd>
 
@@ -122,8 +120,7 @@
       <span class="simpara">
        The current PHP &quot;extra&quot; version as a string (e.g., &#039;-extra&#039;
        from version &quot;5.2.7-extra&quot;). Often used by distribution
-       vendors to indicate a package version. Available since
-       PHP 5.2.7.
+       vendors to indicate a package version.
       </span>
      </dd>
 
@@ -137,7 +134,7 @@
      <dd>
 
       <span class="simpara">
-       Available since PHP 5.2.7.
+
       </span>
      </dd>
 
@@ -151,7 +148,7 @@
      <dd>
 
       <span class="simpara">
-       Available since PHP 5.2.7.
+
       </span>
      </dd>
 
@@ -166,7 +163,7 @@
 
       <span class="simpara">
        The maximum length of filenames (including path) supported
-       by this build of PHP. Available since PHP 5.3.0.
+       by this build of PHP.
       </span>
      </dd>
 
@@ -228,7 +225,6 @@
 
       <span class="simpara">
        The correct &#039;End Of Line&#039; symbol for this platform.
-       Available since PHP 5.0.2
       </span>
      </dd>
 
@@ -244,7 +240,6 @@
       <span class="simpara">
        The largest integer supported in this build of PHP. Usually int(2147483647)
        in 32 bit systems and int(9223372036854775807) in 64 bit systems.
-       Available since PHP 5.0.5
       </span>
      </dd>
 
@@ -259,7 +254,7 @@
 
       <span class="simpara">
        The smallest integer supported in this build of PHP. Usually int(-2147483648) in 32 bit systems and
-       int(-9223372036854775808) in 64 bit systems. Available since PHP 7.0.0.
+       int(-9223372036854775808) in 64 bit systems.
        Usually, PHP_INT_MIN === ~PHP_INT_MAX.
       </span>
      </dd>
@@ -274,7 +269,7 @@
      <dd>
 
       <span class="simpara">
-       The size of an integer in bytes in this build of PHP. Available since PHP 5.0.5
+       The size of an integer in bytes in this build of PHP.
       </span>
      </dd>
 
@@ -393,7 +388,9 @@
      <dd>
 
       <span class="simpara">
-       
+       The default directory where to look for dynamically loadable extensions
+       (unless overridden by <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a>).
+       Defaults to <strong><code>PHP_PREFIX</code></strong> (or <code class="code">PHP_PREFIX . &quot;\\ext&quot;</code> on Windows).
       </span>
      </dd>
 
@@ -407,7 +404,9 @@
      <dd>
 
       <span class="simpara">
-       The value &quot;--prefix&quot; was set to at configure.
+       The value <strong class="option configure">--prefix</strong> was set to at configure.
+       On Windows, it is the value <strong class="option configure">--with-prefix</strong>
+       was set to at configure.
       </span>
      </dd>
 
@@ -421,7 +420,9 @@
      <dd>
 
       <span class="simpara">
-       Specifies where the binaries were installed into.
+       The value <strong class="option configure">--bindir</strong> was set to at configure.
+       On Windows, it is the value <strong class="option configure">--with-prefix</strong>
+       was set to at configure.
       </span>
      </dd>
 
@@ -436,7 +437,6 @@
 
       <span class="simpara">
        Specifies the PHP binary path during script execution.
-       Available since PHP 5.4.
       </span>
      </dd>
 
@@ -451,7 +451,6 @@
 
       <span class="simpara">
        Specifies where the manpages were installed into.
-       Available since PHP 5.3.7.
       </span>
      </dd>
 
@@ -734,7 +733,6 @@
 
       <span class="simpara">
        <a href="errorfunc.constants.html" class="link">Error reporting constant</a>.
-       Available since PHP 5.2.0
       </span>
      </dd>
 
@@ -749,7 +747,6 @@
 
       <span class="simpara">
        <a href="errorfunc.constants.html" class="link">Error reporting constant</a>.
-       Available since PHP 5.3.0
       </span>
      </dd>
 
@@ -764,7 +761,6 @@
 
       <span class="simpara">
        <a href="errorfunc.constants.html" class="link">Error reporting constant</a>.
-       Available since PHP 5.3.0
       </span>
      </dd>
 
@@ -806,7 +802,7 @@
      <dd>
 
       <span class="simpara">
-       Available since PHP 5.1.0
+
       </span>
      </dd>
 
@@ -886,7 +882,7 @@
    </dl>
 
    <p class="para">
-    See also: <a href="language.constants.predefined.html" class="link">Magic
+    See also: <a href="language.constants.magic.html" class="link">Magic
     constants</a>.
    </p>
  </div>

@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.flock" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">flock</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">flock</span> &mdash; <span class="dc-title">Portable advisory file locking</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">flock</span> &mdash; <span class="dc-title">Portable advisory file locking</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.flock-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>flock</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$operation</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$would_block</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>flock</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$operation</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$would_block</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>flock()</strong></span> allows you to perform a simple reader/writer
@@ -45,9 +41,8 @@
    derivatives and even Windows).
   </p>
   <p class="para">
-   On versions of PHP before 5.3.2, the lock is released also by
-   <span class="function"><a href="function.fclose.html" class="function">fclose()</a></span> (which is also called automatically when script
-   finished).
+   The lock is released also by <span class="function"><a href="function.fclose.html" class="function">fclose()</a></span>,
+   or when <code class="parameter">stream</code> is garbage collected.
   </p>
   <p class="para">
    PHP supports a portable way of locking complete files in an advisory way
@@ -62,7 +57,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">stream</code></dt>
@@ -138,7 +132,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
  <div class="refsect1 examples" id="refsect1-function.flock-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2652">
+   <div class="example" id="example-2164">
     <p><strong>Example #1 <span class="function"><strong>flock()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -150,7 +144,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2653">
+   <div class="example" id="example-2165">
     <p><strong>Example #2 <span class="function"><strong>flock()</strong></span> using the <strong><code>LOCK_NB</code></strong> option</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -211,6 +205,12 @@ that is typically created using <span class="function"><a href="function.fopen.h
     return <strong><code>false</code></strong> under these environments.
    </p>
   </div>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    On Windows, if the locking process opens the file a second time, it cannot
+    access the file through this second handle until it unlocks the file.
+   </p>
+  </p></blockquote>
  </div>
 
  

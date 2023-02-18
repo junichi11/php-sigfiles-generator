@@ -33,11 +33,7 @@
  <div class="refsect1 description" id="refsect1-mongodb-driver-manager.executereadwritecommand-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Manager::executeReadWriteCommand</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>
-   , <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-   ) : <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Manager::executeReadWriteCommand</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
 
   <p class="para rdfs-comment">
    Executes the command on the primary server.
@@ -58,7 +54,6 @@
  <div class="refsect1 parameters" id="refsect1-mongodb-driver-manager.executereadwritecommand-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
    
     <dt>
@@ -76,7 +71,7 @@
    
    
     <dt>
-<code class="parameter">command</code> (<a href="class.mongodb-driver-command.html" class="classname">MongoDB\Driver\Command</a>)</dt>
+<code class="parameter">command</code> (<span class="classname"><a href="class.mongodb-driver-command.html" class="classname">MongoDB\Driver\Command</a></span>)</dt>
 
     <dd>
 
@@ -110,7 +105,7 @@
          
          <tr>
           <td>readConcern</td>
-          <td><a href="class.mongodb-driver-readconcern.html" class="classname">MongoDB\Driver\ReadConcern</a></td>
+          <td><span class="classname"><a href="class.mongodb-driver-readconcern.html" class="classname">MongoDB\Driver\ReadConcern</a></span></td>
           <td>
            <p class="para">
             A read concern to apply to the operation.
@@ -127,7 +122,7 @@
          
          <tr>
           <td>session</td>
-          <td><a href="class.mongodb-driver-session.html" class="classname">MongoDB\Driver\Session</a></td>
+          <td><span class="classname"><a href="class.mongodb-driver-session.html" class="classname">MongoDB\Driver\Session</a></span></td>
           <td>
            <p class="para">
             A session to associate with the operation.
@@ -139,7 +134,7 @@
          
          <tr>
           <td>writeConcern</td>
-          <td><a href="class.mongodb-driver-writeconcern.html" class="classname">MongoDB\Driver\WriteConcern</a></td>
+          <td><span class="classname"><a href="class.mongodb-driver-writeconcern.html" class="classname">MongoDB\Driver\WriteConcern</a></span></td>
           <td>
            <p class="para">
             A write concern to apply to the operation.
@@ -159,7 +154,7 @@
        If you are using a <code class="literal">&quot;session&quot;</code> which has a transaction
        in progress, you cannot specify a <code class="literal">&quot;readConcern&quot;</code> or
        <code class="literal">&quot;writeConcern&quot;</code> option. This will result in an
-       <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a>
+       <span class="classname"><a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a></span>
        being thrown. Instead, you should set these two options when you create
        the transaction with
        <span class="methodname"><a href="mongodb-driver-session.starttransaction.html" class="methodname">MongoDB\Driver\Session::startTransaction()</a></span>.
@@ -176,17 +171,17 @@
 
  <div class="refsect1 returnvalues" id="refsect1-mongodb-driver-manager.executereadwritecommand-returnvalues">
   <h3 class="title">Return Values</h3>
-  <p class="para">Returns <a href="class.mongodb-driver-cursor.html" class="classname">MongoDB\Driver\Cursor</a> on success.</p>
+  <p class="para">Returns <span class="classname"><a href="class.mongodb-driver-cursor.html" class="classname">MongoDB\Driver\Cursor</a></span> on success.</p>
  </div>
 
 
  <div class="refsect1 errors" id="refsect1-mongodb-driver-manager.executereadwritecommand-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <ul class="simplelist">
-   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> if the <code class="literal">&quot;session&quot;</code> option is used with an associated transaction in combination with a <code class="literal">&quot;readConcern&quot;</code> or <code class="literal">&quot;writeConcern&quot;</code> option.</li>
-   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> if the <code class="literal">&quot;session&quot;</code> option is used in combination with an unacknowledged write concern.</li>
-   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> on argument parsing errors.</li><li class="member">Throws <a href="class.mongodb-driver-exception-connectionexception.html" class="classname">MongoDB\Driver\Exception\ConnectionException</a> if connection to the server fails (for reasons other than authentication).</li><li class="member">Throws <a href="class.mongodb-driver-exception-authenticationexception.html" class="classname">MongoDB\Driver\Exception\AuthenticationException</a> if authentication is needed and fails.</li>
-   <li class="member">Throws <a href="class.mongodb-driver-exception-runtimeexception.html" class="classname">MongoDB\Driver\Exception\RuntimeException</a> on other errors (e.g. invalid command).</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a></span> if the <code class="literal">&quot;session&quot;</code> option is used with an associated transaction in combination with a <code class="literal">&quot;readConcern&quot;</code> or <code class="literal">&quot;writeConcern&quot;</code> option.</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a></span> if the <code class="literal">&quot;session&quot;</code> option is used in combination with an unacknowledged write concern.</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a></span> on argument parsing errors.</li><li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-connectionexception.html" class="classname">MongoDB\Driver\Exception\ConnectionException</a></span> if connection to the server fails (for reasons other than authentication).</li><li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-authenticationexception.html" class="classname">MongoDB\Driver\Exception\AuthenticationException</a></span> if authentication is needed and fails.</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-runtimeexception.html" class="classname">MongoDB\Driver\Exception\RuntimeException</a></span> on other errors (e.g. invalid command).</li>
   </ul>
  </div>
 
@@ -208,7 +203,7 @@
       <tr>
        <td>PECL mongodb 1.4.4</td>
        <td>
-        <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a>
+        <span class="classname"><a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a></span>
         will be thrown if the <code class="literal">&quot;session&quot;</code> option is used in
         combination with an unacknowledged write concern.
        </td>
@@ -225,8 +220,8 @@
  <div class="refsect1 seealso" id="refsect1-mongodb-driver-manager.executereadwritecommand-seealso">
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
-   <li class="member"><a href="class.mongodb-driver-command.html" class="classname">MongoDB\Driver\Command</a></li>
-   <li class="member"><a href="class.mongodb-driver-cursor.html" class="classname">MongoDB\Driver\Cursor</a></li>
+   <li class="member"><span class="classname"><a href="class.mongodb-driver-command.html" class="classname">MongoDB\Driver\Command</a></span></li>
+   <li class="member"><span class="classname"><a href="class.mongodb-driver-cursor.html" class="classname">MongoDB\Driver\Cursor</a></span></li>
    <li class="member"><span class="function"><a href="mongodb-driver-manager.executecommand.html" class="function" rel="rdfs-seeAlso">MongoDB\Driver\Manager::executeCommand()</a> - Execute a database command</span></li>
    <li class="member"><span class="function"><a href="mongodb-driver-manager.executereadcommand.html" class="function" rel="rdfs-seeAlso">MongoDB\Driver\Manager::executeReadCommand()</a> - Execute a database command that reads</span></li>
    <li class="member"><span class="function"><a href="mongodb-driver-manager.executewritecommand.html" class="function" rel="rdfs-seeAlso">MongoDB\Driver\Manager::executeWriteCommand()</a> - Execute a database command that writes</span></li>

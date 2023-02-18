@@ -33,15 +33,7 @@
  <div class="refsect1 description" id="refsect1-imagickdraw.pathellipticarcrelative-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ImagickDraw::pathEllipticArcRelative</strong></span>
-    ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$rx</code></span>
-   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$ry</code></span>
-   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$x_axis_rotation</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$large_arc_flag</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$sweep_flag</code></span>
-   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$x</code></span>
-   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$y</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ImagickDraw::pathEllipticArcRelative</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">float</span> <code class="parameter">$rx</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">float</span> <code class="parameter">$ry</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">float</span> <code class="parameter">$x_axis_rotation</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$large_arc_flag</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$sweep_flag</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">float</span> <code class="parameter">$x</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">float</span> <code class="parameter">$y</code></span><br>): <span class="type">bool</span></div>
 
   <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
 currently not documented; only its argument list is available.
@@ -54,8 +46,8 @@ currently not documented; only its argument list is available.
    (cx, cy) of the ellipse is calculated automatically to satisfy the
    constraints imposed by the other parameters. largeArcFlag and sweepFlag
    contribute to the automatic calculations and help determine how the arc
-   is drawn. If largeArcFlag is <strong><code>true</code></strong> then draw the larger of the available
-   arcs. If sweepFlag is true, then draw the arc matching a clock-wise
+   is drawn. If <code class="parameter">large_arc_flag</code> is <strong><code>true</code></strong> then draw the larger of the available
+   arcs. If <code class="parameter">sweep_flag</code> is true, then draw the arc matching a clock-wise
    rotation.
   </p>
  </div>
@@ -65,7 +57,6 @@ currently not documented; only its argument list is available.
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">rx</code></dt>

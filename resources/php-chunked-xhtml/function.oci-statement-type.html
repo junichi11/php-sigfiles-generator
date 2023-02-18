@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.oci-statement-type" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">oci_statement_type</h1>
-  <p class="verinfo">(PHP 5, PHP 7, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_statement_type</span> &mdash; <span class="dc-title">Returns the type of a statement</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_statement_type</span> &mdash; <span class="dc-title">Returns the type of a statement</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.oci-statement-type-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>oci_statement_type</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>oci_statement_type</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns a keyword identifying the type of the
@@ -48,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">statement</code></dt>
@@ -153,7 +150,7 @@
  <div class="refsect1 examples" id="refsect1-function.oci-statement-type-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2311">
+   <div class="example" id="example-1871">
     <p><strong>Example #1 <span class="function"><strong>oci_statement_type()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.pathinfo" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pathinfo</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.3, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pathinfo</span> &mdash; <span class="dc-title">Returns information about a file path</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.3, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pathinfo</span> &mdash; <span class="dc-title">Returns information about a file path</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.pathinfo-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pathinfo</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>PATHINFO_ALL</code></strong></span></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type">string</span></span></div>
+   <span class="methodname"><strong>pathinfo</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>PATHINFO_ALL</code></strong></span></span>): <span class="type"><span class="type">array</span>|<span class="type">string</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pathinfo()</strong></span> returns information about
@@ -48,6 +45,13 @@
     For information on retrieving the current path info, read
     the section on <a href="language.variables.predefined.html" class="link">
     predefined reserved variables</a>.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    <span class="function"><strong>pathinfo()</strong></span> operates naively on the input string,
+    and is not aware of the actual filesystem, or path components such
+    as &quot;<code class="literal">..</code>&quot;.
    </p>
   </p></blockquote>
   <div class="caution"><strong class="caution">Caution</strong>
@@ -64,7 +68,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">path</code></dt>
@@ -144,11 +147,11 @@
  <div class="refsect1 examples" id="refsect1-function.pathinfo-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2688">
+   <div class="example" id="example-2202">
     <p><strong>Example #1 <span class="function"><strong>pathinfo()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$path_parts&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pathinfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/www/htdocs/inc/lib.inc.php'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'dirname'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'basename'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'extension'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'filename'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;since&nbsp;PHP&nbsp;5.2.0<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$path_parts&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pathinfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/www/htdocs/inc/lib.inc.php'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'dirname'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'basename'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'extension'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'filename'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -165,7 +168,7 @@ lib.inc
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2689">
+   <div class="example" id="example-2203">
     <p><strong>Example #2 <span class="function"><strong>pathinfo()</strong></span> example showing difference between null and no extension</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -187,7 +190,7 @@ NULL
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2690">
+   <div class="example" id="example-2204">
     <p><strong>Example #3 <span class="function"><strong>pathinfo()</strong></span> example for a dot-file</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
