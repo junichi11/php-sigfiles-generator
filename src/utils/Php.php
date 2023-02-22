@@ -24,6 +24,7 @@ final class Php {
         'object',
         'resource',
         'string',
+        'true',
         'void',
         'static',
     ];
