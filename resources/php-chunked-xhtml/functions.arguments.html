@@ -41,11 +41,11 @@
     are also supported.
    </p>
    <p class="para">
-    <div class="example" id="example-153">
+    <div class="example" id="example-150">
      <p><strong>Example #1 Passing arrays to functions</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">takes_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$input</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$input</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]</span><span style="color: #DD0000">&nbsp;+&nbsp;</span><span style="color: #0000BB">$input</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]</span><span style="color: #DD0000">&nbsp;=&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$input</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]+</span><span style="color: #0000BB">$input</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">];<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">takes_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$input</span><span style="color: #007700">)<br />{<br />    echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$input</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]</span><span style="color: #DD0000"> + </span><span style="color: #0000BB">$input</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]</span><span style="color: #DD0000"> = "</span><span style="color: #007700">, </span><span style="color: #0000BB">$input</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]+</span><span style="color: #0000BB">$input</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">];<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -57,29 +57,11 @@
     will be ignored.  That is particularly useful in cases where the list of arguments is
     long or contains long variable names, making it convenient to list arguments vertically.
    </p>
-   <div class="example" id="example-154">
+   <div class="example" id="example-151">
     <p><strong>Example #2 Function Argument List with trailing Comma</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">takes_many_args</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$first_arg</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$second_arg</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a_very_long_argument_name</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$arg_with_default&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$again&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'a&nbsp;default&nbsp;string'</span><span style="color: #007700">,&nbsp;</span><span style="color: #FF8000">//&nbsp;This&nbsp;trailing&nbsp;comma&nbsp;was&nbsp;not&nbsp;permitted&nbsp;before&nbsp;8.0.0.<br /></span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;...<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-   </div>
-   <p class="para">
-    As of PHP 8.0.0, declaring mandatory arguments after optional arguments
-    is deprecated. This can generally be resolved by dropping the default value.
-    One exception to this rule are arguments of the form
-    <code class="code">Type $param = null</code>, where the <strong><code>null</code></strong> default makes the type implicitly
-    nullable. This usage remains allowed, though it is recommended to use an
-    explicit nullable type instead.
-   </p>
-   <div class="example" id="example-155">
-    <p><strong>Example #3 Declaring optional arguments after mandatory arguments</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;[],&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">)&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;Before<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">)&nbsp;{}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;After<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">bar</span><span style="color: #007700">(</span><span style="color: #0000BB">A&nbsp;$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">)&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;Still&nbsp;allowed<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">bar</span><span style="color: #007700">(?</span><span style="color: #0000BB">A&nbsp;$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">)&nbsp;{}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Recommended<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">takes_many_args</span><span style="color: #007700">(<br />    </span><span style="color: #0000BB">$first_arg</span><span style="color: #007700">,<br />    </span><span style="color: #0000BB">$second_arg</span><span style="color: #007700">,<br />    </span><span style="color: #0000BB">$a_very_long_argument_name</span><span style="color: #007700">,<br />    </span><span style="color: #0000BB">$arg_with_default </span><span style="color: #007700">= </span><span style="color: #0000BB">5</span><span style="color: #007700">,<br />    </span><span style="color: #0000BB">$again </span><span style="color: #007700">= </span><span style="color: #DD0000">'a default string'</span><span style="color: #007700">, </span><span style="color: #FF8000">// This trailing comma was not permitted before 8.0.0.<br /></span><span style="color: #007700">)<br />{<br />    </span><span style="color: #FF8000">// ...<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -100,11 +82,11 @@
      ampersand (&amp;) to the argument name in the function definition:
     </p>
     <p class="para">
-     <div class="example" id="example-156">
-      <p><strong>Example #4 Passing function parameters by reference</strong></p>
+     <div class="example" id="example-152">
+      <p><strong>Example #3 Passing function parameters by reference</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">add_some_extra</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$string</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$string&nbsp;</span><span style="color: #007700">.=&nbsp;</span><span style="color: #DD0000">'and&nbsp;something&nbsp;extra.'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'This&nbsp;is&nbsp;a&nbsp;string,&nbsp;'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">add_some_extra</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;outputs&nbsp;'This&nbsp;is&nbsp;a&nbsp;string,&nbsp;and&nbsp;something&nbsp;extra.'<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">add_some_extra</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$string</span><span style="color: #007700">)<br />{<br />    </span><span style="color: #0000BB">$string </span><span style="color: #007700">.= </span><span style="color: #DD0000">'and something extra.'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">$str </span><span style="color: #007700">= </span><span style="color: #DD0000">'This is a string, '</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">add_some_extra</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$str</span><span style="color: #007700">;    </span><span style="color: #FF8000">// outputs 'This is a string, and something extra.'<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -119,15 +101,17 @@
     <h3 class="title">Default argument values</h3>
  
     <p class="para">
-     A function may define C++-style default values for scalar
-     arguments as follows:
+     A function may define default values for arguments using syntax similar
+     to assigning a variable. The default is used only when the parameter is
+     not specified; in particular, note that passing <strong><code>null</code></strong> does <em class="emphasis">not</em>
+     assign the default value.
     </p>
     <p class="para">
-     <div class="example" id="example-157">
-      <p><strong>Example #5 Use of default parameters in functions</strong></p>
+     <div class="example" id="example-153">
+      <p><strong>Example #4 Use of default parameters in functions</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">(</span><span style="color: #0000BB">$type&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"cappuccino"</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"Making&nbsp;a&nbsp;cup&nbsp;of&nbsp;</span><span style="color: #0000BB">$type</span><span style="color: #DD0000">.\n"</span><span style="color: #007700">;<br />}<br />echo&nbsp;</span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">(</span><span style="color: #DD0000">"espresso"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">(</span><span style="color: #0000BB">$type </span><span style="color: #007700">= </span><span style="color: #DD0000">"cappuccino"</span><span style="color: #007700">)<br />{<br />    return </span><span style="color: #DD0000">"Making a cup of </span><span style="color: #0000BB">$type</span><span style="color: #DD0000">.\n"</span><span style="color: #007700">;<br />}<br />echo </span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">();<br />echo </span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">(</span><span style="color: #DD0000">"espresso"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -143,37 +127,49 @@ Making a cup of espresso.
      </div>
     </p>
     <p class="para">
-     PHP also allows the use of <span class="type">array</span>s and the special type <strong><code>null</code></strong>
-     as default values, for example:
+     Default parameter values may be scalar values, <span class="type">array</span>s,
+     the special type <strong><code>null</code></strong>, and as of PHP 8.1.0, objects using the
+     <a href="language.oop5.basic.html#language.oop5.basic.new" class="link">new ClassName()</a> syntax.
     </p>
     <p class="para">
-     <div class="example" id="example-158">
-      <p><strong>Example #6 Using non-scalar types as default values</strong></p>
+     <div class="example" id="example-154">
+      <p><strong>Example #5 Using non-scalar types as default values</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">(</span><span style="color: #0000BB">$types&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"cappuccino"</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$coffeeMaker&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$device&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">is_null</span><span style="color: #007700">(</span><span style="color: #0000BB">$coffeeMaker</span><span style="color: #007700">)&nbsp;?&nbsp;</span><span style="color: #DD0000">"hands"&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">$coffeeMaker</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"Making&nbsp;a&nbsp;cup&nbsp;of&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">join</span><span style="color: #007700">(</span><span style="color: #DD0000">",&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$types</span><span style="color: #007700">).</span><span style="color: #DD0000">"&nbsp;with&nbsp;</span><span style="color: #0000BB">$device</span><span style="color: #DD0000">.\n"</span><span style="color: #007700">;<br />}<br />echo&nbsp;</span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"cappuccino"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"lavazza"</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"teapot"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">(</span><span style="color: #0000BB">$types </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"cappuccino"</span><span style="color: #007700">), </span><span style="color: #0000BB">$coffeeMaker </span><span style="color: #007700">= </span><span style="color: #0000BB">NULL</span><span style="color: #007700">)<br />{<br />    </span><span style="color: #0000BB">$device </span><span style="color: #007700">= </span><span style="color: #0000BB">is_null</span><span style="color: #007700">(</span><span style="color: #0000BB">$coffeeMaker</span><span style="color: #007700">) ? </span><span style="color: #DD0000">"hands" </span><span style="color: #007700">: </span><span style="color: #0000BB">$coffeeMaker</span><span style="color: #007700">;<br />    return </span><span style="color: #DD0000">"Making a cup of "</span><span style="color: #007700">.</span><span style="color: #0000BB">join</span><span style="color: #007700">(</span><span style="color: #DD0000">", "</span><span style="color: #007700">, </span><span style="color: #0000BB">$types</span><span style="color: #007700">).</span><span style="color: #DD0000">" with </span><span style="color: #0000BB">$device</span><span style="color: #DD0000">.\n"</span><span style="color: #007700">;<br />}<br />echo </span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">();<br />echo </span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"cappuccino"</span><span style="color: #007700">, </span><span style="color: #DD0000">"lavazza"</span><span style="color: #007700">), </span><span style="color: #DD0000">"teapot"</span><span style="color: #007700">);</span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
 
      </div>
-    
+    </p>
+    <p class="para">
+     <div class="example" id="example-155">
+      <p><strong>Example #6 Using objects as default values (as of PHP 8.1.0)</strong></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">DefaultCoffeeMaker </span><span style="color: #007700">{<br />    public function </span><span style="color: #0000BB">brew</span><span style="color: #007700">() {<br />        return </span><span style="color: #DD0000">'Making coffee.'</span><span style="color: #007700">;<br />    }<br />}<br />class </span><span style="color: #0000BB">FancyCoffeeMaker </span><span style="color: #007700">{<br />    public function </span><span style="color: #0000BB">brew</span><span style="color: #007700">() {<br />        return </span><span style="color: #DD0000">'Crafting a beautiful coffee just for you.'</span><span style="color: #007700">;<br />    }<br />}<br />function </span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">(</span><span style="color: #0000BB">$coffeeMaker </span><span style="color: #007700">= new </span><span style="color: #0000BB">DefaultCoffeeMaker</span><span style="color: #007700">)<br />{<br />    return </span><span style="color: #0000BB">$coffeeMaker</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">brew</span><span style="color: #007700">();<br />}<br />echo </span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">();<br />echo </span><span style="color: #0000BB">makecoffee</span><span style="color: #007700">(new </span><span style="color: #0000BB">FancyCoffeeMaker</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
     </p>
     <p class="simpara">
      The default value must be a constant expression, not (for
      example) a variable, a class member or a function call.
     </p>
     <p class="para">
-     Note that when using default arguments, any defaults should be on
-     the right side of any non-default arguments; otherwise, things
-     will not work as expected. Consider the following code snippet:
+     Note that any optional arguments should be specified after any
+     required arguments, otherwise they cannot be omitted from calls.
+     Consider the following example:
     </p>
     <p class="para">
-     <div class="example" id="example-159">
+     <div class="example" id="example-156">
       <p><strong>Example #7 Incorrect usage of default function arguments</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">makeyogurt</span><span style="color: #007700">(</span><span style="color: #0000BB">$type&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"acidophilus"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$flavour</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"Making&nbsp;a&nbsp;bowl&nbsp;of&nbsp;</span><span style="color: #0000BB">$type</span><span style="color: #DD0000">&nbsp;</span><span style="color: #0000BB">$flavour</span><span style="color: #DD0000">.\n"</span><span style="color: #007700">;<br />}<br />&nbsp;<br />echo&nbsp;</span><span style="color: #0000BB">makeyogurt</span><span style="color: #007700">(</span><span style="color: #DD0000">"raspberry"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;won't&nbsp;work&nbsp;as&nbsp;expected<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">makeyogurt</span><span style="color: #007700">(</span><span style="color: #0000BB">$container </span><span style="color: #007700">= </span><span style="color: #DD0000">"bowl"</span><span style="color: #007700">, </span><span style="color: #0000BB">$flavour</span><span style="color: #007700">)<br />{<br />    return </span><span style="color: #DD0000">"Making a </span><span style="color: #0000BB">$container</span><span style="color: #DD0000"> of </span><span style="color: #0000BB">$flavour</span><span style="color: #DD0000"> yogurt.\n"</span><span style="color: #007700">;<br />}<br /> <br />echo </span><span style="color: #0000BB">makeyogurt</span><span style="color: #007700">(</span><span style="color: #DD0000">"raspberry"</span><span style="color: #007700">); </span><span style="color: #FF8000">// "raspberry" is $container, not $flavour<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -181,9 +177,8 @@ Making a cup of espresso.
       <div class="example-contents"><p>The above example will output:</p></div>
       <div class="example-contents screen">
 <div class="cdata"><pre>
-Warning: Missing argument 2 in call to makeyogurt() in 
-/usr/local/etc/httpd/htdocs/phptest/functest.html on line 41
-Making a bowl of raspberry .
+Fatal error: Uncaught ArgumentCountError: Too few arguments
+ to function makeyogurt(), 1 passed in example.php on line 42
 </pre></div>
       </div>
      </div>
@@ -192,11 +187,11 @@ Making a bowl of raspberry .
      Now, compare the above with this:
     </p>
     <p class="para">
-     <div class="example" id="example-160">
+     <div class="example" id="example-157">
       <p><strong>Example #8 Correct usage of default function arguments</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">makeyogurt</span><span style="color: #007700">(</span><span style="color: #0000BB">$flavour</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$type&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"acidophilus"</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"Making&nbsp;a&nbsp;bowl&nbsp;of&nbsp;</span><span style="color: #0000BB">$type</span><span style="color: #DD0000">&nbsp;</span><span style="color: #0000BB">$flavour</span><span style="color: #DD0000">.\n"</span><span style="color: #007700">;<br />}<br />&nbsp;<br />echo&nbsp;</span><span style="color: #0000BB">makeyogurt</span><span style="color: #007700">(</span><span style="color: #DD0000">"raspberry"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;works&nbsp;as&nbsp;expected<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">makeyogurt</span><span style="color: #007700">(</span><span style="color: #0000BB">$flavour</span><span style="color: #007700">, </span><span style="color: #0000BB">$container </span><span style="color: #007700">= </span><span style="color: #DD0000">"bowl"</span><span style="color: #007700">)<br />{<br />    return </span><span style="color: #DD0000">"Making a </span><span style="color: #0000BB">$container</span><span style="color: #DD0000"> of </span><span style="color: #0000BB">$flavour</span><span style="color: #DD0000"> yogurt.\n"</span><span style="color: #007700">;<br />}<br /> <br />echo </span><span style="color: #0000BB">makeyogurt</span><span style="color: #007700">(</span><span style="color: #DD0000">"raspberry"</span><span style="color: #007700">); </span><span style="color: #FF8000">// "raspberry" is $flavour<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -204,11 +199,59 @@ Making a bowl of raspberry .
       <div class="example-contents"><p>The above example will output:</p></div>
       <div class="example-contents screen">
 <div class="cdata"><pre>
-Making a bowl of acidophilus raspberry.
+Making a bowl of raspberry yogurt.
 </pre></div>
       </div>
      </div>
     </p>
+    <p class="para">
+     As of PHP 8.0.0, <a href="functions.arguments.html#functions.named-arguments" class="link">named arguments</a>
+     can be used to skip over multiple optional parameters.
+    </p>
+    <p class="para">
+     <div class="example" id="example-158">
+      <p><strong>Example #9 Correct usage of default function arguments</strong></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">makeyogurt</span><span style="color: #007700">(</span><span style="color: #0000BB">$container </span><span style="color: #007700">= </span><span style="color: #DD0000">"bowl"</span><span style="color: #007700">, </span><span style="color: #0000BB">$flavour </span><span style="color: #007700">= </span><span style="color: #DD0000">"raspberry"</span><span style="color: #007700">, </span><span style="color: #0000BB">$style </span><span style="color: #007700">= </span><span style="color: #DD0000">"Greek"</span><span style="color: #007700">)<br />{<br />    return </span><span style="color: #DD0000">"Making a </span><span style="color: #0000BB">$container</span><span style="color: #DD0000"> of </span><span style="color: #0000BB">$flavour</span><span style="color: #DD0000"> </span><span style="color: #0000BB">$style</span><span style="color: #DD0000"> yogurt.\n"</span><span style="color: #007700">;<br />}<br /><br />echo </span><span style="color: #0000BB">makeyogurt</span><span style="color: #007700">(</span><span style="color: #0000BB">style</span><span style="color: #007700">: </span><span style="color: #DD0000">"natural"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+      <div class="example-contents"><p>The above example will output:</p></div>
+      <div class="example-contents screen">
+<div class="cdata"><pre>
+Making a bowl of raspberry natural yogurt.
+</pre></div>
+      </div>
+     </div>
+    </p>
+    <p class="para">
+     As of PHP 8.0.0, declaring mandatory arguments after optional arguments
+     is <em class="emphasis">deprecated</em>. This can generally be resolved by
+     dropping the default value, since it will never be used.
+     One exception to this rule are arguments of the form
+     <code class="code">Type $param = null</code>, where the <strong><code>null</code></strong> default makes the type implicitly
+     nullable. This usage remains allowed, though it is recommended to use an
+     explicit <a href="language.types.declarations.html#language.types.declarations.nullable" class="link">nullable type</a> instead.
+     <div class="example" id="example-159">
+      <p><strong>Example #10 Declaring optional arguments after mandatory arguments</strong></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /> </span><span style="color: #007700">function </span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$a </span><span style="color: #007700">= [], </span><span style="color: #0000BB">$b</span><span style="color: #007700">) {} </span><span style="color: #FF8000">// Default not used; deprecated as of PHP 8.0.0<br /> </span><span style="color: #007700">function </span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">$b</span><span style="color: #007700">) {}      </span><span style="color: #FF8000">// Functionally equivalent, no deprecation notice<br /><br /> </span><span style="color: #007700">function </span><span style="color: #0000BB">bar</span><span style="color: #007700">(</span><span style="color: #0000BB">A $a </span><span style="color: #007700">= </span><span style="color: #0000BB">null</span><span style="color: #007700">, </span><span style="color: #0000BB">$b</span><span style="color: #007700">) {} </span><span style="color: #FF8000">// Still allowed; $a is required but nullable<br /> </span><span style="color: #007700">function </span><span style="color: #0000BB">bar</span><span style="color: #007700">(?</span><span style="color: #0000BB">A $a</span><span style="color: #007700">, </span><span style="color: #0000BB">$b</span><span style="color: #007700">) {}       </span><span style="color: #FF8000">// Recommended<br /> </span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <span class="simpara">
+      As of PHP 7.1.0, omitting a parameter which does not specify a default
+      throws an <span class="classname"><a href="class.argumentcounterror.html" class="classname">ArgumentCountError</a></span>; in previous versions
+      it raised a Warning.
+     </span>
+    </p></blockquote>
     <blockquote class="note"><p><strong class="note">Note</strong>: 
      <span class="simpara">
       Arguments that are passed by reference may have a default value.
@@ -240,13 +283,13 @@ Making a bowl of acidophilus raspberry.
      Argument lists may include the
      <code class="literal">...</code> token to denote that the function accepts a
      variable number of arguments. The arguments will be passed into the
-     given variable as an array; for example:
+     given variable as an <span class="type">array</span>:
 
-     <div class="example" id="example-161">
-      <p><strong>Example #9 Using <code class="literal">...</code> to access variable arguments</strong></p>
+     <div class="example" id="example-160">
+      <p><strong>Example #11 Using <code class="literal">...</code> to access variable arguments</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">sum</span><span style="color: #007700">(...</span><span style="color: #0000BB">$numbers</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$acc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: #0000BB">$numbers&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$n</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$acc&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">$n</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$acc</span><span style="color: #007700">;<br />}<br /><br />echo&nbsp;</span><span style="color: #0000BB">sum</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">sum</span><span style="color: #007700">(...</span><span style="color: #0000BB">$numbers</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">$acc </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />    foreach (</span><span style="color: #0000BB">$numbers </span><span style="color: #007700">as </span><span style="color: #0000BB">$n</span><span style="color: #007700">) {<br />        </span><span style="color: #0000BB">$acc </span><span style="color: #007700">+= </span><span style="color: #0000BB">$n</span><span style="color: #007700">;<br />    }<br />    return </span><span style="color: #0000BB">$acc</span><span style="color: #007700">;<br />}<br /><br />echo </span><span style="color: #0000BB">sum</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">, </span><span style="color: #0000BB">4</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -265,11 +308,11 @@ Making a bowl of acidophilus raspberry.
      an <span class="type">array</span> or <span class="classname"><a href="class.traversable.html" class="classname">Traversable</a></span> variable or
      literal into the argument list:
 
-     <div class="example" id="example-162">
-      <p><strong>Example #10 Using <code class="literal">...</code> to provide arguments</strong></p>
+     <div class="example" id="example-161">
+      <p><strong>Example #12 Using <code class="literal">...</code> to provide arguments</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">;<br />}<br /><br />echo&nbsp;</span><span style="color: #0000BB">add</span><span style="color: #007700">(...[</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">]).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;[</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">];<br />echo&nbsp;</span><span style="color: #0000BB">add</span><span style="color: #007700">(...</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">$b</span><span style="color: #007700">) {<br />    return </span><span style="color: #0000BB">$a </span><span style="color: #007700">+ </span><span style="color: #0000BB">$b</span><span style="color: #007700">;<br />}<br /><br />echo </span><span style="color: #0000BB">add</span><span style="color: #007700">(...[</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">]).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$a </span><span style="color: #007700">= [</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">];<br />echo </span><span style="color: #0000BB">add</span><span style="color: #007700">(...</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -297,11 +340,11 @@ Making a bowl of acidophilus raspberry.
      <code class="literal">...</code> token. If this is present, then all arguments
      captured by <code class="literal">...</code> must match that parameter type.
 
-     <div class="example" id="example-163">
-      <p><strong>Example #11 Type declared variable arguments</strong></p>
+     <div class="example" id="example-162">
+      <p><strong>Example #13 Type declared variable arguments</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">total_intervals</span><span style="color: #007700">(</span><span style="color: #0000BB">$unit</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">DateInterval&nbsp;</span><span style="color: #007700">...</span><span style="color: #0000BB">$intervals</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$time&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: #0000BB">$intervals&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$interval</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$time&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">$interval</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$unit</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$time</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P1D'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P2D'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">total_intervals</span><span style="color: #007700">(</span><span style="color: #DD0000">'d'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">).</span><span style="color: #DD0000">'&nbsp;days'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;will&nbsp;fail,&nbsp;since&nbsp;null&nbsp;isn't&nbsp;a&nbsp;DateInterval&nbsp;object.<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">total_intervals</span><span style="color: #007700">(</span><span style="color: #DD0000">'d'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">total_intervals</span><span style="color: #007700">(</span><span style="color: #0000BB">$unit</span><span style="color: #007700">, </span><span style="color: #0000BB">DateInterval </span><span style="color: #007700">...</span><span style="color: #0000BB">$intervals</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">$time </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />    foreach (</span><span style="color: #0000BB">$intervals </span><span style="color: #007700">as </span><span style="color: #0000BB">$interval</span><span style="color: #007700">) {<br />        </span><span style="color: #0000BB">$time </span><span style="color: #007700">+= </span><span style="color: #0000BB">$interval</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$unit</span><span style="color: #007700">;<br />    }<br />    return </span><span style="color: #0000BB">$time</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$a </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P1D'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$b </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P2D'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">total_intervals</span><span style="color: #007700">(</span><span style="color: #DD0000">'d'</span><span style="color: #007700">, </span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">$b</span><span style="color: #007700">).</span><span style="color: #DD0000">' days'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// This will fail, since null isn't a DateInterval object.<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">total_intervals</span><span style="color: #007700">(</span><span style="color: #DD0000">'d'</span><span style="color: #007700">, </span><span style="color: #0000BB">null</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -336,11 +379,11 @@ Catchable fatal error: Argument 2 passed to total_intervals() must be an instanc
      <p class="para">
       The first example above would be implemented as follows in old versions of PHP:
 
-      <div class="example" id="example-164">
-       <p><strong>Example #12 Accessing variable arguments in old PHP versions</strong></p>
+      <div class="example" id="example-163">
+       <p><strong>Example #14 Accessing variable arguments in old PHP versions</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">sum</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$acc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: #0000BB">func_get_args</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$n</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$acc&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">$n</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$acc</span><span style="color: #007700">;<br />}<br /><br />echo&nbsp;</span><span style="color: #0000BB">sum</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">sum</span><span style="color: #007700">() {<br />    </span><span style="color: #0000BB">$acc </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />    foreach (</span><span style="color: #0000BB">func_get_args</span><span style="color: #007700">() as </span><span style="color: #0000BB">$n</span><span style="color: #007700">) {<br />        </span><span style="color: #0000BB">$acc </span><span style="color: #007700">+= </span><span style="color: #0000BB">$n</span><span style="color: #007700">;<br />    }<br />    return </span><span style="color: #0000BB">$acc</span><span style="color: #007700">;<br />}<br /><br />echo </span><span style="color: #0000BB">sum</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">, </span><span style="color: #0000BB">4</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
        </div>
@@ -375,22 +418,22 @@ Catchable fatal error: Argument 2 passed to total_intervals() must be an instanc
      is not allowed.
     </p>
 
-    <div class="example" id="example-165">
-     <p><strong>Example #13 Named argument syntax</strong></p>
+    <div class="example" id="example-164">
+     <p><strong>Example #15 Named argument syntax</strong></p>
      <div class="example-contents">
-      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />myFunction</span><span style="color: #007700">(</span><span style="color: #0000BB">paramName</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">array_foobar</span><span style="color: #007700">(array:&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;NOT&nbsp;supported.<br /></span><span style="color: #0000BB">function_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$variableStoringParamName</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />myFunction</span><span style="color: #007700">(</span><span style="color: #0000BB">paramName</span><span style="color: #007700">: </span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">array_foobar</span><span style="color: #007700">(array: </span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// NOT supported.<br /></span><span style="color: #0000BB">function_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$variableStoringParamName</span><span style="color: #007700">: </span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
 
     </div>
 
-    <div class="example" id="example-166">
-     <p><strong>Example #14 Positional arguments versus named arguments</strong></p>
+    <div class="example" id="example-165">
+     <p><strong>Example #16 Positional arguments versus named arguments</strong></p>
      <div class="example-contents">
-      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Using&nbsp;positional&nbsp;arguments:<br /></span><span style="color: #0000BB">array_fill</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">50</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Using&nbsp;named&nbsp;arguments:<br /></span><span style="color: #0000BB">array_fill</span><span style="color: #007700">(</span><span style="color: #0000BB">start_index</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">count</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">value</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">50</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Using positional arguments:<br /></span><span style="color: #0000BB">array_fill</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">100</span><span style="color: #007700">, </span><span style="color: #0000BB">50</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Using named arguments:<br /></span><span style="color: #0000BB">array_fill</span><span style="color: #007700">(</span><span style="color: #0000BB">start_index</span><span style="color: #007700">: </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">count</span><span style="color: #007700">: </span><span style="color: #0000BB">100</span><span style="color: #007700">, </span><span style="color: #0000BB">value</span><span style="color: #007700">: </span><span style="color: #0000BB">50</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -401,11 +444,11 @@ Catchable fatal error: Argument 2 passed to total_intervals() must be an instanc
      The order in which the named arguments are passed does not matter.
     </p>
 
-    <div class="example" id="example-167">
-     <p><strong>Example #15 Same example as above with a different order of parameters</strong></p>
+    <div class="example" id="example-166">
+     <p><strong>Example #17 Same example as above with a different order of parameters</strong></p>
      <div class="example-contents">
-      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />array_fill</span><span style="color: #007700">(</span><span style="color: #0000BB">value</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">50</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">count</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">start_index</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />array_fill</span><span style="color: #007700">(</span><span style="color: #0000BB">value</span><span style="color: #007700">: </span><span style="color: #0000BB">50</span><span style="color: #007700">, </span><span style="color: #0000BB">count</span><span style="color: #007700">: </span><span style="color: #0000BB">100</span><span style="color: #007700">, </span><span style="color: #0000BB">start_index</span><span style="color: #007700">: </span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -419,11 +462,11 @@ Catchable fatal error: Argument 2 passed to total_intervals() must be an instanc
      function, regardless of their order.
     </p>
 
-    <div class="example" id="example-168">
-     <p><strong>Example #16 Combining named arguments with positional arguments</strong></p>
+    <div class="example" id="example-167">
+     <p><strong>Example #18 Combining named arguments with positional arguments</strong></p>
      <div class="example-contents">
-      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">double_encode</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;Same&nbsp;as<br /></span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ENT_QUOTES&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">ENT_SUBSTITUTE&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">ENT_HTML401</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'UTF-8'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">, </span><span style="color: #0000BB">double_encode</span><span style="color: #007700">: </span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// Same as<br /></span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">, </span><span style="color: #0000BB">ENT_QUOTES </span><span style="color: #007700">| </span><span style="color: #0000BB">ENT_SUBSTITUTE </span><span style="color: #007700">| </span><span style="color: #0000BB">ENT_HTML401</span><span style="color: #007700">, </span><span style="color: #DD0000">'UTF-8'</span><span style="color: #007700">, </span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -434,11 +477,27 @@ Catchable fatal error: Argument 2 passed to total_intervals() must be an instanc
      Passing the same parameter multiple times results in an Error exception.
     </p>
 
-    <div class="example" id="example-169">
-     <p><strong>Example #17 Error exception when passing the same parameter multiple times</strong></p>
+    <div class="example" id="example-168">
+     <p><strong>Example #19 Error thrown when passing the same parameter multiple times</strong></p>
      <div class="example-contents">
-      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$param</span><span style="color: #007700">)&nbsp;{&nbsp;...&nbsp;}<br /><br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">param</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">param</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;Error:&nbsp;Named&nbsp;parameter&nbsp;$param&nbsp;overwrites&nbsp;previous&nbsp;argument<br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">param</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;Error:&nbsp;Named&nbsp;parameter&nbsp;$param&nbsp;overwrites&nbsp;previous&nbsp;argument<br /></span><span style="color: #0000BB">?&gt;</span>
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$param</span><span style="color: #007700">) { ... }<br /><br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">param</span><span style="color: #007700">: </span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">param</span><span style="color: #007700">: </span><span style="color: #0000BB">2</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// Error: Named parameter $param overwrites previous argument<br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">param</span><span style="color: #007700">: </span><span style="color: #0000BB">2</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// Error: Named parameter $param overwrites previous argument<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+
+    <p class="para">
+     As of PHP 8.1.0, it is possible to use named arguments after unpacking the arguments.
+     A named argument <em class="emphasis">must not</em> override an already unpacked arguments.
+    </p>
+
+    <div class="example" id="example-169">
+     <p><strong>Example #20 Use named arguments after unpacking</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">$b</span><span style="color: #007700">, </span><span style="color: #0000BB">$c </span><span style="color: #007700">= </span><span style="color: #0000BB">3</span><span style="color: #007700">, </span><span style="color: #0000BB">$d </span><span style="color: #007700">= </span><span style="color: #0000BB">4</span><span style="color: #007700">) {<br />  return </span><span style="color: #0000BB">$a </span><span style="color: #007700">+ </span><span style="color: #0000BB">$b </span><span style="color: #007700">+ </span><span style="color: #0000BB">$c </span><span style="color: #007700">+ </span><span style="color: #0000BB">$d</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">foo</span><span style="color: #007700">(...[</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">], </span><span style="color: #0000BB">d</span><span style="color: #007700">: </span><span style="color: #0000BB">40</span><span style="color: #007700">)); </span><span style="color: #FF8000">// 46<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">foo</span><span style="color: #007700">(...[</span><span style="color: #DD0000">'b' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">2</span><span style="color: #007700">, </span><span style="color: #DD0000">'a' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">], </span><span style="color: #0000BB">d</span><span style="color: #007700">: </span><span style="color: #0000BB">40</span><span style="color: #007700">)); </span><span style="color: #FF8000">// 46<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">foo</span><span style="color: #007700">(...[</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">], </span><span style="color: #0000BB">b</span><span style="color: #007700">: </span><span style="color: #0000BB">20</span><span style="color: #007700">)); </span><span style="color: #FF8000">// Fatal error. Named parameter $b overwrites previous argument<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Save keys to specified path</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.rnp-op-verify.html">« rnp_op_verify</a></li>
+      <li style="float: right;"><a href="function.rnp-save-keys.html">rnp_save_keys »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.rnp.html">Rnp Functions</a></li>
+    <li>Save keys to specified path</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.rnp-save-keys-to-path" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">rnp_save_keys_to_path</h1>
+  <p class="verinfo">(PECL rnp &gt;= 0.1.1)</p><p class="refpurpose"><span class="refname">rnp_save_keys_to_path</span> &mdash; <span class="dc-title">Save keys to specified path</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.rnp-save-keys-to-path-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>rnp_save_keys_to_path</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.rnpffi.html" class="type RnpFFI">RnpFFI</a></span> <code class="parameter">$ffi</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$output_path</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span><br>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Saves keys present in the FFI object (loaded or generated) to the specified file or directory.
+  </p>
+
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.rnp-save-keys-to-path-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">ffi</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The FFI object returned by rnp_ffi_create.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">format</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The key format of the data (GPG, KBX, G10).
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">output_path</code></dt>
+
+    <dd>
+
+     <p class="para">
+      File or directory path where keys should be saved to.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">flags</code></dt>
+
+    <dd>
+
+     <p class="para">
+      See RNP_LOAD_SAVE_* flags description.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.rnp-save-keys-to-path-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
+  </p>
+ </div>
+
+
+
+</div></div></div></body></html>

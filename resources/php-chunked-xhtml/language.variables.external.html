@@ -36,7 +36,7 @@
     </p>
 
     <p class="para">
-     <div class="example" id="example-100">
+     <div class="example" id="example-97">
       <p><strong>Example #1 A simple HTML form</strong></p>
       <div class="example-contents">
 <div class="htmlcode"><pre class="htmlcode">&lt;form action=&quot;foo.php&quot; method=&quot;post&quot;&gt;
@@ -56,11 +56,11 @@
     </p>
 
     <p class="para">
-     <div class="example" id="example-101">
+     <div class="example" id="example-98">
       <p><strong>Example #2 Accessing data from a simple POST HTML form</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'username'</span><span style="color: #007700">];<br />echo&nbsp;</span><span style="color: #0000BB">$_REQUEST</span><span style="color: #007700">[</span><span style="color: #DD0000">'username'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'username'</span><span style="color: #007700">];<br />echo </span><span style="color: #0000BB">$_REQUEST</span><span style="color: #007700">[</span><span style="color: #DD0000">'username'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -95,11 +95,11 @@
     </p>
 
     <p class="para">
-     <div class="example" id="example-102">
+     <div class="example" id="example-99">
       <p><strong>Example #3 More complex form variables</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'&lt;pre&gt;'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'&lt;/pre&gt;'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;<br /></span>&lt;form&nbsp;action=""&nbsp;method="post"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;Name:&nbsp;&nbsp;&lt;input&nbsp;type="text"&nbsp;name="personal[name]"&nbsp;/&gt;&lt;br&nbsp;/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&lt;input&nbsp;type="text"&nbsp;name="personal[email]"&nbsp;/&gt;&lt;br&nbsp;/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;Beer:&nbsp;&lt;br&nbsp;/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;select&nbsp;multiple&nbsp;name="beer[]"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;value="warthog"&gt;Warthog&lt;/option&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;value="guinness"&gt;Guinness&lt;/option&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;value="stuttgarter"&gt;Stuttgarter&nbsp;Schwabenbräu&lt;/option&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/select&gt;&lt;br&nbsp;/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="submit"&nbsp;value="submit&nbsp;me!"&nbsp;/&gt;<br />&lt;/form&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">'&lt;pre&gt;'</span><span style="color: #007700">;<br />    echo </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">, </span><span style="color: #0000BB">true</span><span style="color: #007700">));<br />    echo </span><span style="color: #DD0000">'&lt;/pre&gt;'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;<br /></span>&lt;form action="" method="post"&gt;<br />    Name:  &lt;input type="text" name="personal[name]" /&gt;&lt;br /&gt;<br />    Email: &lt;input type="text" name="personal[email]" /&gt;&lt;br /&gt;<br />    Beer: &lt;br /&gt;<br />    &lt;select multiple name="beer[]"&gt;<br />        &lt;option value="warthog"&gt;Warthog&lt;/option&gt;<br />        &lt;option value="guinness"&gt;Guinness&lt;/option&gt;<br />        &lt;option value="stuttgarter"&gt;Stuttgarter Schwabenbräu&lt;/option&gt;<br />    &lt;/select&gt;&lt;br /&gt;<br />    &lt;input type="submit" value="submit me!" /&gt;<br />&lt;/form&gt;</span>
 </code></div>
       </div>
 
@@ -176,7 +176,7 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"MyCookie[foo]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Testing&nbsp;1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"MyCookie[bar]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Testing&nbsp;2'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />  setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"MyCookie[foo]"</span><span style="color: #007700">, </span><span style="color: #DD0000">'Testing 1'</span><span style="color: #007700">, </span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"MyCookie[bar]"</span><span style="color: #007700">, </span><span style="color: #DD0000">'Testing 2'</span><span style="color: #007700">, </span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -197,11 +197,11 @@
      and pass this along.  i.e.
     </p>
 
-    <div class="example" id="example-103">
+    <div class="example" id="example-100">
      <p><strong>Example #4 A <span class="function"><a href="function.setcookie.html" class="function">setcookie()</a></span> example</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(isset(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$count&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]&nbsp;+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$count&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">'count'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"Cart[</span><span style="color: #0000BB">$count</span><span style="color: #DD0000">]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if (isset(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">])) {<br />    </span><span style="color: #0000BB">$count </span><span style="color: #007700">= </span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">] + </span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />} else {<br />    </span><span style="color: #0000BB">$count </span><span style="color: #007700">= </span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">'count'</span><span style="color: #007700">, </span><span style="color: #0000BB">$count</span><span style="color: #007700">, </span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"Cart[</span><span style="color: #0000BB">$count</span><span style="color: #DD0000">]"</span><span style="color: #007700">, </span><span style="color: #0000BB">$item</span><span style="color: #007700">, </span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -220,7 +220,7 @@
      variable name. For the reason, look at it:
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$varname</span><span style="color: #007700">.</span><span style="color: #0000BB">ext</span><span style="color: #007700">;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;invalid&nbsp;variable&nbsp;name&nbsp;*/<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$varname</span><span style="color: #007700">.</span><span style="color: #0000BB">ext</span><span style="color: #007700">;  </span><span style="color: #FF8000">/* invalid variable name */<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

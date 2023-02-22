@@ -127,6 +127,19 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.array-walk-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   As of PHP 7.1.0, an <span class="classname"><a href="class.argumentcounterror.html" class="classname">ArgumentCountError</a></span> will be thrown if the <code class="parameter">callback</code> function 
+   requires more than 2 parameters (the value and key of the array member),
+   or more than 3 parameters if the <code class="parameter">arg</code> is also passed.
+   Previously, in this case
+   an error of level <a href="errorfunc.constants.html" class="link">E_WARNING</a> would be generated each time 
+   <span class="function"><strong>array_walk()</strong></span> calls <code class="parameter">callback</code>.
+  </p>
+ </div>
+
+
  <div class="refsect1 changelog" id="refsect1-function.array-walk-changelog">
   <h3 class="title">Changelog</h3>
   <table class="doctable informaltable">
@@ -155,26 +168,14 @@
  </div>
 
 
- <div class="refsect1 errors" id="refsect1-function.array-walk-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">
-   As of PHP 7.1.0, an <span class="classname"><a href="class.argumentcounterror.html" class="classname">ArgumentCountError</a></span> will be thrown if the <code class="parameter">callback</code> function 
-   requires more than 2 parameters (the value and key of the array member),
-   or more than 3 parameters if the <code class="parameter">arg</code> is also passed.
-   Previously, in this case
-   an error of level <a href="errorfunc.constants.html" class="link">E_WARNING</a> would be generated each time 
-   <span class="function"><strong>array_walk()</strong></span> calls <code class="parameter">callback</code>.
-  </p>
- </div>
-
  <div class="refsect1 examples" id="refsect1-function.array-walk-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4977">
+   <div class="example" id="example-5071">
     <p><strong>Example #1 <span class="function"><strong>array_walk()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$fruits&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"d"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"lemon"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"a"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"orange"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"b"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"banana"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"c"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"apple"</span><span style="color: #007700">);<br /><br />function&nbsp;</span><span style="color: #0000BB">test_alter</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$item1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$prefix</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$item1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$prefix</span><span style="color: #DD0000">:&nbsp;</span><span style="color: #0000BB">$item1</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />}<br /><br />function&nbsp;</span><span style="color: #0000BB">test_print</span><span style="color: #007700">(</span><span style="color: #0000BB">$item2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$key</span><span style="color: #DD0000">.&nbsp;</span><span style="color: #0000BB">$item2</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /><br />echo&nbsp;</span><span style="color: #DD0000">"Before&nbsp;...:\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">array_walk</span><span style="color: #007700">(</span><span style="color: #0000BB">$fruits</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'test_print'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">array_walk</span><span style="color: #007700">(</span><span style="color: #0000BB">$fruits</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'test_alter'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'fruit'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"...&nbsp;and&nbsp;after:\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">array_walk</span><span style="color: #007700">(</span><span style="color: #0000BB">$fruits</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'test_print'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$fruits </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"d" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"lemon"</span><span style="color: #007700">, </span><span style="color: #DD0000">"a" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"orange"</span><span style="color: #007700">, </span><span style="color: #DD0000">"b" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"banana"</span><span style="color: #007700">, </span><span style="color: #DD0000">"c" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"apple"</span><span style="color: #007700">);<br /><br />function </span><span style="color: #0000BB">test_alter</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$item1</span><span style="color: #007700">, </span><span style="color: #0000BB">$key</span><span style="color: #007700">, </span><span style="color: #0000BB">$prefix</span><span style="color: #007700">)<br />{<br />    </span><span style="color: #0000BB">$item1 </span><span style="color: #007700">= </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$prefix</span><span style="color: #DD0000">: </span><span style="color: #0000BB">$item1</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />}<br /><br />function </span><span style="color: #0000BB">test_print</span><span style="color: #007700">(</span><span style="color: #0000BB">$item2</span><span style="color: #007700">, </span><span style="color: #0000BB">$key</span><span style="color: #007700">)<br />{<br />    echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$key</span><span style="color: #DD0000">. </span><span style="color: #0000BB">$item2</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /><br />echo </span><span style="color: #DD0000">"Before ...:\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">array_walk</span><span style="color: #007700">(</span><span style="color: #0000BB">$fruits</span><span style="color: #007700">, </span><span style="color: #DD0000">'test_print'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">array_walk</span><span style="color: #007700">(</span><span style="color: #0000BB">$fruits</span><span style="color: #007700">, </span><span style="color: #DD0000">'test_alter'</span><span style="color: #007700">, </span><span style="color: #DD0000">'fruit'</span><span style="color: #007700">);<br />echo </span><span style="color: #DD0000">"... and after:\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">array_walk</span><span style="color: #007700">(</span><span style="color: #0000BB">$fruits</span><span style="color: #007700">, </span><span style="color: #DD0000">'test_print'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -192,6 +193,26 @@ d. fruit: lemon
 a. fruit: orange
 b. fruit: banana
 c. fruit: apple
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-5072">
+    <p><strong>Example #2 <span class="function"><strong>array_walk()</strong></span> example using anonymous function</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$elements </span><span style="color: #007700">= [</span><span style="color: #DD0000">'a'</span><span style="color: #007700">, </span><span style="color: #DD0000">'b'</span><span style="color: #007700">, </span><span style="color: #DD0000">'c'</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">array_walk</span><span style="color: #007700">(</span><span style="color: #0000BB">$elements</span><span style="color: #007700">, function (</span><span style="color: #0000BB">$value</span><span style="color: #007700">, </span><span style="color: #0000BB">$key</span><span style="color: #007700">) {<br />  echo </span><span style="color: #DD0000">"</span><span style="color: #007700">{</span><span style="color: #0000BB">$key</span><span style="color: #007700">}</span><span style="color: #DD0000"> =&gt; </span><span style="color: #007700">{</span><span style="color: #0000BB">$value</span><span style="color: #007700">}</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />});<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+0 =&gt; a
+1 =&gt; b
+2 =&gt; c
 </pre></div>
     </div>
    </div>

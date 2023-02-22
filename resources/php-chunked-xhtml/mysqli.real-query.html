@@ -77,7 +77,7 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
 <h1 class="title">Security warning: SQL injection</h1><p class="para">If the query contains any variable
 input then <a href="mysqli.quickstart.prepared-statements.html" class="link">parameterized
 prepared statements</a> should be used instead. Alternatively, the
-data must be properly formatted and all strings must be escaped using 
+data must be properly formatted and all strings must be escaped using
 the <span class="function"><a href="mysqli.real-escape-string.html" class="function">mysqli_real_escape_string()</a></span>
 function.</p></div>
      </dd>
@@ -94,6 +94,15 @@ function.</p></div>
   <p class="para">
    Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mysqli.real-query-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+If mysqli error reporting is enabled (<strong><code>MYSQLI_REPORT_ERROR</code></strong>) and the requested operation fails,
+a warning is generated. If, in addition, the mode is set to <strong><code>MYSQLI_REPORT_STRICT</code></strong>,
+a <span class="classname"><a href="class.mysqli-sql-exception.html" class="classname">mysqli_sql_exception</a></span> is thrown instead.</p>
  </div>
 
 

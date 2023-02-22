@@ -46,8 +46,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-    <dt>
-dsn</dt>
+    
+     <dt>
+<code class="parameter">dsn</code></dt>
 
      <dd>
 
@@ -118,8 +119,9 @@ Aliasing</dt>
      </dd>
 
     
-    <dt>
-username</dt>
+    
+     <dt>
+<code class="parameter">username</code></dt>
 
      <dd>
 
@@ -130,8 +132,9 @@ username</dt>
      </dd>
 
     
-    <dt>
-passwd</dt>
+    
+     <dt>
+<code class="parameter">password</code></dt>
 
      <dd>
 
@@ -142,8 +145,9 @@ passwd</dt>
      </dd>
 
     
-    <dt>
-options</dt>
+    
+     <dt>
+<code class="parameter">options</code></dt>
 
      <dd>
 
@@ -162,7 +166,7 @@ options</dt>
  <div class="refsect1 errors" id="refsect1-pdo.construct-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   <span class="function"><strong>PDO::__construct()</strong></span> throws a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if the attempt
+   <span class="methodname"><strong>PDO::__construct()</strong></span> throws a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if the attempt
    to connect to the requested database fails, regardless of which <strong><code>PDO::ATTR_ERRMODE</code></strong> is currently set.
   </p>
  </div>
@@ -171,16 +175,16 @@ options</dt>
  <div class="refsect1 examples" id="refsect1-pdo.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1013"><p><strong>Example #1 Create a PDO instance via driver invocation</strong></p>
+   <div class="example" id="example-1044"><p><strong>Example #1 Create a PDO instance via driver invocation</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Connect&nbsp;to&nbsp;a&nbsp;MySQL&nbsp;database&nbsp;using&nbsp;driver&nbsp;invocation&nbsp;*/<br /></span><span style="color: #0000BB">$dsn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'mysql:dbname=testdb;host=127.0.0.1'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'dbuser'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'dbpass'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Connect to a MySQL database using driver invocation */<br /></span><span style="color: #0000BB">$dsn </span><span style="color: #007700">= </span><span style="color: #DD0000">'mysql:dbname=testdb;host=127.0.0.1'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user </span><span style="color: #007700">= </span><span style="color: #DD0000">'dbuser'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password </span><span style="color: #007700">= </span><span style="color: #DD0000">'dbpass'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$dbh </span><span style="color: #007700">= new </span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">, </span><span style="color: #0000BB">$user</span><span style="color: #007700">, </span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-1014"><p><strong>Example #2 Create a PDO instance via URI invocation</strong></p>
+   <div class="example" id="example-1045"><p><strong>Example #2 Create a PDO instance via URI invocation</strong></p>
     <div class="example-contents"><p>
      The following example assumes that the file
      <var class="filename">/usr/local/dbconnect</var> exists with file permissions
@@ -199,13 +203,13 @@ odbc:DSN=SAMPLE;UID=john;PWD=mypass
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Connect&nbsp;to&nbsp;an&nbsp;ODBC&nbsp;database&nbsp;using&nbsp;driver&nbsp;invocation&nbsp;*/<br /></span><span style="color: #0000BB">$dsn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'uri:file:///usr/local/dbconnect'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Connect to an ODBC database using driver invocation */<br /></span><span style="color: #0000BB">$dsn </span><span style="color: #007700">= </span><span style="color: #DD0000">'uri:file:///usr/local/dbconnect'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user </span><span style="color: #007700">= </span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password </span><span style="color: #007700">= </span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$dbh </span><span style="color: #007700">= new </span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">, </span><span style="color: #0000BB">$user</span><span style="color: #007700">, </span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-1015"><p><strong>Example #3 Create a PDO instance using an alias</strong></p>
+   <div class="example" id="example-1046"><p><strong>Example #3 Create a PDO instance using an alias</strong></p>
     <div class="example-contents"><p>
      The following example assumes that <var class="filename">php.ini</var> contains the following
      entry to enable a connection to a MySQL database using only the
@@ -217,7 +221,7 @@ pdo.dsn.mydb=&quot;mysql:dbname=testdb;host=localhost&quot;</pre>
 
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Connect&nbsp;to&nbsp;an&nbsp;ODBC&nbsp;database&nbsp;using&nbsp;an&nbsp;alias&nbsp;*/<br /></span><span style="color: #0000BB">$dsn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'mydb'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Connect to an ODBC database using an alias */<br /></span><span style="color: #0000BB">$dsn </span><span style="color: #007700">= </span><span style="color: #DD0000">'mydb'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user </span><span style="color: #007700">= </span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password </span><span style="color: #007700">= </span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$dbh </span><span style="color: #007700">= new </span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">, </span><span style="color: #0000BB">$user</span><span style="color: #007700">, </span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

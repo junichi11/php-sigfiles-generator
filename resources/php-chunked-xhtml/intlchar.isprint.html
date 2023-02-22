@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-intlchar.isprint-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::isprint</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$codepoint</code></span>): <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::isprint</strong></span>(<span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$codepoint</code></span>): <span class="type"><span class="type">?</span><span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    Determines whether the specified code point is a printable character.
@@ -66,18 +66,18 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns <strong><code>true</code></strong> if
-   <code class="parameter">codepoint</code> is a printable character, <strong><code>false</code></strong> if not.
+   <code class="parameter">codepoint</code> is a printable character, <strong><code>false</code></strong> if not. Returns <strong><code>null</code></strong> on failure.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-intlchar.isprint-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2518">
+  <div class="example" id="example-2588">
    <p><strong>Example #1 Testing different code points</strong></p>
    <div class="example-contents">
     <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">isprint</span><span style="color: #007700">(</span><span style="color: #DD0000">"A"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">isprint</span><span style="color: #007700">(</span><span style="color: #DD0000">"&nbsp;"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">isprint</span><span style="color: #007700">(</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">isprint</span><span style="color: #007700">(</span><span style="color: #DD0000">"\u{200e}"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">isprint</span><span style="color: #007700">(</span><span style="color: #DD0000">"A"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">isprint</span><span style="color: #007700">(</span><span style="color: #DD0000">" "</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">isprint</span><span style="color: #007700">(</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">isprint</span><span style="color: #007700">(</span><span style="color: #DD0000">"\u{200e}"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

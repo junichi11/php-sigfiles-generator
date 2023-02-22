@@ -53,8 +53,12 @@ The behaviour of these functions is affected by settings in <var class="filename
      <tr>
       <td><a href="sqlite3.configuration.html#ini.sqlite3.defensive" class="link">sqlite3.defensive</a></td>
       <td>1</td>
-      <td>PHP_INI_SYSTEM</td>
-      <td>Available as of PHP 7.2.17 and 7.3.4 for libsqlite ≥ 3.26.0.</td>
+      <td>PHP_INI_USER</td>
+      <td>
+       Available as of PHP 7.2.17 and 7.3.4 for libsqlite ≥ 3.26.0.
+       Prior to PHP 8.2.0 this setting was changeable only as
+       <strong><code>PHP_INI_SYSTEM</code></strong>.
+      </td>
      </tr>
 
     </tbody>

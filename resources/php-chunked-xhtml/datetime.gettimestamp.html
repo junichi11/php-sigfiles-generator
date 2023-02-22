@@ -10,8 +10,8 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="datetime.getoffset.html">« DateTime::getOffset</a></li>
-      <li style="float: right;"><a href="datetime.gettimezone.html">DateTime::getTimezone »</a></li>
+      <li style="float: left;"><a href="datetime.getoffset.html">« DateTimeInterface::getOffset</a></li>
+      <li style="float: right;"><a href="datetime.gettimezone.html">DateTimeInterface::getTimezone »</a></li>
     </ul>
   </div>
 </div>
@@ -25,11 +25,11 @@
 <div id="layout">
   <div id="layout-content"><div id="datetime.gettimestamp" class="refentry">
  <div class="refnamediv">
-  <h1 class="refname">DateTime::getTimestamp</h1>
-  <h1 class="refname">DateTimeImmutable::getTimestamp</h1>
   <h1 class="refname">DateTimeInterface::getTimestamp</h1>
+  <h1 class="refname">DateTimeImmutable::getTimestamp</h1>
+  <h1 class="refname">DateTime::getTimestamp</h1>
   <h1 class="refname">date_timestamp_get</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTime::getTimestamp</span> -- <span class="refname">DateTimeImmutable::getTimestamp</span> -- <span class="refname">DateTimeInterface::getTimestamp</span> -- <span class="refname">date_timestamp_get</span> &mdash; <span class="dc-title">Gets the Unix timestamp</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTimeInterface::getTimestamp</span> -- <span class="refname">DateTimeImmutable::getTimestamp</span> -- <span class="refname">DateTime::getTimestamp</span> -- <span class="refname">date_timestamp_get</span> &mdash; <span class="dc-title">Gets the Unix timestamp</span></p>
 
  </div>
 
@@ -37,11 +37,11 @@
   <h3 class="title">Description</h3>
   <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DateTime::getTimestamp</strong></span>(): <span class="type">int</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DateTimeInterface::getTimestamp</strong></span>(): <span class="type">int</span></div>
 
   <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>DateTimeImmutable::getTimestamp</strong></span>(): <span class="type">int</span></div>
 
-  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>DateTimeInterface::getTimestamp</strong></span>(): <span class="type">int</span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>DateTime::getTimestamp</strong></span>(): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
   <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.date-timestamp-get.html" class="methodname">date_timestamp_get</a></span>(<span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$object</code></span>): <span class="type">int</span></div>
@@ -106,12 +106,12 @@
 
  <div class="refsect1 examples" id="refsect1-datetime.gettimestamp-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2050">
+  <div class="example" id="example-2094">
    <p><strong>Example #1 <span class="function"><strong>DateTime::getTimestamp()</strong></span> example</strong></p>
    <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$date&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTimestamp</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$date </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">();<br />echo </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTimestamp</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -119,7 +119,7 @@
    <div class="example-contents"><p>Procedural style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$date&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date_create</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">date_timestamp_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$date</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$date </span><span style="color: #007700">= </span><span style="color: #0000BB">date_create</span><span style="color: #007700">();<br />echo </span><span style="color: #0000BB">date_timestamp_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$date</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -132,6 +132,30 @@ something similar to:</p></div>
 </pre></div>
    </div>
   </div>
+  <p class="para">
+   If you need to retrieve the timestamp with millisecond or
+   microsecond resolution, then you can use the
+   <span class="function"><a href="datetime.format.html" class="function">DateTimeInterface::format()</a></span> function.
+  </p>
+  <div class="example" id="example-2095">
+   <p><strong>Example #2 Retrieving timestamp with milli and microsecond resolution</strong></p>
+   <div class="example-contents"><p>Object-oriented style</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$date </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$milli </span><span style="color: #007700">= (int)</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Uv'</span><span style="color: #007700">); </span><span style="color: #FF8000">// Timestamp in milliseconds<br /></span><span style="color: #0000BB">$micro </span><span style="color: #007700">= (int)</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Uu'</span><span style="color: #007700">); </span><span style="color: #FF8000">// Timestamp in microseconds<br /><br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$milli</span><span style="color: #007700">, </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">, </span><span style="color: #0000BB">$micro</span><span style="color: #007700">, </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above examples will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+1674057635586
+1674057635586918
+</pre></div>
+   </div>
+  </div>
  </div>
 
 
@@ -139,7 +163,8 @@ something similar to:</p></div>
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
    <li class="member"><span class="function"><a href="datetime.settimestamp.html" class="function" rel="rdfs-seeAlso">DateTime::setTimestamp()</a> - Sets the date and time based on an Unix timestamp</span></li>
-   <li class="member"><span class="function"><a href="datetime.format.html" class="function" rel="rdfs-seeAlso">DateTime::format()</a> - Returns date formatted according to given format</span></li>
+   <li class="member"><span class="function"><a href="datetimeimmutable.settimestamp.html" class="function" rel="rdfs-seeAlso">DateTimeImmutable::setTimestamp()</a> - Sets the date and time based on a Unix timestamp</span></li>
+   <li class="member"><span class="function"><a href="datetime.format.html" class="function" rel="rdfs-seeAlso">DateTimeInterface::format()</a> - Returns date formatted according to given format</span></li>
   </ul>
  </div>
 

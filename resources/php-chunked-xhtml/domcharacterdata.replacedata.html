@@ -37,8 +37,8 @@
    <span class="modifier">public</span> <span class="methodname"><strong>DOMCharacterData::replaceData</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$count</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Replace <code class="parameter">count</code> characters starting from position 
-   <code class="parameter">offset</code> with <code class="parameter">data</code>. 
+   Replace <code class="parameter">count</code> characters starting from position
+   <code class="parameter">offset</code> with <code class="parameter">data</code>.
   </p>
  </div>
 
@@ -65,7 +65,7 @@
      <dd>
 
       <p class="para">
-       The number of characters to replace. If the sum of 
+       The number of characters to replace. If the sum of
        <code class="parameter">offset</code> and <code class="parameter">count</code> exceeds
        the length, then all characters to the end of the data are replaced.
       </p>
@@ -92,7 +92,7 @@
  <div class="refsect1 returnvalues" id="refsect1-domcharacterdata.replacedata-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   No value is returned.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -108,7 +108,7 @@
 
       <p class="para">
        Raised if <code class="parameter">offset</code> is negative or greater than the
-       number of 16-bit units in data, or if <code class="parameter">count</code> is 
+       number of 16-bit units in data, or if <code class="parameter">count</code> is
        negative.
       </p>
      </dd>

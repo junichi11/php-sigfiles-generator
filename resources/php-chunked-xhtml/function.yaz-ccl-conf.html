@@ -102,11 +102,11 @@
    <code class="literal">isbn</code>. Each field is mapped to their BIB-1 equivalent.
    It is assumed that variable <code class="literal">$id</code> is the connection ID.
   </p>
-  <div class="example" id="example-4604">
+  <div class="example" id="example-4683">
    <p><strong>Example #1 CCL configuration</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$fields&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;</span><span style="color: #DD0000">"ti"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"1=4"</span><span style="color: #007700">,<br />&nbsp;&nbsp;</span><span style="color: #DD0000">"au"&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"1=1"</span><span style="color: #007700">,<br />&nbsp;&nbsp;</span><span style="color: #DD0000">"isbn"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"1=7"<br /></span><span style="color: #007700">);<br /></span><span style="color: #0000BB">yaz_ccl_conf</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$fields</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$fields </span><span style="color: #007700">= array(<br />  </span><span style="color: #DD0000">"ti" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"1=4"</span><span style="color: #007700">,<br />  </span><span style="color: #DD0000">"au"   </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"1=1"</span><span style="color: #007700">,<br />  </span><span style="color: #DD0000">"isbn" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"1=7"<br /></span><span style="color: #007700">);<br /></span><span style="color: #0000BB">yaz_ccl_conf</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">, </span><span style="color: #0000BB">$fields</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

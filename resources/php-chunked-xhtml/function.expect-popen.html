@@ -77,11 +77,11 @@
  <div class="refsect1 examples" id="refsect1-function.expect-popen-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3292">
+   <div class="example" id="example-3363">
     <p><strong>Example #1 <span class="function"><strong>expect_popen()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Login&nbsp;to&nbsp;the&nbsp;PHP.net&nbsp;CVS&nbsp;repository:<br /></span><span style="color: #0000BB">$stream&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">expect_popen&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"cvs&nbsp;-d&nbsp;:pserver:anonymous@cvs.php.net:/repository&nbsp;login"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">sleep&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">3</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">fwrite&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$stream</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"phpfi\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">fclose&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$stream</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Login to the PHP.net CVS repository:<br /></span><span style="color: #0000BB">$stream </span><span style="color: #007700">= </span><span style="color: #0000BB">expect_popen </span><span style="color: #007700">(</span><span style="color: #DD0000">"cvs -d :pserver:anonymous@cvs.php.net:/repository login"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">sleep </span><span style="color: #007700">(</span><span style="color: #0000BB">3</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">fwrite </span><span style="color: #007700">(</span><span style="color: #0000BB">$stream</span><span style="color: #007700">, </span><span style="color: #DD0000">"phpfi\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">fclose </span><span style="color: #007700">(</span><span style="color: #0000BB">$stream</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

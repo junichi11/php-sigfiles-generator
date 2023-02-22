@@ -47,8 +47,8 @@
   <p class="para rdfs-comment">
    Quick formatting function that formats the string without having to
    explicitly create the formatter object. Use this function when the format
-   operation is done only once and does not need and parameters or state to be
-   kept.
+   operation is done only once and does not need any parameters or state to be
+   kept or when wanting to customize the output by providing additional context to ICU directly.
   </p>
  </div>
 
@@ -77,9 +77,8 @@
 
       <p class="para">
        The pattern <span class="type">string</span> to insert things into.
-       The pattern uses an &#039;apostrophe-friendly&#039; syntax; it is run through
-       <a href="http://www.icu-project.org/apiref/icu4c/umsg_8h.html#9da796210146ff51d395affe4928f0b7" class="link external">&raquo;&nbsp;umsg_autoQuoteApostrophe</a> 
-       before being interpreted.
+       The pattern uses an &#039;apostrophe-friendly&#039; syntax;
+       see <a href="https://unicode-org.github.io/icu/userguide/format_parse/messages/#quotingescaping" class="link external">&raquo;&nbsp;Quoting/Escaping</a> for details.
       </p>
      </dd>
 
@@ -113,21 +112,21 @@
 
  <div class="refsect1 examples" id="refsect1-messageformatter.formatmessage-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2360">
+  <div class="example" id="example-2425">
    <p><strong>Example #1 <span class="function"><strong>msgfmt_format_message()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">msgfmt_format_message</span><span style="color: #007700">(</span><span style="color: #DD0000">"en_US"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"{0,number,integer}&nbsp;monkeys&nbsp;on&nbsp;{1,number,integer}&nbsp;trees&nbsp;make&nbsp;{2,number}&nbsp;monkeys&nbsp;per&nbsp;tree\n"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">4560</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">123</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4560</span><span style="color: #007700">/</span><span style="color: #0000BB">123</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #0000BB">msgfmt_format_message</span><span style="color: #007700">(</span><span style="color: #DD0000">"de"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"{0,number,integer}&nbsp;Affen&nbsp;auf&nbsp;{1,number,integer}&nbsp;Bäumen&nbsp;sind&nbsp;{2,number}&nbsp;Affen&nbsp;pro&nbsp;Baum\n"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">4560</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">123</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4560</span><span style="color: #007700">/</span><span style="color: #0000BB">123</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">msgfmt_format_message</span><span style="color: #007700">(</span><span style="color: #DD0000">"en_US"</span><span style="color: #007700">, </span><span style="color: #DD0000">"{0,number,integer} monkeys on {1,number,integer} trees make {2,number} monkeys per tree\n"</span><span style="color: #007700">, array(</span><span style="color: #0000BB">4560</span><span style="color: #007700">, </span><span style="color: #0000BB">123</span><span style="color: #007700">, </span><span style="color: #0000BB">4560</span><span style="color: #007700">/</span><span style="color: #0000BB">123</span><span style="color: #007700">));<br />echo </span><span style="color: #0000BB">msgfmt_format_message</span><span style="color: #007700">(</span><span style="color: #DD0000">"de"</span><span style="color: #007700">, </span><span style="color: #DD0000">"{0,number,integer} Affen auf {1,number,integer} Bäumen sind {2,number} Affen pro Baum\n"</span><span style="color: #007700">, array(</span><span style="color: #0000BB">4560</span><span style="color: #007700">, </span><span style="color: #0000BB">123</span><span style="color: #007700">, </span><span style="color: #0000BB">4560</span><span style="color: #007700">/</span><span style="color: #0000BB">123</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
   </div>
-  <div class="example" id="example-2361">
+  <div class="example" id="example-2426">
    <p><strong>Example #2 OO example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">MessageFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">formatMessage</span><span style="color: #007700">(</span><span style="color: #DD0000">"en_US"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"{0,number,integer}&nbsp;monkeys&nbsp;on&nbsp;{1,number,integer}&nbsp;trees&nbsp;make&nbsp;{2,number}&nbsp;monkeys&nbsp;per&nbsp;tree\n"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">4560</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">123</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4560</span><span style="color: #007700">/</span><span style="color: #0000BB">123</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #0000BB">MessageFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">formatMessage</span><span style="color: #007700">(</span><span style="color: #DD0000">"de"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"{0,number,integer}&nbsp;Affen&nbsp;auf&nbsp;{1,number,integer}&nbsp;Bäumen&nbsp;sind&nbsp;{2,number}&nbsp;Affen&nbsp;pro&nbsp;Baum\n"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">4560</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">123</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4560</span><span style="color: #007700">/</span><span style="color: #0000BB">123</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">MessageFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">formatMessage</span><span style="color: #007700">(</span><span style="color: #DD0000">"en_US"</span><span style="color: #007700">, </span><span style="color: #DD0000">"{0,number,integer} monkeys on {1,number,integer} trees make {2,number} monkeys per tree\n"</span><span style="color: #007700">, array(</span><span style="color: #0000BB">4560</span><span style="color: #007700">, </span><span style="color: #0000BB">123</span><span style="color: #007700">, </span><span style="color: #0000BB">4560</span><span style="color: #007700">/</span><span style="color: #0000BB">123</span><span style="color: #007700">));<br />echo </span><span style="color: #0000BB">MessageFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">formatMessage</span><span style="color: #007700">(</span><span style="color: #DD0000">"de"</span><span style="color: #007700">, </span><span style="color: #DD0000">"{0,number,integer} Affen auf {1,number,integer} Bäumen sind {2,number} Affen pro Baum\n"</span><span style="color: #007700">, array(</span><span style="color: #0000BB">4560</span><span style="color: #007700">, </span><span style="color: #0000BB">123</span><span style="color: #007700">, </span><span style="color: #0000BB">4560</span><span style="color: #007700">/</span><span style="color: #0000BB">123</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -139,6 +138,24 @@
 4,560 monkeys on 123 trees make 37.073 monkeys per tree
 4.560 Affen auf 123 Bäumen sind 37,073 Affen pro Baum
 </pre></div>
+  </div>
+  <div class="example" id="example-2427">
+   <p><strong>Example #3 Instructing ICU to format currency with common and with narrow currency symbol</strong></p>
+   <div class="example-contents"><p>Requires ICU ≥ 67.</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">msgfmt_format_message</span><span style="color: #007700">(</span><span style="color: #DD0000">"cs_CZ"</span><span style="color: #007700">, </span><span style="color: #DD0000">"{0, number, :: currency/CAD}"</span><span style="color: #007700">, array(</span><span style="color: #0000BB">123.45</span><span style="color: #007700">));<br />echo </span><span style="color: #0000BB">msgfmt_format_message</span><span style="color: #007700">(</span><span style="color: #DD0000">"cs_CZ"</span><span style="color: #007700">, </span><span style="color: #DD0000">"{0, number, :: currency/CAD unit-width-narrow}"</span><span style="color: #007700">, array(</span><span style="color: #0000BB">123.45</span><span style="color: #007700">));</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+123,45 CA$
+123,45 $
+</pre></div>
+   </div>
   </div>
  </div>
 

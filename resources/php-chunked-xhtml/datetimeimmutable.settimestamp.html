@@ -36,10 +36,73 @@
    <span class="modifier">public</span> <span class="methodname"><strong>DateTimeImmutable::setTimestamp</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$timestamp</code></span>): <span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span></div>
 
   <p class="para rdfs-comment">
-   Like <span class="methodname"><a href="datetime.settimestamp.html" class="methodname">DateTime::setTimestamp()</a></span> but works with
-   <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span>.
+   Returns a new <span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span> object constructed from the
+   old one, with the date and time set based on an Unix timestamp.
   </p>
  </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-datetimeimmutable.settimestamp-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">timestamp</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Unix timestamp representing the date.
+      Setting timestamps outside the range of <span class="type">int</span> is possible by using
+      <span class="methodname"><a href="datetimeimmutable.modify.html" class="methodname">DateTimeImmutable::modify()</a></span> with the <code class="literal">@</code> format.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-datetimeimmutable.settimestamp-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a new <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> object with the modified data.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-datetimeimmutable.settimestamp-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-2082">
+   <p><strong>Example #1 <span class="function"><strong>DateTimeImmutable::setTimestamp()</strong></span> example</strong></p>
+   <div class="example-contents"><p>Object-oriented style</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$date </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">();<br />echo </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'U = Y-m-d H:i:s'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$newDate </span><span style="color: #007700">= </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setTimestamp</span><span style="color: #007700">(</span><span style="color: #0000BB">1171502725</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$newDate</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'U = Y-m-d H:i:s'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above examples will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+1272508903 = 2010-04-28 22:41:43
+1171502725 = 2007-02-14 20:25:25
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-datetimeimmutable.settimestamp-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="datetime.gettimestamp.html" class="function" rel="rdfs-seeAlso">DateTimeImmutable::getTimestamp()</a> - Gets the Unix timestamp</span></li>
+  </ul>
+ </div>
+
 
 
 </div></div></div></body></html>

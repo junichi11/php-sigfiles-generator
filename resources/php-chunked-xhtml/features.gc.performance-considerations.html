@@ -53,11 +53,11 @@
      itself uses when starting up.
     </p>
     <p class="para">
-     <div class="example" id="example-479">
+     <div class="example" id="example-495">
       <p><strong>Example #1 Memory usage example</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$var&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'3.14159265359'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$baseMemory&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">memory_get_usage</span><span style="color: #007700">();<br /><br />for&nbsp;(&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">100000</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++&nbsp;)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">self&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">500&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'%8d:&nbsp;'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">memory_get_usage</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">$baseMemory</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">$var </span><span style="color: #007700">= </span><span style="color: #DD0000">'3.14159265359'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$baseMemory </span><span style="color: #007700">= </span><span style="color: #0000BB">memory_get_usage</span><span style="color: #007700">();<br /><br />for ( </span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">; </span><span style="color: #0000BB">$i </span><span style="color: #007700">&lt;= </span><span style="color: #0000BB">100000</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++ )<br />{<br />    </span><span style="color: #0000BB">$a </span><span style="color: #007700">= new </span><span style="color: #0000BB">Foo</span><span style="color: #007700">;<br />    </span><span style="color: #0000BB">$a</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">self </span><span style="color: #007700">= </span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br />    if ( </span><span style="color: #0000BB">$i </span><span style="color: #007700">% </span><span style="color: #0000BB">500 </span><span style="color: #007700">=== </span><span style="color: #0000BB">0 </span><span style="color: #007700">)<br />    {<br />        echo </span><span style="color: #0000BB">sprintf</span><span style="color: #007700">( </span><span style="color: #DD0000">'%8d: '</span><span style="color: #007700">, </span><span style="color: #0000BB">$i </span><span style="color: #007700">), </span><span style="color: #0000BB">memory_get_usage</span><span style="color: #007700">() - </span><span style="color: #0000BB">$baseMemory</span><span style="color: #007700">, </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -100,11 +100,11 @@
      second script is here:
     </p>
     <p class="para">
-     <div class="example" id="example-480">
+     <div class="example" id="example-496">
       <p><strong>Example #2 GC performance influences</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$var&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'3.14159265359'</span><span style="color: #007700">;<br />}<br /><br />for&nbsp;(&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">1000000</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++&nbsp;)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">self&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br />}<br /><br />echo&nbsp;</span><span style="color: #0000BB">memory_get_peak_usage</span><span style="color: #007700">(),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">$var </span><span style="color: #007700">= </span><span style="color: #DD0000">'3.14159265359'</span><span style="color: #007700">;<br />}<br /><br />for ( </span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">; </span><span style="color: #0000BB">$i </span><span style="color: #007700">&lt;= </span><span style="color: #0000BB">1000000</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++ )<br />{<br />    </span><span style="color: #0000BB">$a </span><span style="color: #007700">= new </span><span style="color: #0000BB">Foo</span><span style="color: #007700">;<br />    </span><span style="color: #0000BB">$a</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">self </span><span style="color: #007700">= </span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br />}<br /><br />echo </span><span style="color: #0000BB">memory_get_peak_usage</span><span style="color: #007700">(), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -117,7 +117,7 @@
      on, and once with it turned off:
     </p>
     <p class="para">
-     <div class="example" id="example-481">
+     <div class="example" id="example-497">
       <p><strong>Example #3 Running the above script</strong></p>
       <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">time php -dzend.enable_gc=0 -dmemory_limit=-1 -n example2.php
@@ -154,7 +154,7 @@ time php -dzend.enable_gc=1 -dmemory_limit=-1 -n example2.php</pre>
      sequence should do the trick:
     </p>
     <p class="para">
-     <div class="example" id="example-482">
+     <div class="example" id="example-498">
       <p><strong>Example #4 Recompiling PHP to enable GC benchmarking</strong></p>
       <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">export CFLAGS=-DGC_BENCH=1
@@ -172,7 +172,7 @@ make</pre>
      execution:
     </p>
     <p class="para">
-     <div class="example" id="example-483">
+     <div class="example" id="example-499">
       <p><strong>Example #5 GC statistics</strong></p>
       <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">GC Statistics

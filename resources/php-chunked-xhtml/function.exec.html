@@ -115,14 +115,56 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.exec-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Emits an <strong><code>E_WARNING</code></strong> if <span class="function"><strong>exec()</strong></span>
+   is unable to execute the <code class="parameter">command</code>.
+  </p>
+  <p class="para">
+   Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> if <code class="parameter">command</code>
+   is empty or contains null bytes.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.exec-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       If <code class="parameter">command</code> is empty or contains null bytes,
+       <span class="function"><strong>exec()</strong></span> now throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span>.
+       Previously it emitted an <strong><code>E_WARNING</code></strong> and returned <strong><code>false</code></strong>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.exec-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3328">
+   <div class="example" id="example-3400">
     <p><strong>Example #1 An <span class="function"><strong>exec()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;outputs&nbsp;the&nbsp;username&nbsp;that&nbsp;owns&nbsp;the&nbsp;running&nbsp;php/httpd&nbsp;process<br />//&nbsp;(on&nbsp;a&nbsp;system&nbsp;with&nbsp;the&nbsp;"whoami"&nbsp;executable&nbsp;in&nbsp;the&nbsp;path)<br /></span><span style="color: #0000BB">$output</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$retval</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">'whoami'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$retval</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Returned&nbsp;with&nbsp;status&nbsp;</span><span style="color: #0000BB">$retval</span><span style="color: #DD0000">&nbsp;and&nbsp;output:\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$output</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// outputs the username that owns the running php/httpd process<br />// (on a system with the "whoami" executable in the path)<br /></span><span style="color: #0000BB">$output</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$retval</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">'whoami'</span><span style="color: #007700">, </span><span style="color: #0000BB">$output</span><span style="color: #007700">, </span><span style="color: #0000BB">$retval</span><span style="color: #007700">);<br />echo </span><span style="color: #DD0000">"Returned with status </span><span style="color: #0000BB">$retval</span><span style="color: #DD0000"> and output:\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$output</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

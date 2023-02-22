@@ -119,7 +119,7 @@
  <div class="refsect1 examples" id="refsect1-function.parse-ini-file-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2197">
+   <div class="example" id="example-2262">
     <p><strong>Example #1 Contents of <var class="filename">sample.ini</var></strong></p>
     <div class="example-contents">
 <div class="cdata"><pre>
@@ -147,7 +147,7 @@ urls[git] = &quot;http://git.php.net&quot;
     </div>
 
    </div>
-   <div class="example" id="example-2198">
+   <div class="example" id="example-2263">
     <p><strong>Example #2 <span class="function"><strong>parse_ini_file()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      <a href="language.constants.html" class="link">Constants</a> (but not &quot;magic constants&quot; like <strong><code>__FILE__</code></strong>)
@@ -158,7 +158,7 @@ urls[git] = &quot;http://git.php.net&quot;
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />define</span><span style="color: #007700">(</span><span style="color: #DD0000">'BIRD'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Dodo&nbsp;bird'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Parse&nbsp;without&nbsp;sections<br /></span><span style="color: #0000BB">$ini_array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">parse_ini_file</span><span style="color: #007700">(</span><span style="color: #DD0000">"sample.ini"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$ini_array</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Parse&nbsp;with&nbsp;sections<br /></span><span style="color: #0000BB">$ini_array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">parse_ini_file</span><span style="color: #007700">(</span><span style="color: #DD0000">"sample.ini"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$ini_array</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />define</span><span style="color: #007700">(</span><span style="color: #DD0000">'BIRD'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Dodo bird'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Parse without sections<br /></span><span style="color: #0000BB">$ini_array </span><span style="color: #007700">= </span><span style="color: #0000BB">parse_ini_file</span><span style="color: #007700">(</span><span style="color: #DD0000">"sample.ini"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$ini_array</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Parse with sections<br /></span><span style="color: #0000BB">$ini_array </span><span style="color: #007700">= </span><span style="color: #0000BB">parse_ini_file</span><span style="color: #007700">(</span><span style="color: #DD0000">"sample.ini"</span><span style="color: #007700">, </span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$ini_array</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -228,11 +228,11 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2199">
+   <div class="example" id="example-2264">
     <p><strong>Example #3 <span class="function"><strong>parse_ini_file()</strong></span> parsing a php.ini file</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;A&nbsp;simple&nbsp;function&nbsp;used&nbsp;for&nbsp;comparing&nbsp;the&nbsp;results&nbsp;below<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">yesno</span><span style="color: #007700">(</span><span style="color: #0000BB">$expression</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return(</span><span style="color: #0000BB">$expression&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">'Yes'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">'No'</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Get&nbsp;the&nbsp;path&nbsp;to&nbsp;php.ini&nbsp;using&nbsp;the&nbsp;php_ini_loaded_file()&nbsp;function<br /></span><span style="color: #0000BB">$ini_path&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">php_ini_loaded_file</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Parse&nbsp;php.ini<br /></span><span style="color: #0000BB">$ini&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">parse_ini_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$ini_path</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Print&nbsp;and&nbsp;compare&nbsp;the&nbsp;values,&nbsp;note&nbsp;that&nbsp;using&nbsp;get_cfg_var()<br />//&nbsp;will&nbsp;give&nbsp;the&nbsp;same&nbsp;results&nbsp;for&nbsp;parsed&nbsp;and&nbsp;loaded&nbsp;here<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'(parsed)&nbsp;magic_quotes_gpc&nbsp;=&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">yesno</span><span style="color: #007700">(</span><span style="color: #0000BB">$ini</span><span style="color: #007700">[</span><span style="color: #DD0000">'magic_quotes_gpc'</span><span style="color: #007700">])&nbsp;.&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">'(loaded)&nbsp;magic_quotes_gpc&nbsp;=&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">yesno</span><span style="color: #007700">(</span><span style="color: #0000BB">get_cfg_var</span><span style="color: #007700">(</span><span style="color: #DD0000">'magic_quotes_gpc'</span><span style="color: #007700">))&nbsp;.&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// A simple function used for comparing the results below<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">yesno</span><span style="color: #007700">(</span><span style="color: #0000BB">$expression</span><span style="color: #007700">)<br />{<br />    return(</span><span style="color: #0000BB">$expression </span><span style="color: #007700">? </span><span style="color: #DD0000">'Yes' </span><span style="color: #007700">: </span><span style="color: #DD0000">'No'</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">// Get the path to php.ini using the php_ini_loaded_file() function<br /></span><span style="color: #0000BB">$ini_path </span><span style="color: #007700">= </span><span style="color: #0000BB">php_ini_loaded_file</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">// Parse php.ini<br /></span><span style="color: #0000BB">$ini </span><span style="color: #007700">= </span><span style="color: #0000BB">parse_ini_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$ini_path</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Print and compare the values, note that using get_cfg_var()<br />// will give the same results for parsed and loaded here<br /></span><span style="color: #007700">echo </span><span style="color: #DD0000">'(parsed) magic_quotes_gpc = ' </span><span style="color: #007700">. </span><span style="color: #0000BB">yesno</span><span style="color: #007700">(</span><span style="color: #0000BB">$ini</span><span style="color: #007700">[</span><span style="color: #DD0000">'magic_quotes_gpc'</span><span style="color: #007700">]) . </span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />echo </span><span style="color: #DD0000">'(loaded) magic_quotes_gpc = ' </span><span style="color: #007700">. </span><span style="color: #0000BB">yesno</span><span style="color: #007700">(</span><span style="color: #0000BB">get_cfg_var</span><span style="color: #007700">(</span><span style="color: #DD0000">'magic_quotes_gpc'</span><span style="color: #007700">)) . </span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -248,7 +248,7 @@ something similar to:</p></div>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2200">
+   <div class="example" id="example-2265">
     <p><strong>Example #4 Value Interpolation</strong></p>
     <div class="example-contents"><p>
      In addition to evaluating constants, certain characters have special meaning in an ini value.
@@ -272,8 +272,11 @@ negative_two = ~1
 ; () is used for grouping
 seven = (8|7)&amp;(6|5)
 
+; Interpolate the PATH environment variable
 path = ${PATH}
-also_five = ${five}
+
+; Interpolate the configuration option &#039;memory_limit&#039;
+configured_memory_limit = ${memory_limit}
 
 </pre></div>
     </div>
@@ -281,7 +284,7 @@ also_five = ${five}
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2201">
+   <div class="example" id="example-2266">
     <p><strong>Example #5 Escaping Characters</strong></p>
     <div class="example-contents"><p>
      Some characters have special meaning in double-quoted strings and must be escaped by the backslash prefix.

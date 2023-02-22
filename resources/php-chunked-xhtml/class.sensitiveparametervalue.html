@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The SensitiveParameterValue class</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="backedenum.tryfrom.html">« BackedEnum::tryFrom</a></li>
+      <li style="float: right;"><a href="sensitiveparametervalue.construct.html">SensitiveParameterValue::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="reserved.interfaces.html">Predefined Interfaces and Classes</a></li>
+    <li>The SensitiveParameterValue class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.sensitiveparametervalue" class="reference">
+ <h1 class="title">The SensitiveParameterValue class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 8 &gt;= 8.2.0)</p>
+
+
+  <div class="section" id="sensitiveparametervalue.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    The <span class="classname"><strong class="classname">SensitiveParameterValue</strong></span> class allows wrapping sensitive
+    values to protect them against accidental exposure.
+   </p>
+   <p class="para">
+    Values of parameters having the <span class="classname"><a href="class.sensitiveparameter.html" class="classname">SensitiveParameter</a></span> attribute
+    will automatically be wrapped inside of a <span class="classname"><strong class="classname">SensitiveParameterValue</strong></span>
+    object within stack traces.
+   </p>
+  </div>
+
+
+  <div class="section" id="sensitiveparametervalue.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">final</span>
+      <span class="modifier">class</span> <strong class="classname">SensitiveParameterValue</strong>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">private</span>
+     <span class="modifier">readonly</span>
+     <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
+      <var class="varname"><a href="class.sensitiveparametervalue.html#sensitiveparametervalue.props.value">$<var class="varname">value</var></a></var>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="sensitiveparametervalue.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sensitiveparametervalue.debuginfo.html" class="methodname">__debugInfo</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sensitiveparametervalue.getvalue.html" class="methodname">getValue</a></span>(): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+
+   }</div>
+
+
+  </div>
+
+
+  <div class="section" id="sensitiveparametervalue.props">
+   <h2 class="title">Properties</h2>
+   <dl>
+    
+     <dt id="sensitiveparametervalue.props.value"><var class="varname">value</var></dt>
+
+     <dd>
+
+      <p class="para">
+       The sensitive value to be protected against accidental exposure.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </div>
+
+
+ </div>
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="sensitiveparametervalue.construct.html">SensitiveParameterValue::__construct</a> — Constructs a new SensitiveParameterValue object</li><li><a href="sensitiveparametervalue.debuginfo.html">SensitiveParameterValue::__debugInfo</a> — Protects the sensitive value against accidental exposure</li><li><a href="sensitiveparametervalue.getvalue.html">SensitiveParameterValue::getValue</a> — Returns the sensitive value</li></ul>
+</div>
+</div></div></body></html>

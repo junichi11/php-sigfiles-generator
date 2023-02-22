@@ -63,22 +63,14 @@
  </div>
 
 
- <div class="refsect1 returnvalues" id="refsect1-reflectiongenerator.construct-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   No value is returned.
-  </p>
- </div>
-
-
   <div class="refsect1 examples" id="refsect1-reflectiongenerator.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5200">
+   <div class="example" id="example-5372">
     <p><strong>Example #1 <span class="methodname"><strong>ReflectionGenerator::__construct()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">gen</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$gen&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gen</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$reflectionGen&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionGenerator</span><span style="color: #007700">(</span><span style="color: #0000BB">$gen</span><span style="color: #007700">);<br /><br />echo&nbsp;&lt;&lt;&lt;&nbsp;output<br />{</span><span style="color: #0000BB">$reflectionGen</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getFunction</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">}</span><span style="color: #DD0000"><br />Line:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$reflectionGen</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getExecutingLine</span><span style="color: #007700">()}</span><span style="color: #DD0000"><br />File:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$reflectionGen</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getExecutingFile</span><span style="color: #007700">()}</span><span style="color: #DD0000"><br /></span><span style="color: #007700">output;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function </span><span style="color: #0000BB">gen</span><span style="color: #007700">()<br />{<br />    yield </span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$gen </span><span style="color: #007700">= </span><span style="color: #0000BB">gen</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$reflectionGen </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionGenerator</span><span style="color: #007700">(</span><span style="color: #0000BB">$gen</span><span style="color: #007700">);<br /><br />echo &lt;&lt;&lt; output<br />{</span><span style="color: #0000BB">$reflectionGen</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getFunction</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">}</span><span style="color: #DD0000"><br />Line: </span><span style="color: #007700">{</span><span style="color: #0000BB">$reflectionGen</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getExecutingLine</span><span style="color: #007700">()}</span><span style="color: #DD0000"><br />File: </span><span style="color: #007700">{</span><span style="color: #0000BB">$reflectionGen</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getExecutingFile</span><span style="color: #007700">()}</span><span style="color: #DD0000"><br /></span><span style="color: #007700">output;</span>
 </span>
 </code></div>
     </div>

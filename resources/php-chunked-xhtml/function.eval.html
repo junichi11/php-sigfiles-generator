@@ -113,11 +113,11 @@
  <div class="refsect1 examples" id="refsect1-function.eval-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3495">
+   <div class="example" id="example-3538">
     <p><strong>Example #1 <span class="function"><strong>eval()</strong></span> example - simple text merge</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'cup'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'coffee'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'This&nbsp;is&nbsp;a&nbsp;$string&nbsp;with&nbsp;my&nbsp;$name&nbsp;in&nbsp;it.'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />eval(</span><span style="color: #DD0000">"\$str&nbsp;=&nbsp;\"</span><span style="color: #0000BB">$str</span><span style="color: #DD0000">\";"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$string </span><span style="color: #007700">= </span><span style="color: #DD0000">'cup'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$name </span><span style="color: #007700">= </span><span style="color: #DD0000">'coffee'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str </span><span style="color: #007700">= </span><span style="color: #DD0000">'This is a $string with my $name in it.'</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">$str</span><span style="color: #007700">. </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />eval(</span><span style="color: #DD0000">"\$str = \"</span><span style="color: #0000BB">$str</span><span style="color: #DD0000">\";"</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$str</span><span style="color: #007700">. </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -139,7 +139,8 @@ This is a cup with my coffee in it.
 
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">Because this is a
 language construct and not a function, it cannot be called using
-<a href="functions.variable-functions.html" class="link">variable functions</a>.</span>
+<a href="functions.variable-functions.html" class="link">variable functions</a>,
+or <a href="functions.arguments.html#functions.named-arguments" class="link">named arguments</a>.</span>
 </p></blockquote>
 
   <div class="tip"><strong class="tip">Tip</strong><p class="simpara">As with anything that outputs

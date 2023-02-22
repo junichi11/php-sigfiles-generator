@@ -110,7 +110,7 @@
      <p class="para">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">A&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">method</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;$many</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string&nbsp;$parameters</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$here</span><span style="color: #007700">)&nbsp;{}<br />}<br />class&nbsp;</span><span style="color: #0000BB">B&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">A&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">method</span><span style="color: #007700">(...</span><span style="color: #0000BB">$everything</span><span style="color: #007700">)&nbsp;{}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">A </span><span style="color: #007700">{<br />     public function </span><span style="color: #0000BB">method</span><span style="color: #007700">(</span><span style="color: #0000BB">int $many</span><span style="color: #007700">, </span><span style="color: #0000BB">string $parameters</span><span style="color: #007700">, </span><span style="color: #0000BB">$here</span><span style="color: #007700">) {}<br />}<br />class </span><span style="color: #0000BB">B </span><span style="color: #007700">extends </span><span style="color: #0000BB">A </span><span style="color: #007700">{<br />     public function </span><span style="color: #0000BB">method</span><span style="color: #007700">(...</span><span style="color: #0000BB">$everything</span><span style="color: #007700">) {}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -124,7 +124,7 @@
      <p class="para">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Test&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">create</span><span style="color: #007700">():&nbsp;static&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;static();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Test </span><span style="color: #007700">{<br />     public function </span><span style="color: #0000BB">create</span><span style="color: #007700">(): static {<br />          return new static();<br />     }<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -173,7 +173,7 @@
       That allows usages like:
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$fn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fn</span><span style="color: #007700">()&nbsp;=&gt;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">Exception</span><span style="color: #007700">(</span><span style="color: #DD0000">'Exception&nbsp;in&nbsp;arrow&nbsp;function'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$user&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">user&nbsp;</span><span style="color: #007700">??&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">Exception</span><span style="color: #007700">(</span><span style="color: #DD0000">'Must&nbsp;have&nbsp;user'</span><span style="color: #007700">);</span>
+<span style="color: #0000BB">&lt;?php<br />$fn </span><span style="color: #007700">= </span><span style="color: #0000BB">fn</span><span style="color: #007700">() =&gt; throw new </span><span style="color: #0000BB">Exception</span><span style="color: #007700">(</span><span style="color: #DD0000">'Exception in arrow function'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$user </span><span style="color: #007700">= </span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">user </span><span style="color: #007700">?? throw new </span><span style="color: #0000BB">Exception</span><span style="color: #007700">(</span><span style="color: #DD0000">'Must have user'</span><span style="color: #007700">);</span>
 </span>
 </code></div>
       </div>
@@ -186,7 +186,7 @@
       An optional trailing comma is now allowed in parameter lists.
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">functionWithLongSignature</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Type1&nbsp;$parameter1</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Type2&nbsp;$parameter2</span><span style="color: #007700">,&nbsp;</span><span style="color: #FF8000">//&nbsp;&lt;--&nbsp;This&nbsp;comma&nbsp;is&nbsp;now&nbsp;allowed.<br /></span><span style="color: #007700">)&nbsp;{<br />}</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">functionWithLongSignature</span><span style="color: #007700">(<br />    </span><span style="color: #0000BB">Type1 $parameter1</span><span style="color: #007700">,<br />    </span><span style="color: #0000BB">Type2 $parameter2</span><span style="color: #007700">, </span><span style="color: #FF8000">// &lt;-- This comma is now allowed.<br /></span><span style="color: #007700">) {<br />}</span>
 </span>
 </code></div>
       </div>
@@ -214,7 +214,7 @@
       The following example illustrates which restrictions have been removed:
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">ParentClass&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;</span><span style="color: #0000BB">method1</span><span style="color: #007700">()&nbsp;{}<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;</span><span style="color: #0000BB">method2</span><span style="color: #007700">()&nbsp;{}<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">method3</span><span style="color: #007700">()&nbsp;{}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Throws&nbsp;a&nbsp;warning,&nbsp;as&nbsp;"final"&nbsp;no&nbsp;longer&nbsp;has&nbsp;an&nbsp;effect:<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">private&nbsp;final&nbsp;function&nbsp;</span><span style="color: #0000BB">method4</span><span style="color: #007700">()&nbsp;{}<br />}<br />class&nbsp;</span><span style="color: #0000BB">ChildClass&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">ParentClass&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;All&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;now&nbsp;allowed,&nbsp;even&nbsp;though&nbsp;the&nbsp;modifiers&nbsp;aren't<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;the&nbsp;same&nbsp;as&nbsp;for&nbsp;the&nbsp;private&nbsp;methods&nbsp;in&nbsp;the&nbsp;parent&nbsp;class.<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;abstract&nbsp;function&nbsp;</span><span style="color: #0000BB">method1</span><span style="color: #007700">()&nbsp;{}<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">method2</span><span style="color: #007700">()&nbsp;{}<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">method3</span><span style="color: #007700">()&nbsp;{}<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">method4</span><span style="color: #007700">()&nbsp;{}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">ParentClass </span><span style="color: #007700">{<br />    private function </span><span style="color: #0000BB">method1</span><span style="color: #007700">() {}<br />    private function </span><span style="color: #0000BB">method2</span><span style="color: #007700">() {}<br />    private static function </span><span style="color: #0000BB">method3</span><span style="color: #007700">() {}<br />    </span><span style="color: #FF8000">// Throws a warning, as "final" no longer has an effect:<br />    </span><span style="color: #007700">private final function </span><span style="color: #0000BB">method4</span><span style="color: #007700">() {}<br />}<br />class </span><span style="color: #0000BB">ChildClass </span><span style="color: #007700">extends </span><span style="color: #0000BB">ParentClass </span><span style="color: #007700">{<br />    </span><span style="color: #FF8000">// All of the following are now allowed, even though the modifiers aren't<br />    // the same as for the private methods in the parent class.<br />    </span><span style="color: #007700">public abstract function </span><span style="color: #0000BB">method1</span><span style="color: #007700">() {}<br />    public static function </span><span style="color: #0000BB">method2</span><span style="color: #007700">() {}<br />    public function </span><span style="color: #0000BB">method3</span><span style="color: #007700">() {}<br />    public function </span><span style="color: #0000BB">method4</span><span style="color: #007700">() {}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -226,6 +226,11 @@
      <p class="para">
       <span class="function"><a href="function.get-resource-id.html" class="function">get_resource_id()</a></span> has been added, which returns the same value as
       <code class="code">(int) $resource</code>. It provides the same functionality under a clearer API.
+     </p>
+    </li>
+    <li class="listitem">
+     <p class="para">
+      The <span class="classname"><a href="class.internaliterator.html" class="classname">InternalIterator</a></span> has been added.
      </p>
     </li>
    </ul>
@@ -450,7 +455,7 @@
     <p class="para">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%.*H"</span><span style="color: #007700">,&nbsp;(int)&nbsp;</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">"precision"</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$float</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%.*H"</span><span style="color: #007700">,&nbsp;(int)&nbsp;</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">"serialize_precision"</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$float</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%.*H"</span><span style="color: #007700">, (int) </span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">"precision"</span><span style="color: #007700">), </span><span style="color: #0000BB">$float</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%.*H"</span><span style="color: #007700">, (int) </span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">"serialize_precision"</span><span style="color: #007700">), </span><span style="color: #0000BB">$float</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -466,7 +471,7 @@
     <p class="para">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$proc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">proc_open</span><span style="color: #007700">(</span><span style="color: #0000BB">$command</span><span style="color: #007700">,&nbsp;[[</span><span style="color: #DD0000">'pty'</span><span style="color: #007700">],&nbsp;[</span><span style="color: #DD0000">'pty'</span><span style="color: #007700">],&nbsp;[</span><span style="color: #DD0000">'pty'</span><span style="color: #007700">]],&nbsp;</span><span style="color: #0000BB">$pipes</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$proc </span><span style="color: #007700">= </span><span style="color: #0000BB">proc_open</span><span style="color: #007700">(</span><span style="color: #0000BB">$command</span><span style="color: #007700">, [[</span><span style="color: #DD0000">'pty'</span><span style="color: #007700">], [</span><span style="color: #DD0000">'pty'</span><span style="color: #007700">], [</span><span style="color: #DD0000">'pty'</span><span style="color: #007700">]], </span><span style="color: #0000BB">$pipes</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -482,7 +487,7 @@
     <p class="para">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$proc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">proc_open</span><span style="color: #007700">(</span><span style="color: #0000BB">$command</span><span style="color: #007700">,&nbsp;[[</span><span style="color: #DD0000">'socket'</span><span style="color: #007700">],&nbsp;[</span><span style="color: #DD0000">'socket'</span><span style="color: #007700">],&nbsp;[</span><span style="color: #DD0000">'socket'</span><span style="color: #007700">]],&nbsp;</span><span style="color: #0000BB">$pipes</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$proc </span><span style="color: #007700">= </span><span style="color: #0000BB">proc_open</span><span style="color: #007700">(</span><span style="color: #0000BB">$command</span><span style="color: #007700">, [[</span><span style="color: #DD0000">'socket'</span><span style="color: #007700">], [</span><span style="color: #DD0000">'socket'</span><span style="color: #007700">], [</span><span style="color: #DD0000">'socket'</span><span style="color: #007700">]], </span><span style="color: #0000BB">$pipes</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -509,7 +514,7 @@
     <p class="para">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;OK&nbsp;even&nbsp;if&nbsp;$excludes&nbsp;is&nbsp;empty:<br /></span><span style="color: #0000BB">array_diff</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">,&nbsp;...</span><span style="color: #0000BB">$excludes</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;OK&nbsp;even&nbsp;if&nbsp;$arrays&nbsp;only&nbsp;contains&nbsp;a&nbsp;single&nbsp;array:<br /></span><span style="color: #0000BB">array_intersect</span><span style="color: #007700">(...</span><span style="color: #0000BB">$arrays</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// OK even if $excludes is empty:<br /></span><span style="color: #0000BB">array_diff</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">, ...</span><span style="color: #0000BB">$excludes</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// OK even if $arrays only contains a single array:<br /></span><span style="color: #0000BB">array_intersect</span><span style="color: #007700">(...</span><span style="color: #0000BB">$arrays</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

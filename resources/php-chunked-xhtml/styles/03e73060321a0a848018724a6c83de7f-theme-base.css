@@ -9,6 +9,15 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+:root {
+  --dark-grey-color: #333;
+  --dark-blue-color: #4F5B93;
+  --medium-blue-color: #7A86B8;
+  --light-blue-color: #E2E4EF;
+  --dark-magenta-color: #793862;
+  --medium-magenta-color: #AE508D;
+}
+
 .clearfix {
   *zoom: 1;
 }
@@ -60,7 +69,7 @@ a {
   border-bottom:1px solid;
 }
 a:focus {
-  outline: thin dotted #333;
+  outline: thin dotted var(--dark-grey-color);
   outline-offset: -2px;
 }
 a:hover,
@@ -555,8 +564,7 @@ div.classsynopsisinfo_comment {
 
 pre.info {
     border: 1px solid;
-    margin: 1rem 2rem 1.3rem;
-    margin-right: 0.8rem;
+    margin: 1rem 0.8rem 1.3rem 2rem;
 }
 
 #langform {
@@ -686,7 +694,6 @@ table td {
 
 table.standard {
     border-collapse: collapse;
-    border-style: hidden;
     border:1px solid #d9d9d9;
 }
 
@@ -797,9 +804,8 @@ table.standard th.subr {
     width: 23.404%;
     margin-right: 2.762%;
     padding:.5rem .75rem;
-    border: 1px solid;
+    border: 1px solid #e0e0e0;
     background-color:#f2f2f2;
-    border-color: #e0e0e0;
     border-bottom-color:#d9d9d9;
     border-radius:2px;
     margin-top: 0;
@@ -868,7 +874,7 @@ table.standard th.subr {
 
 #layout .cse .gsc-result-info,
 #layout .gsc-result-info {
-    color: #333;
+    color: var(--dark-grey-color);
     font-size: 0.75rem;
     padding: 0;
     margin: 0;
@@ -1009,11 +1015,11 @@ fieldset {
 }
 
 .tt-dropdown-menu {
-    background: none repeat scroll 0 0 #E2E4EF;
+    background: none repeat scroll 0 0 var(--light-blue-color);
     border-bottom: 1px solid #C4C9DF;
     border-radius: 0 0 2px 2px;
-    box-shadow: 1px 0 1px -1px #C4C9DF inset, -1px 0 1px -1px #C4C9DF inset, 0 0 1px #4F5B93;
-    color: #333333;
+    box-shadow: 1px 0 1px -1px #C4C9DF inset, -1px 0 1px -1px #C4C9DF inset, 0 0 1px var(--dark-blue-color);
+    color: var(--dark-grey-color);
     padding-top: 3px;
     margin-top: -3px;
     min-width: 100%;
@@ -1021,8 +1027,8 @@ fieldset {
 
 .tt-dropdown-menu .result-heading {
     font-size:1.1rem;
-    border-bottom: 2px solid #4F5B93;
-    color: #E2E4EF;
+    border-bottom: 2px solid var(--dark-blue-color);
+    color: var(--light-blue-color);
     text-shadow:0 -1px 0 rgba(0,0,0,.25);
     word-spacing:6px;
     margin: 0;
@@ -1081,7 +1087,7 @@ fieldset {
 }
 
 .tt-suggestion h4 {
-    color: #333;
+    color: var(--dark-grey-color);
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1102,7 +1108,7 @@ fieldset {
 
 /* Selected items. */
 .tt-suggestion.tt-is-under-cursor {
-    background-color: #4F5B93;
+    background-color: var(--dark-blue-color);
 }
 
 .tt-suggestion.tt-is-under-cursor h4 {
@@ -1159,7 +1165,7 @@ fieldset {
 .content-box pre {
     background: white;
     border: solid 1px rgb(214, 214, 214);
-    margin: 0px;
+    margin: 0;
     padding: 0.75rem;
     overflow: auto;
     font: normal 0.875rem/1.5rem "Source Code Pro", monospace;
@@ -1316,6 +1322,10 @@ div.tip p:first-child {
 
 .docs .qandaentry dt .phpcode * {
     font-weight: normal;
+}
+
+.phpcode code span span {
+    white-space: pre;
 }
 
 /* }}} */
@@ -1483,8 +1493,8 @@ div.soft-deprecation-notice {
 }
 div.soft-deprecation-notice blockquote.sidebar {
     padding: 10px;
-    margin: 0px;
-    border: 0px solid;
+    margin: 0;
+    border: 0 solid;
 }
 
 #breadcrumbs {
@@ -1541,7 +1551,6 @@ div.soft-deprecation-notice blockquote.sidebar {
     display:block;
   }
   .navbar-search,
-  #intro .download,
   #intro .background,
   aside.tips,
   .layout-menu {
@@ -1549,7 +1558,7 @@ div.soft-deprecation-notice blockquote.sidebar {
     float: left;
   }
 
-  #intro .blurb, #layout-content {
+  #layout-content {
     float:left;
     width:75%;
   }
@@ -1565,11 +1574,11 @@ div.soft-deprecation-notice blockquote.sidebar {
 
 
 @media (min-width: 768px) and (max-width: 979px) {
-    #intro .download, aside.tips, .navbar-search {
+    aside.tips, .navbar-search {
         width: 30% !important;
     }
 
-    #intro .blurb, #layout-content {
+    #layout-content:not(:only-child) {
         width: 70% !important;
     }
 }
@@ -1611,7 +1620,7 @@ div.soft-deprecation-notice blockquote.sidebar {
     float:left;
     clear: both;
     margin-top: 0;
-    padding: 0px 10px 10px 10px;
+    padding: 0 10px 10px 10px;
   }
 
   .navbar .nav {
@@ -1623,7 +1632,7 @@ div.soft-deprecation-notice blockquote.sidebar {
   }
 
   #mainmenu-toggle-overlay {
-    background: #4F5B93 url(/images/mobile-menu.png) no-repeat center center;
+    background: var(--dark-blue-color) url(/images/mobile-menu.png) no-repeat center center;
     float: right;
     display: block;
     height: 32px;
@@ -1652,7 +1661,7 @@ div.soft-deprecation-notice blockquote.sidebar {
 
   .navbar-search {
     margin-top: 0;
-    padding: 0px 10px 10px;
+    padding: 0 10px 10px;
   }
 
   .navbar .brand img {
@@ -1691,7 +1700,7 @@ div.soft-deprecation-notice blockquote.sidebar {
   }
 
   #flash-message {
-    margin-top: 0px !important;
+    margin-top: 0 !important;
     top: 0;
   }
 
@@ -1726,7 +1735,7 @@ div.soft-deprecation-notice blockquote.sidebar {
 
 #goto {
   display: none;
-  background-color: #333;
+  background-color: var(--dark-grey-color);
   height: 100%;
   width: 100%;
   opacity: 0.9;
@@ -1736,7 +1745,7 @@ div.soft-deprecation-notice blockquote.sidebar {
   color: #E6E6E6;
 }
 #goto .search .results {
-  text-shadow: 0px 2px 3px #555;
+  text-shadow: 0 2px 3px #555;
   font-size: 2rem;
   line-height: 1;
 }
@@ -1746,7 +1755,7 @@ div.soft-deprecation-notice blockquote.sidebar {
 }
 #goto .search .text {
   color: #222;
-  text-shadow: 0px 2px 3px #555;
+  text-shadow: 0 2px 3px #555;
   font-size: 10rem;
   line-height: .7;
 }

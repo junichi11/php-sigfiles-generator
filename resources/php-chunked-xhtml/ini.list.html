@@ -108,7 +108,7 @@
        <td><a href="info.configuration.html#ini.assert.quiet-eval" class="link">assert.quiet_eval</a></td>
        <td>&quot;0&quot;</td>
        <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
+       <td>Removed as of PHP 8.0.0</td>
       </tr>
 
       <tr>
@@ -300,19 +300,19 @@
      </tr>
 <tr>
       <td><a href="datetime.configuration.html#ini.date.sunrise-zenith" class="link">date.sunrise_zenith</a></td>
-      <td>&quot;90.583333&quot;</td>
+      <td>&quot;90.833333&quot;</td>
       <td>PHP_INI_ALL</td>
-      <td class="empty">&nbsp;</td>
+      <td>Prior to PHP 8.0.0, the default was &quot;90.583333&quot;</td>
      </tr>
 <tr>
       <td><a href="datetime.configuration.html#ini.date.sunset-zenith" class="link">date.sunset_zenith</a></td>
-      <td>&quot;90.583333&quot;</td>
+      <td>&quot;90.833333&quot;</td>
       <td>PHP_INI_ALL</td>
-      <td class="empty">&nbsp;</td>
+      <td>Prior to PHP 8.0.0, the default was &quot;90.583333&quot;</td>
      </tr>
 <tr>
       <td><a href="datetime.configuration.html#ini.date.timezone" class="link">date.timezone</a></td>
-      <td>&quot;&quot;</td>
+      <td>&quot;UTC&quot;</td>
       <td>PHP_INI_ALL</td>
       <td class="empty">&nbsp;</td>
      </tr>
@@ -456,6 +456,13 @@ certainly be <em class="emphasis">removed</em> in the future.</td>
       </tr>
 
       <tr>
+       <td><a href="errorfunc.configuration.html#ini.error-log-mode" class="link">error_log_mode</a></td>
+       <td>0o644</td>
+       <td>PHP_INI_ALL</td>
+       <td>Available as of PHP 8.2.0</td>
+      </tr>
+
+      <tr>
        <td><a href="errorfunc.configuration.html#ini.error-prepend-string" class="link">error_prepend_string</a></td>
        <td>NULL</td>
        <td>PHP_INI_ALL</td>
@@ -584,7 +591,7 @@ certainly be <em class="emphasis">removed</em> in the future.</td>
       <td><a href="filter.configuration.html#ini.filter.default" class="link">filter.default</a></td>
       <td>&quot;unsafe_raw&quot;</td>
       <td>PHP_INI_PERDIR</td>
-      <td class="empty">&nbsp;</td>
+      <td>Deprecated as of PHP 8.1.0.</td>
      </tr>
 <tr>
       <td><a href="filter.configuration.html#ini.filter.default-flags" class="link">filter.default_flags</a></td>
@@ -973,6 +980,18 @@ certainly be <em class="emphasis">removed</em> in the future.</td>
       <td>PHP_INI_ALL</td>
       <td class="empty">&nbsp;</td>
      </tr>
+<tr>
+      <td><a href="mbstring.configuration.html#ini.mbstring.regex-retry-limit" class="link">mbstring.regex_retry_limit</a></td>
+      <td>&quot;1000000&quot;</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available as of PHP 7.4.0.</td>
+     </tr>
+<tr>
+      <td><a href="mbstring.configuration.html#ini.mbstring.regex-stack-limit" class="link">mbstring.regex_stack_limit</a></td>
+      <td>&quot;100000&quot;</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available as of PHP 7.3.5.</td>
+     </tr>
 
       <tr>
      <td><a href="mcrypt.configuration.html#ini.mcrypt.algorithms-dir" class="link">mcrypt.algorithms_dir</a></td>
@@ -1138,7 +1157,7 @@ certainly be <em class="emphasis">removed</em> in the future.</td>
       <td><a href="mysqli.configuration.html#ini.mysqli.local-infile-directory" class="link">mysqli.local_infile_directory</a></td>
       <td class="empty">&nbsp;</td>
       <td>PHP_INI_SYSTEM</td>
-      <td class="empty">&nbsp;</td>
+      <td>Available as of PHP 8.1.0.</td>
      </tr>
 <tr>
       <td><a href="mysqli.configuration.html#ini.mysqli.allow-persistent" class="link">mysqli.allow_persistent</a></td>
@@ -1192,7 +1211,7 @@ certainly be <em class="emphasis">removed</em> in the future.</td>
       <td><a href="mysqli.configuration.html#ini.mysqli.reconnect" class="link">mysqli.reconnect</a></td>
       <td>&quot;0&quot;</td>
       <td>PHP_INI_SYSTEM</td>
-      <td class="empty">&nbsp;</td>
+      <td>Removed as of PHP 8.2.0</td>
      </tr>
 <tr>
       <td><a href="mysqli.configuration.html#ini.mysqli.rollback-on-cached-plink" class="link">mysqli.rollback_on_cached_plink</a></td>
@@ -1268,7 +1287,7 @@ certainly be <em class="emphasis">removed</em> in the future.</td>
       <td><a href="mysqlnd.config.html#ini.mysqlnd.fetch_data_copy" class="link">mysqlnd.fetch_data_copy</a></td>
       <td>0</td>
       <td>PHP_INI_ALL</td>
-      <td class="empty">&nbsp;</td>
+      <td>Removed as of PHP 8.1.0</td>
      </tr>
 
       <tr>
@@ -1524,6 +1543,12 @@ certainly be <em class="emphasis">removed</em> in the future.</td>
       <td>&quot;1&quot;</td>
       <td>PHP_INI_SYSTEM</td>
       <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a href="opcache.configuration.html#ini.opcache.record-warnings" class="link">opcache.record_warnings</a></td>
+      <td>&quot;0&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Available as of PHP 8.0.0</td>
      </tr>
 <tr>
       <td><a href="opcache.configuration.html#ini.opcache.preferred-memory-model" class="link">opcache.preferred_memory_model</a></td>
@@ -2230,8 +2255,12 @@ certainly be <em class="emphasis">removed</em> in the future.</td>
 <tr>
       <td><a href="sqlite3.configuration.html#ini.sqlite3.defensive" class="link">sqlite3.defensive</a></td>
       <td>1</td>
-      <td>PHP_INI_SYSTEM</td>
-      <td>Available as of PHP 7.2.17 and 7.3.4 for libsqlite ≥ 3.26.0.</td>
+      <td>PHP_INI_USER</td>
+      <td>
+       Available as of PHP 7.2.17 and 7.3.4 for libsqlite ≥ 3.26.0.
+       Prior to PHP 8.2.0 this setting was changeable only as
+       <strong><code>PHP_INI_SYSTEM</code></strong>.
+      </td>
      </tr>
 
       <tr>
@@ -2290,11 +2319,17 @@ certainly be <em class="emphasis">removed</em> in the future.</td>
       </tr>
 
       <tr>
-       <td><a href="var.configuration.html#ini.unserialize-callback-func" class="link">unserialize_callback_func</a></td>
-       <td>NULL</td>
-       <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
-      </tr>
+     <td><a href="var.configuration.html#ini.unserialize-callback-func" class="link">unserialize_callback_func</a></td>
+     <td><strong><code>null</code></strong></td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a href="var.configuration.html#ini.unserialize-max-depth" class="link">unserialize_max_depth</a></td>
+     <td>&quot;4096&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>Available as of PHP 7.4.0.</td>
+    </tr>
 
       <tr>
        <td>uploadprogress.file.filename_template</td>
@@ -2383,34 +2418,6 @@ certainly be <em class="emphasis">removed</em> in the future.</td>
        <td>&quot;EGPCS&quot;</td>
        <td>PHP_INI_PERDIR</td>
        <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td>vld.active</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_SYSTEM</td>
-       <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td>vld.execute</td>
-       <td>&quot;1&quot;</td>
-       <td>PHP_INI_SYSTEM</td>
-       <td>Available since vld 0.8.0.</td>
-      </tr>
-
-      <tr>
-       <td>vld.skip_append</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_SYSTEM</td>
-       <td>Available since vld 0.8.0.</td>
-      </tr>
-
-      <tr>
-       <td>vld.skip_prepend</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_SYSTEM</td>
-       <td>Available since vld 0.8.0.</td>
       </tr>
 
       <tr>

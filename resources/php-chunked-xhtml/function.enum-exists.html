@@ -35,7 +35,7 @@
    <span class="methodname"><strong>enum_exists</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$enum</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$autoload</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   This function checks whether or not the given enum has been defined.
+   This function checks whether or not the given <a href="language.enumerations.html" class="link">enum</a> has been defined.
   </p>
  </div>
 
@@ -83,11 +83,11 @@
  <div class="refsect1 examples" id="refsect1-function.enum-exists-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5028">
+   <div class="example" id="example-5124">
     <p><strong>Example #1 <span class="function"><strong>enum_exists()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Check&nbsp;that&nbsp;the&nbsp;enum&nbsp;exists&nbsp;before&nbsp;trying&nbsp;to&nbsp;use&nbsp;it<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">enum_exists</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::class))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$myclass&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Hearts</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Check that the enum exists before trying to use it<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">enum_exists</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::class)) {<br />    </span><span style="color: #0000BB">$myclass </span><span style="color: #007700">= </span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Hearts</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

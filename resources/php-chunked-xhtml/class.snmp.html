@@ -33,7 +33,7 @@
   <div class="section" id="snmp.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-    Represents <acronym title="Simple Network Management Protocol">SNMP</acronym> session.
+    Represents <abbr title="Simple Network Management Protocol">SNMP</abbr> session.
    </p>
   </div>
 
@@ -53,9 +53,71 @@
      </span>
      {</div>
 
-    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
     <div class="fieldsynopsis">
      <span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.version-1"><var class="varname">VERSION_1</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.version-2c"><var class="varname">VERSION_2c</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.version-2c"><var class="varname">VERSION_2C</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.version-3"><var class="varname">VERSION_3</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-noerror"><var class="varname">ERRNO_NOERROR</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-any"><var class="varname">ERRNO_ANY</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-generic"><var class="varname">ERRNO_GENERIC</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-timeout"><var class="varname">ERRNO_TIMEOUT</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-error-in-reply"><var class="varname">ERRNO_ERROR_IN_REPLY</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-oid-not-increasing"><var class="varname">ERRNO_OID_NOT_INCREASING</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-oid-parsing-error"><var class="varname">ERRNO_OID_PARSING_ERROR</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-multiple-set-queries"><var class="varname">ERRNO_MULTIPLE_SET_QUERIES</var></a></var>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="modifier">readonly</span>
      <span class="type">array</span>
       <var class="varname"><a href="class.snmp.html#snmp.props.info">$<var class="varname">info</var></a></var>;</div>
@@ -101,57 +163,6 @@
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="snmp.set.html" class="methodname">set</a></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$objectId</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$type</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="snmp.setsecurity.html" class="methodname">setSecurity</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$securityLevel</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$authProtocol</code><span class="initializer"> = &quot;&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$authPassphrase</code><span class="initializer"> = &quot;&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$privacyProtocol</code><span class="initializer"> = &quot;&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$privacyPassphrase</code><span class="initializer"> = &quot;&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$contextName</code><span class="initializer"> = &quot;&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$contextEngineId</code><span class="initializer"> = &quot;&quot;</span></span><br>): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="snmp.walk.html" class="methodname">walk</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$objectId</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$suffixAsKey</code><span class="initializer"> = <strong><code>false</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$maxRepetitions</code><span class="initializer"> = -1</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$nonRepeaters</code><span class="initializer"> = -1</span></span><br>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
-
-
-    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
-    <div class="fieldsynopsis">
-     <span class="modifier">const</span>
-     <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-noerror"><var class="varname">ERRNO_NOERROR</var></a></var><span class="initializer"> = 0</span>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">const</span>
-     <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-generic"><var class="varname">ERRNO_GENERIC</var></a></var><span class="initializer"> = 2</span>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">const</span>
-     <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-timeout"><var class="varname">ERRNO_TIMEOUT</var></a></var><span class="initializer"> = 4</span>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">const</span>
-     <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-error-in-reply"><var class="varname">ERRNO_ERROR_IN_REPLY</var></a></var><span class="initializer"> = 8</span>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">const</span>
-     <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-oid-not-increasing"><var class="varname">ERRNO_OID_NOT_INCREASING</var></a></var><span class="initializer"> = 16</span>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">const</span>
-     <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-oid-parsing-error"><var class="varname">ERRNO_OID_PARSING_ERROR</var></a></var><span class="initializer"> = 32</span>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">const</span>
-     <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-multiple-set-queries"><var class="varname">ERRNO_MULTIPLE_SET_QUERIES</var></a></var><span class="initializer"> = 64</span>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">const</span>
-     <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.errno-multiple-set-queries"><var class="varname">ERRNO_ANY</var></a></var><span class="initializer"> = 126</span>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">const</span>
-     <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.version-1"><var class="varname">VERSION_1</var></a></var><span class="initializer"> = 0</span>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">const</span>
-     <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.version-2c"><var class="varname">VERSION_2C</var></a></var><span class="initializer"> = 1</span>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">const</span>
-     <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.version-2c"><var class="varname">VERSION_2c</var></a></var><span class="initializer"> = 1</span>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">const</span>
-     <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.snmp.html#snmp.class.constants.version-3"><var class="varname">VERSION_3</var></a></var><span class="initializer"> = 3</span>;</div>
 
    }</div>
   </div>
@@ -205,12 +216,12 @@
 
      <dd>
 
-      <p class="para">Value of <code class="parameter">quick_print</code> within the NET-<acronym title="Simple Network Management Protocol">SNMP</acronym> library</p>
+      <p class="para">Value of <code class="parameter">quick_print</code> within the NET-<abbr title="Simple Network Management Protocol">SNMP</abbr> library</p>
       <p class="para">
-       Sets the value of <code class="parameter">quick_print</code> within the NET-<acronym title="Simple Network Management Protocol">SNMP</acronym> library.  When this
-       is set (1), the <acronym title="Simple Network Management Protocol">SNMP</acronym> library will return &#039;quick printed&#039; values.  This
+       Sets the value of <code class="parameter">quick_print</code> within the NET-<abbr title="Simple Network Management Protocol">SNMP</abbr> library.  When this
+       is set (1), the <abbr title="Simple Network Management Protocol">SNMP</abbr> library will return &#039;quick printed&#039; values.  This
        means that just the value will be printed.  When <code class="parameter">quick_print</code> is not
-       enabled (default) the NET-<acronym title="Simple Network Management Protocol">SNMP</acronym> library prints extra information
+       enabled (default) the NET-<abbr title="Simple Network Management Protocol">SNMP</abbr> library prints extra information
        including the type of the value (i.e. IpAddress or OID).  Additionally,
        if quick_print is not enabled, the library prints additional hex values
        for all strings of three characters or less.
@@ -268,7 +279,7 @@
 
       <p class="para">Controls disabling check for increasing OID while walking OID tree</p>
       <p class="para">
-       Some <acronym title="Simple Network Management Protocol">SNMP</acronym> agents are known for returning OIDs out
+       Some <abbr title="Simple Network Management Protocol">SNMP</abbr> agents are known for returning OIDs out
        of order but can complete the walk anyway. Other agents return OIDs
        that are out of order and can cause <span class="methodname"><a href="snmp.walk.html" class="methodname">SNMP::walk()</a></span>
        to loop indefinitely until memory limit will be reached.
@@ -313,7 +324,7 @@
   <div class="section" id="snmp.class.constants">
    <h2 class="title">Predefined Constants</h2>
    <div class="section" id="snmp.class.constants.error-types">
-    <h2 class="title"><acronym title="Simple Network Management Protocol">SNMP</acronym> Error Types</h2>
+    <h2 class="title"><abbr title="Simple Network Management Protocol">SNMP</abbr> Error Types</h2>
     <dl>
 
      
@@ -321,7 +332,7 @@
 
       <dd>
 
-       <p class="para">No <acronym title="Simple Network Management Protocol">SNMP</acronym>-specific error occurred.</p>
+       <p class="para">No <abbr title="Simple Network Management Protocol">SNMP</abbr>-specific error occurred.</p>
       </dd>
 
      
@@ -331,7 +342,7 @@
 
       <dd>
 
-       <p class="para">A generic <acronym title="Simple Network Management Protocol">SNMP</acronym> error occurred.</p>
+       <p class="para">A generic <abbr title="Simple Network Management Protocol">SNMP</abbr> error occurred.</p>
       </dd>
 
      
@@ -341,7 +352,7 @@
 
       <dd>
 
-       <p class="para">Request to <acronym title="Simple Network Management Protocol">SNMP</acronym> agent timed out.</p>
+       <p class="para">Request to <abbr title="Simple Network Management Protocol">SNMP</abbr> agent timed out.</p>
       </dd>
 
      
@@ -351,7 +362,7 @@
 
       <dd>
 
-       <p class="para"><acronym title="Simple Network Management Protocol">SNMP</acronym> agent returned an error in reply.</p>
+       <p class="para"><abbr title="Simple Network Management Protocol">SNMP</abbr> agent returned an error in reply.</p>
       </dd>
 
      
@@ -362,9 +373,9 @@
       <dd>
 
        <p class="para">
-        <acronym title="Simple Network Management Protocol">SNMP</acronym> agent faced OID cycling reporning
+        <abbr title="Simple Network Management Protocol">SNMP</abbr> agent faced OID cycling reporning
         non-increasing OID while executing (BULK)WALK command.
-        This indicates bogus remote <acronym title="Simple Network Management Protocol">SNMP</acronym> agent.
+        This indicates bogus remote <abbr title="Simple Network Management Protocol">SNMP</abbr> agent.
        </p>
       </dd>
 
@@ -414,7 +425,7 @@
 
    </div>
    <div class="section" id="snmp.class.constants.protocols">
-    <h2 class="title"><acronym title="Simple Network Management Protocol">SNMP</acronym> Protocol Versions</h2>
+    <h2 class="title"><abbr title="Simple Network Management Protocol">SNMP</abbr> Protocol Versions</h2>
     <dl>
 
      
@@ -457,10 +468,6 @@
  </div>
  
  
-
-
-
-
 
 
 

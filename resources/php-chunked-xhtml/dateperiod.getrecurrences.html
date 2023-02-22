@@ -51,7 +51,35 @@
  <div class="refsect1 returnvalues" id="refsect1-dateperiod.getrecurrences-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the number of recurrences.
+   The number of recurrences as set by explicitly passing the
+   <code class="literal">$recurrences</code> to the contructor of the
+   <span class="classname"><a href="class.dateperiod.html" class="classname">DatePeriod</a></span> class, or <strong><code>null</code></strong> otherwise.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-dateperiod.getrecurrences-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-2123">
+    <p><strong>Example #1 Different values for <span class="methodname"><strong>DatePeriod::getRecurrences()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$start </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2018-12-31 00:00:00'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$end   </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2021-12-31 00:00:00'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$interval </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P1M'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$recurrences </span><span style="color: #007700">= </span><span style="color: #0000BB">5</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// recurrences explicitly set through the constructor<br /></span><span style="color: #0000BB">$period </span><span style="color: #007700">= new </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$start</span><span style="color: #007700">, </span><span style="color: #0000BB">$interval</span><span style="color: #007700">, </span><span style="color: #0000BB">$recurrences</span><span style="color: #007700">, </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">::</span><span style="color: #0000BB">EXCLUDE_START_DATE</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$period</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRecurrences</span><span style="color: #007700">(), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$period </span><span style="color: #007700">= new </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$start</span><span style="color: #007700">, </span><span style="color: #0000BB">$interval</span><span style="color: #007700">, </span><span style="color: #0000BB">$recurrences</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$period</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRecurrences</span><span style="color: #007700">(), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$period </span><span style="color: #007700">= new </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$start</span><span style="color: #007700">, </span><span style="color: #0000BB">$interval</span><span style="color: #007700">, </span><span style="color: #0000BB">$recurrences</span><span style="color: #007700">, </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">::</span><span style="color: #0000BB">INCLUDE_END_DATE</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$period</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRecurrences</span><span style="color: #007700">(), </span><span style="color: #DD0000">"\n\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// recurrences not set in the constructor<br /></span><span style="color: #0000BB">$period </span><span style="color: #007700">= new </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$start</span><span style="color: #007700">, </span><span style="color: #0000BB">$interval</span><span style="color: #007700">, </span><span style="color: #0000BB">$end</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$period</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRecurrences</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">$period </span><span style="color: #007700">= new </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$start</span><span style="color: #007700">, </span><span style="color: #0000BB">$interval</span><span style="color: #007700">, </span><span style="color: #0000BB">$end</span><span style="color: #007700">, </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">::</span><span style="color: #0000BB">EXCLUDE_START_DATE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$period</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRecurrences</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen"><br />
+5<br />
+5<br />
+5<br />
+<br />
+NULL<br />
+NULL<br />
+    </div>
+   </div>
   </p>
  </div>
 

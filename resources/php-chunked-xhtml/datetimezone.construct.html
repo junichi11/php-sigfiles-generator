@@ -41,7 +41,19 @@
   <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.timezone-open.html" class="methodname">timezone_open</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$timezone</code></span>): <span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
-   Creates new DateTimeZone object.
+   Creates a new DateTimeZone object.
+  </p>
+  <p class="para">
+   A DateTimeZone object provides access to three different types of timezone
+   rules: UTC offset (type <code class="literal">1</code>), timezone abbreviation (type
+   <code class="literal">2</code>), and <a href="timezones.html" class="link">timezone
+   identifiers</a> as published in the IANA timezone database
+   (type <code class="literal">3</code>).
+  </p>
+  <p class="para">
+   The DateTimeZone object can be attached to <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> and
+   <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> objects to be able to render the
+   timezone encapsulated by these objects in a local timezone.
   </p>
  </div>
 
@@ -57,8 +69,8 @@
      <dd>
 
       <p class="para">
-       One of the supported <a href="timezones.html" class="link">timezone names</a>
-       or an offset value (+0200).
+       One of the supported <a href="timezones.html" class="link">timezone names</a>,
+       an offset value (+0200), or a timezone abbreviation (BST).
       </p>
      </dd>
 
@@ -90,11 +102,31 @@
  <div class="refsect1 examples" id="refsect1-datetimezone.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2052">
-    <p><strong>Example #1 Catching errors when instantiating <span class="classname"><a href="class.datetimezone.html" class="classname">DateTimeZone</a></span></strong></p>
+   <div class="example" id="example-2097">
+    <p><strong>Example #1 Creating and attaching DateTimeZone to a DateTimeImmutable</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Error&nbsp;handling&nbsp;by&nbsp;catching&nbsp;exceptions<br /></span><span style="color: #0000BB">$timezones&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'Europe/London'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Mars/Phobos'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Jupiter/Europa'</span><span style="color: #007700">);<br /><br />foreach&nbsp;(</span><span style="color: #0000BB">$timezones&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$tz</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mars&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #0000BB">$tz</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch(</span><span style="color: #0000BB">Exception&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">'&lt;br&nbsp;/&gt;'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$d </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">(</span><span style="color: #DD0000">"2022-06-02 15:44:48 UTC"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$timezones </span><span style="color: #007700">= [ </span><span style="color: #DD0000">'Europe/London'</span><span style="color: #007700">, </span><span style="color: #DD0000">'GMT+04:45'</span><span style="color: #007700">, </span><span style="color: #DD0000">'-06:00'</span><span style="color: #007700">, </span><span style="color: #DD0000">'CEST' </span><span style="color: #007700">];<br /><br />foreach (</span><span style="color: #0000BB">$timezones </span><span style="color: #007700">as </span><span style="color: #0000BB">$tz</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">$tzo </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #0000BB">$tz</span><span style="color: #007700">);<br /><br />    </span><span style="color: #0000BB">$local </span><span style="color: #007700">= </span><span style="color: #0000BB">$d</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setTimezone</span><span style="color: #007700">(</span><span style="color: #0000BB">$tzo</span><span style="color: #007700">);<br />    echo </span><span style="color: #0000BB">$local</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">DateTimeInterface</span><span style="color: #007700">::</span><span style="color: #0000BB">RFC2822 </span><span style="color: #007700">. </span><span style="color: #DD0000">' — e'</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen"><br />
+Thu, 02 Jun 2022 16:44:48 +0100 — Europe/London<br />
+Thu, 02 Jun 2022 20:29:48 +0445 — +04:45<br />
+Thu, 02 Jun 2022 09:44:48 -0600 — -06:00<br />
+Thu, 02 Jun 2022 17:44:48 +0200 — CEST<br />
+    </div>
+   </div>
+  </p>
+
+  <p class="para">
+   <div class="example" id="example-2098">
+    <p><strong>Example #2 Catching errors when instantiating <span class="classname"><a href="class.datetimezone.html" class="classname">DateTimeZone</a></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Error handling by catching exceptions<br /></span><span style="color: #0000BB">$timezones </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'Europe/London'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Mars/Phobos'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Jupiter/Europa'</span><span style="color: #007700">);<br /><br />foreach (</span><span style="color: #0000BB">$timezones </span><span style="color: #007700">as </span><span style="color: #0000BB">$tz</span><span style="color: #007700">) {<br />    try {<br />        </span><span style="color: #0000BB">$mars </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #0000BB">$tz</span><span style="color: #007700">);<br />    } catch(</span><span style="color: #0000BB">Exception $e</span><span style="color: #007700">) {<br />        echo </span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">() . </span><span style="color: #DD0000">'&lt;br /&gt;'</span><span style="color: #007700">;<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

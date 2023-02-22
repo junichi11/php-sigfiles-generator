@@ -68,34 +68,34 @@
  <div class="refsect1 returnvalues" id="refsect1-function.empty-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>false</code></strong> if <code class="parameter">var</code> exists and has a non-empty, non-zero value,
+   Returns <strong><code>true</code></strong> if <code class="parameter">var</code> does not exist or has a value that is empty or equal to zero,
    aka falsey, see <a href="language.types.boolean.html#language.types.boolean.casting" class="link">conversion to boolean</a>.
-   Otherwise returns <strong><code>true</code></strong>.
+   Otherwise returns <strong><code>false</code></strong>.
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.empty-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5212">
+   <div class="example" id="example-5384">
     <p><strong>Example #1 
      A simple <span class="function"><strong>empty()</strong></span> / <span class="function"><a href="function.isset.html" class="function">isset()</a></span>
      comparison.
     </strong></p>  
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$var&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Evaluates&nbsp;to&nbsp;true&nbsp;because&nbsp;$var&nbsp;is&nbsp;empty<br /></span><span style="color: #007700">if&nbsp;(empty(</span><span style="color: #0000BB">$var</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'$var&nbsp;is&nbsp;either&nbsp;0,&nbsp;empty,&nbsp;or&nbsp;not&nbsp;set&nbsp;at&nbsp;all'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Evaluates&nbsp;as&nbsp;true&nbsp;because&nbsp;$var&nbsp;is&nbsp;set<br /></span><span style="color: #007700">if&nbsp;(isset(</span><span style="color: #0000BB">$var</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'$var&nbsp;is&nbsp;set&nbsp;even&nbsp;though&nbsp;it&nbsp;is&nbsp;empty'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$var </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// Evaluates to true because $var is empty<br /></span><span style="color: #007700">if (empty(</span><span style="color: #0000BB">$var</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">'$var is either 0, empty, or not set at all'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">// Evaluates as true because $var is set<br /></span><span style="color: #007700">if (isset(</span><span style="color: #0000BB">$var</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">'$var is set even though it is empty'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
   </p>
-  <div class="example" id="example-5213">
+  <div class="example" id="example-5385">
    <p><strong>Example #2 <span class="function"><strong>empty()</strong></span> on String Offsets</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$expected_array_got_string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'somestring'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(empty(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'some_key'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(empty(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(empty(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'0'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(empty(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #0000BB">0.5</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(empty(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'0.5'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(empty(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'0&nbsp;Mostel'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$expected_array_got_string </span><span style="color: #007700">= </span><span style="color: #DD0000">'somestring'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(empty(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'some_key'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(empty(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(empty(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'0'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(empty(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #0000BB">0.5</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(empty(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'0.5'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(empty(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'0 Mostel'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -118,7 +118,8 @@ bool(true)
   <h3 class="title">Notes</h3>
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">Because this is a
 language construct and not a function, it cannot be called using
-<a href="functions.variable-functions.html" class="link">variable functions</a>.</span>
+<a href="functions.variable-functions.html" class="link">variable functions</a>,
+or <a href="functions.arguments.html#functions.named-arguments" class="link">named arguments</a>.</span>
 </p></blockquote>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">

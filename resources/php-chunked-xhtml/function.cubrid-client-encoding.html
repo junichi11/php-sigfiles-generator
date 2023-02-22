@@ -73,11 +73,11 @@
 
  <div class="refsect1 examples" id="refsect1-function.cubrid-client-encoding-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1158">
+  <div class="example" id="example-1189">
    <p><strong>Example #1 <span class="function"><strong>cubrid_client_encoding()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$con&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$con</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect.'</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"CUBRID&nbsp;current&nbsp;charset:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">cubrid_client_encoding</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$con </span><span style="color: #007700">= </span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">, </span><span style="color: #0000BB">33000</span><span style="color: #007700">, </span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br />if (!</span><span style="color: #0000BB">$con</span><span style="color: #007700">)<br />{<br />    die(</span><span style="color: #DD0000">'Could not connect.'</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"CUBRID current charset: %s\n"</span><span style="color: #007700">, </span><span style="color: #0000BB">cubrid_client_encoding</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

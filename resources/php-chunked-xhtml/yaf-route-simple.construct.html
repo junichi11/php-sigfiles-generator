@@ -32,7 +32,7 @@
 
  <div class="refsect1 description" id="refsect1-yaf-route-simple.construct-description">
   <h3 class="title">Description</h3>
-  <div class="methodsynopsis dc-description">
+  <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Route_Simple::__construct</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$module_name</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$controller_name</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$action_name</code></span>)</div>
 
   <p class="para rdfs-comment">
@@ -102,17 +102,17 @@ currently not documented; only its argument list is available.
 
  <div class="refsect1 examples" id="refsect1-yaf-route-simple.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3956">
+  <div class="example" id="example-4034">
    <p><strong>Example #1 <span class="function"><a href="yaf-route-simple.route.html" class="function">Yaf_Route_Simple::route()</a></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;&nbsp;$route&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Yaf_Route_Simple</span><span style="color: #007700">(</span><span style="color: #DD0000">"m"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"controller"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"act"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yaf_Router</span><span style="color: #007700">::</span><span style="color: #0000BB">getInstance</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">addRoute</span><span style="color: #007700">(</span><span style="color: #DD0000">"simple"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$route</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />   $route </span><span style="color: #007700">= new </span><span style="color: #0000BB">Yaf_Route_Simple</span><span style="color: #007700">(</span><span style="color: #DD0000">"m"</span><span style="color: #007700">, </span><span style="color: #DD0000">"controller"</span><span style="color: #007700">, </span><span style="color: #DD0000">"act"</span><span style="color: #007700">);<br />   </span><span style="color: #0000BB">Yaf_Router</span><span style="color: #007700">::</span><span style="color: #0000BB">getInstance</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">addRoute</span><span style="color: #007700">(</span><span style="color: #DD0000">"simple"</span><span style="color: #007700">, </span><span style="color: #0000BB">$route</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
   </div>
-  <div class="example" id="example-3957">
+  <div class="example" id="example-4035">
    <p><strong>Example #2 <span class="function"><a href="yaf-route-simple.route.html" class="function">Yaf_Route_Simple::route()</a></span>example</strong></p>
    <div class="example-contents">
 <div class="bashcode"><pre class="bashcode">Request: http://yourdomain.com/path/?controller=a&amp;act=b

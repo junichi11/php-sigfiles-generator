@@ -111,11 +111,11 @@
 
  <div class="refsect1 examples" id="refsect1-function.eio-realpath-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3257">
+  <div class="example" id="example-3328">
    <p><strong>Example #1 <span class="function"><strong>eio_realpath()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">getcwd</span><span style="color: #007700">());<br /><br />function&nbsp;</span><span style="color: #0000BB">my_realpath_allback</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">eio_realpath</span><span style="color: #007700">(</span><span style="color: #DD0000">"../"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">EIO_PRI_DEFAULT</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_realpath_allback"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">eio_event_loop</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">getcwd</span><span style="color: #007700">());<br /><br />function </span><span style="color: #0000BB">my_realpath_allback</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">, </span><span style="color: #0000BB">$result</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">eio_realpath</span><span style="color: #007700">(</span><span style="color: #DD0000">"../"</span><span style="color: #007700">, </span><span style="color: #0000BB">EIO_PRI_DEFAULT</span><span style="color: #007700">, </span><span style="color: #DD0000">"my_realpath_allback"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">eio_event_loop</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

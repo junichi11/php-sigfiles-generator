@@ -35,7 +35,7 @@
 
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />enum&nbsp;Suit<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Hearts</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Diamonds</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Clubs</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Spades</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />enum Suit<br /></span><span style="color: #007700">{<br />    case </span><span style="color: #0000BB">Hearts</span><span style="color: #007700">;<br />    case </span><span style="color: #0000BB">Diamonds</span><span style="color: #007700">;<br />    case </span><span style="color: #0000BB">Clubs</span><span style="color: #007700">;<br />    case </span><span style="color: #0000BB">Spades</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -51,7 +51,7 @@
 
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">pick_a_card</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit&nbsp;$suit</span><span style="color: #007700">)&nbsp;{&nbsp;...&nbsp;}<br /><br /></span><span style="color: #0000BB">$val&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Diamonds</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;OK<br /></span><span style="color: #0000BB">pick_a_card</span><span style="color: #007700">(</span><span style="color: #0000BB">$val</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;OK<br /></span><span style="color: #0000BB">pick_a_card</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Clubs</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;TypeError:&nbsp;pick_a_card():&nbsp;Argument&nbsp;#1&nbsp;($suit)&nbsp;must&nbsp;be&nbsp;of&nbsp;type&nbsp;Suit,&nbsp;string&nbsp;given<br /></span><span style="color: #0000BB">pick_a_card</span><span style="color: #007700">(</span><span style="color: #DD0000">'Spades'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">pick_a_card</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit $suit</span><span style="color: #007700">) { ... }<br /><br /></span><span style="color: #0000BB">$val </span><span style="color: #007700">= </span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Diamonds</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// OK<br /></span><span style="color: #0000BB">pick_a_card</span><span style="color: #007700">(</span><span style="color: #0000BB">$val</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// OK<br /></span><span style="color: #0000BB">pick_a_card</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Clubs</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// TypeError: pick_a_card(): Argument #1 ($suit) must be of type Suit, string given<br /></span><span style="color: #0000BB">pick_a_card</span><span style="color: #007700">(</span><span style="color: #DD0000">'Spades'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -74,7 +74,7 @@
 
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Spades</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Spades</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;true<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;true<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= </span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Spades</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$b </span><span style="color: #007700">= </span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Spades</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$a </span><span style="color: #007700">=== </span><span style="color: #0000BB">$b</span><span style="color: #007700">; </span><span style="color: #FF8000">// true<br /><br /></span><span style="color: #0000BB">$a </span><span style="color: #007700">instanceof </span><span style="color: #0000BB">Suit</span><span style="color: #007700">;  </span><span style="color: #FF8000">// true<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -83,7 +83,7 @@
    <p class="para">
     It also means that enum values are never <code class="literal">&lt;</code> or <code class="literal">&gt;</code> each other,
     since those comparisons are not meaningful on objects.  Those comparisons will always return
-    false when working with enum values.
+    <strong><code>false</code></strong> when working with enum values.
    </p>
 
    <p class="para">
@@ -102,7 +102,7 @@
 
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">print&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Spades</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;prints&nbsp;"Spades"<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">print </span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Spades</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">// prints "Spades"<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

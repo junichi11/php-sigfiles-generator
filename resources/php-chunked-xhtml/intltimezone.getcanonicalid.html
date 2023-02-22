@@ -35,10 +35,10 @@
   <h3 class="title">Description</h3>
   <p class="para">Object-oriented style (method):</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlTimeZone::getCanonicalID</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$zoneId</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter reference">&$isSystemID</code><span class="initializer"> = ?</span></span>): <span class="type">string</span></div>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlTimeZone::getCanonicalID</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$timezoneId</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter reference">&$isSystemId</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">Procedural style:</p>
-  <div class="methodsynopsis dc-description"><span class="methodname"><strong>intltz_get_canonical_id</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$zoneId</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter reference">&$isSystemID</code><span class="initializer"> = ?</span></span>): <span class="type">string</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>intltz_get_canonical_id</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$timezoneId</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter reference">&$isSystemId</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
 
@@ -56,7 +56,7 @@ currently not documented; only its argument list is available.
   <dl>
    
     <dt>
-<code class="parameter">zoneId</code></dt>
+<code class="parameter">timezoneId</code></dt>
 
     <dd>
 
@@ -68,7 +68,7 @@ currently not documented; only its argument list is available.
    
    
     <dt>
-<code class="parameter">isSystemID</code></dt>
+<code class="parameter">isSystemId</code></dt>
 
     <dd>
 

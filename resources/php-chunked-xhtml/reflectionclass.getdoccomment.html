@@ -36,7 +36,7 @@
    <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::getDocComment</strong></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
-   Gets doc comments from a class. Doc comments start with /**.
+   Gets doc comments from a class. Doc comments start with <code class="literal">/**</code>, followed by whitespace.
    If there are multiple doc comments above the class definition,
    the one closest to the class will be taken.
   </p>
@@ -61,11 +61,11 @@
  <div class="refsect1 examples" id="refsect1-reflectionclass.getdoccomment-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5104">
+   <div class="example" id="example-5256">
     <p><strong>Example #1 <span class="methodname"><strong>ReflectionClass::getDocComment()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**&nbsp;<br />*&nbsp;A&nbsp;test&nbsp;class<br />*<br />*&nbsp;@param&nbsp;&nbsp;foo&nbsp;bar<br />*&nbsp;@return&nbsp;baz<br />*/<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">TestClass&nbsp;</span><span style="color: #007700">{&nbsp;}<br /><br /></span><span style="color: #0000BB">$rc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #DD0000">'TestClass'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$rc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getDocComment</span><span style="color: #007700">())<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br /> * A test class<br /> *<br /> * @param  foo bar<br /> * @return baz<br /> */<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">TestClass </span><span style="color: #007700">{ }<br /><br /></span><span style="color: #0000BB">$rc </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #DD0000">'TestClass'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$rc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getDocComment</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -73,12 +73,12 @@
     <div class="example-contents"><p>The above example will output:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-string(55) &quot;/** 
-* A test class
-*
-* @param  foo bar
-* @return baz
-*/&quot;
+string(61) &quot;/** 
+ * A test class
+ *
+ * @param  foo bar
+ * @return baz
+ */&quot;
 </pre></div>
     </div>
    </div>

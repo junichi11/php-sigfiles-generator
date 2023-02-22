@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Checks if class constant is an Enum case</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="reflectionclassconstant.getvalue.html">« ReflectionClassConstant::getValue</a></li>
+      <li style="float: right;"><a href="reflectionclassconstant.isfinal.html">ReflectionClassConstant::isFinal »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.reflectionclassconstant.html">ReflectionClassConstant</a></li>
+    <li>Checks if class constant is an Enum case</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="reflectionclassconstant.isenumcase" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ReflectionClassConstant::isEnumCase</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.1.0)</p><p class="refpurpose"><span class="refname">ReflectionClassConstant::isEnumCase</span> &mdash; <span class="dc-title">Checks if class constant is an Enum case</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-reflectionclassconstant.isenumcase-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>ReflectionClassConstant::isEnumCase</strong></span>(): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Checks if the class constant is an <a href="language.enumerations.html" class="link">Enum</a> case.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-reflectionclassconstant.isenumcase-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-reflectionclassconstant.isenumcase-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   <strong><code>true</code></strong> if the class constant is an Enum case; <strong><code>false</code></strong> otherwise.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-reflectionclassconstant.isenumcase-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="reflectionclassconstant.isenumcase.example.basic">
+   <p><strong>Example #1 <span class="methodname"><strong>ReflectionClassConstant::isEnumCase()</strong></span> example</strong></p>
+   <div class="example-contents"><p>
+     Distinguish between Enum cases and regular class constants.
+   </p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />enum Status<br /></span><span style="color: #007700">{<br />    const </span><span style="color: #0000BB">BORING_CONSTANT </span><span style="color: #007700">= </span><span style="color: #DD0000">'test'</span><span style="color: #007700">;<br />    const </span><span style="color: #0000BB">ENUM_VALUE </span><span style="color: #007700">= </span><span style="color: #0000BB">Status</span><span style="color: #007700">::</span><span style="color: #0000BB">PUBLISHED</span><span style="color: #007700">;<br /><br />    case </span><span style="color: #0000BB">DRAFT</span><span style="color: #007700">;<br />    case </span><span style="color: #0000BB">PUBLISHED</span><span style="color: #007700">;<br />    case </span><span style="color: #0000BB">ARCHIVED</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$reflection </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionEnum</span><span style="color: #007700">(</span><span style="color: #0000BB">Status</span><span style="color: #007700">::class);<br />foreach (</span><span style="color: #0000BB">$reflection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getReflectionConstants</span><span style="color: #007700">() as </span><span style="color: #0000BB">$constant</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"</span><span style="color: #007700">{</span><span style="color: #0000BB">$constant</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">}</span><span style="color: #DD0000"> is "</span><span style="color: #007700">,<br />        </span><span style="color: #0000BB">$constant</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isEnumCase</span><span style="color: #007700">() ? </span><span style="color: #DD0000">"an enum case" </span><span style="color: #007700">: </span><span style="color: #DD0000">"a regular class constant"</span><span style="color: #007700">,<br />        </span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+BORING_CONSTANT is a regular class constant
+ENUM_VALUE is a regular class constant
+DRAFT is an enum case
+PUBLISHED is an enum case
+ARCHIVED is an enum case
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-reflectionclassconstant.isenumcase-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="classname"><a href="class.reflectionenum.html" class="classname">ReflectionEnum</a></span></li>
+  </ul>
+ </div>
+
+</div></div></div></body></html>

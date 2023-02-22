@@ -43,8 +43,8 @@
   <p class="para">
    Scalar variables are those containing an <span class="type">int</span>, 
    <span class="type">float</span>, <span class="type">string</span> or <span class="type">bool</span>.  
-   Types <span class="type">array</span>, <span class="type">object</span> and <span class="type">resource</span> 
-   are not scalar.
+   Types <span class="type">array</span>, <span class="type">object</span>, <span class="type">resource</span> 
+   and <span class="type">null</span> are not scalar.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
@@ -96,12 +96,12 @@
  <div class="refsect1 examples" id="refsect1-function.is-scalar-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5235">
+   <div class="example" id="example-5407">
     <p><strong>Example #1 <span class="function"><strong>is_scalar()</strong></span> example</strong></p>
     <div class="example-contents">
 
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">show_var</span><span style="color: #007700">(</span><span style="color: #0000BB">$var</span><span style="color: #007700">)&nbsp;<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">is_scalar</span><span style="color: #007700">(</span><span style="color: #0000BB">$var</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$var</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">$pi&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">3.1416</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$proteins&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"hemoglobin"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"cytochrome&nbsp;c&nbsp;oxidase"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"ferredoxin"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">show_var</span><span style="color: #007700">(</span><span style="color: #0000BB">$pi</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">show_var</span><span style="color: #007700">(</span><span style="color: #0000BB">$proteins</span><span style="color: #007700">)<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">show_var</span><span style="color: #007700">(</span><span style="color: #0000BB">$var</span><span style="color: #007700">) <br />{<br />    if (</span><span style="color: #0000BB">is_scalar</span><span style="color: #007700">(</span><span style="color: #0000BB">$var</span><span style="color: #007700">)) {<br />        echo </span><span style="color: #0000BB">$var</span><span style="color: #007700">;<br />    } else {<br />        </span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$var</span><span style="color: #007700">);<br />    }<br />}<br /></span><span style="color: #0000BB">$pi </span><span style="color: #007700">= </span><span style="color: #0000BB">3.1416</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$proteins </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"hemoglobin"</span><span style="color: #007700">, </span><span style="color: #DD0000">"cytochrome c oxidase"</span><span style="color: #007700">, </span><span style="color: #DD0000">"ferredoxin"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">show_var</span><span style="color: #007700">(</span><span style="color: #0000BB">$pi</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">show_var</span><span style="color: #007700">(</span><span style="color: #0000BB">$proteins</span><span style="color: #007700">)<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

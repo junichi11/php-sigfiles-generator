@@ -59,21 +59,21 @@ The behaviour of these functions is affected by settings in <var class="filename
 
      <tr>
       <td><a href="datetime.configuration.html#ini.date.sunrise-zenith" class="link">date.sunrise_zenith</a></td>
-      <td>&quot;90.583333&quot;</td>
+      <td>&quot;90.833333&quot;</td>
       <td>PHP_INI_ALL</td>
-      <td class="empty">&nbsp;</td>
+      <td>Prior to PHP 8.0.0, the default was &quot;90.583333&quot;</td>
      </tr>
 
      <tr>
       <td><a href="datetime.configuration.html#ini.date.sunset-zenith" class="link">date.sunset_zenith</a></td>
-      <td>&quot;90.583333&quot;</td>
+      <td>&quot;90.833333&quot;</td>
       <td>PHP_INI_ALL</td>
-      <td class="empty">&nbsp;</td>
+      <td>Prior to PHP 8.0.0, the default was &quot;90.583333&quot;</td>
      </tr>
 
      <tr>
       <td><a href="datetime.configuration.html#ini.date.timezone" class="link">date.timezone</a></td>
-      <td>&quot;&quot;</td>
+      <td>&quot;UTC&quot;</td>
       <td>PHP_INI_ALL</td>
       <td class="empty">&nbsp;</td>
      </tr>
@@ -135,6 +135,11 @@ the configuration directives.</p>
 
      <p class="para">
       The default sunrise zenith.
+     </p>
+     <p class="para">
+      The default value is 90°50&#039;. The additional 50&#039; is due to two
+      components: the Sun&#039;s radius, which is 16&#039;, and the atmospheric
+      refraction, which is 34&#039;.
      </p>
     </dd>
 

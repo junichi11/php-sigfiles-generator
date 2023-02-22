@@ -125,11 +125,11 @@
  <div class="refsect1 examples" id="refsect1-function.mcrypt-create-iv-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-893">
+   <div class="example" id="example-909">
     <p><strong>Example #1 <span class="function"><strong>mcrypt_create_iv()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;&nbsp;&nbsp;$size&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mcrypt_get_iv_size</span><span style="color: #007700">(</span><span style="color: #0000BB">MCRYPT_CAST_256</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MCRYPT_MODE_CFB</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$iv&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mcrypt_create_iv</span><span style="color: #007700">(</span><span style="color: #0000BB">$size</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MCRYPT_DEV_RANDOM</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />    $size </span><span style="color: #007700">= </span><span style="color: #0000BB">mcrypt_get_iv_size</span><span style="color: #007700">(</span><span style="color: #0000BB">MCRYPT_CAST_256</span><span style="color: #007700">, </span><span style="color: #0000BB">MCRYPT_MODE_CFB</span><span style="color: #007700">);<br />    </span><span style="color: #0000BB">$iv </span><span style="color: #007700">= </span><span style="color: #0000BB">mcrypt_create_iv</span><span style="color: #007700">(</span><span style="color: #0000BB">$size</span><span style="color: #007700">, </span><span style="color: #0000BB">MCRYPT_DEV_RANDOM</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -146,7 +146,7 @@
     <li class="member"><a href="http://www.ciphersbyritter.com/GLOSSARY.HTM#IV" class="link external">&raquo;&nbsp;http://www.ciphersbyritter.com/GLOSSARY.HTM#IV</a></li>
     <li class="member"><a href="http://www.quadibloc.com/crypto/co0409.htm" class="link external">&raquo;&nbsp;http://www.quadibloc.com/crypto/co0409.htm</a></li>
     <li class="member">Chapter 9.3 of Applied Cryptography by Schneier (ISBN 0-471-11709-9)</li>
-    <li class="member"><span class="function"><a href="function.random-bytes.html" class="function" rel="rdfs-seeAlso">random_bytes()</a> - Generates cryptographically secure pseudo-random bytes</span></li>
+    <li class="member"><span class="function"><a href="function.random-bytes.html" class="function" rel="rdfs-seeAlso">random_bytes()</a> - Get cryptographically secure random bytes</span></li>
    </ul>
   </p>
  </div>

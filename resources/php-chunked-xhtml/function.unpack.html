@@ -159,11 +159,11 @@
  <div class="refsect1 examples" id="refsect1-function.unpack-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3516">
+   <div class="example" id="example-3559">
     <p><strong>Example #1 <span class="function"><strong>unpack()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$binarydata&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"\x04\x00\xa0\x00"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">unpack</span><span style="color: #007700">(</span><span style="color: #DD0000">"cchars/nint"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$binarydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$binarydata </span><span style="color: #007700">= </span><span style="color: #DD0000">"\x04\x00\xa0\x00"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$array </span><span style="color: #007700">= </span><span style="color: #0000BB">unpack</span><span style="color: #007700">(</span><span style="color: #DD0000">"cchars/nint"</span><span style="color: #007700">, </span><span style="color: #0000BB">$binarydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -182,11 +182,11 @@ Array
   </p>
 
   <p class="para">
-   <div class="example" id="example-3517">
+   <div class="example" id="example-3560">
     <p><strong>Example #2 <span class="function"><strong>unpack()</strong></span> example with a repeater</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$binarydata&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"\x04\x00\xa0\x00"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">unpack</span><span style="color: #007700">(</span><span style="color: #DD0000">"c2chars/nint"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$binarydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$binarydata </span><span style="color: #007700">= </span><span style="color: #DD0000">"\x04\x00\xa0\x00"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$array </span><span style="color: #007700">= </span><span style="color: #0000BB">unpack</span><span style="color: #007700">(</span><span style="color: #DD0000">"c2chars/nint"</span><span style="color: #007700">, </span><span style="color: #0000BB">$binarydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -224,11 +224,11 @@ Array
     overwritten because the numbering restarts from <code class="literal">1</code> for each element.
    </p>
    <p class="para">
-    <div class="example" id="example-3518">
+    <div class="example" id="example-3561">
      <p><strong>Example #3 <span class="function"><strong>unpack()</strong></span> example with unnamed keys</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$binarydata&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"\x32\x42\x00\xa0"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">unpack</span><span style="color: #007700">(</span><span style="color: #DD0000">"c2/n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$binarydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$binarydata </span><span style="color: #007700">= </span><span style="color: #DD0000">"\x32\x42\x00\xa0"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$array </span><span style="color: #007700">= </span><span style="color: #0000BB">unpack</span><span style="color: #007700">(</span><span style="color: #DD0000">"c2/n"</span><span style="color: #007700">, </span><span style="color: #0000BB">$binarydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

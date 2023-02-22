@@ -27,7 +27,7 @@
  <h2 class="title">OpenBSD installation notes</h2>
  <p class="para">
  This section contains notes and hints specific to installing
- PHP on <a href="http://www.openbsd.org/" class="link external">&raquo;&nbsp;OpenBSD 5.8</a>.
+ PHP on <a href="http://www.openbsd.org/" class="link external">&raquo;&nbsp;OpenBSD</a>.
  </p>
  <div class="sect2" id="install.unix.openbsd.packages">
   <h3 class="title">Using Binary Packages</h3>
@@ -39,8 +39,9 @@
    </p>
    <p class="simpara">
     The main package you need to install is <var class="filename">php</var>,
-    which contains the basic engine (plus gettext and iconv).  Next, take a look
-    at the module packages, such as <var class="filename">php-mysql</var>
+    which contains the basic engine (plus fpm, gettext and iconv) and might be
+    available in several versions to choose from.  Next, take a look
+    at the module packages, such as <var class="filename">php-mysqli</var>
     or <var class="filename">php-imap</var>.  You need to use the <strong class="command">phpxs</strong>
     command to activate and deactivate these modules in your <var class="filename">php.ini</var>.
    </p>
@@ -48,8 +49,8 @@
     <p><strong>Example #1 OpenBSD Package Install Example</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode"># pkg_add php
-# pkg_add php-fpm
-# pkg_add php-mysql
+# pkg_add php-apache
+# pkg_add php-mysqli
   (install the PEAR libraries)
 # pkg_add pear
 
@@ -57,8 +58,8 @@ Follow the instructions shown with each package!
 
   (to remove packages)
 # pkg_delete php
-# pkg_delete php-fpm
-# pkg_delete php-mysql
+# pkg_delete php-apache
+# pkg_delete php-mysqli
 # pkg_delete pear</pre>
 </div>
     </div>
@@ -73,9 +74,9 @@ Follow the instructions shown with each package!
   <h3 class="title">Using Ports</h3>
   <p class="simpara">
    You can also compile up PHP from source using the <a href="http://www.openbsd.org/faq/ports/ports.html" class="link external">&raquo;&nbsp;ports tree</a>.
-   However, this is only recommended for users familiar with OpenBSD.  The PHP 4 port
-   is split into two sub-directories: core and extensions.  The
-   extensions directory generates sub-packages for all of the supported
+   However, this is only recommended for users familiar with OpenBSD.  The PHP port
+   is split into core and extensions.  The
+   extensions generate sub-packages for all of the supported
    PHP modules.  If you find you do not want to create some of these modules,
    use the <strong class="command">no_*</strong> FLAVOR.  For example, to skip building
    the imap module, set the FLAVOR to <strong class="command">no_imap</strong>.
@@ -103,9 +104,11 @@ Follow the instructions shown with each package!
    </li>
    <li class="listitem">
     <span class="simpara">
-    The OpenBSD 5.7+ package for the <a href="http://www.libgd.org/" class="link external">&raquo;&nbsp;gd</a> extension requires
-     XFree86 to be installed. This can be added post-installation (See OpenBSD FAQ#4) by adding 
-     the <var class="filename">xbase.tgz</var> file set.
+     The OpenBSD package for the <a href="http://www.libgd.org/" class="link external">&raquo;&nbsp;gd</a> extension
+     requires Xorg to be installed. Unless already installed at base install by
+     adding the <var class="filename">xbase.tgz</var> file set, this can be added at
+     post-installation (see
+     <a href="https://www.openbsd.org/faq/faq4.html#FilesNeeded" class="link external">&raquo;&nbsp;OpenBSD FAQ#4</a>).
     </span>
    </li>
   </ul>

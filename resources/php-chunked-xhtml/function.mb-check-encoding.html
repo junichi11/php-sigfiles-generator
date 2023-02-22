@@ -60,6 +60,12 @@
         The byte stream or <span class="type">array</span> to check. If it is omitted, this function checks
         all the input from the beginning of the request.
       </p>
+
+      <div class="warning"><strong class="warning">Warning</strong>
+        <p class="para">
+          As of PHP 8.1.0, omitting this parameter or passing <strong><code>null</code></strong> is deprecated.
+        </p>
+      </div>
      </dd>
 
     
@@ -102,6 +108,13 @@
     </thead>
 
     <tbody class="tbody">
+     <tr>
+      <td>8.1.0</td>
+      <td>
+       Calling this function with <strong><code>null</code></strong> as <code class="parameter">value</code> or without argument is deprecated.
+      </td>
+     </tr>
+
      <tr>
       <td>8.0.0</td>
       <td>

@@ -76,7 +76,8 @@
 
       <p class="para">
        Specifies where to start writing data inside the shared memory
-       segment.
+       segment. The offset must be greater than or equal to zero
+       and less than or equal to the actual size of the shared memory segment.
       </p>
      </dd>
 
@@ -90,6 +91,15 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    The size of the written <code class="parameter">data</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.shmop-write-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   If <code class="parameter">offset</code> is out of range, or a read-only shared memory segment
+   should be written to, a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is thrown.
   </p>
  </div>
 
@@ -132,11 +142,11 @@
  <div class="refsect1 examples" id="refsect1-function.shmop-write-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3411">
+   <div class="example" id="example-3447">
     <p><strong>Example #1 Writing to shared memory block</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$shm_bytes_written&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">shmop_write</span><span style="color: #007700">(</span><span style="color: #0000BB">$shm_id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$my_string</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$shm_bytes_written </span><span style="color: #007700">= </span><span style="color: #0000BB">shmop_write</span><span style="color: #007700">(</span><span style="color: #0000BB">$shm_id</span><span style="color: #007700">, </span><span style="color: #0000BB">$my_string</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="language.types.html">« Types</a></li>
-      <li style="float: right;"><a href="language.types.boolean.html">Booleans »</a></li>
+      <li style="float: right;"><a href="language.types.type-system.html">Type System »</a></li>
     </ul>
   </div>
 </div>
@@ -25,144 +25,93 @@
 <div id="layout">
   <div id="layout-content"><div id="language.types.intro" class="sect1">
   <h2 class="title">Introduction</h2>
-  
-  <p class="simpara">
-   PHP supports ten primitive types.
-  </p>
-  
-  <p class="para">
-   Four scalar types:
-  </p>
-
-  <ul class="itemizedlist">
-
-   <li class="listitem">
-    <span class="simpara">
-     <span class="type">bool</span>
-    </span>
-   </li>
-
-   <li class="listitem">
-    <span class="simpara">
-     <span class="type">int</span>
-    </span>
-   </li>
-
-   <li class="listitem">
-    <span class="simpara">
-     <span class="type">float</span> (floating-point number, aka <span class="type">double</span>)
-    </span>
-   </li>
-
-   <li class="listitem">
-    <span class="simpara">
-     <span class="type">string</span>
-    </span>
-   </li>
-
-  </ul>
 
   <p class="para">
-   Four compound types:
+   Every single expression in PHP has one of the following
+   built-in types depending on its value:
+   <ul class="itemizedlist">
+    <li class="listitem"><span class="simpara"><span class="type">null</span></span></li>
+    <li class="listitem"><span class="simpara"><span class="type">bool</span></span></li>
+    <li class="listitem"><span class="simpara"><span class="type">int</span></span></li>
+    <li class="listitem"><span class="simpara"><span class="type">float</span> (floating-point number)</span></li>
+    <li class="listitem"><span class="simpara"><span class="type">string</span></span></li>
+    <li class="listitem"><span class="simpara"><span class="type">array</span></span></li>
+    <li class="listitem"><span class="simpara"><span class="type">object</span></span></li>
+    <li class="listitem"><span class="simpara"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span></span></li>
+    <li class="listitem"><span class="simpara"><span class="type">resource</span></span></li>
+   </ul>
   </p>
-
-  <ul class="itemizedlist">
-
-   <li class="listitem">
-    <span class="simpara">
-     <span class="type">array</span>
-    </span>
-   </li>
-
-   <li class="listitem">
-    <span class="simpara">
-     <span class="type">object</span>
-    </span>
-   </li>
-
-   <li class="listitem">
-    <span class="simpara">
-     <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>
-    </span>
-   </li>
-
-   <li class="listitem">
-    <span class="simpara">
-     <span class="type"><a href="language.types.iterable.html" class="type iterable">iterable</a></span>
-    </span>
-   </li>
-
-  </ul>
 
   <p class="para">
-   And finally two special types:
+   PHP is a dynamically typed language, which means that by default there is
+   no need to specify the type of a variable, as this will be determined at
+   runtime. However, it is possible to statically type some aspect of the
+   language via the use of
+   <a href="language.types.declarations.html" class="link">type declarations</a>.
   </p>
 
-  <ul class="itemizedlist">
-
-   <li class="listitem">
-    <span class="simpara">
-     <span class="type">resource</span>
-    </span>
-   </li>
-
-   <li class="listitem">
-    <span class="simpara">
-     <span class="type">NULL</span>
-    </span>
-   </li>
-
-  </ul>
-
-  <p class="simpara">
-   Some references to the type &quot;double&quot; may remain in the manual. Consider
-   double the same as float; the two names exist only for historic reasons.
+  <p class="para">
+   Types restrict the kind of operations that can be performed on them.
+   However, if an expression/variable is used in an operation which
+   its type does not support, PHP will attempt to
+   <a href="language.types.type-juggling.html" class="link">type juggle</a>
+   the value into a type that supports the operation.
+   This process depends on the context in which the value is used.
+   For more information, see the section on
+   <a href="language.types.type-juggling.html" class="link">Type Juggling</a>.
   </p>
+
+  <div class="tip"><strong class="tip">Tip</strong>
+   <p class="simpara">
+    <a href="types.comparisons.html" class="link">The type comparison tables</a>
+    may also be useful, as various examples of comparison between values of
+    different types are present.
+   </p>
+  </div>
   
-  <p class="simpara">
-   The type of a variable is not usually set by the programmer; rather, it is
-   decided at runtime by PHP depending on the context in which that variable is
-   used.
-  </p>
-
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <span class="simpara">
-    To check the type and value of an
-    <a href="language.expressions.html" class="link">expression</a>, use the
-    <span class="function"><a href="function.var-dump.html" class="function">var_dump()</a></span> function.
+    It is possible to force an expression to be evaluated to a certain type by
+    using a <a href="language.types.type-juggling.html#language.types.typecasting" class="link">type cast</a>.
+    A variable can also be type cast in-place by using the
+    <span class="function"><a href="function.settype.html" class="function">settype()</a></span> function on it.
    </span>
+  </p></blockquote>
 
-   <p class="para">
-    To get a human-readable representation of a type for debugging, use the
-    <span class="function"><a href="function.gettype.html" class="function">gettype()</a></span> function. To check for a certain type, do
-    <em class="emphasis">not</em> use <span class="function"><a href="function.gettype.html" class="function">gettype()</a></span>, but rather the
-    <code class="literal">is_<span class="replaceable">type</span></code> functions. Some
-    examples:
-   </p>
+  <p class="para">
+   To check the value and type of an
+   <a href="language.expressions.html" class="link">expression</a>,
+   use the <span class="function"><a href="function.var-dump.html" class="function">var_dump()</a></span> function.
+   To retrieve the type of an
+   <a href="language.expressions.html" class="link">expression</a>,
+   use the <span class="function"><a href="function.get-debug-type.html" class="function">get_debug_type()</a></span> function.
+   However, to check if an expression is of a certain type use the
    
+   <code class="literal">is_<span class="replaceable">type</span></code> functions instead.
+
    <div class="informalexample">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a_bool&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;a&nbsp;boolean<br /></span><span style="color: #0000BB">$a_str&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;a&nbsp;string<br /></span><span style="color: #0000BB">$a_str2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;a&nbsp;string<br /></span><span style="color: #0000BB">$an_int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">12</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;an&nbsp;integer<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">gettype</span><span style="color: #007700">(</span><span style="color: #0000BB">$a_bool</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;prints&nbsp;out:&nbsp;&nbsp;boolean<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">gettype</span><span style="color: #007700">(</span><span style="color: #0000BB">$a_str</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;prints&nbsp;out:&nbsp;&nbsp;string<br /><br />//&nbsp;If&nbsp;this&nbsp;is&nbsp;an&nbsp;integer,&nbsp;increment&nbsp;it&nbsp;by&nbsp;four<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">is_int</span><span style="color: #007700">(</span><span style="color: #0000BB">$an_int</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$an_int&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;If&nbsp;$a_bool&nbsp;is&nbsp;a&nbsp;string,&nbsp;print&nbsp;it&nbsp;out<br />//&nbsp;(does&nbsp;not&nbsp;print&nbsp;out&nbsp;anything)<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">is_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$a_bool</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"String:&nbsp;</span><span style="color: #0000BB">$a_bool</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a_bool </span><span style="color: #007700">= </span><span style="color: #0000BB">true</span><span style="color: #007700">;   </span><span style="color: #FF8000">// a bool<br /></span><span style="color: #0000BB">$a_str  </span><span style="color: #007700">= </span><span style="color: #DD0000">"foo"</span><span style="color: #007700">;  </span><span style="color: #FF8000">// a string<br /></span><span style="color: #0000BB">$a_str2 </span><span style="color: #007700">= </span><span style="color: #DD0000">'foo'</span><span style="color: #007700">;  </span><span style="color: #FF8000">// a string<br /></span><span style="color: #0000BB">$an_int </span><span style="color: #007700">= </span><span style="color: #0000BB">12</span><span style="color: #007700">;     </span><span style="color: #FF8000">// an int<br /><br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">get_debug_type</span><span style="color: #007700">(</span><span style="color: #0000BB">$a_bool</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">get_debug_type</span><span style="color: #007700">(</span><span style="color: #0000BB">$a_str</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// If this is an integer, increment it by four<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">is_int</span><span style="color: #007700">(</span><span style="color: #0000BB">$an_int</span><span style="color: #007700">)) {<br />    </span><span style="color: #0000BB">$an_int </span><span style="color: #007700">+= </span><span style="color: #0000BB">4</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$an_int</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// If $a_bool is a string, print it out<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">is_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$a_bool</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">"String: </span><span style="color: #0000BB">$a_bool</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
+    <p class="para">Output of the above example in PHP 8:</p>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+bool
+string
+int(16)
+</pre></div>
+    </div>
    </div>
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    Prior to PHP 8.0.0, where the <span class="function"><a href="function.get-debug-type.html" class="function">get_debug_type()</a></span> is not
+    available, the <span class="function"><a href="function.gettype.html" class="function">gettype()</a></span> function can be used instead.
+    However, it doesn&#039;t use the canonical type names.
+   </span>
   </p></blockquote>
-
-  <p class="simpara">
-   To forcibly convert a variable to a certain type, either
-   <a href="language.types.type-juggling.html#language.types.typecasting" class="link">cast</a> the variable or use
-   the <span class="function"><a href="function.settype.html" class="function">settype()</a></span> function on it.
-  </p>
-
-  <p class="simpara">
-   Note that a variable may be evaluated with different values in certain
-   situations, depending on what type it is at the time. For more information,
-   see the section on <a href="language.types.type-juggling.html" class="link">Type
-   Juggling</a>. <a href="types.comparisons.html" class="link">The type comparison
-   tables</a> may also be useful, as they show examples of various
-   type-related comparisons.
-  </p>
  </div></div></div></body></html>

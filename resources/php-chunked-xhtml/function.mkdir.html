@@ -53,6 +53,13 @@
 
       <p class="para">
        The directory path.
+       <div class="tip"><strong class="tip">Tip</strong><p class="simpara">A URL can be used as a
+filename with this function if the <a href="filesystem.configuration.html#ini.allow-url-fopen" class="link">fopen wrappers</a> have been enabled.
+See <span class="function"><a href="function.fopen.html" class="function">fopen()</a></span> for more details on how to specify the
+filename. See the <a href="wrappers.html" class="xref">Supported Protocols and Wrappers</a> for links to information
+about what abilities the various wrappers have, notes on their usage,
+and information on any predefined variables they may
+provide.</p></div>
       </p>
      </dd>
 
@@ -89,8 +96,8 @@
      <dd>
 
       <p class="para">
-       Allows the creation of nested directories specified in the 
-       <code class="parameter">directory</code>.
+       If <strong><code>true</code></strong>, then any parent directories to the <code class="parameter">directory</code> specified will
+       also be created, with the same permissions.
       </p>
      </dd>
 
@@ -117,6 +124,14 @@
   <p class="para">
    Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    If the directory to be created already exists, that is considered an error
+    and <strong><code>false</code></strong> will still be returned.  Use <span class="function"><a href="function.is-dir.html" class="function">is_dir()</a></span> or
+    <span class="function"><a href="function.file-exists.html" class="function">file_exists()</a></span> to check if the directory already exists
+    before trying to create it.
+   </p>
+  </p></blockquote>
  </div>
 
 
@@ -136,11 +151,11 @@
  <div class="refsect1 examples" id="refsect1-function.mkdir-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2194">
+   <div class="example" id="example-2259">
     <p><strong>Example #1 <span class="function"><strong>mkdir()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />mkdir</span><span style="color: #007700">(</span><span style="color: #DD0000">"/path/to/my/dir"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0700</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />mkdir</span><span style="color: #007700">(</span><span style="color: #DD0000">"/path/to/my/dir"</span><span style="color: #007700">, </span><span style="color: #0000BB">0700</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -148,11 +163,11 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2195">
+   <div class="example" id="example-2260">
     <p><strong>Example #2 <span class="function"><strong>mkdir()</strong></span> using the <code class="parameter">recursive</code> parameter</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Desired&nbsp;directory&nbsp;structure<br /></span><span style="color: #0000BB">$structure&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'./depth1/depth2/depth3/'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;create&nbsp;the&nbsp;nested&nbsp;structure,&nbsp;the&nbsp;$recursive&nbsp;parameter&nbsp;<br />//&nbsp;to&nbsp;mkdir()&nbsp;must&nbsp;be&nbsp;specified.<br /><br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">mkdir</span><span style="color: #007700">(</span><span style="color: #0000BB">$structure</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0777</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Failed&nbsp;to&nbsp;create&nbsp;directories...'</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;...<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Desired directory structure<br /></span><span style="color: #0000BB">$structure </span><span style="color: #007700">= </span><span style="color: #DD0000">'./depth1/depth2/depth3/'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// To create the nested structure, the $recursive parameter <br />// to mkdir() must be specified.<br /><br /></span><span style="color: #007700">if (!</span><span style="color: #0000BB">mkdir</span><span style="color: #007700">(</span><span style="color: #0000BB">$structure</span><span style="color: #007700">, </span><span style="color: #0000BB">0777</span><span style="color: #007700">, </span><span style="color: #0000BB">true</span><span style="color: #007700">)) {<br />    die(</span><span style="color: #DD0000">'Failed to create directories...'</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">// ...<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -168,6 +183,7 @@
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.is-dir.html" class="function" rel="rdfs-seeAlso">is_dir()</a> - Tells whether the filename is a directory</span></li>    
     <li class="member"><span class="function"><a href="function.rmdir.html" class="function" rel="rdfs-seeAlso">rmdir()</a> - Removes directory</span></li>
+    <li class="member"><span class="function"><a href="function.umask.html" class="function" rel="rdfs-seeAlso">umask()</a> - Changes the current umask</span></li>
    </ul>
   </p>
  </div>

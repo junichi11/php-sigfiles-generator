@@ -74,16 +74,6 @@
  </div>
 
 
- <div class="refsect1 errors" id="refsect1-reflectionproperty.getvalue-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">
-   Throws a <span class="classname"><a href="class.reflectionexception.html" class="classname">ReflectionException</a></span> if the property is inaccessible.
-   You can make a protected or private property accessible using
-   <span class="methodname"><a href="reflectionproperty.setaccessible.html" class="methodname">ReflectionProperty::setAccessible()</a></span>.
-  </p>
- </div>
-
-
  <div class="refsect1 changelog" id="refsect1-reflectionproperty.getvalue-changelog">
   <h3 class="title">Changelog</h3>
   <table class="doctable informaltable">
@@ -97,6 +87,17 @@
     </thead>
 
     <tbody class="tbody">
+     <tr>
+      <td>8.1.0</td>
+      <td>
+       Private and protected properties can be accessed by
+       <span class="methodname"><strong>ReflectionProperty::getValue()</strong></span> right away.
+       Previously, they needed to be made accessible by calling
+       <span class="methodname"><a href="reflectionproperty.setaccessible.html" class="methodname">ReflectionProperty::setAccessible()</a></span>; otherwise
+       a <span class="classname"><a href="class.reflectionexception.html" class="classname">ReflectionException</a></span> was thrown.
+      </td>
+     </tr>
+
      <tr>
       <td>8.0.0</td>
       <td>
@@ -114,11 +115,11 @@
  <div class="refsect1 examples" id="refsect1-reflectionproperty.getvalue-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5189">
+   <div class="example" id="example-5361">
     <p><strong>Example #1 <span class="methodname"><strong>ReflectionProperty::getValue()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;</span><span style="color: #0000BB">$staticProperty&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'foobar'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$property&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'barfoo'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;</span><span style="color: #0000BB">$privateProperty&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'foofoo'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$reflectionClass&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #DD0000">'Foo'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflectionClass</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getProperty</span><span style="color: #007700">(</span><span style="color: #DD0000">'staticProperty'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">getValue</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflectionClass</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getProperty</span><span style="color: #007700">(</span><span style="color: #DD0000">'property'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">getValue</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$reflectionProperty&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$reflectionClass</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getProperty</span><span style="color: #007700">(</span><span style="color: #DD0000">'privateProperty'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$reflectionProperty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAccessible</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflectionProperty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getValue</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Foo </span><span style="color: #007700">{<br />    public static </span><span style="color: #0000BB">$staticProperty </span><span style="color: #007700">= </span><span style="color: #DD0000">'foobar'</span><span style="color: #007700">;<br />    <br />    public </span><span style="color: #0000BB">$property </span><span style="color: #007700">= </span><span style="color: #DD0000">'barfoo'</span><span style="color: #007700">;<br />    protected </span><span style="color: #0000BB">$privateProperty </span><span style="color: #007700">= </span><span style="color: #DD0000">'foofoo'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$reflectionClass </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #DD0000">'Foo'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflectionClass</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getProperty</span><span style="color: #007700">(</span><span style="color: #DD0000">'staticProperty'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">getValue</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflectionClass</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getProperty</span><span style="color: #007700">(</span><span style="color: #DD0000">'property'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">getValue</span><span style="color: #007700">(new </span><span style="color: #0000BB">Foo</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$reflectionProperty </span><span style="color: #007700">= </span><span style="color: #0000BB">$reflectionClass</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getProperty</span><span style="color: #007700">(</span><span style="color: #DD0000">'privateProperty'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$reflectionProperty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAccessible</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">); </span><span style="color: #FF8000">// only required prior to PHP 8.1.0<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflectionProperty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getValue</span><span style="color: #007700">(new </span><span style="color: #0000BB">Foo</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

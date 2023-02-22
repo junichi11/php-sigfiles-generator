@@ -38,14 +38,15 @@
 
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>PDOStatement::rowCount()</strong></span> returns the number of
+   <span class="methodname"><strong>PDOStatement::rowCount()</strong></span> returns the number of
    rows affected by the last DELETE, INSERT, or UPDATE statement
    executed by the corresponding <code class="literal">PDOStatement</code> object. 
   </p>
   <p class="para">
-   If the last SQL statement executed by the associated 
-   <code class="literal">PDOStatement</code> was a SELECT statement, some databases
-   may return the number of rows returned by that statement. However, this
+   For statements that produce result sets, such as <code class="literal">SELECT</code>,
+   the behavior is undefined and can be different for each driver.
+   Some databases may return the number of rows produced by that statement
+   (e.g. MySQL in buffered mode), but this
    behaviour is not guaranteed for all databases and should not be relied
    on for portable applications.
   </p>
@@ -73,19 +74,32 @@
   </p>
  </div>
 
+
+ <div class="refsect1 errors" id="refsect1-pdostatement.rowcount-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+Emits an error with level <strong><code>E_WARNING</code></strong> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong> is set
+to <strong><code>PDO::ERRMODE_WARNING</code></strong>.
+</p>
+<p class="para">
+Throws a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong>
+is set to <strong><code>PDO::ERRMODE_EXCEPTION</code></strong>.
+</p>
+ </div>
+
  
  <div class="refsect1 examples" id="refsect1-pdostatement.rowcount-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1057">
+   <div class="example" id="example-1088">
     <p><strong>Example #1 Return the number of deleted rows</strong></p>
     <div class="example-contents"><p>
-     <span class="function"><strong>PDOStatement::rowCount()</strong></span> returns the number of
+     <span class="methodname"><strong>PDOStatement::rowCount()</strong></span> returns the number of
      rows affected by a DELETE, INSERT, or UPDATE statement.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Delete&nbsp;all&nbsp;rows&nbsp;from&nbsp;the&nbsp;FRUIT&nbsp;table&nbsp;*/<br /></span><span style="color: #0000BB">$del&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'DELETE&nbsp;FROM&nbsp;fruit'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$del</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Return&nbsp;number&nbsp;of&nbsp;rows&nbsp;that&nbsp;were&nbsp;deleted&nbsp;*/<br /></span><span style="color: #007700">print(</span><span style="color: #DD0000">"Return&nbsp;number&nbsp;of&nbsp;rows&nbsp;that&nbsp;were&nbsp;deleted:\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$count&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$del</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">rowCount</span><span style="color: #007700">();<br />print(</span><span style="color: #DD0000">"Deleted&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #DD0000">&nbsp;rows.\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Delete all rows from the FRUIT table */<br /></span><span style="color: #0000BB">$del </span><span style="color: #007700">= </span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'DELETE FROM fruit'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$del</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/* Return number of rows that were deleted */<br /></span><span style="color: #007700">print(</span><span style="color: #DD0000">"Return number of rows that were deleted:\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$count </span><span style="color: #007700">= </span><span style="color: #0000BB">$del</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">rowCount</span><span style="color: #007700">();<br />print(</span><span style="color: #DD0000">"Deleted </span><span style="color: #0000BB">$count</span><span style="color: #DD0000"> rows.\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -99,19 +113,19 @@ Deleted 9 rows.
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1058">
+   <div class="example" id="example-1089">
     <p><strong>Example #2 Counting rows returned by a SELECT statement</strong></p>
     <div class="example-contents"><p>
-     For most databases, <span class="function"><strong>PDOStatement::rowCount()</strong></span> does not
+     For most databases, <span class="methodname"><strong>PDOStatement::rowCount()</strong></span> does not
      return the number of rows affected by a SELECT statement. Instead, use
-     <span class="function"><a href="pdo.query.html" class="function">PDO::query()</a></span> to issue a SELECT COUNT(*) statement
+     <span class="methodname"><a href="pdo.query.html" class="methodname">PDO::query()</a></span> to issue a SELECT COUNT(*) statement
      with the same predicates as your intended SELECT statement, then use
-     <span class="function"><a href="pdostatement.fetchcolumn.html" class="function">PDOStatement::fetchColumn()</a></span> to retrieve the number
+     <span class="methodname"><a href="pdostatement.fetchcolumn.html" class="methodname">PDOStatement::fetchColumn()</a></span> to retrieve the number
      of matching rows. 
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;COUNT(*)&nbsp;FROM&nbsp;fruit&nbsp;WHERE&nbsp;calories&nbsp;&gt;&nbsp;100"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$count&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$res</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchColumn</span><span style="color: #007700">();<br /><br />print&nbsp;</span><span style="color: #DD0000">"There&nbsp;are&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;&nbsp;</span><span style="color: #0000BB">$count&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"&nbsp;matching&nbsp;records."</span><span style="color: #007700">;</span>
+<span style="color: #0000BB">&lt;?php<br />$sql </span><span style="color: #007700">= </span><span style="color: #DD0000">"SELECT COUNT(*) FROM fruit WHERE calories &gt; 100"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$res </span><span style="color: #007700">= </span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$count </span><span style="color: #007700">= </span><span style="color: #0000BB">$res</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchColumn</span><span style="color: #007700">();<br /><br />print </span><span style="color: #DD0000">"There are " </span><span style="color: #007700">.  </span><span style="color: #0000BB">$count </span><span style="color: #007700">. </span><span style="color: #DD0000">" matching records."</span><span style="color: #007700">;</span>
 </span>
 </code></div>
     </div>
@@ -132,9 +146,9 @@ There are 2 matching records.
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="pdostatement.columncount.html" class="function" rel="rdfs-seeAlso">PDOStatement::columnCount()</a> - Returns the number of columns in the result set</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.fetchcolumn.html" class="function" rel="rdfs-seeAlso">PDOStatement::fetchColumn()</a> - Returns a single column from the next row of a result set</span></li>
-    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Prepares and executes an SQL statement without placeholders</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.columncount.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::columnCount()</a> - Returns the number of columns in the result set</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.fetchcolumn.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::fetchColumn()</a> - Returns a single column from the next row of a result set</span></li>
+    <li class="member"><span class="methodname"><a href="pdo.query.html" class="methodname" rel="rdfs-seeAlso">PDO::query()</a> - Prepares and executes an SQL statement without placeholders</span></li>
    </ul>
   </p>
 

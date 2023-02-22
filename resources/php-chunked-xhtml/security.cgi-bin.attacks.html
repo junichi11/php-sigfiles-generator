@@ -26,10 +26,10 @@
   <div id="layout-content"><div id="security.cgi-bin.attacks" class="sect1">
     <h2 class="title">Possible attacks</h2>
     <p class="simpara">
-     Using PHP as a <acronym title="Common Gateway Interface">CGI</acronym> binary is an option for
+     Using PHP as a <abbr title="Common Gateway Interface">CGI</abbr> binary is an option for
      setups that for some reason do not wish to integrate PHP as a
      module into server software (like Apache), or will use PHP with
-     different kinds of <acronym title="Common Gateway Interface">CGI</acronym> wrappers to create safe chroot and setuid
+     different kinds of <abbr title="Common Gateway Interface">CGI</abbr> wrappers to create safe chroot and setuid
      environments for scripts.  This setup usually involves installing
      executable PHP binary to the web server cgi-bin directory.  CERT
      advisory <a href="http://www.cert.org/advisories/CA-1996-11.html" class="link external">&raquo;&nbsp;CA-96.11</a> recommends
@@ -61,7 +61,7 @@
        The path information part of the URL after the PHP binary name,
        <var class="filename">/secret/doc.html</var> is
        conventionally used to specify the name of the file to be
-       opened and interpreted by the <acronym title="Common Gateway Interface">CGI</acronym> program.
+       opened and interpreted by the <abbr title="Common Gateway Interface">CGI</abbr> program.
        Usually some web server configuration directives (Apache:
        Action) are used to redirect requests to documents like
        <var class="filename">http://my.host/secret/script.php</var> to the

@@ -56,23 +56,33 @@
 
      <span class="oointerface"><span class="modifier">implements</span> 
        <a href="class.reflector.html" class="interfacename">Reflector</a></span> {</div>
+
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
     <div class="fieldsynopsis">
+     <span class="modifier">public</span>
      <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.reflectionproperty.html#reflectionproperty.constants.is-static"><var class="varname">IS_STATIC</var></a></var><span class="initializer"> = 16</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionproperty.html#reflectionproperty.constants.is-static"><var class="varname">IS_STATIC</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.reflectionproperty.html#reflectionproperty.constants.is-public"><var class="varname">IS_PUBLIC</var></a></var><span class="initializer"> = 1</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionproperty.html#reflectionproperty.constants.is-readonly"><var class="varname">IS_READONLY</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.reflectionproperty.html#reflectionproperty.constants.is-protected"><var class="varname">IS_PROTECTED</var></a></var><span class="initializer"> = 2</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionproperty.html#reflectionproperty.constants.is-public"><var class="varname">IS_PUBLIC</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.reflectionproperty.html#reflectionproperty.constants.is-private"><var class="varname">IS_PRIVATE</var></a></var><span class="initializer"> = 4</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionproperty.html#reflectionproperty.constants.is-protected"><var class="varname">IS_PROTECTED</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionproperty.html#reflectionproperty.constants.is-private"><var class="varname">IS_PRIVATE</var></a></var>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
@@ -111,7 +121,6 @@
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionproperty.isstatic.html" class="methodname">isStatic</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionproperty.setaccessible.html" class="methodname">setAccessible</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$accessible</code></span>): <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionproperty.setvalue.html" class="methodname">setValue</a></span>(<span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionproperty.setvalue.html" class="methodname">setValue</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionproperty.tostring.html" class="methodname">__toString</a></span>(): <span class="type">string</span></div>
 
    }</div>
@@ -176,6 +185,19 @@
      
 
      
+      <dt id="reflectionproperty.constants.is-readonly"><strong><code>ReflectionProperty::IS_READONLY</code></strong></dt>
+
+      <dd>
+
+       <p class="para">
+        Indicates <a href="language.oop5.properties.html#language.oop5.properties.readonly-properties" class="link">readonly</a>
+        properties. Available as of PHP 8.1.0.
+       </p>
+      </dd>
+
+     
+
+     
       <dt id="reflectionproperty.constants.is-public"><strong><code>ReflectionProperty::IS_PUBLIC</code></strong></dt>
 
       <dd>
@@ -230,41 +252,36 @@
   </div>
 
 
+  <div class="section">
+   <h2 class="title">Changelog</h2>
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <span class="methodname"><a href="reflectionproperty.export.html" class="methodname">ReflectionProperty::export()</a></span> was removed.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </div>
+
 
  </div>
 
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -27,10 +27,10 @@
    <h1>Installed as an Apache module</h1>
 
    <p class="simpara">
-    When <acronym title="PHP: Hypertext Preprocessor">PHP</acronym> is used as an Apache module it inherits Apache&#039;s user
+    When <abbr title="PHP: Hypertext Preprocessor">PHP</abbr> is used as an Apache module it inherits Apache&#039;s user
     permissions (typically those of the &quot;nobody&quot; user). This has several
     impacts on security and authorization. For example, if you are using
-    <acronym title="PHP: Hypertext Preprocessor">PHP</acronym> to access a database, unless that database has built-in access
+    <abbr title="PHP: Hypertext Preprocessor">PHP</abbr> to access a database, unless that database has built-in access
     control, you will have to make the database accessible to the
     &quot;nobody&quot; user. This means a malicious script could access and modify
     the database, even without a username and password. It&#039;s entirely
@@ -38,12 +38,12 @@
     administrator&#039;s web page, and drop all of your databases. You can
     protect against this with Apache authorization, or you can design
     your own access model using LDAP, <var class="filename">.htaccess</var> files, etc. and include
-    that code as part of your <acronym title="PHP: Hypertext Preprocessor">PHP</acronym> scripts.
+    that code as part of your <abbr title="PHP: Hypertext Preprocessor">PHP</abbr> scripts.
    </p>
    <p class="simpara">
-    Often, once security is established to the point where the <acronym title="PHP: Hypertext Preprocessor">PHP</acronym> user
+    Often, once security is established to the point where the <abbr title="PHP: Hypertext Preprocessor">PHP</abbr> user
     (in this case, the apache user) has very little risk attached to it,
-    it is discovered that <acronym title="PHP: Hypertext Preprocessor">PHP</acronym> is now prevented from writing any files
+    it is discovered that <abbr title="PHP: Hypertext Preprocessor">PHP</abbr> is now prevented from writing any files
     to user directories. Or perhaps it has been prevented from accessing
     or changing databases. It has equally been secured from writing
     good and bad files, or entering good and bad database transactions.
@@ -62,7 +62,7 @@
    <p class="simpara">
     There are some simpler solutions. By using
     <a href="ini.core.html#ini.open-basedir" class="link">open_basedir</a> you can control and restrict what
-    directories are allowed to be used for <acronym title="PHP: Hypertext Preprocessor">PHP</acronym>. You can also set up
+    directories are allowed to be used for <abbr title="PHP: Hypertext Preprocessor">PHP</abbr>. You can also set up
     apache-only areas, to restrict all web based activity to non-user,
     or non-system, files.
    </p>

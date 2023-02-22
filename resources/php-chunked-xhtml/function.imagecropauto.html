@@ -213,7 +213,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <td>8.0.0</td>
  <td>
   <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
-  instance now; previously, a <span class="type">resource</span> was expected.
+  instance now; previously, a valid <code class="literal">gd</code> <span class="type">resource</span> was expected.
  </td>
 </tr>
 
@@ -255,7 +255,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imagecropauto-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2658">
+   <div class="example" id="example-2728">
     <p><strong>Example #1 Proper handling of auto-cropping</strong></p>
     <div class="example-contents"><p>
      As noted in the return value section, <span class="function"><strong>imagecropauto()</strong></span>
@@ -266,7 +266,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$cropped&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecropauto</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_CROP_DEFAULT</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$cropped&nbsp;</span><span style="color: #007700">!==&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;{&nbsp;</span><span style="color: #FF8000">//&nbsp;in&nbsp;case&nbsp;a&nbsp;new&nbsp;image&nbsp;object&nbsp;was&nbsp;returned<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;we&nbsp;destroy&nbsp;the&nbsp;original&nbsp;image<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$cropped</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;and&nbsp;assign&nbsp;the&nbsp;cropped&nbsp;image&nbsp;to&nbsp;$im<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$cropped </span><span style="color: #007700">= </span><span style="color: #0000BB">imagecropauto</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">, </span><span style="color: #0000BB">IMG_CROP_DEFAULT</span><span style="color: #007700">);<br />if (</span><span style="color: #0000BB">$cropped </span><span style="color: #007700">!== </span><span style="color: #0000BB">false</span><span style="color: #007700">) { </span><span style="color: #FF8000">// in case a new image object was returned<br />    </span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);    </span><span style="color: #FF8000">// we destroy the original image<br />    </span><span style="color: #0000BB">$im </span><span style="color: #007700">= </span><span style="color: #0000BB">$cropped</span><span style="color: #007700">;       </span><span style="color: #FF8000">// and assign the cropped image to $im<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

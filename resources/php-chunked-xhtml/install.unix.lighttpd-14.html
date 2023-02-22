@@ -37,19 +37,16 @@
  </p>
  
  <p class="para">
-  Fastcgi is the preferred SAPI to connect PHP and Lighttpd. Fastcgi is
-  automagically enabled in php-cgi in PHP 5.3, but for older versions configure
-  PHP with --enable-fastcgi.  To confirm that PHP has fastcgi enabled,
-  <code class="literal">php -v</code> should contain <code class="literal">PHP 5.2.5 (cgi-fcgi)</code>
-  Before PHP 5.2.3, fastcgi was enabled on the php binary (there was no php-cgi).
+  FastCGI is the preferred SAPI to connect PHP and Lighttpd. FastCGI is
+  automagically enabled in php-cgi.
  </p>
  
  <div class="sect2" id="install.unix.lighttpd-14.lighttpd-spawn">
   <h3 class="title">Letting Lighttpd spawn php processes</h3>
 
   <p class="para">
-   To configure Lighttpd to connect to php and spawn fastcgi processes, edit
-   lighttpd.conf. Sockets are preferred to connect to fastcgi processes on
+   To configure Lighttpd to connect to PHP and spawn FastCGI processes, edit
+   <var class="filename">lighttpd.conf</var>. Sockets are preferred to connect to FastCGI processes on
    the local system.
   </p>
 
@@ -78,15 +75,15 @@ fastcgi.server = ( &quot;.php&quot; =&gt;
   </div>
 
   <p class="para">
-   The bin-path directive allows lighttpd to spawn fastcgi processes dynamically.
-   PHP will spawn children according to the PHP_FCGI_CHILDREN environment
-   variable.  The &quot;bin-environment&quot; directive sets the environment for the
+   The <var class="filename">bin-path</var> directive allows lighttpd to spawn FastCGI processes dynamically.
+   PHP will spawn children according to the <var class="envar">PHP_FCGI_CHILDREN</var> environment
+   variable. The <code class="literal">bin-environment</code> directive sets the environment for the
    spawned processes. PHP will kill a child process after the number of
-   requests specified by PHP_FCGI_MAX_REQUESTS is reached. The directives
-   &quot;min-procs&quot; and &quot;max-procs&quot; should generally be avoided with PHP. PHP
+   requests specified by <var class="envar">PHP_FCGI_MAX_REQUESTS</var> is reached. The directives
+   <code class="literal">min-procs</code> and <code class="literal">max-procs</code> should generally be avoided with PHP. PHP
    manages its own children and opcode caches like APC will only share among
-   children managed by PHP. If &quot;min-procs&quot; is set to something greater than 1,
-   the total number of php responders will be multiplied PHP_FCGI_CHILDREN
+   children managed by PHP. If <code class="literal">min-procs</code> is set to something greater than <code class="literal">1</code>,
+   the total number of php responders will be multiplied <var class="envar">PHP_FCGI_CHILDREN</var>
    (2 min-procs * 16 children gives 32 responders).
   </p>
  </div>
@@ -96,7 +93,7 @@ fastcgi.server = ( &quot;.php&quot; =&gt;
 
   <p class="para">
    Lighttpd provides a program called spawn-fcgi to make the process of
-   spawning fastcgi processes easier.
+   spawning FastCGI processes easier.
   </p>
  </div>
 
@@ -105,9 +102,9 @@ fastcgi.server = ( &quot;.php&quot; =&gt;
 
   <p class="para">
    It is possible to spawn processes without spawn-fcgi, though a bit of
-   heavy-lifting is required. Setting the PHP_FCGI_CHILDREN environment var
+   heavy-lifting is required. Setting the <var class="envar">PHP_FCGI_CHILDREN</var> environment var
    controls how many children PHP will spawn to handle incoming requests.
-   Setting PHP_FCGI_MAX_REQUESTS will determine how long (in requests) each
+   Setting <var class="envar">PHP_FCGI_MAX_REQUESTS</var> will determine how long (in requests) each
    child will live. Here&#039;s a simple bash script to help spawn php responders.
   </p>
      
@@ -146,7 +143,7 @@ echo $! &gt; &quot;$PHP_PID&quot;
   <h3 class="title">Connecting to remote FCGI instances</h3>
 
   <p class="para">
-   Fastcgi instances can be spawned on multiple remote machines in order to
+   FastCGI instances can be spawned on multiple remote machines in order to
    scale applications.
   </p>
    

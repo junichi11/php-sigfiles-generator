@@ -36,9 +36,9 @@
    <span class="methodname"><strong>header</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$header</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$replace</code><span class="initializer"> = <strong><code>true</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$response_code</code><span class="initializer"> = 0</span></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>header()</strong></span> is used to send a raw <acronym title="Hypertext Transfer Protocol">HTTP</acronym>
+   <span class="function"><strong>header()</strong></span> is used to send a raw <abbr title="Hypertext Transfer Protocol">HTTP</abbr>
    header. See the <a href="http://www.faqs.org/rfcs/rfc2616" class="link external">&raquo;&nbsp;HTTP/1.1 specification</a>
-   for more information on <acronym title="Hypertext Transfer Protocol">HTTP</acronym> headers.
+   for more information on <abbr title="Hypertext Transfer Protocol">HTTP</abbr> headers.
   </p>
   <p class="para">
    Remember that <span class="function"><strong>header()</strong></span> must be called before any
@@ -51,7 +51,7 @@
    <div class="informalexample">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-&lt;html&gt;<br /><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;This&nbsp;will&nbsp;give&nbsp;an&nbsp;error.&nbsp;Note&nbsp;the&nbsp;output<br />&nbsp;*&nbsp;above,&nbsp;which&nbsp;is&nbsp;before&nbsp;the&nbsp;header()&nbsp;call&nbsp;*/<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Location:&nbsp;http://www.example.com/'</span><span style="color: #007700">);<br />exit;<br /></span><span style="color: #0000BB">?&gt;</span>
+&lt;html&gt;<br /><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* This will give an error. Note the output<br /> * above, which is before the header() call */<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Location: http://www.example.com/'</span><span style="color: #007700">);<br />exit;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -87,7 +87,7 @@
        <div class="informalexample">
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;example&nbsp;illustrates&nbsp;the&nbsp;"HTTP/"&nbsp;special&nbsp;case<br />//&nbsp;Better&nbsp;alternatives&nbsp;in&nbsp;typical&nbsp;use&nbsp;cases&nbsp;include:<br />//&nbsp;1.&nbsp;header($_SERVER["SERVER_PROTOCOL"]&nbsp;.&nbsp;"&nbsp;404&nbsp;Not&nbsp;Found");<br />//&nbsp;&nbsp;&nbsp;&nbsp;(to&nbsp;override&nbsp;http&nbsp;status&nbsp;messages&nbsp;for&nbsp;clients&nbsp;that&nbsp;are&nbsp;still&nbsp;using&nbsp;HTTP/1.0)<br />//&nbsp;2.&nbsp;http_response_code(404);&nbsp;(to&nbsp;use&nbsp;the&nbsp;default&nbsp;message)<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"HTTP/1.1&nbsp;404&nbsp;Not&nbsp;Found"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// This example illustrates the "HTTP/" special case<br />// Better alternatives in typical use cases include:<br />// 1. header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");<br />//    (to override http status messages for clients that are still using HTTP/1.0)<br />// 2. http_response_code(404); (to use the default message)<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"HTTP/1.1 404 Not Found"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
         </div>
@@ -105,7 +105,7 @@
        <div class="informalexample">
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Location:&nbsp;http://www.example.com/"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">/*&nbsp;Redirect&nbsp;browser&nbsp;*/<br /><br />/*&nbsp;Make&nbsp;sure&nbsp;that&nbsp;code&nbsp;below&nbsp;does&nbsp;not&nbsp;get&nbsp;executed&nbsp;when&nbsp;we&nbsp;redirect.&nbsp;*/<br /></span><span style="color: #007700">exit;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Location: http://www.example.com/"</span><span style="color: #007700">); </span><span style="color: #FF8000">/* Redirect browser */<br /><br />/* Make sure that code below does not get executed when we redirect. */<br /></span><span style="color: #007700">exit;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
         </div>
@@ -132,7 +132,7 @@
        <div class="informalexample">
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">'WWW-Authenticate:&nbsp;Negotiate'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'WWW-Authenticate:&nbsp;NTLM'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">'WWW-Authenticate: Negotiate'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'WWW-Authenticate: NTLM'</span><span style="color: #007700">, </span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
         </div>
@@ -182,7 +182,7 @@
  <div class="refsect1 examples" id="refsect1-function.header-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4451">
+   <div class="example" id="example-4530">
     <p><strong>Example #1 Download dialog</strong></p>
     <div class="example-contents"><p>
      If you want the user to be prompted to save the data you are
@@ -192,7 +192,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;We'll&nbsp;be&nbsp;outputting&nbsp;a&nbsp;PDF<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;application/pdf'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;It&nbsp;will&nbsp;be&nbsp;called&nbsp;downloaded.pdf<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Disposition:&nbsp;attachment;&nbsp;filename="downloaded.pdf"'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;The&nbsp;PDF&nbsp;source&nbsp;is&nbsp;in&nbsp;original.pdf<br /></span><span style="color: #0000BB">readfile</span><span style="color: #007700">(</span><span style="color: #DD0000">'original.pdf'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// We'll be outputting a PDF<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type: application/pdf'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// It will be called downloaded.pdf<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Disposition: attachment; filename="downloaded.pdf"'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// The PDF source is in original.pdf<br /></span><span style="color: #0000BB">readfile</span><span style="color: #007700">(</span><span style="color: #DD0000">'original.pdf'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -200,7 +200,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4452">
+   <div class="example" id="example-4531">
     <p><strong>Example #2 Caching directives</strong></p>
     <div class="example-contents"><p>
      PHP scripts often generate dynamic content that must not be cached
@@ -210,7 +210,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Cache-Control:&nbsp;no-cache,&nbsp;must-revalidate"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;HTTP/1.1<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Expires:&nbsp;Sat,&nbsp;26&nbsp;Jul&nbsp;1997&nbsp;05:00:00&nbsp;GMT"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;Date&nbsp;in&nbsp;the&nbsp;past<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Cache-Control: no-cache, must-revalidate"</span><span style="color: #007700">); </span><span style="color: #FF8000">// HTTP/1.1<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Expires: Sat, 26 Jul 1997 05:00:00 GMT"</span><span style="color: #007700">); </span><span style="color: #FF8000">// Date in the past<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -269,7 +269,7 @@
   </p></blockquote>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    Most contemporary clients accept relative <acronym title="Uniform Resource Identifier">URI</acronym>s as argument to
+    Most contemporary clients accept relative <abbr title="Uniform Resource Identifier">URI</abbr>s as argument to
     <a href="http://tools.ietf.org/html/rfc7231#section-7.1.2" class="link external">&raquo;&nbsp;Location:</a>,
     but some older clients require an absolute URI
     including the scheme, hostname and absolute path. You can usually use
@@ -280,7 +280,7 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Redirect&nbsp;to&nbsp;a&nbsp;different&nbsp;page&nbsp;in&nbsp;the&nbsp;current&nbsp;directory&nbsp;that&nbsp;was&nbsp;requested&nbsp;*/<br /></span><span style="color: #0000BB">$host&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_HOST'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$uri&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">rtrim</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'PHP_SELF'</span><span style="color: #007700">]),&nbsp;</span><span style="color: #DD0000">'/\\'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$extra&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'mypage.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Location:&nbsp;http://</span><span style="color: #0000BB">$host$uri</span><span style="color: #DD0000">/</span><span style="color: #0000BB">$extra</span><span style="color: #DD0000">"</span><span style="color: #007700">);<br />exit;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Redirect to a different page in the current directory that was requested */<br /></span><span style="color: #0000BB">$host  </span><span style="color: #007700">= </span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_HOST'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$uri   </span><span style="color: #007700">= </span><span style="color: #0000BB">rtrim</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'PHP_SELF'</span><span style="color: #007700">]), </span><span style="color: #DD0000">'/\\'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$extra </span><span style="color: #007700">= </span><span style="color: #DD0000">'mypage.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Location: http://</span><span style="color: #0000BB">$host$uri</span><span style="color: #DD0000">/</span><span style="color: #0000BB">$extra</span><span style="color: #DD0000">"</span><span style="color: #007700">);<br />exit;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -306,7 +306,7 @@
     <li class="member"><span class="function"><a href="function.setcookie.html" class="function" rel="rdfs-seeAlso">setcookie()</a> - Send a cookie</span></li>
     <li class="member"><span class="function"><a href="function.http-response-code.html" class="function" rel="rdfs-seeAlso">http_response_code()</a> - Get or Set the HTTP response code</span></li>
     <li class="member"><span class="function"><a href="function.header-remove.html" class="function" rel="rdfs-seeAlso">header_remove()</a> - Remove previously set headers</span></li>
-    <li class="member"><span class="function"><strong>header_list()</strong></span></li>
+    <li class="member"><span class="function"><a href="function.headers-list.html" class="function" rel="rdfs-seeAlso">headers_list()</a> - Returns a list of response headers sent (or ready to send)</span></li>
     <li class="member">
      The section on <a href="features.http-auth.html" class="link">HTTP
      authentication</a>

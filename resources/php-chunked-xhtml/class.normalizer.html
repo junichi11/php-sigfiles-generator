@@ -78,6 +78,59 @@
      </span>
      {</div>
 
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.normalizer.html#normalizer.constants.form-d"><var class="varname">FORM_D</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.normalizer.html#normalizer.constants.nfd"><var class="varname">NFD</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.normalizer.html#normalizer.constants.form-kd"><var class="varname">FORM_KD</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.normalizer.html#normalizer.constants.nfkd"><var class="varname">NFKD</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.normalizer.html#normalizer.constants.form-c"><var class="varname">FORM_C</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.normalizer.html#normalizer.constants.nfc"><var class="varname">NFC</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.normalizer.html#normalizer.constants.form-kc"><var class="varname">FORM_KC</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.normalizer.html#normalizer.constants.nfkc"><var class="varname">NFKC</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.normalizer.html#normalizer.constants.form-kc-cf"><var class="varname">FORM_KC_CF</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.normalizer.html#normalizer.constants.nfkc-cf"><var class="varname">NFKC_CF</var></a></var>;</div>
+
+
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="normalizer.getrawdecomposition.html" class="methodname">getRawDecomposition</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$form</code><span class="initializer"> = Normalizer::FORM_C</span></span>): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
@@ -103,7 +156,6 @@
    
     <dt id="normalizer.constants.form-c">
      <strong><code>Normalizer::FORM_C</code></strong>
-     (<span class="type">int</span>)
     </dt>
 
     <dd>
@@ -119,7 +171,6 @@
    
     <dt id="normalizer.constants.form-d">
      <strong><code>Normalizer::FORM_D</code></strong>
-     (<span class="type">int</span>)
     </dt>
 
     <dd>
@@ -130,9 +181,18 @@
    
 
    
+    <dt id="normalizer.constants.nfd"><strong><code>Normalizer::NFD</code></strong></dt>
+
+    <dd>
+
+     <p class="para"/>
+    </dd>
+
+   
+
+   
     <dt id="normalizer.constants.form-kc">
      <strong><code>Normalizer::FORM_KC</code></strong>
-     (<span class="type">int</span>)
     </dt>
 
     <dd>
@@ -146,9 +206,28 @@
    
 
    
+    <dt id="normalizer.constants.nfkc"><strong><code>Normalizer::NFKC</code></strong></dt>
+
+    <dd>
+
+     <p class="para"/>
+    </dd>
+
+   
+
+   
+    <dt id="normalizer.constants.form-kc-cf"><strong><code>Normalizer::FORM_KC_CF</code></strong></dt>
+
+    <dd>
+
+     <p class="para"/>
+    </dd>
+
+   
+
+   
     <dt id="normalizer.constants.form-kd">
      <strong><code>Normalizer::FORM_KD</code></strong>
-     (<span class="type">int</span>)
     </dt>
 
     <dd>
@@ -161,27 +240,31 @@
    
 
    
-    <dt id="normalizer.constants.none">
-     <strong><code>Normalizer::NONE</code></strong>
-     (<span class="type">int</span>)
-    </dt>
+    <dt id="normalizer.constants.nfkd"><strong><code>Normalizer::NFKD</code></strong></dt>
 
     <dd>
 
-     <span class="simpara">No decomposition/composition</span>
+     <p class="para"/>
     </dd>
 
    
 
    
-    <dt id="normalizer.constants.option-default">
-     <strong><code>Normalizer::OPTION_DEFAULT</code></strong>
-     (<span class="type">int</span>)
-    </dt>
+    <dt id="normalizer.constants.nfc"><strong><code>Normalizer::NFC</code></strong></dt>
 
     <dd>
 
-     <span class="simpara">Default normalization options</span>
+     <p class="para"/>
+    </dd>
+
+   
+
+   
+    <dt id="normalizer.constants.nfkc-cf"><strong><code>Normalizer::NFKC_CF</code></strong></dt>
+
+    <dd>
+
+     <p class="para"/>
     </dd>
 
    
@@ -220,6 +303,32 @@
      </li>
     </ul>
    </p>
+  </div>
+
+  <div class="section">
+   <h2 class="title">Changelog</h2>
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <strong><code>Normalizer::NONE</code></strong> has been removed.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </div>
  </div>
 

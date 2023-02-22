@@ -35,7 +35,7 @@
    <span class="methodname"><strong>imagepng</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$image</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">resource</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$file</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$quality</code><span class="initializer"> = -1</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$filters</code><span class="initializer"> = -1</span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Outputs or saves a <acronym title="Portable Network Graphics">PNG</acronym> image from the given 
+   Outputs or saves a <abbr title="Portable Network Graphics">PNG</abbr> image from the given 
    <code class="parameter">image</code>.
   </p>
  </div>
@@ -134,7 +134,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <td>8.0.0</td>
  <td>
   <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
-  instance now; previously, a <span class="type">resource</span> was expected.
+  instance now; previously, a valid <code class="literal">gd</code> <span class="type">resource</span> was expected.
  </td>
 </tr>
 
@@ -151,7 +151,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
    <div class="informalexample">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefrompng</span><span style="color: #007700">(</span><span style="color: #DD0000">"test.png"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;image/png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$im </span><span style="color: #007700">= </span><span style="color: #0000BB">imagecreatefrompng</span><span style="color: #007700">(</span><span style="color: #DD0000">"test.png"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type: image/png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -167,7 +167,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
    <li class="member"><span class="function"><a href="function.imagewbmp.html" class="function" rel="rdfs-seeAlso">imagewbmp()</a> - Output image to browser or file</span></li>
    <li class="member"><span class="function"><a href="function.imagejpeg.html" class="function" rel="rdfs-seeAlso">imagejpeg()</a> - Output image to browser or file</span></li>
    <li class="member"><span class="function"><a href="function.imagetypes.html" class="function" rel="rdfs-seeAlso">imagetypes()</a> - Return the image types supported by this PHP build</span></li>
-   <li class="member"><span class="function"><a href="function.imagesavealpha.html" class="function" rel="rdfs-seeAlso">imagesavealpha()</a> - Whether to retain full alpha channel information when saving PNG images</span></li>
+   <li class="member"><span class="function"><a href="function.imagesavealpha.html" class="function" rel="rdfs-seeAlso">imagesavealpha()</a> - Whether to retain full alpha channel information when saving images</span></li>
   </ul>
  </div>
 

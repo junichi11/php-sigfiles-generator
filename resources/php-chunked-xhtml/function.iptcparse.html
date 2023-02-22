@@ -71,11 +71,11 @@
  <div class="refsect1 examples" id="refsect1-function.iptcparse-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2730">
+   <div class="example" id="example-2800">
     <p><strong>Example #1 iptcparse() used together with <span class="function"><a href="function.getimagesize.html" class="function">getimagesize()</a></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$size&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">getimagesize</span><span style="color: #007700">(</span><span style="color: #DD0000">'./test.jpg'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$info</span><span style="color: #007700">);<br />if(isset(</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">'APP13'</span><span style="color: #007700">]))<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$iptc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">iptcparse</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">'APP13'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$iptc</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$size </span><span style="color: #007700">= </span><span style="color: #0000BB">getimagesize</span><span style="color: #007700">(</span><span style="color: #DD0000">'./test.jpg'</span><span style="color: #007700">, </span><span style="color: #0000BB">$info</span><span style="color: #007700">);<br />if(isset(</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">'APP13'</span><span style="color: #007700">]))<br />{<br />    </span><span style="color: #0000BB">$iptc </span><span style="color: #007700">= </span><span style="color: #0000BB">iptcparse</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">'APP13'</span><span style="color: #007700">]);<br />    </span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$iptc</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

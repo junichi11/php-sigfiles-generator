@@ -86,7 +86,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
      <tr>
       <td>8.0.0</td>
       <td>
-       This function is a <acronym>NOP</acronym> now.
+       This function is a <abbr>NOP</abbr> now.
       </td>
      </tr>
 
@@ -94,7 +94,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <td>8.0.0</td>
  <td>
   <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
-  instance now; previously, a <span class="type">resource</span> was expected.
+  instance now; previously, a valid <code class="literal">gd</code> <span class="type">resource</span> was expected.
  </td>
 </tr>
 
@@ -108,11 +108,11 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imagedestroy-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2661">
+   <div class="example" id="example-2731">
     <p><strong>Example #1 Using <span class="function"><strong>imagedestroy()</strong></span> prior to PHP 8.0.0</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;create&nbsp;a&nbsp;100&nbsp;x&nbsp;100&nbsp;image<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;alter&nbsp;or&nbsp;save&nbsp;the&nbsp;image<br /><br />//&nbsp;frees&nbsp;image&nbsp;from&nbsp;memory<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// create a 100 x 100 image<br /></span><span style="color: #0000BB">$im </span><span style="color: #007700">= </span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">, </span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// alter or save the image<br /><br />// frees image from memory<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Efficiently move the engine ahead by 2^128 steps</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="random-engine-xoshiro256starstar.generate.html">« Random\Engine\Xoshiro256StarStar::generate</a></li>
+      <li style="float: right;"><a href="random-engine-xoshiro256starstar.jumplong.html">Random\Engine\Xoshiro256StarStar::jumpLong »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.random-engine-xoshiro256starstar.html">Random\Engine\Xoshiro256StarStar</a></li>
+    <li>Efficiently move the engine ahead by 2^128 steps</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="random-engine-xoshiro256starstar.jump" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">Random\Engine\Xoshiro256StarStar::jump</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.2.0)</p><p class="refpurpose"><span class="refname">Random\Engine\Xoshiro256StarStar::jump</span> &mdash; <span class="dc-title">Efficiently move the engine ahead by 2^128 steps</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-random-engine-xoshiro256starstar.jump-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>Random\Engine\Xoshiro256StarStar::jump</strong></span>(): <span class="type"><span class="type void">void</span></span></div>
+
+  <p class="para rdfs-comment">
+   Moves the algorithm’s state ahead by 2<sup class="superscript">128</sup> steps, as if
+   <span class="function"><a href="random-engine-xoshiro256starstar.generate.html" class="function">Random\Engine\Xoshiro256StarStar::generate()</a></span> was called
+   2<sup class="superscript">128</sup> times.
+  </p>
+  <p class="para">
+   The purpose of a jump is to facilitate the creation of a new <span class="classname"><a href="class.random-engine-xoshiro256starstar.html" class="classname">Random\Engine\Xoshiro256StarStar</a></span>
+   engine from an existing seeded <span class="classname"><a href="class.random-engine-xoshiro256starstar.html" class="classname">Random\Engine\Xoshiro256StarStar</a></span> engine.
+   The seeded engine acts as a blueprint, which can be <a href="language.oop5.cloning.html" class="link">cloned</a>
+   and repeatedly jumped to create 2<sup class="superscript">128</sup> non-overlapping sequences with
+   2<sup class="superscript">128</sup> values each.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-random-engine-xoshiro256starstar.jump-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-random-engine-xoshiro256starstar.jump-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   No value is returned.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-random-engine-xoshiro256starstar.jump-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-3595">
+   <p><strong>Example #1 <span class="function"><strong>Random\Engine\Xoshiro256StarStar::jump()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">use </span><span style="color: #0000BB">Random</span><span style="color: #007700">\</span><span style="color: #0000BB">Engine</span><span style="color: #007700">\</span><span style="color: #0000BB">Xoshiro256StarStar</span><span style="color: #007700">;<br />use </span><span style="color: #0000BB">Random</span><span style="color: #007700">\</span><span style="color: #0000BB">Randomizer</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$blueprintRng </span><span style="color: #007700">= new </span><span style="color: #0000BB">Xoshiro256StarStar</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$fibers </span><span style="color: #007700">= [];<br />for (</span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">; </span><span style="color: #0000BB">$i </span><span style="color: #007700">&lt; </span><span style="color: #0000BB">8</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++) {<br />    </span><span style="color: #0000BB">$fiberRng </span><span style="color: #007700">= clone </span><span style="color: #0000BB">$blueprintRng</span><span style="color: #007700">;<br />    </span><span style="color: #0000BB">$blueprintRng</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">jump</span><span style="color: #007700">();<br /><br />    </span><span style="color: #0000BB">$fiber </span><span style="color: #007700">= new </span><span style="color: #0000BB">Fiber</span><span style="color: #007700">(static function () use (</span><span style="color: #0000BB">$fiberRng</span><span style="color: #007700">, </span><span style="color: #0000BB">$i</span><span style="color: #007700">): </span><span style="color: #0000BB">void </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">$randomizer </span><span style="color: #007700">= new </span><span style="color: #0000BB">Randomizer</span><span style="color: #007700">(</span><span style="color: #0000BB">$fiberRng</span><span style="color: #007700">);<br /><br />        while (</span><span style="color: #0000BB">true</span><span style="color: #007700">) {<br />            </span><span style="color: #0000BB">Fiber</span><span style="color: #007700">::</span><span style="color: #0000BB">suspend</span><span style="color: #007700">();<br />            echo </span><span style="color: #DD0000">"</span><span style="color: #007700">{</span><span style="color: #0000BB">$i</span><span style="color: #007700">}</span><span style="color: #DD0000">: " </span><span style="color: #007700">. </span><span style="color: #0000BB">$randomizer</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getInt</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">100</span><span style="color: #007700">), </span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />        }<br />    });<br />    </span><span style="color: #0000BB">$fiber</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">start</span><span style="color: #007700">();<br /><br />    </span><span style="color: #0000BB">$fibers</span><span style="color: #007700">[] = </span><span style="color: #0000BB">$fiber</span><span style="color: #007700">;<br />}<br /><br /><br /></span><span style="color: #FF8000">// Even though the fibers execute in a random order, they will print the same value<br />// each time, because each has its own unique instance of the RNG.<br /></span><span style="color: #0000BB">$randomizer </span><span style="color: #007700">= new </span><span style="color: #0000BB">Randomizer</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$fibers </span><span style="color: #007700">= </span><span style="color: #0000BB">$randomizer</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">shuffleArray</span><span style="color: #007700">(</span><span style="color: #0000BB">$fibers</span><span style="color: #007700">);<br />foreach (</span><span style="color: #0000BB">$fibers </span><span style="color: #007700">as </span><span style="color: #0000BB">$fiber</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">$fiber</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">resume</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #0000BB">$fibers </span><span style="color: #007700">= </span><span style="color: #0000BB">$randomizer</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">shuffleArray</span><span style="color: #007700">(</span><span style="color: #0000BB">$fibers</span><span style="color: #007700">);<br />foreach (</span><span style="color: #0000BB">$fibers </span><span style="color: #007700">as </span><span style="color: #0000BB">$fiber</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">$fiber</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">resume</span><span style="color: #007700">();<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+4: 89
+3: 10
+2: 63
+1: 75
+6: 41
+5: 56
+0: 16
+7: 60
+7: 34
+6: 58
+1: 74
+4: 63
+3: 3
+5: 42
+2: 45
+0: 86
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-random-engine-xoshiro256starstar.jump-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="random-engine-xoshiro256starstar.jumplong.html" class="function" rel="rdfs-seeAlso">Random\Engine\Xoshiro256StarStar::jumpLong()</a> - Efficiently move the engine ahead by 2^192 steps</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

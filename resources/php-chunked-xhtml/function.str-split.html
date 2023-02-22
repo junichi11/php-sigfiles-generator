@@ -80,26 +80,60 @@
   <p class="para">
    If the optional <code class="parameter">length</code> parameter is
    specified, the returned array will be broken down into chunks with each
-   being <code class="parameter">length</code> in length, otherwise each chunk
-   will be one character in length.
+   being <code class="parameter">length</code> in length, except the final chunk
+   which may be shorter if the string does not divide evenly.  The default
+   <code class="parameter">length</code> is <code class="literal">1</code>, meaning every chunk will be one byte in size.
   </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.str-split-errors">
+  <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   <strong><code>false</code></strong> is returned if <code class="parameter">length</code> is less than 1.
-   If the <code class="parameter">length</code> length exceeds the length of
-   <code class="parameter">string</code>, the entire string is returned as the first
-   (and only) array element.
+   If <code class="parameter">length</code> is less than <code class="literal">1</code>,
+   a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> will be thrown.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.str-split-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       If <code class="parameter">length</code> is less than <code class="literal">1</code>,
+       a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> will be thrown now;
+       previously, an error of level <strong><code>E_WARNING</code></strong>
+       has been raised instead, and the function returned <strong><code>false</code></strong>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.str-split-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4844">
+   <div class="example" id="example-4930">
     <p><strong>Example #1 Example uses of <span class="function"><strong>str_split()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Hello&nbsp;Friend"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$arr1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">str_split</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$arr2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">str_split</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr2</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$str </span><span style="color: #007700">= </span><span style="color: #DD0000">"Hello Friend"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$arr1 </span><span style="color: #007700">= </span><span style="color: #0000BB">str_split</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$arr2 </span><span style="color: #007700">= </span><span style="color: #0000BB">str_split</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr2</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

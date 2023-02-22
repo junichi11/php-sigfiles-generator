@@ -45,15 +45,16 @@ $ sudo make install</pre>
   </p>
 
   <p class="para">
-   If your system has multiple version of PHP installed (e.g. macOS default
-   <em class="emphasis">and</em> <a href="https://www.apachefriends.org/" class="link external">&raquo;&nbsp;XAMPP</a>), note
-   that each version of PHP has its own
-   <a href="install.pecl.phpize.html" class="link">phpize</a> command and <var class="filename">php.ini</var> file.
+   If your system has multiple version of PHP installed (e.g. macOS default,
+   Homebrew, <a href="https://www.apachefriends.org/" class="link external">&raquo;&nbsp;XAMPP</a>), note that each
+   version of PHP has its own <a href="install.pecl.phpize.html" class="link">phpize</a>
+   command and <var class="filename">php.ini</var> file(s). Additionally, each PHP environments (e.g.
+   CLI, web) may use separate <var class="filename">php.ini</var> files.
   </p>
 
   <p class="para">
    By default, the driver will use bundled versions of
-   <a href="https://github.com/mongodb/libbson" class="link external">&raquo;&nbsp;libbson</a>,
+   <a href="https://github.com/mongodb/mongo-c-driver/tree/master/src/libbson" class="link external">&raquo;&nbsp;libbson</a>,
    <a href="https://github.com/mongodb/mongo-c-driver" class="link external">&raquo;&nbsp;libmongoc</a>, and
    <a href="https://github.com/mongodb/libmongocrypt" class="link external">&raquo;&nbsp;libmongocrypt</a> and
    attempt to configure them on its own. If these libraries are already
@@ -130,7 +131,8 @@ $ sudo make install</pre>
   </p>
 
   <p class="para">
-   Finally, add the following line to your <var class="filename">php.ini</var> file:
+   Finally, add the following line to the <var class="filename">php.ini</var> file for each environment
+   in which you intend to use the driver:
    <div class="example-contents">
 <div class="inicode"><pre class="inicode">extension=mongodb.so</pre>
 </div>

@@ -77,15 +77,21 @@
  <div class="refsect1 examples" id="refsect1-function.is-resource-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5234">
+   <div class="example" id="example-5406">
     <p><strong>Example #1 <span class="function"><strong>is_resource()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$db_link&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_pass'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">is_resource</span><span style="color: #007700">(</span><span style="color: #0000BB">$db_link</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Can\'t&nbsp;connect&nbsp;:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$handle </span><span style="color: #007700">= </span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"php://stdout"</span><span style="color: #007700">, </span><span style="color: #DD0000">"w"</span><span style="color: #007700">);<br />if (</span><span style="color: #0000BB">is_resource</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">'$handle is a resource'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+$handle is a resource
+</pre></div>
+    </div>
    </div>
   </p>
  </div>

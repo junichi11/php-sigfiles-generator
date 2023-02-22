@@ -92,11 +92,11 @@
  <div class="refsect1 examples" id="refsect1-function.output-reset-rewrite-vars-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-532">
+   <div class="example" id="example-548">
     <p><strong>Example #1 <span class="function"><strong>output_reset_rewrite_vars()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />session_start</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">output_add_rewrite_var</span><span style="color: #007700">(</span><span style="color: #DD0000">'var'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'value'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">'&lt;a&nbsp;href="file.php"&gt;link&lt;/a&gt;'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">ob_flush</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">output_reset_rewrite_vars</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #DD0000">'&lt;a&nbsp;href="file.php"&gt;link&lt;/a&gt;'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />session_start</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">output_add_rewrite_var</span><span style="color: #007700">(</span><span style="color: #DD0000">'var'</span><span style="color: #007700">, </span><span style="color: #DD0000">'value'</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #DD0000">'&lt;a href="file.php"&gt;link&lt;/a&gt;'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">ob_flush</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">output_reset_rewrite_vars</span><span style="color: #007700">();<br />echo </span><span style="color: #DD0000">'&lt;a href="file.php"&gt;link&lt;/a&gt;'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

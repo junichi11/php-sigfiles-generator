@@ -40,7 +40,7 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />1&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">4&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;deprecated<br /></span><span style="color: #007700">(</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">)&nbsp;?&nbsp;</span><span style="color: #0000BB">4&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;ok<br /></span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">:&nbsp;(</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">4&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;ok<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />1 </span><span style="color: #007700">? </span><span style="color: #0000BB">2 </span><span style="color: #007700">: </span><span style="color: #0000BB">3 </span><span style="color: #007700">? </span><span style="color: #0000BB">4 </span><span style="color: #007700">: </span><span style="color: #0000BB">5</span><span style="color: #007700">;   </span><span style="color: #FF8000">// deprecated<br /></span><span style="color: #007700">(</span><span style="color: #0000BB">1 </span><span style="color: #007700">? </span><span style="color: #0000BB">2 </span><span style="color: #007700">: </span><span style="color: #0000BB">3</span><span style="color: #007700">) ? </span><span style="color: #0000BB">4 </span><span style="color: #007700">: </span><span style="color: #0000BB">5</span><span style="color: #007700">; </span><span style="color: #FF8000">// ok<br /></span><span style="color: #0000BB">1 </span><span style="color: #007700">? </span><span style="color: #0000BB">2 </span><span style="color: #007700">: (</span><span style="color: #0000BB">3 </span><span style="color: #007700">? </span><span style="color: #0000BB">4 </span><span style="color: #007700">: </span><span style="color: #0000BB">5</span><span style="color: #007700">); </span><span style="color: #FF8000">// ok<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -53,7 +53,7 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-1&nbsp;?&nbsp;2&nbsp;?&nbsp;3&nbsp;:&nbsp;4&nbsp;:&nbsp;5&nbsp;//&nbsp;ok</span>
+1 ? 2 ? 3 : 4 : 5 // ok</span>
 </code></div>
      </div>
 
@@ -264,7 +264,7 @@
    <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;ReflectionClass::export(Foo::class,&nbsp;false)&nbsp;is:<br /></span><span style="color: #007700">echo&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">Foo</span><span style="color: #007700">::class),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;$str&nbsp;=&nbsp;ReflectionClass::export(Foo::class,&nbsp;true)&nbsp;is:<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;(string)&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">Foo</span><span style="color: #007700">::class);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// ReflectionClass::export(Foo::class, false) is:<br /></span><span style="color: #007700">echo new </span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">Foo</span><span style="color: #007700">::class), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// $str = ReflectionClass::export(Foo::class, true) is:<br /></span><span style="color: #0000BB">$str </span><span style="color: #007700">= (string) new </span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">Foo</span><span style="color: #007700">::class);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

@@ -26,18 +26,18 @@
   <div id="layout-content"><div id="security.filesystem.nullbytes" class="sect1">
     <h2 class="title">Null bytes related issues</h2>
     <p class="simpara">
-     As <acronym title="PHP: Hypertext Preprocessor">PHP</acronym> uses the underlying C functions for filesystem related
+     As <abbr title="PHP: Hypertext Preprocessor">PHP</abbr> uses the underlying C functions for filesystem related
      operations, it may handle null bytes in a quite unexpected way.
      As null bytes denote the end of a string in C, strings containing them 
      won&#039;t be considered entirely but rather only until a null byte occurs.
 
      The following example shows a vulnerable code that demonstrates this problem:
     </p>
-    <div class="example" id="example-418">
+    <div class="example" id="example-434">
      <p><strong>Example #1 Script vulnerable to null bytes</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$file&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'file'</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;"../../etc/passwd\0"<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">file_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/wwwrun/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">.</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;file_exists&nbsp;will&nbsp;return&nbsp;true&nbsp;as&nbsp;the&nbsp;file&nbsp;/home/wwwrun/../../etc/passwd&nbsp;exists<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">include&nbsp;</span><span style="color: #DD0000">'/home/wwwrun/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">.</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;the&nbsp;file&nbsp;/etc/passwd&nbsp;will&nbsp;be&nbsp;included<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$file </span><span style="color: #007700">= </span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'file'</span><span style="color: #007700">]; </span><span style="color: #FF8000">// "../../etc/passwd\0"<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">file_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/wwwrun/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">.</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">)) {<br />    </span><span style="color: #FF8000">// file_exists will return true as the file /home/wwwrun/../../etc/passwd exists<br />    </span><span style="color: #007700">include </span><span style="color: #DD0000">'/home/wwwrun/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">.</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">;<br />    </span><span style="color: #FF8000">// the file /etc/passwd will be included<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -47,11 +47,11 @@
      Therefore, any tainted string that is used in a filesystem operation should always
      be validated properly. Here is a better version of the previous example:
     </p>
-    <div class="example" id="example-419">
+    <div class="example" id="example-435">
      <p><strong>Example #2 Correctly validating the input</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$file&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'file'</span><span style="color: #007700">];&nbsp;<br /><br /></span><span style="color: #FF8000">//&nbsp;Whitelisting&nbsp;possible&nbsp;values<br /></span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$file</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">'main'</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;include&nbsp;</span><span style="color: #DD0000">'/home/wwwrun/include/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">.</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;default:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;include&nbsp;</span><span style="color: #DD0000">'/home/wwwrun/include/main.php'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$file </span><span style="color: #007700">= </span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'file'</span><span style="color: #007700">]; <br /><br /></span><span style="color: #FF8000">// Whitelisting possible values<br /></span><span style="color: #007700">switch (</span><span style="color: #0000BB">$file</span><span style="color: #007700">) {<br />    case </span><span style="color: #DD0000">'main'</span><span style="color: #007700">:<br />    case </span><span style="color: #DD0000">'foo'</span><span style="color: #007700">:<br />    case </span><span style="color: #DD0000">'bar'</span><span style="color: #007700">:<br />        include </span><span style="color: #DD0000">'/home/wwwrun/include/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">.</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">;<br />        break;<br />    default:<br />        include </span><span style="color: #DD0000">'/home/wwwrun/include/main.php'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

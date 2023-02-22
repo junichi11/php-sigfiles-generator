@@ -42,7 +42,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">C&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;</span><span style="color: #0000BB">ONE&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;[<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">ONE&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'quux'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;];<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((new&nbsp;</span><span style="color: #0000BB">C</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">C </span><span style="color: #007700">{<br />    const </span><span style="color: #0000BB">ONE </span><span style="color: #007700">= </span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />    public </span><span style="color: #0000BB">$array </span><span style="color: #007700">= [<br />        </span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">ONE </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'foo'</span><span style="color: #007700">,<br />        </span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,<br />        </span><span style="color: #DD0000">'quux'</span><span style="color: #007700">,<br />    ];<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((new </span><span style="color: #0000BB">C</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -105,7 +105,7 @@ array(3) {
     with servers with valid SSL certificates, as distributors generally
     configure OpenSSL to use known good CA bundles.
    </p>
-   
+
    <p class="para">
     The default CA bundle may be overridden on a global basis by setting
     either the openssl.cafile or openssl.capath configuration setting, or on a

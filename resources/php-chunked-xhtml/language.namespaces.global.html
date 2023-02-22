@@ -32,11 +32,11 @@
    supported. Prefixing a name with <code class="literal">\</code> will specify that 
    the name is required from the global space even in the context of the 
    namespace.
-   <div class="example" id="example-303">
+   <div class="example" id="example-312">
     <p><strong>Example #1 Using global space specification</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">A</span><span style="color: #007700">\</span><span style="color: #0000BB">B</span><span style="color: #007700">\</span><span style="color: #0000BB">C</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/*&nbsp;This&nbsp;function&nbsp;is&nbsp;A\B\C\fopen&nbsp;*/<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">()&nbsp;{&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;...&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$f&nbsp;</span><span style="color: #007700">=&nbsp;\</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(...);&nbsp;</span><span style="color: #FF8000">//&nbsp;call&nbsp;global&nbsp;fopen<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">$f</span><span style="color: #007700">;<br />}&nbsp;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">namespace </span><span style="color: #0000BB">A</span><span style="color: #007700">\</span><span style="color: #0000BB">B</span><span style="color: #007700">\</span><span style="color: #0000BB">C</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/* This function is A\B\C\fopen */<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">fopen</span><span style="color: #007700">() { <br />     </span><span style="color: #FF8000">/* ... */<br />     </span><span style="color: #0000BB">$f </span><span style="color: #007700">= \</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(...); </span><span style="color: #FF8000">// call global fopen<br />     </span><span style="color: #007700">return </span><span style="color: #0000BB">$f</span><span style="color: #007700">;<br />} <br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

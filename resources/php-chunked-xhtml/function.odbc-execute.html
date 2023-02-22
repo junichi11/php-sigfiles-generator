@@ -103,7 +103,7 @@
  <div class="refsect1 examples" id="refsect1-function.odbc-execute-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-981">
+   <div class="example" id="example-1012">
     <p><strong>Example #1 <span class="function"><strong>odbc_execute()</strong></span> and <span class="function"><a href="function.odbc-prepare.html" class="function">odbc_prepare()</a></span> example</strong></p>
     <div class="example-contents"><p>
      In the following code, <var class="varname">$success</var> will only be
@@ -111,7 +111,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$stmt&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">odbc_prepare</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'CALL&nbsp;myproc(?,?,?)'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$success&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">odbc_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$c</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= </span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$b </span><span style="color: #007700">= </span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$c </span><span style="color: #007700">= </span><span style="color: #0000BB">3</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$stmt    </span><span style="color: #007700">= </span><span style="color: #0000BB">odbc_prepare</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">, </span><span style="color: #DD0000">'CALL myproc(?,?,?)'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$success </span><span style="color: #007700">= </span><span style="color: #0000BB">odbc_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">, array(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">$b</span><span style="color: #007700">, </span><span style="color: #0000BB">$c</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

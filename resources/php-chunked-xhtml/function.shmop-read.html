@@ -63,7 +63,8 @@
      <dd>
 
       <p class="para">
-       Offset from which to start reading
+       Offset from which to start reading; must be greater than or equal to zero
+       and less than or equal to the actual size of the shared memory segment.
       </p>
      </dd>
 
@@ -75,7 +76,9 @@
      <dd>
 
       <p class="para">
-       The number of bytes to read.
+       The number of bytes to read; must be greater than or equal to zero,
+       and the sum of <code class="parameter">offset</code> and <code class="parameter">size </code>
+       must be less than or equal to the actual size of the shared memory segment.
        <code class="literal">0</code> reads <code class="code">shmop_size($shmid) - $start</code> bytes.
       </p>
      </dd>
@@ -90,6 +93,15 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the data or <strong><code>false</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.shmop-read-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   If <code class="parameter">offset</code> or <code class="parameter">size</code> are out of range,
+   a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is thrown.
   </p>
  </div>
 
@@ -115,6 +127,15 @@
       </td>
      </tr>
 
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       If <code class="parameter">offset</code> or <code class="parameter">size</code> are out of range,
+       a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is thrown; previously <strong><code>E_WARNING</code></strong>
+       was emitted, and <strong><code>false</code></strong> was returned,
+      </td>
+     </tr>
+
     </tbody>
    
   </table>
@@ -125,11 +146,11 @@
  <div class="refsect1 examples" id="refsect1-function.shmop-read-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3409">
+   <div class="example" id="example-3445">
     <p><strong>Example #1 Reading shared memory block</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$shm_data&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">shmop_read</span><span style="color: #007700">(</span><span style="color: #0000BB">$shm_id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">50</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$shm_data </span><span style="color: #007700">= </span><span style="color: #0000BB">shmop_read</span><span style="color: #007700">(</span><span style="color: #0000BB">$shm_id</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">50</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

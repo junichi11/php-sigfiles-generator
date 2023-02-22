@@ -76,11 +76,11 @@
  <div class="refsect1 examples" id="refsect1-function.set-include-path-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-579">
+   <div class="example" id="example-597">
     <p><strong>Example #1 <span class="function"><strong>set_include_path()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />set_include_path</span><span style="color: #007700">(</span><span style="color: #DD0000">'/usr/lib/pear'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Or&nbsp;using&nbsp;ini_set()<br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'include_path'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'/usr/lib/pear'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />set_include_path</span><span style="color: #007700">(</span><span style="color: #DD0000">'/usr/lib/pear'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Or using ini_set()<br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'include_path'</span><span style="color: #007700">, </span><span style="color: #DD0000">'/usr/lib/pear'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -88,7 +88,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-580">
+   <div class="example" id="example-598">
     <p><strong>Example #2 Adding to the include path</strong></p>
     <div class="example-contents"><p>
      Making use of the <strong><code>PATH_SEPARATOR</code></strong> constant, it is
@@ -100,7 +100,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$path&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'/usr/lib/pear'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">set_include_path</span><span style="color: #007700">(</span><span style="color: #0000BB">get_include_path</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #0000BB">PATH_SEPARATOR&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$path</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$path </span><span style="color: #007700">= </span><span style="color: #DD0000">'/usr/lib/pear'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">set_include_path</span><span style="color: #007700">(</span><span style="color: #0000BB">get_include_path</span><span style="color: #007700">() . </span><span style="color: #0000BB">PATH_SEPARATOR </span><span style="color: #007700">. </span><span style="color: #0000BB">$path</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

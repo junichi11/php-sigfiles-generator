@@ -32,7 +32,7 @@
  <div class="refsect1 description" id="refsect1-arrayobject.natcasesort-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ArrayObject::natcasesort</strong></span>(): <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ArrayObject::natcasesort</strong></span>(): <span class="type"><span class="type true">true</span></span></div>
 
   <p class="para rdfs-comment">
    This method is a case insensitive version of
@@ -67,14 +67,43 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-arrayobject.natcasesort-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+ <td>8.2.0</td>
+ <td>
+  The return type is <strong><code>true</code></strong> now; previously, it was <span class="type">bool</span>.
+ </td>
+</tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-arrayobject.natcasesort-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3752">
+   <div class="example" id="example-3830">
     <p><strong>Example #1 <span class="function"><strong>ArrayObject::natcasesort()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$array&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'IMG0.png'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'img12.png'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'img10.png'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'img2.png'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'img1.png'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'IMG3.png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$arr1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ArrayObject</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$arr2&nbsp;</span><span style="color: #007700">=&nbsp;clone&nbsp;</span><span style="color: #0000BB">$arr1</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$arr1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">asort</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #DD0000">"Standard&nbsp;sorting\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr1</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$arr2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">natcasesort</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #DD0000">"\nNatural&nbsp;order&nbsp;sorting&nbsp;(case-insensitive)\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$array </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'IMG0.png'</span><span style="color: #007700">, </span><span style="color: #DD0000">'img12.png'</span><span style="color: #007700">, </span><span style="color: #DD0000">'img10.png'</span><span style="color: #007700">, </span><span style="color: #DD0000">'img2.png'</span><span style="color: #007700">, </span><span style="color: #DD0000">'img1.png'</span><span style="color: #007700">, </span><span style="color: #DD0000">'IMG3.png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$arr1 </span><span style="color: #007700">= new </span><span style="color: #0000BB">ArrayObject</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$arr2 </span><span style="color: #007700">= clone </span><span style="color: #0000BB">$arr1</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$arr1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">asort</span><span style="color: #007700">();<br />echo </span><span style="color: #DD0000">"Standard sorting\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr1</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$arr2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">natcasesort</span><span style="color: #007700">();<br />echo </span><span style="color: #DD0000">"\nNatural order sorting (case-insensitive)\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -106,7 +135,7 @@ ArrayObject Object
 </pre></div>
     </div>
     <div class="example-contents"><p>
-     For more information see: Martin Pool&#039;s <a href="http://sourcefrog.net/projects/natsort/" class="link external">&raquo;&nbsp;Natural Order String Comparison</a>
+     For more information see: Martin Pool&#039;s <a href="https://github.com/sourcefrog/natsort" class="link external">&raquo;&nbsp;Natural Order String Comparison</a>
      page.
     </p></div>
    </div>

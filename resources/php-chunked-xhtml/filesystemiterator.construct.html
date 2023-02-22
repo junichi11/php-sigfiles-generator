@@ -69,12 +69,6 @@
        A list of the flags can found under <a href="class.filesystemiterator.html#filesystemiterator.constants" class="link">FilesystemIterator predefined constants</a>. 
        They can also be set later with <span class="methodname"><a href="filesystemiterator.setflags.html" class="methodname">FilesystemIterator::setFlags()</a></span>
       </p>
-      <blockquote class="note"><p><strong class="note">Note</strong>: 
-       <p class="para">
-        <strong><code>FilesystemIterator::SKIP_DOTS</code></strong> is always set, and cannot
-        be removed.
-       </p>
-      </p></blockquote>
      </dd>
 
     
@@ -84,19 +78,54 @@
  </div>
 
 
- <div class="refsect1 returnvalues" id="refsect1-filesystemiterator.construct-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   No value is returned.
-  </p>
- </div>
-
-
  <div class="refsect1 errors" id="refsect1-filesystemiterator.construct-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
    Throws an <span class="classname"><a href="class.unexpectedvalueexception.html" class="classname">UnexpectedValueException</a></span>
-   if the <code class="parameter">directory</code> cannot be found.
+   if the <code class="parameter">directory</code> does not exist.
+  </p>
+  <p class="para">
+   Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span>
+   if the <code class="parameter">directory</code> is an empty string.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-filesystemiterator.construct-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.2.0</td>
+       <td>
+        Prior to PHP 8.2.0, <strong><code>FilesystemIterator::SKIP_DOTS</code></strong> was
+        always set and could not be removed.
+       </td>
+      </tr>
+
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        Now throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> if
+        <code class="parameter">directory</code> is an empty string;
+        previously it threw a <span class="classname"><a href="class.runtimeexception.html" class="classname">RuntimeException</a></span>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 
@@ -104,16 +133,26 @@
  <div class="refsect1 examples" id="refsect1-filesystemiterator.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3631">
+   <div class="example" id="example-3709">
     <p><strong>Example #1 <span class="function"><strong>FilesystemIterator::__construct()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$it&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">FilesystemIterator</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">));<br />foreach&nbsp;(</span><span style="color: #0000BB">$it&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$fileinfo</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$fileinfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getFilename</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$it </span><span style="color: #007700">= new </span><span style="color: #0000BB">FilesystemIterator</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">), </span><span style="color: #0000BB">FilesystemIterator</span><span style="color: #007700">::</span><span style="color: #0000BB">CURRENT_AS_FILEINFO</span><span style="color: #007700">);<br />foreach (</span><span style="color: #0000BB">$it </span><span style="color: #007700">as </span><span style="color: #0000BB">$fileinfo</span><span style="color: #007700">) {<br />    echo </span><span style="color: #0000BB">$fileinfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getFilename</span><span style="color: #007700">() . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
-    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents"><p>Output of the above example in PHP 8.2 is similar to:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+.
+..
+apples.jpg
+banana.jpg
+example.php
+</pre></div>
+    </div>
+    <div class="example-contents"><p>Output of the above example prior to PHP 8.2.0 is similar to:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
 apples.jpg

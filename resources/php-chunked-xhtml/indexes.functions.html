@@ -61,6 +61,7 @@
 <li><a href="function.acosh.html" class="index">acosh</a> - Inverse hyperbolic cosine</li>
 <li><a href="function.addcslashes.html" class="index">addcslashes</a> - Quote string with slashes in a C style</li>
 <li><a href="function.addslashes.html" class="index">addslashes</a> - Quote string with slashes</li>
+<li><a href="allowdynamicproperties.construct.html" class="index">AllowDynamicProperties::__construct</a> - Construct a new AllowDynamicProperties attribute instance</li>
 <li><a href="function.apache-child-terminate.html" class="index">apache_child_terminate</a> - Terminate apache process after this request</li>
 <li><a href="function.apache-getenv.html" class="index">apache_getenv</a> - Get an Apache subprocess_env variable</li>
 <li><a href="function.apache-get-modules.html" class="index">apache_get_modules</a> - Get a list of loaded Apache modules</li>
@@ -96,7 +97,6 @@
 <li><a href="appenditerator.append.html" class="index">AppendIterator::append</a> - Appends an iterator</li>
 <li><a href="appenditerator.current.html" class="index">AppendIterator::current</a> - Gets the current value</li>
 <li><a href="appenditerator.getarrayiterator.html" class="index">AppendIterator::getArrayIterator</a> - Gets the ArrayIterator</li>
-<li><a href="appenditerator.getinneriterator.html" class="index">AppendIterator::getInnerIterator</a> - Gets the inner iterator</li>
 <li><a href="appenditerator.getiteratorindex.html" class="index">AppendIterator::getIteratorIndex</a> - Gets an index of iterators</li>
 <li><a href="appenditerator.key.html" class="index">AppendIterator::key</a> - Gets the current key</li>
 <li><a href="appenditerator.next.html" class="index">AppendIterator::next</a> - Moves to the next element</li>
@@ -216,6 +216,7 @@
 <li><a href="function.atan.html" class="index">atan</a> - Arc tangent</li>
 <li><a href="function.atan2.html" class="index">atan2</a> - Arc tangent of two variables</li>
 <li><a href="function.atanh.html" class="index">atanh</a> - Inverse hyperbolic tangent</li>
+<li><a href="attribute.construct.html" class="index">Attribute::__construct</a> - Construct a new Attribute instance</li>
 </ul></li>
 <li class='gen-index index-for-b'>b<ul id='refentry-index-for-b'>
 <li><a href="backedenum.from.html" class="index">BackedEnum::from</a> - Maps a scalar to an enum instance</li>
@@ -257,7 +258,6 @@
 <li><a href="cachingiterator.current.html" class="index">CachingIterator::current</a> - Return the current element</li>
 <li><a href="cachingiterator.getcache.html" class="index">CachingIterator::getCache</a> - Retrieve the contents of the cache</li>
 <li><a href="cachingiterator.getflags.html" class="index">CachingIterator::getFlags</a> - Get flags used</li>
-<li><a href="cachingiterator.getinneriterator.html" class="index">CachingIterator::getInnerIterator</a> - Returns the inner iterator</li>
 <li><a href="cachingiterator.hasnext.html" class="index">CachingIterator::hasNext</a> - Check whether the inner iterator has a valid next element</li>
 <li><a href="cachingiterator.key.html" class="index">CachingIterator::key</a> - Return the key for the current element</li>
 <li><a href="cachingiterator.next.html" class="index">CachingIterator::next</a> - Move the iterator forward</li>
@@ -471,7 +471,7 @@
 <li><a href="countable.count.html" class="index">Countable::count</a> - Count elements of an object</li>
 <li><a href="function.count-chars.html" class="index">count_chars</a> - Return information about characters used in a string</li>
 <li><a href="function.crc32.html" class="index">crc32</a> - Calculates the crc32 polynomial of a string</li>
-<li><a href="function.create-function.html" class="index">create_function</a> - Create an anonymous (lambda-style) function</li>
+<li><a href="function.create-function.html" class="index">create_function</a> - Create a function dynamically by evaluating a string of code</li>
 <li><a href="mysql-xdevapi-crudoperationbindable.bind.html" class="index">CrudOperationBindable::bind</a> - Bind value to placeholder</li>
 <li><a href="mysql-xdevapi-crudoperationlimitable.limit.html" class="index">CrudOperationLimitable::limit</a> - Set result limit</li>
 <li><a href="mysql-xdevapi-crudoperationskippable.skip.html" class="index">CrudOperationSkippable::skip</a> - Number of operations to skip</li>
@@ -625,6 +625,7 @@
 <li><a href="function.curl-share-strerror.html" class="index">curl_share_strerror</a> - Return string describing the given error code</li>
 <li><a href="function.curl-strerror.html" class="index">curl_strerror</a> - Return string describing the given error code</li>
 <li><a href="function.curl-unescape.html" class="index">curl_unescape</a> - Decodes the given URL encoded string</li>
+<li><a href="function.curl_upkeep.html" class="index">curl_upkeep</a> - Performs any connection upkeep checks</li>
 <li><a href="function.curl-version.html" class="index">curl_version</a> - Gets cURL version information</li>
 <li><a href="function.current.html" class="index">current</a> - Return the current element in an array</li>
 </ul></li>
@@ -633,7 +634,7 @@
 <li><a href="mysql-xdevapi-databaseobject.existsindatabase.html" class="index">DatabaseObject::existsInDatabase</a> - Check if object exists in database</li>
 <li><a href="mysql-xdevapi-databaseobject.getname.html" class="index">DatabaseObject::getName</a> - Get object name</li>
 <li><a href="mysql-xdevapi-databaseobject.getsession.html" class="index">DatabaseObject::getSession</a> - Get session name</li>
-<li><a href="function.date.html" class="index">date</a> - Format a local time/date</li>
+<li><a href="function.date.html" class="index">date</a> - Format a Unix timestamp</li>
 <li><a href="dateinterval.createfromdatestring.html" class="index">DateInterval::createFromDateString</a> - Sets up a DateInterval from the relative parts of the string</li>
 <li><a href="dateinterval.format.html" class="index">DateInterval::format</a> - Formats the interval</li>
 <li><a href="dateinterval.construct.html" class="index">DateInterval::__construct</a> - Creates a new DateInterval object</li>
@@ -642,17 +643,11 @@
 <li><a href="dateperiod.getrecurrences.html" class="index">DatePeriod::getRecurrences</a> - Gets the number of recurrences</li>
 <li><a href="dateperiod.getstartdate.html" class="index">DatePeriod::getStartDate</a> - Gets the start date</li>
 <li><a href="dateperiod.construct.html" class="index">DatePeriod::__construct</a> - Creates a new DatePeriod object</li>
-<li><a href="datetime.add.html" class="index">DateTime::add</a> - Adds an amount of days, months, years, hours, minutes and seconds to a
-   DateTime object</li>
+<li><a href="datetime.add.html" class="index">DateTime::add</a> - Modifies a DateTime object, with added amount of days, months, years, hours, minutes and seconds</li>
 <li><a href="datetime.createfromformat.html" class="index">DateTime::createFromFormat</a> - Parses a time string according to a specified format</li>
-<li><a href="datetime.createfromimmutable.html" class="index">DateTime::createFromImmutable</a> - Returns new DateTime object encapsulating the given DateTimeImmutable object</li>
+<li><a href="datetime.createfromimmutable.html" class="index">DateTime::createFromImmutable</a> - Returns new DateTime instance encapsulating the given DateTimeImmutable object</li>
 <li><a href="datetime.createfrominterface.html" class="index">DateTime::createFromInterface</a> - Returns new DateTime object encapsulating the given DateTimeInterface object</li>
-<li><a href="datetime.diff.html" class="index">DateTime::diff</a> - Returns the difference between two DateTime objects</li>
-<li><a href="datetime.format.html" class="index">DateTime::format</a> - Returns date formatted according to given format</li>
 <li><a href="datetime.getlasterrors.html" class="index">DateTime::getLastErrors</a> - Returns the warnings and errors</li>
-<li><a href="datetime.getoffset.html" class="index">DateTime::getOffset</a> - Returns the timezone offset</li>
-<li><a href="datetime.gettimestamp.html" class="index">DateTime::getTimestamp</a> - Gets the Unix timestamp</li>
-<li><a href="datetime.gettimezone.html" class="index">DateTime::getTimezone</a> - Return time zone relative to given DateTime</li>
 <li><a href="datetime.modify.html" class="index">DateTime::modify</a> - Alters the timestamp</li>
 <li><a href="datetime.setdate.html" class="index">DateTime::setDate</a> - Sets the date</li>
 <li><a href="datetime.setisodate.html" class="index">DateTime::setISODate</a> - Sets the ISO date</li>
@@ -664,10 +659,10 @@
 <li><a href="datetime.construct.html" class="index">DateTime::__construct</a> - Returns new DateTime object</li>
 <li><a href="datetime.set-state.html" class="index">DateTime::__set_state</a> - The __set_state handler</li>
 <li><a href="datetime.wakeup.html" class="index">DateTime::__wakeup</a> - The __wakeup handler</li>
-<li><a href="datetimeimmutable.add.html" class="index">DateTimeImmutable::add</a> - Adds an amount of days, months, years, hours, minutes and seconds</li>
+<li><a href="datetimeimmutable.add.html" class="index">DateTimeImmutable::add</a> - Returns a new object, with added amount of days, months, years, hours, minutes and seconds</li>
 <li><a href="datetimeimmutable.createfromformat.html" class="index">DateTimeImmutable::createFromFormat</a> - Parses a time string according to a specified format</li>
 <li><a href="datetimeimmutable.createfrominterface.html" class="index">DateTimeImmutable::createFromInterface</a> - Returns new DateTimeImmutable object encapsulating the given DateTimeInterface object</li>
-<li><a href="datetimeimmutable.createfrommutable.html" class="index">DateTimeImmutable::createFromMutable</a> - Returns new DateTimeImmutable object encapsulating the given DateTime object</li>
+<li><a href="datetimeimmutable.createfrommutable.html" class="index">DateTimeImmutable::createFromMutable</a> - Returns new DateTimeImmutable instance encapsulating the given DateTime object</li>
 <li><a href="datetimeimmutable.getlasterrors.html" class="index">DateTimeImmutable::getLastErrors</a> - Returns the warnings and errors</li>
 <li><a href="datetimeimmutable.modify.html" class="index">DateTimeImmutable::modify</a> - Creates a new object with modified timestamp</li>
 <li><a href="datetimeimmutable.setdate.html" class="index">DateTimeImmutable::setDate</a> - Sets the date</li>
@@ -678,6 +673,11 @@
 <li><a href="datetimeimmutable.sub.html" class="index">DateTimeImmutable::sub</a> - Subtracts an amount of days, months, years, hours, minutes and seconds</li>
 <li><a href="datetimeimmutable.construct.html" class="index">DateTimeImmutable::__construct</a> - Returns new DateTimeImmutable object</li>
 <li><a href="datetimeimmutable.set-state.html" class="index">DateTimeImmutable::__set_state</a> - The __set_state handler</li>
+<li><a href="datetime.diff.html" class="index">DateTimeInterface::diff</a> - Returns the difference between two DateTime objects</li>
+<li><a href="datetime.format.html" class="index">DateTimeInterface::format</a> - Returns date formatted according to given format</li>
+<li><a href="datetime.getoffset.html" class="index">DateTimeInterface::getOffset</a> - Returns the timezone offset</li>
+<li><a href="datetime.gettimestamp.html" class="index">DateTimeInterface::getTimestamp</a> - Gets the Unix timestamp</li>
+<li><a href="datetime.gettimezone.html" class="index">DateTimeInterface::getTimezone</a> - Return time zone relative to given DateTime</li>
 <li><a href="datetimezone.getlocation.html" class="index">DateTimeZone::getLocation</a> - Returns location information for a timezone</li>
 <li><a href="datetimezone.getname.html" class="index">DateTimeZone::getName</a> - Returns the name of the timezone</li>
 <li><a href="datetimezone.getoffset.html" class="index">DateTimeZone::getOffset</a> - Returns the timezone offset from GMT</li>
@@ -686,7 +686,7 @@
 <li><a href="datetimezone.listidentifiers.html" class="index">DateTimeZone::listIdentifiers</a> - Returns a numerically indexed array containing all defined timezone identifiers</li>
 <li><a href="datetimezone.construct.html" class="index">DateTimeZone::__construct</a> - Creates new DateTimeZone object</li>
 <li><a href="function.date-add.html" class="index">date_add</a> - Alias of DateTime::add</li>
-<li><a href="function.date-create.html" class="index">date_create</a> - Alias of DateTime::__construct</li>
+<li><a href="function.date-create.html" class="index">date_create</a> - create a new DateTime object</li>
 <li><a href="function.date-create-from-format.html" class="index">date_create_from_format</a> - Alias of DateTime::createFromFormat</li>
 <li><a href="function.date-create-immutable.html" class="index">date_create_immutable</a> - Alias of DateTimeImmutable::__construct</li>
 <li><a href="function.date-create-immutable-from-format.html" class="index">date_create_immutable_from_format</a> - Alias of DateTimeImmutable::createFromFormat</li>
@@ -1337,11 +1337,11 @@
 <li><a href="evembed.sweep.html" class="index">EvEmbed::sweep</a> - Make a single, non-blocking sweep over the embedded loop</li>
 <li><a href="evembed.construct.html" class="index">EvEmbed::__construct</a> - Constructs the EvEmbed object</li>
 <li><a href="event.add.html" class="index">Event::add</a> - Makes event pending</li>
-<li><a href="event.addsignal.html" class="index">Event::addSignal</a> - Makes signal event pending</li>
-<li><a href="event.addtimer.html" class="index">Event::addTimer</a> - Makes timer event pending</li>
+<li><a href="event.addsignal.html" class="index">Event::addSignal</a> - Alias of Event::add</li>
+<li><a href="event.addtimer.html" class="index">Event::addTimer</a> - Alias of Event::add</li>
 <li><a href="event.del.html" class="index">Event::del</a> - Makes event non-pending</li>
-<li><a href="event.delsignal.html" class="index">Event::delSignal</a> - Makes signal event non-pending</li>
-<li><a href="event.deltimer.html" class="index">Event::delTimer</a> - Makes timer event non-pending</li>
+<li><a href="event.delsignal.html" class="index">Event::delSignal</a> - Alias of Event::del</li>
+<li><a href="event.deltimer.html" class="index">Event::delTimer</a> - Alias of Event::del</li>
 <li><a href="event.free.html" class="index">Event::free</a> - Make event non-pending and free resources allocated for this
   event</li>
 <li><a href="event.getsupportedmethods.html" class="index">Event::getSupportedMethods</a> - Returns array with of the names of the methods supported in this version of Libevent</li>
@@ -1911,7 +1911,6 @@
 <li><a href="function.file-put-contents.html" class="index">file_put_contents</a> - Write data to a file</li>
 <li><a href="filteriterator.accept.html" class="index">FilterIterator::accept</a> - Check whether the current element of the iterator is acceptable</li>
 <li><a href="filteriterator.current.html" class="index">FilterIterator::current</a> - Get the current element value</li>
-<li><a href="filteriterator.getinneriterator.html" class="index">FilterIterator::getInnerIterator</a> - Get the inner iterator</li>
 <li><a href="filteriterator.key.html" class="index">FilterIterator::key</a> - Get the current key</li>
 <li><a href="filteriterator.next.html" class="index">FilterIterator::next</a> - Move the iterator forward</li>
 <li><a href="filteriterator.rewind.html" class="index">FilterIterator::rewind</a> - Rewind the iterator</li>
@@ -1941,6 +1940,7 @@
 <li><a href="function.forward-static-call.html" class="index">forward_static_call</a> - Call a static method</li>
 <li><a href="function.forward-static-call-array.html" class="index">forward_static_call_array</a> - Call a static method and pass the arguments as array</li>
 <li><a href="function.fpassthru.html" class="index">fpassthru</a> - Output all remaining data on a file pointer</li>
+<li><a href="function.fpm-get-status.html" class="index">fpm_get_status</a> - Returns the current FPM pool status</li>
 <li><a href="function.fprintf.html" class="index">fprintf</a> - Write a formatted string to a stream</li>
 <li><a href="function.fputcsv.html" class="index">fputcsv</a> - Format line as CSV and write to file pointer</li>
 <li><a href="function.fputs.html" class="index">fputs</a> - Alias of fwrite</li>
@@ -2453,6 +2453,7 @@
 <li><a href="function.gnupg-clearsignkeys.html" class="index">gnupg_clearsignkeys</a> - Removes all keys which were set for signing before</li>
 <li><a href="function.gnupg-decrypt.html" class="index">gnupg_decrypt</a> - Decrypts a given text</li>
 <li><a href="function.gnupg-decryptverify.html" class="index">gnupg_decryptverify</a> - Decrypts and verifies a given text</li>
+<li><a href="function.gnupg-deletekey.html" class="index">gnupg_deletekey</a> - Delete a key from the keyring</li>
 <li><a href="function.gnupg-encrypt.html" class="index">gnupg_encrypt</a> - Encrypts a given text</li>
 <li><a href="function.gnupg-encryptsign.html" class="index">gnupg_encryptsign</a> - Encrypts and signs a given text</li>
 <li><a href="function.gnupg-export.html" class="index">gnupg_export</a> - Exports a key</li>
@@ -2460,9 +2461,11 @@
 <li><a href="function.gnupg-geterror.html" class="index">gnupg_geterror</a> - Returns the errortext, if a function fails</li>
 <li><a href="function.gnupg-geterrorinfo.html" class="index">gnupg_geterrorinfo</a> - Returns the error info</li>
 <li><a href="function.gnupg-getprotocol.html" class="index">gnupg_getprotocol</a> - Returns the currently active protocol for all operations</li>
+<li><a href="function.gnupg-gettrustlist.html" class="index">gnupg_gettrustlist</a> - Search the trust items</li>
 <li><a href="function.gnupg-import.html" class="index">gnupg_import</a> - Imports a key</li>
 <li><a href="function.gnupg-init.html" class="index">gnupg_init</a> - Initialize a connection</li>
 <li><a href="function.gnupg-keyinfo.html" class="index">gnupg_keyinfo</a> - Returns an array with information about all keys that matches the given pattern</li>
+<li><a href="function.gnupg-listsignatures.html" class="index">gnupg_listsignatures</a> - List key signatures</li>
 <li><a href="function.gnupg-setarmor.html" class="index">gnupg_setarmor</a> - Toggle armored output</li>
 <li><a href="function.gnupg-seterrormode.html" class="index">gnupg_seterrormode</a> - Sets the mode for error_reporting</li>
 <li><a href="function.gnupg-setsignmode.html" class="index">gnupg_setsignmode</a> - Sets the mode for signing</li>
@@ -2599,7 +2602,7 @@
 <li><a href="function.ibase-set-event-handler.html" class="index">ibase_set_event_handler</a> - Register a callback function to be called when events are posted</li>
 <li><a href="function.ibase-trans.html" class="index">ibase_trans</a> - Begin a transaction</li>
 <li><a href="function.ibase-wait-event.html" class="index">ibase_wait_event</a> - Wait for an event to be posted by the database</li>
-<li><a href="function.iconv.html" class="index">iconv</a> - Convert string to requested character encoding</li>
+<li><a href="function.iconv.html" class="index">iconv</a> - Convert a string from one character encoding to another</li>
 <li><a href="function.iconv-get-encoding.html" class="index">iconv_get_encoding</a> - Retrieve internal configuration variables of iconv extension</li>
 <li><a href="function.iconv-mime-decode.html" class="index">iconv_mime_decode</a> - Decodes a MIME header field</li>
 <li><a href="function.iconv-mime-decode-headers.html" class="index">iconv_mime_decode_headers</a> - Decodes multiple MIME header fields at once</li>
@@ -2609,7 +2612,7 @@
 <li><a href="function.iconv-strpos.html" class="index">iconv_strpos</a> - Finds position of first occurrence of a needle within a haystack</li>
 <li><a href="function.iconv-strrpos.html" class="index">iconv_strrpos</a> - Finds the last occurrence of a needle within a haystack</li>
 <li><a href="function.iconv-substr.html" class="index">iconv_substr</a> - Cut out part of a string</li>
-<li><a href="function.idate.html" class="index">idate</a> - Format a local time/date as integer</li>
+<li><a href="function.idate.html" class="index">idate</a> - Format a local time/date part as integer</li>
 <li><a href="function.idn-to-ascii.html" class="index">idn_to_ascii</a> - Convert domain name to IDNA ASCII form</li>
 <li><a href="function.idn-to-utf8.html" class="index">idn_to_utf8</a> - Convert domain name from IDNA ASCII to Unicode</li>
 <li><a href="function.igbinary-serialize.html" class="index">igbinary_serialize</a> - Generates a compact, storable binary representation of a value</li>
@@ -2703,7 +2706,7 @@
 <li><a href="function.imagerectangle.html" class="index">imagerectangle</a> - Draw a rectangle</li>
 <li><a href="function.imageresolution.html" class="index">imageresolution</a> - Get or set the resolution of the image</li>
 <li><a href="function.imagerotate.html" class="index">imagerotate</a> - Rotate an image with a given angle</li>
-<li><a href="function.imagesavealpha.html" class="index">imagesavealpha</a> - Whether to retain full alpha channel information when saving PNG images</li>
+<li><a href="function.imagesavealpha.html" class="index">imagesavealpha</a> - Whether to retain full alpha channel information when saving images</li>
 <li><a href="function.imagescale.html" class="index">imagescale</a> - Scale an image using the given new width and height</li>
 <li><a href="function.imagesetbrush.html" class="index">imagesetbrush</a> - Set the brush image for line drawing</li>
 <li><a href="function.imagesetclip.html" class="index">imagesetclip</a> - Set the clipping rectangle</li>
@@ -2736,26 +2739,26 @@
 <li><a href="imagick.animateimages.html" class="index">Imagick::animateImages</a> - Animates an image or images</li>
 <li><a href="imagick.annotateimage.html" class="index">Imagick::annotateImage</a> - Annotates an image with text</li>
 <li><a href="imagick.appendimages.html" class="index">Imagick::appendImages</a> - Append a set of images</li>
-<li><a href="imagick.autolevelimage.html" class="index">Imagick::autoLevelImage</a> - Description</li>
+<li><a href="imagick.autolevelimage.html" class="index">Imagick::autoLevelImage</a> - Adjusts the levels of a particular image channel</li>
 <li><a href="imagick.averageimages.html" class="index">Imagick::averageImages</a> - Average a set of images</li>
 <li><a href="imagick.blackthresholdimage.html" class="index">Imagick::blackThresholdImage</a> - Forces all pixels below the threshold into black</li>
-<li><a href="imagick.blueshiftimage.html" class="index">Imagick::blueShiftImage</a> - Description</li>
+<li><a href="imagick.blueshiftimage.html" class="index">Imagick::blueShiftImage</a> - Mutes the colors of the image</li>
 <li><a href="imagick.blurimage.html" class="index">Imagick::blurImage</a> - Adds blur filter to image</li>
 <li><a href="imagick.borderimage.html" class="index">Imagick::borderImage</a> - Surrounds the image with a border</li>
-<li><a href="imagick.brightnesscontrastimage.html" class="index">Imagick::brightnessContrastImage</a> - Description</li>
+<li><a href="imagick.brightnesscontrastimage.html" class="index">Imagick::brightnessContrastImage</a> - Change the brightness and/or contrast of an image</li>
 <li><a href="imagick.charcoalimage.html" class="index">Imagick::charcoalImage</a> - Simulates a charcoal drawing</li>
 <li><a href="imagick.chopimage.html" class="index">Imagick::chopImage</a> - Removes a region of an image and trims</li>
-<li><a href="imagick.clampimage.html" class="index">Imagick::clampImage</a> - Description</li>
+<li><a href="imagick.clampimage.html" class="index">Imagick::clampImage</a> - Restricts the color range from 0 to the quantum depth.</li>
 <li><a href="imagick.clear.html" class="index">Imagick::clear</a> - Clears all resources associated to Imagick object</li>
 <li><a href="imagick.clipimage.html" class="index">Imagick::clipImage</a> - Clips along the first path from the 8BIM profile</li>
-<li><a href="imagick.clipimagepath.html" class="index">Imagick::clipImagePath</a> - Description</li>
+<li><a href="imagick.clipimagepath.html" class="index">Imagick::clipImagePath</a> - Clips along the named paths from the 8BIM profile, if present</li>
 <li><a href="imagick.clippathimage.html" class="index">Imagick::clipPathImage</a> - Clips along the named paths from the 8BIM profile</li>
 <li><a href="imagick.clone.html" class="index">Imagick::clone</a> - Makes an exact copy of the Imagick object</li>
 <li><a href="imagick.clutimage.html" class="index">Imagick::clutImage</a> - Replaces colors in the image</li>
 <li><a href="imagick.coalesceimages.html" class="index">Imagick::coalesceImages</a> - Composites a set of images</li>
 <li><a href="imagick.colorfloodfillimage.html" class="index">Imagick::colorFloodfillImage</a> - Changes the color value of any pixel that matches target</li>
 <li><a href="imagick.colorizeimage.html" class="index">Imagick::colorizeImage</a> - Blends the fill color with the image</li>
-<li><a href="imagick.colormatriximage.html" class="index">Imagick::colorMatrixImage</a> - Description</li>
+<li><a href="imagick.colormatriximage.html" class="index">Imagick::colorMatrixImage</a> - Apply color transformation to an image</li>
 <li><a href="imagick.combineimages.html" class="index">Imagick::combineImages</a> - Combines one or more images into a single image</li>
 <li><a href="imagick.commentimage.html" class="index">Imagick::commentImage</a> - Adds a comment to your image</li>
 <li><a href="imagick.compareimagechannels.html" class="index">Imagick::compareImageChannels</a> - Returns the difference in one or more images</li>
@@ -2773,7 +2776,7 @@
 <li><a href="imagick.decipherimage.html" class="index">Imagick::decipherImage</a> - Deciphers an image</li>
 <li><a href="imagick.deconstructimages.html" class="index">Imagick::deconstructImages</a> - Returns certain pixel differences between images</li>
 <li><a href="imagick.deleteimageartifact.html" class="index">Imagick::deleteImageArtifact</a> - Delete image artifact</li>
-<li><a href="imagick.deleteimageproperty.html" class="index">Imagick::deleteImageProperty</a> - Description</li>
+<li><a href="imagick.deleteimageproperty.html" class="index">Imagick::deleteImageProperty</a> - Deletes an image property</li>
 <li><a href="imagick.deskewimage.html" class="index">Imagick::deskewImage</a> - Removes skew from the image</li>
 <li><a href="imagick.despeckleimage.html" class="index">Imagick::despeckleImage</a> - Reduces the speckle noise in an image</li>
 <li><a href="imagick.destroy.html" class="index">Imagick::destroy</a> - Destroys the Imagick object</li>
@@ -2789,12 +2792,12 @@
 <li><a href="imagick.evaluateimage.html" class="index">Imagick::evaluateImage</a> - Applies an expression to an image</li>
 <li><a href="imagick.exportimagepixels.html" class="index">Imagick::exportImagePixels</a> - Exports raw image pixels</li>
 <li><a href="imagick.extentimage.html" class="index">Imagick::extentImage</a> - Set image size</li>
-<li><a href="imagick.filter.html" class="index">Imagick::filter</a> - Description</li>
+<li><a href="imagick.filter.html" class="index">Imagick::filter</a> - Applies a custom convolution kernel to the image</li>
 <li><a href="imagick.flattenimages.html" class="index">Imagick::flattenImages</a> - Merges a sequence of images</li>
 <li><a href="imagick.flipimage.html" class="index">Imagick::flipImage</a> - Creates a vertical mirror image</li>
 <li><a href="imagick.floodfillpaintimage.html" class="index">Imagick::floodFillPaintImage</a> - Changes the color value of any pixel that matches target</li>
 <li><a href="imagick.flopimage.html" class="index">Imagick::flopImage</a> - Creates a horizontal mirror image</li>
-<li><a href="imagick.forwardfouriertransformimage.html" class="index">Imagick::forwardFourierTransformImage</a> - Description</li>
+<li><a href="imagick.forwardfouriertransformimage.html" class="index">Imagick::forwardFourierTransformImage</a> - Implements the discrete Fourier transform (DFT)</li>
 <li><a href="imagick.frameimage.html" class="index">Imagick::frameImage</a> - Adds a simulated three-dimensional border</li>
 <li><a href="imagick.functionimage.html" class="index">Imagick::functionImage</a> - Applies a function on the image</li>
 <li><a href="imagick.fximage.html" class="index">Imagick::fxImage</a> - Evaluate expression for each pixel in the image</li>
@@ -2810,7 +2813,7 @@
 <li><a href="imagick.getgravity.html" class="index">Imagick::getGravity</a> - Gets the gravity</li>
 <li><a href="imagick.gethomeurl.html" class="index">Imagick::getHomeURL</a> - Returns the ImageMagick home URL</li>
 <li><a href="imagick.getimage.html" class="index">Imagick::getImage</a> - Returns a new Imagick object</li>
-<li><a href="imagick.getimagealphachannel.html" class="index">Imagick::getImageAlphaChannel</a> - Gets the image alpha channel</li>
+<li><a href="imagick.getimagealphachannel.html" class="index">Imagick::getImageAlphaChannel</a> - Checks if the image has an alpha channel</li>
 <li><a href="imagick.getimageartifact.html" class="index">Imagick::getImageArtifact</a> - Get image artifact</li>
 <li><a href="imagick.getimageattribute.html" class="index">Imagick::getImageAttribute</a> - Returns a named attribute</li>
 <li><a href="imagick.getimagebackgroundcolor.html" class="index">Imagick::getImageBackgroundColor</a> - Returns the image background color</li>
@@ -2852,7 +2855,7 @@
 <li><a href="imagick.getimagelength.html" class="index">Imagick::getImageLength</a> - Returns the image length in bytes</li>
 <li><a href="imagick.getimagematte.html" class="index">Imagick::getImageMatte</a> - Return if the image has a matte channel</li>
 <li><a href="imagick.getimagemattecolor.html" class="index">Imagick::getImageMatteColor</a> - Returns the image matte color</li>
-<li><a href="imagick.getimagemimetype.html" class="index">Imagick::getImageMimeType</a> - Description</li>
+<li><a href="imagick.getimagemimetype.html" class="index">Imagick::getImageMimeType</a> - Returns the image mime-type</li>
 <li><a href="imagick.getimageorientation.html" class="index">Imagick::getImageOrientation</a> - Gets the image orientation</li>
 <li><a href="imagick.getimagepage.html" class="index">Imagick::getImagePage</a> - Returns the page geometry</li>
 <li><a href="imagick.getimagepixelcolor.html" class="index">Imagick::getImagePixelColor</a> - Returns the color of the specified pixel</li>
@@ -2884,10 +2887,10 @@
 <li><a href="imagick.getpixeliterator.html" class="index">Imagick::getPixelIterator</a> - Returns a MagickPixelIterator</li>
 <li><a href="imagick.getpixelregioniterator.html" class="index">Imagick::getPixelRegionIterator</a> - Get an ImagickPixelIterator for an image section</li>
 <li><a href="imagick.getpointsize.html" class="index">Imagick::getPointSize</a> - Gets point size</li>
-<li><a href="imagick.getquantum.html" class="index">Imagick::getQuantum</a> - Description</li>
+<li><a href="imagick.getquantum.html" class="index">Imagick::getQuantum</a> - Returns the ImageMagick quantum range</li>
 <li><a href="imagick.getquantumdepth.html" class="index">Imagick::getQuantumDepth</a> - Gets the quantum depth</li>
 <li><a href="imagick.getquantumrange.html" class="index">Imagick::getQuantumRange</a> - Returns the Imagick quantum range</li>
-<li><a href="imagick.getregistry.html" class="index">Imagick::getRegistry</a> - Description</li>
+<li><a href="imagick.getregistry.html" class="index">Imagick::getRegistry</a> - Get a StringRegistry entry</li>
 <li><a href="imagick.getreleasedate.html" class="index">Imagick::getReleaseDate</a> - Returns the ImageMagick release date</li>
 <li><a href="imagick.getresource.html" class="index">Imagick::getResource</a> - Returns the specified resource's memory usage</li>
 <li><a href="imagick.getresourcelimit.html" class="index">Imagick::getResourceLimit</a> - Returns the specified resource limit</li>
@@ -2898,16 +2901,16 @@
 <li><a href="imagick.haldclutimage.html" class="index">Imagick::haldClutImage</a> - Replaces colors in the image</li>
 <li><a href="imagick.hasnextimage.html" class="index">Imagick::hasNextImage</a> - Checks if the object has more images</li>
 <li><a href="imagick.haspreviousimage.html" class="index">Imagick::hasPreviousImage</a> - Checks if the object has a previous image</li>
-<li><a href="imagick.identifyformat.html" class="index">Imagick::identifyFormat</a> - Description</li>
+<li><a href="imagick.identifyformat.html" class="index">Imagick::identifyFormat</a> - Formats a string with image details</li>
 <li><a href="imagick.identifyimage.html" class="index">Imagick::identifyImage</a> - Identifies an image and fetches attributes</li>
 <li><a href="imagick.implodeimage.html" class="index">Imagick::implodeImage</a> - Creates a new image as a copy</li>
 <li><a href="imagick.importimagepixels.html" class="index">Imagick::importImagePixels</a> - Imports image pixels</li>
-<li><a href="imagick.inversefouriertransformimage.html" class="index">Imagick::inverseFourierTransformImage</a> - Description</li>
+<li><a href="imagick.inversefouriertransformimage.html" class="index">Imagick::inverseFourierTransformImage</a> - Implements the inverse discrete Fourier transform (DFT)</li>
 <li><a href="imagick.labelimage.html" class="index">Imagick::labelImage</a> - Adds a label to an image</li>
 <li><a href="imagick.levelimage.html" class="index">Imagick::levelImage</a> - Adjusts the levels of an image</li>
 <li><a href="imagick.linearstretchimage.html" class="index">Imagick::linearStretchImage</a> - Stretches with saturation the image intensity</li>
 <li><a href="imagick.liquidrescaleimage.html" class="index">Imagick::liquidRescaleImage</a> - Animates an image or images</li>
-<li><a href="imagick.listregistry.html" class="index">Imagick::listRegistry</a> - Description</li>
+<li><a href="imagick.listregistry.html" class="index">Imagick::listRegistry</a> - List all the registry settings</li>
 <li><a href="imagick.magnifyimage.html" class="index">Imagick::magnifyImage</a> - Scales an image proportionally 2x</li>
 <li><a href="imagick.mapimage.html" class="index">Imagick::mapImage</a> - Replaces the colors of an image with the closest color from a reference image</li>
 <li><a href="imagick.mattefloodfillimage.html" class="index">Imagick::matteFloodfillImage</a> - Changes the transparency value of a color</li>
@@ -2917,7 +2920,7 @@
 <li><a href="imagick.modulateimage.html" class="index">Imagick::modulateImage</a> - Control the brightness, saturation, and hue</li>
 <li><a href="imagick.montageimage.html" class="index">Imagick::montageImage</a> - Creates a composite image</li>
 <li><a href="imagick.morphimages.html" class="index">Imagick::morphImages</a> - Method morphs a set of images</li>
-<li><a href="imagick.morphology.html" class="index">Imagick::morphology</a> - Description</li>
+<li><a href="imagick.morphology.html" class="index">Imagick::morphology</a> - Applies a user supplied kernel to the image according to the given morphology method.</li>
 <li><a href="imagick.mosaicimages.html" class="index">Imagick::mosaicImages</a> - Forms a mosaic from images</li>
 <li><a href="imagick.motionblurimage.html" class="index">Imagick::motionBlurImage</a> - Simulates motion blur</li>
 <li><a href="imagick.negateimage.html" class="index">Imagick::negateImage</a> - Negates the colors in the reference image</li>
@@ -2951,7 +2954,7 @@
 <li><a href="imagick.readimage.html" class="index">Imagick::readImage</a> - Reads image from filename</li>
 <li><a href="imagick.readimageblob.html" class="index">Imagick::readImageBlob</a> - Reads image from a binary string</li>
 <li><a href="imagick.readimagefile.html" class="index">Imagick::readImageFile</a> - Reads image from open filehandle</li>
-<li><a href="imagick.readimages.html" class="index">Imagick::readimages</a> - Description</li>
+<li><a href="imagick.readimages.html" class="index">Imagick::readimages</a> - Reads image from an array of filenames</li>
 <li><a href="imagick.recolorimage.html" class="index">Imagick::recolorImage</a> - Recolors image</li>
 <li><a href="imagick.reducenoiseimage.html" class="index">Imagick::reduceNoiseImage</a> - Smooths the contours of an image</li>
 <li><a href="imagick.remapimage.html" class="index">Imagick::remapImage</a> - Remaps image colors</li>
@@ -2963,12 +2966,12 @@
 <li><a href="imagick.resizeimage.html" class="index">Imagick::resizeImage</a> - Scales an image</li>
 <li><a href="imagick.rollimage.html" class="index">Imagick::rollImage</a> - Offsets an image</li>
 <li><a href="imagick.rotateimage.html" class="index">Imagick::rotateImage</a> - Rotates an image</li>
-<li><a href="imagick.rotationalblurimage.html" class="index">Imagick::rotationalBlurImage</a> - Description</li>
+<li><a href="imagick.rotationalblurimage.html" class="index">Imagick::rotationalBlurImage</a> - Rotational blurs an image</li>
 <li><a href="imagick.roundcorners.html" class="index">Imagick::roundCorners</a> - Rounds image corners</li>
 <li><a href="imagick.sampleimage.html" class="index">Imagick::sampleImage</a> - Scales an image with pixel sampling</li>
 <li><a href="imagick.scaleimage.html" class="index">Imagick::scaleImage</a> - Scales the size of an image</li>
 <li><a href="imagick.segmentimage.html" class="index">Imagick::segmentImage</a> - Segments an image</li>
-<li><a href="imagick.selectiveblurimage.html" class="index">Imagick::selectiveBlurImage</a> - Description</li>
+<li><a href="imagick.selectiveblurimage.html" class="index">Imagick::selectiveBlurImage</a> - Selectively blur an image within a contrast threshold</li>
 <li><a href="imagick.separateimagechannel.html" class="index">Imagick::separateImageChannel</a> - Separates a channel from the image</li>
 <li><a href="imagick.sepiatoneimage.html" class="index">Imagick::sepiaToneImage</a> - Sepia tones an image</li>
 <li><a href="imagick.setbackgroundcolor.html" class="index">Imagick::setBackgroundColor</a> - Sets the object's default background color</li>
@@ -2983,10 +2986,10 @@
 <li><a href="imagick.setimage.html" class="index">Imagick::setImage</a> - Replaces image in the object</li>
 <li><a href="imagick.setimagealphachannel.html" class="index">Imagick::setImageAlphaChannel</a> - Sets image alpha channel</li>
 <li><a href="imagick.setimageartifact.html" class="index">Imagick::setImageArtifact</a> - Set image artifact</li>
-<li><a href="imagick.setimageattribute.html" class="index">Imagick::setImageAttribute</a> - Description</li>
+<li><a href="imagick.setimageattribute.html" class="index">Imagick::setImageAttribute</a> - Sets an image attribute</li>
 <li><a href="imagick.setimagebackgroundcolor.html" class="index">Imagick::setImageBackgroundColor</a> - Sets the image background color</li>
 <li><a href="imagick.setimagebias.html" class="index">Imagick::setImageBias</a> - Sets the image bias for any method that convolves an image</li>
-<li><a href="imagick.setimagebiasquantum.html" class="index">Imagick::setImageBiasQuantum</a> - Description</li>
+<li><a href="imagick.setimagebiasquantum.html" class="index">Imagick::setImageBiasQuantum</a> - Sets the image bias</li>
 <li><a href="imagick.setimageblueprimary.html" class="index">Imagick::setImageBluePrimary</a> - Sets the image chromaticity blue primary point</li>
 <li><a href="imagick.setimagebordercolor.html" class="index">Imagick::setImageBorderColor</a> - Sets the image border color</li>
 <li><a href="imagick.setimagechanneldepth.html" class="index">Imagick::setImageChannelDepth</a> - Sets the depth of a particular image channel</li>
@@ -3031,8 +3034,8 @@
 <li><a href="imagick.setoption.html" class="index">Imagick::setOption</a> - Set an option</li>
 <li><a href="imagick.setpage.html" class="index">Imagick::setPage</a> - Sets the page geometry of the Imagick object</li>
 <li><a href="imagick.setpointsize.html" class="index">Imagick::setPointSize</a> - Sets point size</li>
-<li><a href="imagick.setprogressmonitor.html" class="index">Imagick::setProgressMonitor</a> - Description</li>
-<li><a href="imagick.setregistry.html" class="index">Imagick::setRegistry</a> - Description</li>
+<li><a href="imagick.setprogressmonitor.html" class="index">Imagick::setProgressMonitor</a> - Set a callback to be called during processing</li>
+<li><a href="imagick.setregistry.html" class="index">Imagick::setRegistry</a> - Sets the ImageMagick registry entry named key to value</li>
 <li><a href="imagick.setresolution.html" class="index">Imagick::setResolution</a> - Sets the image resolution</li>
 <li><a href="imagick.setresourcelimit.html" class="index">Imagick::setResourceLimit</a> - Sets the limit for a particular resource</li>
 <li><a href="imagick.setsamplingfactors.html" class="index">Imagick::setSamplingFactors</a> - Sets the image sampling factors</li>
@@ -3046,16 +3049,16 @@
 <li><a href="imagick.shearimage.html" class="index">Imagick::shearImage</a> - Creating a parallelogram</li>
 <li><a href="imagick.sigmoidalcontrastimage.html" class="index">Imagick::sigmoidalContrastImage</a> - Adjusts the contrast of an image</li>
 <li><a href="imagick.sketchimage.html" class="index">Imagick::sketchImage</a> - Simulates a pencil sketch</li>
-<li><a href="imagick.smushimages.html" class="index">Imagick::smushImages</a> - Description</li>
+<li><a href="imagick.smushimages.html" class="index">Imagick::smushImages</a> - Takes all images from the current image pointer to the end of the image list and smushs them</li>
 <li><a href="imagick.solarizeimage.html" class="index">Imagick::solarizeImage</a> - Applies a solarizing effect to the image</li>
 <li><a href="imagick.sparsecolorimage.html" class="index">Imagick::sparseColorImage</a> - Interpolates colors</li>
 <li><a href="imagick.spliceimage.html" class="index">Imagick::spliceImage</a> - Splices a solid color into the image</li>
 <li><a href="imagick.spreadimage.html" class="index">Imagick::spreadImage</a> - Randomly displaces each pixel in a block</li>
-<li><a href="imagick.statisticimage.html" class="index">Imagick::statisticImage</a> - Description</li>
+<li><a href="imagick.statisticimage.html" class="index">Imagick::statisticImage</a> - Modifies image using a statistics function</li>
 <li><a href="imagick.steganoimage.html" class="index">Imagick::steganoImage</a> - Hides a digital watermark within the image</li>
 <li><a href="imagick.stereoimage.html" class="index">Imagick::stereoImage</a> - Composites two images</li>
 <li><a href="imagick.stripimage.html" class="index">Imagick::stripImage</a> - Strips an image of all profiles and comments</li>
-<li><a href="imagick.subimagematch.html" class="index">Imagick::subImageMatch</a> - Description</li>
+<li><a href="imagick.subimagematch.html" class="index">Imagick::subImageMatch</a> - Searches for a subimage in the current image and returns a similarity image</li>
 <li><a href="imagick.swirlimage.html" class="index">Imagick::swirlImage</a> - Swirls the pixels about the center of the image</li>
 <li><a href="imagick.textureimage.html" class="index">Imagick::textureImage</a> - Repeatedly tiles the texture image</li>
 <li><a href="imagick.thresholdimage.html" class="index">Imagick::thresholdImage</a> - Changes the value of individual pixels based on a threshold</li>
@@ -3100,7 +3103,7 @@
 <li><a href="imagickdraw.getfont.html" class="index">ImagickDraw::getFont</a> - Returns the font</li>
 <li><a href="imagickdraw.getfontfamily.html" class="index">ImagickDraw::getFontFamily</a> - Returns the font family</li>
 <li><a href="imagickdraw.getfontsize.html" class="index">ImagickDraw::getFontSize</a> - Returns the font pointsize</li>
-<li><a href="imagickdraw.getfontstretch.html" class="index">ImagickDraw::getFontStretch</a> - Description</li>
+<li><a href="imagickdraw.getfontstretch.html" class="index">ImagickDraw::getFontStretch</a> - Gets the font stretch to use when annotating with text</li>
 <li><a href="imagickdraw.getfontstyle.html" class="index">ImagickDraw::getFontStyle</a> - Returns the font style</li>
 <li><a href="imagickdraw.getfontweight.html" class="index">ImagickDraw::getFontWeight</a> - Returns the font weight</li>
 <li><a href="imagickdraw.getgravity.html" class="index">ImagickDraw::getGravity</a> - Returns the text placement gravity</li>
@@ -3117,9 +3120,9 @@
 <li><a href="imagickdraw.gettextantialias.html" class="index">ImagickDraw::getTextAntialias</a> - Returns the current text antialias setting</li>
 <li><a href="imagickdraw.gettextdecoration.html" class="index">ImagickDraw::getTextDecoration</a> - Returns the text decoration</li>
 <li><a href="imagickdraw.gettextencoding.html" class="index">ImagickDraw::getTextEncoding</a> - Returns the code set used for text annotations</li>
-<li><a href="imagickdraw.gettextinterlinespacing.html" class="index">ImagickDraw::getTextInterlineSpacing</a> - Description</li>
-<li><a href="imagickdraw.gettextinterwordspacing.html" class="index">ImagickDraw::getTextInterwordSpacing</a> - Description</li>
-<li><a href="imagickdraw.gettextkerning.html" class="index">ImagickDraw::getTextKerning</a> - Description</li>
+<li><a href="imagickdraw.gettextinterlinespacing.html" class="index">ImagickDraw::getTextInterlineSpacing</a> - Gets the text interword spacing</li>
+<li><a href="imagickdraw.gettextinterwordspacing.html" class="index">ImagickDraw::getTextInterwordSpacing</a> - Gets the text interword spacing</li>
+<li><a href="imagickdraw.gettextkerning.html" class="index">ImagickDraw::getTextKerning</a> - Gets the text kerning</li>
 <li><a href="imagickdraw.gettextundercolor.html" class="index">ImagickDraw::getTextUnderColor</a> - Returns the text under color</li>
 <li><a href="imagickdraw.getvectorgraphics.html" class="index">ImagickDraw::getVectorGraphics</a> - Returns a string containing vector graphics</li>
 <li><a href="imagickdraw.line.html" class="index">ImagickDraw::line</a> - Draws a line</li>
@@ -3158,7 +3161,7 @@
 <li><a href="imagickdraw.pushpattern.html" class="index">ImagickDraw::pushPattern</a> - Indicates that subsequent commands up to a ImagickDraw::opPattern() command comprise the definition of a named pattern</li>
 <li><a href="imagickdraw.rectangle.html" class="index">ImagickDraw::rectangle</a> - Draws a rectangle</li>
 <li><a href="imagickdraw.render.html" class="index">ImagickDraw::render</a> - Renders all preceding drawing commands onto the image</li>
-<li><a href="imagickdraw.resetvectorgraphics.html" class="index">ImagickDraw::resetVectorGraphics</a> - Description</li>
+<li><a href="imagickdraw.resetvectorgraphics.html" class="index">ImagickDraw::resetVectorGraphics</a> - Resets the vector graphics</li>
 <li><a href="imagickdraw.rotate.html" class="index">ImagickDraw::rotate</a> - Applies the specified rotation to the current coordinate space</li>
 <li><a href="imagickdraw.roundrectangle.html" class="index">ImagickDraw::roundRectangle</a> - Draws a rounded rectangle</li>
 <li><a href="imagickdraw.scale.html" class="index">ImagickDraw::scale</a> - Adjusts the scaling factor</li>
@@ -3177,7 +3180,7 @@
 <li><a href="imagickdraw.setfontstyle.html" class="index">ImagickDraw::setFontStyle</a> - Sets the font style to use when annotating with text</li>
 <li><a href="imagickdraw.setfontweight.html" class="index">ImagickDraw::setFontWeight</a> - Sets the font weight</li>
 <li><a href="imagickdraw.setgravity.html" class="index">ImagickDraw::setGravity</a> - Sets the text placement gravity</li>
-<li><a href="imagickdraw.setresolution.html" class="index">ImagickDraw::setResolution</a> - Description</li>
+<li><a href="imagickdraw.setresolution.html" class="index">ImagickDraw::setResolution</a> - Sets the resolution</li>
 <li><a href="imagickdraw.setstrokealpha.html" class="index">ImagickDraw::setStrokeAlpha</a> - Specifies the opacity of stroked object outlines</li>
 <li><a href="imagickdraw.setstrokeantialias.html" class="index">ImagickDraw::setStrokeAntialias</a> - Controls whether stroked outlines are antialiased</li>
 <li><a href="imagickdraw.setstrokecolor.html" class="index">ImagickDraw::setStrokeColor</a> - Sets the color used for stroking object outlines</li>
@@ -3193,9 +3196,9 @@
 <li><a href="imagickdraw.settextantialias.html" class="index">ImagickDraw::setTextAntialias</a> - Controls whether text is antialiased</li>
 <li><a href="imagickdraw.settextdecoration.html" class="index">ImagickDraw::setTextDecoration</a> - Specifies a decoration</li>
 <li><a href="imagickdraw.settextencoding.html" class="index">ImagickDraw::setTextEncoding</a> - Specifies the text code set</li>
-<li><a href="imagickdraw.settextinterlinespacing.html" class="index">ImagickDraw::setTextInterlineSpacing</a> - Description</li>
-<li><a href="imagickdraw.settextinterwordspacing.html" class="index">ImagickDraw::setTextInterwordSpacing</a> - Description</li>
-<li><a href="imagickdraw.settextkerning.html" class="index">ImagickDraw::setTextKerning</a> - Description</li>
+<li><a href="imagickdraw.settextinterlinespacing.html" class="index">ImagickDraw::setTextInterlineSpacing</a> - Sets the text interline spacing</li>
+<li><a href="imagickdraw.settextinterwordspacing.html" class="index">ImagickDraw::setTextInterwordSpacing</a> - Sets the text interword spacing</li>
+<li><a href="imagickdraw.settextkerning.html" class="index">ImagickDraw::setTextKerning</a> - Sets the text kerning</li>
 <li><a href="imagickdraw.settextundercolor.html" class="index">ImagickDraw::setTextUnderColor</a> - Specifies the color of a background rectangle</li>
 <li><a href="imagickdraw.setvectorgraphics.html" class="index">ImagickDraw::setVectorGraphics</a> - Sets the vector graphics</li>
 <li><a href="imagickdraw.setviewbox.html" class="index">ImagickDraw::setViewbox</a> - Sets the overall canvas size</li>
@@ -3203,32 +3206,32 @@
 <li><a href="imagickdraw.skewy.html" class="index">ImagickDraw::skewY</a> - Skews the current coordinate system in the vertical direction</li>
 <li><a href="imagickdraw.translate.html" class="index">ImagickDraw::translate</a> - Applies a translation to the current coordinate system</li>
 <li><a href="imagickdraw.construct.html" class="index">ImagickDraw::__construct</a> - The ImagickDraw constructor</li>
-<li><a href="imagickkernel.addkernel.html" class="index">ImagickKernel::addKernel</a> - Description</li>
-<li><a href="imagickkernel.addunitykernel.html" class="index">ImagickKernel::addUnityKernel</a> - Description</li>
-<li><a href="imagickkernel.frombuiltin.html" class="index">ImagickKernel::fromBuiltIn</a> - Description</li>
-<li><a href="imagickkernel.frommatrix.html" class="index">ImagickKernel::fromMatrix</a> - Description</li>
-<li><a href="imagickkernel.getmatrix.html" class="index">ImagickKernel::getMatrix</a> - Description</li>
-<li><a href="imagickkernel.scale.html" class="index">ImagickKernel::scale</a> - Description</li>
-<li><a href="imagickkernel.separate.html" class="index">ImagickKernel::separate</a> - Description</li>
+<li><a href="imagickkernel.addkernel.html" class="index">ImagickKernel::addKernel</a> - Attach another kernel to a kernel list</li>
+<li><a href="imagickkernel.addunitykernel.html" class="index">ImagickKernel::addUnityKernel</a> - Adds a Unity Kernel to the kernel list</li>
+<li><a href="imagickkernel.frombuiltin.html" class="index">ImagickKernel::fromBuiltIn</a> - Create a kernel from a builtin in kernel</li>
+<li><a href="imagickkernel.frommatrix.html" class="index">ImagickKernel::fromMatrix</a> - Create a kernel from a 2d matrix of values</li>
+<li><a href="imagickkernel.getmatrix.html" class="index">ImagickKernel::getMatrix</a> - Get the 2d matrix of values used in this kernel</li>
+<li><a href="imagickkernel.scale.html" class="index">ImagickKernel::scale</a> - Scales a kernel list by the given amount</li>
+<li><a href="imagickkernel.separate.html" class="index">ImagickKernel::separate</a> - Separates a linked set of kernels and returns an array of ImagickKernels</li>
 <li><a href="imagickpixel.clear.html" class="index">ImagickPixel::clear</a> - Clears resources associated with this object</li>
 <li><a href="imagickpixel.destroy.html" class="index">ImagickPixel::destroy</a> - Deallocates resources associated with this object</li>
 <li><a href="imagickpixel.getcolor.html" class="index">ImagickPixel::getColor</a> - Returns the color</li>
 <li><a href="imagickpixel.getcolorasstring.html" class="index">ImagickPixel::getColorAsString</a> - Returns the color as a string</li>
 <li><a href="imagickpixel.getcolorcount.html" class="index">ImagickPixel::getColorCount</a> - Returns the color count associated with this color</li>
-<li><a href="imagickpixel.getcolorquantum.html" class="index">ImagickPixel::getColorQuantum</a> - Description</li>
+<li><a href="imagickpixel.getcolorquantum.html" class="index">ImagickPixel::getColorQuantum</a> - Returns the color of the pixel in an array as Quantum values</li>
 <li><a href="imagickpixel.getcolorvalue.html" class="index">ImagickPixel::getColorValue</a> - Gets the normalized value of the provided color channel</li>
-<li><a href="imagickpixel.getcolorvaluequantum.html" class="index">ImagickPixel::getColorValueQuantum</a> - Description</li>
+<li><a href="imagickpixel.getcolorvaluequantum.html" class="index">ImagickPixel::getColorValueQuantum</a> - Gets the quantum value of a color in the ImagickPixel</li>
 <li><a href="imagickpixel.gethsl.html" class="index">ImagickPixel::getHSL</a> - Returns the normalized HSL color of the ImagickPixel object</li>
-<li><a href="imagickpixel.getindex.html" class="index">ImagickPixel::getIndex</a> - Description</li>
+<li><a href="imagickpixel.getindex.html" class="index">ImagickPixel::getIndex</a> - Gets the colormap index of the pixel wand</li>
 <li><a href="imagickpixel.ispixelsimilar.html" class="index">ImagickPixel::isPixelSimilar</a> - Check the distance between this color and another</li>
-<li><a href="imagickpixel.ispixelsimilarquantum.html" class="index">ImagickPixel::isPixelSimilarQuantum</a> - Description</li>
+<li><a href="imagickpixel.ispixelsimilarquantum.html" class="index">ImagickPixel::isPixelSimilarQuantum</a> - Returns whether two colors differ by less than the specified distance</li>
 <li><a href="imagickpixel.issimilar.html" class="index">ImagickPixel::isSimilar</a> - Check the distance between this color and another</li>
 <li><a href="imagickpixel.setcolor.html" class="index">ImagickPixel::setColor</a> - Sets the color</li>
-<li><a href="imagickpixel.setcolorcount.html" class="index">ImagickPixel::setColorCount</a> - Description</li>
+<li><a href="imagickpixel.setcolorcount.html" class="index">ImagickPixel::setColorCount</a> - Sets the color count associated with this color</li>
 <li><a href="imagickpixel.setcolorvalue.html" class="index">ImagickPixel::setColorValue</a> - Sets the normalized value of one of the channels</li>
-<li><a href="imagickpixel.setcolorvaluequantum.html" class="index">ImagickPixel::setColorValueQuantum</a> - Description</li>
+<li><a href="imagickpixel.setcolorvaluequantum.html" class="index">ImagickPixel::setColorValueQuantum</a> - Sets the quantum value of a color element of the ImagickPixel</li>
 <li><a href="imagickpixel.sethsl.html" class="index">ImagickPixel::setHSL</a> - Sets the normalized HSL color</li>
-<li><a href="imagickpixel.setindex.html" class="index">ImagickPixel::setIndex</a> - Description</li>
+<li><a href="imagickpixel.setindex.html" class="index">ImagickPixel::setIndex</a> - Sets the colormap index of the pixel wand</li>
 <li><a href="imagickpixel.construct.html" class="index">ImagickPixel::__construct</a> - The ImagickPixel constructor</li>
 <li><a href="imagickpixeliterator.clear.html" class="index">ImagickPixelIterator::clear</a> - Clear resources associated with a PixelIterator</li>
 <li><a href="imagickpixeliterator.destroy.html" class="index">ImagickPixelIterator::destroy</a> - Deallocates resources associated with a PixelIterator</li>
@@ -3331,6 +3334,7 @@
 <li><a href="function.ini-alter.html" class="index">ini_alter</a> - Alias of ini_set</li>
 <li><a href="function.ini-get.html" class="index">ini_get</a> - Gets the value of a configuration option</li>
 <li><a href="function.ini-get-all.html" class="index">ini_get_all</a> - Gets all configuration options</li>
+<li><a href="function.ini-parse-quantity.html" class="index">ini_parse_quantity</a> - Get interpreted size from ini shorthand syntax</li>
 <li><a href="function.ini-restore.html" class="index">ini_restore</a> - Restores the value of a configuration option</li>
 <li><a href="function.ini-set.html" class="index">ini_set</a> - Sets the value of a configuration option</li>
 <li><a href="function.inotify-add-watch.html" class="index">inotify_add_watch</a> - Add a watch to an initialized inotify instance</li>
@@ -3340,6 +3344,12 @@
 <li><a href="function.inotify-rm-watch.html" class="index">inotify_rm_watch</a> - Remove an existing watch from an inotify instance</li>
 <li><a href="function.intdiv.html" class="index">intdiv</a> - Integer division</li>
 <li><a href="function.interface-exists.html" class="index">interface_exists</a> - Checks if the interface has been defined</li>
+<li><a href="internaliterator.current.html" class="index">InternalIterator::current</a> - Return the current element</li>
+<li><a href="internaliterator.key.html" class="index">InternalIterator::key</a> - Return the key of the current element</li>
+<li><a href="internaliterator.next.html" class="index">InternalIterator::next</a> - Move forward to next element</li>
+<li><a href="internaliterator.rewind.html" class="index">InternalIterator::rewind</a> - Rewind the Iterator to the first element</li>
+<li><a href="internaliterator.valid.html" class="index">InternalIterator::valid</a> - Check if current position is valid</li>
+<li><a href="internaliterator.construct.html" class="index">InternalIterator::__construct</a> - Private constructor to disallow direct instantiation</li>
 <li><a href="intlbreakiterator.createcharacterinstance.html" class="index">IntlBreakIterator::createCharacterInstance</a> - Create break iterator for boundaries of combining character sequences</li>
 <li><a href="intlbreakiterator.createcodepointinstance.html" class="index">IntlBreakIterator::createCodePointInstance</a> - Create break iterator for boundaries of code points</li>
 <li><a href="intlbreakiterator.createlineinstance.html" class="index">IntlBreakIterator::createLineInstance</a> - Create break iterator for logically possible line breaks</li>
@@ -3487,6 +3497,8 @@
 <li><a href="intldateformatter.setlenient.html" class="index">IntlDateFormatter::setLenient</a> - Set the leniency of the parser</li>
 <li><a href="intldateformatter.setpattern.html" class="index">IntlDateFormatter::setPattern</a> - Set the pattern used for the IntlDateFormatter</li>
 <li><a href="intldateformatter.settimezone.html" class="index">IntlDateFormatter::setTimeZone</a> - Sets formatterʼs timezone</li>
+<li><a href="intldatepatterngenerator.create.html" class="index">IntlDatePatternGenerator::create</a> - Creates a new IntlDatePatternGenerator instance</li>
+<li><a href="intldatepatterngenerator.getbestpattern.html" class="index">IntlDatePatternGenerator::getBestPattern</a> - Determines the most suitable date/time format</li>
 <li><a href="intlgregoriancalendar.getgregorianchange.html" class="index">IntlGregorianCalendar::getGregorianChange</a> - Get the Gregorian Calendar change date</li>
 <li><a href="intlgregoriancalendar.isleapyear.html" class="index">IntlGregorianCalendar::isLeapYear</a> - Determine if the given year is a leap year</li>
 <li><a href="intlgregoriancalendar.setgregorianchange.html" class="index">IntlGregorianCalendar::setGregorianChange</a> - Set the Gregorian Calendar the change date</li>
@@ -3538,7 +3550,7 @@
 <li><a href="function.iptcembed.html" class="index">iptcembed</a> - Embeds binary IPTC data into a JPEG image</li>
 <li><a href="function.iptcparse.html" class="index">iptcparse</a> - Parse a binary IPTC block into single tags</li>
 <li><a href="function.isset.html" class="index">isset</a> - Determine if a variable is declared and is different than null</li>
-<li><a href="function.is-a.html" class="index">is_a</a> - Checks if the object is of this class or has this class as one of its parents</li>
+<li><a href="function.is-a.html" class="index">is_a</a> - Checks whether the object is of a given type or subtype</li>
 <li><a href="function.is-array.html" class="index">is_array</a> - Finds whether a variable is an array</li>
 <li><a href="function.is-bool.html" class="index">is_bool</a> - Finds out whether a variable is a boolean</li>
 <li><a href="function.is-callable.html" class="index">is_callable</a> - Verify that a value can be called as a function from the current scope.</li>
@@ -3680,12 +3692,12 @@
 <li><a href="function.libxml-clear-errors.html" class="index">libxml_clear_errors</a> - Clear libxml error buffer</li>
 <li><a href="function.libxml-disable-entity-loader.html" class="index">libxml_disable_entity_loader</a> - Disable the ability to load external entities</li>
 <li><a href="function.libxml-get-errors.html" class="index">libxml_get_errors</a> - Retrieve array of errors</li>
+<li><a href="function.libxml-get-external-entity-loader.html" class="index">libxml_get_external_entity_loader</a> - Get the current external entity loader</li>
 <li><a href="function.libxml-get-last-error.html" class="index">libxml_get_last_error</a> - Retrieve last error from libxml</li>
 <li><a href="function.libxml-set-external-entity-loader.html" class="index">libxml_set_external_entity_loader</a> - Changes the default external entity loader</li>
 <li><a href="function.libxml-set-streams-context.html" class="index">libxml_set_streams_context</a> - Set the streams context for the next libxml document load or write</li>
 <li><a href="function.libxml-use-internal-errors.html" class="index">libxml_use_internal_errors</a> - Disable libxml errors and allow user to fetch error information as needed</li>
 <li><a href="limititerator.current.html" class="index">LimitIterator::current</a> - Get current element</li>
-<li><a href="limititerator.getinneriterator.html" class="index">LimitIterator::getInnerIterator</a> - Get inner iterator</li>
 <li><a href="limititerator.getposition.html" class="index">LimitIterator::getPosition</a> - Return the current position</li>
 <li><a href="limititerator.key.html" class="index">LimitIterator::key</a> - Get current key</li>
 <li><a href="limititerator.next.html" class="index">LimitIterator::next</a> - Move the iterator forward</li>
@@ -3720,7 +3732,7 @@
 <li><a href="function.log1p.html" class="index">log1p</a> - Returns log(1 + number), computed in a way that is accurate even when
    the value of number is close to zero</li>
 <li><a href="function.log10.html" class="index">log10</a> - Base-10 logarithm</li>
-<li><a href="function.long2ip.html" class="index">long2ip</a> - Converts an long integer address into a string in (IPv4) Internet standard dotted format</li>
+<li><a href="function.long2ip.html" class="index">long2ip</a> - Converts a long integer address into a string in (IPv4) Internet standard dotted format</li>
 <li><a href="function.lstat.html" class="index">lstat</a> - Gives information about a file or symbolic link</li>
 <li><a href="function.ltrim.html" class="index">ltrim</a> - Strip whitespace (or other characters) from the beginning of a string</li>
 <li><a href="lua.assign.html" class="index">Lua::assign</a> - Assign a PHP variable to Lua</li>
@@ -3774,7 +3786,7 @@
 <li><a href="function.mb-check-encoding.html" class="index">mb_check_encoding</a> - Check if strings are valid for the specified encoding</li>
 <li><a href="function.mb-chr.html" class="index">mb_chr</a> - Return character by Unicode code point value</li>
 <li><a href="function.mb-convert-case.html" class="index">mb_convert_case</a> - Perform case folding on a string</li>
-<li><a href="function.mb-convert-encoding.html" class="index">mb_convert_encoding</a> - Convert character encoding</li>
+<li><a href="function.mb-convert-encoding.html" class="index">mb_convert_encoding</a> - Convert a string from one character encoding to another</li>
 <li><a href="function.mb-convert-kana.html" class="index">mb_convert_kana</a> - Convert &quot;kana&quot; one from another (&quot;zen-kaku&quot;, &quot;han-kaku&quot; and more)</li>
 <li><a href="function.mb-convert-variables.html" class="index">mb_convert_variables</a> - Convert character code in variable(s)</li>
 <li><a href="function.mb-decode-mimeheader.html" class="index">mb_decode_mimeheader</a> - Decode string in MIME header field</li>
@@ -3936,6 +3948,7 @@
 <li><a href="function.memcache-debug.html" class="index">memcache_debug</a> - Turn debug output on/off</li>
 <li><a href="function.memory-get-peak-usage.html" class="index">memory_get_peak_usage</a> - Returns the peak of memory allocated by PHP</li>
 <li><a href="function.memory-get-usage.html" class="index">memory_get_usage</a> - Returns the amount of memory allocated to PHP</li>
+<li><a href="function.memory-reset-peak-usage.html" class="index">memory_reset_peak_usage</a> - Reset the peak memory usage</li>
 <li><a href="messageformatter.create.html" class="index">MessageFormatter::create</a> - Constructs a new Message Formatter</li>
 <li><a href="messageformatter.format.html" class="index">MessageFormatter::format</a> - Format the message</li>
 <li><a href="messageformatter.formatmessage.html" class="index">MessageFormatter::formatMessage</a> - Quick format message</li>
@@ -4062,9 +4075,17 @@
 <li><a href="mongodb-driver-bulkwrite.insert.html" class="index">MongoDB\Driver\BulkWrite::insert</a> - Add an insert operation to the bulk</li>
 <li><a href="mongodb-driver-bulkwrite.update.html" class="index">MongoDB\Driver\BulkWrite::update</a> - Add an update operation to the bulk</li>
 <li><a href="mongodb-driver-bulkwrite.construct.html" class="index">MongoDB\Driver\BulkWrite::__construct</a> - Create a new BulkWrite</li>
-<li><a href="mongodb-driver-clientencryption.createdatakey.html" class="index">MongoDB\Driver\ClientEncryption::createDataKey</a> - Create a new encryption data key</li>
+<li><a href="mongodb-driver-clientencryption.addkeyaltname.html" class="index">MongoDB\Driver\ClientEncryption::addKeyAltName</a> - Adds an alternate name to a key document</li>
+<li><a href="mongodb-driver-clientencryption.createdatakey.html" class="index">MongoDB\Driver\ClientEncryption::createDataKey</a> - Creates a key document</li>
 <li><a href="mongodb-driver-clientencryption.decrypt.html" class="index">MongoDB\Driver\ClientEncryption::decrypt</a> - Decrypt a value</li>
+<li><a href="mongodb-driver-clientencryption.deletekey.html" class="index">MongoDB\Driver\ClientEncryption::deleteKey</a> - Deletes a key document</li>
 <li><a href="mongodb-driver-clientencryption.encrypt.html" class="index">MongoDB\Driver\ClientEncryption::encrypt</a> - Encrypt a value</li>
+<li><a href="mongodb-driver-clientencryption.getkey.html" class="index">MongoDB\Driver\ClientEncryption::getKey</a> - Gets a key document</li>
+<li><a href="mongodb-driver-clientencryption.getkeybyaltname.html" class="index">MongoDB\Driver\ClientEncryption::getKeyByAltName</a> - Gets a key document by an alternate name</li>
+<li><a href="mongodb-driver-clientencryption.getkeys.html" class="index">MongoDB\Driver\ClientEncryption::getKeys</a> - Gets all key documents</li>
+<li><a href="mongodb-driver-clientencryption.removekeyaltname.html" class="index">MongoDB\Driver\ClientEncryption::removeKeyAltName</a> - Removes an alternate name from a key document</li>
+<li><a href="mongodb-driver-clientencryption.rewrapmanydatakey.html" class="index">MongoDB\Driver\ClientEncryption::rewrapManyDataKey</a> - Rewraps data keys</li>
+<li><a href="mongodb-driver-clientencryption.construct.html" class="index">MongoDB\Driver\ClientEncryption::__construct</a> - Create a new ClientEncryption object</li>
 <li><a href="mongodb-driver-command.construct.html" class="index">MongoDB\Driver\Command::__construct</a> - Create a new Command</li>
 <li><a href="mongodb-driver-cursor.current.html" class="index">MongoDB\Driver\Cursor::current</a> - Returns the current element</li>
 <li><a href="mongodb-driver-cursor.getid.html" class="index">MongoDB\Driver\Cursor::getId</a> - Returns the ID for this cursor</li>
@@ -4097,6 +4118,7 @@
 <li><a href="mongodb-driver-manager.executereadcommand.html" class="index">MongoDB\Driver\Manager::executeReadCommand</a> - Execute a database command that reads</li>
 <li><a href="mongodb-driver-manager.executereadwritecommand.html" class="index">MongoDB\Driver\Manager::executeReadWriteCommand</a> - Execute a database command that reads and writes</li>
 <li><a href="mongodb-driver-manager.executewritecommand.html" class="index">MongoDB\Driver\Manager::executeWriteCommand</a> - Execute a database command that writes</li>
+<li><a href="mongodb-driver-manager.getencryptedfieldsmap.html" class="index">MongoDB\Driver\Manager::getEncryptedFieldsMap</a> - Return the encryptedFieldsMap auto encryption option for the Manager</li>
 <li><a href="mongodb-driver-manager.getreadconcern.html" class="index">MongoDB\Driver\Manager::getReadConcern</a> - Return the ReadConcern for the Manager</li>
 <li><a href="mongodb-driver-manager.getreadpreference.html" class="index">MongoDB\Driver\Manager::getReadPreference</a> - Return the ReadPreference for the Manager</li>
 <li><a href="mongodb-driver-manager.getservers.html" class="index">MongoDB\Driver\Manager::getServers</a> - Return the servers to which this manager is connected</li>
@@ -4113,6 +4135,7 @@
 <li><a href="mongodb-driver-monitoring-commandfailedevent.getreply.html" class="index">MongoDB\Driver\Monitoring\CommandFailedEvent::getReply</a> - Returns the command reply document</li>
 <li><a href="mongodb-driver-monitoring-commandfailedevent.getrequestid.html" class="index">MongoDB\Driver\Monitoring\CommandFailedEvent::getRequestId</a> - Returns the command's request ID</li>
 <li><a href="mongodb-driver-monitoring-commandfailedevent.getserver.html" class="index">MongoDB\Driver\Monitoring\CommandFailedEvent::getServer</a> - Returns the Server on which the command was executed</li>
+<li><a href="mongodb-driver-monitoring-commandfailedevent.getserverconnectionid.html" class="index">MongoDB\Driver\Monitoring\CommandFailedEvent::getServerConnectionId</a> - Returns the server connection ID for the command</li>
 <li><a href="mongodb-driver-monitoring-commandfailedevent.getserviceid.html" class="index">MongoDB\Driver\Monitoring\CommandFailedEvent::getServiceId</a> - Returns the load balancer service ID for the command</li>
 <li><a href="mongodb-driver-monitoring-commandstartedevent.getcommand.html" class="index">MongoDB\Driver\Monitoring\CommandStartedEvent::getCommand</a> - Returns the command document</li>
 <li><a href="mongodb-driver-monitoring-commandstartedevent.getcommandname.html" class="index">MongoDB\Driver\Monitoring\CommandStartedEvent::getCommandName</a> - Returns the command name</li>
@@ -4120,6 +4143,7 @@
 <li><a href="mongodb-driver-monitoring-commandstartedevent.getoperationid.html" class="index">MongoDB\Driver\Monitoring\CommandStartedEvent::getOperationId</a> - Returns the command's operation ID</li>
 <li><a href="mongodb-driver-monitoring-commandstartedevent.getrequestid.html" class="index">MongoDB\Driver\Monitoring\CommandStartedEvent::getRequestId</a> - Returns the command's request ID</li>
 <li><a href="mongodb-driver-monitoring-commandstartedevent.getserver.html" class="index">MongoDB\Driver\Monitoring\CommandStartedEvent::getServer</a> - Returns the Server on which the command was executed</li>
+<li><a href="mongodb-driver-monitoring-commandstartedevent.getserverconnectionid.html" class="index">MongoDB\Driver\Monitoring\CommandStartedEvent::getServerConnectionId</a> - Returns the server connection ID for the command</li>
 <li><a href="mongodb-driver-monitoring-commandstartedevent.getserviceid.html" class="index">MongoDB\Driver\Monitoring\CommandStartedEvent::getServiceId</a> - Returns the load balancer service ID for the command</li>
 <li><a href="mongodb-driver-monitoring-commandsubscriber.commandfailed.html" class="index">MongoDB\Driver\Monitoring\CommandSubscriber::commandFailed</a> - Notification method for a failed command</li>
 <li><a href="mongodb-driver-monitoring-commandsubscriber.commandstarted.html" class="index">MongoDB\Driver\Monitoring\CommandSubscriber::commandStarted</a> - Notification method for a started command</li>
@@ -4130,8 +4154,47 @@
 <li><a href="mongodb-driver-monitoring-commandsucceededevent.getreply.html" class="index">MongoDB\Driver\Monitoring\CommandSucceededEvent::getReply</a> - Returns the command reply document</li>
 <li><a href="mongodb-driver-monitoring-commandsucceededevent.getrequestid.html" class="index">MongoDB\Driver\Monitoring\CommandSucceededEvent::getRequestId</a> - Returns the command's request ID</li>
 <li><a href="mongodb-driver-monitoring-commandsucceededevent.getserver.html" class="index">MongoDB\Driver\Monitoring\CommandSucceededEvent::getServer</a> - Returns the Server on which the command was executed</li>
+<li><a href="mongodb-driver-monitoring-commandsucceededevent.getserverconnectionid.html" class="index">MongoDB\Driver\Monitoring\CommandSucceededEvent::getServerConnectionId</a> - Returns the server connection ID for the command</li>
 <li><a href="mongodb-driver-monitoring-commandsucceededevent.getserviceid.html" class="index">MongoDB\Driver\Monitoring\CommandSucceededEvent::getServiceId</a> - Returns the load balancer service ID for the command</li>
 <li><a href="function.mongodb.driver.monitoring.removesubscriber.html" class="index">MongoDB\Driver\Monitoring\removeSubscriber</a> - Unregisters a monitoring event subscriber globally</li>
+<li><a href="mongodb-driver-monitoring-sdamsubscriber.serverchanged.html" class="index">MongoDB\Driver\Monitoring\SDAMSubscriber::serverChanged</a> - Notification method for a server description change</li>
+<li><a href="mongodb-driver-monitoring-sdamsubscriber.serverclosed.html" class="index">MongoDB\Driver\Monitoring\SDAMSubscriber::serverClosed</a> - Notification method for closing a server</li>
+<li><a href="mongodb-driver-monitoring-sdamsubscriber.serverheartbeatfailed.html" class="index">MongoDB\Driver\Monitoring\SDAMSubscriber::serverHeartbeatFailed</a> - Notification method for a failed server heartbeat</li>
+<li><a href="mongodb-driver-monitoring-sdamsubscriber.serverheartbeatstarted.html" class="index">MongoDB\Driver\Monitoring\SDAMSubscriber::serverHeartbeatStarted</a> - Notification method for a started server heartbeat</li>
+<li><a href="mongodb-driver-monitoring-sdamsubscriber.serverheartbeatsucceeded.html" class="index">MongoDB\Driver\Monitoring\SDAMSubscriber::serverHeartbeatSucceeded</a> - Notification method for a successful server heartbeat</li>
+<li><a href="mongodb-driver-monitoring-sdamsubscriber.serveropening.html" class="index">MongoDB\Driver\Monitoring\SDAMSubscriber::serverOpening</a> - Notification method for opening a server</li>
+<li><a href="mongodb-driver-monitoring-sdamsubscriber.topologychanged.html" class="index">MongoDB\Driver\Monitoring\SDAMSubscriber::topologyChanged</a> - Notification method for a topology description change</li>
+<li><a href="mongodb-driver-monitoring-sdamsubscriber.topologyclosed.html" class="index">MongoDB\Driver\Monitoring\SDAMSubscriber::topologyClosed</a> - Notification method for closing the topology</li>
+<li><a href="mongodb-driver-monitoring-sdamsubscriber.topologyopening.html" class="index">MongoDB\Driver\Monitoring\SDAMSubscriber::topologyOpening</a> - Notification method for opening the topology</li>
+<li><a href="mongodb-driver-monitoring-serverchangedevent.gethost.html" class="index">MongoDB\Driver\Monitoring\ServerChangedEvent::getHost</a> - Returns the hostname of the server</li>
+<li><a href="mongodb-driver-monitoring-serverchangedevent.getnewdescription.html" class="index">MongoDB\Driver\Monitoring\ServerChangedEvent::getNewDescription</a> - Returns the new description for the server</li>
+<li><a href="mongodb-driver-monitoring-serverchangedevent.getport.html" class="index">MongoDB\Driver\Monitoring\ServerChangedEvent::getPort</a> - Returns the port on which this server is listening</li>
+<li><a href="mongodb-driver-monitoring-serverchangedevent.getpreviousdescription.html" class="index">MongoDB\Driver\Monitoring\ServerChangedEvent::getPreviousDescription</a> - Returns the previous description for the server</li>
+<li><a href="mongodb-driver-monitoring-serverchangedevent.gettopologyid.html" class="index">MongoDB\Driver\Monitoring\ServerChangedEvent::getTopologyId</a> - Returns the topology ID associated with this server</li>
+<li><a href="mongodb-driver-monitoring-serverclosedevent.gethost.html" class="index">MongoDB\Driver\Monitoring\ServerClosedEvent::getHost</a> - Returns the hostname of the server</li>
+<li><a href="mongodb-driver-monitoring-serverclosedevent.getport.html" class="index">MongoDB\Driver\Monitoring\ServerClosedEvent::getPort</a> - Returns the port on which this server is listening</li>
+<li><a href="mongodb-driver-monitoring-serverclosedevent.gettopologyid.html" class="index">MongoDB\Driver\Monitoring\ServerClosedEvent::getTopologyId</a> - Returns the topology ID associated with this server</li>
+<li><a href="mongodb-driver-monitoring-serverheartbeatfailedevent.getdurationmicros.html" class="index">MongoDB\Driver\Monitoring\ServerHeartbeatFailedEvent::getDurationMicros</a> - Returns the heartbeat's duration in microseconds</li>
+<li><a href="mongodb-driver-monitoring-serverheartbeatfailedevent.geterror.html" class="index">MongoDB\Driver\Monitoring\ServerHeartbeatFailedEvent::getError</a> - Returns the Exception associated with the failed heartbeat</li>
+<li><a href="mongodb-driver-monitoring-serverheartbeatfailedevent.gethost.html" class="index">MongoDB\Driver\Monitoring\ServerHeartbeatFailedEvent::getHost</a> - Returns the hostname of the server</li>
+<li><a href="mongodb-driver-monitoring-serverheartbeatfailedevent.getport.html" class="index">MongoDB\Driver\Monitoring\ServerHeartbeatFailedEvent::getPort</a> - Returns the port on which this server is listening</li>
+<li><a href="mongodb-driver-monitoring-serverheartbeatfailedevent.isawaited.html" class="index">MongoDB\Driver\Monitoring\ServerHeartbeatFailedEvent::isAwaited</a> - Returns whether the heartbeat used a streaming protocol</li>
+<li><a href="mongodb-driver-monitoring-serverheartbeatstartedevent.gethost.html" class="index">MongoDB\Driver\Monitoring\ServerHeartbeatStartedEvent::getHost</a> - Returns the hostname of the server</li>
+<li><a href="mongodb-driver-monitoring-serverheartbeatstartedevent.getport.html" class="index">MongoDB\Driver\Monitoring\ServerHeartbeatStartedEvent::getPort</a> - Returns the port on which this server is listening</li>
+<li><a href="mongodb-driver-monitoring-serverheartbeatstartedevent.isawaited.html" class="index">MongoDB\Driver\Monitoring\ServerHeartbeatStartedEvent::isAwaited</a> - Returns whether the heartbeat used a streaming protocol</li>
+<li><a href="mongodb-driver-monitoring-serverheartbeatsucceededevent.getdurationmicros.html" class="index">MongoDB\Driver\Monitoring\ServerHeartbeatSucceededEvent::getDurationMicros</a> - Returns the heartbeat's duration in microseconds</li>
+<li><a href="mongodb-driver-monitoring-serverheartbeatsucceededevent.gethost.html" class="index">MongoDB\Driver\Monitoring\ServerHeartbeatSucceededEvent::getHost</a> - Returns the hostname of the server</li>
+<li><a href="mongodb-driver-monitoring-serverheartbeatsucceededevent.getport.html" class="index">MongoDB\Driver\Monitoring\ServerHeartbeatSucceededEvent::getPort</a> - Returns the port on which this server is listening</li>
+<li><a href="mongodb-driver-monitoring-serverheartbeatsucceededevent.getreply.html" class="index">MongoDB\Driver\Monitoring\ServerHeartbeatSucceededEvent::getReply</a> - Returns the heartbeat reply document</li>
+<li><a href="mongodb-driver-monitoring-serverheartbeatsucceededevent.isawaited.html" class="index">MongoDB\Driver\Monitoring\ServerHeartbeatSucceededEvent::isAwaited</a> - Returns whether the heartbeat used a streaming protocol</li>
+<li><a href="mongodb-driver-monitoring-serveropeningevent.gethost.html" class="index">MongoDB\Driver\Monitoring\ServerOpeningEvent::getHost</a> - Returns the hostname of the server</li>
+<li><a href="mongodb-driver-monitoring-serveropeningevent.getport.html" class="index">MongoDB\Driver\Monitoring\ServerOpeningEvent::getPort</a> - Returns the port on which this server is listening</li>
+<li><a href="mongodb-driver-monitoring-serveropeningevent.gettopologyid.html" class="index">MongoDB\Driver\Monitoring\ServerOpeningEvent::getTopologyId</a> - Returns the topology ID associated with this server</li>
+<li><a href="mongodb-driver-monitoring-topologychangedevent.getnewdescription.html" class="index">MongoDB\Driver\Monitoring\TopologyChangedEvent::getNewDescription</a> - Returns the new description for the topology</li>
+<li><a href="mongodb-driver-monitoring-topologychangedevent.getpreviousdescription.html" class="index">MongoDB\Driver\Monitoring\TopologyChangedEvent::getPreviousDescription</a> - Returns the previous description for the topology</li>
+<li><a href="mongodb-driver-monitoring-topologychangedevent.gettopologyid.html" class="index">MongoDB\Driver\Monitoring\TopologyChangedEvent::getTopologyId</a> - Returns the topology ID</li>
+<li><a href="mongodb-driver-monitoring-topologyclosedevent.gettopologyid.html" class="index">MongoDB\Driver\Monitoring\TopologyClosedEvent::getTopologyId</a> - Returns the topology ID</li>
+<li><a href="mongodb-driver-monitoring-topologyopeningevent.gettopologyid.html" class="index">MongoDB\Driver\Monitoring\TopologyOpeningEvent::getTopologyId</a> - Returns the topology ID</li>
 <li><a href="mongodb-driver-query.construct.html" class="index">MongoDB\Driver\Query::__construct</a> - Create a new Query</li>
 <li><a href="mongodb-driver-readconcern.bsonserialize.html" class="index">MongoDB\Driver\ReadConcern::bsonSerialize</a> - Returns an object for BSON serialization</li>
 <li><a href="mongodb-driver-readconcern.getlevel.html" class="index">MongoDB\Driver\ReadConcern::getLevel</a> - Returns the ReadConcern's &quot;level&quot; option</li>
@@ -4158,6 +4221,7 @@
 <li><a href="mongodb-driver-server.getinfo.html" class="index">MongoDB\Driver\Server::getInfo</a> - Returns an array of information describing this server</li>
 <li><a href="mongodb-driver-server.getlatency.html" class="index">MongoDB\Driver\Server::getLatency</a> - Returns the latency of this server in milliseconds</li>
 <li><a href="mongodb-driver-server.getport.html" class="index">MongoDB\Driver\Server::getPort</a> - Returns the port on which this server is listening</li>
+<li><a href="mongodb-driver-server.getserverdescription.html" class="index">MongoDB\Driver\Server::getServerDescription</a> - Returns a ServerDescription for this server</li>
 <li><a href="mongodb-driver-server.gettags.html" class="index">MongoDB\Driver\Server::getTags</a> - Returns an array of tags describing this server in a replica set</li>
 <li><a href="mongodb-driver-server.gettype.html" class="index">MongoDB\Driver\Server::getType</a> - Returns an integer denoting the type of this server</li>
 <li><a href="mongodb-driver-server.isarbiter.html" class="index">MongoDB\Driver\Server::isArbiter</a> - Checks if this server is an arbiter member of a replica set</li>
@@ -4170,6 +4234,12 @@
 <li><a href="mongodb-driver-serverapi.serialize.html" class="index">MongoDB\Driver\ServerApi::serialize</a> - Serialize a ServerApi</li>
 <li><a href="mongodb-driver-serverapi.unserialize.html" class="index">MongoDB\Driver\ServerApi::unserialize</a> - Unserialize a ServerApi</li>
 <li><a href="mongodb-driver-serverapi.construct.html" class="index">MongoDB\Driver\ServerApi::__construct</a> - Create a new ServerApi instance</li>
+<li><a href="mongodb-driver-serverdescription.gethelloresponse.html" class="index">MongoDB\Driver\ServerDescription::getHelloResponse</a> - Returns the server's most recent &quot;hello&quot; response</li>
+<li><a href="mongodb-driver-serverdescription.gethost.html" class="index">MongoDB\Driver\ServerDescription::getHost</a> - Returns the hostname of this server</li>
+<li><a href="mongodb-driver-serverdescription.getlastupdatetime.html" class="index">MongoDB\Driver\ServerDescription::getLastUpdateTime</a> - Returns the server's last update time in microseconds</li>
+<li><a href="mongodb-driver-serverdescription.getport.html" class="index">MongoDB\Driver\ServerDescription::getPort</a> - Returns the port on which this server is listening</li>
+<li><a href="mongodb-driver-serverdescription.getroundtriptime.html" class="index">MongoDB\Driver\ServerDescription::getRoundTripTime</a> - Returns the server's round trip time in milliseconds</li>
+<li><a href="mongodb-driver-serverdescription.gettype.html" class="index">MongoDB\Driver\ServerDescription::getType</a> - Returns a string denoting the type of this server</li>
 <li><a href="mongodb-driver-session.aborttransaction.html" class="index">MongoDB\Driver\Session::abortTransaction</a> - Aborts a transaction</li>
 <li><a href="mongodb-driver-session.advanceclustertime.html" class="index">MongoDB\Driver\Session::advanceClusterTime</a> - Advances the cluster time for this session</li>
 <li><a href="mongodb-driver-session.advanceoperationtime.html" class="index">MongoDB\Driver\Session::advanceOperationTime</a> - Advances the operation time for this session</li>
@@ -4181,9 +4251,14 @@
 <li><a href="mongodb-driver-session.getserver.html" class="index">MongoDB\Driver\Session::getServer</a> - Returns the server to which this session is pinned</li>
 <li><a href="mongodb-driver-session.gettransactionoptions.html" class="index">MongoDB\Driver\Session::getTransactionOptions</a> - Returns options for the currently running transaction</li>
 <li><a href="mongodb-driver-session.gettransactionstate.html" class="index">MongoDB\Driver\Session::getTransactionState</a> - Returns the current transaction state for this session</li>
+<li><a href="mongodb-driver-session.isdirty.html" class="index">MongoDB\Driver\Session::isDirty</a> - Returns whether the session has been marked as dirty</li>
 <li><a href="mongodb-driver-session.isintransaction.html" class="index">MongoDB\Driver\Session::isInTransaction</a> - Returns whether a multi-document transaction is in progress</li>
 <li><a href="mongodb-driver-session.starttransaction.html" class="index">MongoDB\Driver\Session::startTransaction</a> - Starts a transaction</li>
 <li><a href="mongodb-driver-session.construct.html" class="index">MongoDB\Driver\Session::__construct</a> - Create a new Session (not used)</li>
+<li><a href="mongodb-driver-topologydescription.getservers.html" class="index">MongoDB\Driver\TopologyDescription::getServers</a> - Returns the servers in the topology</li>
+<li><a href="mongodb-driver-topologydescription.gettype.html" class="index">MongoDB\Driver\TopologyDescription::getType</a> - Returns a string denoting the type of this topology</li>
+<li><a href="mongodb-driver-topologydescription.hasreadableserver.html" class="index">MongoDB\Driver\TopologyDescription::hasReadableServer</a> - Returns whether the topology has a readable server</li>
+<li><a href="mongodb-driver-topologydescription.haswritableserver.html" class="index">MongoDB\Driver\TopologyDescription::hasWritableServer</a> - Returns whether the topology has a writable server</li>
 <li><a href="mongodb-driver-writeconcern.bsonserialize.html" class="index">MongoDB\Driver\WriteConcern::bsonSerialize</a> - Returns an object for BSON serialization</li>
 <li><a href="mongodb-driver-writeconcern.getjournal.html" class="index">MongoDB\Driver\WriteConcern::getJournal</a> - Returns the WriteConcern's &quot;journal&quot; option</li>
 <li><a href="mongodb-driver-writeconcern.getw.html" class="index">MongoDB\Driver\WriteConcern::getW</a> - Returns the WriteConcern's &quot;w&quot; option</li>
@@ -4273,6 +4348,7 @@
 <li><a href="mysqli.debug.html" class="index">mysqli::debug</a> - Performs debugging operations</li>
 <li><a href="mysqli.dump-debug-info.html" class="index">mysqli::dump_debug_info</a> - Dump debugging information into the log</li>
 <li><a href="function.mysqli-escape-string.html" class="index">mysqli::escape_string</a> - Alias of mysqli_real_escape_string</li>
+<li><a href="mysqli.execute-query.html" class="index">mysqli::execute_query</a> - Prepares, binds parameters, and executes SQL statement</li>
 <li><a href="mysqli.get-charset.html" class="index">mysqli::get_charset</a> - Returns a character set object</li>
 <li><a href="mysqli.get-connection-stats.html" class="index">mysqli::get_connection_stats</a> - Returns statistics about the client connection</li>
 <li><a href="mysqli.get-warnings.html" class="index">mysqli::get_warnings</a> - Get result of SHOW WARNINGS</li>
@@ -4308,7 +4384,7 @@
 <li><a href="mysqli-driver.report-mode.html" class="index">mysqli_driver::$report_mode</a> - Sets mysqli error reporting mode</li>
 <li><a href="mysqli-driver.embedded-server-end.html" class="index">mysqli_driver::embedded_server_end</a> - Stop embedded server</li>
 <li><a href="mysqli-driver.embedded-server-start.html" class="index">mysqli_driver::embedded_server_start</a> - Initialize and start embedded server</li>
-<li><a href="function.mysqli-execute.html" class="index">mysqli_execute</a> - Alias for mysqli_stmt_execute</li>
+<li><a href="function.mysqli-execute.html" class="index">mysqli_execute</a> - Alias of mysqli_stmt_execute</li>
 <li><a href="function.mysqli-get-client-stats.html" class="index">mysqli_get_client_stats</a> - Returns client per-process statistics</li>
 <li><a href="function.mysqli-get-links-stats.html" class="index">mysqli_get_links_stats</a> - Return information about open and cached links</li>
 <li><a href="function.mysqli-report.html" class="index">mysqli_report</a> - Alias of mysqli_driver-&gt;report_mode</li>
@@ -4346,7 +4422,7 @@
 <li><a href="mysqli-stmt.bind-param.html" class="index">mysqli_stmt::bind_param</a> - Binds variables to a prepared statement as parameters</li>
 <li><a href="mysqli-stmt.bind-result.html" class="index">mysqli_stmt::bind_result</a> - Binds variables to a prepared statement for result storage</li>
 <li><a href="mysqli-stmt.close.html" class="index">mysqli_stmt::close</a> - Closes a prepared statement</li>
-<li><a href="mysqli-stmt.data-seek.html" class="index">mysqli_stmt::data_seek</a> - Seeks to an arbitrary row in statement result set</li>
+<li><a href="mysqli-stmt.data-seek.html" class="index">mysqli_stmt::data_seek</a> - Adjusts the result pointer to an arbitrary row in the buffered result</li>
 <li><a href="mysqli-stmt.execute.html" class="index">mysqli_stmt::execute</a> - Executes a prepared statement</li>
 <li><a href="mysqli-stmt.fetch.html" class="index">mysqli_stmt::fetch</a> - Fetch results from a prepared statement into the bound variables</li>
 <li><a href="mysqli-stmt.free-result.html" class="index">mysqli_stmt::free_result</a> - Frees stored result memory for the given statement handle</li>
@@ -4421,7 +4497,6 @@
 <li><a href="function.nl2br.html" class="index">nl2br</a> - Inserts HTML line breaks before all newlines in a string</li>
 <li><a href="function.nl-langinfo.html" class="index">nl_langinfo</a> - Query language and locale information</li>
 <li><a href="norewinditerator.current.html" class="index">NoRewindIterator::current</a> - Get the current value</li>
-<li><a href="norewinditerator.getinneriterator.html" class="index">NoRewindIterator::getInnerIterator</a> - Get the inner iterator</li>
 <li><a href="norewinditerator.key.html" class="index">NoRewindIterator::key</a> - Get the current key</li>
 <li><a href="norewinditerator.next.html" class="index">NoRewindIterator::next</a> - Forward to the next element</li>
 <li><a href="norewinditerator.rewind.html" class="index">NoRewindIterator::rewind</a> - Prevents the rewind operation on the inner iterator</li>
@@ -4653,6 +4728,9 @@
 <li><a href="function.odbc-columns.html" class="index">odbc_columns</a> - Lists the column names in specified tables</li>
 <li><a href="function.odbc-commit.html" class="index">odbc_commit</a> - Commit an ODBC transaction</li>
 <li><a href="function.odbc-connect.html" class="index">odbc_connect</a> - Connect to a datasource</li>
+<li><a href="function.odbc-connection-string-is-quoted.html" class="index">odbc_connection_string_is_quoted</a> - Determines if an ODBC connection string value is quoted</li>
+<li><a href="function.odbc-connection-string-quote.html" class="index">odbc_connection_string_quote</a> - Quotes an ODBC connection string value</li>
+<li><a href="function.odbc-connection-string-should-quote.html" class="index">odbc_connection_string_should_quote</a> - Determines if an ODBC connection string value should be quoted</li>
 <li><a href="function.odbc-cursor.html" class="index">odbc_cursor</a> - Get cursorname</li>
 <li><a href="function.odbc-data-source.html" class="index">odbc_data_source</a> - Returns information about available DSNs</li>
 <li><a href="function.odbc-do.html" class="index">odbc_do</a> - Alias of odbc_exec</li>
@@ -4723,6 +4801,7 @@
 <li><a href="function.opendir.html" class="index">opendir</a> - Open directory handle</li>
 <li><a href="function.openlog.html" class="index">openlog</a> - Open connection to system logger</li>
 <li><a href="function.openssl-cipher-iv-length.html" class="index">openssl_cipher_iv_length</a> - Gets the cipher iv length</li>
+<li><a href="function.openssl-cipher-key-length.html" class="index">openssl_cipher_key_length</a> - Gets the cipher key length</li>
 <li><a href="function.openssl-cms-decrypt.html" class="index">openssl_cms_decrypt</a> - Decrypt a CMS message</li>
 <li><a href="function.openssl-cms-encrypt.html" class="index">openssl_cms_encrypt</a> - Encrypt a CMS message</li>
 <li><a href="function.openssl-cms-read.html" class="index">openssl_cms_read</a> - Export the CMS file to an array of PEM certificates</li>
@@ -4903,6 +4982,7 @@
 <li><a href="function.pcntl-fork.html" class="index">pcntl_fork</a> - Forks the currently running process</li>
 <li><a href="function.pcntl-getpriority.html" class="index">pcntl_getpriority</a> - Get the priority of any process</li>
 <li><a href="function.pcntl-get-last-error.html" class="index">pcntl_get_last_error</a> - Retrieve the error number set by the last pcntl function which failed</li>
+<li><a href="function.pcntl-rfork.html" class="index">pcntl_rfork</a> - Manipulates process resources</li>
 <li><a href="function.pcntl-setpriority.html" class="index">pcntl_setpriority</a> - Change the priority of any process</li>
 <li><a href="function.pcntl-signal.html" class="index">pcntl_signal</a> - Installs a signal handler</li>
 <li><a href="function.pcntl-signal-dispatch.html" class="index">pcntl_signal_dispatch</a> - Calls signal handlers for pending signals</li>
@@ -4911,6 +4991,7 @@
 <li><a href="function.pcntl-sigtimedwait.html" class="index">pcntl_sigtimedwait</a> - Waits for signals, with a timeout</li>
 <li><a href="function.pcntl-sigwaitinfo.html" class="index">pcntl_sigwaitinfo</a> - Waits for signals</li>
 <li><a href="function.pcntl-strerror.html" class="index">pcntl_strerror</a> - Retrieve the system error message associated with the given errno</li>
+<li><a href="function.pcntl-unshare.html" class="index">pcntl_unshare</a> - Dissociates parts of the process execution context</li>
 <li><a href="function.pcntl-wait.html" class="index">pcntl_wait</a> - Waits on or returns the status of a forked child</li>
 <li><a href="function.pcntl-waitpid.html" class="index">pcntl_waitpid</a> - Waits on or returns the status of a forked child</li>
 <li><a href="function.pcntl-wexitstatus.html" class="index">pcntl_wexitstatus</a> - Returns the return code of a terminated child</li>
@@ -5198,43 +5279,6 @@
 <li><a href="php-user-filter.filter.html" class="index">php_user_filter::filter</a> - Called when applying the filter</li>
 <li><a href="php-user-filter.onclose.html" class="index">php_user_filter::onClose</a> - Called when closing the filter</li>
 <li><a href="php-user-filter.oncreate.html" class="index">php_user_filter::onCreate</a> - Called when creating the filter</li>
-<li><a href="pht-atomicinteger.dec.html" class="index">pht\AtomicInteger::dec</a> - Decrements the atomic integer's value by one</li>
-<li><a href="pht-atomicinteger.get.html" class="index">pht\AtomicInteger::get</a> - Gets the atomic integer's value</li>
-<li><a href="pht-atomicinteger.inc.html" class="index">pht\AtomicInteger::inc</a> - Increments the atomic integer's value by one</li>
-<li><a href="pht-atomicinteger.lock.html" class="index">pht\AtomicInteger::lock</a> - Acquires the atomic integer's mutex lock</li>
-<li><a href="pht-atomicinteger.set.html" class="index">pht\AtomicInteger::set</a> - Sets the atomic integer's value</li>
-<li><a href="pht-atomicinteger.unlock.html" class="index">pht\AtomicInteger::unlock</a> - Releases the atomic integer's mutex lock</li>
-<li><a href="pht-atomicinteger.construct.html" class="index">pht\AtomicInteger::__construct</a> - AtomicInteger creation</li>
-<li><a href="pht-hashtable.lock.html" class="index">pht\HashTable::lock</a> - Acquires the hash table's mutex lock</li>
-<li><a href="pht-hashtable.size.html" class="index">pht\HashTable::size</a> - Gets the size of the hash table</li>
-<li><a href="pht-hashtable.unlock.html" class="index">pht\HashTable::unlock</a> - Releases the hash table's mutex lock</li>
-<li><a href="pht-queue.front.html" class="index">pht\Queue::front</a> - Returns the first value from a queue</li>
-<li><a href="pht-queue.lock.html" class="index">pht\Queue::lock</a> - Acquires the queue's mutex lock</li>
-<li><a href="pht-queue.pop.html" class="index">pht\Queue::pop</a> - Pops a value off of the front of a queue</li>
-<li><a href="pht-queue.push.html" class="index">pht\Queue::push</a> - Pushes a value to the end of a queue</li>
-<li><a href="pht-queue.size.html" class="index">pht\Queue::size</a> - Gets the size of the queue</li>
-<li><a href="pht-queue.unlock.html" class="index">pht\Queue::unlock</a> - Releases the queue's mutex lock</li>
-<li><a href="pht-runnable.run.html" class="index">pht\Runnable::run</a> - The entry point of a threaded class</li>
-<li><a href="pht-thread.addClassTask.html" class="index">pht\Thread::addClassTask</a> - Class threading</li>
-<li><a href="pht-thread.addFileTask.html" class="index">pht\Thread::addFileTask</a> - File threading</li>
-<li><a href="pht-thread.addFunctionTask.html" class="index">pht\Thread::addFunctionTask</a> - Function threading</li>
-<li><a href="pht-thread.join.html" class="index">pht\Thread::join</a> - Joins a thread</li>
-<li><a href="pht-thread.start.html" class="index">pht\Thread::start</a> - Starts the new thread</li>
-<li><a href="pht-thread.taskCount.html" class="index">pht\Thread::taskCount</a> - Gets a thread's task count</li>
-<li><a href="pht-threaded.lock.html" class="index">pht\Threaded::lock</a> - Acquires the mutex lock</li>
-<li><a href="pht-threaded.unlock.html" class="index">pht\Threaded::unlock</a> - Releases the mutex lock</li>
-<li><a href="pht-vector.deleteAt.html" class="index">pht\Vector::deleteAt</a> - Deletes a value in the vector</li>
-<li><a href="pht-vector.insertAt.html" class="index">pht\Vector::insertAt</a> - Inserts a value into the vector</li>
-<li><a href="pht-vector.lock.html" class="index">pht\Vector::lock</a> - Acquires the vector's mutex lock</li>
-<li><a href="pht-vector.pop.html" class="index">pht\Vector::pop</a> - Pops a value to the vector</li>
-<li><a href="pht-vector.push.html" class="index">pht\Vector::push</a> - Pushes a value to the vector</li>
-<li><a href="pht-vector.resize.html" class="index">pht\Vector::resize</a> - Resizes a vector</li>
-<li><a href="pht-vector.shift.html" class="index">pht\Vector::shift</a> - Shifts a value from the vector</li>
-<li><a href="pht-vector.size.html" class="index">pht\Vector::size</a> - Gets the size of the vector</li>
-<li><a href="pht-vector.unlock.html" class="index">pht\Vector::unlock</a> - Releases the vector's mutex lock</li>
-<li><a href="pht-vector.unshift.html" class="index">pht\Vector::unshift</a> - Unshifts a value to the vector front</li>
-<li><a href="pht-vector.updateAt.html" class="index">pht\Vector::updateAt</a> - Updates a value in the vector</li>
-<li><a href="pht-vector.construct.html" class="index">pht\Vector::__construct</a> - Vector creation</li>
 <li><a href="function.pi.html" class="index">pi</a> - Get value of pi</li>
 <li><a href="function.png2wbmp.html" class="index">png2wbmp</a> - Convert PNG image file to WBMP image file</li>
 <li><a href="pool.collect.html" class="index">Pool::collect</a> - Collect references to completed tasks</li>
@@ -5405,6 +5449,54 @@
 <li><a href="function.putenv.html" class="index">putenv</a> - Sets the value of an environment variable</li>
 </ul></li>
 <li class='gen-index index-for-q'>q<ul id='refentry-index-for-q'>
+<li><a href="quickhashinthash.add.html" class="index">QuickHashIntHash::add</a> - This method adds a new entry to the hash</li>
+<li><a href="quickhashinthash.delete.html" class="index">QuickHashIntHash::delete</a> - This method deletes an entry from the hash</li>
+<li><a href="quickhashinthash.exists.html" class="index">QuickHashIntHash::exists</a> - This method checks whether a key is part of the hash</li>
+<li><a href="quickhashinthash.get.html" class="index">QuickHashIntHash::get</a> - This method retrieves a value from the hash by its key</li>
+<li><a href="quickhashinthash.getsize.html" class="index">QuickHashIntHash::getSize</a> - Returns the number of elements in the hash</li>
+<li><a href="quickhashinthash.loadfromfile.html" class="index">QuickHashIntHash::loadFromFile</a> - This factory method creates a hash from a file</li>
+<li><a href="quickhashinthash.loadfromstring.html" class="index">QuickHashIntHash::loadFromString</a> - This factory method creates a hash from a string</li>
+<li><a href="quickhashinthash.savetofile.html" class="index">QuickHashIntHash::saveToFile</a> - This method stores an in-memory hash to disk</li>
+<li><a href="quickhashinthash.savetostring.html" class="index">QuickHashIntHash::saveToString</a> - This method returns a serialized version of the hash</li>
+<li><a href="quickhashinthash.set.html" class="index">QuickHashIntHash::set</a> - This method updates an entry in the hash with a new value, or
+  adds a new one if the entry doesn't exist</li>
+<li><a href="quickhashinthash.update.html" class="index">QuickHashIntHash::update</a> - This method updates an entry in the hash with a new value</li>
+<li><a href="quickhashinthash.construct.html" class="index">QuickHashIntHash::__construct</a> - Creates a new QuickHashIntHash object</li>
+<li><a href="quickhashintset.add.html" class="index">QuickHashIntSet::add</a> - This method adds a new entry to the set</li>
+<li><a href="quickhashintset.delete.html" class="index">QuickHashIntSet::delete</a> - This method deletes an entry from the set</li>
+<li><a href="quickhashintset.exists.html" class="index">QuickHashIntSet::exists</a> - This method checks whether a key is part of the set</li>
+<li><a href="quickhashintset.getsize.html" class="index">QuickHashIntSet::getSize</a> - Returns the number of elements in the set</li>
+<li><a href="quickhashintset.loadfromfile.html" class="index">QuickHashIntSet::loadFromFile</a> - This factory method creates a set from a file</li>
+<li><a href="quickhashintset.loadfromstring.html" class="index">QuickHashIntSet::loadFromString</a> - This factory method creates a set from a string</li>
+<li><a href="quickhashintset.savetofile.html" class="index">QuickHashIntSet::saveToFile</a> - This method stores an in-memory set to disk</li>
+<li><a href="quickhashintset.savetostring.html" class="index">QuickHashIntSet::saveToString</a> - This method returns a serialized version of the set</li>
+<li><a href="quickhashintset.construct.html" class="index">QuickHashIntSet::__construct</a> - Creates a new QuickHashIntSet object</li>
+<li><a href="quickhashintstringhash.add.html" class="index">QuickHashIntStringHash::add</a> - This method adds a new entry to the hash</li>
+<li><a href="quickhashintstringhash.delete.html" class="index">QuickHashIntStringHash::delete</a> - This method deletes an entry from the hash</li>
+<li><a href="quickhashintstringhash.exists.html" class="index">QuickHashIntStringHash::exists</a> - This method checks whether a key is part of the hash</li>
+<li><a href="quickhashintstringhash.get.html" class="index">QuickHashIntStringHash::get</a> - This method retrieves a value from the hash by its key</li>
+<li><a href="quickhashintstringhash.getsize.html" class="index">QuickHashIntStringHash::getSize</a> - Returns the number of elements in the hash</li>
+<li><a href="quickhashintstringhash.loadfromfile.html" class="index">QuickHashIntStringHash::loadFromFile</a> - This factory method creates a hash from a file</li>
+<li><a href="quickhashintstringhash.loadfromstring.html" class="index">QuickHashIntStringHash::loadFromString</a> - This factory method creates a hash from a string</li>
+<li><a href="quickhashintstringhash.savetofile.html" class="index">QuickHashIntStringHash::saveToFile</a> - This method stores an in-memory hash to disk</li>
+<li><a href="quickhashintstringhash.savetostring.html" class="index">QuickHashIntStringHash::saveToString</a> - This method returns a serialized version of the hash</li>
+<li><a href="quickhashintstringhash.set.html" class="index">QuickHashIntStringHash::set</a> - This method updates an entry in the hash with a new value, or
+  adds a new one if the entry doesn't exist</li>
+<li><a href="quickhashintstringhash.update.html" class="index">QuickHashIntStringHash::update</a> - This method updates an entry in the hash with a new value</li>
+<li><a href="quickhashintstringhash.construct.html" class="index">QuickHashIntStringHash::__construct</a> - Creates a new QuickHashIntStringHash object</li>
+<li><a href="quickhashstringinthash.add.html" class="index">QuickHashStringIntHash::add</a> - This method adds a new entry to the hash</li>
+<li><a href="quickhashstringinthash.delete.html" class="index">QuickHashStringIntHash::delete</a> - This method deletes an entry from the hash</li>
+<li><a href="quickhashstringinthash.exists.html" class="index">QuickHashStringIntHash::exists</a> - This method checks whether a key is part of the hash</li>
+<li><a href="quickhashstringinthash.get.html" class="index">QuickHashStringIntHash::get</a> - This method retrieves a value from the hash by its key</li>
+<li><a href="quickhashstringinthash.getsize.html" class="index">QuickHashStringIntHash::getSize</a> - Returns the number of elements in the hash</li>
+<li><a href="quickhashstringinthash.loadfromfile.html" class="index">QuickHashStringIntHash::loadFromFile</a> - This factory method creates a hash from a file</li>
+<li><a href="quickhashstringinthash.loadfromstring.html" class="index">QuickHashStringIntHash::loadFromString</a> - This factory method creates a hash from a string</li>
+<li><a href="quickhashstringinthash.savetofile.html" class="index">QuickHashStringIntHash::saveToFile</a> - This method stores an in-memory hash to disk</li>
+<li><a href="quickhashstringinthash.savetostring.html" class="index">QuickHashStringIntHash::saveToString</a> - This method returns a serialized version of the hash</li>
+<li><a href="quickhashstringinthash.set.html" class="index">QuickHashStringIntHash::set</a> - This method updates an entry in the hash with a new value, or
+  adds a new one if the entry doesn't exist</li>
+<li><a href="quickhashstringinthash.update.html" class="index">QuickHashStringIntHash::update</a> - This method updates an entry in the hash with a new value</li>
+<li><a href="quickhashstringinthash.construct.html" class="index">QuickHashStringIntHash::__construct</a> - Creates a new QuickHashStringIntHash object</li>
 <li><a href="function.quoted-printable-decode.html" class="index">quoted_printable_decode</a> - Convert a quoted-printable string to an 8 bit string</li>
 <li><a href="function.quoted-printable-encode.html" class="index">quoted_printable_encode</a> - Convert a 8 bit string to a quoted-printable string</li>
 <li><a href="function.quotemeta.html" class="index">quotemeta</a> - Quote meta characters</li>
@@ -5440,8 +5532,37 @@
 <li><a href="function.radius-server-secret.html" class="index">radius_server_secret</a> - Returns the shared secret</li>
 <li><a href="function.radius-strerror.html" class="index">radius_strerror</a> - Returns an error message</li>
 <li><a href="function.rand.html" class="index">rand</a> - Generate a random integer</li>
-<li><a href="function.random-bytes.html" class="index">random_bytes</a> - Generates cryptographically secure pseudo-random bytes</li>
-<li><a href="function.random-int.html" class="index">random_int</a> - Generates cryptographically secure pseudo-random integers</li>
+<li><a href="random-engine.generate.html" class="index">Random\Engine::generate</a> - Generates randomness</li>
+<li><a href="random-engine-mt19937.generate.html" class="index">Random\Engine\Mt19937::generate</a> - Generate 32 bits of randomness</li>
+<li><a href="random-engine-mt19937.construct.html" class="index">Random\Engine\Mt19937::__construct</a> - Constructs a new Mt19937 engine</li>
+<li><a href="random-engine-mt19937.debuginfo.html" class="index">Random\Engine\Mt19937::__debugInfo</a> - Returns the internal state of the engine</li>
+<li><a href="random-engine-mt19937.serialize.html" class="index">Random\Engine\Mt19937::__serialize</a> - Serializes the Mt19937 object</li>
+<li><a href="random-engine-mt19937.unserialize.html" class="index">Random\Engine\Mt19937::__unserialize</a> - Deserializes the data parameter into a Mt19937 object</li>
+<li><a href="random-engine-pcgoneseq128xslrr64.generate.html" class="index">Random\Engine\PcgOneseq128XslRr64::generate</a> - Generate 64 bits of randomness</li>
+<li><a href="random-engine-pcgoneseq128xslrr64.jump.html" class="index">Random\Engine\PcgOneseq128XslRr64::jump</a> - Efficiently move the engine ahead multiple steps</li>
+<li><a href="random-engine-pcgoneseq128xslrr64.construct.html" class="index">Random\Engine\PcgOneseq128XslRr64::__construct</a> - Constructs a new PCG Oneseq 128 XSL RR 64 engine</li>
+<li><a href="random-engine-pcgoneseq128xslrr64.debuginfo.html" class="index">Random\Engine\PcgOneseq128XslRr64::__debugInfo</a> - Returns the internal state of the engine</li>
+<li><a href="random-engine-pcgoneseq128xslrr64.serialize.html" class="index">Random\Engine\PcgOneseq128XslRr64::__serialize</a> - Serializes the PcgOneseq128XslRr64 object</li>
+<li><a href="random-engine-pcgoneseq128xslrr64.unserialize.html" class="index">Random\Engine\PcgOneseq128XslRr64::__unserialize</a> - Deserializes the data parameter into a PcgOneseq128XslRr64 object</li>
+<li><a href="random-engine-secure.generate.html" class="index">Random\Engine\Secure::generate</a> - Generate cryptographically secure randomness</li>
+<li><a href="random-engine-xoshiro256starstar.generate.html" class="index">Random\Engine\Xoshiro256StarStar::generate</a> - Generate 64 bits of randomness</li>
+<li><a href="random-engine-xoshiro256starstar.jump.html" class="index">Random\Engine\Xoshiro256StarStar::jump</a> - Efficiently move the engine ahead by 2^128 steps</li>
+<li><a href="random-engine-xoshiro256starstar.jumplong.html" class="index">Random\Engine\Xoshiro256StarStar::jumpLong</a> - Efficiently move the engine ahead by 2^192 steps</li>
+<li><a href="random-engine-xoshiro256starstar.construct.html" class="index">Random\Engine\Xoshiro256StarStar::__construct</a> - Constructs a new xoshiro256** engine</li>
+<li><a href="random-engine-xoshiro256starstar.debuginfo.html" class="index">Random\Engine\Xoshiro256StarStar::__debugInfo</a> - Returns the internal state of the engine</li>
+<li><a href="random-engine-xoshiro256starstar.serialize.html" class="index">Random\Engine\Xoshiro256StarStar::__serialize</a> - Serializes the Xoshiro256StarStar object</li>
+<li><a href="random-engine-xoshiro256starstar.unserialize.html" class="index">Random\Engine\Xoshiro256StarStar::__unserialize</a> - Deserializes the data parameter into a Xoshiro256StarStar object</li>
+<li><a href="random-randomizer.getbytes.html" class="index">Random\Randomizer::getBytes</a> - Get random bytes</li>
+<li><a href="random-randomizer.getint.html" class="index">Random\Randomizer::getInt</a> - Get a uniformly selected integer</li>
+<li><a href="random-randomizer.nextint.html" class="index">Random\Randomizer::nextInt</a> - Get a positive integer</li>
+<li><a href="random-randomizer.pickarraykeys.html" class="index">Random\Randomizer::pickArrayKeys</a> - Select random array keys</li>
+<li><a href="random-randomizer.shufflearray.html" class="index">Random\Randomizer::shuffleArray</a> - Get a permutation of an array</li>
+<li><a href="random-randomizer.shufflebytes.html" class="index">Random\Randomizer::shuffleBytes</a> - Get a byte-wise permutation of a string</li>
+<li><a href="random-randomizer.construct.html" class="index">Random\Randomizer::__construct</a> - Constructs a new Randomizer</li>
+<li><a href="random-randomizer.serialize.html" class="index">Random\Randomizer::__serialize</a> - Serializes the Randomizer object</li>
+<li><a href="random-randomizer.unserialize.html" class="index">Random\Randomizer::__unserialize</a> - Deserializes the data parameter into a Randomizer object</li>
+<li><a href="function.random-bytes.html" class="index">random_bytes</a> - Get cryptographically secure random bytes</li>
+<li><a href="function.random-int.html" class="index">random_int</a> - Get a cryptographically secure, uniformly selected integer</li>
 <li><a href="function.range.html" class="index">range</a> - Create an array containing a range of elements</li>
 <li><a href="wrappers.rar.html" class="index">rar://</a> - RAR</li>
 <li><a href="rararchive.close.html" class="index">RarArchive::close</a> - Close RAR archive and free all resources</li>
@@ -5561,7 +5682,7 @@
 <li><a href="reflectionattribute.getarguments.html" class="index">ReflectionAttribute::getArguments</a> - Gets arguments passed to attribute</li>
 <li><a href="reflectionattribute.getname.html" class="index">ReflectionAttribute::getName</a> - Gets attribute name</li>
 <li><a href="reflectionattribute.gettarget.html" class="index">ReflectionAttribute::getTarget</a> - Returns the target of the attribute as bitmask</li>
-<li><a href="reflectionattribute.isrepeated.html" class="index">ReflectionAttribute::isRepeated</a> - Returns whether the attribute of this name could occur repeatedly on a code element</li>
+<li><a href="reflectionattribute.isrepeated.html" class="index">ReflectionAttribute::isRepeated</a> - Returns whether the attribute of this name has been repeated on a code element</li>
 <li><a href="reflectionattribute.newinstance.html" class="index">ReflectionAttribute::newInstance</a> - Instantiates the attribute class represented by this ReflectionAttribute class and arguments</li>
 <li><a href="reflectionattribute.construct.html" class="index">ReflectionAttribute::__construct</a> - Private constructor to disallow direct instantiation</li>
 <li><a href="reflectionclass.export.html" class="index">ReflectionClass::export</a> - Exports a class</li>
@@ -5602,6 +5723,7 @@
 <li><a href="reflectionclass.isabstract.html" class="index">ReflectionClass::isAbstract</a> - Checks if class is abstract</li>
 <li><a href="reflectionclass.isanonymous.html" class="index">ReflectionClass::isAnonymous</a> - Checks if class is anonymous</li>
 <li><a href="reflectionclass.iscloneable.html" class="index">ReflectionClass::isCloneable</a> - Returns whether this class is cloneable</li>
+<li><a href="reflectionclass.isenum.html" class="index">ReflectionClass::isEnum</a> - Returns whether this is an enum</li>
 <li><a href="reflectionclass.isfinal.html" class="index">ReflectionClass::isFinal</a> - Checks if class is final</li>
 <li><a href="reflectionclass.isinstance.html" class="index">ReflectionClass::isInstance</a> - Checks class for instance</li>
 <li><a href="reflectionclass.isinstantiable.html" class="index">ReflectionClass::isInstantiable</a> - Checks if the class is instantiable</li>
@@ -5609,6 +5731,7 @@
 <li><a href="reflectionclass.isinternal.html" class="index">ReflectionClass::isInternal</a> - Checks if class is defined internally by an extension, or the core</li>
 <li><a href="reflectionclass.isiterable.html" class="index">ReflectionClass::isIterable</a> - Check whether this class is iterable</li>
 <li><a href="reflectionclass.isiterateable.html" class="index">ReflectionClass::isIterateable</a> - Alias of ReflectionClass::isIterable</li>
+<li><a href="reflectionclass.isreadonly.html" class="index">ReflectionClass::isReadOnly</a> - Checks if class is readonly</li>
 <li><a href="reflectionclass.issubclassof.html" class="index">ReflectionClass::isSubclassOf</a> - Checks if a subclass</li>
 <li><a href="reflectionclass.istrait.html" class="index">ReflectionClass::isTrait</a> - Returns whether this is a trait</li>
 <li><a href="reflectionclass.isuserdefined.html" class="index">ReflectionClass::isUserDefined</a> - Checks if user defined</li>
@@ -5625,6 +5748,7 @@
 <li><a href="reflectionclassconstant.getmodifiers.html" class="index">ReflectionClassConstant::getModifiers</a> - Gets the class constant modifiers</li>
 <li><a href="reflectionclassconstant.getname.html" class="index">ReflectionClassConstant::getName</a> - Get name of the constant</li>
 <li><a href="reflectionclassconstant.getvalue.html" class="index">ReflectionClassConstant::getValue</a> - Gets value</li>
+<li><a href="reflectionclassconstant.isenumcase.html" class="index">ReflectionClassConstant::isEnumCase</a> - Checks if class constant is an Enum case</li>
 <li><a href="reflectionclassconstant.isfinal.html" class="index">ReflectionClassConstant::isFinal</a> - Checks if class constant is final</li>
 <li><a href="reflectionclassconstant.isprivate.html" class="index">ReflectionClassConstant::isPrivate</a> - Checks if class constant is private</li>
 <li><a href="reflectionclassconstant.isprotected.html" class="index">ReflectionClassConstant::isProtected</a> - Checks if class constant is protected</li>
@@ -5667,12 +5791,14 @@
 <li><a href="reflectionfunction.getclosure.html" class="index">ReflectionFunction::getClosure</a> - Returns a dynamically created closure for the function</li>
 <li><a href="reflectionfunction.invoke.html" class="index">ReflectionFunction::invoke</a> - Invokes function</li>
 <li><a href="reflectionfunction.invokeargs.html" class="index">ReflectionFunction::invokeArgs</a> - Invokes function args</li>
+<li><a href="reflectionfunction.isanonymous.html" class="index">ReflectionFunction::isAnonymous</a> - Checks if a function is anonymous</li>
 <li><a href="reflectionfunction.isdisabled.html" class="index">ReflectionFunction::isDisabled</a> - Checks if function is disabled</li>
 <li><a href="reflectionfunction.construct.html" class="index">ReflectionFunction::__construct</a> - Constructs a ReflectionFunction object</li>
 <li><a href="reflectionfunction.tostring.html" class="index">ReflectionFunction::__toString</a> - To string</li>
 <li><a href="reflectionfunctionabstract.getattributes.html" class="index">ReflectionFunctionAbstract::getAttributes</a> - Gets Attributes</li>
 <li><a href="reflectionfunctionabstract.getclosurescopeclass.html" class="index">ReflectionFunctionAbstract::getClosureScopeClass</a> - Returns the scope associated to the closure</li>
 <li><a href="reflectionfunctionabstract.getclosurethis.html" class="index">ReflectionFunctionAbstract::getClosureThis</a> - Returns this pointer bound to closure</li>
+<li><a href="reflectionfunctionabstract.getclosureusedvariables.html" class="index">ReflectionFunctionAbstract::getClosureUsedVariables</a> - Returns an array of the used variables in the Closure</li>
 <li><a href="reflectionfunctionabstract.getdoccomment.html" class="index">ReflectionFunctionAbstract::getDocComment</a> - Gets doc comment</li>
 <li><a href="reflectionfunctionabstract.getendline.html" class="index">ReflectionFunctionAbstract::getEndLine</a> - Gets end line number</li>
 <li><a href="reflectionfunctionabstract.getextension.html" class="index">ReflectionFunctionAbstract::getExtension</a> - Gets extension info</li>
@@ -5687,12 +5813,15 @@
 <li><a href="reflectionfunctionabstract.getshortname.html" class="index">ReflectionFunctionAbstract::getShortName</a> - Gets function short name</li>
 <li><a href="reflectionfunctionabstract.getstartline.html" class="index">ReflectionFunctionAbstract::getStartLine</a> - Gets starting line number</li>
 <li><a href="reflectionfunctionabstract.getstaticvariables.html" class="index">ReflectionFunctionAbstract::getStaticVariables</a> - Gets static variables</li>
+<li><a href="reflectionfunctionabstract.gettentativereturntype.html" class="index">ReflectionFunctionAbstract::getTentativeReturnType</a> - Returns the tentative return type associated with the function</li>
 <li><a href="reflectionfunctionabstract.hasreturntype.html" class="index">ReflectionFunctionAbstract::hasReturnType</a> - Checks if the function has a specified return type</li>
+<li><a href="reflectionfunctionabstract.hastentativereturntype.html" class="index">ReflectionFunctionAbstract::hasTentativeReturnType</a> - Returns whether the function has a tentative return type</li>
 <li><a href="reflectionfunctionabstract.innamespace.html" class="index">ReflectionFunctionAbstract::inNamespace</a> - Checks if function in namespace</li>
 <li><a href="reflectionfunctionabstract.isclosure.html" class="index">ReflectionFunctionAbstract::isClosure</a> - Checks if closure</li>
 <li><a href="reflectionfunctionabstract.isdeprecated.html" class="index">ReflectionFunctionAbstract::isDeprecated</a> - Checks if deprecated</li>
 <li><a href="reflectionfunctionabstract.isgenerator.html" class="index">ReflectionFunctionAbstract::isGenerator</a> - Returns whether this function is a generator</li>
 <li><a href="reflectionfunctionabstract.isinternal.html" class="index">ReflectionFunctionAbstract::isInternal</a> - Checks if is internal</li>
+<li><a href="reflectiofunctionabstract.isstatic.html" class="index">ReflectionFunctionAbstract::isStatic</a> - Checks if the function is static</li>
 <li><a href="reflectionfunctionabstract.isuserdefined.html" class="index">ReflectionFunctionAbstract::isUserDefined</a> - Checks if user defined</li>
 <li><a href="reflectionfunctionabstract.isvariadic.html" class="index">ReflectionFunctionAbstract::isVariadic</a> - Checks if the function is variadic</li>
 <li><a href="reflectionfunctionabstract.returnsreference.html" class="index">ReflectionFunctionAbstract::returnsReference</a> - Checks if returns reference</li>
@@ -5711,6 +5840,7 @@
 <li><a href="reflectionmethod.getdeclaringclass.html" class="index">ReflectionMethod::getDeclaringClass</a> - Gets declaring class for the reflected method</li>
 <li><a href="reflectionmethod.getmodifiers.html" class="index">ReflectionMethod::getModifiers</a> - Gets the method modifiers</li>
 <li><a href="reflectionmethod.getprototype.html" class="index">ReflectionMethod::getPrototype</a> - Gets the method prototype (if there is one)</li>
+<li><a href="reflectionmethod.hasprototype.html" class="index">ReflectionMethod::hasPrototype</a> - Returns whether a method has a prototype</li>
 <li><a href="reflectionmethod.invoke.html" class="index">ReflectionMethod::invoke</a> - Invoke</li>
 <li><a href="reflectionmethod.invokeargs.html" class="index">ReflectionMethod::invokeArgs</a> - Invoke args</li>
 <li><a href="reflectionmethod.isabstract.html" class="index">ReflectionMethod::isAbstract</a> - Checks if method is abstract</li>
@@ -5720,7 +5850,6 @@
 <li><a href="reflectionmethod.isprivate.html" class="index">ReflectionMethod::isPrivate</a> - Checks if method is private</li>
 <li><a href="reflectionmethod.isprotected.html" class="index">ReflectionMethod::isProtected</a> - Checks if method is protected</li>
 <li><a href="reflectionmethod.ispublic.html" class="index">ReflectionMethod::isPublic</a> - Checks if method is public</li>
-<li><a href="reflectionmethod.isstatic.html" class="index">ReflectionMethod::isStatic</a> - Checks if method is static</li>
 <li><a href="reflectionmethod.setaccessible.html" class="index">ReflectionMethod::setAccessible</a> - Set method accessibility</li>
 <li><a href="reflectionmethod.construct.html" class="index">ReflectionMethod::__construct</a> - Constructs a ReflectionMethod</li>
 <li><a href="reflectionmethod.tostring.html" class="index">ReflectionMethod::__toString</a> - Returns the string representation of the Reflection method object</li>
@@ -5791,7 +5920,6 @@
 <li><a href="reflectionzendextension.construct.html" class="index">ReflectionZendExtension::__construct</a> - Constructor</li>
 <li><a href="reflectionzendextension.tostring.html" class="index">ReflectionZendExtension::__toString</a> - To string handler</li>
 <li><a href="reflector.export.html" class="index">Reflector::export</a> - Exports</li>
-<li><a href="reflector.tostring.html" class="index">Reflector::__toString</a> - To string</li>
 <li><a href="regexiterator.accept.html" class="index">RegexIterator::accept</a> - Get accept status</li>
 <li><a href="regexiterator.getflags.html" class="index">RegexIterator::getFlags</a> - Get flags</li>
 <li><a href="regexiterator.getmode.html" class="index">RegexIterator::getMode</a> - Returns operation mode</li>
@@ -5820,9 +5948,43 @@
 <li><a href="mysql-xdevapi-result.getwarnings.html" class="index">Result::getWarnings</a> - Get warnings from last operation</li>
 <li><a href="mysql-xdevapi-result.getwarningscount.html" class="index">Result::getWarningsCount</a> - Get warning count from last operation</li>
 <li><a href="mysql-xdevapi-result.construct.html" class="index">Result::__construct</a> - Result constructor</li>
+<li><a href="returntypewillchange.construct.html" class="index">ReturnTypeWillChange::__construct</a> - Construct a new ReturnTypeWillChange attribute instance</li>
 <li><a href="function.rewind.html" class="index">rewind</a> - Rewind the position of a file pointer</li>
 <li><a href="function.rewinddir.html" class="index">rewinddir</a> - Rewind directory handle</li>
 <li><a href="function.rmdir.html" class="index">rmdir</a> - Removes directory</li>
+<li><a href="function.rnp-backend-string.html" class="index">rnp_backend_string</a> - Return cryptographic backend library name</li>
+<li><a href="function.rnp-backend-version.html" class="index">rnp_backend_version</a> - Return cryptographic backend library version</li>
+<li><a href="function.rnp-decrypt.html" class="index">rnp_decrypt</a> - Decrypt PGP message</li>
+<li><a href="function.rnp-dump-packets.html" class="index">rnp_dump_packets</a> - Dump OpenPGP packets stream information in humand-readable format</li>
+<li><a href="function.rnp-dump-packets-to-json.html" class="index">rnp_dump_packets_to_json</a> - Dump OpenPGP packets stream information to the JSON string</li>
+<li><a href="function.rnp-ffi-create.html" class="index">rnp_ffi_create</a> - Create the top-level object used for interacting with the library</li>
+<li><a href="function.rnp-ffi-destroy.html" class="index">rnp_ffi_destroy</a> - Destroy the top-level object used for interacting with the library</li>
+<li><a href="function.rnp-ffi-set-pass-provider.html" class="index">rnp_ffi_set_pass_provider</a> - Set password provider callback function</li>
+<li><a href="function.rnp-import-keys.html" class="index">rnp_import_keys</a> - Import keys from PHP string to the keyring and receive JSON describing new/updated keys</li>
+<li><a href="function.rnp-import-signatures.html" class="index">rnp_import_signatures</a> - Import standalone signatures to the keyring and receive JSON describing updated keys</li>
+<li><a href="function.rnp-key-export.html" class="index">rnp_key_export</a> - Export a key</li>
+<li><a href="function.rnp-key-export-autocrypt.html" class="index">rnp_key_export_autocrypt</a> - Export minimal key for autocrypt feature (just 5 packets: key, uid, signature,
+   encryption subkey, signature)</li>
+<li><a href="function.rnp-key-export-revocation.html" class="index">rnp_key_export_revocation</a> - Generate and export primary key revocation signature</li>
+<li><a href="function.rnp-key-get-info.html" class="index">rnp_key_get_info</a> - Get information about the key</li>
+<li><a href="function.rnp-key-remove.html" class="index">rnp_key_remove</a> - Remove a key from keyring(s)</li>
+<li><a href="function.rnp-key-revoke.html" class="index">rnp_key_revoke</a> - Revoke a key or subkey by generating and adding revocation signature</li>
+<li><a href="function.rnp-list-keys.html" class="index">rnp_list_keys</a> - Enumerate all keys present in a keyring by specified identifer type</li>
+<li><a href="function.rnp-load-keys.html" class="index">rnp_load_keys</a> - Load keys from PHP string</li>
+<li><a href="function.rnp-load-keys-from-path.html" class="index">rnp_load_keys_from_path</a> - Load keys from specified path</li>
+<li><a href="function.rnp-locate-key.html" class="index">rnp_locate_key</a> - Search for the key</li>
+<li><a href="function.rnp-op-encrypt.html" class="index">rnp_op_encrypt</a> - Encrypt message</li>
+<li><a href="function.rnp-op-generate-key.html" class="index">rnp_op_generate_key</a> - Generate key</li>
+<li><a href="function.rnp-op-sign.html" class="index">rnp_op_sign</a> - Perform signing operation on a binary data, return embedded signature(s)</li>
+<li><a href="function.rnp-op-sign-cleartext.html" class="index">rnp_op_sign_cleartext</a> - Perform signing operation on a textual data, return cleartext signed message</li>
+<li><a href="function.rnp-op-sign-detached.html" class="index">rnp_op_sign_detached</a> - Perform signing operation, return detached signature(s)</li>
+<li><a href="function.rnp-op-verify.html" class="index">rnp_op_verify</a> - Verify embedded or cleartext signatures</li>
+<li><a href="function.rnp-op-verify-detached.html" class="index">rnp_op_verify_detached</a> - Verify detached signatures</li>
+<li><a href="function.rnp-save-keys.html" class="index">rnp_save_keys</a> - Save keys to PHP string</li>
+<li><a href="function.rnp-save-keys-to-path.html" class="index">rnp_save_keys_to_path</a> - Save keys to specified path</li>
+<li><a href="function.rnp-supported-features.html" class="index">rnp_supported_features</a> - Get supported features in JSON format</li>
+<li><a href="function.rnp-version-string.html" class="index">rnp_version_string</a> - RNP library version</li>
+<li><a href="function.rnp-version-string-full.html" class="index">rnp_version_string_full</a> - Full version string of RNP library</li>
 <li><a href="function.round.html" class="index">round</a> - Rounds a float</li>
 <li><a href="mysql-xdevapi-rowresult.fetchall.html" class="index">RowResult::fetchAll</a> - Get all rows from result</li>
 <li><a href="mysql-xdevapi-rowresult.fetchone.html" class="index">RowResult::fetchOne</a> - Get row from result</li>
@@ -5939,6 +6101,10 @@
 <li><a href="function.sem-get.html" class="index">sem_get</a> - Get a semaphore id</li>
 <li><a href="function.sem-release.html" class="index">sem_release</a> - Release a semaphore</li>
 <li><a href="function.sem-remove.html" class="index">sem_remove</a> - Remove a semaphore</li>
+<li><a href="sensitiveparameter.construct.html" class="index">SensitiveParameter::__construct</a> - Construct a new SensitiveParameter attribute instance</li>
+<li><a href="sensitiveparametervalue.getvalue.html" class="index">SensitiveParameterValue::getValue</a> - Returns the sensitive value</li>
+<li><a href="sensitiveparametervalue.construct.html" class="index">SensitiveParameterValue::__construct</a> - Constructs a new SensitiveParameterValue object</li>
+<li><a href="sensitiveparametervalue.debuginfo.html" class="index">SensitiveParameterValue::__debugInfo</a> - Protects the sensitive value against accidental exposure</li>
 <li><a href="serializable.serialize.html" class="index">Serializable::serialize</a> - String representation of object</li>
 <li><a href="serializable.unserialize.html" class="index">Serializable::unserialize</a> - Constructs the object</li>
 <li><a href="function.serialize.html" class="index">serialize</a> - Generates a storable representation of a value</li>
@@ -6025,6 +6191,11 @@
 <li><a href="function.shm-remove-var.html" class="index">shm_remove_var</a> - Removes a variable from shared memory</li>
 <li><a href="function.show-source.html" class="index">show_source</a> - Alias of highlight_file</li>
 <li><a href="function.shuffle.html" class="index">shuffle</a> - Shuffle an array</li>
+<li><a href="function.simdjson-decode.html" class="index">simdjson_decode</a> - Decodes a JSON string</li>
+<li><a href="function.simdjson-is-valid.html" class="index">simdjson_is_valid</a> - Check if a JSON string is valid</li>
+<li><a href="function.simdjson-key-count.html" class="index">simdjson_key_count</a> - Returns the value at a JSON pointer.</li>
+<li><a href="function.simdjson-key-exists.html" class="index">simdjson_key_exists</a> - Check if the JSON contains the value referred to by a JSON pointer.</li>
+<li><a href="function.simdjson-key-value.html" class="index">simdjson_key_value</a> - Decodes the value of a JSON string located at the requested JSON pointer.</li>
 <li><a href="function.similar-text.html" class="index">similar_text</a> - Calculate the similarity between two strings</li>
 <li><a href="simplexmlelement.addattribute.html" class="index">SimpleXMLElement::addAttribute</a> - Adds an attribute to the SimpleXML element</li>
 <li><a href="simplexmlelement.addchild.html" class="index">SimpleXMLElement::addChild</a> - Adds a child element to the XML node</li>
@@ -6084,7 +6255,7 @@
 <li><a href="function.snmp-get-valueretrieval.html" class="index">snmp_get_valueretrieval</a> - Return the method how the SNMP values will be returned</li>
 <li><a href="function.snmp-read-mib.html" class="index">snmp_read_mib</a> - Reads and parses a MIB file into the active MIB tree</li>
 <li><a href="function.snmp-set-enum-print.html" class="index">snmp_set_enum_print</a> - Return all values that are enums with their enum value instead of the raw integer</li>
-<li><a href="function.snmp-set-oid-numeric-print.html" class="index">snmp_set_oid_numeric_print</a> - Set the OID output format</li>
+<li><a href="function.snmp-set-oid-numeric-print.html" class="index">snmp_set_oid_numeric_print</a> - Alias of snmp_set_oid_output_format</li>
 <li><a href="function.snmp-set-oid-output-format.html" class="index">snmp_set_oid_output_format</a> - Set the OID output format</li>
 <li><a href="function.snmp-set-quick-print.html" class="index">snmp_set_quick_print</a> - Set the value of enable within the NET-SNMP library</li>
 <li><a href="function.snmp-set-valueretrieval.html" class="index">snmp_set_valueretrieval</a> - Specify the method how the SNMP values will be returned</li>
@@ -6190,6 +6361,19 @@
 <li><a href="function.sodium-crypto-box-seal-open.html" class="index">sodium_crypto_box_seal_open</a> - Anonymous public-key decryption</li>
 <li><a href="function.sodium-crypto-box-secretkey.html" class="index">sodium_crypto_box_secretkey</a> - Extracts the secret key from a crypto_box keypair</li>
 <li><a href="function.sodium-crypto-box-seed-keypair.html" class="index">sodium_crypto_box_seed_keypair</a> - Deterministically derive the key pair from a single key</li>
+<li><a href="function.sodium-crypto-core-ristretto255-add.html" class="index">sodium_crypto_core_ristretto255_add</a> - Adds an element</li>
+<li><a href="function.sodium-crypto-core-ristretto255-from-hash.html" class="index">sodium_crypto_core_ristretto255_from_hash</a> - Maps a vector</li>
+<li><a href="function.sodium-crypto-core-ristretto255-is-valid-point.html" class="index">sodium_crypto_core_ristretto255_is_valid_point</a> - Determines if a point on the ristretto255 curve</li>
+<li><a href="function.sodium-crypto-core-ristretto255-random.html" class="index">sodium_crypto_core_ristretto255_random</a> - Generates a random key</li>
+<li><a href="function.sodium-crypto-core-ristretto255-scalar-add.html" class="index">sodium_crypto_core_ristretto255_scalar_add</a> - Adds a scalar value</li>
+<li><a href="function.sodium-crypto-core-ristretto255-scalar-complement.html" class="index">sodium_crypto_core_ristretto255_scalar_complement</a> - The sodium_crypto_core_ristretto255_scalar_complement purpose</li>
+<li><a href="function.sodium-crypto-core-ristretto255-scalar-invert.html" class="index">sodium_crypto_core_ristretto255_scalar_invert</a> - Inverts a scalar value</li>
+<li><a href="function.sodium-crypto-core-ristretto255-scalar-mul.html" class="index">sodium_crypto_core_ristretto255_scalar_mul</a> - Multiplies a scalar value</li>
+<li><a href="function.sodium-crypto-core-ristretto255-scalar-negate.html" class="index">sodium_crypto_core_ristretto255_scalar_negate</a> - Negates a scalar value</li>
+<li><a href="function.sodium-crypto-core-ristretto255-scalar-random.html" class="index">sodium_crypto_core_ristretto255_scalar_random</a> - Generates a random key</li>
+<li><a href="function.sodium-crypto-core-ristretto255-scalar-reduce.html" class="index">sodium_crypto_core_ristretto255_scalar_reduce</a> - Reduces a scalar value</li>
+<li><a href="function.sodium-crypto-core-ristretto255-scalar-sub.html" class="index">sodium_crypto_core_ristretto255_scalar_sub</a> - Subtracts a scalar value</li>
+<li><a href="function.sodium-crypto-core-ristretto255-sub.html" class="index">sodium_crypto_core_ristretto255_sub</a> - Subtracts an element</li>
 <li><a href="function.sodium-crypto-generichash.html" class="index">sodium_crypto_generichash</a> - Get a hash of the message</li>
 <li><a href="function.sodium-crypto-generichash-final.html" class="index">sodium_crypto_generichash_final</a> - Complete the hash</li>
 <li><a href="function.sodium-crypto-generichash-init.html" class="index">sodium_crypto_generichash_init</a> - Initialize a hash for streaming</li>
@@ -6212,6 +6396,8 @@
 <li><a href="function.sodium-crypto-pwhash-str-verify.html" class="index">sodium_crypto_pwhash_str_verify</a> - Verifies that a password matches a hash</li>
 <li><a href="function.sodium-crypto-scalarmult.html" class="index">sodium_crypto_scalarmult</a> - Compute a shared secret given a user's secret key and another user's public key</li>
 <li><a href="function.sodium-crypto-scalarmult-base.html" class="index">sodium_crypto_scalarmult_base</a> - Alias of sodium_crypto_box_publickey_from_secretkey</li>
+<li><a href="function.sodium-crypto-scalarmult-ristretto255.html" class="index">sodium_crypto_scalarmult_ristretto255</a> - Computes a shared secret</li>
+<li><a href="function.sodium-crypto-scalarmult-ristretto255-base.html" class="index">sodium_crypto_scalarmult_ristretto255_base</a> - Calculates the public key from a secret key</li>
 <li><a href="function.sodium-crypto-secretbox.html" class="index">sodium_crypto_secretbox</a> - Authenticated shared-key encryption</li>
 <li><a href="function.sodium-crypto-secretbox-keygen.html" class="index">sodium_crypto_secretbox_keygen</a> - Generate random key for sodium_crypto_secretbox</li>
 <li><a href="function.sodium-crypto-secretbox-open.html" class="index">sodium_crypto_secretbox_open</a> - Authenticated shared-key decryption</li>
@@ -6237,6 +6423,10 @@
 <li><a href="function.sodium-crypto-sign-verify-detached.html" class="index">sodium_crypto_sign_verify_detached</a> - Verify signature for the message</li>
 <li><a href="function.sodium-crypto-stream.html" class="index">sodium_crypto_stream</a> - Generate a deterministic sequence of bytes from a seed</li>
 <li><a href="function.sodium-crypto-stream-keygen.html" class="index">sodium_crypto_stream_keygen</a> - Generate a random sodium_crypto_stream key.</li>
+<li><a href="function.sodium-crypto-stream-xchacha20.html" class="index">sodium_crypto_stream_xchacha20</a> - Expands the key and nonce into a keystream of pseudorandom bytes</li>
+<li><a href="function.sodium-crypto-stream-xchacha20-keygen.html" class="index">sodium_crypto_stream_xchacha20_keygen</a> - Returns a secure random key</li>
+<li><a href="function.sodium-crypto-stream-xchacha20-xor.html" class="index">sodium_crypto_stream_xchacha20_xor</a> - Encrypts a message using a nonce and a secret key (no authentication)</li>
+<li><a href="function.sodium-crypto-stream-xchacha20-xor-ic.html" class="index">sodium_crypto_stream_xchacha20_xor_ic</a> - Encrypts a message using a nonce and a secret key (no authentication)</li>
 <li><a href="function.sodium-crypto-stream-xor.html" class="index">sodium_crypto_stream_xor</a> - Encrypt a message without authentication</li>
 <li><a href="function.sodium-hex2bin.html" class="index">sodium_hex2bin</a> - Decodes a hexadecimally encoded binary string</li>
 <li><a href="function.sodium-increment.html" class="index">sodium_increment</a> - Increment large number</li>
@@ -6328,7 +6518,7 @@
 <li><a href="solrdocument.offsetget.html" class="index">SolrDocument::offsetGet</a> - Retrieves a field</li>
 <li><a href="solrdocument.offsetset.html" class="index">SolrDocument::offsetSet</a> - Adds a field to the document</li>
 <li><a href="solrdocument.offsetunset.html" class="index">SolrDocument::offsetUnset</a> - Removes a field</li>
-<li><a href="solrdocument.reset.html" class="index">SolrDocument::reset</a> - This is an alias to SolrDocument::clear()</li>
+<li><a href="solrdocument.reset.html" class="index">SolrDocument::reset</a> - Alias of SolrDocument::clear</li>
 <li><a href="solrdocument.rewind.html" class="index">SolrDocument::rewind</a> - Resets the internal pointer to the beginning</li>
 <li><a href="solrdocument.serialize.html" class="index">SolrDocument::serialize</a> - Used for custom serialization</li>
 <li><a href="solrdocument.sort.html" class="index">SolrDocument::sort</a> - Sorts the fields in the document</li>
@@ -6364,7 +6554,7 @@
 <li><a href="solrinputdocument.getfieldnames.html" class="index">SolrInputDocument::getFieldNames</a> - Returns an array containing all the fields in the document</li>
 <li><a href="solrinputdocument.haschilddocuments.html" class="index">SolrInputDocument::hasChildDocuments</a> - Returns true if the document has any child documents</li>
 <li><a href="solrinputdocument.merge.html" class="index">SolrInputDocument::merge</a> - Merges one input document into another</li>
-<li><a href="solrinputdocument.reset.html" class="index">SolrInputDocument::reset</a> - This is an alias of SolrInputDocument::clear</li>
+<li><a href="solrinputdocument.reset.html" class="index">SolrInputDocument::reset</a> - Alias of SolrInputDocument::clear</li>
 <li><a href="solrinputdocument.setboost.html" class="index">SolrInputDocument::setBoost</a> - Sets the boost value for this document</li>
 <li><a href="solrinputdocument.setfieldboost.html" class="index">SolrInputDocument::setFieldBoost</a> - Sets the index-time boost value for a field</li>
 <li><a href="solrinputdocument.sort.html" class="index">SolrInputDocument::sort</a> - Sorts the fields within the document</li>
@@ -6381,14 +6571,14 @@
 <li><a href="solrobject.offsetunset.html" class="index">SolrObject::offsetUnset</a> - Unsets the value for the property</li>
 <li><a href="solrobject.construct.html" class="index">SolrObject::__construct</a> - Creates Solr object</li>
 <li><a href="solrobject.destruct.html" class="index">SolrObject::__destruct</a> - Destructor</li>
-<li><a href="solrparams.add.html" class="index">SolrParams::add</a> - This is an alias for SolrParams::addParam</li>
+<li><a href="solrparams.add.html" class="index">SolrParams::add</a> - Alias of SolrParams::addParam</li>
 <li><a href="solrparams.addparam.html" class="index">SolrParams::addParam</a> - Adds a parameter to the object</li>
-<li><a href="solrparams.get.html" class="index">SolrParams::get</a> - This is an alias for SolrParams::getParam</li>
+<li><a href="solrparams.get.html" class="index">SolrParams::get</a> - Alias of SolrParams::getParam</li>
 <li><a href="solrparams.getparam.html" class="index">SolrParams::getParam</a> - Returns a parameter value</li>
 <li><a href="solrparams.getparams.html" class="index">SolrParams::getParams</a> - Returns an array of non URL-encoded parameters</li>
 <li><a href="solrparams.getpreparedparams.html" class="index">SolrParams::getPreparedParams</a> - Returns an array of URL-encoded parameters</li>
 <li><a href="solrparams.serialize.html" class="index">SolrParams::serialize</a> - Used for custom serialization</li>
-<li><a href="solrparams.set.html" class="index">SolrParams::set</a> - An alias of SolrParams::setParam</li>
+<li><a href="solrparams.set.html" class="index">SolrParams::set</a> - Alias of SolrParams::setParam</li>
 <li><a href="solrparams.setparam.html" class="index">SolrParams::setParam</a> - Sets the parameter to the specified value</li>
 <li><a href="solrparams.tostring.html" class="index">SolrParams::toString</a> - Returns all the name-value pair parameters in the object</li>
 <li><a href="solrparams.unserialize.html" class="index">SolrParams::unserialize</a> - Used for custom serialization</li>
@@ -6725,7 +6915,6 @@
 <li><a href="splheap.rewind.html" class="index">SplHeap::rewind</a> - Rewind iterator back to the start (no-op)</li>
 <li><a href="splheap.top.html" class="index">SplHeap::top</a> - Peeks at the node from the top of the heap</li>
 <li><a href="splheap.valid.html" class="index">SplHeap::valid</a> - Check whether the heap contains more nodes</li>
-<li><a href="splheap.construct.html" class="index">SplHeap::__construct</a> - Constructs a new empty heap</li>
 <li><a href="splmaxheap.compare.html" class="index">SplMaxHeap::compare</a> - Compare elements in order to place them correctly in the heap while sifting up</li>
 <li><a href="splminheap.compare.html" class="index">SplMinHeap::compare</a> - Compare elements in order to place them correctly in the heap while sifting up</li>
 <li><a href="splobjectstorage.addall.html" class="index">SplObjectStorage::addAll</a> - Adds all objects from another storage</li>
@@ -6765,13 +6954,8 @@
 <li><a href="splpriorityqueue.setextractflags.html" class="index">SplPriorityQueue::setExtractFlags</a> - Sets the mode of extraction</li>
 <li><a href="splpriorityqueue.top.html" class="index">SplPriorityQueue::top</a> - Peeks at the node from the top of the queue</li>
 <li><a href="splpriorityqueue.valid.html" class="index">SplPriorityQueue::valid</a> - Check whether the queue contains more nodes</li>
-<li><a href="splpriorityqueue.construct.html" class="index">SplPriorityQueue::__construct</a> - Constructs a new empty queue</li>
 <li><a href="splqueue.dequeue.html" class="index">SplQueue::dequeue</a> - Dequeues a node from the queue</li>
 <li><a href="splqueue.enqueue.html" class="index">SplQueue::enqueue</a> - Adds an element to the queue</li>
-<li><a href="splqueue.setiteratormode.html" class="index">SplQueue::setIteratorMode</a> - Sets the mode of iteration</li>
-<li><a href="splqueue.construct.html" class="index">SplQueue::__construct</a> - Constructs a new queue implemented using a doubly linked list</li>
-<li><a href="splstack.setiteratormode.html" class="index">SplStack::setIteratorMode</a> - Sets the mode of iteration</li>
-<li><a href="splstack.construct.html" class="index">SplStack::__construct</a> - Constructs a new stack implemented using a doubly linked list</li>
 <li><a href="splsubject.attach.html" class="index">SplSubject::attach</a> - Attach an SplObserver</li>
 <li><a href="splsubject.detach.html" class="index">SplSubject::detach</a> - Detach an observer</li>
 <li><a href="splsubject.notify.html" class="index">SplSubject::notify</a> - Notify an observer</li>
@@ -6926,6 +7110,75 @@
 <li><a href="mysql-xdevapi-statement.getresult.html" class="index">Statement::getResult</a> - Get result</li>
 <li><a href="mysql-xdevapi-statement.hasmoreresults.html" class="index">Statement::hasMoreResults</a> - Check if more results</li>
 <li><a href="mysql-xdevapi-statement.construct.html" class="index">Statement::__construct</a> - Description constructor</li>
+<li><a href="function.stats-absolute-deviation.html" class="index">stats_absolute_deviation</a> - Returns the absolute deviation of an array of values</li>
+<li><a href="function.stats-cdf-beta.html" class="index">stats_cdf_beta</a> - Calculates any one parameter of the beta distribution given values for the others</li>
+<li><a href="function.stats-cdf-binomial.html" class="index">stats_cdf_binomial</a> - Calculates any one parameter of the binomial distribution given values for the others</li>
+<li><a href="function.stats-cdf-cauchy.html" class="index">stats_cdf_cauchy</a> - Calculates any one parameter of the Cauchy distribution given values for the others</li>
+<li><a href="function.stats-cdf-chisquare.html" class="index">stats_cdf_chisquare</a> - Calculates any one parameter of the chi-square distribution given values for the others</li>
+<li><a href="function.stats-cdf-exponential.html" class="index">stats_cdf_exponential</a> - Calculates any one parameter of the exponential distribution given values for the others</li>
+<li><a href="function.stats-cdf-f.html" class="index">stats_cdf_f</a> - Calculates any one parameter of the F distribution given values for the others</li>
+<li><a href="function.stats-cdf-gamma.html" class="index">stats_cdf_gamma</a> - Calculates any one parameter of the gamma distribution given values for the others</li>
+<li><a href="function.stats-cdf-laplace.html" class="index">stats_cdf_laplace</a> - Calculates any one parameter of the Laplace distribution given values for the others</li>
+<li><a href="function.stats-cdf-logistic.html" class="index">stats_cdf_logistic</a> - Calculates any one parameter of the logistic distribution given values for the others</li>
+<li><a href="function.stats-cdf-negative-binomial.html" class="index">stats_cdf_negative_binomial</a> - Calculates any one parameter of the negative binomial distribution given values for the others</li>
+<li><a href="function.stats-cdf-noncentral-chisquare.html" class="index">stats_cdf_noncentral_chisquare</a> - Calculates any one parameter of the non-central chi-square distribution given values for the others</li>
+<li><a href="function.stats-cdf-noncentral-f.html" class="index">stats_cdf_noncentral_f</a> - Calculates any one parameter of the non-central F distribution given values for the others</li>
+<li><a href="function.stats-cdf-noncentral-t.html" class="index">stats_cdf_noncentral_t</a> - Calculates any one parameter of the non-central t-distribution give values for the others</li>
+<li><a href="function.stats-cdf-normal.html" class="index">stats_cdf_normal</a> - Calculates any one parameter of the normal distribution given values for the others</li>
+<li><a href="function.stats-cdf-poisson.html" class="index">stats_cdf_poisson</a> - Calculates any one parameter of the Poisson distribution given values for the others</li>
+<li><a href="function.stats-cdf-t.html" class="index">stats_cdf_t</a> - Calculates any one parameter of the t-distribution given values for the others</li>
+<li><a href="function.stats-cdf-uniform.html" class="index">stats_cdf_uniform</a> - Calculates any one parameter of the uniform distribution given values for the others</li>
+<li><a href="function.stats-cdf-weibull.html" class="index">stats_cdf_weibull</a> - Calculates any one parameter of the Weibull distribution given values for the others</li>
+<li><a href="function.stats-covariance.html" class="index">stats_covariance</a> - Computes the covariance of two data sets</li>
+<li><a href="function.stats-dens-beta.html" class="index">stats_dens_beta</a> - Probability density function of the beta distribution</li>
+<li><a href="function.stats-dens-cauchy.html" class="index">stats_dens_cauchy</a> - Probability density function of the Cauchy distribution</li>
+<li><a href="function.stats-dens-chisquare.html" class="index">stats_dens_chisquare</a> - Probability density function of the chi-square distribution</li>
+<li><a href="function.stats-dens-exponential.html" class="index">stats_dens_exponential</a> - Probability density function of the exponential distribution</li>
+<li><a href="function.stats-dens-f.html" class="index">stats_dens_f</a> - Probability density function of the F distribution</li>
+<li><a href="function.stats-dens-gamma.html" class="index">stats_dens_gamma</a> - Probability density function of the gamma distribution</li>
+<li><a href="function.stats-dens-laplace.html" class="index">stats_dens_laplace</a> - Probability density function of the Laplace distribution</li>
+<li><a href="function.stats-dens-logistic.html" class="index">stats_dens_logistic</a> - Probability density function of the logistic distribution</li>
+<li><a href="function.stats-dens-normal.html" class="index">stats_dens_normal</a> - Probability density function of the normal distribution</li>
+<li><a href="function.stats-dens-pmf-binomial.html" class="index">stats_dens_pmf_binomial</a> - Probability mass function of the binomial distribution</li>
+<li><a href="function.stats-dens-pmf-hypergeometric.html" class="index">stats_dens_pmf_hypergeometric</a> - Probability mass function of the hypergeometric distribution</li>
+<li><a href="function.stats-dens-pmf-negative-binomial.html" class="index">stats_dens_pmf_negative_binomial</a> - Probability mass function of the negative binomial distribution</li>
+<li><a href="function.stats-dens-pmf-poisson.html" class="index">stats_dens_pmf_poisson</a> - Probability mass function of the Poisson distribution</li>
+<li><a href="function.stats-dens-t.html" class="index">stats_dens_t</a> - Probability density function of the t-distribution</li>
+<li><a href="function.stats-dens-uniform.html" class="index">stats_dens_uniform</a> - Probability density function of the uniform distribution</li>
+<li><a href="function.stats-dens-weibull.html" class="index">stats_dens_weibull</a> - Probability density function of the Weibull distribution</li>
+<li><a href="function.stats-harmonic-mean.html" class="index">stats_harmonic_mean</a> - Returns the harmonic mean of an array of values</li>
+<li><a href="function.stats-kurtosis.html" class="index">stats_kurtosis</a> - Computes the kurtosis of the data in the array</li>
+<li><a href="function.stats-rand-gen-beta.html" class="index">stats_rand_gen_beta</a> - Generates a random deviate from the beta distribution</li>
+<li><a href="function.stats-rand-gen-chisquare.html" class="index">stats_rand_gen_chisquare</a> - Generates a random deviate from the chi-square distribution</li>
+<li><a href="function.stats-rand-gen-exponential.html" class="index">stats_rand_gen_exponential</a> - Generates a random deviate from the exponential distribution</li>
+<li><a href="function.stats-rand-gen-f.html" class="index">stats_rand_gen_f</a> - Generates a random deviate from the F distribution</li>
+<li><a href="function.stats-rand-gen-funiform.html" class="index">stats_rand_gen_funiform</a> - Generates uniform float between low (exclusive) and high (exclusive)</li>
+<li><a href="function.stats-rand-gen-gamma.html" class="index">stats_rand_gen_gamma</a> - Generates a random deviate from the gamma distribution</li>
+<li><a href="function.stats-rand-gen-ibinomial.html" class="index">stats_rand_gen_ibinomial</a> - Generates a random deviate from the binomial distribution</li>
+<li><a href="function.stats-rand-gen-ibinomial-negative.html" class="index">stats_rand_gen_ibinomial_negative</a> - Generates a random deviate from the negative binomial distribution</li>
+<li><a href="function.stats-rand-gen-int.html" class="index">stats_rand_gen_int</a> - Generates random integer between 1 and 2147483562</li>
+<li><a href="function.stats-rand-gen-ipoisson.html" class="index">stats_rand_gen_ipoisson</a> - Generates a single random deviate from a Poisson distribution</li>
+<li><a href="function.stats-rand-gen-iuniform.html" class="index">stats_rand_gen_iuniform</a> - Generates integer uniformly distributed between LOW (inclusive) and HIGH (inclusive)</li>
+<li><a href="function.stats-rand-gen-noncentral-chisquare.html" class="index">stats_rand_gen_noncentral_chisquare</a> - Generates a random deviate from the non-central chi-square distribution</li>
+<li><a href="function.stats-rand-gen-noncentral-f.html" class="index">stats_rand_gen_noncentral_f</a> - Generates a random deviate from the noncentral F distribution</li>
+<li><a href="function.stats-rand-gen-noncentral-t.html" class="index">stats_rand_gen_noncentral_t</a> - Generates a single random deviate from a non-central t-distribution</li>
+<li><a href="function.stats-rand-gen-normal.html" class="index">stats_rand_gen_normal</a> - Generates a single random deviate from a normal distribution</li>
+<li><a href="function.stats-rand-gen-t.html" class="index">stats_rand_gen_t</a> - Generates a single random deviate from a t-distribution</li>
+<li><a href="function.stats-rand-get-seeds.html" class="index">stats_rand_get_seeds</a> - Get the seed values of the random number generator</li>
+<li><a href="function.stats-rand-phrase-to-seeds.html" class="index">stats_rand_phrase_to_seeds</a> - Generate two seeds for the RGN random number generator</li>
+<li><a href="function.stats-rand-ranf.html" class="index">stats_rand_ranf</a> - Generates a random floating point number between 0 and 1</li>
+<li><a href="function.stats-rand-setall.html" class="index">stats_rand_setall</a> - Set seed values to the random generator</li>
+<li><a href="function.stats-skew.html" class="index">stats_skew</a> - Computes the skewness of the data in the array</li>
+<li><a href="function.stats-standard-deviation.html" class="index">stats_standard_deviation</a> - Returns the standard deviation</li>
+<li><a href="function.stats-stat-binomial-coef.html" class="index">stats_stat_binomial_coef</a> - Returns a binomial coefficient</li>
+<li><a href="function.stats-stat-correlation.html" class="index">stats_stat_correlation</a> - Returns the Pearson correlation coefficient of two data sets</li>
+<li><a href="function.stats-stat-factorial.html" class="index">stats_stat_factorial</a> - Returns the factorial of an integer</li>
+<li><a href="function.stats-stat-independent-t.html" class="index">stats_stat_independent_t</a> - Returns the t-value from the independent two-sample t-test</li>
+<li><a href="function.stats-stat-innerproduct.html" class="index">stats_stat_innerproduct</a> - Returns the inner product of two vectors</li>
+<li><a href="function.stats-stat-paired-t.html" class="index">stats_stat_paired_t</a> - Returns the t-value of the dependent t-test for paired samples</li>
+<li><a href="function.stats-stat-percentile.html" class="index">stats_stat_percentile</a> - Returns the percentile value</li>
+<li><a href="function.stats-stat-powersum.html" class="index">stats_stat_powersum</a> - Returns the power sum of a vector</li>
+<li><a href="function.stats-variance.html" class="index">stats_variance</a> - Returns the variance</li>
 <li><a href="stomp.abort.html" class="index">Stomp::abort</a> - Rolls back a transaction in progress</li>
 <li><a href="stomp.ack.html" class="index">Stomp::ack</a> - Acknowledges consumption of a message</li>
 <li><a href="stomp.begin.html" class="index">Stomp::begin</a> - Starts a transaction</li>
@@ -7537,7 +7790,7 @@
 <li><a href="function.timezone-abbreviations-list.html" class="index">timezone_abbreviations_list</a> - Alias of DateTimeZone::listAbbreviations</li>
 <li><a href="function.timezone-identifiers-list.html" class="index">timezone_identifiers_list</a> - Alias of DateTimeZone::listIdentifiers</li>
 <li><a href="function.timezone-location-get.html" class="index">timezone_location_get</a> - Alias of DateTimeZone::getLocation</li>
-<li><a href="function.timezone-name-from-abbr.html" class="index">timezone_name_from_abbr</a> - Returns the timezone name from abbreviation</li>
+<li><a href="function.timezone-name-from-abbr.html" class="index">timezone_name_from_abbr</a> - Returns a timezone name by guessing from abbreviation and UTC offset</li>
 <li><a href="function.timezone-name-get.html" class="index">timezone_name_get</a> - Alias of DateTimeZone::getName</li>
 <li><a href="function.timezone-offset-get.html" class="index">timezone_offset_get</a> - Alias of DateTimeZone::getOffset</li>
 <li><a href="function.timezone-open.html" class="index">timezone_open</a> - Alias of DateTimeZone::__construct</li>
@@ -7744,7 +7997,7 @@
 <li><a href="uconverter.setsourceencoding.html" class="index">UConverter::setSourceEncoding</a> - Set the source encoding</li>
 <li><a href="uconverter.setsubstchars.html" class="index">UConverter::setSubstChars</a> - Set the substitution chars</li>
 <li><a href="uconverter.toucallback.html" class="index">UConverter::toUCallback</a> - Default &quot;to&quot; callback function</li>
-<li><a href="uconverter.transcode.html" class="index">UConverter::transcode</a> - Convert string from one charset to another</li>
+<li><a href="uconverter.transcode.html" class="index">UConverter::transcode</a> - Convert a string from one character encoding to another</li>
 <li><a href="uconverter.construct.html" class="index">UConverter::__construct</a> - Create UConverter object</li>
 <li><a href="function.ucwords.html" class="index">ucwords</a> - Uppercase the first character of each word in a string</li>
 <li><a href="ui-area.ondraw.html" class="index">UI\Area::onDraw</a> - Draw Callback</li>
@@ -7994,9 +8247,9 @@
 <li><a href="function.use-soap-error-handler.html" class="index">use_soap_error_handler</a> - Set whether to use the SOAP error handler</li>
 <li><a href="function.usleep.html" class="index">usleep</a> - Delay execution in microseconds</li>
 <li><a href="function.usort.html" class="index">usort</a> - Sort an array by values using a user-defined comparison function</li>
-<li><a href="function.utf8-decode.html" class="index">utf8_decode</a> - Converts a string with ISO-8859-1 characters encoded with UTF-8
-   to single-byte ISO-8859-1</li>
-<li><a href="function.utf8-encode.html" class="index">utf8_encode</a> - Encodes an ISO-8859-1 string to UTF-8</li>
+<li><a href="function.utf8-decode.html" class="index">utf8_decode</a> - Converts a string from UTF-8 to ISO-8859-1, replacing invalid or unrepresentable
+   characters</li>
+<li><a href="function.utf8-encode.html" class="index">utf8_encode</a> - Converts a string from ISO-8859-1 to UTF-8</li>
 </ul></li>
 <li class='gen-index index-for-v'>v<ul id='refentry-index-for-v'>
 <li><a href="v8js.executestring.html" class="index">V8Js::executeString</a> - Execute a string as Javascript code</li>
@@ -8101,7 +8354,6 @@
 <li><a href="weakmap.offsetget.html" class="index">WeakMap::offsetGet</a> - Returns the value pointed to by a certain object</li>
 <li><a href="weakmap.offsetset.html" class="index">WeakMap::offsetSet</a> - Updates the map with a new key-value pair</li>
 <li><a href="weakmap.offsetunset.html" class="index">WeakMap::offsetUnset</a> - Removes an entry from the map</li>
-<li><a href="ext-weakmap.construct.html" class="index">WeakMap::__construct</a> - Constructs a new map</li>
 <li><a href="weakreference.create.html" class="index">WeakReference::create</a> - Create a new weak reference</li>
 <li><a href="weakreference.get.html" class="index">WeakReference::get</a> - Get a weakly referenced Object</li>
 <li><a href="weakreference.construct.html" class="index">WeakReference::__construct</a> - Constructor that disallows instantiation</li>
@@ -8673,6 +8925,7 @@
 <li><a href="function.zip-open.html" class="index">zip_open</a> - Open a ZIP file archive</li>
 <li><a href="function.zip-read.html" class="index">zip_read</a> - Read next entry in a ZIP file archive</li>
 <li><a href="wrappers.compression.html" class="index">zlib://</a> - Compression Streams</li>
+<li><a href="context.zlib.html" class="index">Zlib context options</a> - Zlib context option listing</li>
 <li><a href="function.zlib-decode.html" class="index">zlib_decode</a> - Uncompress any raw/gzip/zlib encoded data</li>
 <li><a href="function.zlib-encode.html" class="index">zlib_encode</a> - Compress data with the specified encoding</li>
 <li><a href="function.zlib-get-coding-type.html" class="index">zlib_get_coding_type</a> - Returns the coding type used for output compression</li>

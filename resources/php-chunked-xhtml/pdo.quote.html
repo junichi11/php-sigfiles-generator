@@ -38,15 +38,15 @@
 
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>PDO::quote()</strong></span> places quotes around the input string (if
+   <span class="methodname"><strong>PDO::quote()</strong></span> places quotes around the input string (if
    required) and escapes special characters within the input string, using a
    quoting style appropriate to the underlying driver.
   </p>
   <p class="para">
    If you are using this function to build SQL statements, you are
    <em class="emphasis">strongly</em> recommended to use
-   <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span> to prepare SQL statements with bound
-   parameters instead of using <span class="function"><strong>PDO::quote()</strong></span> to interpolate
+   <span class="methodname"><a href="pdo.prepare.html" class="methodname">PDO::prepare()</a></span> to prepare SQL statements with bound
+   parameters instead of using <span class="methodname"><strong>PDO::quote()</strong></span> to interpolate
    user input into an SQL statement.  Prepared statements with bound parameters
    are not only more portable, more convenient, immune to SQL injection, but
    are often much faster to execute than interpolated queries, as both the
@@ -117,11 +117,11 @@
  <div class="refsect1 examples" id="refsect1-pdo.quote-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1025">
+   <div class="example" id="example-1056">
     <p><strong>Example #1 Quoting a normal string</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite:/home/lynn/music.sql3'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Simple&nbsp;string&nbsp;*/<br /></span><span style="color: #0000BB">$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Nice'</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"Unquoted&nbsp;string:&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"Quoted&nbsp;string:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quote</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn </span><span style="color: #007700">= new </span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite:/home/lynn/music.sql3'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Simple string */<br /></span><span style="color: #0000BB">$string </span><span style="color: #007700">= </span><span style="color: #DD0000">'Nice'</span><span style="color: #007700">;<br />print </span><span style="color: #DD0000">"Unquoted string: </span><span style="color: #0000BB">$string</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />print </span><span style="color: #DD0000">"Quoted string: " </span><span style="color: #007700">. </span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quote</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -134,11 +134,11 @@ Quoted string: &#039;Nice&#039;
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1026">
+   <div class="example" id="example-1057">
     <p><strong>Example #2 Quoting a dangerous string</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite:/home/lynn/music.sql3'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Dangerous&nbsp;string&nbsp;*/<br /></span><span style="color: #0000BB">$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Naughty&nbsp;\'&nbsp;string'</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"Unquoted&nbsp;string:&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"Quoted&nbsp;string:"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quote</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn </span><span style="color: #007700">= new </span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite:/home/lynn/music.sql3'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Dangerous string */<br /></span><span style="color: #0000BB">$string </span><span style="color: #007700">= </span><span style="color: #DD0000">'Naughty \' string'</span><span style="color: #007700">;<br />print </span><span style="color: #DD0000">"Unquoted string: </span><span style="color: #0000BB">$string</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />print </span><span style="color: #DD0000">"Quoted string:" </span><span style="color: #007700">. </span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quote</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -151,11 +151,11 @@ Quoted string: &#039;Naughty &#039;&#039; string&#039;
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1027">
+   <div class="example" id="example-1058">
     <p><strong>Example #3 Quoting a complex string</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite:/home/lynn/music.sql3'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Complex&nbsp;string&nbsp;*/<br /></span><span style="color: #0000BB">$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Co'mpl''ex&nbsp;\"st'\"ring"</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"Unquoted&nbsp;string:&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"Quoted&nbsp;string:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quote</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn </span><span style="color: #007700">= new </span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite:/home/lynn/music.sql3'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Complex string */<br /></span><span style="color: #0000BB">$string </span><span style="color: #007700">= </span><span style="color: #DD0000">"Co'mpl''ex \"st'\"ring"</span><span style="color: #007700">;<br />print </span><span style="color: #DD0000">"Unquoted string: </span><span style="color: #0000BB">$string</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />print </span><span style="color: #DD0000">"Quoted string: " </span><span style="color: #007700">. </span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quote</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -176,8 +176,8 @@ Quoted string: &#039;Co&#039;&#039;mpl&#039;&#039;&#039;&#039;ex &quot;st&#039;&
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="pdo.prepare.html" class="function" rel="rdfs-seeAlso">PDO::prepare()</a> - Prepares a statement for execution and returns a statement object</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.execute.html" class="function" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
+    <li class="member"><span class="methodname"><a href="pdo.prepare.html" class="methodname" rel="rdfs-seeAlso">PDO::prepare()</a> - Prepares a statement for execution and returns a statement object</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.execute.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
    </ul>
   </p>
  </div>

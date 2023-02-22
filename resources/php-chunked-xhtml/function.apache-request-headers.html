@@ -89,11 +89,11 @@
  <div class="refsect1 examples" id="refsect1-function.apache-request-headers-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4711">
+   <div class="example" id="example-4790">
     <p><strong>Example #1 <span class="function"><strong>apache_request_headers()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$headers&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">apache_request_headers</span><span style="color: #007700">();<br /><br />foreach&nbsp;(</span><span style="color: #0000BB">$headers&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$header&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$header</span><span style="color: #DD0000">:&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #DD0000">&nbsp;&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$headers </span><span style="color: #007700">= </span><span style="color: #0000BB">apache_request_headers</span><span style="color: #007700">();<br /><br />foreach (</span><span style="color: #0000BB">$headers </span><span style="color: #007700">as </span><span style="color: #0000BB">$header </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$value</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$header</span><span style="color: #DD0000">: </span><span style="color: #0000BB">$value</span><span style="color: #DD0000"> &lt;br /&gt;\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -119,7 +119,7 @@ Connection: Keep-Alive
   <h3 class="title">Notes</h3>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    You can also get at the value of the common <acronym title="Common Gateway Interface">CGI</acronym> variables by
+    You can also get at the value of the common <abbr title="Common Gateway Interface">CGI</abbr> variables by
     reading them from the environment, which works whether or not
     you are using PHP as an <span class="productname">Apache</span> module. Use
     <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> to see a list of all of the available

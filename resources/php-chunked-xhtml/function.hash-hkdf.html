@@ -125,7 +125,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns a string containing a raw binary representation of the derived key
-   (also known as output keying material - OKM); or <strong><code>false</code></strong> on failure.
+   (also known as output keying material - OKM).
   </p>
  </div>
 
@@ -133,7 +133,7 @@
  <div class="refsect1 errors" id="refsect1-function.hash-hkdf-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   An <strong><code>E_WARNING</code></strong> will be raised if <code class="parameter">key</code>
+   Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> exception if <code class="parameter">key</code>
    is empty, <code class="parameter">algo</code> is unknown/non-cryptographic,
    <code class="parameter">length</code> is less than <code class="literal">0</code> or too large
    (greater than 255 times the size of the hash function).
@@ -141,14 +141,45 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.hash-hkdf-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        Now throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> exception on error.
+        Previously, <strong><code>false</code></strong> was returned and an <strong><code>E_WARNING</code></strong>
+        message was emitted.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.hash-hkdf-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-885">
+   <div class="example" id="example-901">
     <p><strong>Example #1 <span class="function"><strong>hash_hkdf()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Generate&nbsp;a&nbsp;random&nbsp;key,&nbsp;and&nbsp;salt&nbsp;to&nbsp;strengthen&nbsp;it&nbsp;during&nbsp;derivation.<br /></span><span style="color: #0000BB">$inputKey&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">random_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">32</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$salt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">random_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">16</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Derive&nbsp;a&nbsp;pair&nbsp;of&nbsp;separate&nbsp;keys,&nbsp;using&nbsp;the&nbsp;same&nbsp;input&nbsp;created&nbsp;above.<br /></span><span style="color: #0000BB">$encryptionKey&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">hash_hkdf</span><span style="color: #007700">(</span><span style="color: #DD0000">'sha256'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$inputKey</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">32</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'aes-256-encryption'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$salt</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$authenticationKey&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">hash_hkdf</span><span style="color: #007700">(</span><span style="color: #DD0000">'sha256'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$inputKey</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">32</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'sha-256-authentication'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$salt</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$encryptionKey&nbsp;</span><span style="color: #007700">!==&nbsp;</span><span style="color: #0000BB">$authenticationKey</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(true)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Generate a random key, and salt to strengthen it during derivation.<br /></span><span style="color: #0000BB">$inputKey </span><span style="color: #007700">= </span><span style="color: #0000BB">random_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">32</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$salt </span><span style="color: #007700">= </span><span style="color: #0000BB">random_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">16</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Derive a pair of separate keys, using the same input created above.<br /></span><span style="color: #0000BB">$encryptionKey </span><span style="color: #007700">= </span><span style="color: #0000BB">hash_hkdf</span><span style="color: #007700">(</span><span style="color: #DD0000">'sha256'</span><span style="color: #007700">, </span><span style="color: #0000BB">$inputKey</span><span style="color: #007700">, </span><span style="color: #0000BB">32</span><span style="color: #007700">, </span><span style="color: #DD0000">'aes-256-encryption'</span><span style="color: #007700">, </span><span style="color: #0000BB">$salt</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$authenticationKey </span><span style="color: #007700">= </span><span style="color: #0000BB">hash_hkdf</span><span style="color: #007700">(</span><span style="color: #DD0000">'sha256'</span><span style="color: #007700">, </span><span style="color: #0000BB">$inputKey</span><span style="color: #007700">, </span><span style="color: #0000BB">32</span><span style="color: #007700">, </span><span style="color: #DD0000">'sha-256-authentication'</span><span style="color: #007700">, </span><span style="color: #0000BB">$salt</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$encryptionKey </span><span style="color: #007700">!== </span><span style="color: #0000BB">$authenticationKey</span><span style="color: #007700">); </span><span style="color: #FF8000">// bool(true)<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

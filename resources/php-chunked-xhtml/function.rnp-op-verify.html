@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Verify embedded or cleartext signatures</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.rnp-op-verify-detached.html">« rnp_op_verify_detached</a></li>
+      <li style="float: right;"><a href="function.rnp-save-keys-to-path.html">rnp_save_keys_to_path »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.rnp.html">Rnp Functions</a></li>
+    <li>Verify embedded or cleartext signatures</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.rnp-op-verify" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">rnp_op_verify</h1>
+  <p class="verinfo">(PECL rnp &gt;= 0.1.1)</p><p class="refpurpose"><span class="refname">rnp_op_verify</span> &mdash; <span class="dc-title">Verify embedded or cleartext signatures</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.rnp-op-verify-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>rnp_op_verify</strong></span>(<span class="methodparam"><span class="type"><a href="class.rnpffi.html" class="type RnpFFI">RnpFFI</a></span> <code class="parameter">$ffi</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">
+
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.rnp-op-verify-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">ffi</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The FFI object returned by rnp_ffi_create.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">data</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Signed data.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.rnp-op-verify-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   An associative array with information about verification results or <strong><code>false</code></strong> on failure.
+  </p>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Key</th>
+      <th>Data type</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><code class="literal">&quot;verification_status&quot;</code></td>
+      <td>string</td>
+      <td>
+       Overall verification result, either &quot;Success&quot; string or appropriate error message.
+       &quot;Success&quot; result is set when at least one signature is valid and successfully verified.
+       Individual verification results for each signature can be checked in the &quot;signatures&quot; array.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;file_name&quot;</code></td>
+      <td>string</td>
+      <td>File name.</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;file_mtime&quot;</code></td>
+      <td>integer</td>
+      <td>File modification time.</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;mode&quot;</code></td>
+      <td>string</td>
+      <td>Data protection (encryption) mode used in processed message.
+      Currently defined values are &quot;none&quot;, &quot;cfb&quot;, &quot;cfb-mdc&quot;, &quot;aead-ocb&quot;, &quot;aead-eax&quot;.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;cipher&quot;</code></td>
+      <td>string</td>
+      <td>Symmetric cipher used for data encryption.</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;valid_integrity&quot;</code></td>
+      <td>boolean</td>
+      <td><strong><code>true</code></strong> if message integrity protection was used (i.e. MDC or AEAD) and it was
+      validated successfully.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;signatures&quot;</code></td>
+      <td>array</td>
+      <td>
+       An associative array describing each signature found. See description below.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <p class="para">
+   &quot;signatures&quot; sub-array.
+  </p>
+  <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Key</th>
+       <th>Data type</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>&quot;verification_status&quot;</td>
+      <td>string</td>
+      <td>Signature verification status, either &quot;Success&quot; string or appropriate error message.</td>
+     </tr>
+
+     <tr>
+      <td>&quot;creation_time&quot;</td>
+      <td>integer</td>
+      <td>Signature creation time in seconds since Jan, 1 1970 UTC.</td>
+     </tr>
+
+     <tr>
+      <td>&quot;expiration_time&quot;</td>
+      <td>integer</td>
+      <td>Signature expiration time in seconds since the creation time or 0 if signature never expires.</td>
+     </tr>
+
+     <tr>
+      <td>&quot;hash&quot;</td>
+      <td>string</td>
+      <td>Hash function algorithm used to calculate the signature.</td>
+     </tr>
+
+     <tr>
+      <td>&quot;signing_key&quot;</td>
+      <td>string</td>
+      <td>Fingerprint of the key used for signing. Could be &quot;Not found&quot; if corresponding public key is not loaded to the FFI object.</td>
+     </tr>
+
+     <tr>
+      <td>&quot;signature_type&quot;</td>
+      <td>string</td>
+      <td>
+       Signature type. Currently defined values are: &#039;binary&#039;, &#039;text&#039;, &#039;standalone&#039;, &#039;certification (generic)&#039;, &#039;certification (persona)&#039;,
+       &#039;certification (casual)&#039;, &#039;certification (positive)&#039;, &#039;subkey binding&#039;, &#039;primary key binding&#039;, &#039;direct&#039;, &#039;key revocation&#039;,
+       &#039;subkey revocation&#039;, &#039;certification revocation&#039;, &#039;timestamp&#039;, &#039;uknown: 0..255&#039;.
+      </td>
+     </tr>
+
+    </tbody>
+    
+   </table>
+
+ </div>
+
+
+
+</div></div></div></body></html>

@@ -100,8 +100,7 @@ return_value[&quot;attribute&quot;][i] = (i+1)th value of the attribute
  <div class="refsect1 returnvalues" id="refsect1-function.ldap-get-attributes-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a complete entry information in a multi-dimensional array
-   on success and <strong><code>false</code></strong> on error.
+   Returns a complete entry information in a multi-dimensional array.
   </p>
  </div>
 
@@ -123,7 +122,7 @@ return_value[&quot;attribute&quot;][i] = (i+1)th value of the attribute
  <td>8.1.0</td>
  <td>
   The <code class="parameter">ldap</code> parameter expects an <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">ldap link</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
 
@@ -131,7 +130,7 @@ return_value[&quot;attribute&quot;][i] = (i+1)th value of the attribute
  <td>8.1.0</td>
  <td>
   The <code class="parameter">entry</code> parameter expects an <span class="classname"><a href="class.ldap-result-entry.html" class="classname">LDAP\ResultEntry</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">ldap result entry</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
 
@@ -145,13 +144,13 @@ return_value[&quot;attribute&quot;][i] = (i+1)th value of the attribute
  <div class="refsect1 examples" id="refsect1-function.ldap-get-attributes-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4358">
+   <div class="example" id="example-4437">
     <p><strong>Example #1 
      Show the list of attributes held for a particular directory entry
     </strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;$ds&nbsp;is&nbsp;the&nbsp;link&nbsp;identifier&nbsp;for&nbsp;the&nbsp;directory<br /><br />//&nbsp;$sr&nbsp;is&nbsp;a&nbsp;valid&nbsp;search&nbsp;result&nbsp;from&nbsp;a&nbsp;prior&nbsp;call&nbsp;to<br />//&nbsp;one&nbsp;of&nbsp;the&nbsp;ldap&nbsp;directory&nbsp;search&nbsp;calls<br /><br /></span><span style="color: #0000BB">$entry&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_first_entry</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$sr</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$attrs&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_get_attributes</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$entry</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">$attrs</span><span style="color: #007700">[</span><span style="color: #DD0000">"count"</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;attributes&nbsp;held&nbsp;for&nbsp;this&nbsp;entry:&lt;p&gt;"</span><span style="color: #007700">;<br /><br />for&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">$attrs</span><span style="color: #007700">[</span><span style="color: #DD0000">"count"</span><span style="color: #007700">];&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$attrs</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"&lt;br&nbsp;/&gt;"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// $ds is a valid LDAP\Connection instance for a directory server<br /><br />// $sr is a valid search result from a prior call to<br />// one of the ldap directory search calls<br /><br /></span><span style="color: #0000BB">$entry </span><span style="color: #007700">= </span><span style="color: #0000BB">ldap_first_entry</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">, </span><span style="color: #0000BB">$sr</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$attrs </span><span style="color: #007700">= </span><span style="color: #0000BB">ldap_get_attributes</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">, </span><span style="color: #0000BB">$entry</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #0000BB">$attrs</span><span style="color: #007700">[</span><span style="color: #DD0000">"count"</span><span style="color: #007700">] . </span><span style="color: #DD0000">" attributes held for this entry:&lt;p&gt;"</span><span style="color: #007700">;<br /><br />for (</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">; </span><span style="color: #0000BB">$i </span><span style="color: #007700">&lt; </span><span style="color: #0000BB">$attrs</span><span style="color: #007700">[</span><span style="color: #DD0000">"count"</span><span style="color: #007700">]; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++) {<br />    echo </span><span style="color: #0000BB">$attrs</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">] . </span><span style="color: #DD0000">"&lt;br /&gt;"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

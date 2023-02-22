@@ -94,7 +94,7 @@
  <div class="refsect1 examples" id="refsect1-function.db2-conn-error-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1223">
+   <div class="example" id="example-1254">
     <p><strong>Example #1 Retrieving an SQLSTATE value for a failed connection attempt</strong></p>
     <div class="example-contents"><p>
      The following example demonstrates how to return an SQLSTATE value 
@@ -103,7 +103,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">db2_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'badname'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'baduser'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'badpassword'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$conn</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"SQLSTATE&nbsp;value:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">db2_conn_error</span><span style="color: #007700">();<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn </span><span style="color: #007700">= </span><span style="color: #0000BB">db2_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'badname'</span><span style="color: #007700">, </span><span style="color: #DD0000">'baduser'</span><span style="color: #007700">, </span><span style="color: #DD0000">'badpassword'</span><span style="color: #007700">);<br />if (!</span><span style="color: #0000BB">$conn</span><span style="color: #007700">) {<br />    print </span><span style="color: #DD0000">"SQLSTATE value: " </span><span style="color: #007700">. </span><span style="color: #0000BB">db2_conn_error</span><span style="color: #007700">();<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

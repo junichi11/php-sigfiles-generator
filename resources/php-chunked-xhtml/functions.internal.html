@@ -70,6 +70,32 @@
      be thrown in this case.
     </span>
    </p></blockquote>
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <p class="para">
+     Scalar types for built-in functions are nullable by default in coercive mode.
+     As of PHP 8.1.0, passing <strong><code>null</code></strong> to an internal function parameter that is not declared nullable
+     is discouraged and emits a deprecation notice in coercive mode to align with the behavior of user-defined functions,
+     where scalar types need to be marked as nullable explicitly.
+    </p>
+
+    <p class="para">
+     For example, <span class="function"><a href="function.strlen.html" class="function">strlen()</a></span> function expects the parameter <code class="literal">$string</code>
+     to be a non-nullable <span class="type">string</span>.
+     For historical reasons, PHP allows passing <strong><code>null</code></strong> for this parameter in coercive mode, and the parameter is
+     implicitly cast to <span class="type">string</span>, resulting in a <code class="literal">&quot;&quot;</code> value.
+     In contrast, a <span class="classname"><a href="class.typeerror.html" class="classname">TypeError</a></span> is emitted in strict mode.
+    </p>
+
+    <div class="example" id="example-177">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">));<br /></span><span style="color: #FF8000">// "Deprecated: Passing null to parameter #1 ($string) of type string is deprecated" as of PHP 8.1.0<br />// int(0)<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">str_contains</span><span style="color: #007700">(</span><span style="color: #DD0000">"foobar"</span><span style="color: #007700">, </span><span style="color: #0000BB">null</span><span style="color: #007700">));<br /></span><span style="color: #FF8000">// "Deprecated: Passing null to parameter #2 ($needle) of type string is deprecated" as of PHP 8.1.0<br />// bool(true)<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p></blockquote>
 
    <div class="sect2">
     <h3 class="title">See Also</h3>

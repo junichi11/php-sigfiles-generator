@@ -68,22 +68,22 @@
 
     <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="modifier">readonly</span>
-     <span class="type"><a href="class.domelement.html" class="type DOMElement">DOMElement</a></span>
-      <var class="varname"><a href="class.domattr.html#domattr.props.ownerelement">$<var class="varname">ownerElement</var></a></var>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">public</span>
-     <span class="modifier">readonly</span>
      <span class="type">bool</span>
-      <var class="varname"><a href="class.domattr.html#domattr.props.schematypeinfo">$<var class="varname">schemaTypeInfo</var></a></var>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">public</span>
-     <span class="modifier">readonly</span>
-     <span class="type">bool</span>
-      <var class="varname"><a href="class.domattr.html#domattr.props.specified">$<var class="varname">specified</var></a></var>;</div>
+      <var class="varname"><a href="class.domattr.html#domattr.props.specified">$<var class="varname">specified</var></a></var><span class="initializer"> = true</span>;</div>
 
     <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="type">string</span>
       <var class="varname"><a href="class.domattr.html#domattr.props.value">$<var class="varname">value</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">?</span><span class="type"><span class="type"><a href="class.domelement.html" class="type DOMElement">DOMElement</a></span><span class="type"></span></span>
+      <var class="varname"><a href="class.domattr.html#domattr.props.ownerelement">$<var class="varname">ownerElement</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
+      <var class="varname"><a href="class.domattr.html#domattr.props.schematypeinfo">$<var class="varname">schemaTypeInfo</var></a></var><span class="initializer"> = null</span>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited properties */</div>
@@ -190,7 +190,7 @@
 
      <dd>
 
-      <p class="para">The name of the attribute</p>
+      <p class="para">The name of the attribute.</p>
      </dd>
 
     
@@ -199,7 +199,7 @@
 
      <dd>
 
-      <p class="para">The element which contains the attribute</p>
+      <p class="para">The element which contains the attribute or <strong><code>null</code></strong>.</p>
      </dd>
 
     
@@ -208,7 +208,7 @@
 
      <dd>
 
-      <p class="para">Not implemented yet, always is <strong><code>null</code></strong></p>
+      <p class="para">Not implemented yet, always is <strong><code>null</code></strong>.</p>
      </dd>
 
     
@@ -217,7 +217,7 @@
 
      <dd>
 
-      <p class="para">Not implemented yet, always is <strong><code>null</code></strong></p>
+      <p class="para">Not implemented yet, always is <strong><code>true</code></strong>.</p>
      </dd>
 
     
@@ -226,7 +226,7 @@
 
      <dd>
 
-      <p class="para">The value of the attribute</p>
+      <p class="para">The value of the attribute.</p>
      </dd>
 
     
@@ -249,7 +249,6 @@
  </div>
  
  
-
 
 
 

@@ -75,11 +75,11 @@
  <div class="refsect1 examples" id="refsect1-function.intl-error-name-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2533">
+   <div class="example" id="example-2603">
     <p><strong>Example #1 <span class="function"><strong>intl_error_name()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$coll&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">collator_create</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'en_RU'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$err_code&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">collator_get_error_code</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$coll&nbsp;</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">"Symbolic&nbsp;name&nbsp;for&nbsp;%d&nbsp;is&nbsp;%s\n."</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$err_code</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">intl_error_name</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$err_code&nbsp;</span><span style="color: #007700">)&nbsp;);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$coll     </span><span style="color: #007700">= </span><span style="color: #0000BB">collator_create</span><span style="color: #007700">( </span><span style="color: #DD0000">'en_RU' </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$err_code </span><span style="color: #007700">= </span><span style="color: #0000BB">collator_get_error_code</span><span style="color: #007700">( </span><span style="color: #0000BB">$coll </span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">( </span><span style="color: #DD0000">"Symbolic name for %d is %s\n."</span><span style="color: #007700">, </span><span style="color: #0000BB">$err_code</span><span style="color: #007700">, </span><span style="color: #0000BB">intl_error_name</span><span style="color: #007700">( </span><span style="color: #0000BB">$err_code </span><span style="color: #007700">) );<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

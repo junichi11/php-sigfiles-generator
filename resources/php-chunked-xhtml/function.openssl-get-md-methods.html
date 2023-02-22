@@ -76,7 +76,7 @@
  <div class="refsect1 examples" id="refsect1-function.openssl-get-md-methods-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-929">
+   <div class="example" id="example-946">
     <p><strong>Example #1 <span class="function"><strong>openssl_get_md_methods()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      Shows how the available digests might look, and also which aliases
@@ -84,7 +84,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$digests&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_get_md_methods</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$digests_and_aliases&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_get_md_methods</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$digest_aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_diff</span><span style="color: #007700">(</span><span style="color: #0000BB">$digests_and_aliases</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$digests</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$digests</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$digest_aliases</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$digests             </span><span style="color: #007700">= </span><span style="color: #0000BB">openssl_get_md_methods</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$digests_and_aliases </span><span style="color: #007700">= </span><span style="color: #0000BB">openssl_get_md_methods</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$digest_aliases      </span><span style="color: #007700">= </span><span style="color: #0000BB">array_diff</span><span style="color: #007700">(</span><span style="color: #0000BB">$digests_and_aliases</span><span style="color: #007700">, </span><span style="color: #0000BB">$digests</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$digests</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$digest_aliases</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

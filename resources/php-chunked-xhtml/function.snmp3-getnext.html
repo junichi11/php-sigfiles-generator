@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.snmp3-getnext" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">snmp3_getnext</h1>
-  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">snmp3_getnext</span> &mdash; <span class="dc-title">Fetch the <acronym title="Simple Network Management Protocol">SNMP</acronym> object which follows the given object id</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">snmp3_getnext</span> &mdash; <span class="dc-title">Fetch the <abbr title="Simple Network Management Protocol">SNMP</abbr> object which follows the given object id</span></p>
 
  </div>
  
@@ -37,7 +37,7 @@
 
   <p class="para rdfs-comment">
    The <span class="function"><strong>snmp3_getnext()</strong></span> function is used to read the
-   value of the <acronym title="Simple Network Management Protocol">SNMP</acronym> object that follows the specified
+   value of the <abbr title="Simple Network Management Protocol">SNMP</abbr> object that follows the specified
    <code class="parameter">object_id</code>.
   </p>
  </div>
@@ -54,7 +54,7 @@
 
      <p class="para">
       The hostname of the
-      <acronym title="Simple Network Management Protocol">SNMP</acronym> agent (server).
+      <abbr title="Simple Network Management Protocol">SNMP</abbr> agent (server).
      </p>
     </dd>
 
@@ -90,7 +90,8 @@
     <dd>
 
      <p class="para">
-      the authentication protocol (MD5 or SHA)
+      the authentication protocol (<code class="literal">&quot;MD5&quot;</code>, <code class="literal">&quot;SHA&quot;</code>,
+      <code class="literal">&quot;SHA256&quot;</code>, or <code class="literal">&quot;SHA512&quot;</code>)
      </p>
     </dd>
 
@@ -138,7 +139,7 @@
     <dd>
 
      <p class="para">
-      The <acronym title="Simple Network Management Protocol">SNMP</acronym> object id.
+      The <abbr title="Simple Network Management Protocol">SNMP</abbr> object id.
      </p>
     </dd>
 
@@ -175,20 +176,50 @@
  <div class="refsect1 returnvalues" id="refsect1-function.snmp3-getnext-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <acronym title="Simple Network Management Protocol">SNMP</acronym> object value on success or <strong><code>false</code></strong> on error.
+   Returns <abbr title="Simple Network Management Protocol">SNMP</abbr> object value on success or <strong><code>false</code></strong> on error.
    In case of an error, an E_WARNING message is shown.
   </p>
  </div>
 
  
+ <div class="refsect1 changelog" id="refsect1-function.snmp3-getnext-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.1.0</td>
+       <td>
+        The <code class="parameter">auth_protocol</code> now accepts <code class="literal">&quot;SHA256&quot;</code>
+        and <code class="literal">&quot;SHA512&quot;</code> when supported by libnetsnmp.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.snmp3-getnext-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4486">
+   <div class="example" id="example-4565">
     <p><strong>Example #1 Using <span class="function"><strong>snmp3_getnext()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$nameOfSecondInterface&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">snmp3_getnext</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'james'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'AES'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'IF-MIB::ifName.1'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$nameOfSecondInterface </span><span style="color: #007700">= </span><span style="color: #0000BB">snmp3_getnext</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #DD0000">'james'</span><span style="color: #007700">, </span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">, </span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">, </span><span style="color: #DD0000">'AES'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">, </span><span style="color: #DD0000">'IF-MIB::ifName.1'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -197,7 +228,7 @@
   </p>
  </div>
 
- 
+
  <div class="refsect1 seealso" id="refsect1-function.snmp3-getnext-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">

@@ -79,10 +79,12 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    If called with no parameters, this function returns an array of
-   values for all the setting readline uses.  The elements will
-   be indexed by the following values: done, end, erase_empty_line,
-   library_version, line_buffer, mark, pending_input, point, prompt,
-   readline_name, and terminal_name.
+   values for all the settings readline uses.  The elements will
+   be indexed by the following values: <code class="literal">done</code>, <code class="literal">end</code>, <code class="literal">erase_empty_line</code>,
+   <code class="literal">library_version</code>, <code class="literal">line_buffer</code>, <code class="literal">mark</code>, <code class="literal">pending_input</code>, <code class="literal">point</code>, <code class="literal">prompt</code>,
+   <code class="literal">readline_name</code>, and <code class="literal">terminal_name</code>.
+   The <span class="type">array</span> will only contain those elements which are supported by the library
+   used to built the readline extension.
   </p>
   <p class="para">
    If called with one or two parameters, the old value is returned.

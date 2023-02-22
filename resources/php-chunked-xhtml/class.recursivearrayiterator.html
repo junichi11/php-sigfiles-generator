@@ -64,18 +64,21 @@
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited constants */</div>
     <div class="fieldsynopsis">
+     <span class="modifier">public</span>
      <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.arrayiterator.html#arrayiterator.constants.std-prop-list"><var class="varname">STD_PROP_LIST</var></a></var><span class="initializer"> = 1</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.arrayiterator.html#arrayiterator.constants.std-prop-list"><var class="varname">ArrayIterator::STD_PROP_LIST</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.arrayiterator.html#arrayiterator.constants.array-as-props"><var class="varname">ARRAY_AS_PROPS</var></a></var><span class="initializer"> = 2</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.arrayiterator.html#arrayiterator.constants.array-as-props"><var class="varname">ArrayIterator::ARRAY_AS_PROPS</var></a></var>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.recursivearrayiterator.html#recursivearrayiterator.constants.child-arrays-only"><var class="varname">CHILD_ARRAYS_ONLY</var></a></var><span class="initializer"> = 4</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.recursivearrayiterator.html#recursivearrayiterator.constants.child-arrays-only"><var class="varname">CHILD_ARRAYS_ONLY</var></a></var>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
@@ -85,16 +88,18 @@
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited methods */</div>
+    <div class="constructorsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.construct.html" class="methodname">ArrayIterator::__construct</a></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$array</code><span class="initializer"> = []</span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>)</div>
+
     <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.append.html" class="methodname">ArrayIterator::append</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.asort.html" class="methodname">ArrayIterator::asort</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SORT_REGULAR</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.asort.html" class="methodname">ArrayIterator::asort</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SORT_REGULAR</code></strong></span></span>): <span class="type"><span class="type true">true</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.count.html" class="methodname">ArrayIterator::count</a></span>(): <span class="type">int</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.current.html" class="methodname">ArrayIterator::current</a></span>(): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.getarraycopy.html" class="methodname">ArrayIterator::getArrayCopy</a></span>(): <span class="type">array</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.getflags.html" class="methodname">ArrayIterator::getFlags</a></span>(): <span class="type">int</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.key.html" class="methodname">ArrayIterator::key</a></span>(): <span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">null</span></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.ksort.html" class="methodname">ArrayIterator::ksort</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SORT_REGULAR</code></strong></span></span>): <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.natcasesort.html" class="methodname">ArrayIterator::natcasesort</a></span>(): <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.natsort.html" class="methodname">ArrayIterator::natsort</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.ksort.html" class="methodname">ArrayIterator::ksort</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SORT_REGULAR</code></strong></span></span>): <span class="type"><span class="type true">true</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.natcasesort.html" class="methodname">ArrayIterator::natcasesort</a></span>(): <span class="type"><span class="type true">true</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.natsort.html" class="methodname">ArrayIterator::natsort</a></span>(): <span class="type"><span class="type true">true</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.next.html" class="methodname">ArrayIterator::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.offsetexists.html" class="methodname">ArrayIterator::offsetExists</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.offsetget.html" class="methodname">ArrayIterator::offsetGet</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
@@ -104,8 +109,8 @@
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.seek.html" class="methodname">ArrayIterator::seek</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>): <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.serialize.html" class="methodname">ArrayIterator::serialize</a></span>(): <span class="type">string</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.setflags.html" class="methodname">ArrayIterator::setFlags</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>): <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.uasort.html" class="methodname">ArrayIterator::uasort</a></span>(<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.uksort.html" class="methodname">ArrayIterator::uksort</a></span>(<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.uasort.html" class="methodname">ArrayIterator::uasort</a></span>(<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type"><span class="type true">true</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.uksort.html" class="methodname">ArrayIterator::uksort</a></span>(<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type"><span class="type true">true</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.unserialize.html" class="methodname">ArrayIterator::unserialize</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="arrayiterator.valid.html" class="methodname">ArrayIterator::valid</a></span>(): <span class="type">bool</span></div>
 
@@ -137,7 +142,6 @@
  </div>
 
  
-
 
 
 

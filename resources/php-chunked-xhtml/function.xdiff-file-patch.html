@@ -121,27 +121,27 @@
  <div class="refsect1 examples" id="refsect1-function.xdiff-file-patch-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2239">
+   <div class="example" id="example-2304">
     <p><strong>Example #1 <span class="function"><strong>xdiff_file_patch()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      The following code applies unified diff to a file.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$old_version&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'my_script-1.0.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patch&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'my_script.patch'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$errors&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">xdiff_file_patch</span><span style="color: #007700">(</span><span style="color: #0000BB">$old_version</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$patch</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_script-1.1.php'</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">is_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$errors</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Rejects:\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$errors</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$old_version </span><span style="color: #007700">= </span><span style="color: #DD0000">'my_script-1.0.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patch </span><span style="color: #007700">= </span><span style="color: #DD0000">'my_script.patch'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$errors </span><span style="color: #007700">= </span><span style="color: #0000BB">xdiff_file_patch</span><span style="color: #007700">(</span><span style="color: #0000BB">$old_version</span><span style="color: #007700">, </span><span style="color: #0000BB">$patch</span><span style="color: #007700">, </span><span style="color: #DD0000">'my_script-1.1.php'</span><span style="color: #007700">);<br />if (</span><span style="color: #0000BB">is_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$errors</span><span style="color: #007700">)) {<br />   echo </span><span style="color: #DD0000">"Rejects:\n"</span><span style="color: #007700">;<br />   echo </span><span style="color: #0000BB">$errors</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-2240">
+   <div class="example" id="example-2305">
     <p><strong>Example #2 Patch reversing example</strong></p>
     <div class="example-contents"><p>
      The following code reverses a patch.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$new_version&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'my_script-1.1.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patch&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'my_script.patch'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$errors&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">xdiff_file_patch</span><span style="color: #007700">(</span><span style="color: #0000BB">$new_version</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$patch</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_script-1.0.php'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">XDIFF_PATCH_REVERSE</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">is_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$errors</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Rejects:\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$errors</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$new_version </span><span style="color: #007700">= </span><span style="color: #DD0000">'my_script-1.1.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patch </span><span style="color: #007700">= </span><span style="color: #DD0000">'my_script.patch'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$errors </span><span style="color: #007700">= </span><span style="color: #0000BB">xdiff_file_patch</span><span style="color: #007700">(</span><span style="color: #0000BB">$new_version</span><span style="color: #007700">, </span><span style="color: #0000BB">$patch</span><span style="color: #007700">, </span><span style="color: #DD0000">'my_script-1.0.php'</span><span style="color: #007700">, </span><span style="color: #0000BB">XDIFF_PATCH_REVERSE</span><span style="color: #007700">);<br />if (</span><span style="color: #0000BB">is_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$errors</span><span style="color: #007700">)) {<br />   echo </span><span style="color: #DD0000">"Rejects:\n"</span><span style="color: #007700">;<br />   echo </span><span style="color: #0000BB">$errors</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

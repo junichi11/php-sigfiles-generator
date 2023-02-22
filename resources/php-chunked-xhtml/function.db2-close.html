@@ -82,7 +82,7 @@
  <div class="refsect1 examples" id="refsect1-function.db2-close-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1222">
+   <div class="example" id="example-1253">
     <p><strong>Example #1 Closing a connection</strong></p>
     <div class="example-contents"><p>
      The following example demonstrates a successful attempt to close a 
@@ -90,7 +90,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">db2_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'SAMPLE'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'db2inst1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'ibmdb2'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$rc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">db2_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$rc</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Connection&nbsp;was&nbsp;successfully&nbsp;closed."</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn </span><span style="color: #007700">= </span><span style="color: #0000BB">db2_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'SAMPLE'</span><span style="color: #007700">, </span><span style="color: #DD0000">'db2inst1'</span><span style="color: #007700">, </span><span style="color: #DD0000">'ibmdb2'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$rc </span><span style="color: #007700">= </span><span style="color: #0000BB">db2_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br />if (</span><span style="color: #0000BB">$rc</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"Connection was successfully closed."</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

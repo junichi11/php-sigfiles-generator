@@ -340,8 +340,9 @@
       <dd>
 
        <p class="para">
-        Set listen(2) backlog. A value of &#039;-1&#039; means unlimited. Default value:
-        -1.
+        Set listen(2) backlog. A value of <code class="literal">-1</code> means maximum on BSD systems.
+        Default value: <code class="literal">-1</code> (FreeBSD or OpenBSD) or <code class="literal">511</code>
+        (Linux and other platforms).
        </p>
       </dd>
 
@@ -355,12 +356,11 @@
       <dd>
 
        <p class="para">
-        List of IPv4 addresses of FastCGI clients which are allowed to
-        connect. Equivalent to the FCGI_WEB_SERVER_ADDRS environment variable in the
-        original PHP FastCGI (5.2.2+). Makes sense only with a tcp listening socket.
-        Each address must be separated by a comma. If this value is left blank,
-        connections will be accepted from any ip address. Default value: any.
-        IPv6 addresses are allowed.
+        List of IPv4 or IPv6 addresses of FastCGI clients which are allowed to connect. Equivalent
+        to the FCGI_WEB_SERVER_ADDRS environment variable in the original PHP FastCGI (5.2.2+).
+        Makes sense only with a tcp listening socket. Each address must be separated by a comma.
+        If this value is left blank, connections will be accepted from any ip address.
+        Default value: not set (any ip address accepted).
        </p>
       </dd>
 
@@ -573,6 +573,22 @@
 
      
      
+      <dt id="pm.max-spawn-rate">
+       <code class="parameter">pm.max_spawn_rate</code>
+       <span class="type">int</span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        The number of rate to spawn child processes at once. Used only when
+        <code class="literal">pm</code> is set to <code class="literal">dynamic</code>.
+        Default value: 32
+       </p>
+      </dd>
+
+     
+     
       <dt id="pm.process-idle-timeout">
        <code class="parameter">pm.process_idle_timeout</code>
        <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
@@ -607,6 +623,25 @@
 
      
      
+      <dt id="pm.status-listen">
+       <code class="parameter">pm.status_listen</code>
+       <span class="type">string</span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        The address on which to accept FastCGI status request. This creates a new invisible pool
+        that can handle requests independently. This is useful if the main pool is busy with long
+        running requests because it is still possible to get the
+        <a href="fpm.status.html" class="link">FPM status page</a> before finishing the long running
+        requests. The syntax is the same as for <a href="install.fpm.configuration.html#listen" class="link">listen</a> directive.
+        Default value: none.
+       </p>
+      </dd>
+
+     
+     
       <dt id="pm.status-path">
        <code class="parameter">pm.status_path</code>
        <span class="type">string</span>
@@ -615,8 +650,9 @@
       <dd>
 
        <p class="para">
-        The URI to view the FPM status page. If this value is not set, no URI
-        will be recognized as a status page. Default value: none.
+        The URI to view the <a href="fpm.status.html" class="link">FPM status page</a>. This value must
+        start with a leading slash (/). If this value is not set, no URI will be recognized as
+        a status page. Default value: none.
        </p>
       </dd>
 
@@ -720,6 +756,25 @@
 
      
      
+      <dt id="request-terminate-timeout-track-finished">
+       <code class="parameter">request_terminate_timeout_track_finished</code>
+       <span class="type">bool</span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        The timeout set by
+        <a href="install.fpm.configuration.html#request-terminate-timeout" class="link">request_terminate_timeout</a> is not engaged
+        after a <a href="function.fastcgi-finish-request.html" class="link">fastcgi_finish_request</a> or
+        when application has finished and internal shutdown functions are being called. This
+        directive will enable timeout limit to be applied unconditionally even in such cases.
+        Default value: no. Since PHP 7.3.0.
+       </p>
+      </dd>
+
+     
+     
       <dt id="request-slowlog-timeout">
        <code class="parameter">request_slowlog_timeout</code>
        <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
@@ -732,6 +787,21 @@
         will be dumped to the &#039;slowlog&#039; file. A value of &#039;0&#039; means &#039;Off&#039;.
         Available units: s(econds)(default), m(inutes), h(ours), or d(ays).
         Default value: 0.
+       </p>
+      </dd>
+
+     
+     
+      <dt id="request-slowlog-trace-depth">
+       <code class="parameter">request_slowlog_trace_depth</code>
+       <span class="type">int</span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        The depth of slowlog log stack trace.
+        Default value: 20. Since PHP 7.2.0.
        </p>
       </dd>
 
@@ -874,6 +944,21 @@
         You should only limit FPM to .php extensions to prevent malicious
         users to use other extensions to execute php code.
         Default value: .php .phar
+       </p>
+      </dd>
+
+     
+     
+      <dt id="apparmor-hat">
+       <code class="parameter">apparmor_hat</code>
+       <span class="type">string</span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        If AppArmor is enabled, it allows to change a hat.
+        Default value: not set
        </p>
       </dd>
 

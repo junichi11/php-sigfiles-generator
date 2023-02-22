@@ -43,7 +43,8 @@ The constants below are always available as part of the PHP core.
      <strong><code>CASE_LOWER</code></strong> is used with
      <span class="function"><a href="function.array-change-key-case.html" class="function">array_change_key_case()</a></span> and is used to convert array
      keys to lower case. This is also the default case for
-     <span class="function"><a href="function.array-change-key-case.html" class="function">array_change_key_case()</a></span>.
+     <span class="function"><a href="function.array-change-key-case.html" class="function">array_change_key_case()</a></span>. As of PHP 8.2.0, only ASCII
+     characters will be converted.
     </span>
    </dd>
 
@@ -59,7 +60,8 @@ The constants below are always available as part of the PHP core.
     <span class="simpara">
      <strong><code>CASE_UPPER</code></strong> is used with
      <span class="function"><a href="function.array-change-key-case.html" class="function">array_change_key_case()</a></span> and is used to convert array
-     keys to upper case.
+     keys to upper case. As of PHP 8.2.0, only ASCII characters will be
+     converted.
     </span>
    </dd>
 
@@ -187,10 +189,10 @@ The constants below are always available as part of the PHP core.
    <dd>
 
     <span class="simpara">
-    <strong><code>SORT_FLAG_CASE</code></strong> can be combined
-         (bitwise OR) with
-         <strong><code>SORT_STRING</code></strong> or
-         <strong><code>SORT_NATURAL</code></strong> to sort strings case-insensitively.
+     <strong><code>SORT_FLAG_CASE</code></strong> can be combined (bitwise OR) with
+     <strong><code>SORT_STRING</code></strong> or <strong><code>SORT_NATURAL</code></strong> to
+     sort strings case-insensitively. As of PHP 8.2.0, only ASCII case folding
+     will be done.
     </span>
    </dd>
 

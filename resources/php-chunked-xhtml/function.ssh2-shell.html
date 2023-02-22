@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.ssh2-shell-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ssh2_shell</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$session</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$term_type</code><span class="initializer"> = &quot;vanilla&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$env</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$width</code><span class="initializer"> = 80</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$height</code><span class="initializer"> = 25</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$width_height_type</code><span class="initializer"> = SSH2_TERM_UNIT_CHARS</span></span><br>): <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>ssh2_shell</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$session</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$termtype</code><span class="initializer"> = &quot;vanilla&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$env</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$width</code><span class="initializer"> = 80</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$height</code><span class="initializer"> = 25</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$width_height_type</code><span class="initializer"> = SSH2_TERM_UNIT_CHARS</span></span><br>): <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Open a shell at the remote end and allocate a stream for it.
@@ -60,12 +60,12 @@
     
     
      <dt>
-<code class="parameter">term_type</code></dt>
+<code class="parameter">termtype</code></dt>
 
      <dd>
 
       <p class="para">
-       <code class="parameter">term_type</code> should correspond to one of the
+       <code class="parameter">termtype</code> should correspond to one of the
        entries in the target system&#039;s <code class="literal">/etc/termcap</code> file.
       </p>
      </dd>
@@ -139,11 +139,11 @@
  <div class="refsect1 examples" id="refsect1-function.ssh2-shell-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4555">
+   <div class="example" id="example-4634">
     <p><strong>Example #1 Requesting an interactive shell</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$connection&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ssh2_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'shell.example.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">22</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ssh2_auth_password</span><span style="color: #007700">(</span><span style="color: #0000BB">$connection</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'username'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'password'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$stream&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ssh2_shell</span><span style="color: #007700">(</span><span style="color: #0000BB">$connection</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'vt102'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">80</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">24</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SSH2_TERM_UNIT_CHARS</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$connection </span><span style="color: #007700">= </span><span style="color: #0000BB">ssh2_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'shell.example.com'</span><span style="color: #007700">, </span><span style="color: #0000BB">22</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ssh2_auth_password</span><span style="color: #007700">(</span><span style="color: #0000BB">$connection</span><span style="color: #007700">, </span><span style="color: #DD0000">'username'</span><span style="color: #007700">, </span><span style="color: #DD0000">'password'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$stream </span><span style="color: #007700">= </span><span style="color: #0000BB">ssh2_shell</span><span style="color: #007700">(</span><span style="color: #0000BB">$connection</span><span style="color: #007700">, </span><span style="color: #DD0000">'vt102'</span><span style="color: #007700">, </span><span style="color: #0000BB">null</span><span style="color: #007700">, </span><span style="color: #0000BB">80</span><span style="color: #007700">, </span><span style="color: #0000BB">24</span><span style="color: #007700">, </span><span style="color: #0000BB">SSH2_TERM_UNIT_CHARS</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -37,7 +37,7 @@
 
   <p class="para rdfs-comment">
    Binary safe case-insensitive string comparison.
-   The comparision is not locale aware; only ASCII letters are compared in a
+   The comparison is not locale aware; only ASCII letters are compared in a
    case-insensitive way.
   </p>
  </div>
@@ -80,22 +80,51 @@
  <div class="refsect1 returnvalues" id="refsect1-function.strcasecmp-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns &lt; 0 if <code class="parameter">string1</code> is less than
-   <code class="parameter">string2</code>; &gt; 0 if <code class="parameter">string1</code>
-   is greater than <code class="parameter">string2</code>, and 0 if they are
+   Returns <code class="literal">-1</code> if <code class="parameter">string1</code> is less than
+   <code class="parameter">string2</code>; <code class="literal">1</code> if <code class="parameter">string1</code>
+   is greater than <code class="parameter">string2</code>, and <code class="literal">0</code> if they are
    equal.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.strcasecmp-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.2.0</td>
+ <td>
+  This function now returns <code class="literal">-1</code> or <code class="literal">1</code>,
+  where it previously returned a negative or positive number.
+ </td>
+</tr>
+
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.strcasecmp-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4848">
+   <div class="example" id="example-4934">
     <p><strong>Example #1 <span class="function"><strong>strcasecmp()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$var1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Hello"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$var2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"hello"</span><span style="color: #007700">;<br />if&nbsp;(</span><span style="color: #0000BB">strcasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$var1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$var2</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'$var1&nbsp;is&nbsp;equal&nbsp;to&nbsp;$var2&nbsp;in&nbsp;a&nbsp;case-insensitive&nbsp;string&nbsp;comparison'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$var1 </span><span style="color: #007700">= </span><span style="color: #DD0000">"Hello"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$var2 </span><span style="color: #007700">= </span><span style="color: #DD0000">"hello"</span><span style="color: #007700">;<br />if (</span><span style="color: #0000BB">strcasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$var1</span><span style="color: #007700">, </span><span style="color: #0000BB">$var2</span><span style="color: #007700">) == </span><span style="color: #0000BB">0</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">'$var1 is equal to $var2 in a case-insensitive string comparison'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

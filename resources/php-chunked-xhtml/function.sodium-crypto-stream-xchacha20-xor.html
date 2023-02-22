@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Encrypts a message using a nonce and a secret key (no authentication)</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.sodium-crypto-stream-xchacha20-xor-ic.html">« sodium_crypto_stream_xchacha20_xor_ic</a></li>
+      <li style="float: right;"><a href="function.sodium-crypto-stream-xchacha20.html">sodium_crypto_stream_xchacha20 »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.sodium.html">Sodium Functions</a></li>
+    <li>Encrypts a message using a nonce and a secret key (no authentication)</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.sodium-crypto-stream-xchacha20-xor" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">sodium_crypto_stream_xchacha20_xor</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.1.0)</p><p class="refpurpose"><span class="refname">sodium_crypto_stream_xchacha20_xor</span> &mdash; <span class="dc-title">Encrypts a message using a nonce and a secret key (no authentication)</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.sodium-crypto-stream-xchacha20-xor-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>sodium_crypto_stream_xchacha20_xor</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$nonce</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   Encrypts a <code class="parameter">message</code> using a <code class="parameter">nonce</code>
+   and a secret <code class="parameter">key</code> (no authentication).
+  </p>
+
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="para">
+    This encryption is unauthenticated, and does not prevent chosen-ciphertext attacks.
+    Make sure to combine the ciphertext with a Message Authentication Code,
+    for example with <span class="function"><a href="function.sodium-crypto-aead-xchacha20poly1305-ietf-encrypt.html" class="function">sodium_crypto_aead_xchacha20poly1305_ietf_encrypt()</a></span> function,
+    or <span class="function"><a href="function.sodium-crypto-auth.html" class="function">sodium_crypto_auth()</a></span>.
+   </p>
+  </div>
+  
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.sodium-crypto-stream-xchacha20-xor-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">message</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The message to encrypt.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">nonce</code></dt>
+
+    <dd>
+
+     <p class="para">
+      24-byte nonce.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">key</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Key, possibly generated from <span class="function"><a href="function.sodium-crypto-stream-xchacha20-keygen.html" class="function">sodium_crypto_stream_xchacha20_keygen()</a></span>.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.sodium-crypto-stream-xchacha20-xor-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Encrypted message.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.sodium-crypto-stream-xchacha20-xor-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.sodium-crypto-stream-xchacha20-xor-ic.html" class="function" rel="rdfs-seeAlso">sodium_crypto_stream_xchacha20_xor_ic()</a> - Encrypts a message using a nonce and a secret key (no authentication)</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

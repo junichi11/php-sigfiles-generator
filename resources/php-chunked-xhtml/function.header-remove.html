@@ -106,11 +106,11 @@
  <div class="refsect1 examples" id="refsect1-function.header-remove-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4449">
+   <div class="example" id="example-4528">
     <p><strong>Example #1 Unsetting specific header.</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"X-Foo:&nbsp;Bar"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"X-Bar:&nbsp;Baz"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">header_remove</span><span style="color: #007700">(</span><span style="color: #DD0000">"X-Foo"</span><span style="color: #007700">);&nbsp;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"X-Foo: Bar"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"X-Bar: Baz"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">header_remove</span><span style="color: #007700">(</span><span style="color: #DD0000">"X-Foo"</span><span style="color: #007700">); <br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -123,11 +123,11 @@ X-Bar: Baz
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-4450">
+   <div class="example" id="example-4529">
     <p><strong>Example #2 Unsetting all previously set headers.</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"X-Foo:&nbsp;Bar"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"X-Bar:&nbsp;Baz"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">header_remove</span><span style="color: #007700">();&nbsp;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"X-Foo: Bar"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"X-Bar: Baz"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">header_remove</span><span style="color: #007700">(); <br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

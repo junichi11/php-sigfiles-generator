@@ -53,7 +53,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$p&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Phar</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/myphar.phar'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'myphar.phar'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$p </span><span style="color: #007700">= new </span><span style="color: #0000BB">Phar</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/myphar.phar'</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #DD0000">'myphar.phar'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -70,7 +70,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;these&nbsp;two&nbsp;calls&nbsp;to&nbsp;file_get_contents()&nbsp;are&nbsp;equivalent&nbsp;if<br />//&nbsp;/path/to/myphar.phar&nbsp;has&nbsp;an&nbsp;explicit&nbsp;alias&nbsp;of&nbsp;"myphar.phar"<br />//&nbsp;in&nbsp;its&nbsp;manifest,&nbsp;or&nbsp;if&nbsp;the&nbsp;phar&nbsp;was&nbsp;initialized&nbsp;with&nbsp;the<br />//&nbsp;previous&nbsp;example's&nbsp;Phar&nbsp;object&nbsp;setup<br /></span><span style="color: #0000BB">$f&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'phar:///path/to/myphar.phar/whatever.txt'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$f&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'phar://myphar.phar/whatever.txt'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// these two calls to file_get_contents() are equivalent if<br />// /path/to/myphar.phar has an explicit alias of "myphar.phar"<br />// in its manifest, or if the phar was initialized with the<br />// previous example's Phar object setup<br /></span><span style="color: #0000BB">$f </span><span style="color: #007700">= </span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'phar:///path/to/myphar.phar/whatever.txt'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$f </span><span style="color: #007700">= </span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'phar://myphar.phar/whatever.txt'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

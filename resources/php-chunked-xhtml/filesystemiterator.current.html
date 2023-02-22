@@ -60,22 +60,23 @@
  <div class="refsect1 examples" id="refsect1-filesystemiterator.current-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3632">
+   <div class="example" id="example-3710">
     <p><strong>Example #1 <span class="methodname"><strong>FilesystemIterator::current()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This example will list the contents of the directory containing the script.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$iterator&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">FilesystemIterator</span><span style="color: #007700">(</span><span style="color: #0000BB">__DIR__</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">FilesystemIterator</span><span style="color: #007700">::</span><span style="color: #0000BB">CURRENT_AS_PATHNAME</span><span style="color: #007700">);<br />foreach&nbsp;(</span><span style="color: #0000BB">$iterator&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$fileinfo</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$iterator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">current</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$iterator </span><span style="color: #007700">= new </span><span style="color: #0000BB">FilesystemIterator</span><span style="color: #007700">(</span><span style="color: #0000BB">__DIR__</span><span style="color: #007700">, </span><span style="color: #0000BB">FilesystemIterator</span><span style="color: #007700">::</span><span style="color: #0000BB">CURRENT_AS_PATHNAME</span><span style="color: #007700">);<br />foreach (</span><span style="color: #0000BB">$iterator </span><span style="color: #007700">as </span><span style="color: #0000BB">$fileinfo</span><span style="color: #007700">) {<br />    echo </span><span style="color: #0000BB">$iterator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">current</span><span style="color: #007700">() . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
-    <div class="example-contents"><p>The above example will output
-something similar to:</p></div>
+    <div class="example-contents"><p>Output of the above example in PHP 8.2 is similar to:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
+/www/examples/.
+/www/examples/..
 /www/examples/apple.jpg
 /www/examples/banana.jpg
 /www/examples/example.php

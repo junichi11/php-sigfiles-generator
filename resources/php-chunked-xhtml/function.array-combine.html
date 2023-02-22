@@ -84,8 +84,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.array-combine-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the combined <span class="type">array</span>, <strong><code>false</code></strong> if the number of elements
-   for each array isn&#039;t equal.
+   Returns the combined <span class="type">array</span>.
   </p>
  </div>
 
@@ -93,21 +92,52 @@
  <div class="refsect1 errors" id="refsect1-function.array-combine-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Throws <strong><code>E_WARNING</code></strong> if the number of elements in
+   As of PHP 8.0.0, a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is thrown if the number of elements in
    <code class="parameter">keys</code> and <code class="parameter">values</code> does not
    match.
+   Prior to PHP 8.0.0, a <strong><code>E_WARNING</code></strong> was emitted instead.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.array-combine-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <span class="function"><strong>array_combine()</strong></span> will now throw a
+       <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> if the number of elements
+       for each array is not equal;
+       previously this function returned <strong><code>false</code></strong> instead.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
  
  <div class="refsect1 examples" id="refsect1-function.array-combine-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4906">
+   <div class="example" id="example-4998">
     <p><strong>Example #1 A simple <span class="function"><strong>array_combine()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'green'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'red'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'avocado'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'apple'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'banana'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_combine</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$c</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'green'</span><span style="color: #007700">, </span><span style="color: #DD0000">'red'</span><span style="color: #007700">, </span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$b </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'avocado'</span><span style="color: #007700">, </span><span style="color: #DD0000">'apple'</span><span style="color: #007700">, </span><span style="color: #DD0000">'banana'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$c </span><span style="color: #007700">= </span><span style="color: #0000BB">array_combine</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">$b</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$c</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

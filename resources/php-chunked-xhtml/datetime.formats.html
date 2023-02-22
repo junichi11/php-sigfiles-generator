@@ -29,10 +29,10 @@
 
  
  <p class="para">
-  This section describes all the different formats that the
+  This section describes all the different formats in a BNF-like format, that the
   <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span>, <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span>,
-  <span class="function"><a href="function.date-create.html" class="function">date_create()</a></span>,
-  <span class="function"><a href="function.date-create-immutable.html" class="function">date_create_immutable()</a></span>, and
+  <span class="function"><a href="function.date-create-immutable.html" class="function">date_create_immutable()</a></span>,
+  <span class="function"><a href="function.date-create.html" class="function">date_create()</a></span>, <span class="function"><a href="function.date-parse.html" class="function">date_parse()</a></span>, and
   <span class="function"><a href="function.strtotime.html" class="function">strtotime()</a></span> parser understands. The formats are grouped
   by section. In most cases formats from different sections, separated by
   whitespace, comma or dot, can be used in the same date/time string. For each
@@ -43,6 +43,107 @@
   double quotes are case-sensitive (<code class="literal">&quot;T&quot;</code> is only
   <code class="literal">T</code>).
  </p>
+ <p class="para">
+  To format <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> and
+  <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> objects, please refer to the documentation
+  of the <span class="function"><a href="datetime.format.html" class="function">DateTimeInterface::format()</a></span> method.
+ </p>
+
+ <p class="para">
+  A general set of rules should be taken into account.
+ </p>
+ <ol type="1">
+  <li class="listitem">
+   <span class="simpara">
+    The parser, allows for each unit (year, month, day, hour, minute, second)
+    the full range of values. For a year that&#039;s just 4 digits, for a month
+    that&#039;s 0-12, day is 0-31, hour is 0-24, and minute is 0-59.
+   </span>
+  </li>
+  <li class="listitem">
+   <span class="simpara">
+    60 is allowed for seconds, as sometimes date strings with that
+    leapsecond do show up. But PHP implements Unix time where &quot;60&quot; is not
+    a valid second number and hence it overflows.
+   </span>
+  </li>
+  <li class="listitem">
+   <span class="simpara">
+    <span class="function"><a href="function.strtotime.html" class="function">strtotime()</a></span> returns <strong><code>false</code></strong> if any number is outside of
+    the ranges, and <span class="function"><a href="datetimeimmutable.construct.html" class="function">DateTimeImmutable::__construct()</a></span> throws
+    an exception.
+   </span>
+  </li>
+  <li class="listitem">
+   <span class="simpara">
+    If a string contains a date, all time elements are reset to 0.
+   </span>
+  </li>
+  <li class="listitem">
+   <span class="simpara">
+    All less-significant time elements are reset to 0 if any part of a time is
+    present in the given string.
+   </span>
+  </li>
+  <li class="listitem">
+   <span class="simpara">
+    The parser is dumb, and doesn&#039;t do any checks to make it faster (and
+    more generic).
+   </span>
+  </li>
+  <li class="listitem">
+   <p class="para">
+    There is an additional check if an invalid date is provided:
+    <div class="example" id="example-2172">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$res </span><span style="color: #007700">= </span><span style="color: #0000BB">date_parse</span><span style="color: #007700">(</span><span style="color: #DD0000">"2015-09-31"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">[</span><span style="color: #DD0000">"warnings"</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+     <div class="example-contents"><p>The above example will output:</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+array(1) {
+  [11] =&gt;
+  string(27) &quot;The parsed date was invalid&quot;
+}
+</pre></div>
+     </div>
+    </div>
+   </p>
+  </li>
+  <li class="listitem">
+   <p class="para">
+    It is already possible to handle the edge cases, but then
+    <span class="function"><a href="datetimeimmutable.createfromformat.html" class="function">DateTimeImmutable::createFromFormat()</a></span> must be used
+    while supplying the correct format.
+    <div class="example" id="example-2173">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$res </span><span style="color: #007700">= </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromFormat</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y-m-d"</span><span style="color: #007700">, </span><span style="color: #DD0000">"2015-09-34"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+     </div>
+
+     <div class="example-contents"><p>The above example will output:</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+object(DateTimeImmutable)#1 (3) {
+  [&quot;date&quot;]=&gt;
+  string(26) &quot;2015-10-04 17:24:43.000000&quot;
+  [&quot;timezone_type&quot;]=&gt;
+  int(3)
+  [&quot;timezone&quot;]=&gt;
+  string(13) &quot;Europe/London&quot;
+}
+</pre></div>
+     </div>
+    </div>
+   </p>
+  </li>
+ </ol>
  
  
  

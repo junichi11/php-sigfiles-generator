@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Checks if class is readonly</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="reflectionclass.isiterateable.html">« ReflectionClass::isIterateable</a></li>
+      <li style="float: right;"><a href="reflectionclass.issubclassof.html">ReflectionClass::isSubclassOf »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.reflectionclass.html">ReflectionClass</a></li>
+    <li>Checks if class is readonly</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="reflectionclass.isreadonly" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ReflectionClass::isReadOnly</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.2.0)</p><p class="refpurpose"><span class="refname">ReflectionClass::isReadOnly</span> &mdash; <span class="dc-title">Checks if class is readonly</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-reflectionclass.isreadonly-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::isReadOnly</strong></span>(): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Checks if a class is <a href="language.oop5.basic.html#language.oop5.basic.class.readonly" class="link">readonly</a>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-reflectionclass.isreadonly-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-reflectionclass.isreadonly-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   <strong><code>true</code></strong> if a class is readonly, <strong><code>false</code></strong> otherwise.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-reflectionclass.isreadonly-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-5285">
+    <p><strong>Example #1 <span class="methodname"><strong>ReflectionClass::isReadOnly()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">TestClass </span><span style="color: #007700">{ }<br /></span><span style="color: #0000BB">readonly </span><span style="color: #007700">class </span><span style="color: #0000BB">TestReadOnlyClass </span><span style="color: #007700">{ }<br /><br /></span><span style="color: #0000BB">$normalClass </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #DD0000">'TestClass'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$readonlyClass </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #DD0000">'TestReadOnlyClass'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$normalClass</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isReadOnly</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$readonlyClass</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isReadOnly</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+bool(false)
+bool(true)
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-reflectionclass.isreadonly-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="reflectionclass.isabstract.html" class="methodname" rel="rdfs-seeAlso">ReflectionClass::isAbstract()</a> - Checks if class is abstract</span></li>
+    <li class="member"><a href="language.oop5.basic.html#language.oop5.basic.class.readonly" class="link">Readonly classes</a></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

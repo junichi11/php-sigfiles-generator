@@ -27,16 +27,16 @@
  <h1>User Submitted Data</h1>
 
  <p class="para">
-  The greatest weakness in many <acronym title="PHP: Hypertext Preprocessor">PHP</acronym> programs is not inherent in the
+  The greatest weakness in many <abbr title="PHP: Hypertext Preprocessor">PHP</abbr> programs is not inherent in the
   language itself, but merely an issue of code not being written with
   security in mind. For this reason, you should always take the time
   to consider the implications of a given piece of code, to ascertain
   the possible damage if an unexpected variable is submitted to it.
-  <div class="example" id="example-429">
+  <div class="example" id="example-445">
    <p><strong>Example #1 Dangerous Variable Usage</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;remove&nbsp;a&nbsp;file&nbsp;from&nbsp;the&nbsp;user's&nbsp;home&nbsp;directory...&nbsp;or&nbsp;maybe<br />//&nbsp;somebody&nbsp;else's?<br /></span><span style="color: #0000BB">unlink&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$evil_var</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Write&nbsp;logging&nbsp;of&nbsp;their&nbsp;access...&nbsp;or&nbsp;maybe&nbsp;an&nbsp;/etc/passwd&nbsp;entry?<br /></span><span style="color: #0000BB">fwrite&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$evil_var</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Execute&nbsp;something&nbsp;trivial..&nbsp;or&nbsp;rm&nbsp;-rf&nbsp;*?<br /></span><span style="color: #0000BB">system&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$evil_var</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">exec&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$evil_var</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// remove a file from the user's home directory... or maybe<br />// somebody else's?<br /></span><span style="color: #0000BB">unlink </span><span style="color: #007700">(</span><span style="color: #0000BB">$evil_var</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Write logging of their access... or maybe an /etc/passwd entry?<br /></span><span style="color: #0000BB">fwrite </span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">, </span><span style="color: #0000BB">$evil_var</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Execute something trivial.. or rm -rf *?<br /></span><span style="color: #0000BB">system </span><span style="color: #007700">(</span><span style="color: #0000BB">$evil_var</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">exec </span><span style="color: #007700">(</span><span style="color: #0000BB">$evil_var</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -87,7 +87,7 @@
   You may also want to consider turning off register_globals,
   magic_quotes, or other convenience settings which may confuse
   you as to the validity, source, or value of a given variable.
-  Working with <acronym title="PHP: Hypertext Preprocessor">PHP</acronym> in error_reporting(E_ALL) mode can also help warn
+  Working with <abbr title="PHP: Hypertext Preprocessor">PHP</abbr> in error_reporting(E_ALL) mode can also help warn
   you about variables being used before they are checked or
   initialized (so you can prevent unusual data from being
   operated upon).

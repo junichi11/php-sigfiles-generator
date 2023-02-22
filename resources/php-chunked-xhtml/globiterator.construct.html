@@ -76,14 +76,58 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-globiterator.construct-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Throws an <span class="classname"><a href="class.unexpectedvalueexception.html" class="classname">UnexpectedValueException</a></span>
+   if the <code class="parameter">directory</code> does not exist.
+  </p>
+  <p class="para">
+   Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span>
+   if the <code class="parameter">directory</code> is an empty string.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-globiterator.construct-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        Now throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> if
+        <code class="parameter">directory</code> is an empty string;
+        previously it threw a <span class="classname"><a href="class.runtimeexception.html" class="classname">RuntimeException</a></span>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-globiterator.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3638">
+   <div class="example" id="example-3716">
     <p><strong>Example #1 <span class="classname"><a href="class.globiterator.html" class="classname">GlobIterator</a></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$iterator&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">GlobIterator</span><span style="color: #007700">(</span><span style="color: #DD0000">'*.dll'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">FilesystemIterator</span><span style="color: #007700">::</span><span style="color: #0000BB">KEY_AS_FILENAME</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$iterator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">count</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'No&nbsp;matches'</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$n&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Matched&nbsp;%d&nbsp;item(s)\r\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$iterator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">count</span><span style="color: #007700">());<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: #0000BB">$iterator&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"[%d]&nbsp;%s\r\n"</span><span style="color: #007700">,&nbsp;++</span><span style="color: #0000BB">$n</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$iterator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">key</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$iterator </span><span style="color: #007700">= new </span><span style="color: #0000BB">GlobIterator</span><span style="color: #007700">(</span><span style="color: #DD0000">'*.dll'</span><span style="color: #007700">, </span><span style="color: #0000BB">FilesystemIterator</span><span style="color: #007700">::</span><span style="color: #0000BB">KEY_AS_FILENAME</span><span style="color: #007700">);<br /><br />if (!</span><span style="color: #0000BB">$iterator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">count</span><span style="color: #007700">()) {<br />    echo </span><span style="color: #DD0000">'No matches'</span><span style="color: #007700">;<br />} else {<br />    </span><span style="color: #0000BB">$n </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /><br />    </span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Matched %d item(s)\r\n"</span><span style="color: #007700">, </span><span style="color: #0000BB">$iterator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">count</span><span style="color: #007700">());<br /><br />    foreach (</span><span style="color: #0000BB">$iterator </span><span style="color: #007700">as </span><span style="color: #0000BB">$item</span><span style="color: #007700">) {<br />        </span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"[%d] %s\r\n"</span><span style="color: #007700">, ++</span><span style="color: #0000BB">$n</span><span style="color: #007700">, </span><span style="color: #0000BB">$iterator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">key</span><span style="color: #007700">());<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

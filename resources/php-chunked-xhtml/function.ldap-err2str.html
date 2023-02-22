@@ -78,11 +78,11 @@
  <div class="refsect1 examples" id="refsect1-function.ldap-err2str-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4353">
+   <div class="example" id="example-4432">
     <p><strong>Example #1 Enumerating all LDAP error messages</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;</span><span style="color: #007700">for&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">&lt;</span><span style="color: #0000BB">100</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Error&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #DD0000">:&nbsp;%s&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ldap_err2str</span><span style="color: #007700">(</span><span style="color: #0000BB">$i</span><span style="color: #007700">));<br />&nbsp;&nbsp;}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />  </span><span style="color: #007700">for (</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">&lt;</span><span style="color: #0000BB">100</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++) {<br />    </span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Error </span><span style="color: #0000BB">$i</span><span style="color: #DD0000">: %s&lt;br /&gt;\n"</span><span style="color: #007700">, </span><span style="color: #0000BB">ldap_err2str</span><span style="color: #007700">(</span><span style="color: #0000BB">$i</span><span style="color: #007700">));<br />  }<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

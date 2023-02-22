@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Manipulates process resources</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.pcntl-getpriority.html">« pcntl_getpriority</a></li>
+      <li style="float: right;"><a href="function.pcntl-setpriority.html">pcntl_setpriority »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.pcntl.html">PCNTL Functions</a></li>
+    <li>Manipulates process resources</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.pcntl-rfork" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">pcntl_rfork</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.1.0)</p><p class="refpurpose"><span class="refname">pcntl_rfork</span> &mdash; <span class="dc-title">Manipulates process resources</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.pcntl-rfork-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>pcntl_rfork</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$signal</code><span class="initializer"> = 0</span></span>): <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">
+   Manipulates process resources.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.pcntl-rfork-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The <code class="parameter">flags</code> parameter determines which resources of the invoking process (parent)
+       are shared by the new process (child) or initialized to their default values.
+      </p>
+      <p class="para">
+       <code class="parameter">flags</code> is the logical OR of some subset of:
+       <ul class="simplelist">
+        <li class="member">
+         <strong><code>RFPROC</code></strong>: If set a new process is created;
+         otherwise changes affect the current process.
+        </li>
+        <li class="member">
+         <strong><code>RFNOWAIT</code></strong>: If set, the child process will be dissociated from the parent.
+         Upon exit the child will not leave a status for the parent to collect.
+        </li>
+        <li class="member">
+         <strong><code>RFFDG</code></strong>: If set, the invoker&#039;s file descriptor table is copied;
+         otherwise the two processes share a single table.
+        </li>
+        <li class="member">
+         <strong><code>RFCFDG</code></strong>: If set, the new process starts with a clean file descriptor table.
+         Is mutually exclusive with <code class="literal">RFFDG</code>.
+        </li>
+        <li class="member">
+         <strong><code>RFLINUXTHPN</code></strong>: If set, the kernel will return SIGUSR1 instead of SIGCHILD upon thread exit for the child.
+         This is intended to do Linux clone exit parent notification.
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">signal</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The signal number.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.pcntl-rfork-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   On success, the PID of the child process is returned in the
+   parent&#039;s thread of execution, and a <code class="literal">0</code> is returned in the child&#039;s
+   thread of execution. 
+   On failure, a <code class="literal">-1</code> will be returned in the
+   parent&#039;s context, no child process will be created, and a PHP error is raised.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.pcntl-rfork-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-3366">
+    <p><strong>Example #1 <span class="function"><strong>pcntl_rfork()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$pid </span><span style="color: #007700">= </span><span style="color: #0000BB">pcntl_rfork</span><span style="color: #007700">(</span><span style="color: #0000BB">RFNOWAIT</span><span style="color: #007700">|</span><span style="color: #0000BB">RFTSIGZMB</span><span style="color: #007700">, </span><span style="color: #0000BB">SIGUSR1</span><span style="color: #007700">);<br />if (</span><span style="color: #0000BB">$pid </span><span style="color: #007700">&gt; </span><span style="color: #0000BB">0</span><span style="color: #007700">) {<br />  </span><span style="color: #FF8000">// This is the parent process.<br />  </span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$pid</span><span style="color: #007700">);<br />} else {<br />  </span><span style="color: #FF8000">// This is the child process.<br />  </span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$pid</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">sleep</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">); </span><span style="color: #FF8000">// as the child does not wait, so we see its "pid"<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+int(77093)
+int(0)
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.pcntl-rfork-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.pcntl-fork.html" class="function" rel="rdfs-seeAlso">pcntl_fork()</a> - Forks the currently running process</span></li>
+    <li class="member"><span class="function"><a href="function.pcntl-waitpid.html" class="function" rel="rdfs-seeAlso">pcntl_waitpid()</a> - Waits on or returns the status of a forked child</span></li>
+    <li class="member"><span class="function"><a href="function.pcntl-signal.html" class="function" rel="rdfs-seeAlso">pcntl_signal()</a> - Installs a signal handler</span></li>
+    <li class="member"><span class="function"><a href="function.cli-set-process-title.html" class="function" rel="rdfs-seeAlso">cli_set_process_title()</a> - Sets the process title</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

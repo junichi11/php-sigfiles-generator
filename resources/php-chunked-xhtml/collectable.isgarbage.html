@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-collectable.isgarbage-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Collectable::isGarbage</strong></span>(): <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Collectable::isGarbage</strong></span>(): <span class="type"><span class="type true">true</span></span></div>
 
   <p class="para rdfs-comment">
    Can be called in <span class="methodname"><a href="pool.collect.html" class="methodname">Pool::collect()</a></span> to determine if this object is garbage.
@@ -51,6 +51,35 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Always returns <strong><code>true</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-collectable.isgarbage-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+ <td>8.2.0</td>
+ <td>
+  The return type is <strong><code>true</code></strong> now; previously, it was <span class="type">bool</span>.
+ </td>
+</tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 

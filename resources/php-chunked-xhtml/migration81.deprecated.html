@@ -52,7 +52,7 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">str_contains</span><span style="color: #007700">(</span><span style="color: #DD0000">"foobar"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">));<br /></span><span style="color: #FF8000">//&nbsp;Deprecated:&nbsp;Passing&nbsp;null&nbsp;to&nbsp;parameter&nbsp;#2&nbsp;($needle)&nbsp;of&nbsp;type&nbsp;string<br />//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;deprecated<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">str_contains</span><span style="color: #007700">(</span><span style="color: #DD0000">"foobar"</span><span style="color: #007700">, </span><span style="color: #0000BB">null</span><span style="color: #007700">));<br /></span><span style="color: #FF8000">// Deprecated: Passing null to parameter #2 ($needle) of type string<br />//             is deprecated<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -73,7 +73,7 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;[];<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #0000BB">15.5</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;deprecated,&nbsp;as&nbsp;key&nbsp;value&nbsp;loses&nbsp;the&nbsp;0.5&nbsp;component<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #0000BB">15.0</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;ok,&nbsp;as&nbsp;15.0&nbsp;==&nbsp;15<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= [];<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #0000BB">15.5</span><span style="color: #007700">]; </span><span style="color: #FF8000">// deprecated, as key value loses the 0.5 component<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #0000BB">15.0</span><span style="color: #007700">]; </span><span style="color: #FF8000">// ok, as 15.0 == 15<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -108,7 +108,7 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;&amp;</span><span style="color: #0000BB">test</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">void&nbsp;</span><span style="color: #007700">{}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function &amp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(): </span><span style="color: #0000BB">void </span><span style="color: #007700">{}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -131,7 +131,7 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$arr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$arr</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;deprecated<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$arr </span><span style="color: #007700">= </span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$arr</span><span style="color: #007700">[] = </span><span style="color: #0000BB">2</span><span style="color: #007700">;   </span><span style="color: #FF8000">// deprecated<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -144,7 +144,7 @@
      <div class="informalexample">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;From&nbsp;undefined<br /></span><span style="color: #0000BB">$arr</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">'some&nbsp;value'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #DD0000">'doesNotExist'</span><span style="color: #007700">][]&nbsp;=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;From&nbsp;null<br /></span><span style="color: #0000BB">$arr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$arr</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// From undefined<br /></span><span style="color: #0000BB">$arr</span><span style="color: #007700">[] = </span><span style="color: #DD0000">'some value'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #DD0000">'doesNotExist'</span><span style="color: #007700">][] = </span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">// From null<br /></span><span style="color: #0000BB">$arr </span><span style="color: #007700">= </span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$arr</span><span style="color: #007700">[] = </span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -213,8 +213,9 @@
   <h3 class="title">GD</h3>
 
   <p class="para">
-   The <code class="parameter">num_points</code> of <span class="function"><a href="function.imageopenpolygon.html" class="function">imageopenpolygon()</a></span>
-   and <span class="function"><a href="function.imagefilledpolygon.html" class="function">imagefilledpolygon()</a></span> has been deprecated.
+   The <code class="parameter">num_points</code> of <span class="function"><a href="function.imagepolygon.html" class="function">imagepolygon()</a></span>,
+   <span class="function"><a href="function.imageopenpolygon.html" class="function">imageopenpolygon()</a></span> and <span class="function"><a href="function.imagefilledpolygon.html" class="function">imagefilledpolygon()</a></span>
+   has been deprecated.
   </p>
  </div>
 

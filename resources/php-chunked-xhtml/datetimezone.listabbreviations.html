@@ -39,6 +39,16 @@
   <p class="para rdfs-comment">Procedural style</p>
   <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.timezone-abbreviations-list.html" class="methodname">timezone_abbreviations_list</a></span>(): <span class="type">array</span></div>
 
+  <p class="para rdfs-comment">
+   The returned list of abbreviations includes all historical use of
+   abbreviations, which can lead to correct, but confusing entries.
+   There are also conflicts, as <code class="literal">PST</code> is used both in the US
+   and in the Philippines.
+  </p>
+  <p class="para">
+   The list that this function returns is therefore not suitable for building
+   an array with options to present a choice of timezone to users.
+  </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     The data for this function are precompiled for performance reasons, and are not updated
@@ -65,11 +75,11 @@
  <div class="refsect1 examples" id="refsect1-datetimezone.listabbreviations-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2056">
+   <div class="example" id="example-2103">
     <p><strong>Example #1 A <span class="function"><a href="function.timezone-abbreviations-list.html" class="function">timezone_abbreviations_list()</a></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$timezone_abbreviations&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">::</span><span style="color: #0000BB">listAbbreviations</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$timezone_abbreviations</span><span style="color: #007700">[</span><span style="color: #DD0000">"acst"</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$timezone_abbreviations </span><span style="color: #007700">= </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">::</span><span style="color: #0000BB">listAbbreviations</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$timezone_abbreviations</span><span style="color: #007700">[</span><span style="color: #DD0000">"acst"</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -514,6 +514,7 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
      potentially cleaned up. Garbage collection may occur during session start
      (depending on <a href="session.configuration.html#ini.session.gc-probability" class="link">session.gc_probability</a> and
      <a href="session.configuration.html#ini.session.gc-divisor" class="link">session.gc_divisor</a>).
+     Defaults to <code class="literal">1440</code> (24 minutes).
     </span>
     <blockquote class="note"><p><strong class="note">Note</strong>: 
      <span class="simpara">
@@ -975,7 +976,7 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
    <dd>
 
     <span class="simpara">
-     <code class="literal">session.sid_per_character</code> allows you to specify the
+     <code class="literal">session.sid_bits_per_character</code> allows you to specify the
      number of bits in encoded session ID character. The possible values are 
      &#039;4&#039; (0-9, a-f), &#039;5&#039; (0-9, a-v), and &#039;6&#039; (0-9, a-z, A-Z, &quot;-&quot;, &quot;,&quot;).
     </span>

@@ -60,7 +60,7 @@
  <div class="refsect1 examples" id="refsect1-function.posix-geteuid-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3305">
+   <div class="example" id="example-3377">
     <p><strong>Example #1 <span class="function"><strong>posix_geteuid()</strong></span> example</strong></p>
     <div class="example-contents"><p>This example will show the current user id then set the
     effective user id to a separate id using
@@ -68,7 +68,7 @@
     the real id and the effective id.</p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">posix_getuid</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//10001<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">posix_geteuid</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//10001<br /></span><span style="color: #0000BB">posix_seteuid</span><span style="color: #007700">(</span><span style="color: #0000BB">10000</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">posix_getuid</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//10001<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">posix_geteuid</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//10000<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">posix_getuid</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">; </span><span style="color: #FF8000">//10001<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">posix_geteuid</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">; </span><span style="color: #FF8000">//10001<br /></span><span style="color: #0000BB">posix_seteuid</span><span style="color: #007700">(</span><span style="color: #0000BB">10000</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">posix_getuid</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">; </span><span style="color: #FF8000">//10001<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">posix_geteuid</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">; </span><span style="color: #FF8000">//10000<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

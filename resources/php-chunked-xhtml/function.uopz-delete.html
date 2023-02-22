@@ -88,11 +88,11 @@
 
  <div class="refsect1 examples" id="refsect1-function.uopz-delete-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-601">
+  <div class="example" id="example-619">
    <p><strong>Example #1 <span class="function"><strong>uopz_delete()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />uopz_delete</span><span style="color: #007700">(</span><span style="color: #DD0000">"strlen"</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #DD0000">"Hello&nbsp;World"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />uopz_delete</span><span style="color: #007700">(</span><span style="color: #DD0000">"strlen"</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #DD0000">"Hello World"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -105,11 +105,11 @@ PHP Fatal error: Call to undefined function strlen() in /path/to/script.php on l
 </pre></div>
    </div>
   </div>
- <div class="example" id="example-602">
+ <div class="example" id="example-620">
    <p><strong>Example #2 <span class="function"><strong>uopz_delete()</strong></span> class example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">My&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">uopz_delete</span><span style="color: #007700">(</span><span style="color: #0000BB">My</span><span style="color: #007700">::class,&nbsp;</span><span style="color: #DD0000">"strlen"</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">My</span><span style="color: #007700">::</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #DD0000">"Hello&nbsp;World"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">My </span><span style="color: #007700">{<br />    public static function </span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">) {<br />        return </span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">);<br />    }<br />}<br /><br /></span><span style="color: #0000BB">uopz_delete</span><span style="color: #007700">(</span><span style="color: #0000BB">My</span><span style="color: #007700">::class, </span><span style="color: #DD0000">"strlen"</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #0000BB">My</span><span style="color: #007700">::</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #DD0000">"Hello World"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

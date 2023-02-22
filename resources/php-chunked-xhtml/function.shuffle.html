@@ -36,9 +36,19 @@
 
   <p class="para rdfs-comment">
    This function shuffles (randomizes the order of the elements in) an array.
-   It uses a pseudo random number generator that is not suitable for
-   cryptographic purposes.
   </p>
+  <div class="caution"><strong class="caution">Caution</strong>
+ <p class="para">
+  This function does not generate cryptographically secure values, and <em class="emphasis">must not</em>
+  be used for cryptographic purposes, or purposes that require returned values to be unguessable.
+ </p>
+ <p class="para">
+  If cryptographically secure randomness is required, the <span class="classname"><a href="class.random-randomizer.html" class="classname">Random\Randomizer</a></span> may be
+  used with the <span class="classname"><a href="class.random-engine-secure.html" class="classname">Random\Engine\Secure</a></span> engine. For simple use cases, the <span class="function"><a href="function.random-int.html" class="function">random_int()</a></span>
+  and <span class="function"><a href="function.random-bytes.html" class="function">random_bytes()</a></span> functions provide a convenient and secure <abbr title="Application Programming Interface">API</abbr> that is backed by
+  the operating system’s <abbr title="Cryptographically Secure PseudoRandom Number Generator">CSPRNG</abbr>.
+ </p>
+</div>
  </div>
 
  <div class="refsect1 parameters" id="refsect1-function.shuffle-parameters">
@@ -101,11 +111,11 @@
  <div class="refsect1 examples" id="refsect1-function.shuffle-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5014">
+   <div class="example" id="example-5109">
     <p><strong>Example #1 <span class="function"><strong>shuffle()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$numbers&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">shuffle</span><span style="color: #007700">(</span><span style="color: #0000BB">$numbers</span><span style="color: #007700">);<br />foreach&nbsp;(</span><span style="color: #0000BB">$numbers&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$number</span><span style="color: #DD0000">&nbsp;"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$numbers </span><span style="color: #007700">= </span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">shuffle</span><span style="color: #007700">(</span><span style="color: #0000BB">$numbers</span><span style="color: #007700">);<br />foreach (</span><span style="color: #0000BB">$numbers </span><span style="color: #007700">as </span><span style="color: #0000BB">$number</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$number</span><span style="color: #DD0000"> "</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -132,7 +142,9 @@ than just reordering the keys.</span></p></blockquote>
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.array-rand.html" class="function" rel="rdfs-seeAlso">array_rand()</a> - Pick one or more random keys out of an array</span></li>
+    <li class="member"><span class="function"><a href="random-randomizer.shufflearray.html" class="function" rel="rdfs-seeAlso">Random\Randomizer::shuffleArray()</a> - Get a permutation of an array</span></li>
+    <li class="member"><span class="function"><a href="random-randomizer.shufflebytes.html" class="function" rel="rdfs-seeAlso">Random\Randomizer::shuffleBytes()</a> - Get a byte-wise permutation of a string</span></li>
+    <li class="member"><span class="function"><a href="random-randomizer.pickarraykeys.html" class="function" rel="rdfs-seeAlso">Random\Randomizer::pickArrayKeys()</a> - Select random array keys</span></li>
     <li class="member">The <a href="array.sorting.html" class="link">comparison of array sorting functions</a></li>
    </ul>
   </p>

@@ -59,11 +59,11 @@
  <div class="refsect1 examples" id="refsect1-reflectionfunctionabstract.getreturntype-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5157">
+   <div class="example" id="example-5320">
     <p><strong>Example #1 <span class="methodname"><strong>ReflectionFunctionAbstract::getReturnType()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">to_int</span><span style="color: #007700">(</span><span style="color: #0000BB">$param</span><span style="color: #007700">)&nbsp;:&nbsp;</span><span style="color: #0000BB">int&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(int)&nbsp;</span><span style="color: #0000BB">$param</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$reflection1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'to_int'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$reflection1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getReturnType</span><span style="color: #007700">();</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function </span><span style="color: #0000BB">to_int</span><span style="color: #007700">(</span><span style="color: #0000BB">$param</span><span style="color: #007700">) : </span><span style="color: #0000BB">int </span><span style="color: #007700">{<br />    return (int) </span><span style="color: #0000BB">$param</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$reflection1 </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'to_int'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$reflection1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getReturnType</span><span style="color: #007700">();</span>
 </span>
 </code></div>
     </div>
@@ -76,11 +76,11 @@ int
     </div>
    </div>
 
-   <div class="example" id="example-5158">
+   <div class="example" id="example-5321">
     <p><strong>Example #2 Usage on built-in functions</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$reflection2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'array_merge'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflection2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getReturnType</span><span style="color: #007700">());</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$reflection2 </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'array_merge'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflection2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getReturnType</span><span style="color: #007700">());</span>
 </span>
 </code></div>
     </div>

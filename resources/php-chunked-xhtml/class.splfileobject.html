@@ -60,25 +60,30 @@
 
      <span class="oointerface"><span class="modifier">implements</span> 
        <a href="class.recursiveiterator.html" class="interfacename">RecursiveIterator</a></span><span class="oointerface">,  <a href="class.seekableiterator.html" class="interfacename">SeekableIterator</a></span> {</div>
+
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
     <div class="fieldsynopsis">
+     <span class="modifier">public</span>
      <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.splfileobject.html#splfileobject.constants.drop-new-line"><var class="varname">DROP_NEW_LINE</var></a></var><span class="initializer"> = 1</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.splfileobject.html#splfileobject.constants.drop-new-line"><var class="varname">DROP_NEW_LINE</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.splfileobject.html#splfileobject.constants.read-ahead"><var class="varname">READ_AHEAD</var></a></var><span class="initializer"> = 2</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.splfileobject.html#splfileobject.constants.read-ahead"><var class="varname">READ_AHEAD</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.splfileobject.html#splfileobject.constants.skip-empty"><var class="varname">SKIP_EMPTY</var></a></var><span class="initializer"> = 4</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.splfileobject.html#splfileobject.constants.skip-empty"><var class="varname">SKIP_EMPTY</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.splfileobject.html#splfileobject.constants.read-csv"><var class="varname">READ_CSV</var></a></var><span class="initializer"> = 8</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.splfileobject.html#splfileobject.constants.read-csv"><var class="varname">READ_CSV</var></a></var>;</div>
 
-    
+
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="splfileobject.construct.html" class="methodname">__construct</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code><span class="initializer"> = &quot;r&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$useIncludePath</code><span class="initializer"> = <strong><code>false</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">resource</span><span class="type"></span></span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>)</div>
@@ -100,11 +105,11 @@
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileobject.ftell.html" class="methodname">ftell</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileobject.ftruncate.html" class="methodname">ftruncate</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileobject.fwrite.html" class="methodname">fwrite</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileobject.getchildren.html" class="methodname">getChildren</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.recursiveiterator.html" class="type RecursiveIterator">RecursiveIterator</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileobject.getchildren.html" class="methodname">getChildren</a></span>(): <span class="type">null</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileobject.getcsvcontrol.html" class="methodname">getCsvControl</a></span>(): <span class="type">array</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileobject.getflags.html" class="methodname">getFlags</a></span>(): <span class="type">int</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileobject.getmaxlinelen.html" class="methodname">getMaxLineLen</a></span>(): <span class="type">int</span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileobject.haschildren.html" class="methodname">hasChildren</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileobject.haschildren.html" class="methodname">hasChildren</a></span>(): <span class="type"><span class="type false">false</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileobject.key.html" class="methodname">key</a></span>(): <span class="type">int</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileobject.next.html" class="methodname">next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileobject.rewind.html" class="methodname">rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
@@ -198,38 +203,6 @@
  </div>
 
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

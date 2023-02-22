@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.snmp2-getnext" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">snmp2_getnext</h1>
-  <p class="verinfo">(PHP &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">snmp2_getnext</span> &mdash; <span class="dc-title">Fetch the <acronym title="Simple Network Management Protocol">SNMP</acronym> object which follows the given object id</span></p>
+  <p class="verinfo">(PHP &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">snmp2_getnext</span> &mdash; <span class="dc-title">Fetch the <abbr title="Simple Network Management Protocol">SNMP</abbr> object which follows the given object id</span></p>
 
  </div>
  
@@ -37,7 +37,7 @@
 
   <p class="para rdfs-comment">
    The <span class="function"><strong>snmp2_get_next()</strong></span> function is used to read the
-   value of the <acronym title="Simple Network Management Protocol">SNMP</acronym> object that follows the specified
+   value of the <abbr title="Simple Network Management Protocol">SNMP</abbr> object that follows the specified
    <code class="parameter">object_id</code>.
   </p>
  </div>
@@ -53,7 +53,7 @@
     <dd>
 
      <p class="para">
-      The hostname of the <acronym title="Simple Network Management Protocol">SNMP</acronym> agent (server).
+      The hostname of the <abbr title="Simple Network Management Protocol">SNMP</abbr> agent (server).
      </p>
     </dd>
 
@@ -77,7 +77,7 @@
     <dd>
 
      <p class="para">
-      The <acronym title="Simple Network Management Protocol">SNMP</acronym> object id which precedes the wanted one.
+      The <abbr title="Simple Network Management Protocol">SNMP</abbr> object id which precedes the wanted one.
      </p>
     </dd>
 
@@ -115,7 +115,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.snmp2-getnext-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <acronym title="Simple Network Management Protocol">SNMP</acronym> object value on success or <strong><code>false</code></strong> on error.
+   Returns <abbr title="Simple Network Management Protocol">SNMP</abbr> object value on success or <strong><code>false</code></strong> on error.
    In case of an error, an E_WARNING message is shown.
   </p>
  </div>
@@ -124,11 +124,11 @@
  <div class="refsect1 examples" id="refsect1-function.snmp2-getnext-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4480">
+   <div class="example" id="example-4559">
     <p><strong>Example #1 Using <span class="function"><strong>snmp2_get_next()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$nameOfSecondInterface&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">snmp2_get_next</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'public'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'IF-MIB::ifName.1'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$nameOfSecondInterface </span><span style="color: #007700">= </span><span style="color: #0000BB">snmp2_get_next</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #DD0000">'public'</span><span style="color: #007700">, </span><span style="color: #DD0000">'IF-MIB::ifName.1'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

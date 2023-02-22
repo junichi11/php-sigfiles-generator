@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="phardata.construct" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PharData::__construct</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL phar &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">PharData::__construct</span> &mdash; <span class="dc-title">Construct a non-executable tar or zip archive object</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL phar &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">PharData::__construct</span> &mdash; <span class="dc-title">Construct a non-executable tar or zip archive object</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-phardata.construct-description">
@@ -113,12 +113,12 @@
  <div class="refsect1 examples" id="refsect1-phardata.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-753">
+   <div class="example" id="example-771">
     <p><strong>Example #1 A <span class="function"><strong>PharData::__construct()</strong></span> example</strong></p>
      <div class="example-contents"><p>
       <div class="example-contents">
        <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$p&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PharData</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/my.tar'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Phar</span><span style="color: #007700">::</span><span style="color: #0000BB">CURRENT_AS_FILEINFO&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">Phar</span><span style="color: #007700">::</span><span style="color: #0000BB">KEY_AS_FILENAME</span><span style="color: #007700">);<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">UnexpectedValueException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;open&nbsp;my.tar'</span><span style="color: #007700">);<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">BadMethodCallException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'technically,&nbsp;this&nbsp;cannot&nbsp;happen'</span><span style="color: #007700">;<br />}<br />echo&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'phar:///path/to/my.tar/example.txt'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">try {<br />    </span><span style="color: #0000BB">$p </span><span style="color: #007700">= new </span><span style="color: #0000BB">PharData</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/my.tar'</span><span style="color: #007700">, </span><span style="color: #0000BB">Phar</span><span style="color: #007700">::</span><span style="color: #0000BB">CURRENT_AS_FILEINFO </span><span style="color: #007700">| </span><span style="color: #0000BB">Phar</span><span style="color: #007700">::</span><span style="color: #0000BB">KEY_AS_FILENAME</span><span style="color: #007700">);<br />} catch (</span><span style="color: #0000BB">UnexpectedValueException $e</span><span style="color: #007700">) {<br />    die(</span><span style="color: #DD0000">'Could not open my.tar'</span><span style="color: #007700">);<br />} catch (</span><span style="color: #0000BB">BadMethodCallException $e</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">'technically, this cannot happen'</span><span style="color: #007700">;<br />}<br />echo </span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'phar:///path/to/my.tar/example.txt'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

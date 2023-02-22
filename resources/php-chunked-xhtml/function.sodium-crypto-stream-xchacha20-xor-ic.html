@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Encrypts a message using a nonce and a secret key (no authentication)</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.sodium-crypto-stream-xchacha20-keygen.html">« sodium_crypto_stream_xchacha20_keygen</a></li>
+      <li style="float: right;"><a href="function.sodium-crypto-stream-xchacha20-xor.html">sodium_crypto_stream_xchacha20_xor »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.sodium.html">Sodium Functions</a></li>
+    <li>Encrypts a message using a nonce and a secret key (no authentication)</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.sodium-crypto-stream-xchacha20-xor-ic" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">sodium_crypto_stream_xchacha20_xor_ic</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.2.0)</p><p class="refpurpose"><span class="refname">sodium_crypto_stream_xchacha20_xor_ic</span> &mdash; <span class="dc-title">Encrypts a message using a nonce and a secret key (no authentication)</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.sodium-crypto-stream-xchacha20-xor-ic-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>sodium_crypto_stream_xchacha20_xor_ic</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$nonce</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$counter</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span><br>): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   The function is similar to <span class="function"><a href="function.sodium-crypto-stream-xchacha20-xor.html" class="function">sodium_crypto_stream_xchacha20_xor()</a></span>
+   but adds the ability to set the initial value of the block counter to a non-zero value.
+   This permits direct access to any block without having to compute the previous ones.
+  </p>
+
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="para">
+    This encryption is unauthenticated, and does not prevent chosen-ciphertext attacks.
+    Make sure to combine the ciphertext with a Message Authentication Code,
+    for example with <span class="function"><a href="function.sodium-crypto-aead-xchacha20poly1305-ietf-encrypt.html" class="function">sodium_crypto_aead_xchacha20poly1305_ietf_encrypt()</a></span> function,
+    or <span class="function"><a href="function.sodium-crypto-auth.html" class="function">sodium_crypto_auth()</a></span>.
+   </p>
+  </div>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.sodium-crypto-stream-xchacha20-xor-ic-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">message</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The message to encrypt.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">nonce</code></dt>
+
+    <dd>
+
+     <p class="para">
+      24-byte nonce.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">counter</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The initial value of the block counter.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">key</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Key, possibly generated from <span class="function"><a href="function.sodium-crypto-stream-xchacha20-keygen.html" class="function">sodium_crypto_stream_xchacha20_keygen()</a></span>.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.sodium-crypto-stream-xchacha20-xor-ic-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Encrypted message,  or <strong><code>false</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.sodium-crypto-stream-xchacha20-xor-ic-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-1003">
+   <p><strong>Example #1 <span class="function"><strong>sodium_crypto_stream_xchacha20_xor_ic()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$n2 </span><span style="color: #007700">= </span><span style="color: #0000BB">random_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">SODIUM_CRYPTO_STREAM_XCHACHA20_NONCEBYTES</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$left  </span><span style="color: #007700">= </span><span style="color: #0000BB">str_repeat</span><span style="color: #007700">(</span><span style="color: #DD0000">"\x01"</span><span style="color: #007700">, </span><span style="color: #0000BB">64</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$right </span><span style="color: #007700">= </span><span style="color: #0000BB">str_repeat</span><span style="color: #007700">(</span><span style="color: #DD0000">"\xfe"</span><span style="color: #007700">, </span><span style="color: #0000BB">64</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// All at once:<br /></span><span style="color: #0000BB">$stream7_unified </span><span style="color: #007700">= </span><span style="color: #0000BB">sodium_crypto_stream_xchacha20_xor</span><span style="color: #007700">(</span><span style="color: #0000BB">$left </span><span style="color: #007700">. </span><span style="color: #0000BB">$right</span><span style="color: #007700">, </span><span style="color: #0000BB">$n2</span><span style="color: #007700">, </span><span style="color: #0000BB">$key</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Piecewise, with initial counter:<br /></span><span style="color: #0000BB">$stream7_left  </span><span style="color: #007700">= </span><span style="color: #0000BB">sodium_crypto_stream_xchacha20_xor_ic</span><span style="color: #007700">(</span><span style="color: #0000BB">$left</span><span style="color: #007700">, </span><span style="color: #0000BB">$n2</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">$key</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stream7_right </span><span style="color: #007700">= </span><span style="color: #0000BB">sodium_crypto_stream_xchacha20_xor_ic</span><span style="color: #007700">(</span><span style="color: #0000BB">$right</span><span style="color: #007700">, </span><span style="color: #0000BB">$n2</span><span style="color: #007700">, </span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">$key</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stream7_concat </span><span style="color: #007700">= </span><span style="color: #0000BB">$stream7_left </span><span style="color: #007700">. </span><span style="color: #0000BB">$stream7_right</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$stream7_concat</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$stream7_unified </span><span style="color: #007700">=== </span><span style="color: #0000BB">$stream7_concat</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+int(128)
+bool(true)
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.sodium-crypto-stream-xchacha20-xor-ic-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.sodium-crypto-stream-xchacha20-xor.html" class="function" rel="rdfs-seeAlso">sodium_crypto_stream_xchacha20_xor()</a> - Encrypts a message using a nonce and a secret key (no authentication)</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

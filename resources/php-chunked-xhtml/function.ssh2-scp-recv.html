@@ -99,11 +99,11 @@
  <div class="refsect1 examples" id="refsect1-function.ssh2-scp-recv-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4542">
+   <div class="example" id="example-4621">
     <p><strong>Example #1 Downloading a file via SCP</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$connection&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ssh2_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'shell.example.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">22</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ssh2_auth_password</span><span style="color: #007700">(</span><span style="color: #0000BB">$connection</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'username'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'password'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">ssh2_scp_recv</span><span style="color: #007700">(</span><span style="color: #0000BB">$connection</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'/remote/filename'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'/local/filename'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$connection </span><span style="color: #007700">= </span><span style="color: #0000BB">ssh2_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'shell.example.com'</span><span style="color: #007700">, </span><span style="color: #0000BB">22</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ssh2_auth_password</span><span style="color: #007700">(</span><span style="color: #0000BB">$connection</span><span style="color: #007700">, </span><span style="color: #DD0000">'username'</span><span style="color: #007700">, </span><span style="color: #DD0000">'password'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">ssh2_scp_recv</span><span style="color: #007700">(</span><span style="color: #0000BB">$connection</span><span style="color: #007700">, </span><span style="color: #DD0000">'/remote/filename'</span><span style="color: #007700">, </span><span style="color: #DD0000">'/local/filename'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

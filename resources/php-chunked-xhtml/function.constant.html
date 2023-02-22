@@ -83,9 +83,8 @@
  <div class="refsect1 errors" id="refsect1-function.constant-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   An <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception is thrown,
-   if the constant is not defined. Prior to PHP 8.0.0,
-   an <strong><code>E_WARNING</code></strong> level error was generated in that case.
+   If the constant is not defined, an <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception is thrown.
+   Prior to PHP 8.0.0, an <strong><code>E_WARNING</code></strong> level error was generated in that case.
   </p>
  </div>
 
@@ -122,11 +121,11 @@
  <div class="refsect1 examples" id="refsect1-function.constant-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3491">
+   <div class="example" id="example-3534">
     <p><strong>Example #1 <span class="function"><strong>constant()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />define</span><span style="color: #007700">(</span><span style="color: #DD0000">"MAXSIZE"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">MAXSIZE</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">constant</span><span style="color: #007700">(</span><span style="color: #DD0000">"MAXSIZE"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;same&nbsp;thing&nbsp;as&nbsp;the&nbsp;previous&nbsp;line<br /><br /><br /></span><span style="color: #007700">interface&nbsp;</span><span style="color: #0000BB">bar&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;</span><span style="color: #0000BB">test&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'foobar!'</span><span style="color: #007700">;<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">foo&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;</span><span style="color: #0000BB">test&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'foobar!'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$const&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'test'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">constant</span><span style="color: #007700">(</span><span style="color: #DD0000">'bar::'</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$const</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;string(7)&nbsp;"foobar!"<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">constant</span><span style="color: #007700">(</span><span style="color: #DD0000">'foo::'</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$const</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;string(7)&nbsp;"foobar!"<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />define</span><span style="color: #007700">(</span><span style="color: #DD0000">"MAXSIZE"</span><span style="color: #007700">, </span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #0000BB">MAXSIZE</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">constant</span><span style="color: #007700">(</span><span style="color: #DD0000">"MAXSIZE"</span><span style="color: #007700">); </span><span style="color: #FF8000">// same thing as the previous line<br /><br /><br /></span><span style="color: #007700">interface </span><span style="color: #0000BB">bar </span><span style="color: #007700">{<br />    const </span><span style="color: #0000BB">test </span><span style="color: #007700">= </span><span style="color: #DD0000">'foobar!'</span><span style="color: #007700">;<br />}<br /><br />class </span><span style="color: #0000BB">foo </span><span style="color: #007700">{<br />    const </span><span style="color: #0000BB">test </span><span style="color: #007700">= </span><span style="color: #DD0000">'foobar!'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$const </span><span style="color: #007700">= </span><span style="color: #DD0000">'test'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">constant</span><span style="color: #007700">(</span><span style="color: #DD0000">'bar::'</span><span style="color: #007700">. </span><span style="color: #0000BB">$const</span><span style="color: #007700">)); </span><span style="color: #FF8000">// string(7) "foobar!"<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">constant</span><span style="color: #007700">(</span><span style="color: #DD0000">'foo::'</span><span style="color: #007700">. </span><span style="color: #0000BB">$const</span><span style="color: #007700">)); </span><span style="color: #FF8000">// string(7) "foobar!"<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -142,6 +141,7 @@
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.define.html" class="function" rel="rdfs-seeAlso">define()</a> - Defines a named constant</span></li>
     <li class="member"><span class="function"><a href="function.defined.html" class="function" rel="rdfs-seeAlso">defined()</a> - Checks whether a given named constant exists</span></li>
+    <li class="member"><span class="function"><a href="function.get-defined-constants.html" class="function" rel="rdfs-seeAlso">get_defined_constants()</a> - Returns an associative array with the names of all the constants and their values</span></li>
     <li class="member">The section on <a href="language.constants.html" class="link">Constants</a></li>
    </ul>
   </p>

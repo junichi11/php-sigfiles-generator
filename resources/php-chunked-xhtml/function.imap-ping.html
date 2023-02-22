@@ -82,7 +82,7 @@
  <td>8.1.0</td>
  <td>
   The <code class="parameter">imap</code> parameter expects an <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">imap</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
 
@@ -96,11 +96,11 @@
  <div class="refsect1 examples" id="refsect1-function.imap-ping-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3022">
+   <div class="example" id="example-3092">
     <p><strong>Example #1 <span class="function"><strong>imap_ping()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$imap&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open</span><span style="color: #007700">(</span><span style="color: #DD0000">"{imap.example.org}"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"mailadmin"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;after&nbsp;some&nbsp;sleeping<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">imap_ping</span><span style="color: #007700">(</span><span style="color: #0000BB">$imap</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;do&nbsp;some&nbsp;stuff&nbsp;to&nbsp;reconnect<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$imap </span><span style="color: #007700">= </span><span style="color: #0000BB">imap_open</span><span style="color: #007700">(</span><span style="color: #DD0000">"{imap.example.org}"</span><span style="color: #007700">, </span><span style="color: #DD0000">"mailadmin"</span><span style="color: #007700">, </span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// after some sleeping<br /></span><span style="color: #007700">if (!</span><span style="color: #0000BB">imap_ping</span><span style="color: #007700">(</span><span style="color: #0000BB">$imap</span><span style="color: #007700">)) {<br />    </span><span style="color: #FF8000">// do some stuff to reconnect<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

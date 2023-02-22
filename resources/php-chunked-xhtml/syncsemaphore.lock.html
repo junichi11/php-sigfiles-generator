@@ -72,11 +72,11 @@
 
  <div class="refsect1 examples" id="refsect1-syncsemaphore.lock-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3417">
+  <div class="example" id="example-3453">
    <p><strong>Example #1 <span class="function"><strong>SyncSemaphore::lock()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$semaphore&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SyncSemaphore</span><span style="color: #007700">(</span><span style="color: #DD0000">"LimitedResource_2clients"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$semaphore</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">lock</span><span style="color: #007700">(</span><span style="color: #0000BB">3000</span><span style="color: #007700">))<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Unable&nbsp;to&nbsp;lock&nbsp;semaphore."</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;exit();<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;...&nbsp;*/<br /><br /></span><span style="color: #0000BB">$semaphore</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">unlock</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$semaphore </span><span style="color: #007700">= new </span><span style="color: #0000BB">SyncSemaphore</span><span style="color: #007700">(</span><span style="color: #DD0000">"LimitedResource_2clients"</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">);<br /><br />if (!</span><span style="color: #0000BB">$semaphore</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">lock</span><span style="color: #007700">(</span><span style="color: #0000BB">3000</span><span style="color: #007700">))<br />{<br />    echo </span><span style="color: #DD0000">"Unable to lock semaphore."</span><span style="color: #007700">;<br /><br />    exit();<br />}<br /><br /></span><span style="color: #FF8000">/* ... */<br /><br /></span><span style="color: #0000BB">$semaphore</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">unlock</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

@@ -206,11 +206,11 @@
        or through your web server&#039;s configuration, the default flags is set to 
        <strong><code>FILTER_FLAG_NO_ENCODE_QUOTES</code></strong>.  You need to explicitly set
        filter.default_flags to 0 to have quotes encoded by default. Like this:
-       <div class="example" id="example-5062">
+       <div class="example" id="example-5158">
          <p><strong>Example #1 Configuring the default filter to act like htmlspecialchars</strong></p>
          <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-filter.default&nbsp;=&nbsp;full_special_chars<br />filter.default_flags&nbsp;=&nbsp;0</span>
+filter.default = full_special_chars<br />filter.default_flags = 0</span>
 </code></div>
          </div>
 
@@ -232,6 +232,14 @@ filter.default&nbsp;=&nbsp;full_special_chars<br />filter.default_flags&nbsp;=&n
       </thead>
 
       <tbody class="tbody">
+       <tr>
+        <td>8.1.0</td>
+        <td>
+         <strong><code>FILTER_SANITIZE_STRING</code></strong> and
+         <strong><code>FILTER_SANITIZE_STRIPPED</code></strong> have been deprecated.
+        </td>
+       </tr>
+
        <tr>
         <td>8.0.0</td>
         <td>

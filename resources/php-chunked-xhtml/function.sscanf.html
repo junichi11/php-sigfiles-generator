@@ -39,12 +39,11 @@
    The function <span class="function"><strong>sscanf()</strong></span> is the input analog of
    <span class="function"><a href="function.printf.html" class="function">printf()</a></span>. <span class="function"><strong>sscanf()</strong></span> reads
    from the string <code class="parameter">string</code> and interprets it
-   according to the specified <code class="parameter">format</code>, which is
-   described in the documentation for <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span>. 
+   according to the specified <code class="parameter">format</code>. 
   </p>
   <p class="para">
    Any whitespace in the format string matches any whitespace in the input
-   string. This means that even a tab \t in the format string can match a
+   string. This means that even a tab (<code class="literal">\t</code>) in the format string can match a
    single space character in the input string.
   </p>
  </div>
@@ -67,6 +66,7 @@
 
     
     
+
      <dt>
 <code class="parameter">format</code></dt>
 
@@ -96,11 +96,16 @@
         <li class="member">
          <code class="literal">s</code> stops reading at any whitespace character.
         </li>
+        <li class="member">
+         <code class="literal">*</code> instead of <code class="literal">argnum$</code> suppresses
+         the assignment of this conversion specification.
+        </li>
        </ul>
       </p>
      </dd>
 
     
+
     
      <dt>
 <code class="parameter">vars</code></dt>
@@ -138,11 +143,11 @@
  <div class="refsect1 examples" id="refsect1-function.sscanf-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4831">
+   <div class="example" id="example-4916">
     <p><strong>Example #1 <span class="function"><strong>sscanf()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;getting&nbsp;the&nbsp;serial&nbsp;number<br /></span><span style="color: #007700">list(</span><span style="color: #0000BB">$serial</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"SN/2350001"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SN/%d"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;and&nbsp;the&nbsp;date&nbsp;of&nbsp;manufacturing<br /></span><span style="color: #0000BB">$mandate&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"January&nbsp;01&nbsp;2000"</span><span style="color: #007700">;<br />list(</span><span style="color: #0000BB">$month</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$day</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$year</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">$mandate</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"%s&nbsp;%d&nbsp;%d"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Item&nbsp;</span><span style="color: #0000BB">$serial</span><span style="color: #DD0000">&nbsp;was&nbsp;manufactured&nbsp;on:&nbsp;</span><span style="color: #0000BB">$year</span><span style="color: #DD0000">-"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$month</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"-</span><span style="color: #0000BB">$day</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// getting the serial number<br /></span><span style="color: #007700">list(</span><span style="color: #0000BB">$serial</span><span style="color: #007700">) = </span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"SN/2350001"</span><span style="color: #007700">, </span><span style="color: #DD0000">"SN/%d"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// and the date of manufacturing<br /></span><span style="color: #0000BB">$mandate </span><span style="color: #007700">= </span><span style="color: #DD0000">"January 01 2000"</span><span style="color: #007700">;<br />list(</span><span style="color: #0000BB">$month</span><span style="color: #007700">, </span><span style="color: #0000BB">$day</span><span style="color: #007700">, </span><span style="color: #0000BB">$year</span><span style="color: #007700">) = </span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">$mandate</span><span style="color: #007700">, </span><span style="color: #DD0000">"%s %d %d"</span><span style="color: #007700">);<br />echo </span><span style="color: #DD0000">"Item </span><span style="color: #0000BB">$serial</span><span style="color: #DD0000"> was manufactured on: </span><span style="color: #0000BB">$year</span><span style="color: #DD0000">-" </span><span style="color: #007700">. </span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$month</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">) . </span><span style="color: #DD0000">"-</span><span style="color: #0000BB">$day</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -154,11 +159,11 @@
    number of assigned values.
   </p>
   <p class="para">
-   <div class="example" id="example-4832">
+   <div class="example" id="example-4917">
     <p><strong>Example #2 <span class="function"><strong>sscanf()</strong></span> - using optional parameters</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;get&nbsp;author&nbsp;info&nbsp;and&nbsp;generate&nbsp;DocBook&nbsp;entry<br /></span><span style="color: #0000BB">$auth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"24\tLewis&nbsp;Carroll"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$n&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">$auth</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"%d\t%s&nbsp;%s"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$first</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$last</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"&lt;author&nbsp;id='</span><span style="color: #0000BB">$id</span><span style="color: #DD0000">'&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;firstname&gt;</span><span style="color: #0000BB">$first</span><span style="color: #DD0000">&lt;/firstname&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;surname&gt;</span><span style="color: #0000BB">$last</span><span style="color: #DD0000">&lt;/surname&gt;<br />&lt;/author&gt;\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// get author info and generate DocBook entry<br /></span><span style="color: #0000BB">$auth </span><span style="color: #007700">= </span><span style="color: #DD0000">"24\tLewis Carroll"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$n </span><span style="color: #007700">= </span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">$auth</span><span style="color: #007700">, </span><span style="color: #DD0000">"%d\t%s %s"</span><span style="color: #007700">, </span><span style="color: #0000BB">$id</span><span style="color: #007700">, </span><span style="color: #0000BB">$first</span><span style="color: #007700">, </span><span style="color: #0000BB">$last</span><span style="color: #007700">);<br />echo </span><span style="color: #DD0000">"&lt;author id='</span><span style="color: #0000BB">$id</span><span style="color: #DD0000">'&gt;<br />    &lt;firstname&gt;</span><span style="color: #0000BB">$first</span><span style="color: #DD0000">&lt;/firstname&gt;<br />    &lt;surname&gt;</span><span style="color: #0000BB">$last</span><span style="color: #DD0000">&lt;/surname&gt;<br />&lt;/author&gt;\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -180,7 +185,7 @@
     <li class="member"><span class="function"><a href="function.vfprintf.html" class="function" rel="rdfs-seeAlso">vfprintf()</a> - Write a formatted string to a stream</span></li>
     <li class="member"><span class="function"><a href="function.fscanf.html" class="function" rel="rdfs-seeAlso">fscanf()</a> - Parses input from a file according to a format</span></li>
     <li class="member"><span class="function"><a href="function.number-format.html" class="function" rel="rdfs-seeAlso">number_format()</a> - Format a number with grouped thousands</span></li>
-    <li class="member"><span class="function"><a href="function.date.html" class="function" rel="rdfs-seeAlso">date()</a> - Format a local time/date</span></li>
+    <li class="member"><span class="function"><a href="function.date.html" class="function" rel="rdfs-seeAlso">date()</a> - Format a Unix timestamp</span></li>
    </ul>
   </p>
  </div>

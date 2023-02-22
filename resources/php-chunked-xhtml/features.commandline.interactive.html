@@ -27,7 +27,7 @@
   <h2 class="title">Interactive shell</h2>
 
   <p class="para">
-   The <acronym title="Command Line Interpreter/Interface">CLI</acronym> <acronym title="Server Application Programming Interface">SAPI</acronym> provides an interactive shell using the
+   The <abbr title="Command Line Interpreter/Interface">CLI</abbr> <abbr title="Server Application Programming Interface">SAPI</abbr> provides an interactive shell using the
    <strong class="option unknown">-a</strong> option if PHP is compiled with the <strong class="option configure">--with-readline</strong> option.
    As of PHP 7.1.0 the interactive shell is also available on Windows, if the
    <a href="book.readline.html" class="link">readline extension</a> is enabled.
@@ -38,7 +38,7 @@
    executed directly.
   </p>
 
-  <div class="example" id="example-461">
+  <div class="example" id="example-477">
    <p><strong>Example #1 Executing code using the interactive shell</strong></p>
    <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ php -a
@@ -64,7 +64,7 @@ php &gt;</pre>
    constants.
   </p>
 
-  <div class="example" id="example-462">
+  <div class="example" id="example-478">
    <p><strong>Example #2 Tab completion</strong></p>
    <div class="example-contents"><p>
     Pressing the tab key twice when there are multiple possible completions
@@ -105,7 +105,7 @@ php &gt; $foo[TAB]ThisIsAReallyLongVariableName</pre>
   </p>
 
   <p class="para">
-   The <acronym title="Command Line Interpreter/Interface">CLI</acronym> <acronym title="Server Application Programming Interface">SAPI</acronym> provides
+   The <abbr title="Command Line Interpreter/Interface">CLI</abbr> <abbr title="Server Application Programming Interface">SAPI</abbr> provides
    the <var class="filename">php.ini</var> settings <code class="parameter">cli.pager</code> and
    <code class="parameter">cli.prompt</code>. The <code class="parameter">cli.pager</code>
    setting allows an external program (such as <var class="filename">less</var>) to
@@ -119,7 +119,7 @@ php &gt; $foo[TAB]ThisIsAReallyLongVariableName</pre>
    <var class="filename">php.ini</var> settings in the interactive shell using a shorthand notation.
   </p>
 
-  <div class="example" id="example-463">
+  <div class="example" id="example-479">
    <p><strong>Example #3 Setting <var class="filename">php.ini</var> settings in the interactive shell</strong></p>
    <div class="example-contents"><p>
     The <code class="parameter">cli.prompt</code> setting:
@@ -219,16 +219,16 @@ php &gt;</pre>
   <div class="section" id="features.commandline.interactive.mode">
    <h2 class="title">Interactive mode</h2>
    <p class="para">
-    If the readline extension is not available, prior to PHP 8.1.0, invoking the <acronym title="Command Line Interpreter/Interface">CLI</acronym> <acronym title="Server Application Programming Interface">SAPI</acronym> with the
+    If the readline extension is not available, prior to PHP 8.1.0, invoking the <abbr title="Command Line Interpreter/Interface">CLI</abbr> <abbr title="Server Application Programming Interface">SAPI</abbr> with the
     <strong class="option unknown">-a</strong> option provided the interactive mode. In this mode, a
     complete PHP script is supposed to be given via STDIN, and after termination
     with <code class="literal">CRTL+d</code> (POSIX) or <code class="literal">CTRL+z</code>
     followed by <code class="literal">ENTER</code> (Windows), this script is evaluated.
-    This is basically the same as invoking the <acronym title="Command Line Interpreter/Interface">CLI</acronym> <acronym title="Server Application Programming Interface">SAPI</acronym> without the <strong class="option unknown">-a</strong>
+    This is basically the same as invoking the <abbr title="Command Line Interpreter/Interface">CLI</abbr> <abbr title="Server Application Programming Interface">SAPI</abbr> without the <strong class="option unknown">-a</strong>
     option.
    </p>
    <p class="para">
-    As of PHP 8.1.0, invoking the <acronym title="Command Line Interpreter/Interface">CLI</acronym> <acronym title="Server Application Programming Interface">SAPI</acronym> with the <strong class="option unknown">-a</strong> option
+    As of PHP 8.1.0, invoking the <abbr title="Command Line Interpreter/Interface">CLI</abbr> <abbr title="Server Application Programming Interface">SAPI</abbr> with the <strong class="option unknown">-a</strong> option
     fails, if the readline extension is not available.
    </p>
   </div>

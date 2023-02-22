@@ -40,9 +40,9 @@
     The <em class="emphasis">following</em> signature is still supported for backwards
     compatibility (except for using named parameters), but is considered deprecated and should not be used anymore!
    </p>
-  </div> 
+  </div>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ldap_connect</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$uri</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 389</span></span>): <span class="type"><span class="type"><a href="class.ldap-connection.html" class="type LDAP\Connection">LDAP\Connection</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>ldap_connect</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$host</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 389</span></span>): <span class="type"><span class="type"><a href="class.ldap-connection.html" class="type LDAP\Connection">LDAP\Connection</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Creates an <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span> connection and checks whether the given
@@ -83,7 +83,7 @@
     
     
      <dt>
-<code class="parameter">uri</code></dt>
+<code class="parameter">host</code></dt>
 
      <dd>
 
@@ -161,21 +161,21 @@
  <div class="refsect1 examples" id="refsect1-function.ldap-connect-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4348">
+   <div class="example" id="example-4427">
     <p><strong>Example #1 Example of connecting to LDAP server.</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;LDAP&nbsp;variables<br /></span><span style="color: #0000BB">$ldapuri&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"ldap://ldap.example.com:389"</span><span style="color: #007700">;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;your&nbsp;ldap-uri<br /><br />//&nbsp;Connecting&nbsp;to&nbsp;LDAP<br /></span><span style="color: #0000BB">$ldapconn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$ldapuri</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"That&nbsp;LDAP-URI&nbsp;was&nbsp;not&nbsp;parseable"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">// LDAP variables<br /></span><span style="color: #0000BB">$ldapuri </span><span style="color: #007700">= </span><span style="color: #DD0000">"ldap://ldap.example.com:389"</span><span style="color: #007700">;  </span><span style="color: #FF8000">// your ldap-uri<br /><br />// Connecting to LDAP<br /></span><span style="color: #0000BB">$ldapconn </span><span style="color: #007700">= </span><span style="color: #0000BB">ldap_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$ldapuri</span><span style="color: #007700">)<br />          or die(</span><span style="color: #DD0000">"That LDAP-URI was not parseable"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-4349">
+   <div class="example" id="example-4428">
     <p><strong>Example #2 Example of connecting securely to LDAP server.</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;make&nbsp;sure&nbsp;your&nbsp;host&nbsp;is&nbsp;the&nbsp;correct&nbsp;one<br />//&nbsp;that&nbsp;you&nbsp;issued&nbsp;your&nbsp;secure&nbsp;certificate&nbsp;to<br /></span><span style="color: #0000BB">$ldaphost&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"ldaps://ldap.example.com/"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Connecting&nbsp;to&nbsp;LDAP<br /></span><span style="color: #0000BB">$ldapconn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$ldaphost</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"That&nbsp;LDAP-URI&nbsp;was&nbsp;not&nbsp;parseable"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">// make sure your host is the correct one<br />// that you issued your secure certificate to<br /></span><span style="color: #0000BB">$ldaphost </span><span style="color: #007700">= </span><span style="color: #DD0000">"ldaps://ldap.example.com/"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// Connecting to LDAP<br /></span><span style="color: #0000BB">$ldapconn </span><span style="color: #007700">= </span><span style="color: #0000BB">ldap_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$ldaphost</span><span style="color: #007700">)<br />          or die(</span><span style="color: #DD0000">"That LDAP-URI was not parseable"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

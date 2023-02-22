@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Other Changes</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration82.deprecated.html">« Deprecated Features</a></li>
+      <li style="float: right;"><a href="migration82.windows-support.html">Windows Support »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration82.html">Migrating from PHP 8.1.x to PHP 8.2.x</a></li>
+    <li>Other Changes</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration82.other-changes" class="sect1">
+ <h2 class="title">Other Changes</h2>
+
+ <div class="sect2" id="migration82.other-changes.core">
+  <h3 class="title">Core changes</h3>
+
+  <p class="para">
+   The <span class="type"><a href="language.types.iterable.html" class="type iterable">iterable</a></span> type is now a built-in compile time alias for
+   <span class="type"><span class="type">array</span>|<span class="type"><a href="class.traversable.html" class="type Traversable">Traversable</a></span></span>.
+   Error messages relating to <code class="literal">iterable</code> will therefore
+   now use <code class="literal">array|Traversable</code>.
+   Type Reflection is preserved for single <code class="literal">iterable</code>
+   (and <code class="literal">?iterable</code>) to produce a
+   <span class="classname"><a href="class.reflectionnamedtype.html" class="classname">ReflectionNamedType</a></span> with name <code class="literal">iterable</code>,
+   however usage of <code class="literal">iterable</code> in union types will be
+   converted to <code class="literal">array|Traversable</code>.
+  </p>
+
+  <p class="para">
+   The date format of sent cookies is now <code class="literal">&#039;D, d M Y H:i:s \G\M\T&#039;</code>;
+   previously it was <code class="literal">&#039;D, d-M-Y H:i:s T&#039;</code>.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration82.other-changes.sapi">
+  <h3 class="title">Changes in SAPI Modules</h3>
+
+  <div class="sect3" id="migration82.other-changes.sapi.cli">
+   <h4 class="title">CLI</h4>
+
+   <p class="para">
+    The STDOUT, STDERR and STDIN streams are no longer closed on resource destruction
+    which is mostly when the CLI finishes. It is however still possible to
+    explicitly close those streams using <span class="function"><a href="function.fclose.html" class="function">fclose()</a></span> and similar.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration82.other-changes.functions">
+  <h3 class="title">Changed Functions</h3>
+
+  <div class="sect3" id="migration82.other-changes.functions.core">
+   <h4 class="title">Core</h4>
+
+   <p class="para">
+    The <span class="function"><a href="function.strcmp.html" class="function">strcmp()</a></span>, <span class="function"><a href="function.strcasecmp.html" class="function">strcasecmp()</a></span>,
+    <span class="function"><a href="function.strncmp.html" class="function">strncmp()</a></span>, <span class="function"><a href="function.strncasecmp.html" class="function">strncasecmp()</a></span>, and
+    <span class="function"><a href="function.substr-compare.html" class="function">substr_compare()</a></span> functions, using binary safe string
+    comparison now return <code class="literal">-1</code>, <code class="literal">0</code> and <code class="literal">1</code>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.other-changes.functions.dba">
+   <h4 class="title">DBA</h4>
+
+   <p class="para">
+    <span class="function"><a href="function.dba-open.html" class="function">dba_open()</a></span> and <span class="function"><a href="function.dba-popen.html" class="function">dba_popen()</a></span>
+    now have the following enforced signature:
+    <div class="methodsynopsis dc-description">
+     <span class="methodname"><a href="function.dba-open.html" class="methodname">dba_open</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$handler</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$permission</code><span class="initializer"> = 0644</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$map_size</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+   </p>
+   <p class="para">
+    <span class="function"><a href="function.dba-fetch.html" class="function">dba_fetch()</a></span>&#039;s optional skip argument is now at the end
+    in line with PHP userland semantics. Its signature is now:
+    <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.dba-fetch.html" class="methodname">dba_fetch</a></span>(<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$skip</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+
+    The overloaded signature:
+    <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.dba-fetch.html" class="methodname">dba_fetch</a></span>(<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$skip</code></span>, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+    is still accepted, but it is recommended to use the new standard variant.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.other-changes.functions.random">
+   <h4 class="title">Random</h4>
+
+   <p class="para">
+    <span class="function"><a href="function.random-bytes.html" class="function">random_bytes()</a></span> and <span class="function"><a href="function.random-int.html" class="function">random_int()</a></span>
+    now throw a <span class="classname"><strong class="classname">\Random\RandomException</strong></span> on <abbr title="Cryptographically Secure PseudoRandom Number Generator">CSPRNG</abbr> failures.
+    Previously a plain <span class="classname"><strong class="classname">\Exception</strong></span> was thrown instead.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.other-changes.functions.spl">
+   <h4 class="title">SPL</h4>
+
+   <p class="para">
+    The <code class="parameter">iterator</code> parameter of
+    <span class="function"><a href="function.iterator-to-array.html" class="function">iterator_to_array()</a></span> and <span class="function"><a href="function.iterator-count.html" class="function">iterator_count()</a></span>
+    is widened to <span class="type"><a href="language.types.iterable.html" class="type iterable">iterable</a></span> from <span class="classname"><a href="class.iterator.html" class="classname">Iterator</a></span>,
+    allowing arrays to be passed.
+    
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration82.other-changes.extensions">
+  <h3 class="title">Other Changes to Extensions</h3>
+
+  <div class="sect3" id="migration82.other-changes.extensions.date">
+   <h4 class="title">Date</h4>
+
+   <p class="para">
+    The properties of <span class="classname"><a href="class.dateperiod.html" class="classname">DatePeriod</a></span> are now properly declared.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.other-changes.extensions.intl">
+   <h4 class="title">Intl</h4>
+
+   <p class="para">
+    Instances of
+    <span class="classname"><a href="class.intlbreakiterator.html" class="classname">IntlBreakIterator</a></span>,
+    <span class="classname"><a href="class.intlrulebasedbreakiterator.html" class="classname">IntlRuleBasedBreakIterator</a></span>,
+    <span class="classname"><a href="class.intlcodepointbreakiterator.html" class="classname">IntlCodePointBreakIterator</a></span>,
+    <span class="classname"><a href="class.intlpartsiterator.html" class="classname">IntlPartsIterator</a></span>,
+    <span class="classname"><a href="class.intlcalendar.html" class="classname">IntlCalendar</a></span>,
+    <span class="classname"><a href="class.intlcalendar.html" class="classname">IntlCalendar</a></span>,
+    <span class="classname"><a href="class.collator.html" class="classname">Collator</a></span>,
+    <span class="classname"><a href="class.intliterator.html" class="classname">IntlIterator</a></span>,
+    <span class="classname"><a href="class.uconverter.html" class="classname">UConverter</a></span>,
+    <span class="classname"><a href="class.intldateformatter.html" class="classname">IntlDateFormatter</a></span>,
+    <span class="classname"><a href="class.intldatepatterngenerator.html" class="classname">IntlDatePatternGenerator</a></span>,
+    <span class="classname"><a href="class.messageformatter.html" class="classname">MessageFormatter</a></span>,
+    <span class="classname"><a href="class.resourcebundle.html" class="classname">ResourceBundle</a></span>,
+    <span class="classname"><a href="class.spoofchecker.html" class="classname">Spoofchecker</a></span>,
+    <span class="classname"><a href="class.intltimezone.html" class="classname">IntlTimeZone</a></span>,
+    and <span class="classname"><a href="class.transliterator.html" class="classname">Transliterator</a></span>
+    are no longer serializable. Previously, they could be serialized, but
+    unserialization yielded unusable objects or failed.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.other-changes.extensions.mysqli">
+   <h4 class="title">MySQLi</h4>
+
+   <p class="para">
+    The support for libmysql has been removed and it is no longer
+    possible to compile mysqli with libmysql.
+    From now on, the mysqli extension can be compiled only with mysqlnd.
+    All libmysql features unavailable in mysqlnd have been removed:
+    <ul class="simplelist">
+     <li class="member">The reconnect property of <span class="classname"><a href="class.mysqli-driver.html" class="classname">mysqli_driver</a></span></li>
+     <li class="member">
+      The <a href="mysqli.configuration.html#ini.mysqli.reconnect" class="link">mysqli.reconnect</a> INI directive
+     </li>
+     <li class="member">The <strong><code>MYSQLI_IS_MARIADB</code></strong> constant has been deprecated</li>
+    </ul>
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.other-changes.extensions.oci8">
+   <h4 class="title">OCI8</h4>
+
+   <p class="para">
+    The minimum Oracle Client library version required is now 11.2.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.other-changes.extensions.pcre">
+   <h4 class="title">PCRE</h4>
+
+   <p class="para">
+    NUL characters (<code class="literal">\0</code>) in pattern strings are now supported.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.other-changes.extensions.session">
+   <h4 class="title">Session</h4>
+
+   <p class="para">
+    Trying to change the
+    <a href="session.configuration.html#ini.session.cookie-samesite" class="link">session.cookie_samesite</a>
+    INI directive while the session is active or output has already been sent
+    will now fail and emit a warning.
+    This aligns the behaviour with all other session INI settings.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.other-changes.extensions.sqlite3">
+   <h4 class="title">SQLite3</h4>
+
+   <p class="para">
+    <a href="sqlite3.configuration.html#ini.sqlite3.defensive" class="link">sqlite3.defensive</a>
+    is now <strong><code>PHP_INI_USER</code></strong>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.other-changes.extensions.standard">
+   <h4 class="title">Standard</h4>
+
+   <p class="para">
+    <span class="function"><a href="function.getimagesize.html" class="function">getimagesize()</a></span> now reports the actual image dimensions,
+    bits and channels of AVIF images. Previously, the dimensions have been reported as 0x0,
+    and bits and channels have not been reported at all.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.other-changes.extensions.tidy">
+   <h4 class="title">Tidy</h4>
+
+   <p class="para">
+    The properties of the <span class="classname"><a href="class.tidy.html" class="classname">tidy</a></span> class are now properly declared.
+    And those of the <span class="classname"><a href="class.tidynode.html" class="classname">tidyNode</a></span> class are now properly declared as readonly.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.other-changes.extensions.zip">
+   <h4 class="title">Zip</h4>
+
+   <p class="para">
+    The Zip extension has been updated to version 1.20.0,
+    which adds the following methods:
+    <ul class="simplelist">
+     <li class="member"><span class="methodname"><a href="ziparchive.clearerror.html" class="methodname">ZipArchive::clearError()</a></span></li>
+     <li class="member"><span class="methodname"><a href="ziparchive.getstreamname.html" class="methodname">ZipArchive::getStreamName()</a></span></li>
+     <li class="member"><span class="methodname"><a href="ziparchive.getstreamindex.html" class="methodname">ZipArchive::getStreamIndex()</a></span></li>
+    </ul>
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration82.other-changes.ini">
+  <h3 class="title">Changes to INI File Handling</h3>
+
+  
+  <p class="para">
+   Support for binary (<code class="literal">0b</code>/<code class="literal">0B</code>) and octal
+   (<code class="literal">0o</code>/<code class="literal">0O</code>) prefixes has been added to integer INI settings.
+   Integer INI settings that start with a zero (<code class="literal">0</code>)
+   continue to be interpreted as an octal integer.
+  </p>
+
+  <p class="para">
+   Parsing of some ill-formatted values will now trigger a warning when this
+   was silently ignored before.
+   For backwards compatibility, interpretation of these values has not changed.
+   This affects the following settings:
+
+   
+   <ul class="simplelist">
+    <li class="member"><a href="bc.configuration.html#ini.bcmath.scale" class="link">bcmath.scale</a></li>
+    <li class="member"><a href="com.configuration.html#ini.com.code-page" class="link">com.code_page</a></li>
+    <li class="member"><a href="filesystem.configuration.html#ini.default-socket-timeout" class="link">default_socket_timeout</a></li>
+    <li class="member">fiber.stack_size</li>
+    <li class="member"><a href="ini.core.html#ini.hard-timeout" class="link">hard_timeout</a></li>
+    <li class="member"><a href="intl.configuration.html#ini.intl.error-level" class="link">intl.error_level</a></li>
+    <li class="member"><a href="ldap.configuration.html#ini.ldap.max_links" class="link">ldap.max_links</a></li>
+    <li class="member"><a href="info.configuration.html#ini.max-input-nesting-level" class="link">max_input_nesting_level</a></li>
+    <li class="member"><a href="info.configuration.html#ini.max-input-vars" class="link">max_input_vars</a></li>
+    <li class="member"><a href="mbstring.configuration.html#ini.mbstring.regex-retry-limit" class="link">mbstring.regex_retry_limit</a></li>
+    <li class="member"><a href="mbstring.configuration.html#ini.mbstring.regex-stack-limit" class="link">mbstring.regex_stack_limit</a></li>
+    <li class="member"><a href="mysqli.configuration.html#ini.mysqli.allow-local-infile" class="link">mysqli.allow_local_infile</a></li>
+    <li class="member"><a href="mysqli.configuration.html#ini.mysqli.allow-persistent" class="link">mysqli.allow_persistent</a></li>
+    <li class="member"><a href="mysqli.configuration.html#ini.mysqli.default-port" class="link">mysqli.default_port</a></li>
+    <li class="member"><a href="mysqli.configuration.html#ini.mysqli.max-links" class="link">mysqli.max_links</a></li>
+    <li class="member"><a href="mysqli.configuration.html#ini.mysqli.max-persistent" class="link">mysqli.max_persistent</a></li>
+    <li class="member"><a href="mysqli.configuration.html#ini.mysqli.rollback-on-cached-plink" class="link">mysqli.rollback_on_cached_plink</a></li>
+    <li class="member"><a href="mysqlnd.config.html#ini.mysqlnd.log-mask" class="link">mysqlnd.log_mask</a></li>
+    <li class="member"><a href="mysqlnd.config.html#ini.mysqlnd.mempool-default-size" class="link">mysqlnd.mempool_default_size</a></li>
+    <li class="member"><a href="mysqlnd.config.html#ini.mysqlnd.net-read-buffer-size" class="link">mysqlnd.net_read_buffer_size</a></li>
+    <li class="member"><a href="mysqlnd.config.html#ini.mysqlnd.net-read-timeout" class="link">mysqlnd.net_read_timeout</a></li>
+    <li class="member"><a href="oci8.configuration.html#ini.oci8.default-prefetch" class="link">oci8.default_prefetch</a></li>
+    <li class="member"><a href="oci8.configuration.html#ini.oci8.max-persistent" class="link">oci8.max_persistent</a></li>
+    <li class="member"><a href="oci8.configuration.html#ini.oci8.persistent-timeout" class="link">oci8.persistent_timeout</a></li>
+    <li class="member"><a href="oci8.configuration.html#ini.oci8.ping-interval" class="link">oci8.ping_interval</a></li>
+    <li class="member"><a href="oci8.configuration.html#ini.oci8.prefetch-lob-size" class="link">oci8.prefetch_lob_size</a></li>
+    <li class="member"><a href="oci8.configuration.html#ini.oci8.privileged-connect" class="link">oci8.privileged_connect</a></li>
+    <li class="member"><a href="oci8.configuration.html#ini.oci8.statement-cache-size" class="link">oci8.statement_cache_size</a></li>
+    <li class="member"><a href="odbc.configuration.html#ini.uodbc.allow-persistent" class="link">odbc.allow_persistent</a></li>
+    <li class="member"><a href="odbc.configuration.html#ini.uodbc.check-persistent" class="link">odbc.check_persistent</a></li>
+    <li class="member"><a href="odbc.configuration.html#ini.uodbc.max-persistent" class="link">odbc.max_persistent</a></li>
+    <li class="member"><a href="odbc.configuration.html#ini.uodbc.max-links" class="link">odbc.max_links</a></li>
+    <li class="member"><a href="odbc.configuration.html#ini.uodbc.defaultbinmode" class="link">odbc.defaultbinmode</a></li>
+    <li class="member"><a href="odbc.configuration.html#ini.uodbc.defaultcursortype" class="link">odbc.default_cursortype</a></li>
+    <li class="member"><a href="odbc.configuration.html#ini.uodbc.defaultlrl" class="link">odbc.defaultlrl</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.consistency-checks" class="link">opcache.consistency_checks</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.file_update_protection" class="link">opcache.file_update_protection</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.force-restart-timeout" class="link">opcache.force_restart_timeout</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.interned-strings-buffer" class="link">opcache.interned_strings_buffer</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-bisect-limit" class="link">opcache.jit_bisect_limit</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-blacklist-root-trace" class="link">opcache.jit_blacklist_root_trace</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-blacklist-side-trace" class="link">opcache.jit_blacklist_side_trace</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-debug" class="link">opcache.jit_debug</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-hot-func" class="link">opcache.jit_hot_func</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-hot-loop" class="link">opcache.jit_hot_loop</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-hot-return" class="link">opcache.jit_hot_return</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-hot-side-exit" class="link">opcache.jit_hot_side_exit</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-max-exit-counters" class="link">opcache.jit_max_exit_counters</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-max-loop-unrolls" class="link">opcache.jit_max_loop_unrolls</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-max-polymorphic-calls" class="link">opcache.jit_max_polymorphic_calls</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-max-recursive-calls" class="link">opcache.jit_max_recursive_calls</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-max-recursive-return" class="link">opcache.jit_max_recursive_returns</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-max-root-traces" class="link">opcache.jit_max_root_traces</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.jit-max-side-traces" class="link">opcache.jit_max_side_traces</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.log-verbosity-level" class="link">opcache.log_verbosity_level</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.max-file-size" class="link">opcache.max_file_size</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.opt_debug_level" class="link">opcache.opt_debug_level</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.optimization-level" class="link">opcache.optimization_level</a></li>
+    <li class="member"><a href="opcache.configuration.html#ini.opcache.revalidate-freq" class="link">opcache.revalidate_freq</a></li>
+    <li class="member"><a href="outcontrol.configuration.html#ini.output-buffering" class="link">output_buffering</a></li>
+    <li class="member"><a href="pcre.configuration.html#ini.pcre.backtrack-limit" class="link">pcre.backtrack_limit</a></li>
+    <li class="member"><a href="pcre.configuration.html#ini.pcre.recursion-limit" class="link">pcre.recursion_limit</a></li>
+    <li class="member"><a href="pgsql.configuration.html#ini.pgsql.max-links" class="link">pgsql.max_links</a></li>
+    <li class="member"><a href="pgsql.configuration.html#ini.pgsql.max-persistent" class="link">pgsql.max_persistent</a></li>
+    <li class="member"><a href="ini.core.html#ini.post-max-size" class="link">post_max_size</a></li>
+    <li class="member"><a href="ini.core.html#ini.realpath-cache-size" class="link">realpath_cache_size</a></li>
+    <li class="member"><a href="ini.core.html#ini.realpath-cache-ttl" class="link">realpath_cache_ttl</a></li>
+    <li class="member"><a href="session.configuration.html#ini.session.cache-expire" class="link">session.cache_expire</a></li>
+    <li class="member"><a href="session.configuration.html#ini.session.cookie-lifetime" class="link">session.cookie_lifetime</a></li>
+    <li class="member"><a href="session.configuration.html#ini.session.gc-divisor" class="link">session.gc_divisor</a></li>
+    <li class="member"><a href="session.configuration.html#ini.session.gc-maxlifetime" class="link">session.gc_maxlifetime</a></li>
+    <li class="member"><a href="session.configuration.html#ini.session.gc-probability" class="link">session.gc_probability</a></li>
+    <li class="member"><a href="soap.configuration.html#ini.soap.wsdl-cache-limit" class="link">soap.wsdl_cache_limit</a></li>
+    <li class="member"><a href="soap.configuration.html#ini.soap.wsdl-cache-ttl" class="link">soap.wsdl_cache_ttl</a></li>
+    <li class="member"><a href="var.configuration.html#ini.unserialize-max-depth" class="link">unserialize_max_depth</a></li>
+    <li class="member"><a href="ini.core.html#ini.upload-max-filesize" class="link">upload_max_filesize</a></li>
+    <li class="member"><a href="ini.core.html#ini.user-ini.cache-ttl" class="link">user_ini.cache_ttl</a></li>
+    <li class="member"><a href="errorfunc.configuration.html#ini.xmlrpc-error-number" class="link">xmlrpc_error_number</a></li>
+    <li class="member"><a href="ini.core.html#ini.zend.assertions" class="link">zend.assertions</a></li>
+    <li class="member"><a href="zlib.configuration.html#ini.zlib.output-compression-level" class="link">zlib.output_compression_level</a></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

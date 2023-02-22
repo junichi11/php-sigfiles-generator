@@ -63,12 +63,12 @@
 
  <div class="refsect1 examples" id="refsect1-mysqli.connect-errno-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1423">
+  <div class="example" id="example-1454">
    <p><strong>Example #1 <var class="varname">$mysqli->connect_errno</var> example</strong></p>
    <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;@&nbsp;is&nbsp;used&nbsp;to&nbsp;suppress&nbsp;default&nbsp;error&nbsp;messages&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;@new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'fake_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_password'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_db'</span><span style="color: #007700">);<br /><br />if&nbsp;(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_errno</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Use&nbsp;your&nbsp;preferred&nbsp;error&nbsp;logging&nbsp;method&nbsp;here&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">error_log</span><span style="color: #007700">(</span><span style="color: #DD0000">'Connection&nbsp;error:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_errno</span><span style="color: #007700">);<br />}</span>
+<span style="color: #0000BB">&lt;?php<br /><br />mysqli_report</span><span style="color: #007700">(</span><span style="color: #0000BB">MYSQLI_REPORT_OFF</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/* @ is used to suppress warnings */<br /></span><span style="color: #0000BB">$mysqli </span><span style="color: #007700">= @new </span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #DD0000">'fake_user'</span><span style="color: #007700">, </span><span style="color: #DD0000">'wrong_password'</span><span style="color: #007700">, </span><span style="color: #DD0000">'does_not_exist'</span><span style="color: #007700">);<br />if (</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_errno</span><span style="color: #007700">) {<br />    </span><span style="color: #FF8000">/* Use your preferred error logging method here */<br />    </span><span style="color: #0000BB">error_log</span><span style="color: #007700">(</span><span style="color: #DD0000">'Connection error: ' </span><span style="color: #007700">. </span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_errno</span><span style="color: #007700">);<br />}</span>
 </span>
 </code></div>
    </div>
@@ -76,17 +76,11 @@
    <div class="example-contents"><p>Procedural style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;@&nbsp;is&nbsp;used&nbsp;to&nbsp;suppress&nbsp;default&nbsp;error&nbsp;messages&nbsp;*/<br /></span><span style="color: #0000BB">$link&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'fake_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_password'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_db'</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Use&nbsp;your&nbsp;preferred&nbsp;error&nbsp;logging&nbsp;method&nbsp;here&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">error_log</span><span style="color: #007700">(</span><span style="color: #DD0000">'Connection&nbsp;error:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">());<br />}</span>
+<span style="color: #0000BB">&lt;?php<br /><br />mysqli_report</span><span style="color: #007700">(</span><span style="color: #0000BB">MYSQLI_REPORT_OFF</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/* @ is used to suppress warnings */<br /></span><span style="color: #0000BB">$link </span><span style="color: #007700">= @</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #DD0000">'fake_user'</span><span style="color: #007700">, </span><span style="color: #DD0000">'wrong_password'</span><span style="color: #007700">, </span><span style="color: #DD0000">'does_not_exist'</span><span style="color: #007700">);<br />if (!</span><span style="color: #0000BB">$link</span><span style="color: #007700">) {<br />    </span><span style="color: #FF8000">/* Use your preferred error logging method here */<br />    </span><span style="color: #0000BB">error_log</span><span style="color: #007700">(</span><span style="color: #DD0000">'Connection error: ' </span><span style="color: #007700">. </span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">());<br />}</span>
 </span>
 </code></div>
    </div>
 
-   <div class="example-contents"><p>The above examples will output:</p></div>
-   <div class="example-contents screen">
-<div class="cdata"><pre>
-Connection error: 1045
-</pre></div>
-   </div>
   </div>
  </div>
 

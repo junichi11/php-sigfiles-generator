@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-mongodb-driver-writeconcern.construct-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\WriteConcern::__construct</strong></span>(<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$w</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$wtimeout</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$journal</code><span class="initializer"> = ?</span></span>)</div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\WriteConcern::__construct</strong></span>(<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$w</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$wtimeout</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">bool</span><span class="type"></span></span> <code class="parameter">$journal</code><span class="initializer"> = <strong><code>null</code></strong></span></span>)</div>
 
   <p class="para rdfs-comment">
    Constructs a new <span class="classname"><a href="class.mongodb-driver-writeconcern.html" class="classname">MongoDB\Driver\WriteConcern</a></span>, which is
@@ -235,11 +235,11 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb-driver-writeconcern.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1297">
+  <div class="example" id="example-1328">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\Driver\WriteConcern::__construct()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;Request&nbsp;write&nbsp;acknowledgement&nbsp;from&nbsp;the&nbsp;majority&nbsp;of&nbsp;the&nbsp;replica&nbsp;set&nbsp;nodes&nbsp;*/<br /></span><span style="color: #0000BB">$wc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">WriteConcern</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">WriteConcern</span><span style="color: #007700">::</span><span style="color: #0000BB">MAJORITY</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">500</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Request&nbsp;write&nbsp;acknowledgement&nbsp;from&nbsp;a&nbsp;node&nbsp;configured&nbsp;with&nbsp;the&nbsp;"MultipleDC"&nbsp;tag&nbsp;*/<br /></span><span style="color: #0000BB">$wc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">WriteConcern</span><span style="color: #007700">(</span><span style="color: #DD0000">"MultipleDC"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">500</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/* Request write acknowledgement from the majority of the replica set nodes */<br /></span><span style="color: #0000BB">$wc </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">WriteConcern</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">WriteConcern</span><span style="color: #007700">::</span><span style="color: #0000BB">MAJORITY</span><span style="color: #007700">, </span><span style="color: #0000BB">500</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Request write acknowledgement from a node configured with the "MultipleDC" tag */<br /></span><span style="color: #0000BB">$wc </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">WriteConcern</span><span style="color: #007700">(</span><span style="color: #DD0000">"MultipleDC"</span><span style="color: #007700">, </span><span style="color: #0000BB">500</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -252,7 +252,7 @@
  <div class="refsect1 seealso" id="refsect1-mongodb-driver-writeconcern.construct-seealso">
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
-   <li class="member"><a href="https://docs.mongodb.com/manual/reference/write-concern/" class="link external">&raquo;&nbsp;Write Concern reference</a></li>
+   <li class="member"><a href="https://www.mongodb.com/docs/manual/reference/write-concern/" class="link external">&raquo;&nbsp;Write Concern reference</a></li>
   </ul>
  </div>
 

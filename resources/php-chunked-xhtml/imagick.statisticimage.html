@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Description</title>
+  <title>Modifies image using a statistics function</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,14 +19,14 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="class.imagick.html">Imagick</a></li>
-    <li>Description</li>
+    <li>Modifies image using a statistics function</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="imagick.statisticimage" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Imagick::statisticImage</h1>
-  <p class="verinfo">(PECL imagick 3 &gt;= 3.3.0)</p><p class="refpurpose"><span class="refname">Imagick::statisticImage</span> &mdash; <span class="dc-title">Description</span></p>
+  <p class="verinfo">(PECL imagick 3 &gt;= 3.3.0)</p><p class="refpurpose"><span class="refname">Imagick::statisticImage</span> &mdash; <span class="dc-title">Modifies image using a statistics function</span></p>
 
  </div>
 
@@ -112,11 +112,11 @@
  <div class="refsect1 examples" id="refsect1-imagick.statisticimage-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-    <div class="example" id="example-2907">
+    <div class="example" id="example-2977">
       <p><strong>Example #1  <span class="function"><strong>Imagick::statisticImage()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">statisticImage</span><span style="color: #007700">(</span><span style="color: #0000BB">$imagePath</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$statisticType</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$width</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$height</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$channel</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$imagick&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;\</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">(</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #0000BB">$imagePath</span><span style="color: #007700">));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">statisticImage</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$statisticType</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$width</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$height</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$channel<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-Type:&nbsp;image/jpg"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getImageBlob</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #0000BB">statisticImage</span><span style="color: #007700">(</span><span style="color: #0000BB">$imagePath</span><span style="color: #007700">,&nbsp;\</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">::</span><span style="color: #0000BB">STATISTIC_MEDIAN</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;\</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">::</span><span style="color: #0000BB">CHANNEL_DEFAULT</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">statisticImage</span><span style="color: #007700">(</span><span style="color: #0000BB">$imagePath</span><span style="color: #007700">, </span><span style="color: #0000BB">$statisticType</span><span style="color: #007700">, </span><span style="color: #0000BB">$width</span><span style="color: #007700">, </span><span style="color: #0000BB">$height</span><span style="color: #007700">, </span><span style="color: #0000BB">$channel</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">$imagick </span><span style="color: #007700">= new \</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">(</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #0000BB">$imagePath</span><span style="color: #007700">));<br /><br />    </span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">statisticImage</span><span style="color: #007700">(<br />        </span><span style="color: #0000BB">$statisticType</span><span style="color: #007700">,<br />        </span><span style="color: #0000BB">$width</span><span style="color: #007700">,<br />        </span><span style="color: #0000BB">$height</span><span style="color: #007700">,<br />        </span><span style="color: #0000BB">$channel<br />    </span><span style="color: #007700">);<br /><br />    </span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-Type: image/jpg"</span><span style="color: #007700">);<br />    echo </span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getImageBlob</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #0000BB">statisticImage</span><span style="color: #007700">(</span><span style="color: #0000BB">$imagePath</span><span style="color: #007700">, \</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">::</span><span style="color: #0000BB">STATISTIC_MEDIAN</span><span style="color: #007700">, </span><span style="color: #0000BB">5</span><span style="color: #007700">, </span><span style="color: #0000BB">5</span><span style="color: #007700">, \</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">::</span><span style="color: #0000BB">CHANNEL_DEFAULT</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>

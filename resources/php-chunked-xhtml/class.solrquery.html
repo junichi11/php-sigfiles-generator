@@ -91,8 +91,10 @@
 
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
-    <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="solrquery.addexpandfilterquery.html" class="methodname">addExpandFilterQuery</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$fq</code></span>): <span class="type"><a href="class.solrquery.html" class="type SolrQuery">SolrQuery</a></span></div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="solrquery.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$q</code><span class="initializer"> = ?</span></span>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.addexpandfilterquery.html" class="methodname">addExpandFilterQuery</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$fq</code></span>): <span class="type"><a href="class.solrquery.html" class="type SolrQuery">SolrQuery</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.addexpandsortfield.html" class="methodname">addExpandSortField</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$field</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$order</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="class.solrquery.html" class="type SolrQuery">SolrQuery</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.addfacetdatefield.html" class="methodname">addFacetDateField</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$dateField</code></span>): <span class="type"><a href="class.solrquery.html" class="type SolrQuery">SolrQuery</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.addfacetdateother.html" class="methodname">addFacetDateOther</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$field_override</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="class.solrquery.html" class="type SolrQuery">SolrQuery</a></span></div>
@@ -111,8 +113,6 @@
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.addstatsfacet.html" class="methodname">addStatsFacet</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$field</code></span>): <span class="type"><a href="class.solrquery.html" class="type SolrQuery">SolrQuery</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.addstatsfield.html" class="methodname">addStatsField</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$field</code></span>): <span class="type"><a href="class.solrquery.html" class="type SolrQuery">SolrQuery</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.collapse.html" class="methodname">collapse</a></span>(<span class="methodparam"><span class="type"><a href="class.solrcollapsefunction.html" class="type SolrCollapseFunction">SolrCollapseFunction</a></span> <code class="parameter">$collapseFunction</code></span>): <span class="type"><a href="class.solrquery.html" class="type SolrQuery">SolrQuery</a></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$q</code><span class="initializer"> = ?</span></span>)</div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.destruct.html" class="methodname">__destruct</a></span>(): <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.getexpand.html" class="methodname">getExpand</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.getexpandfilterqueries.html" class="methodname">getExpandFilterQueries</a></span>(): <span class="type">array</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.getexpandquery.html" class="methodname">getExpandQuery</a></span>(): <span class="type">array</span></div>
@@ -286,10 +286,13 @@
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.settermsupperbound.html" class="methodname">setTermsUpperBound</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$upperBound</code></span>): <span class="type"><a href="class.solrquery.html" class="type SolrQuery">SolrQuery</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.settimeallowed.html" class="methodname">setTimeAllowed</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$timeAllowed</code></span>): <span class="type"><a href="class.solrquery.html" class="type SolrQuery">SolrQuery</a></span></div>
 
+    <div class="destructorsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrquery.destruct.html" class="methodname">__destruct</a></span>()</div>
+
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited methods */</div>
-    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrmodifiableparams.construct.html" class="methodname">SolrModifiableParams::__construct</a></span>()</div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrmodifiableparams.destruct.html" class="methodname">SolrModifiableParams::__destruct</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+    <div class="constructorsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrmodifiableparams.construct.html" class="methodname">SolrModifiableParams::__construct</a></span>()</div>
+
+    <div class="destructorsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="solrmodifiableparams.destruct.html" class="methodname">SolrModifiableParams::__destruct</a></span>()</div>
 
 
    }</div>

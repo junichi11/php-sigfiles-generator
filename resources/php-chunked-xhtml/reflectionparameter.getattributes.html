@@ -39,10 +39,6 @@
    Returns all attributes declared on this parameter as an array of <span class="type"><a href="class.reflectionattribute.html" class="type ReflectionAttribute">ReflectionAttribute</a></span>.
   </p>
 
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-currently not documented; only its argument list is available.
-</p></div>
-
  </div>
 
 
@@ -50,29 +46,39 @@ currently not documented; only its argument list is available.
   <h3 class="title">Parameters</h3>
   <dl>
    
-    <dt>
+<dt>
 <code class="parameter">name</code></dt>
 
-    <dd>
+<dd>
 
-     <p class="para">
+ <p class="para">
+  Filter the results to include only <span class="classname"><a href="class.reflectionattribute.html" class="classname">ReflectionAttribute</a></span>
+  instances for attributes matching this class name.
+ </p>
+</dd>
 
-     </p>
-    </dd>
 
    
-   
-    <dt>
+<dt>
 <code class="parameter">flags</code></dt>
 
-    <dd>
+<dd>
 
-     <p class="para">
+ <p class="para">
+  Flags for determining how to filter the results, if <code class="parameter">name</code>
+  is provided.
+ </p>
+ <p class="para">
+  Default is <code class="literal">0</code> which will only return results for attributes that
+  are of the class <code class="parameter">name</code>.
+ </p>
+ <p class="para">
+  The only other option available, is to use <strong><code>ReflectionAttribute::IS_INSTANCEOF</code></strong>,
+  which will instead use <code class="literal">instanceof</code> for filtering.
+ </p>
+</dd>
 
-     </p>
-    </dd>
 
-   
   </dl>
 
  </div>
@@ -82,6 +88,75 @@ currently not documented; only its argument list is available.
   <h3 class="title">Return Values</h3>
   <p class="para">
    Array of attributes, as a <span class="classname"><a href="class.reflectionattribute.html" class="classname">ReflectionAttribute</a></span> object.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-reflectionparameter.getattributes-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-5339">
+    <p><strong>Example #1 Basic usage</strong></p>
+    <div class="example-contents">
+     <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">#[Attribute]<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Fruit </span><span style="color: #007700">{<br />}<br /><br /></span><span style="color: #FF8000">#[Attribute]<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Red </span><span style="color: #007700">{<br />}<br /><br />function </span><span style="color: #0000BB">fruitBasket</span><span style="color: #007700">(<br />   </span><span style="color: #FF8000">#[Fruit]<br />   #[Red]<br />   </span><span style="color: #0000BB">string $apple<br /></span><span style="color: #007700">) { }<br /><br /></span><span style="color: #0000BB">$reflection </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'fruitBasket'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$parameter </span><span style="color: #007700">= </span><span style="color: #0000BB">$reflection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParameter</span><span style="color: #007700">(</span><span style="color: #DD0000">'apple'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$attributes </span><span style="color: #007700">= </span><span style="color: #0000BB">$parameter</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttributes</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_map</span><span style="color: #007700">(</span><span style="color: #0000BB">fn</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">) =&gt; </span><span style="color: #0000BB">$attribute</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">(), </span><span style="color: #0000BB">$attributes</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+     <div class="cdata"><pre>
+Array
+(
+    [0] =&gt; Fruit
+    [1] =&gt; Red
+)
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-5340">
+    <p><strong>Example #2 Filtering results by class name</strong></p>
+    <div class="example-contents">
+     <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">#[Attribute]<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Fruit </span><span style="color: #007700">{<br />}<br /><br /></span><span style="color: #FF8000">#[Attribute]<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Red </span><span style="color: #007700">{<br />}<br /><br />function </span><span style="color: #0000BB">fruitBasket</span><span style="color: #007700">(<br />   </span><span style="color: #FF8000">#[Fruit]<br />   #[Red]<br />   </span><span style="color: #0000BB">string $apple<br /></span><span style="color: #007700">) { }<br /><br /></span><span style="color: #0000BB">$reflection </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'fruitBasket'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$parameter </span><span style="color: #007700">= </span><span style="color: #0000BB">$reflection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParameter</span><span style="color: #007700">(</span><span style="color: #DD0000">'apple'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$attributes </span><span style="color: #007700">= </span><span style="color: #0000BB">$parameter</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttributes</span><span style="color: #007700">(</span><span style="color: #DD0000">'Fruit'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_map</span><span style="color: #007700">(</span><span style="color: #0000BB">fn</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">) =&gt; </span><span style="color: #0000BB">$attribute</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">(), </span><span style="color: #0000BB">$attributes</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+     <div class="cdata"><pre>
+Array
+(
+    [0] =&gt; Fruit
+)
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-5341">
+    <p><strong>Example #3 Filtering results by class name, with inheritance</strong></p>
+    <div class="example-contents">
+     <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">interface </span><span style="color: #0000BB">Color </span><span style="color: #007700">{<br />}<br /><br /></span><span style="color: #FF8000">#[Attribute]<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Fruit </span><span style="color: #007700">{<br />}<br /><br />function </span><span style="color: #0000BB">fruitBasket</span><span style="color: #007700">(<br />   </span><span style="color: #FF8000">#[Fruit]<br />   #[Red]<br />   </span><span style="color: #0000BB">string $apple<br /></span><span style="color: #007700">) { }<br /><br /></span><span style="color: #0000BB">$reflection </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'fruitBasket'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$parameter </span><span style="color: #007700">= </span><span style="color: #0000BB">$reflection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParameter</span><span style="color: #007700">(</span><span style="color: #DD0000">'apple'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$attributes </span><span style="color: #007700">= </span><span style="color: #0000BB">$parameter</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttributes</span><span style="color: #007700">(</span><span style="color: #DD0000">'Color'</span><span style="color: #007700">, </span><span style="color: #0000BB">ReflectionAttribute</span><span style="color: #007700">::</span><span style="color: #0000BB">IS_INSTANCEOF</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_map</span><span style="color: #007700">(</span><span style="color: #0000BB">fn</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">) =&gt; </span><span style="color: #0000BB">$attribute</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">(), </span><span style="color: #0000BB">$attributes</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+     <div class="cdata"><pre>
+Array
+(
+    [0] =&gt; Red
+)
+</pre></div>
+    </div>
+   </div>
   </p>
  </div>
 

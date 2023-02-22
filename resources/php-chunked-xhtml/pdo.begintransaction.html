@@ -40,8 +40,8 @@
   <p class="para rdfs-comment">
    Turns off autocommit mode.  While autocommit mode is turned off, changes
    made to the database via the PDO object instance are not committed until
-   you end the transaction by calling <span class="function"><a href="pdo.commit.html" class="function">PDO::commit()</a></span>.
-   Calling <span class="function"><a href="pdo.rollback.html" class="function">PDO::rollBack()</a></span> will roll back all changes to
+   you end the transaction by calling <span class="methodname"><a href="pdo.commit.html" class="methodname">PDO::commit()</a></span>.
+   Calling <span class="methodname"><a href="pdo.rollback.html" class="methodname">PDO::rollBack()</a></span> will roll back all changes to
    the database and return the connection to autocommit mode.
   </p>
   <p class="para">
@@ -81,7 +81,7 @@
  <div class="refsect1 examples" id="refsect1-pdo.begintransaction-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1010"><p><strong>Example #1 Roll back a transaction</strong></p>
+   <div class="example" id="example-1041"><p><strong>Example #1 Roll back a transaction</strong></p>
     <div class="example-contents"><p>
      The following example begins a transaction and issues two statements
      that modify the database before rolling back the changes. On MySQL,
@@ -91,7 +91,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Begin&nbsp;a&nbsp;transaction,&nbsp;turning&nbsp;off&nbsp;autocommit&nbsp;*/<br /></span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">beginTransaction</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Change&nbsp;the&nbsp;database&nbsp;schema&nbsp;and&nbsp;data&nbsp;*/<br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"DROP&nbsp;TABLE&nbsp;fruit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"UPDATE&nbsp;dessert<br />&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;name&nbsp;=&nbsp;'hamburger'"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Recognize&nbsp;mistake&nbsp;and&nbsp;roll&nbsp;back&nbsp;changes&nbsp;*/<br /></span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">rollBack</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Database&nbsp;connection&nbsp;is&nbsp;now&nbsp;back&nbsp;in&nbsp;autocommit&nbsp;mode&nbsp;*/<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Begin a transaction, turning off autocommit */<br /></span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">beginTransaction</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/* Change the database schema and data */<br /></span><span style="color: #0000BB">$sth </span><span style="color: #007700">= </span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"DROP TABLE fruit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth </span><span style="color: #007700">= </span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"UPDATE dessert<br />    SET name = 'hamburger'"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Recognize mistake and roll back changes */<br /></span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">rollBack</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/* Database connection is now back in autocommit mode */<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -105,8 +105,8 @@
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="pdo.commit.html" class="function" rel="rdfs-seeAlso">PDO::commit()</a> - Commits a transaction</span></li>
-    <li class="member"><span class="function"><a href="pdo.rollback.html" class="function" rel="rdfs-seeAlso">PDO::rollBack()</a> - Rolls back a transaction</span></li>
+    <li class="member"><span class="methodname"><a href="pdo.commit.html" class="methodname" rel="rdfs-seeAlso">PDO::commit()</a> - Commits a transaction</span></li>
+    <li class="member"><span class="methodname"><a href="pdo.rollback.html" class="methodname" rel="rdfs-seeAlso">PDO::rollBack()</a> - Rolls back a transaction</span></li>
     <li class="member"><a href="pdo.transactions.html" class="link">Transactions and auto-commit</a></li>
    </ul>
   </p>

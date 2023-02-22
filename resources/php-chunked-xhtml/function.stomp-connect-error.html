@@ -58,11 +58,11 @@
  <div class="refsect1 examples" id="refsect1-function.stomp-connect-error-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4559">
+   <div class="example" id="example-4638">
     <p><strong>Example #1 <span class="function"><strong>stomp_connect_error()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">stomp_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://localhost:61613'</span><span style="color: #007700">);<br /><br />if(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connection&nbsp;failed:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">stomp_connect_error</span><span style="color: #007700">());<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$link </span><span style="color: #007700">= </span><span style="color: #0000BB">stomp_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://localhost:61613'</span><span style="color: #007700">);<br /><br />if(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">) {<br />    die(</span><span style="color: #DD0000">'Connection failed: ' </span><span style="color: #007700">. </span><span style="color: #0000BB">stomp_connect_error</span><span style="color: #007700">());<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

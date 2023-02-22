@@ -90,20 +90,19 @@
    <p class="para">
     If <var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var> is used, use <span class="function"><a href="function.unset.html" class="function">unset()</a></span> to
     unregister a session variable, i.e.
-    <code class="literal">unset ($_SESSION[&#039;varname&#039;]);</code>.
+    <code class="code">unset($_SESSION[&#039;varname&#039;]);</code>.
    </p>
   </p></blockquote>
   <div class="caution"><strong class="caution">Caution</strong>
    <p class="para">
     Do NOT unset the whole <var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var> with
-    <code class="literal">unset($_SESSION)</code> as this will disable the registering
+    <code class="code">unset($_SESSION)</code> as this will disable the registering
     of session variables through the <var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var> superglobal.
    </p>
   </div>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    Only use <span class="function"><strong>session_unset()</strong></span> for older deprecated code
-    that does not use <var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var>.
+    The use of <span class="function"><strong>session_unset()</strong></span> is identical to <code class="code">$_SESSION = []</code>.
    </p>
   </p></blockquote>
  </div>

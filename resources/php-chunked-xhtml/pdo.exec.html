@@ -38,17 +38,17 @@
 
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>PDO::exec()</strong></span> executes an SQL statement in
+   <span class="methodname"><strong>PDO::exec()</strong></span> executes an SQL statement in
    a single function call, returning the number of rows affected by the
    statement.
   </p>
   <p class="para">
-   <span class="function"><strong>PDO::exec()</strong></span> does not return results from a SELECT
+   <span class="methodname"><strong>PDO::exec()</strong></span> does not return results from a SELECT
    statement. For a SELECT statement that you only need to issue once
-   during your program, consider issuing <span class="function"><a href="pdo.query.html" class="function">PDO::query()</a></span>.
+   during your program, consider issuing <span class="methodname"><a href="pdo.query.html" class="methodname">PDO::query()</a></span>.
    For a statement that you need to issue multiple times, prepare 
-   a PDOStatement object with <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span> and issue
-   the statement with <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span>.
+   a PDOStatement object with <span class="methodname"><a href="pdo.prepare.html" class="methodname">PDO::prepare()</a></span> and issue
+   the statement with <span class="methodname"><a href="pdostatement.execute.html" class="methodname">PDOStatement::execute()</a></span>.
   </p>
 
  </div>
@@ -80,9 +80,9 @@
  <div class="refsect1 returnvalues" id="refsect1-pdo.exec-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   <span class="function"><strong>PDO::exec()</strong></span> returns the number of rows that were modified
+   <span class="methodname"><strong>PDO::exec()</strong></span> returns the number of rows that were modified
    or deleted by the SQL statement you issued. If no rows were affected, 
-   <span class="function"><strong>PDO::exec()</strong></span> returns <code class="literal">0</code>. 
+   <span class="methodname"><strong>PDO::exec()</strong></span> returns <code class="literal">0</code>. 
   </p>
 
   <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function may
@@ -93,11 +93,11 @@ operator</a> for testing the return value of this
 function.</p></div>
   <p class="para">
    The following example incorrectly relies on the return value of
-   <span class="function"><strong>PDO::exec()</strong></span>, wherein a statement that affected 0 rows
+   <span class="methodname"><strong>PDO::exec()</strong></span>, wherein a statement that affected 0 rows
    results in a call to <span class="function"><a href="function.die.html" class="function">die()</a></span>:
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">()&nbsp;or&nbsp;die(</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errorInfo</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;incorrect<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">() or die(</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errorInfo</span><span style="color: #007700">(), </span><span style="color: #0000BB">true</span><span style="color: #007700">)); </span><span style="color: #FF8000">// incorrect<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -107,10 +107,23 @@ function.</p></div>
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-pdo.exec-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+Emits an error with level <strong><code>E_WARNING</code></strong> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong> is set
+to <strong><code>PDO::ERRMODE_WARNING</code></strong>.
+</p>
+<p class="para">
+Throws a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong>
+is set to <strong><code>PDO::ERRMODE_EXCEPTION</code></strong>.
+</p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-pdo.exec-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1018">
+   <div class="example" id="example-1049">
     <p><strong>Example #1 Issuing a DELETE statement</strong></p>
     <div class="example-contents"><p>
      Count the number of rows deleted by a DELETE statement with no WHERE
@@ -118,7 +131,7 @@ function.</p></div>
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'odbc:sample'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'db2inst1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'ibmdb2'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Delete&nbsp;all&nbsp;rows&nbsp;from&nbsp;the&nbsp;FRUIT&nbsp;table&nbsp;*/<br /></span><span style="color: #0000BB">$count&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"DELETE&nbsp;FROM&nbsp;fruit"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Return&nbsp;number&nbsp;of&nbsp;rows&nbsp;that&nbsp;were&nbsp;deleted&nbsp;*/<br /></span><span style="color: #007700">print(</span><span style="color: #DD0000">"Deleted&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #DD0000">&nbsp;rows.\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$dbh </span><span style="color: #007700">= new </span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'odbc:sample'</span><span style="color: #007700">, </span><span style="color: #DD0000">'db2inst1'</span><span style="color: #007700">, </span><span style="color: #DD0000">'ibmdb2'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Delete all rows from the FRUIT table */<br /></span><span style="color: #0000BB">$count </span><span style="color: #007700">= </span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"DELETE FROM fruit"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Return number of rows that were deleted */<br /></span><span style="color: #007700">print(</span><span style="color: #DD0000">"Deleted </span><span style="color: #0000BB">$count</span><span style="color: #DD0000"> rows.\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -139,9 +152,9 @@ Deleted 1 rows.
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="pdo.prepare.html" class="function" rel="rdfs-seeAlso">PDO::prepare()</a> - Prepares a statement for execution and returns a statement object</span></li>
-    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Prepares and executes an SQL statement without placeholders</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.execute.html" class="function" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
+    <li class="member"><span class="methodname"><a href="pdo.prepare.html" class="methodname" rel="rdfs-seeAlso">PDO::prepare()</a> - Prepares a statement for execution and returns a statement object</span></li>
+    <li class="member"><span class="methodname"><a href="pdo.query.html" class="methodname" rel="rdfs-seeAlso">PDO::query()</a> - Prepares and executes an SQL statement without placeholders</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.execute.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
    </ul>
   </p>
  </div>

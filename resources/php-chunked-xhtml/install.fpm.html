@@ -27,10 +27,9 @@
    <h1>FastCGI Process Manager (FPM)</h1>
 <h2>Table of Contents</h2><ul class="chunklist chunklist_chapter"><li><a href="install.fpm.install.html">Installation</a></li><li><a href="install.fpm.configuration.html">Configuration</a></li></ul>
 
-   <p class="para">
-    FPM (FastCGI Process Manager) is an alternative PHP FastCGI implementation 
-    with some additional features (mostly) useful for heavy-loaded sites.
-   </p>
+   <p class="para">FPM (FastCGI Process Manager) is
+a primary PHP FastCGI implementation containing some features (mostly) useful for heavy-loaded sites.
+</p>
    <p class="para">
     These features include:
     <ul class="itemizedlist">
@@ -41,13 +40,14 @@
      </li>
      <li class="listitem">
       <p class="para">
-       ability to start workers with different uid/gid/chroot/environment, 
-       listening on different ports and using different php.ini (replaces safe_mode);
+       pools that give ability to start workers with different
+       uid/gid/chroot/environment, listening on different ports and using
+       different php.ini (replaces safe_mode);
       </p>
      </li>
      <li class="listitem">
       <p class="para">
-       stdout and stderr logging;
+       configurable stdout and stderr logging;
       </p>
      </li>
      <li class="listitem">
@@ -62,24 +62,27 @@
      </li>
      <li class="listitem">
       <p class="para">
-       &quot;slowlog&quot; - logging scripts (not just their names, but their PHP backtraces too, 
-       using ptrace and similar things to read remote process&#039; execute_data) that are executed unusually slow;
+       &quot;slowlog&quot; - logging scripts (not just their names, but their PHP
+       backtraces too, using ptrace and similar things to read remote
+       process&#039; execute_data) that are executed unusually slow;
       </p>
      </li>
      <li class="listitem">
       <p class="para">
-       <span class="function"><a href="function.fastcgi-finish-request.html" class="function">fastcgi_finish_request()</a></span> - special function to finish request and flush all data while 
-       continuing to do something time-consuming (video converting, stats processing etc.);
+       <span class="function"><a href="function.fastcgi-finish-request.html" class="function">fastcgi_finish_request()</a></span> - special function to finish
+       request and flush all data while continuing to do something
+       time-consuming (video converting, stats processing etc.);
       </p>
      </li>
      <li class="listitem">
       <p class="para">
-       dynamic/static child spawning;
+       dynamic/ondemand/static child spawning;
       </p>
      </li>
      <li class="listitem">
       <p class="para">
-       basic SAPI status info (similar to Apache mod_status);
+       basic and extended status info (similar to Apache mod_status) with
+       various formats like json, xml and openmetrics supported;
       </p>
      </li>
      <li class="listitem">

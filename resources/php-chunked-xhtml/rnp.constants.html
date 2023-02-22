@@ -1,0 +1,464 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="rnp.resources.html">« Resource Types</a></li>
+      <li style="float: right;"><a href="rnp.examples.html">Examples »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.rnp.html">Rnp</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="rnp.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <p class="para">
+  <dl>
+   
+    <dt id="constant.rnp-keystore-gpg">
+     <strong><code>RNP_KEYSTORE_GPG</code></strong>
+     (<span class="type">string</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Keystore format &quot;GPG&quot;.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-keystore-kbx">
+     <strong><code>RNP_KEYSTORE_KBX</code></strong>
+     (<span class="type">string</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Keystore format &quot;KBX&quot;. For public keys only.
+      A keybox is a file format used to store public keys along with meta information and indices.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-keystore-g10">
+     <strong><code>RNP_KEYSTORE_G10</code></strong>
+     (<span class="type">string</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Keystore format &quot;G10&quot;. For private keys.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-load-save-public-keys">
+     <strong><code>RNP_LOAD_SAVE_PUBLIC_KEYS</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Load or save public keys only. Can be OR-ed with <strong><code>RNP_LOAD_SAVE_SECRET_KEYS</code></strong>
+      to load both public and private keys to the FFI context or save them from the context.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-load-save-secret-keys">
+     <strong><code>RNP_LOAD_SAVE_SECRET_KEYS</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Load or save secret keys only. Can be OR-ed with <strong><code>RNP_LOAD_SAVE_PUBLIC_KEYS</code></strong>
+      to load both public and private keys to the FFI context or save them from the context.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-load-save-permissive">
+     <strong><code>RNP_LOAD_SAVE_PERMISSIVE</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Allows to ignore bad signature/key/subkey packets during key import.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-load-save-single">
+     <strong><code>RNP_LOAD_SAVE_SINGLE</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      If set, only the first key will be loaded.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-load-save-base64">
+     <strong><code>RNP_LOAD_SAVE_BASE64</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Allow import of base64-encoded keys (autocrypt ones).
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-feature-symm-alg">
+     <strong><code>RNP_FEATURE_SYMM_ALG</code></strong>
+     (<span class="type">string</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      List available symmetric encryption algorithms.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-feature-aead-alg">
+     <strong><code>RNP_FEATURE_AEAD_ALG</code></strong>
+     (<span class="type">string</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      List available AEAD algorithms.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-feature-prot-mode">
+     <strong><code>RNP_FEATURE_PROT_MODE</code></strong>
+     (<span class="type">string</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      List available protection modes.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-feature-pk-alg">
+     <strong><code>RNP_FEATURE_PK_ALG</code></strong>
+     (<span class="type">string</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      List available public key algorithms.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-feature-hash-alg">
+     <strong><code>RNP_FEATURE_HASH_ALG</code></strong>
+     (<span class="type">string</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      List available hash algorithms.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-feature-comp-alg">
+     <strong><code>RNP_FEATURE_COMP_ALG</code></strong>
+     (<span class="type">string</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      List available compression algorithms.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-feature-curve">
+     <strong><code>RNP_FEATURE_CURVE</code></strong>
+     (<span class="type">string</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      List available elliptic curves.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-dump-mpi">
+     <strong><code>RNP_DUMP_MPI</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Dump MPI (Multi-precision integer) values.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-dump-raw">
+     <strong><code>RNP_DUMP_RAW</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Dump raw packet contents as well.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-dump-grip">
+     <strong><code>RNP_DUMP_GRIP</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Dump key fingerprints and grips.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-json-dump-mpi">
+     <strong><code>RNP_JSON_DUMP_MPI</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Dump MPI (Multi-precision integer) values.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-json-dump-raw">
+     <strong><code>RNP_JSON_DUMP_RAW</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Dump raw packet contents as well.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-json-dump-grip">
+     <strong><code>RNP_JSON_DUMP_GRIP</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Dump key fingerprints and grips.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-encrypt-nowrap">
+     <strong><code>RNP_ENCRYPT_NOWRAP</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Allows encryption of signed message. Message is not wrapped
+      into literal data packet.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-key-export-armored">
+     <strong><code>RNP_KEY_EXPORT_ARMORED</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Enable ASCII-armoring of exported data.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-key-export-public">
+     <strong><code>RNP_KEY_EXPORT_PUBLIC</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Export public key.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-key-export-secret">
+     <strong><code>RNP_KEY_EXPORT_SECRET</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Export secret key.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-key-export-subkeys">
+     <strong><code>RNP_KEY_EXPORT_SUBKEYS</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      If primary key is being exported, all subkeys will be exported too.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-key-export-base64">
+     <strong><code>RNP_KEY_EXPORT_BASE64</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Export base64-encoded autocrypt key instead of binary.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-key-remove-public">
+     <strong><code>RNP_KEY_REMOVE_PUBLIC</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Remove public key.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-key-remove-secret">
+     <strong><code>RNP_KEY_REMOVE_SECRET</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Remove secret key.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.rnp-key-remove-subkeys">
+     <strong><code>RNP_KEY_REMOVE_SUBKEYS</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      If primary key is being deleted, all of its subkeys will be removed too.
+     </span>
+    </dd>
+
+   
+  </dl>
+
+ </p>
+</div>
+</div></div></body></html>

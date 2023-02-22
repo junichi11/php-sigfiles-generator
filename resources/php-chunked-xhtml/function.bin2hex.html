@@ -72,6 +72,30 @@
   </p>
  </div>
 
+
+ <div class="refsect1 examples" id="refsect1-function.bin2hex-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-4849">
+    <p><strong>Example #1 <span class="function"><strong>bin2hex()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$hex </span><span style="color: #007700">= </span><span style="color: #0000BB">bin2hex</span><span style="color: #007700">(</span><span style="color: #DD0000">'Hello world!'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$hex</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">hex2bin</span><span style="color: #007700">(</span><span style="color: #0000BB">$hex</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+string(24) &quot;48656c6c6f20776f726c6421&quot;
+string(12) &quot;Hello world!&quot;
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
  
  <div class="refsect1 seealso" id="refsect1-function.bin2hex-seealso">
   <h3 class="title">See Also</h3>

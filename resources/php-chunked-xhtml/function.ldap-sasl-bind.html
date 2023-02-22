@@ -66,7 +66,7 @@ currently not documented; only its argument list is available.
  <td>8.1.0</td>
  <td>
   The <code class="parameter">ldap</code> parameter expects an <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">ldap link</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
 
@@ -91,7 +91,7 @@ currently not documented; only its argument list is available.
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <strong>Requirement</strong><br />
    <span class="simpara">
-    <span class="function"><strong>ldap_sasl_bind()</strong></span> requires <acronym title="Simple Authentication and Security Layer">SASL</acronym>
+    <span class="function"><strong>ldap_sasl_bind()</strong></span> requires <abbr title="Simple Authentication and Security Layer">SASL</abbr>
     support (<var class="filename">sasl.h</var>). Be sure
     <code class="literal">--with-ldap-sasl</code> is used when configuring PHP
     otherwise this function will be undefined.

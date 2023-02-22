@@ -99,7 +99,7 @@
  <div class="refsect1 examples" id="refsect1-phardata.offsetset-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-762">
+   <div class="example" id="example-780">
     <p><strong>Example #1 A <span class="function"><strong>PharData::offsetSet()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      offsetSet should not be accessed directly, but instead used
@@ -107,7 +107,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$p&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PharData</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/my.tar'</span><span style="color: #007700">);<br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;calls&nbsp;offsetSet<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$p</span><span style="color: #007700">[</span><span style="color: #DD0000">'file.txt'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'Hi&nbsp;there'</span><span style="color: #007700">;<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">Exception&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;modify&nbsp;file.txt:'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$p </span><span style="color: #007700">= new </span><span style="color: #0000BB">PharData</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/my.tar'</span><span style="color: #007700">);<br />try {<br />    </span><span style="color: #FF8000">// calls offsetSet<br />    </span><span style="color: #0000BB">$p</span><span style="color: #007700">[</span><span style="color: #DD0000">'file.txt'</span><span style="color: #007700">] = </span><span style="color: #DD0000">'Hi there'</span><span style="color: #007700">;<br />} catch (</span><span style="color: #0000BB">Exception $e</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">'Could not modify file.txt:'</span><span style="color: #007700">, </span><span style="color: #0000BB">$e</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

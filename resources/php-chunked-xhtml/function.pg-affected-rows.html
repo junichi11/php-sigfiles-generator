@@ -114,11 +114,11 @@
  <div class="refsect1 examples" id="refsect1-function.pg-affected-rows-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1874">
+   <div class="example" id="example-1906">
     <p><strong>Example #1 <span class="function"><strong>pg_affected_rows()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;authors&nbsp;VALUES&nbsp;('Orwell',&nbsp;2002,&nbsp;'Animal&nbsp;Farm')"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$cmdtuples&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_affected_rows</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">$cmdtuples&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"&nbsp;tuples&nbsp;are&nbsp;affected.\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$result </span><span style="color: #007700">= </span><span style="color: #0000BB">pg_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">, </span><span style="color: #DD0000">"INSERT INTO authors VALUES ('Orwell', 2002, 'Animal Farm')"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$cmdtuples </span><span style="color: #007700">= </span><span style="color: #0000BB">pg_affected_rows</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #0000BB">$cmdtuples </span><span style="color: #007700">. </span><span style="color: #DD0000">" tuples are affected.\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

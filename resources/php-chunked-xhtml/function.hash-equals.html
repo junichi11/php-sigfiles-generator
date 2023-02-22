@@ -85,15 +85,6 @@
  </div>
 
 
- <div class="refsect1 errors" id="refsect1-function.hash-equals-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">
-   Emits an <strong><code>E_WARNING</code></strong> message when either of the
-   supplied parameters is not a string.
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.hash-equals-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
@@ -101,7 +92,7 @@
     <p><strong>Example #1 <span class="function"><strong>hash_equals()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$expected&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">crypt</span><span style="color: #007700">(</span><span style="color: #DD0000">'12345'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'$2a$07$usesomesillystringforsalt$'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$correct&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">crypt</span><span style="color: #007700">(</span><span style="color: #DD0000">'12345'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'$2a$07$usesomesillystringforsalt$'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$incorrect&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">crypt</span><span style="color: #007700">(</span><span style="color: #DD0000">'apple'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'$2a$07$usesomesillystringforsalt$'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">hash_equals</span><span style="color: #007700">(</span><span style="color: #0000BB">$expected</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$correct</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">hash_equals</span><span style="color: #007700">(</span><span style="color: #0000BB">$expected</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$incorrect</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$expected  </span><span style="color: #007700">= </span><span style="color: #0000BB">crypt</span><span style="color: #007700">(</span><span style="color: #DD0000">'12345'</span><span style="color: #007700">, </span><span style="color: #DD0000">'$2a$07$usesomesillystringforsalt$'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$correct   </span><span style="color: #007700">= </span><span style="color: #0000BB">crypt</span><span style="color: #007700">(</span><span style="color: #DD0000">'12345'</span><span style="color: #007700">, </span><span style="color: #DD0000">'$2a$07$usesomesillystringforsalt$'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$incorrect </span><span style="color: #007700">= </span><span style="color: #0000BB">crypt</span><span style="color: #007700">(</span><span style="color: #DD0000">'apple'</span><span style="color: #007700">, </span><span style="color: #DD0000">'$2a$07$usesomesillystringforsalt$'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">hash_equals</span><span style="color: #007700">(</span><span style="color: #0000BB">$expected</span><span style="color: #007700">, </span><span style="color: #0000BB">$correct</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">hash_equals</span><span style="color: #007700">(</span><span style="color: #0000BB">$expected</span><span style="color: #007700">, </span><span style="color: #0000BB">$incorrect</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -36,10 +36,64 @@
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>DateTimeImmutable::getLastErrors</strong></span>(): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
-   Like <span class="methodname"><a href="datetime.getlasterrors.html" class="methodname">DateTime::getLastErrors()</a></span> but works with
-   <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span>.
+   Returns an array of warnings and errors found while parsing
+   a date/time string.
   </p>
  </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-datetimeimmutable.getlasterrors-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-datetimeimmutable.getlasterrors-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns array containing info about warnings and errors, or <strong><code>false</code></strong> if there
+   are neither warnings nor errors.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-datetimeimmutable.getlasterrors-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-2072">
+   <p><strong>Example #1 <span class="function"><strong>DateTimeImmutable::getLastErrors()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">try {<br />    </span><span style="color: #0000BB">$date </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">(</span><span style="color: #DD0000">'asdfasdf'</span><span style="color: #007700">);<br />} catch (</span><span style="color: #0000BB">Exception $e</span><span style="color: #007700">) {<br />    </span><span style="color: #FF8000">// For demonstration purposes only...<br />    </span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">::</span><span style="color: #0000BB">getLastErrors</span><span style="color: #007700">());<br /><br />    </span><span style="color: #FF8000">// The real object-oriented way to do this is<br />    // echo $e-&gt;getMessage();<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above examples will output:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+   [warning_count] =&gt; 1
+   [warnings] =&gt; Array
+       (
+           [6] =&gt; Double timezone specification
+       )
+
+   [error_count] =&gt; 1
+   [errors] =&gt; Array
+       (
+           [0] =&gt; The timezone could not be found in the database
+       )
+
+)
+</pre></div>
+   </div>
+   <div class="example-contents"><p>
+    The indexes 6, and 0 in the example output refer to the character index in the string where the error occurred.
+   </p></div>
+  </div>
+ </div>
+
 
 
 </div></div></div></body></html>

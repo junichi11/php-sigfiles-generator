@@ -84,7 +84,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
     to specify which number argument to treat in the conversion.
    </p>
   </p>
-  
+
   <p class="para">
    <table class="doctable table">
     <caption><strong>Flags</strong></caption>
@@ -455,21 +455,21 @@ that is typically created using <span class="function"><a href="function.fopen.h
  <div class="refsect1 examples" id="refsect1-function.fprintf-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4785">
+   <div class="example" id="example-4866">
     <p><strong>Example #1 <span class="function"><strong>fprintf()</strong></span>: zero-padded integers</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(!(</span><span style="color: #0000BB">$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">'date.txt'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'w'</span><span style="color: #007700">)))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return;<br />}<br /><br /></span><span style="color: #0000BB">fprintf</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"%04d-%02d-%02d"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$year</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$month</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$day</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;will&nbsp;write&nbsp;the&nbsp;formatted&nbsp;ISO&nbsp;date&nbsp;to&nbsp;date.txt<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if (!(</span><span style="color: #0000BB">$fp </span><span style="color: #007700">= </span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">'date.txt'</span><span style="color: #007700">, </span><span style="color: #DD0000">'w'</span><span style="color: #007700">))) {<br />    return;<br />}<br /><br /></span><span style="color: #0000BB">fprintf</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">, </span><span style="color: #DD0000">"%04d-%02d-%02d"</span><span style="color: #007700">, </span><span style="color: #0000BB">$year</span><span style="color: #007700">, </span><span style="color: #0000BB">$month</span><span style="color: #007700">, </span><span style="color: #0000BB">$day</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// will write the formatted ISO date to date.txt<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-4786">
+   <div class="example" id="example-4867">
     <p><strong>Example #2 <span class="function"><strong>fprintf()</strong></span>: formatting currency</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(!(</span><span style="color: #0000BB">$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">'currency.txt'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'w'</span><span style="color: #007700">)))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return;<br />}<br /><br /></span><span style="color: #0000BB">$money1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">68.75</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$money2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">54.35</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$money&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$money1&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">$money2</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;echo&nbsp;$money&nbsp;will&nbsp;output&nbsp;"123.1";<br /></span><span style="color: #0000BB">$len&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fprintf</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'%01.2f'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$money</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;will&nbsp;write&nbsp;"123.10"&nbsp;to&nbsp;currency.txt<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"wrote&nbsp;</span><span style="color: #0000BB">$len</span><span style="color: #DD0000">&nbsp;bytes&nbsp;to&nbsp;currency.txt"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;use&nbsp;the&nbsp;return&nbsp;value&nbsp;of&nbsp;fprintf&nbsp;to&nbsp;determine&nbsp;how&nbsp;many&nbsp;bytes&nbsp;we&nbsp;wrote<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if (!(</span><span style="color: #0000BB">$fp </span><span style="color: #007700">= </span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">'currency.txt'</span><span style="color: #007700">, </span><span style="color: #DD0000">'w'</span><span style="color: #007700">))) {<br />    return;<br />}<br /><br /></span><span style="color: #0000BB">$money1 </span><span style="color: #007700">= </span><span style="color: #0000BB">68.75</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$money2 </span><span style="color: #007700">= </span><span style="color: #0000BB">54.35</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$money </span><span style="color: #007700">= </span><span style="color: #0000BB">$money1 </span><span style="color: #007700">+ </span><span style="color: #0000BB">$money2</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">// echo $money will output "123.1";<br /></span><span style="color: #0000BB">$len </span><span style="color: #007700">= </span><span style="color: #0000BB">fprintf</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">, </span><span style="color: #DD0000">'%01.2f'</span><span style="color: #007700">, </span><span style="color: #0000BB">$money</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// will write "123.10" to currency.txt<br /><br /></span><span style="color: #007700">echo </span><span style="color: #DD0000">"wrote </span><span style="color: #0000BB">$len</span><span style="color: #DD0000"> bytes to currency.txt"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">// use the return value of fprintf to determine how many bytes we wrote<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -491,7 +491,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
     <li class="member"><span class="function"><a href="function.sscanf.html" class="function" rel="rdfs-seeAlso">sscanf()</a> - Parses input from a string according to a format</span></li>
     <li class="member"><span class="function"><a href="function.fscanf.html" class="function" rel="rdfs-seeAlso">fscanf()</a> - Parses input from a file according to a format</span></li>
     <li class="member"><span class="function"><a href="function.number-format.html" class="function" rel="rdfs-seeAlso">number_format()</a> - Format a number with grouped thousands</span></li>
-    <li class="member"><span class="function"><a href="function.date.html" class="function" rel="rdfs-seeAlso">date()</a> - Format a local time/date</span></li>
+    <li class="member"><span class="function"><a href="function.date.html" class="function" rel="rdfs-seeAlso">date()</a> - Format a Unix timestamp</span></li>
    </ul>
   </p>
  </div>

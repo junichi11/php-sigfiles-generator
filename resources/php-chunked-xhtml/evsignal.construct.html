@@ -31,7 +31,7 @@
  </div>
  <div class="refsect1 description" id="refsect1-evsignal.construct-description">
   <h3 class="title">Description</h3>
-  <div class="methodsynopsis dc-description">
+  <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="methodname"><strong>EvSignal::__construct</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
     <span class="type">int</span>
@@ -126,20 +126,14 @@
 
  </div>
 
- <div class="refsect1 returnvalues" id="refsect1-evsignal.construct-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   Returns EvSignal object on success.
-  </p>
- </div>
 
  <div class="refsect1 examples" id="refsect1-evsignal.construct-examples">
   <h3 class="title">Examples</h3>
- <div class="example" id="example-3283">
+ <div class="example" id="example-3354">
    <p><strong>Example #1 Handle SIGTERM signal</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$w&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">EvSignal</span><span style="color: #007700">(</span><span style="color: #0000BB">SIGTERM</span><span style="color: #007700">,&nbsp;function&nbsp;(</span><span style="color: #0000BB">$watcher</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"SIGTERM&nbsp;received\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$watcher</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stop</span><span style="color: #007700">();<br />});<br /><br /></span><span style="color: #0000BB">Ev</span><span style="color: #007700">::</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$w </span><span style="color: #007700">= new </span><span style="color: #0000BB">EvSignal</span><span style="color: #007700">(</span><span style="color: #0000BB">SIGTERM</span><span style="color: #007700">, function (</span><span style="color: #0000BB">$watcher</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"SIGTERM received\n"</span><span style="color: #007700">;<br />    </span><span style="color: #0000BB">$watcher</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stop</span><span style="color: #007700">();<br />});<br /><br /></span><span style="color: #0000BB">Ev</span><span style="color: #007700">::</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

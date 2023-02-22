@@ -36,7 +36,7 @@
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>UnitEnum::cases</strong></span>(): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
-   This method will return a packed array of all cases in an enumeration, in lexical order.
+   This method will return a packed array of all cases in an enumeration, in order of declaration.
   </p>
 
  </div>
@@ -51,21 +51,21 @@
  <div class="refsect1 returnvalues" id="refsect1-unitenum.cases-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   An array of all defined cases of this enumeration, in lexical order.
+   An array of all defined cases of this enumeration, in order of declaration.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-unitenum.cases-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-393">
+  <div class="example" id="example-405">
    <p><strong>Example #1 Basic usage</strong></p>
    <div class="example-contents"><p>
     The following example illustrates how enum cases are returned.
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />enum&nbsp;Suit<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Hearts</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Diamonds</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Clubs</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Spades</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">cases</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />enum Suit<br /></span><span style="color: #007700">{<br />    case </span><span style="color: #0000BB">Hearts</span><span style="color: #007700">;<br />    case </span><span style="color: #0000BB">Diamonds</span><span style="color: #007700">;<br />    case </span><span style="color: #0000BB">Clubs</span><span style="color: #007700">;<br />    case </span><span style="color: #0000BB">Spades</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">cases</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

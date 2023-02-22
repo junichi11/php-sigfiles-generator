@@ -50,9 +50,37 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    An <span class="type">array</span> of all registered __autoload functions.
-   If the autoload queue is not activated then the return value is <strong><code>false</code></strong>.
-   If no function is registered the return value will be an empty array.
+   If no function is registered, or the autoload queue is not activated,
+   then the return value will be an empty array.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.spl-autoload-functions-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       Return value was updated to always be an <span class="type">array</span>; previously this function returned
+       <strong><code>false</code></strong> if the autoload queue wasn&#039;t activated.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

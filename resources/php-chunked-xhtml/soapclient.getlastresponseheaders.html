@@ -65,11 +65,11 @@
  <div class="refsect1 examples" id="refsect1-soapclient.getlastresponseheaders-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5274">
+   <div class="example" id="example-5448">
     <p><strong>Example #1 SoapClient::__getLastResponse() example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$client&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">SoapClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"some.wsdl"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">'trace'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$client</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SomeFunction</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #DD0000">"RESPONSE&nbsp;HEADERS:\n"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$client</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">__getLastResponseHeaders</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$client </span><span style="color: #007700">= </span><span style="color: #0000BB">SoapClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"some.wsdl"</span><span style="color: #007700">, array(</span><span style="color: #DD0000">'trace' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$result </span><span style="color: #007700">= </span><span style="color: #0000BB">$client</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SomeFunction</span><span style="color: #007700">();<br />echo </span><span style="color: #DD0000">"RESPONSE HEADERS:\n" </span><span style="color: #007700">. </span><span style="color: #0000BB">$client</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">__getLastResponseHeaders</span><span style="color: #007700">() . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

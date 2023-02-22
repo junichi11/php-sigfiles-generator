@@ -81,6 +81,13 @@
       <p class="para">
        The amount of time the server will wait to delete the item.
       </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">
+       As of memcached 1.3.0 (released 2009) this feature is no longer
+       supported. Passing a non-zero <code class="parameter">time</code> will cause
+       the deletion to fail. <span class="methodname"><a href="memcached.getresultcode.html" class="methodname">Memcached::getResultCode()</a></span>
+       will return <strong><code>MEMCACHED_INVALID_ARGUMENTS</code></strong>.
+      </span></p></blockquote>
+
      </dd>
 
     

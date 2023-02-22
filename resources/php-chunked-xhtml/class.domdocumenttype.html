@@ -64,16 +64,6 @@
      <span class="modifier">public</span>
      <span class="modifier">readonly</span>
      <span class="type">string</span>
-      <var class="varname"><a href="class.domdocumenttype.html#domdocumenttype.props.publicid">$<var class="varname">publicId</var></a></var>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">public</span>
-     <span class="modifier">readonly</span>
-     <span class="type">string</span>
-      <var class="varname"><a href="class.domdocumenttype.html#domdocumenttype.props.systemid">$<var class="varname">systemId</var></a></var>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">public</span>
-     <span class="modifier">readonly</span>
-     <span class="type">string</span>
       <var class="varname"><a href="class.domdocumenttype.html#domdocumenttype.props.name">$<var class="varname">name</var></a></var>;</div>
 
     <div class="fieldsynopsis"><span class="modifier">public</span>
@@ -89,6 +79,16 @@
     <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="modifier">readonly</span>
      <span class="type">string</span>
+      <var class="varname"><a href="class.domdocumenttype.html#domdocumenttype.props.publicid">$<var class="varname">publicId</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.domdocumenttype.html#domdocumenttype.props.systemid">$<var class="varname">systemId</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span>
       <var class="varname"><a href="class.domdocumenttype.html#domdocumenttype.props.internalsubset">$<var class="varname">internalSubset</var></a></var>;</div>
 
 
@@ -248,7 +248,7 @@
      <dd>
 
       <p class="para">
-       The internal subset as a string, or null if there is none. This
+       The internal subset as a string, or <strong><code>null</code></strong> if there is none. This
        does not contain the delimiting square brackets.
       </p>
      </dd>

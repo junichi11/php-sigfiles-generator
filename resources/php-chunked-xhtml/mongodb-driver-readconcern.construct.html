@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-mongodb-driver-readconcern.construct-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\ReadConcern::__construct</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$level</code><span class="initializer"> = ?</span></span>)</div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\ReadConcern::__construct</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$level</code><span class="initializer"> = <strong><code>null</code></strong></span></span>)</div>
 
   <p class="para rdfs-comment">
    Constructs a new <span class="classname"><a href="class.mongodb-driver-readconcern.html" class="classname">MongoDB\Driver\ReadConcern</a></span>, which is
@@ -52,7 +52,7 @@
     <dd>
 
      <p class="para">
-      The <a href="https://docs.mongodb.com/manual/reference/read-concern/#read-concern-levels" class="link external">&raquo;&nbsp;read concern level</a>.
+      The <a href="https://www.mongodb.com/docs/manual/reference/read-concern/#read-concern-levels" class="link external">&raquo;&nbsp;read concern level</a>.
       You may use, but are not limited to, one of the
       <a href="class.mongodb-driver-readconcern.html#mongodb-driver-readconcern.constants" class="link">class constants</a>.
      </p>
@@ -75,11 +75,11 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb-driver-readconcern.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1312">
+  <div class="example" id="example-1343">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\Driver\ReadConcern::__construct()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;Unspecified&nbsp;read&nbsp;isolation&nbsp;level&nbsp;(uses&nbsp;the&nbsp;server's&nbsp;default&nbsp;behavior)&nbsp;*/<br /></span><span style="color: #0000BB">$rc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadConcern</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Request&nbsp;read&nbsp;isolation&nbsp;from&nbsp;a&nbsp;single&nbsp;replica&nbsp;set&nbsp;node&nbsp;*/<br /></span><span style="color: #0000BB">$rc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadConcern</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadConcern</span><span style="color: #007700">::</span><span style="color: #0000BB">LOCAL</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Request&nbsp;read&nbsp;isolation&nbsp;from&nbsp;a&nbsp;majority&nbsp;of&nbsp;the&nbsp;replica&nbsp;set&nbsp;nodes&nbsp;*/<br /></span><span style="color: #0000BB">$rc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadConcern</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadConcern</span><span style="color: #007700">::</span><span style="color: #0000BB">MAJORITY</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/* Unspecified read isolation level (uses the server's default behavior) */<br /></span><span style="color: #0000BB">$rc </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadConcern</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/* Request read isolation from a single replica set node */<br /></span><span style="color: #0000BB">$rc </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadConcern</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadConcern</span><span style="color: #007700">::</span><span style="color: #0000BB">LOCAL</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Request read isolation from a majority of the replica set nodes */<br /></span><span style="color: #0000BB">$rc </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadConcern</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadConcern</span><span style="color: #007700">::</span><span style="color: #0000BB">MAJORITY</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -92,7 +92,7 @@
  <div class="refsect1 seealso" id="refsect1-mongodb-driver-readconcern.construct-seealso">
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
-   <li class="member"><a href="https://docs.mongodb.com/manual/reference/read-concern/" class="link external">&raquo;&nbsp;Read Concern reference</a></li>
+   <li class="member"><a href="https://www.mongodb.com/docs/manual/reference/read-concern/" class="link external">&raquo;&nbsp;Read Concern reference</a></li>
   </ul>
  </div>
 

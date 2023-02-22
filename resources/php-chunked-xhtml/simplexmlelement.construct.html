@@ -123,16 +123,7 @@
   </p>
  </div>
 
- 
- <div class="refsect1 returnvalues" id="refsect1-simplexmlelement.construct-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   Returns a <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span> object representing 
-   <code class="parameter">data</code>.
-  </p>
- </div>
 
- 
  <div class="refsect1 errors" id="refsect1-simplexmlelement.construct-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
@@ -160,11 +151,11 @@
      of the <a href="simplexml.examples-basic.html" class="link">basic usage</a> guide.
     </p>
    </p></blockquote>
-   <div class="example" id="example-5395">
+   <div class="example" id="example-5569">
     <p><strong>Example #1 Create a SimpleXMLElement object</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">include&nbsp;</span><span style="color: #DD0000">'example.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$sxe&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SimpleXMLElement</span><span style="color: #007700">(</span><span style="color: #0000BB">$xmlstr</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$sxe</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">movie</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">include </span><span style="color: #DD0000">'example.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$sxe </span><span style="color: #007700">= new </span><span style="color: #0000BB">SimpleXMLElement</span><span style="color: #007700">(</span><span style="color: #0000BB">$xmlstr</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$sxe</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">movie</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -178,11 +169,11 @@ PHP: Behind the Parser
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5396">
+   <div class="example" id="example-5570">
     <p><strong>Example #2 Create a SimpleXMLElement object from a URL</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$sxe&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SimpleXMLElement</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://example.org/document.xml'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$sxe</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">asXML</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$sxe </span><span style="color: #007700">= new </span><span style="color: #0000BB">SimpleXMLElement</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://example.org/document.xml'</span><span style="color: #007700">, </span><span style="color: #0000BB">NULL</span><span style="color: #007700">, </span><span style="color: #0000BB">TRUE</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$sxe</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">asXML</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

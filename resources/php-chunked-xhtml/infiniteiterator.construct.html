@@ -65,32 +65,14 @@
  </div>
 
 
- <div class="refsect1 returnvalues" id="refsect1-infiniteiterator.construct-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   No value is returned.
-  </p>
- </div>
-
-
- <div class="refsect1 errors" id="refsect1-infiniteiterator.construct-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">
-   Throws an <strong><code>E_RECOVERABLE_ERROR</code></strong> if the
-   <code class="parameter">iterator</code> parameter is not
-   an <span class="classname"><a href="class.iterator.html" class="classname">Iterator</a></span>.
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-infiniteiterator.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3640">
+   <div class="example" id="example-3718">
     <p><strong>Example #1 <span class="function"><strong>InfiniteIterator::__construct()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$arrayit&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ArrayIterator</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'cat'</span><span style="color: #007700">,</span><span style="color: #DD0000">'dog'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$infinite&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">InfiniteIterator</span><span style="color: #007700">(</span><span style="color: #0000BB">$arrayit</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$limit&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LimitIterator</span><span style="color: #007700">(</span><span style="color: #0000BB">$infinite</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">);<br />foreach(</span><span style="color: #0000BB">$limit&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$value</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$arrayit  </span><span style="color: #007700">= new </span><span style="color: #0000BB">ArrayIterator</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'cat'</span><span style="color: #007700">,</span><span style="color: #DD0000">'dog'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$infinite </span><span style="color: #007700">= new </span><span style="color: #0000BB">InfiniteIterator</span><span style="color: #007700">(</span><span style="color: #0000BB">$arrayit</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$limit    </span><span style="color: #007700">= new </span><span style="color: #0000BB">LimitIterator</span><span style="color: #007700">(</span><span style="color: #0000BB">$infinite</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">7</span><span style="color: #007700">);<br />foreach(</span><span style="color: #0000BB">$limit </span><span style="color: #007700">as </span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />    echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$value</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

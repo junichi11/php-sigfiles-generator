@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-memcached.construct-description">
   <h3 class="title">Description</h3>
   <div class="constructorsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Memcached::__construct</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$persistent_id</code><span class="initializer"> = ?</span></span>)</div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Memcached::__construct</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$persistent_id</code><span class="initializer"> = null</span></span>)</div>
 
   <p class="para rdfs-comment">
    Creates a Memcached instance representing the connection to the memcache
@@ -68,22 +68,14 @@
  </div>
 
 
- <div class="refsect1 returnvalues" id="refsect1-memcached.construct-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   A Memcached object.
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-memcached.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4398">
+   <div class="example" id="example-4477">
     <p><strong>Example #1 Creating a Memcached object</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;regular&nbsp;instance&nbsp;*/<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Memcached</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$m</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;persistent&nbsp;instance&nbsp;*/<br /></span><span style="color: #0000BB">$m2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Memcached</span><span style="color: #007700">(</span><span style="color: #DD0000">'story_pool'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$m3&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Memcached</span><span style="color: #007700">(</span><span style="color: #DD0000">'story_pool'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;now&nbsp;$m2&nbsp;and&nbsp;$m3&nbsp;share&nbsp;the&nbsp;same&nbsp;connection&nbsp;*/<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Create a regular instance */<br /></span><span style="color: #0000BB">$m </span><span style="color: #007700">= new </span><span style="color: #0000BB">Memcached</span><span style="color: #007700">();<br />echo </span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$m</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Create a persistent instance */<br /></span><span style="color: #0000BB">$m2 </span><span style="color: #007700">= new </span><span style="color: #0000BB">Memcached</span><span style="color: #007700">(</span><span style="color: #DD0000">'story_pool'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$m3 </span><span style="color: #007700">= new </span><span style="color: #0000BB">Memcached</span><span style="color: #007700">(</span><span style="color: #DD0000">'story_pool'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* now $m2 and $m3 share the same connection */<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

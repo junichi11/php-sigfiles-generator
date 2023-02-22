@@ -40,22 +40,12 @@
    of <strong><code>LDAP_SCOPE_SUBTREE</code></strong>. This is equivalent to searching
    the entire directory.
   </p>
-  <p class="para">
-   From 4.0.5 on it&#039;s also possible to do parallel searches. To do this
-   you use an array of link identifiers, rather than a single identifier,
-   as the first argument. If you don&#039;t want the same base DN and the
-   same filter for all the searches, you can also use an array of base DNs
-   and/or an array of filters. Those arrays must be of the same size as
-   the link identifier array since the first entries of the arrays are
-   used for one search, the second entries are used for another, and so
-   on. When doing parallel searches an array of search result
-   identifiers is returned, except in case of error, then the entry
-   corresponding to the search will be <strong><code>false</code></strong>. This is very much like
-   the value normally returned, except that a result identifier is always
-   returned when a search was made. There are some rare cases where the
-   normal search returns <strong><code>false</code></strong> while the parallel search returns an
-   identifier.
-  </p>
+   <p class="para">It is also possible to perform parallel searches. In this case, the first argument should be an array of
+<span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span> instances, rather than a single one.
+If the searches should not all use the same base DN and filter, an array of base DNs and/or an array of filters can be passed as arguments instead.
+These arrays must be of the same size as the <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span> instances array,
+since the first entries of the arrays are used for one search, the second entries are used for another, and so on.
+When doing parallel searches an array of <span class="classname"><a href="class.ldap-result.html" class="classname">LDAP\Result</a></span> instances is returned, except in case of error, when the return value will be <strong><code>false</code></strong>.</p>
  </div>
 
 
@@ -241,7 +231,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ldap-search-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns an <span class="classname"><a href="class.ldap-result.html" class="classname">LDAP\Result</a></span> instance, or <strong><code>false</code></strong> on failure.
+   Returns an <span class="classname"><a href="class.ldap-result.html" class="classname">LDAP\Result</a></span> instance, an array of <span class="classname"><a href="class.ldap-result.html" class="classname">LDAP\Result</a></span> instances, or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -264,7 +254,7 @@
  <td>8.1.0</td>
  <td>
   The <code class="parameter">ldap</code> parameter expects an <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">ldap link</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
 
@@ -284,7 +274,7 @@
 </tr>
 
       <tr>
-       <td>7.3</td>
+       <td>7.3.0</td>
        <td>
         Support for <code class="parameter">controls</code> added
        </td>
@@ -306,11 +296,11 @@
    the surname or given name contains the substring <var class="varname">$person</var>. This
    example uses a boolean filter to tell the server to look for
    information in more than one attribute.
-   <div class="example" id="example-4368">
+   <div class="example" id="example-4447">
     <p><strong>Example #1 LDAP search</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;$ds&nbsp;is&nbsp;a&nbsp;valid&nbsp;link&nbsp;identifier&nbsp;for&nbsp;a&nbsp;directory&nbsp;server<br /><br />//&nbsp;$person&nbsp;is&nbsp;all&nbsp;or&nbsp;part&nbsp;of&nbsp;a&nbsp;person's&nbsp;name,&nbsp;eg&nbsp;"Jo"<br /><br /></span><span style="color: #0000BB">$dn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"o=My&nbsp;Company,&nbsp;c=US"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$filter</span><span style="color: #007700">=</span><span style="color: #DD0000">"(|(sn=</span><span style="color: #0000BB">$person</span><span style="color: #DD0000">*)(givenname=</span><span style="color: #0000BB">$person</span><span style="color: #DD0000">*))"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$justthese&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"ou"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"sn"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"givenname"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"mail"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$sr</span><span style="color: #007700">=</span><span style="color: #0000BB">ldap_search</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$dn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$filter</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$justthese</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$info&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_get_entries</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$sr</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">"count"</span><span style="color: #007700">].</span><span style="color: #DD0000">"&nbsp;entries&nbsp;returned\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// $ds is a valid LDAP\Connection instance for a directory server<br /><br />// $person is all or part of a person's name, eg "Jo"<br /><br /></span><span style="color: #0000BB">$dn </span><span style="color: #007700">= </span><span style="color: #DD0000">"o=My Company, c=US"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$filter</span><span style="color: #007700">=</span><span style="color: #DD0000">"(|(sn=</span><span style="color: #0000BB">$person</span><span style="color: #DD0000">*)(givenname=</span><span style="color: #0000BB">$person</span><span style="color: #DD0000">*))"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$justthese </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"ou"</span><span style="color: #007700">, </span><span style="color: #DD0000">"sn"</span><span style="color: #007700">, </span><span style="color: #DD0000">"givenname"</span><span style="color: #007700">, </span><span style="color: #DD0000">"mail"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$sr</span><span style="color: #007700">=</span><span style="color: #0000BB">ldap_search</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">, </span><span style="color: #0000BB">$dn</span><span style="color: #007700">, </span><span style="color: #0000BB">$filter</span><span style="color: #007700">, </span><span style="color: #0000BB">$justthese</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$info </span><span style="color: #007700">= </span><span style="color: #0000BB">ldap_get_entries</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">, </span><span style="color: #0000BB">$sr</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">"count"</span><span style="color: #007700">].</span><span style="color: #DD0000">" entries returned\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

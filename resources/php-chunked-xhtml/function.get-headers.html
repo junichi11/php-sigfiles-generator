@@ -140,11 +140,11 @@
  <div class="refsect1 examples" id="refsect1-function.get-headers-examples">
  <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3850">
+   <div class="example" id="example-3928">
     <p><strong>Example #1 <span class="function"><strong>get_headers()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$url&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'http://www.example.com'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">get_headers</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">get_headers</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$url </span><span style="color: #007700">= </span><span style="color: #DD0000">'http://www.example.com'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">get_headers</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">get_headers</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">, </span><span style="color: #0000BB">true</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -181,11 +181,11 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-3851">
+   <div class="example" id="example-3929">
     <p><strong>Example #2 <span class="function"><strong>get_headers()</strong></span> using HEAD example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;By&nbsp;default&nbsp;get_headers&nbsp;uses&nbsp;a&nbsp;GET&nbsp;request&nbsp;to&nbsp;fetch&nbsp;the&nbsp;headers.&nbsp;If&nbsp;you<br />//&nbsp;want&nbsp;to&nbsp;send&nbsp;a&nbsp;HEAD&nbsp;request&nbsp;instead,&nbsp;you&nbsp;can&nbsp;do&nbsp;so&nbsp;using&nbsp;a&nbsp;stream&nbsp;context:<br /></span><span style="color: #0000BB">stream_context_set_default</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'http'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'method'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'HEAD'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;)<br />);<br /></span><span style="color: #0000BB">$headers&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">get_headers</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://example.com'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// By default get_headers uses a GET request to fetch the headers. If you<br />// want to send a HEAD request instead, you can do so using a stream context:<br /></span><span style="color: #0000BB">stream_context_set_default</span><span style="color: #007700">(<br />    array(<br />        </span><span style="color: #DD0000">'http' </span><span style="color: #007700">=&gt; array(<br />            </span><span style="color: #DD0000">'method' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'HEAD'<br />        </span><span style="color: #007700">)<br />    )<br />);<br /></span><span style="color: #0000BB">$headers </span><span style="color: #007700">= </span><span style="color: #0000BB">get_headers</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://example.com'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

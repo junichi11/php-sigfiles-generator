@@ -105,7 +105,7 @@
     a class in the type map cannot be instantiated or does not implement
     <span class="interfacename"><a href="class.mongodb-bson-unserializable.html" class="interfacename">MongoDB\BSON\Unserializable</a></span>.
    </li>
-   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-unexpectedvalueexception.html" class="classname">MongoDB\Driver\Exception\UnexpectedValueException</a></span> if the input did not contain exactly one BSON document. Possible reasons include, but are not limited to, invalid BSON, extra data (after reading one BSON document), or an unexpected <a href="https://github.com/mongodb/libbson" class="link external">&raquo;&nbsp;libbson</a> error.</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-unexpectedvalueexception.html" class="classname">MongoDB\Driver\Exception\UnexpectedValueException</a></span> if the input did not contain exactly one BSON document. Possible reasons include, but are not limited to, invalid BSON, extra data (after reading one BSON document), or an unexpected <a href="https://github.com/mongodb/mongo-c-driver/tree/master/src/libbson" class="link external">&raquo;&nbsp;libbson</a> error.</li>
   </ul>
  </div>
 
@@ -169,11 +169,11 @@
 
  <div class="refsect1 examples" id="refsect1-function.mongodb.bson-tophp-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1349">
+  <div class="example" id="example-1380">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\BSON\toPHP()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$bson&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">hex2bin</span><span style="color: #007700">(</span><span style="color: #DD0000">'0e00000010666f6f000100000000'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$value&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">toPHP</span><span style="color: #007700">(</span><span style="color: #0000BB">$bson</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$bson </span><span style="color: #007700">= </span><span style="color: #0000BB">hex2bin</span><span style="color: #007700">(</span><span style="color: #DD0000">'0e00000010666f6f000100000000'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$value </span><span style="color: #007700">= </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">toPHP</span><span style="color: #007700">(</span><span style="color: #0000BB">$bson</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -196,7 +196,7 @@ object(stdClass)#1 (1) {
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
    <li class="member"><span class="function"><a href="function.mongodb.bson-fromphp.html" class="function" rel="rdfs-seeAlso">MongoDB\BSON\fromPHP()</a> - Returns the BSON representation of a PHP value</span></li>
-   <li class="member"><a href="https://docs.mongodb.com/manual/reference/bson-types/" class="link external">&raquo;&nbsp;MongoDB BSON</a></li>
+   <li class="member"><a href="https://www.mongodb.com/docs/manual/reference/bson-types/" class="link external">&raquo;&nbsp;MongoDB BSON</a></li>
    <li class="member"><a href="mongodb.persistence.html" class="xref">Persisting Data</a></li>
   </ul>
  </div>

@@ -320,7 +320,7 @@
 
  <div class="refsect1 examples" id="refsect1-wrappers.php-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-402">
+  <div class="example" id="example-418">
    <p><strong>Example #1 php://temp/maxmemory</strong></p>
    <div class="example-contents"><p>
     This optional parameter allows setting the memory limit before
@@ -328,13 +328,13 @@
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Set&nbsp;the&nbsp;limit&nbsp;to&nbsp;5&nbsp;MB.<br /></span><span style="color: #0000BB">$fiveMBs&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">1024&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">1024</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"php://temp/maxmemory:</span><span style="color: #0000BB">$fiveMBs</span><span style="color: #DD0000">"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'r+'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">fputs</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"hello\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Read&nbsp;what&nbsp;we&nbsp;have&nbsp;written.<br /></span><span style="color: #0000BB">rewind</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">stream_get_contents</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Set the limit to 5 MB.<br /></span><span style="color: #0000BB">$fiveMBs </span><span style="color: #007700">= </span><span style="color: #0000BB">5 </span><span style="color: #007700">* </span><span style="color: #0000BB">1024 </span><span style="color: #007700">* </span><span style="color: #0000BB">1024</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$fp </span><span style="color: #007700">= </span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"php://temp/maxmemory:</span><span style="color: #0000BB">$fiveMBs</span><span style="color: #DD0000">"</span><span style="color: #007700">, </span><span style="color: #DD0000">'r+'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">fputs</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">, </span><span style="color: #DD0000">"hello\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Read what we have written.<br /></span><span style="color: #0000BB">rewind</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">stream_get_contents</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
   </div>
-  <div class="example" id="example-403">
+  <div class="example" id="example-419">
    <p><strong>Example #2 php://filter/resource=&lt;stream to be filtered&gt;</strong></p>
    <div class="example-contents"><p>
     This parameter must be located at
@@ -343,13 +343,13 @@
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;This&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;simply:<br />&nbsp;&nbsp;readfile("http://www.example.com");<br />&nbsp;&nbsp;since&nbsp;no&nbsp;filters&nbsp;are&nbsp;actually&nbsp;specified&nbsp;*/<br /><br /></span><span style="color: #0000BB">readfile</span><span style="color: #007700">(</span><span style="color: #DD0000">"php://filter/resource=http://www.example.com"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* This is equivalent to simply:<br />  readfile("http://www.example.com");<br />  since no filters are actually specified */<br /><br /></span><span style="color: #0000BB">readfile</span><span style="color: #007700">(</span><span style="color: #DD0000">"php://filter/resource=http://www.example.com"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
   </div>
-  <div class="example" id="example-404">
+  <div class="example" id="example-420">
    <p><strong>Example #3 php://filter/read=&lt;filter list to apply to read chain&gt;</strong></p>
    <div class="example-contents"><p>
     This parameter takes one or more
@@ -357,13 +357,13 @@
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;This&nbsp;will&nbsp;output&nbsp;the&nbsp;contents&nbsp;of<br />&nbsp;&nbsp;www.example.com&nbsp;entirely&nbsp;in&nbsp;uppercase&nbsp;*/<br /></span><span style="color: #0000BB">readfile</span><span style="color: #007700">(</span><span style="color: #DD0000">"php://filter/read=string.toupper/resource=http://www.example.com"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;This&nbsp;will&nbsp;do&nbsp;the&nbsp;same&nbsp;as&nbsp;above<br />&nbsp;&nbsp;but&nbsp;will&nbsp;also&nbsp;ROT13&nbsp;encode&nbsp;it&nbsp;*/<br /></span><span style="color: #0000BB">readfile</span><span style="color: #007700">(</span><span style="color: #DD0000">"php://filter/read=string.toupper|string.rot13/resource=http://www.example.com"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* This will output the contents of<br />  www.example.com entirely in uppercase */<br /></span><span style="color: #0000BB">readfile</span><span style="color: #007700">(</span><span style="color: #DD0000">"php://filter/read=string.toupper/resource=http://www.example.com"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* This will do the same as above<br />  but will also ROT13 encode it */<br /></span><span style="color: #0000BB">readfile</span><span style="color: #007700">(</span><span style="color: #DD0000">"php://filter/read=string.toupper|string.rot13/resource=http://www.example.com"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
   </div>
-  <div class="example" id="example-405">
+  <div class="example" id="example-421">
    <p><strong>Example #4 php://filter/write=&lt;filter list to apply to write chain&gt;</strong></p>
    <div class="example-contents"><p>
     This parameter takes one or more
@@ -371,13 +371,13 @@
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;This&nbsp;will&nbsp;filter&nbsp;the&nbsp;string&nbsp;"Hello&nbsp;World"<br />&nbsp;&nbsp;through&nbsp;the&nbsp;rot13&nbsp;filter,&nbsp;then&nbsp;write&nbsp;to<br />&nbsp;&nbsp;example.txt&nbsp;in&nbsp;the&nbsp;current&nbsp;directory&nbsp;*/<br /></span><span style="color: #0000BB">file_put_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">"php://filter/write=string.rot13/resource=example.txt"</span><span style="color: #007700">,</span><span style="color: #DD0000">"Hello&nbsp;World"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* This will filter the string "Hello World"<br />  through the rot13 filter, then write to<br />  example.txt in the current directory */<br /></span><span style="color: #0000BB">file_put_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">"php://filter/write=string.rot13/resource=example.txt"</span><span style="color: #007700">,</span><span style="color: #DD0000">"Hello World"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
   </div>
-  <div class="example" id="example-406">
+  <div class="example" id="example-422">
    <p><strong>Example #5 php://memory and php://temp are not reusable</strong></p>
    <div class="example-contents"><p>
     <var class="filename">php://memory</var> and <var class="filename">php://temp</var>
@@ -386,7 +386,7 @@
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-file_put_contents('php://memory',&nbsp;'PHP');<br />echo&nbsp;file_get_contents('php://memory');&nbsp;//&nbsp;prints&nbsp;nothing</span>
+file_put_contents('php://memory', 'PHP');<br />echo file_get_contents('php://memory'); // prints nothing</span>
 </code></div>
    </div>
 

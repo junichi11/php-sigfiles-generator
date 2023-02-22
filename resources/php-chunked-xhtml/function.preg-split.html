@@ -167,11 +167,11 @@ If the regex pattern passed does not compile to a valid regex, an <strong><code>
  <div class="refsect1 examples" id="refsect1-function.preg-split-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4764">
+   <div class="example" id="example-4844">
     <p><strong>Example #1 <span class="function"><strong>preg_split()</strong></span> example : Get the parts of a search string</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;split&nbsp;the&nbsp;phrase&nbsp;by&nbsp;any&nbsp;number&nbsp;of&nbsp;commas&nbsp;or&nbsp;space&nbsp;characters,<br />//&nbsp;which&nbsp;include&nbsp;"&nbsp;",&nbsp;\r,&nbsp;\t,&nbsp;\n&nbsp;and&nbsp;\f<br /></span><span style="color: #0000BB">$keywords&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">preg_split</span><span style="color: #007700">(</span><span style="color: #DD0000">"/[\s,]+/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"hypertext&nbsp;language,&nbsp;programming"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$keywords</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// split the phrase by any number of commas or space characters,<br />// which include " ", \r, \t, \n and \f<br /></span><span style="color: #0000BB">$keywords </span><span style="color: #007700">= </span><span style="color: #0000BB">preg_split</span><span style="color: #007700">(</span><span style="color: #DD0000">"/[\s,]+/"</span><span style="color: #007700">, </span><span style="color: #DD0000">"hypertext language, programming"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$keywords</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -190,11 +190,11 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4765">
+   <div class="example" id="example-4845">
     <p><strong>Example #2 Splitting a string into component characters</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'string'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$chars&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">preg_split</span><span style="color: #007700">(</span><span style="color: #DD0000">'//'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PREG_SPLIT_NO_EMPTY</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$chars</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$str </span><span style="color: #007700">= </span><span style="color: #DD0000">'string'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$chars </span><span style="color: #007700">= </span><span style="color: #0000BB">preg_split</span><span style="color: #007700">(</span><span style="color: #DD0000">'//'</span><span style="color: #007700">, </span><span style="color: #0000BB">$str</span><span style="color: #007700">, -</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">PREG_SPLIT_NO_EMPTY</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$chars</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -216,11 +216,11 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4766">
+   <div class="example" id="example-4846">
     <p><strong>Example #3 Splitting a string into matches and their offsets</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'hypertext&nbsp;language&nbsp;programming'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$chars&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">preg_split</span><span style="color: #007700">(</span><span style="color: #DD0000">'/&nbsp;/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PREG_SPLIT_OFFSET_CAPTURE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$chars</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$str </span><span style="color: #007700">= </span><span style="color: #DD0000">'hypertext language programming'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$chars </span><span style="color: #007700">= </span><span style="color: #0000BB">preg_split</span><span style="color: #007700">(</span><span style="color: #DD0000">'/ /'</span><span style="color: #007700">, </span><span style="color: #0000BB">$str</span><span style="color: #007700">, -</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">PREG_SPLIT_OFFSET_CAPTURE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$chars</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

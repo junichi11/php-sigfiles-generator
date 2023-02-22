@@ -121,11 +121,11 @@
  <div class="refsect1 examples" id="refsect1-function.fdf-get-attachment-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3142">
+   <div class="example" id="example-3207">
     <p><strong>Example #1 Storing an uploaded file</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$fdf&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fdf_open_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$HTTP_FDF_DATA</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fdf_get_attachment</span><span style="color: #007700">(</span><span style="color: #0000BB">$fdf</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"filename"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"/tmpdir"</span><span style="color: #007700">);<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;uploaded&nbsp;file&nbsp;is&nbsp;stored&nbsp;in&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">[</span><span style="color: #0000BB">path</span><span style="color: #007700">]</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />  $fdf </span><span style="color: #007700">= </span><span style="color: #0000BB">fdf_open_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$HTTP_FDF_DATA</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">$data </span><span style="color: #007700">= </span><span style="color: #0000BB">fdf_get_attachment</span><span style="color: #007700">(</span><span style="color: #0000BB">$fdf</span><span style="color: #007700">, </span><span style="color: #DD0000">"filename"</span><span style="color: #007700">, </span><span style="color: #DD0000">"/tmpdir"</span><span style="color: #007700">);<br />  echo </span><span style="color: #DD0000">"The uploaded file is stored in </span><span style="color: #0000BB">$data</span><span style="color: #007700">[</span><span style="color: #0000BB">path</span><span style="color: #007700">]</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

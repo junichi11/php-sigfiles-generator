@@ -78,7 +78,7 @@
      <p><strong>Example #1 Basic WeakReference Usage</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$obj&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">stdClass</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$weakref&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">WeakReference</span><span style="color: #007700">::</span><span style="color: #0000BB">create</span><span style="color: #007700">(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$weakref</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get</span><span style="color: #007700">());<br />unset(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$weakref</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$obj </span><span style="color: #007700">= new </span><span style="color: #0000BB">stdClass</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$weakref </span><span style="color: #007700">= </span><span style="color: #0000BB">WeakReference</span><span style="color: #007700">::</span><span style="color: #0000BB">create</span><span style="color: #007700">(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$weakref</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get</span><span style="color: #007700">());<br />unset(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$weakref</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -103,16 +103,12 @@ NULL
 
 
 
-
-
  
 
 
 
 
  
-
-
 
 
 

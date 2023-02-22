@@ -210,31 +210,31 @@ function.</p></div>
  <div class="refsect1 examples" id="refsect1-function.file-get-contents-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2147">
+   <div class="example" id="example-2212">
     <p><strong>Example #1 Get and output the source of the homepage of a website</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$homepage&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://www.example.com/'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$homepage</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$homepage </span><span style="color: #007700">= </span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://www.example.com/'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$homepage</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-2148">
+   <div class="example" id="example-2213">
     <p><strong>Example #2 Searching within the include_path</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;If&nbsp;strict&nbsp;types&nbsp;are&nbsp;enabled&nbsp;i.e.&nbsp;declare(strict_types=1);<br /></span><span style="color: #0000BB">$file&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'./people.txt'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;Otherwise<br /></span><span style="color: #0000BB">$file&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'./people.txt'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">FILE_USE_INCLUDE_PATH</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// If strict types are enabled i.e. declare(strict_types=1);<br /></span><span style="color: #0000BB">$file </span><span style="color: #007700">= </span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'./people.txt'</span><span style="color: #007700">, </span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// Otherwise<br /></span><span style="color: #0000BB">$file </span><span style="color: #007700">= </span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'./people.txt'</span><span style="color: #007700">, </span><span style="color: #0000BB">FILE_USE_INCLUDE_PATH</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-2149">
+   <div class="example" id="example-2214">
     <p><strong>Example #3 Reading a section of a file</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Read&nbsp;14&nbsp;characters&nbsp;starting&nbsp;from&nbsp;the&nbsp;21st&nbsp;character<br /></span><span style="color: #0000BB">$section&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'./people.txt'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">FALSE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">14</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$section</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Read 14 characters starting from the 21st character<br /></span><span style="color: #0000BB">$section </span><span style="color: #007700">= </span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'./people.txt'</span><span style="color: #007700">, </span><span style="color: #0000BB">FALSE</span><span style="color: #007700">, </span><span style="color: #0000BB">NULL</span><span style="color: #007700">, </span><span style="color: #0000BB">20</span><span style="color: #007700">, </span><span style="color: #0000BB">14</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$section</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -247,11 +247,11 @@ string(14) &quot;lle Bjori Ro&quot;
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-2150">
+   <div class="example" id="example-2215">
     <p><strong>Example #4 Using stream contexts</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Create&nbsp;a&nbsp;stream<br /></span><span style="color: #0000BB">$opts&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;</span><span style="color: #DD0000">'http'</span><span style="color: #007700">=&gt;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'method'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">"GET"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'header'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">"Accept-language:&nbsp;en\r\n"&nbsp;</span><span style="color: #007700">.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"Cookie:&nbsp;foo=bar\r\n"<br />&nbsp;&nbsp;</span><span style="color: #007700">)<br />);<br /><br /></span><span style="color: #0000BB">$context&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">stream_context_create</span><span style="color: #007700">(</span><span style="color: #0000BB">$opts</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Open&nbsp;the&nbsp;file&nbsp;using&nbsp;the&nbsp;HTTP&nbsp;headers&nbsp;set&nbsp;above<br /></span><span style="color: #0000BB">$file&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://www.example.com/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$context</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Create a stream<br /></span><span style="color: #0000BB">$opts </span><span style="color: #007700">= array(<br />  </span><span style="color: #DD0000">'http'</span><span style="color: #007700">=&gt;array(<br />    </span><span style="color: #DD0000">'method'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">"GET"</span><span style="color: #007700">,<br />    </span><span style="color: #DD0000">'header'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">"Accept-language: en\r\n" </span><span style="color: #007700">.<br />              </span><span style="color: #DD0000">"Cookie: foo=bar\r\n"<br />  </span><span style="color: #007700">)<br />);<br /><br /></span><span style="color: #0000BB">$context </span><span style="color: #007700">= </span><span style="color: #0000BB">stream_context_create</span><span style="color: #007700">(</span><span style="color: #0000BB">$opts</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Open the file using the HTTP headers set above<br /></span><span style="color: #0000BB">$file </span><span style="color: #007700">= </span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://www.example.com/'</span><span style="color: #007700">, </span><span style="color: #0000BB">false</span><span style="color: #007700">, </span><span style="color: #0000BB">$context</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

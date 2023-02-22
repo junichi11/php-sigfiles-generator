@@ -129,7 +129,7 @@
        <td>
         <strong><code>FILTER_SANITIZE_ENCODED</code></strong>,
         <strong><code>FILTER_SANITIZE_STRING</code></strong>,
-        <strong><code>FILTER_SANITIZE_RAW</code></strong>
+        <strong><code>FILTER_UNSAFE_RAW</code></strong>
        </td>
        <td>
         Encodes all characters with a numerical value &lt;32.
@@ -142,7 +142,7 @@
         <strong><code>FILTER_SANITIZE_ENCODED</code></strong>,
         <strong><code>FILTER_SANITIZE_SPECIAL_CHARS</code></strong>,
         <strong><code>FILTER_SANITIZE_STRING</code></strong>,
-        <strong><code>FILTER_SANITIZE_RAW</code></strong>
+        <strong><code>FILTER_UNSAFE_RAW</code></strong>
        </td>
        <td>
         Encodes all characters with a numerical value &gt;127.
@@ -153,7 +153,7 @@
        <td><strong><code>FILTER_FLAG_ENCODE_AMP</code></strong></td>
        <td>
         <strong><code>FILTER_SANITIZE_STRING</code></strong>,
-        <strong><code>FILTER_SANITIZE_RAW</code></strong>
+        <strong><code>FILTER_UNSAFE_RAW</code></strong>
        </td>
        <td>
         Encodes ampersands (<code class="literal">&amp;</code>).
@@ -266,12 +266,26 @@
       </tr>
 
       <tr>
+       <td><strong><code>FILTER_FLAG_GLOBAL_RANGE</code></strong></td>
+       <td>
+        <strong><code>FILTER_VALIDATE_IP</code></strong>
+       </td>
+       <td>
+        <p class="para">
+         Fails validation for non global IPv4/IPv6 ranges as found in
+         <a href="http://www.faqs.org/rfcs/rfc6890" class="link external">&raquo;&nbsp;RFC 6890</a> with the
+         <code class="literal">Global</code> attribute being <code class="literal">False</code>.
+        </p>
+       </td>
+      </tr>
+
+      <tr>
        <td><strong><code>FILTER_FLAG_SCHEME_REQUIRED</code></strong></td>
        <td>
         <strong><code>FILTER_VALIDATE_URL</code></strong>
        </td>
        <td>
-        Requires the <acronym title="Uniform Resource Locator">URL</acronym> to contain a scheme part.
+        Requires the <abbr title="Uniform Resource Locator">URL</abbr> to contain a scheme part.
        </td>
       </tr>
 
@@ -281,7 +295,7 @@
         <strong><code>FILTER_VALIDATE_URL</code></strong>
        </td>
        <td>
-        Requires the <acronym title="Uniform Resource Locator">URL</acronym> to contain a host part.
+        Requires the <abbr title="Uniform Resource Locator">URL</abbr> to contain a host part.
        </td>
       </tr>
 
@@ -291,7 +305,7 @@
         <strong><code>FILTER_VALIDATE_URL</code></strong>
        </td>
        <td>
-        Requires the <acronym title="Uniform Resource Locator">URL</acronym> to contain a path part.
+        Requires the <abbr title="Uniform Resource Locator">URL</abbr> to contain a path part.
        </td>
       </tr>
 
@@ -301,7 +315,7 @@
         <strong><code>FILTER_VALIDATE_URL</code></strong>
        </td>
        <td>
-        Requires the <acronym title="Uniform Resource Locator">URL</acronym> to contain a query string.
+        Requires the <abbr title="Uniform Resource Locator">URL</abbr> to contain a query string.
        </td>
       </tr>
 
@@ -353,6 +367,14 @@
       </thead>
 
       <tbody class="tbody">
+       <tr>
+        <td>8.2.0</td>
+        <td>
+         <strong><code>FILTER_FLAG_GLOBAL_RANGE</code></strong> as a flag to
+         <strong><code>FILTER_VALIDATE_IP</code></strong> has been added.
+        </td>
+       </tr>
+
        <tr>
         <td>7.3.0</td>
         <td>

@@ -36,19 +36,7 @@
    <span class="modifier">public</span> <span class="methodname"><strong>Memcached::delete</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$time</code><span class="initializer"> = 0</span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>Memcached::delete()</strong></span> deletes the
-   <code class="parameter">key</code> from the server. The <code class="parameter">time</code>
-   parameter is the amount of time in seconds (or Unix time until which) the
-   client wishes the server to refuse <code class="literal">add</code> and
-   <code class="literal">replace</code> commands for this key. For this amount of time,
-   the item is put into a delete queue, which means that it won&#039;t possible to
-   retrieve it by the <code class="literal">get</code> command, but
-   <code class="literal">add</code> and <code class="literal">replace</code> command with this key
-   will also fail (the <code class="literal">set</code> command will succeed, however).
-   After the time passes, the item is finally deleted from server memory. The
-   parameter <code class="parameter">time</code> defaults to 0 (which means that the
-   item will be deleted immediately and further storage commands with this key
-   will succeed).
+   Delete the <code class="parameter">key</code> from the server.
   </p>
  </div>
 
@@ -78,6 +66,13 @@
       <p class="para">
        The amount of time the server will wait to delete the item.
       </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">
+       As of memcached 1.3.0 (released 2009) this feature is no longer
+       supported. Passing a non-zero <code class="parameter">time</code> will cause
+       the deletion to fail. <span class="methodname"><a href="memcached.getresultcode.html" class="methodname">Memcached::getResultCode()</a></span>
+       will return <strong><code>MEMCACHED_INVALID_ARGUMENTS</code></strong>.
+      </span></p></blockquote>
+
      </dd>
 
     
@@ -100,11 +95,11 @@
  <div class="refsect1 examples" id="refsect1-memcached.delete-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4400">
+   <div class="example" id="example-4479">
     <p><strong>Example #1 <span class="function"><strong>Memcached::delete()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Memcached</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addServer</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">delete</span><span style="color: #007700">(</span><span style="color: #DD0000">'key1'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$m </span><span style="color: #007700">= new </span><span style="color: #0000BB">Memcached</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addServer</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">delete</span><span style="color: #007700">(</span><span style="color: #DD0000">'key1'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

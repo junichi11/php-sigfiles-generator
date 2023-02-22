@@ -73,23 +73,6 @@
  </div>
 
 
- <div class="refsect1 examples" id="refsect1-soapserver.handle-examples">
-  <h3 class="title">Examples</h3>
-  <p class="para">
-   <div class="example" id="example-5283">
-    <p><strong>Example #1 <span class="function"><strong>SoapServer::handle()</strong></span> example</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">$x</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$server&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SoapServer</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">'uri'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"http://test-uri/"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$server</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$server</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">handle</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-   </div>
-  </p>
- </div>
-
-
  <div class="refsect1 changelog" id="refsect1-soapserver.handle-changelog">
   <h3 class="title">Changelog</h3>
   <table class="doctable informaltable">
@@ -114,6 +97,23 @@
    
   </table>
 
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-soapserver.handle-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-5457">
+    <p><strong>Example #1 <span class="function"><strong>SoapServer::handle()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">$x</span><span style="color: #007700">)<br />{<br />    return </span><span style="color: #0000BB">$x</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$server </span><span style="color: #007700">= new </span><span style="color: #0000BB">SoapServer</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">, array(</span><span style="color: #DD0000">'uri' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"http://test-uri/"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$server</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$server</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">handle</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
  </div>
 
 

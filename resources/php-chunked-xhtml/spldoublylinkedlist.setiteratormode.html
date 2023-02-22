@@ -71,6 +71,14 @@
       <p class="para">
        The default mode is: <strong><code>SplDoublyLinkedList::IT_MODE_FIFO</code></strong> | <strong><code>SplDoublyLinkedList::IT_MODE_KEEP</code></strong>
       </p>
+
+      <div class="warning"><strong class="warning">Warning</strong>
+       <p class="para">
+        The direction of iteration can not be changed for <span class="classname"><a href="class.splstack.html" class="classname">SplStack</a></span> and
+        <span class="classname"><a href="class.splqueue.html" class="classname">SplQueue</a></span> classes, it is always <strong><code>SplDoublyLinkedList::IT_MODE_FIFO</code></strong>.
+        Trying to modify it will result in a <span class="classname"><a href="class.runtimeexception.html" class="classname">RuntimeException</a></span> being thrown.
+       </p>
+      </div>
      </dd>
 
     

@@ -36,13 +36,8 @@
    <span class="modifier">public</span> <span class="methodname"><strong>Spoofchecker::setChecks</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$checks</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
-
+   Sets the checks that will be performed by <span class="methodname"><a href="spoofchecker.issuspicious.html" class="methodname">SpoofChecker::isSuspicious()</a></span>.
   </p>
-
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-currently not documented; only its argument list is available.
-</p></div>
-
  </div>
 
 
@@ -56,7 +51,17 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      The checks that will be performed by <span class="methodname"><a href="spoofchecker.issuspicious.html" class="methodname">SpoofChecker::isSuspicious()</a></span>.
+      A bitmask of
+      <strong><code>Spoofchecker::SINGLE_SCRIPT_CONFUSABLE</code></strong>,
+      <strong><code>Spoofchecker::MIXED_SCRIPT_CONFUSABLE</code></strong>,
+      <strong><code>Spoofchecker::WHOLE_SCRIPT_CONFUSABLE</code></strong>,
+      <strong><code>Spoofchecker::ANY_CASE</code></strong>,
+      <strong><code>Spoofchecker::SINGLE_SCRIPT</code></strong>,
+      <strong><code>Spoofchecker::INVISIBLE</code></strong>, or
+      <strong><code>Spoofchecker::CHAR_LIMIT</code></strong>.
+      Defaults to all checks as of ICU 58; prior to that version,
+      <strong><code>Spoofchecker::SINGLE_SCRIPT</code></strong> was excluded.
      </p>
     </dd>
 
@@ -69,7 +74,7 @@ currently not documented; only its argument list is available.
  <div class="refsect1 returnvalues" id="refsect1-spoofchecker.setchecks-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-
+   No value is returned.
   </p>
  </div>
 

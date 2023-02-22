@@ -39,7 +39,7 @@
    The
    <span class="function"><strong>snmp3_real_walk()</strong></span> function is used to traverse over a number
    of
-   <acronym title="Simple Network Management Protocol">SNMP</acronym> objects starting from
+   <abbr title="Simple Network Management Protocol">SNMP</abbr> objects starting from
    <code class="parameter">object_id</code>
    and return not only their values but also their object ids.
   </p>
@@ -59,7 +59,7 @@
 
      <p class="para">
       The hostname of the
-      <acronym title="Simple Network Management Protocol">SNMP</acronym> agent (server).
+      <abbr title="Simple Network Management Protocol">SNMP</abbr> agent (server).
      </p>
     </dd>
 
@@ -129,7 +129,8 @@
     <dd>
 
      <p class="para">
-      the privacy protocol (DES or AES)
+      the authentication protocol (<code class="literal">&quot;MD5&quot;</code>, <code class="literal">&quot;SHA&quot;</code>,
+      <code class="literal">&quot;SHA256&quot;</code>, or <code class="literal">&quot;SHA512&quot;</code>)
      </p>
     </dd>
 
@@ -157,7 +158,7 @@
     <dd>
 
      <p class="para">
-      The <acronym title="Simple Network Management Protocol">SNMP</acronym> object id.
+      The <abbr title="Simple Network Management Protocol">SNMP</abbr> object id.
      </p>
     </dd>
 
@@ -199,22 +200,52 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns an associative array of the
-   <acronym title="Simple Network Management Protocol">SNMP</acronym> object ids and their values on success or <strong><code>false</code></strong> on error.
+   <abbr title="Simple Network Management Protocol">SNMP</abbr> object ids and their values on success or <strong><code>false</code></strong> on error.
    In case of an error, an E_WARNING message is shown.
   </p>
  </div>
 
  
+ <div class="refsect1 changelog" id="refsect1-function.snmp3-real-walk-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.1.0</td>
+       <td>
+        The <code class="parameter">auth_protocol</code> now accepts <code class="literal">&quot;SHA256&quot;</code>
+        and <code class="literal">&quot;SHA512&quot;</code> when supported by libnetsnmp.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.snmp3-real-walk-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4487">
+   <div class="example" id="example-4566">
     <p><strong>Example #1 Using
      <span class="function"><strong>snmp3_real_walk()</strong></span>
     </strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">snmp3_real_walk</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'james'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'AES'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'IF-MIB::ifName'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /> var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">snmp3_real_walk</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #DD0000">'james'</span><span style="color: #007700">, </span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">, </span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">, </span><span style="color: #DD0000">'AES'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">, </span><span style="color: #DD0000">'IF-MIB::ifName'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -236,7 +267,7 @@ array (
   </p>
  </div>
 
- 
+
  <div class="refsect1 seealso" id="refsect1-function.snmp3-real-walk-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">

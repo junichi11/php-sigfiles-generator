@@ -57,9 +57,10 @@
 
       <p class="para">
        The function to be called when an uncaught exception occurs.
-       Most errors are reported by throwing <span class="classname"><a href="class.error.html" class="classname">Error</a></span>
-       exceptions, which will be caught by the handler as well. Both <span class="classname"><a href="class.error.html" class="classname">Error</a></span>
-       and <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> implements the <span class="classname"><a href="class.throwable.html" class="classname">Throwable</a></span> interface.
+       This handler function needs to accept one parameter,
+       which will be the <span class="classname"><a href="class.throwable.html" class="classname">Throwable</a></span> object that was thrown.
+       Both <span class="classname"><a href="class.error.html" class="classname">Error</a></span> and <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span>
+       implement the <span class="classname"><a href="class.throwable.html" class="classname">Throwable</a></span> interface.
        This is the handler signature:
       </p>
       <p class="para">
@@ -91,11 +92,11 @@
  <div class="refsect1 examples" id="refsect1-function.set-exception-handler-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-509">
+   <div class="example" id="example-525">
     <p><strong>Example #1 <span class="function"><strong>set_exception_handler()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">exception_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$exception</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Uncaught&nbsp;exception:&nbsp;"&nbsp;</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$exception</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">(),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">set_exception_handler</span><span style="color: #007700">(</span><span style="color: #DD0000">'exception_handler'</span><span style="color: #007700">);<br /><br />throw&nbsp;new&nbsp;</span><span style="color: #0000BB">Exception</span><span style="color: #007700">(</span><span style="color: #DD0000">'Uncaught&nbsp;Exception'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Not&nbsp;Executed\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">exception_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">Throwable $exception</span><span style="color: #007700">) {<br />  echo </span><span style="color: #DD0000">"Uncaught exception: " </span><span style="color: #007700">, </span><span style="color: #0000BB">$exception</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">(), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">set_exception_handler</span><span style="color: #007700">(</span><span style="color: #DD0000">'exception_handler'</span><span style="color: #007700">);<br /><br />throw new </span><span style="color: #0000BB">Exception</span><span style="color: #007700">(</span><span style="color: #DD0000">'Uncaught Exception'</span><span style="color: #007700">);<br />echo </span><span style="color: #DD0000">"Not Executed\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

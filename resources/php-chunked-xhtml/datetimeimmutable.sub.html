@@ -38,9 +38,106 @@
    <span class="modifier">public</span> <span class="methodname"><strong>DateTimeImmutable::sub</strong></span>(<span class="methodparam"><span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span> <code class="parameter">$interval</code></span>): <span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span></div>
 
   <p class="para rdfs-comment">
-   Like <span class="methodname"><a href="datetime.sub.html" class="methodname">DateTime::sub()</a></span> but works with
-   <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span>.
+   Returns a new <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> object, with the specified
+   <span class="classname"><a href="class.dateinterval.html" class="classname">DateInterval</a></span> object subtracted from the specified
+   DateTimeImmutable object.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-datetimeimmutable.sub-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+
+     <code class="parameter">interval</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      A <span class="classname"><a href="class.dateinterval.html" class="classname">DateInterval</a></span> object
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-datetimeimmutable.sub-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a new <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> object with the modified data.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-datetimeimmutable.sub-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-2084">
+   <p><strong>Example #1 <span class="function"><strong>DateTimeImmutable::sub()</strong></span> example</strong></p>
+   <div class="example-contents"><p>Object-oriented style</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$date </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">(</span><span style="color: #DD0000">'2000-01-20'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$newDate </span><span style="color: #007700">= </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">sub</span><span style="color: #007700">(new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P10D'</span><span style="color: #007700">));<br />echo </span><span style="color: #0000BB">$newDate</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above examples will output:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+2000-01-10
+</pre></div>
+   </div>
+  </div>
+  <div class="example" id="example-2085">
+   <p><strong>Example #2 Further <span class="function"><strong>DateTimeImmutable::sub()</strong></span> examples</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$date </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">(</span><span style="color: #DD0000">'2000-01-20'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$newDate </span><span style="color: #007700">= </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">sub</span><span style="color: #007700">(new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'PT10H30S'</span><span style="color: #007700">));<br />echo </span><span style="color: #0000BB">$newDate</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d H:i:s'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$date </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">(</span><span style="color: #DD0000">'2000-01-20'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$newDate </span><span style="color: #007700">= </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">sub</span><span style="color: #007700">(new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P7Y5M4DT4H3M2S'</span><span style="color: #007700">));<br />echo </span><span style="color: #0000BB">$newDate</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d H:i:s'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+2000-01-19 13:59:30
+1992-08-15 19:56:58
+</pre></div>
+   </div>
+  </div>
+  <div class="example" id="example-2086">
+   <p><strong>Example #3 Beware when subtracting months</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$date </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">(</span><span style="color: #DD0000">'2001-04-30'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$interval </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P1M'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$newDate1 </span><span style="color: #007700">= </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">sub</span><span style="color: #007700">(</span><span style="color: #0000BB">$interval</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$newDate1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$newDate2 </span><span style="color: #007700">= </span><span style="color: #0000BB">$newDate1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">sub</span><span style="color: #007700">(</span><span style="color: #0000BB">$interval</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$newDate2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+2001-03-30
+2001-03-02
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-datetimeimmutable.sub-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="datetimeimmutable.add.html" class="function" rel="rdfs-seeAlso">DateTimeImmutable::add()</a> - Returns a new object, with added amount of days, months, years, hours, minutes and seconds</span></li>
+   <li class="member"><span class="function"><a href="datetime.diff.html" class="function" rel="rdfs-seeAlso">DateTimeImmutable::diff()</a> - Returns the difference between two DateTime objects</span></li>
+   <li class="member"><span class="function"><a href="datetimeimmutable.modify.html" class="function" rel="rdfs-seeAlso">DateTimeImmutable::modify()</a> - Creates a new object with modified timestamp</span></li>
+  </ul>
  </div>
 
 

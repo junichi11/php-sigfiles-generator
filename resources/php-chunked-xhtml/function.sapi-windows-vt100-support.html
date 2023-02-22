@@ -129,7 +129,7 @@
  
  <div class="refsect1 examples" id="refsect1-function.sapi-windows-vt100-support-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3508">
+  <div class="example" id="example-3551">
    <p><strong>Example #1 <span class="function"><strong>sapi_windows_vt100_support()</strong></span> default state</strong></p>
    <div class="example-contents"><p>
     By default, <strong><code>STDOUT</code></strong> and <strong><code>STDERR</code></strong> have the VT100 feature enabled.
@@ -156,7 +156,7 @@ something similar to:</p></div>
     true false<br />
    </div>
   </div>
-  <div class="example" id="example-3509">
+  <div class="example" id="example-3552">
    <p><strong>Example #2 <span class="function"><strong>sapi_windows_vt100_support()</strong></span> changing state</strong></p>
    <div class="example-contents"><p>
     You won&#039;t be able to enable the VT100 feature of <strong><code>STDOUT</code></strong> or <strong><code>STDERR</code></strong> if the stream is redirected.
@@ -172,11 +172,11 @@ true false
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-3510">
+  <div class="example" id="example-3553">
    <p><strong>Example #3 Example usage of VT100 support enabled</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$out&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">'php://stdout'</span><span style="color: #007700">,</span><span style="color: #DD0000">'w'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$out</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Just&nbsp;forgot&nbsp;a&nbsp;lettr.'</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;Moves&nbsp;the&nbsp;cursor&nbsp;two&nbsp;characters&nbsp;backwards<br /></span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$out</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\033[2D"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;Inserts&nbsp;one&nbsp;blank,&nbsp;shifting&nbsp;existing&nbsp;text&nbsp;to&nbsp;the&nbsp;right&nbsp;-&gt;&nbsp;Just&nbsp;forgot&nbsp;a&nbsp;lett&nbsp;r.<br /></span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$out</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\033[1@"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$out</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'e'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$out </span><span style="color: #007700">= </span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">'php://stdout'</span><span style="color: #007700">,</span><span style="color: #DD0000">'w'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$out</span><span style="color: #007700">, </span><span style="color: #DD0000">'Just forgot a lettr.'</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// Moves the cursor two characters backwards<br /></span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$out</span><span style="color: #007700">, </span><span style="color: #DD0000">"\033[2D"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// Inserts one blank, shifting existing text to the right -&gt; Just forgot a lett r.<br /></span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$out</span><span style="color: #007700">, </span><span style="color: #DD0000">"\033[1@"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$out</span><span style="color: #007700">, </span><span style="color: #DD0000">'e'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

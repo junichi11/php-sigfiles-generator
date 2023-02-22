@@ -70,14 +70,6 @@
  </div>
 
 
- <div class="refsect1 returnvalues" id="refsect1-spltempfileobject.construct-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   No value is returned.
-  </p>
- </div>
-
-
  <div class="refsect1 errors" id="refsect1-spltempfileobject.construct-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
@@ -89,12 +81,12 @@
  <div class="refsect1 examples" id="refsect1-spltempfileobject.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3741">
+   <div class="example" id="example-3819">
     <p><strong>Example #1 <span class="methodname"><strong>SplTempFileObject()</strong></span> example</strong></p>
     <div class="example-contents"><p>This example writes a temporary file in memory which can be written to and read from.</p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$temp&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplTempFileObject</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$temp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #DD0000">"This&nbsp;is&nbsp;the&nbsp;first&nbsp;line\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$temp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #DD0000">"And&nbsp;this&nbsp;is&nbsp;the&nbsp;second.\n"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Written&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$temp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ftell</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;bytes&nbsp;to&nbsp;temporary&nbsp;file.\n\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Rewind&nbsp;and&nbsp;read&nbsp;what&nbsp;was&nbsp;written<br /></span><span style="color: #0000BB">$temp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">rewind</span><span style="color: #007700">();<br />foreach&nbsp;(</span><span style="color: #0000BB">$temp&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$line</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$line</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$temp </span><span style="color: #007700">= new </span><span style="color: #0000BB">SplTempFileObject</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$temp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #DD0000">"This is the first line\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$temp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #DD0000">"And this is the second.\n"</span><span style="color: #007700">);<br />echo </span><span style="color: #DD0000">"Written " </span><span style="color: #007700">. </span><span style="color: #0000BB">$temp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ftell</span><span style="color: #007700">() . </span><span style="color: #DD0000">" bytes to temporary file.\n\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// Rewind and read what was written<br /></span><span style="color: #0000BB">$temp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">rewind</span><span style="color: #007700">();<br />foreach (</span><span style="color: #0000BB">$temp </span><span style="color: #007700">as </span><span style="color: #0000BB">$line</span><span style="color: #007700">) {<br />    echo </span><span style="color: #0000BB">$line</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

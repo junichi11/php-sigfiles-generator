@@ -79,6 +79,16 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.mb-internal-encoding-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   As of PHP 8.0.0, a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is thrown if the
+   value of <code class="parameter">encoding</code> is an invalid encoding.
+   Prior to PHP 8.0.0, a <strong><code>E_WARNING</code></strong> was emitted instead.
+  </p>
+ </div>
+
+
  <div class="refsect1 changelog" id="refsect1-function.mb-internal-encoding-changelog">
   <h3 class="title">Changelog</h3>
   <table class="doctable informaltable">
@@ -99,6 +109,15 @@
  </td>
 </tr>
 
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       Now throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> if
+       <code class="parameter">encoding</code> is an invalid encoding.
+       Previously a <strong><code>E_WARNING</code></strong> was emitted instead.
+      </td>
+     </tr>
+
     </tbody>
    
   </table>
@@ -109,11 +128,11 @@
  <div class="refsect1 examples" id="refsect1-function.mb-internal-encoding-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2562">
+   <div class="example" id="example-2632">
     <p><strong>Example #1 <span class="function"><strong>mb_internal_encoding()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Set&nbsp;internal&nbsp;character&nbsp;encoding&nbsp;to&nbsp;UTF-8&nbsp;*/<br /></span><span style="color: #0000BB">mb_internal_encoding</span><span style="color: #007700">(</span><span style="color: #DD0000">"UTF-8"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Display&nbsp;current&nbsp;internal&nbsp;character&nbsp;encoding&nbsp;*/<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">mb_internal_encoding</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Set internal character encoding to UTF-8 */<br /></span><span style="color: #0000BB">mb_internal_encoding</span><span style="color: #007700">(</span><span style="color: #DD0000">"UTF-8"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Display current internal character encoding */<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">mb_internal_encoding</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

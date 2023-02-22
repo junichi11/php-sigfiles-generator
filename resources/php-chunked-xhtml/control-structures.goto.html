@@ -48,11 +48,11 @@
   in place of a multi-level <code class="literal">break</code>.
  </p>
  <p class="para">
-  <div class="example" id="example-146">
+  <div class="example" id="example-143">
    <p><strong>Example #1 <code class="literal">goto</code> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">goto&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">'Foo'</span><span style="color: #007700">;<br />&nbsp;<br /></span><span style="color: #0000BB">a</span><span style="color: #007700">:<br />echo&nbsp;</span><span style="color: #DD0000">'Bar'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">goto </span><span style="color: #0000BB">a</span><span style="color: #007700">;<br />echo </span><span style="color: #DD0000">'Foo'</span><span style="color: #007700">;<br /> <br /></span><span style="color: #0000BB">a</span><span style="color: #007700">:<br />echo </span><span style="color: #DD0000">'Bar'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -66,11 +66,11 @@ Bar
   </div>
  </p>
  <p class="para">
-  <div class="example" id="example-147">
+  <div class="example" id="example-144">
    <p><strong>Example #2 <code class="literal">goto</code> loop example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">for(</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$j</span><span style="color: #007700">=</span><span style="color: #0000BB">50</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">&lt;</span><span style="color: #0000BB">100</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++)&nbsp;{<br />&nbsp;&nbsp;while(</span><span style="color: #0000BB">$j</span><span style="color: #007700">--)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$j</span><span style="color: #007700">==</span><span style="color: #0000BB">17</span><span style="color: #007700">)&nbsp;goto&nbsp;</span><span style="color: #0000BB">end</span><span style="color: #007700">;&nbsp;<br />&nbsp;&nbsp;}&nbsp;&nbsp;<br />}<br />echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;=&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">end</span><span style="color: #007700">:<br />echo&nbsp;</span><span style="color: #DD0000">'j&nbsp;hit&nbsp;17'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">for(</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$j</span><span style="color: #007700">=</span><span style="color: #0000BB">50</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">&lt;</span><span style="color: #0000BB">100</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++) {<br />  while(</span><span style="color: #0000BB">$j</span><span style="color: #007700">--) {<br />    if(</span><span style="color: #0000BB">$j</span><span style="color: #007700">==</span><span style="color: #0000BB">17</span><span style="color: #007700">) goto </span><span style="color: #0000BB">end</span><span style="color: #007700">; <br />  }  <br />}<br />echo </span><span style="color: #DD0000">"i = </span><span style="color: #0000BB">$i</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">end</span><span style="color: #007700">:<br />echo </span><span style="color: #DD0000">'j hit 17'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -84,11 +84,11 @@ j hit 17
   </div>
  </p>
  <p class="para">
-  <div class="example" id="example-148">
+  <div class="example" id="example-145">
    <p><strong>Example #3 This will not work</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">goto&nbsp;</span><span style="color: #0000BB">loop</span><span style="color: #007700">;<br />for(</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$j</span><span style="color: #007700">=</span><span style="color: #0000BB">50</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">&lt;</span><span style="color: #0000BB">100</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++)&nbsp;{<br />&nbsp;&nbsp;while(</span><span style="color: #0000BB">$j</span><span style="color: #007700">--)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">loop</span><span style="color: #007700">:<br />&nbsp;&nbsp;}<br />}<br />echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$i</span><span style="color: #DD0000">&nbsp;=&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">goto </span><span style="color: #0000BB">loop</span><span style="color: #007700">;<br />for(</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$j</span><span style="color: #007700">=</span><span style="color: #0000BB">50</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">&lt;</span><span style="color: #0000BB">100</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++) {<br />  while(</span><span style="color: #0000BB">$j</span><span style="color: #007700">--) {<br />    </span><span style="color: #0000BB">loop</span><span style="color: #007700">:<br />  }<br />}<br />echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$i</span><span style="color: #DD0000"> = </span><span style="color: #0000BB">$i</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

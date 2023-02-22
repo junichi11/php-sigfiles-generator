@@ -90,11 +90,11 @@
      <var class="filename">php.zip</var> and show
      progression.
     </p>
-    <div class="example" id="example-843">
+    <div class="example" id="example-861">
      <p><strong>Example #1 Archive a file</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-$zip&nbsp;=&nbsp;new&nbsp;ZipArchive();<br />if&nbsp;($zip-&gt;open('php.zip',&nbsp;ZipArchive::CREATE&nbsp;|&nbsp;ZipArchive::OVERWRITE))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;$zip-&gt;addFile(PHP_BINARY,&nbsp;'php');<br />&nbsp;&nbsp;&nbsp;&nbsp;$zip-&gt;registerProgressCallback(0.05,&nbsp;function&nbsp;($r)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%d%%\n",&nbsp;$r&nbsp;*&nbsp;100);<br />&nbsp;&nbsp;&nbsp;&nbsp;});<br />&nbsp;&nbsp;&nbsp;&nbsp;$zip-&gt;close();<br />}</span>
+$zip = new ZipArchive();<br />if ($zip-&gt;open('php.zip', ZipArchive::CREATE | ZipArchive::OVERWRITE)) {<br />    $zip-&gt;addFile(PHP_BINARY, 'php');<br />    $zip-&gt;registerProgressCallback(0.05, function ($r) {<br />        printf("%d%%\n", $r * 100);<br />    });<br />    $zip-&gt;close();<br />}</span>
 </code></div>
      </div>
 

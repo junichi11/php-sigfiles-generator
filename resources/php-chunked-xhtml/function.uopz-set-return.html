@@ -116,11 +116,11 @@
 
  <div class="refsect1 examples" id="refsect1-function.uopz-set-return-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-625">
+  <div class="example" id="example-643">
    <p><strong>Example #1 <span class="function"><strong>uopz_set_return()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />uopz_set_return</span><span style="color: #007700">(</span><span style="color: #DD0000">"strlen"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">42</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #DD0000">"Banana"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />uopz_set_return</span><span style="color: #007700">(</span><span style="color: #DD0000">"strlen"</span><span style="color: #007700">, </span><span style="color: #0000BB">42</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #DD0000">"Banana"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -132,11 +132,11 @@
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-626">
+  <div class="example" id="example-644">
    <p><strong>Example #2 <span class="function"><strong>uopz_set_return()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />uopz_set_return</span><span style="color: #007700">(</span><span style="color: #DD0000">"strlen"</span><span style="color: #007700">,&nbsp;function(</span><span style="color: #0000BB">$str</span><span style="color: #007700">)&nbsp;{&nbsp;return&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">)&nbsp;*&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;&nbsp;},&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #DD0000">"Banana"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />uopz_set_return</span><span style="color: #007700">(</span><span style="color: #DD0000">"strlen"</span><span style="color: #007700">, function(</span><span style="color: #0000BB">$str</span><span style="color: #007700">) { return </span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">) * </span><span style="color: #0000BB">2</span><span style="color: #007700">; }, </span><span style="color: #0000BB">true </span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #DD0000">"Banana"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -148,11 +148,11 @@
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-627">
+  <div class="example" id="example-645">
    <p><strong>Example #3 <span class="function"><strong>uopz_set_return()</strong></span> class example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">My&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">uopz_set_return</span><span style="color: #007700">(</span><span style="color: #0000BB">My</span><span style="color: #007700">::class,&nbsp;</span><span style="color: #DD0000">"strlen"</span><span style="color: #007700">,&nbsp;function(</span><span style="color: #0000BB">$str</span><span style="color: #007700">)&nbsp;{&nbsp;return&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">)&nbsp;*&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;&nbsp;},&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">My</span><span style="color: #007700">::</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #DD0000">"Banana"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">My </span><span style="color: #007700">{<br />    public static function </span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">) {<br />        return </span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">);<br />    }<br />}<br /></span><span style="color: #0000BB">uopz_set_return</span><span style="color: #007700">(</span><span style="color: #0000BB">My</span><span style="color: #007700">::class, </span><span style="color: #DD0000">"strlen"</span><span style="color: #007700">, function(</span><span style="color: #0000BB">$str</span><span style="color: #007700">) { return </span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">) * </span><span style="color: #0000BB">2</span><span style="color: #007700">; }, </span><span style="color: #0000BB">true </span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">My</span><span style="color: #007700">::</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #DD0000">"Banana"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

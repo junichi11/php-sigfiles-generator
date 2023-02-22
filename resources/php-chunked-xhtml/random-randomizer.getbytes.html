@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Get random bytes</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="random-randomizer.construct.html">« Random\Randomizer::__construct</a></li>
+      <li style="float: right;"><a href="random-randomizer.getint.html">Random\Randomizer::getInt »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.random-randomizer.html">Random\Randomizer</a></li>
+    <li>Get random bytes</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="random-randomizer.getbytes" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">Random\Randomizer::getBytes</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.2.0)</p><p class="refpurpose"><span class="refname">Random\Randomizer::getBytes</span> &mdash; <span class="dc-title">Get random bytes</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-random-randomizer.getbytes-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>Random\Randomizer::getBytes</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+
+  </p>
+
+  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
+currently not documented; only its argument list is available.
+</p></div>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-random-randomizer.getbytes-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">length</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The length of the random string that should be returned in bytes; must be <code class="literal">1</code> or greater.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-random-randomizer.getbytes-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   A string containing the requested number of random bytes.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-random-randomizer.getbytes-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     If the value of <code class="parameter">length</code> is less than <code class="literal">1</code>,
+     a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> will be thrown.
+    </span>
+   </li>
+   
+ <li class="listitem">
+  <span class="simpara">
+   Any <span class="classname"><a href="class.throwable.html" class="classname">Throwable</a></span>s thrown by the <span class="methodname"><a href="random-engine.generate.html" class="methodname">Random\Engine::generate()</a></span> method
+   of the underlying <a href="class.random-randomizer.html#random-randomizer.props.engine" class="link"><code class="literal">Random\Randomizer::$engine</code></a>.
+  </span>
+ </li>
+
+  </ul>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-random-randomizer.getbytes-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-3570">
+   <p><strong>Example #1 <span class="function"><strong>Random\Randomizer::getBytes()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$r </span><span style="color: #007700">= new \</span><span style="color: #0000BB">Random</span><span style="color: #007700">\</span><span style="color: #0000BB">Randomizer</span><span style="color: #007700">();<br /><br />echo </span><span style="color: #0000BB">bin2hex</span><span style="color: #007700">( </span><span style="color: #0000BB">$r</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getBytes</span><span style="color: #007700">( </span><span style="color: #0000BB">8 </span><span style="color: #007700">) ), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+ebdbe93cd56682c2
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-random-randomizer.getbytes-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="function.random-bytes.html" class="function" rel="rdfs-seeAlso">random_bytes()</a> - Get cryptographically secure random bytes</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

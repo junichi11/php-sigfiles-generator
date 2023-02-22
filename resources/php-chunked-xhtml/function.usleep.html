@@ -63,8 +63,8 @@
       </p></blockquote>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <span class="simpara">
-        On Windows, the system may sleep longer that the given number of microseconds,
-        depending on the hardware.
+        The sleep may be lengthened slightly (i.e. may be longer than <code class="parameter">microseconds</code>)
+        by any system activity or by the time spent processing the call or by the granularity of system timers.
        </span>
       </p></blockquote>
      </dd>
@@ -87,11 +87,11 @@
  <div class="refsect1 examples" id="refsect1-function.usleep-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3519">
+   <div class="example" id="example-3562">
     <p><strong>Example #1 <span class="function"><strong>usleep()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;Current&nbsp;time<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'h:i:s'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;wait&nbsp;for&nbsp;2&nbsp;seconds<br /></span><span style="color: #0000BB">usleep</span><span style="color: #007700">(</span><span style="color: #0000BB">2000000</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;back!<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'h:i:s'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">// Current time<br /></span><span style="color: #007700">echo (new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'now'</span><span style="color: #007700">))-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'H:i:s.v'</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// wait for 2 milliseconds<br /></span><span style="color: #0000BB">usleep</span><span style="color: #007700">(</span><span style="color: #0000BB">2000</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// back!<br /></span><span style="color: #007700">echo (new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'now'</span><span style="color: #007700">))-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'H:i:s.v'</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// wait for 30 milliseconds<br /></span><span style="color: #0000BB">usleep</span><span style="color: #007700">(</span><span style="color: #0000BB">30000</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// back again!<br /></span><span style="color: #007700">echo (new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'now'</span><span style="color: #007700">))-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'H:i:s.v'</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -99,8 +99,9 @@
     <div class="example-contents"><p>The above example will output:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-11:13:28
-11:13:30
+11:13:28.005
+11:13:28.007
+11:13:28.037
 </pre></div>
     </div>
    </div>

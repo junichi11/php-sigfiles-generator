@@ -28,7 +28,7 @@
 
 
  <div class="section">
-  <div class="example" id="example-3872">
+  <div class="example" id="example-3950">
    <p><strong>Example #1 A classic Application directory layout</strong></p>
    <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -53,12 +53,12 @@
  </div>
 
  <div class="section">
- <div class="example" id="example-3873">
+ <div class="example" id="example-3951">
   <p><strong>Example #2 Entry</strong></p>
   <div class="example-contents"><p>index.php in the top directory is the only way in of the application, you should rewrite all request to it. (You can use .htaccess in Apache + php_mod) </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />define</span><span style="color: #007700">(</span><span style="color: #DD0000">"APPLICATION_PATH"</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$app&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Yaf_Application</span><span style="color: #007700">(</span><span style="color: #0000BB">APPLICATION_PATH&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"/conf/application.ini"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$app</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bootstrap</span><span style="color: #007700">()&nbsp;</span><span style="color: #FF8000">//call&nbsp;bootstrap&nbsp;methods&nbsp;defined&nbsp;in&nbsp;Bootstrap.php<br />&nbsp;</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />define</span><span style="color: #007700">(</span><span style="color: #DD0000">"APPLICATION_PATH"</span><span style="color: #007700">,  </span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$app  </span><span style="color: #007700">= new </span><span style="color: #0000BB">Yaf_Application</span><span style="color: #007700">(</span><span style="color: #0000BB">APPLICATION_PATH </span><span style="color: #007700">. </span><span style="color: #DD0000">"/conf/application.ini"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$app</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bootstrap</span><span style="color: #007700">() </span><span style="color: #FF8000">//call bootstrap methods defined in Bootstrap.php<br /> </span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -67,7 +67,7 @@
  </div>
 
  <div class="section">
- <div class="example" id="example-3874">
+ <div class="example" id="example-3952">
   <p><strong>Example #3 Rewrite rule</strong></p>
   <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -100,7 +100,7 @@ $HTTP[&quot;host&quot;] =~ &quot;(www.)?domain.com$&quot; {
  </div>
 
  <div class="section">
- <div class="example" id="example-3875">
+ <div class="example" id="example-3953">
   <p><strong>Example #4 Application config</strong></p>
    <div class="example-contents">
 <div class="inicode"><pre class="inicode">[yaf]
@@ -117,11 +117,11 @@ foo=bar</pre>
  </div>
 
  <div class="section">
- <div class="example" id="example-3876">
+ <div class="example" id="example-3954">
   <p><strong>Example #5 Default controller</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">IndexController&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Yaf_Controller_Abstract&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;default&nbsp;action&nbsp;*/<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">indexAction</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_view</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">word&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"hello&nbsp;world"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//or<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;$this-&gt;getView()-&gt;word&nbsp;=&nbsp;"hello&nbsp;world";<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">IndexController </span><span style="color: #007700">extends </span><span style="color: #0000BB">Yaf_Controller_Abstract </span><span style="color: #007700">{<br />   </span><span style="color: #FF8000">/* default action */<br />   </span><span style="color: #007700">public function </span><span style="color: #0000BB">indexAction</span><span style="color: #007700">() {<br />       </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_view</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">word </span><span style="color: #007700">= </span><span style="color: #DD0000">"hello world"</span><span style="color: #007700">;<br />       </span><span style="color: #FF8000">//or<br />       // $this-&gt;getView()-&gt;word = "hello world";<br />   </span><span style="color: #007700">}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -130,11 +130,11 @@ foo=bar</pre>
  </div>
 
  <div class="section">
- <div class="example" id="example-3877">
+ <div class="example" id="example-3955">
   <p><strong>Example #6 Default view template</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-&lt;html&gt;<br />&nbsp;&lt;head&gt;<br />&nbsp;&nbsp;&nbsp;&lt;title&gt;Hello&nbsp;World&lt;/title&gt;<br />&nbsp;&lt;/head&gt;<br />&nbsp;&lt;body&gt;<br />&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$word</span><span style="color: #007700">;</span><span style="color: #0000BB">?&gt;<br /></span>&nbsp;&lt;/body&gt;<br />&lt;/html&gt;</span>
+&lt;html&gt;<br /> &lt;head&gt;<br />   &lt;title&gt;Hello World&lt;/title&gt;<br /> &lt;/head&gt;<br /> &lt;body&gt;<br />   <span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$word</span><span style="color: #007700">;</span><span style="color: #0000BB">?&gt;<br /></span> &lt;/body&gt;<br />&lt;/html&gt;</span>
 </code></div>
    </div>
 
@@ -142,7 +142,7 @@ foo=bar</pre>
   </div>
 
  <div class="section">
-  <div class="example" id="example-3878">
+  <div class="example" id="example-3956">
    <p><strong>Example #7 Run the Application</strong></p>
     <div class="example-contents"><p>The above example will output
 something similar to:</p></div>

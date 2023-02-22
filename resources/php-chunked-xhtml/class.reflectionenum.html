@@ -58,18 +58,25 @@
        <a href="class.reflectionclass.html" class="classname">ReflectionClass</a>
      </span>
      {</div>
-    
+
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited constants */</div>
     <div class="fieldsynopsis">
+     <span class="modifier">public</span>
      <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.reflectionclass.html#reflectionclass.constants.is-implicit-abstract"><var class="varname">ReflectionClass::IS_IMPLICIT_ABSTRACT</var></a></var><span class="initializer"> = 16</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionclass.html#reflectionclass.constants.is-implicit-abstract"><var class="varname">ReflectionClass::IS_IMPLICIT_ABSTRACT</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.reflectionclass.html#reflectionclass.constants.is-explicit-abstract"><var class="varname">ReflectionClass::IS_EXPLICIT_ABSTRACT</var></a></var><span class="initializer"> = 32</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionclass.html#reflectionclass.constants.is-explicit-abstract"><var class="varname">ReflectionClass::IS_EXPLICIT_ABSTRACT</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.reflectionclass.html#reflectionclass.constants.is-final"><var class="varname">ReflectionClass::IS_FINAL</var></a></var><span class="initializer"> = 64</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionclass.html#reflectionclass.constants.is-final"><var class="varname">ReflectionClass::IS_FINAL</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionclass.html#reflectionclass.constants.is-readonly"><var class="varname">ReflectionClass::IS_READONLY</var></a></var>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited properties */</div>
@@ -82,7 +89,7 @@
     <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="reflectionenum.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type"><span class="type">object</span>|<span class="type">string</span></span> <code class="parameter">$objectOrClass</code></span>)</div>
 
-    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionenum.getbackingtype.html" class="methodname">getBackingType</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.reflectiontype.html" class="type ReflectionType">ReflectionType</a></span></span></div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionenum.getbackingtype.html" class="methodname">getBackingType</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.reflectionnamedtype.html" class="type ReflectionNamedType">ReflectionNamedType</a></span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionenum.getcase.html" class="methodname">getCase</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type"><a href="class.reflectionenumunitcase.html" class="type ReflectionEnumUnitCase">ReflectionEnumUnitCase</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionenum.getcases.html" class="methodname">getCases</a></span>(): <span class="type">array</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionenum.hascase.html" class="methodname">hasCase</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type">bool</span></div>
@@ -128,12 +135,14 @@
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.isabstract.html" class="methodname">ReflectionClass::isAbstract</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.isanonymous.html" class="methodname">ReflectionClass::isAnonymous</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.iscloneable.html" class="methodname">ReflectionClass::isCloneable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.isenum.html" class="methodname">ReflectionClass::isEnum</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.isfinal.html" class="methodname">ReflectionClass::isFinal</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.isinstance.html" class="methodname">ReflectionClass::isInstance</a></span>(<span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.isinstantiable.html" class="methodname">ReflectionClass::isInstantiable</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.isinterface.html" class="methodname">ReflectionClass::isInterface</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.isinternal.html" class="methodname">ReflectionClass::isInternal</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.isiterable.html" class="methodname">ReflectionClass::isIterable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.isreadonly.html" class="methodname">ReflectionClass::isReadOnly</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.issubclassof.html" class="methodname">ReflectionClass::isSubclassOf</a></span>(<span class="methodparam"><span class="type"><span class="type"><a href="class.reflectionclass.html" class="type ReflectionClass">ReflectionClass</a></span>|<span class="type">string</span></span> <code class="parameter">$class</code></span>): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.istrait.html" class="methodname">ReflectionClass::isTrait</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.isuserdefined.html" class="methodname">ReflectionClass::isUserDefined</a></span>(): <span class="type">bool</span></div>

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Dissociates parts of the process execution context</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.pcntl-strerror.html">« pcntl_strerror</a></li>
+      <li style="float: right;"><a href="function.pcntl-wait.html">pcntl_wait »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.pcntl.html">PCNTL Functions</a></li>
+    <li>Dissociates parts of the process execution context</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.pcntl-unshare" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">pcntl_unshare</h1>
+  <p class="verinfo">(PHP 7 &gt;= 7.4.0, PHP 8)</p><p class="refpurpose"><span class="refname">pcntl_unshare</span> &mdash; <span class="dc-title">Dissociates parts of the process execution context</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.pcntl-unshare-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>pcntl_unshare</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>pcntl_unshare()</strong></span> allows a process to disassociate parts of its execution context that are
+   currently being shared with other processes.
+   The main use of <span class="function"><strong>pcntl_unshare()</strong></span> is to allow a process to control
+   its shared execution context without creating a new process.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.pcntl-unshare-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The <code class="parameter">flags</code> parameter is a bitmask that specifies which parts of the execution context should be unshared.
+       This parameter is specified by ORing together zero or more of the <code class="literal">CLONE_*</code> constants:
+       <ul class="simplelist">
+        <li class="member"><strong><code>CLONE_NEWNS</code></strong></li>
+        <li class="member"><strong><code>CLONE_NEWIPC</code></strong></li>
+        <li class="member"><strong><code>CLONE_NEWUTS</code></strong></li>
+        <li class="member"><strong><code>CLONE_NEWNET</code></strong></li>
+        <li class="member"><strong><code>CLONE_NEWPID</code></strong></li>
+        <li class="member"><strong><code>CLONE_NEWUSER</code></strong></li>
+        <li class="member"><strong><code>CLONE_NEWCGROUP</code></strong></li>
+       </ul>
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.pcntl-unshare-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <code class="literal">0</code> on success, <code class="literal">-1</code> otherwise.
+   On failure it sets an error code, that can be retrieved with <span class="function"><a href="function.pcntl-get-last-error.html" class="function">pcntl_get_last_error()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.pcntl-unshare-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a href="pcntl.constants.html#pcntl.constants.clone" class="link">PCNTL Constants</a></li>
+    <li class="member"><span class="function"><a href="function.pcntl-get-last-error.html" class="function" rel="rdfs-seeAlso">pcntl_get_last_error()</a> - Retrieve the error number set by the last pcntl function which failed</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

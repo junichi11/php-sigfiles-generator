@@ -134,7 +134,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <td>8.0.0</td>
  <td>
   <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
-  instance now; previously, a <span class="type">resource</span> was expected.
+  instance now; previously, a valid <code class="literal">gd</code> <span class="type">resource</span> was expected.
  </td>
 </tr>
 
@@ -148,7 +148,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imageflip-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2675">
+   <div class="example" id="example-2745">
     <p><strong>Example #1 Flips an image vertically</strong></p>
     <div class="example-contents"><p>
      This example uses the <strong><code>IMG_FLIP_VERTICAL</code></strong> 
@@ -156,7 +156,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;File<br /></span><span style="color: #0000BB">$filename&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'phplogo.png'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Content&nbsp;type<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-type:&nbsp;image/png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Load<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefrompng</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Flip&nbsp;it&nbsp;vertically<br /></span><span style="color: #0000BB">imageflip</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_FLIP_VERTICAL</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Output<br /></span><span style="color: #0000BB">imagejpeg</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// File<br /></span><span style="color: #0000BB">$filename </span><span style="color: #007700">= </span><span style="color: #DD0000">'phplogo.png'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// Content type<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-type: image/png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Load<br /></span><span style="color: #0000BB">$im </span><span style="color: #007700">= </span><span style="color: #0000BB">imagecreatefrompng</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Flip it vertically<br /></span><span style="color: #0000BB">imageflip</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">, </span><span style="color: #0000BB">IMG_FLIP_VERTICAL</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Output<br /></span><span style="color: #0000BB">imagejpeg</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -172,14 +172,14 @@ something similar to:</p></div>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2676">
+   <div class="example" id="example-2746">
     <p><strong>Example #2 Flips the image horizontally</strong></p>
     <div class="example-contents"><p>
      This example uses the <strong><code>IMG_FLIP_HORIZONTAL</code></strong> constant.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;File<br /></span><span style="color: #0000BB">$filename&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'phplogo.png'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Content&nbsp;type<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-type:&nbsp;image/png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Load<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefrompng</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Flip&nbsp;it&nbsp;horizontally<br /></span><span style="color: #0000BB">imageflip</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_FLIP_HORIZONTAL</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Output<br /></span><span style="color: #0000BB">imagejpeg</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// File<br /></span><span style="color: #0000BB">$filename </span><span style="color: #007700">= </span><span style="color: #DD0000">'phplogo.png'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// Content type<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-type: image/png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Load<br /></span><span style="color: #0000BB">$im </span><span style="color: #007700">= </span><span style="color: #0000BB">imagecreatefrompng</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Flip it horizontally<br /></span><span style="color: #0000BB">imageflip</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">, </span><span style="color: #0000BB">IMG_FLIP_HORIZONTAL</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Output<br /></span><span style="color: #0000BB">imagejpeg</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

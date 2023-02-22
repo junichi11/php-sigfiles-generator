@@ -83,18 +83,48 @@
    Returns an associative array containing all the entries of 
    <code class="parameter">array</code> which have keys that are present in all
    arguments.
-  </p>      
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.array-intersect-key-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+  <td>8.0.0</td>
+  <td>
+  This function can now be called with only one parameter.
+  Formerly, at least two parameters have been required.
+  </td>
+</tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.array-intersect-key-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4923">
+   <div class="example" id="example-5016">
     <p><strong>Example #1 <span class="function"><strong>array_intersect_key()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$array1&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'blue'&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'red'&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'green'&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'purple'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$array2&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'green'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'blue'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">6</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'yellow'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'cyan'&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">8</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">array_intersect_key</span><span style="color: #007700">(</span><span style="color: #0000BB">$array1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$array2</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$array1 </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'blue'  </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #DD0000">'red'  </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">2</span><span style="color: #007700">, </span><span style="color: #DD0000">'green'  </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">3</span><span style="color: #007700">, </span><span style="color: #DD0000">'purple' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">4</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$array2 </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'green' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">5</span><span style="color: #007700">, </span><span style="color: #DD0000">'blue' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">6</span><span style="color: #007700">, </span><span style="color: #DD0000">'yellow' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">7</span><span style="color: #007700">, </span><span style="color: #DD0000">'cyan'   </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">8</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">array_intersect_key</span><span style="color: #007700">(</span><span style="color: #0000BB">$array1</span><span style="color: #007700">, </span><span style="color: #0000BB">$array2</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -104,6 +104,11 @@
     </li>
     <li class="listitem">
      <p class="para">
+      <code class="literal">mixed</code> is now a reserved word, so it cannot be used to name a class, interface or trait, and is also prohibited from being used in namespaces.
+     </p>
+    </li>
+    <li class="listitem">
+     <p class="para">
       Assertion failures now throw by default. If the old behavior is desired,
       <code class="code">assert.exception=0</code> can be set in the INI settings.
      </p>
@@ -227,7 +232,7 @@
      <p class="para">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Replace<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">my_error_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$err_no</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$err_msg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$filename</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$linenum</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">error_reporting</span><span style="color: #007700">()&nbsp;==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;Silenced<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;...<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #FF8000">//&nbsp;With<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">my_error_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$err_no</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$err_msg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$filename</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$linenum</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!(</span><span style="color: #0000BB">error_reporting</span><span style="color: #007700">()&nbsp;&amp;&nbsp;</span><span style="color: #0000BB">$err_no</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;Silenced<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;...<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Replace<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">my_error_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$err_no</span><span style="color: #007700">, </span><span style="color: #0000BB">$err_msg</span><span style="color: #007700">, </span><span style="color: #0000BB">$filename</span><span style="color: #007700">, </span><span style="color: #0000BB">$linenum</span><span style="color: #007700">) {<br />    if (</span><span style="color: #0000BB">error_reporting</span><span style="color: #007700">() == </span><span style="color: #0000BB">0</span><span style="color: #007700">) {<br />        return </span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />    }<br />    </span><span style="color: #FF8000">// ...<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #FF8000">// With<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">my_error_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$err_no</span><span style="color: #007700">, </span><span style="color: #0000BB">$err_msg</span><span style="color: #007700">, </span><span style="color: #0000BB">$filename</span><span style="color: #007700">, </span><span style="color: #0000BB">$linenum</span><span style="color: #007700">) {<br />    if (!(</span><span style="color: #0000BB">error_reporting</span><span style="color: #007700">() &amp; </span><span style="color: #0000BB">$err_no</span><span style="color: #007700">)) {<br />        return </span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />    }<br />    </span><span style="color: #FF8000">// ...<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -261,7 +266,7 @@
      <p class="para">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Sum:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;was&nbsp;previously&nbsp;interpreted&nbsp;as:<br /></span><span style="color: #007700">echo&nbsp;(</span><span style="color: #DD0000">"Sum:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">)&nbsp;+&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;is&nbsp;now&nbsp;interpreted&nbsp;as:<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Sum:"&nbsp;</span><span style="color: #007700">.&nbsp;(</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #DD0000">"Sum: " </span><span style="color: #007700">. </span><span style="color: #0000BB">$a </span><span style="color: #007700">+ </span><span style="color: #0000BB">$b</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">// was previously interpreted as:<br /></span><span style="color: #007700">echo (</span><span style="color: #DD0000">"Sum: " </span><span style="color: #007700">. </span><span style="color: #0000BB">$a</span><span style="color: #007700">) + </span><span style="color: #0000BB">$b</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">// is now interpreted as:<br /></span><span style="color: #007700">echo </span><span style="color: #DD0000">"Sum:" </span><span style="color: #007700">. (</span><span style="color: #0000BB">$a </span><span style="color: #007700">+ </span><span style="color: #0000BB">$b</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -278,7 +283,7 @@
      <p class="para">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Replace<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;$arg&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">CONST_RESOLVING_TO_NULL</span><span style="color: #007700">)&nbsp;{}<br /></span><span style="color: #FF8000">//&nbsp;With<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(?</span><span style="color: #0000BB">int&nbsp;$arg&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">CONST_RESOLVING_TO_NULL</span><span style="color: #007700">)&nbsp;{}<br /></span><span style="color: #FF8000">//&nbsp;Or<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;$arg&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)&nbsp;{}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Replace<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">int $arg </span><span style="color: #007700">= </span><span style="color: #0000BB">CONST_RESOLVING_TO_NULL</span><span style="color: #007700">) {}<br /></span><span style="color: #FF8000">// With<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">test</span><span style="color: #007700">(?</span><span style="color: #0000BB">int $arg </span><span style="color: #007700">= </span><span style="color: #0000BB">CONST_RESOLVING_TO_NULL</span><span style="color: #007700">) {}<br /></span><span style="color: #FF8000">// Or<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">int $arg </span><span style="color: #007700">= </span><span style="color: #0000BB">null</span><span style="color: #007700">) {}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -368,7 +373,7 @@
      <p class="para">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">new&nbsp;class&nbsp;extends&nbsp;</span><span style="color: #0000BB">ParentClass&nbsp;</span><span style="color: #007700">{};<br /></span><span style="color: #FF8000">//&nbsp;-&gt;&nbsp;ParentClass@anonymous<br /></span><span style="color: #007700">new&nbsp;class&nbsp;implements&nbsp;</span><span style="color: #0000BB">FirstInterface</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SecondInterface&nbsp;</span><span style="color: #007700">{};<br /></span><span style="color: #FF8000">//&nbsp;-&gt;&nbsp;FirstInterface@anonymous<br /></span><span style="color: #007700">new&nbsp;class&nbsp;{};<br /></span><span style="color: #FF8000">//&nbsp;-&gt;&nbsp;class@anonymous<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">new class extends </span><span style="color: #0000BB">ParentClass </span><span style="color: #007700">{};<br /></span><span style="color: #FF8000">// -&gt; ParentClass@anonymous<br /></span><span style="color: #007700">new class implements </span><span style="color: #0000BB">FirstInterface</span><span style="color: #007700">, </span><span style="color: #0000BB">SecondInterface </span><span style="color: #007700">{};<br /></span><span style="color: #FF8000">// -&gt; FirstInterface@anonymous<br /></span><span style="color: #007700">new class {};<br /></span><span style="color: #FF8000">// -&gt; class@anonymous<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -386,7 +391,7 @@
      <p class="para">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">X&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;use&nbsp;</span><span style="color: #0000BB">T1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">T2&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">func&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">otherFunc</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">func</span><span style="color: #007700">()&nbsp;{}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">X </span><span style="color: #007700">{<br />    use </span><span style="color: #0000BB">T1</span><span style="color: #007700">, </span><span style="color: #0000BB">T2 </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">func </span><span style="color: #007700">as </span><span style="color: #0000BB">otherFunc</span><span style="color: #007700">;<br />    }<br />    function </span><span style="color: #0000BB">func</span><span style="color: #007700">() {}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -407,7 +412,7 @@
      <p class="para">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">trait&nbsp;</span><span style="color: #0000BB">MyTrait&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;abstract&nbsp;private&nbsp;function&nbsp;</span><span style="color: #0000BB">neededByTrait</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">;<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">MyClass&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;use&nbsp;</span><span style="color: #0000BB">MyTrait</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Error,&nbsp;because&nbsp;of&nbsp;return&nbsp;type&nbsp;mismatch.<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">private&nbsp;function&nbsp;</span><span style="color: #0000BB">neededByTrait</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">int&nbsp;</span><span style="color: #007700">{&nbsp;return&nbsp;</span><span style="color: #0000BB">42</span><span style="color: #007700">;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">trait </span><span style="color: #0000BB">MyTrait </span><span style="color: #007700">{<br />    abstract private function </span><span style="color: #0000BB">neededByTrait</span><span style="color: #007700">(): </span><span style="color: #0000BB">string</span><span style="color: #007700">;<br />}<br /><br />class </span><span style="color: #0000BB">MyClass </span><span style="color: #007700">{<br />    use </span><span style="color: #0000BB">MyTrait</span><span style="color: #007700">;<br /><br />    </span><span style="color: #FF8000">// Error, because of return type mismatch.<br />    </span><span style="color: #007700">private function </span><span style="color: #0000BB">neededByTrait</span><span style="color: #007700">(): </span><span style="color: #0000BB">int </span><span style="color: #007700">{ return </span><span style="color: #0000BB">42</span><span style="color: #007700">; }<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -446,7 +451,7 @@
      <p class="para">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_ALL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"de_DE"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$f&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">3.14</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$f</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;Previously:&nbsp;3,14<br />//&nbsp;Now:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.14<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_ALL</span><span style="color: #007700">, </span><span style="color: #DD0000">"de_DE"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$f </span><span style="color: #007700">= </span><span style="color: #0000BB">3.14</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">$f</span><span style="color: #007700">, </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">// Previously: 3,14<br />// Now:        3.14<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -465,7 +470,7 @@
      <p class="para">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Instead&nbsp;of:<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">{</span><span style="color: #0000BB">0</span><span style="color: #007700">};<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">{</span><span style="color: #DD0000">"key"</span><span style="color: #007700">};<br /></span><span style="color: #FF8000">//&nbsp;Write:<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #DD0000">"key"</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Instead of:<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">{</span><span style="color: #0000BB">0</span><span style="color: #007700">};<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">{</span><span style="color: #DD0000">"key"</span><span style="color: #007700">};<br /></span><span style="color: #FF8000">// Write:<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #DD0000">"key"</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -665,13 +670,13 @@
     </p>
    </li>
    <li class="listitem">
-     <p class="para">
-      <span class="function"><a href="function.shmop-open.html" class="function">shmop_open()</a></span> will now return a <span class="classname"><a href="class.shmop.html" class="classname">Shmop</a></span> object rather than
-      a <a href="language.types.resource.html" class="link">resource</a>. The <span class="function"><a href="function.shmop-close.html" class="function">shmop_close()</a></span> function no longer has an effect, and is
-      deprecated; instead the <span class="classname"><a href="class.shmop.html" class="classname">Shmop</a></span> instance is automatically destroyed if it is
-      no longer referenced.
-     </p>
-    </li>
+    <p class="para">
+     <span class="function"><a href="function.shmop-open.html" class="function">shmop_open()</a></span> will now return a <span class="classname"><a href="class.shmop.html" class="classname">Shmop</a></span> object rather than
+     a <a href="language.types.resource.html" class="link">resource</a>. The <span class="function"><a href="function.shmop-close.html" class="function">shmop_close()</a></span> function no longer has an effect, and is
+     deprecated; instead the <span class="classname"><a href="class.shmop.html" class="classname">Shmop</a></span> instance is automatically destroyed if it is
+     no longer referenced.
+    </p>
+   </li>
    <li class="listitem">
     <p class="para">
      <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>, <span class="function"><a href="function.socket-create-listen.html" class="function">socket_create_listen()</a></span>,
@@ -791,7 +796,7 @@
     <li class="member"><span class="methodname"><strong>DOMNamedNodeMap::setNamedItem()</strong></span></li>
     <li class="member"><span class="methodname"><strong>DOMNamedNodeMap::removeNamedItem()</strong></span></li>
     <li class="member"><span class="methodname"><strong>DOMNamedNodeMap::setNamedItemNS()</strong></span></li>
-    <li class="member"><span class="methodname"><strong>DOMNamedNodeMap::removeNamedItem()</strong></span></li>
+    <li class="member"><span class="methodname"><strong>DOMNamedNodeMap::removeNamedItemNS()</strong></span></li>
     <li class="member"><span class="methodname"><strong>DOMText::replaceWholeText()</strong></span></li>
     <li class="member"><span class="methodname"><strong>DOMNode::compareDocumentPosition()</strong></span></li>
     <li class="member"><span class="methodname"><strong>DOMNode::isEqualNode()</strong></span></li>
@@ -842,7 +847,7 @@
      The <strong><code>INPUT_REQUEST</code></strong> and <strong><code>INPUT_SESSION</code></strong> source for
      <span class="function"><a href="function.filter-input.html" class="function">filter_input()</a></span> etc. have been removed. These were never implemented and their
      use always generated a warning.
-    </p> 
+    </p>
    </li>
   </ul>
  </div>
@@ -853,7 +858,7 @@
   <ul class="itemizedlist">
    <li class="listitem">
     <p class="para">
-     The deprecated functions <span class="function"><a href="function.image2wbmp.html" class="function">image2wbmp()</a></span> has been removed.
+     The deprecated function <span class="function"><a href="function.image2wbmp.html" class="function">image2wbmp()</a></span> has been removed.
      
     </p>
    </li>
@@ -926,9 +931,9 @@
     </p>
    </li>
    <li class="listitem">
-   <p class="para">
-    The deprecated <strong><code>Normalizer::NONE</code></strong> constant has been removed.
-   </p>
+    <p class="para">
+     The deprecated <strong><code>Normalizer::NONE</code></strong> constant has been removed.
+    </p>
    </li>
   </ul>
  </div>
@@ -938,18 +943,18 @@
 
   <ul class="itemizedlist">
    <li class="listitem">
-   <p class="para">
-    The deprecated functions <span class="function"><a href="function.ldap-sort.html" class="function">ldap_sort()</a></span>,
-    <span class="function"><a href="function.ldap-control-paged-result.html" class="function">ldap_control_paged_result()</a></span> and
-    <span class="function"><a href="function.ldap-control-paged-result-response.html" class="function">ldap_control_paged_result_response()</a></span> have been removed.
-   </p>
-  </li>
-  <li class="listitem">
-   <p class="para">
-    The interface of <span class="function"><a href="function.ldap-set-rebind-proc.html" class="function">ldap_set_rebind_proc()</a></span> has changed; the
-    <code class="parameter">callback</code> parameter does not accept empty strings anymore; <strong><code>null</code></strong> should be
-    used instead.
-   </p>
+    <p class="para">
+     The deprecated functions <span class="function"><a href="function.ldap-sort.html" class="function">ldap_sort()</a></span>,
+     <span class="function"><a href="function.ldap-control-paged-result.html" class="function">ldap_control_paged_result()</a></span> and
+     <span class="function"><a href="function.ldap-control-paged-result-response.html" class="function">ldap_control_paged_result_response()</a></span> have been removed.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     The interface of <span class="function"><a href="function.ldap-set-rebind-proc.html" class="function">ldap_set_rebind_proc()</a></span> has changed; the
+     <code class="parameter">callback</code> parameter does not accept empty strings anymore; <strong><code>null</code></strong> should be
+     used instead.
+    </p>
    </li>
   </ul>
  </div>
@@ -1295,7 +1300,7 @@
    <li class="listitem">
     <p class="para">
      <span class="methodname"><a href="splfileobject.seek.html" class="methodname">SplFileObject::seek()</a></span> now always seeks to the beginning of the line.
-     Previously, positions <code class="literal">=1</code> sought to the beginning of the next line.
+     Previously, positions <code class="literal">&gt;=1</code> sought to the beginning of the next line.
     </p>
    </li>
    <li class="listitem">
@@ -1517,7 +1522,7 @@
     <p class="para">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$ctx&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">stream_context_create</span><span style="color: #007700">([</span><span style="color: #DD0000">'http'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;[</span><span style="color: #DD0000">'protocol_version'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'1.0'</span><span style="color: #007700">]]);<br />echo&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://example.org'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ctx</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$ctx </span><span style="color: #007700">= </span><span style="color: #0000BB">stream_context_create</span><span style="color: #007700">([</span><span style="color: #DD0000">'http' </span><span style="color: #007700">=&gt; [</span><span style="color: #DD0000">'protocol_version' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'1.0'</span><span style="color: #007700">]]);<br />echo </span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://example.org'</span><span style="color: #007700">, </span><span style="color: #0000BB">false</span><span style="color: #007700">, </span><span style="color: #0000BB">$ctx</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

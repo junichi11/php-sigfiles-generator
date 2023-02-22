@@ -62,11 +62,27 @@
      <span class="oointerface"><span class="modifier">implements</span> 
        <a href="class.iterator.html" class="interfacename">Iterator</a></span><span class="oointerface">,  <a href="class.countable.html" class="interfacename">Countable</a></span> {</div>
 
-    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
-    <div class="constructorsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="splpriorityqueue.construct.html" class="methodname">__construct</a></span>()</div>
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.splpriorityqueue.html#splpriorityqueue.constants.extr-both"><var class="varname">EXTR_BOTH</var></a></var>;</div>
 
-    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splpriorityqueue.compare.html" class="methodname">compare</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$priority1</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$priority2</code></span>): <span class="type">int</span></div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.splpriorityqueue.html#splpriorityqueue.constants.extr-priority"><var class="varname">EXTR_PRIORITY</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.splpriorityqueue.html#splpriorityqueue.constants.extr-data"><var class="varname">EXTR_DATA</var></a></var>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="splpriorityqueue.compare.html" class="methodname">compare</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$priority1</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$priority2</code></span>): <span class="type">int</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splpriorityqueue.count.html" class="methodname">count</a></span>(): <span class="type">int</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splpriorityqueue.current.html" class="methodname">current</a></span>(): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splpriorityqueue.extract.html" class="methodname">extract</a></span>(): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
@@ -84,6 +100,40 @@
 
    }</div>
  
+  </div>
+
+  <div class="section" id="splpriorityqueue.constants">
+   <h2 class="title">Predefined Constants</h2>
+   <dl>
+    
+     <dt id="splpriorityqueue.constants.extr-both"><strong><code>SplPriorityQueue::EXTR_BOTH</code></strong></dt>
+
+     <dd>
+
+      <p class="para"/>
+     </dd>
+
+    
+    
+     <dt id="splpriorityqueue.constants.extr-priority"><strong><code>SplPriorityQueue::EXTR_PRIORITY</code></strong></dt>
+
+     <dd>
+
+      <p class="para"/>
+     </dd>
+
+    
+    
+     <dt id="splpriorityqueue.constants.extr-data"><strong><code>SplPriorityQueue::EXTR_DATA</code></strong></dt>
+
+     <dd>
+
+      <p class="para"/>
+     </dd>
+
+    
+   </dl>
+
   </div>
  
 
@@ -166,25 +216,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="splpriorityqueue.compare.html">SplPriorityQueue::compare</a> — Compare priorities in order to place elements correctly in the heap while sifting up</li><li><a href="splpriorityqueue.construct.html">SplPriorityQueue::__construct</a> — Constructs a new empty queue</li><li><a href="splpriorityqueue.count.html">SplPriorityQueue::count</a> — Counts the number of elements in the queue</li><li><a href="splpriorityqueue.current.html">SplPriorityQueue::current</a> — Return current node pointed by the iterator</li><li><a href="splpriorityqueue.extract.html">SplPriorityQueue::extract</a> — Extracts a node from top of the heap and sift up</li><li><a href="splpriorityqueue.getextractflags.html">SplPriorityQueue::getExtractFlags</a> — Get the flags of extraction</li><li><a href="splpriorityqueue.insert.html">SplPriorityQueue::insert</a> — Inserts an element in the queue by sifting it up</li><li><a href="splpriorityqueue.iscorrupted.html">SplPriorityQueue::isCorrupted</a> — Tells if the priority queue is in a corrupted state</li><li><a href="splpriorityqueue.isempty.html">SplPriorityQueue::isEmpty</a> — Checks whether the queue is empty</li><li><a href="splpriorityqueue.key.html">SplPriorityQueue::key</a> — Return current node index</li><li><a href="splpriorityqueue.next.html">SplPriorityQueue::next</a> — Move to the next node</li><li><a href="splpriorityqueue.recoverfromcorruption.html">SplPriorityQueue::recoverFromCorruption</a> — Recover from the corrupted state and allow further actions on the queue</li><li><a href="splpriorityqueue.rewind.html">SplPriorityQueue::rewind</a> — Rewind iterator back to the start (no-op)</li><li><a href="splpriorityqueue.setextractflags.html">SplPriorityQueue::setExtractFlags</a> — Sets the mode of extraction</li><li><a href="splpriorityqueue.top.html">SplPriorityQueue::top</a> — Peeks at the node from the top of the queue</li><li><a href="splpriorityqueue.valid.html">SplPriorityQueue::valid</a> — Check whether the queue contains more nodes</li></ul>
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="splpriorityqueue.compare.html">SplPriorityQueue::compare</a> — Compare priorities in order to place elements correctly in the heap while sifting up</li><li><a href="splpriorityqueue.count.html">SplPriorityQueue::count</a> — Counts the number of elements in the queue</li><li><a href="splpriorityqueue.current.html">SplPriorityQueue::current</a> — Return current node pointed by the iterator</li><li><a href="splpriorityqueue.extract.html">SplPriorityQueue::extract</a> — Extracts a node from top of the heap and sift up</li><li><a href="splpriorityqueue.getextractflags.html">SplPriorityQueue::getExtractFlags</a> — Get the flags of extraction</li><li><a href="splpriorityqueue.insert.html">SplPriorityQueue::insert</a> — Inserts an element in the queue by sifting it up</li><li><a href="splpriorityqueue.iscorrupted.html">SplPriorityQueue::isCorrupted</a> — Tells if the priority queue is in a corrupted state</li><li><a href="splpriorityqueue.isempty.html">SplPriorityQueue::isEmpty</a> — Checks whether the queue is empty</li><li><a href="splpriorityqueue.key.html">SplPriorityQueue::key</a> — Return current node index</li><li><a href="splpriorityqueue.next.html">SplPriorityQueue::next</a> — Move to the next node</li><li><a href="splpriorityqueue.recoverfromcorruption.html">SplPriorityQueue::recoverFromCorruption</a> — Recover from the corrupted state and allow further actions on the queue</li><li><a href="splpriorityqueue.rewind.html">SplPriorityQueue::rewind</a> — Rewind iterator back to the start (no-op)</li><li><a href="splpriorityqueue.setextractflags.html">SplPriorityQueue::setExtractFlags</a> — Sets the mode of extraction</li><li><a href="splpriorityqueue.top.html">SplPriorityQueue::top</a> — Peeks at the node from the top of the queue</li><li><a href="splpriorityqueue.valid.html">SplPriorityQueue::valid</a> — Check whether the queue contains more nodes</li></ul>
 </div>
 </div></div></body></html>

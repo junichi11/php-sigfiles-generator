@@ -65,17 +65,12 @@
      <dd>
 
       <p class="para">
-       An optional parameter that controls
-       how the returned <span class="type">array</span> is indexed.
-       <code class="parameter">mode</code> is a constant and can take the
-       following values: <strong><code>PGSQL_ASSOC</code></strong>, 
-       <strong><code>PGSQL_NUM</code></strong> and <strong><code>PGSQL_BOTH</code></strong>.
-       Using <strong><code>PGSQL_NUM</code></strong>, <span class="function"><strong>pg_get_notify()</strong></span>
-       will return an array with numerical indices, using
-       <strong><code>PGSQL_ASSOC</code></strong> it will return only associative indices
-       while <strong><code>PGSQL_BOTH</code></strong>, the default, will return both
-       numerical and associative indices.
-      </p>
+An optional parameter that controls how the returned <span class="type">array</span> is indexed.
+<code class="parameter">mode</code> is a constant and can take the following values:
+<strong><code>PGSQL_ASSOC</code></strong>, <strong><code>PGSQL_NUM</code></strong> and <strong><code>PGSQL_BOTH</code></strong>.
+Using <strong><code>PGSQL_NUM</code></strong>, the function will return an array with numerical indices,
+using <strong><code>PGSQL_ASSOC</code></strong> it will return only associative indices
+while <strong><code>PGSQL_BOTH</code></strong> will return both numerical and associative indices.</p>
      </dd>
 
     
@@ -126,11 +121,11 @@
  <div class="refsect1 examples" id="refsect1-function.pg-get-notify-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1909">
+   <div class="example" id="example-1941">
     <p><strong>Example #1 PostgreSQL NOTIFY message</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php&nbsp;<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_pconnect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dbname=publisher"</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$conn</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"An&nbsp;error&nbsp;occurred.\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;exit;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Listen&nbsp;'author_updated'&nbsp;message&nbsp;from&nbsp;other&nbsp;processes<br /></span><span style="color: #0000BB">pg_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'LISTEN&nbsp;author_updated;'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$notify&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_get_notify</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$notify</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"No&nbsp;messages\n"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$notify</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php <br />$conn </span><span style="color: #007700">= </span><span style="color: #0000BB">pg_pconnect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dbname=publisher"</span><span style="color: #007700">);<br />if (!</span><span style="color: #0000BB">$conn</span><span style="color: #007700">) {<br />  echo </span><span style="color: #DD0000">"An error occurred.\n"</span><span style="color: #007700">;<br />  exit;<br />}<br /><br /></span><span style="color: #FF8000">// Listen 'author_updated' message from other processes<br /></span><span style="color: #0000BB">pg_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">, </span><span style="color: #DD0000">'LISTEN author_updated;'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$notify </span><span style="color: #007700">= </span><span style="color: #0000BB">pg_get_notify</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br />if (!</span><span style="color: #0000BB">$notify</span><span style="color: #007700">) {<br />  echo </span><span style="color: #DD0000">"No messages\n"</span><span style="color: #007700">;<br />} else {<br />  </span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$notify</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

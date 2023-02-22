@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-intlchar.foldcase-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::foldCase</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$codepoint</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>IntlChar::FOLD_CASE_DEFAULT</code></strong></span></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::foldCase</strong></span>(<span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$codepoint</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = IntlChar::FOLD_CASE_DEFAULT</span></span>): <span class="type"><span class="type">int</span>|<span class="type">string</span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    The given character is mapped to its case folding equivalent; if the character has no case folding equivalent,
@@ -76,7 +76,8 @@
  <div class="refsect1 returnvalues" id="refsect1-intlchar.foldcase-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the <em class="emphasis">Simple_Case_Folding</em> of the code point, if any; otherwise the code point itself.
+   Returns the <em class="emphasis">Simple_Case_Folding</em> of the code point, if any; otherwise the code point itself on success,
+   or <strong><code>null</code></strong> on failure.
   </p>
  </div>
 

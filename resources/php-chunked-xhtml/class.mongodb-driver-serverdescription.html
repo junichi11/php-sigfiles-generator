@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The MongoDB\Driver\ServerDescription class</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-driver-server.issecondary.html">« MongoDB\Driver\Server::isSecondary</a></li>
+      <li style="float: right;"><a href="mongodb-driver-serverdescription.gethelloresponse.html">MongoDB\Driver\ServerDescription::getHelloResponse »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mongodb.html">MongoDB\Driver</a></li>
+    <li>The MongoDB\Driver\ServerDescription class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.mongodb-driver-serverdescription" class="reference">
+
+ <h1 class="title">The MongoDB\Driver\ServerDescription class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(mongodb &gt;=1.13.0)</p>
+
+
+  <div class="section" id="mongodb-driver-serverdescription.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    The <span class="classname"><strong class="classname">MongoDB\Driver\ServerDescription</strong></span> class is a value
+    object that represents a server to which the driver is connected. Instances
+    of this class are returned by
+    <span class="function"><a href="mongodb-driver-server.getserverdescription.html" class="function">MongoDB\Driver\Server::getServerDescription()</a></span> and
+    <span class="classname"><a href="class.mongodb-driver-monitoring-serverchangedevent.html" class="classname">MongoDB\Driver\Monitoring\ServerChangedEvent</a></span> methods.
+   </p>
+  </div>
+
+
+  <div class="section" id="mongodb-driver-serverdescription.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="modifier">final</span>
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">MongoDB\Driver\ServerDescription</strong>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-serverdescription.html#mongodb-driver-serverdescription.constants.type-unknown"><var class="varname">TYPE_UNKNOWN</var></a></var><span class="initializer"> = &quot;Unknown&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-serverdescription.html#mongodb-driver-serverdescription.constants.type-standalone"><var class="varname">TYPE_STANDALONE</var></a></var><span class="initializer"> = &quot;Standalone&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-serverdescription.html#mongodb-driver-serverdescription.constants.type-mongos"><var class="varname">TYPE_MONGOS</var></a></var><span class="initializer"> = &quot;Mongos&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-serverdescription.html#mongodb-driver-serverdescription.constants.type-possible-primary"><var class="varname">TYPE_POSSIBLE_PRIMARY</var></a></var><span class="initializer"> = &quot;PossiblePrimary&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-serverdescription.html#mongodb-driver-serverdescription.constants.type-rs-primary"><var class="varname">TYPE_RS_PRIMARY</var></a></var><span class="initializer"> = &quot;RSPrimary&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-serverdescription.html#mongodb-driver-serverdescription.constants.type-rs-secondary"><var class="varname">TYPE_RS_SECONDARY</var></a></var><span class="initializer"> = &quot;RSSecondary&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-serverdescription.html#mongodb-driver-serverdescription.constants.type-rs-arbiter"><var class="varname">TYPE_RS_ARBITER</var></a></var><span class="initializer"> = &quot;RSArbiter&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-serverdescription.html#mongodb-driver-serverdescription.constants.type-rs-other"><var class="varname">TYPE_RS_OTHER</var></a></var><span class="initializer"> = &quot;RSOther&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-serverdescription.html#mongodb-driver-serverdescription.constants.type-rs-ghost"><var class="varname">TYPE_RS_GHOST</var></a></var><span class="initializer"> = &quot;RSGhost&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-serverdescription.html#mongodb-driver-serverdescription.constants.type-load-balancer"><var class="varname">TYPE_LOAD_BALANCER</var></a></var><span class="initializer"> = &quot;LoadBalancer&quot;</span>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-serverdescription.gethelloresponse.html" class="methodname">getHelloResponse</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-serverdescription.gethost.html" class="methodname">getHost</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-serverdescription.getlastupdatetime.html" class="methodname">getLastUpdateTime</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-serverdescription.getport.html" class="methodname">getPort</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-serverdescription.getroundtriptime.html" class="methodname">getRoundTripTime</a></span>(): <span class="type"><span class="type">?</span><span class="type">int</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-serverdescription.gettype.html" class="methodname">getType</a></span>(): <span class="type">string</span></div>
+
+   }</div>
+
+
+  </div>
+  
+
+  <div class="section" id="mongodb-driver-serverdescription.constants">
+   <h2 class="title">Predefined Constants</h2>
+   <dl>
+
+    
+     <dt id="mongodb-driver-serverdescription.constants.type-unknown"><strong><code>MongoDB\Driver\ServerDescription::TYPE_UNKNOWN</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Unknown server type, returned by <span class="methodname"><a href="mongodb-driver-serverdescription.gettype.html" class="methodname">MongoDB\Driver\ServerDescription::getType()</a></span>.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-serverdescription.constants.type-standalone"><strong><code>MongoDB\Driver\ServerDescription::TYPE_STANDALONE</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Standalone server type, returned by <span class="methodname"><a href="mongodb-driver-serverdescription.gettype.html" class="methodname">MongoDB\Driver\ServerDescription::getType()</a></span>.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-serverdescription.constants.type-mongos"><strong><code>MongoDB\Driver\ServerDescription::TYPE_MONGOS</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Mongos server type, returned by <span class="methodname"><a href="mongodb-driver-serverdescription.gettype.html" class="methodname">MongoDB\Driver\ServerDescription::getType()</a></span>.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-serverdescription.constants.type-possible-primary"><strong><code>MongoDB\Driver\ServerDescription::TYPE_POSSIBLE_PRIMARY</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Replica set possible primary server type, returned by <span class="methodname"><a href="mongodb-driver-serverdescription.gettype.html" class="methodname">MongoDB\Driver\ServerDescription::getType()</a></span>.</p>
+      <p class="para">A server may be identified as a possible primary if it has not yet been checked but another memory of the replica set thinks it is the primary.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-serverdescription.constants.type-rs-primary"><strong><code>MongoDB\Driver\ServerDescription::TYPE_RS_PRIMARY</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Replica set primary server type, returned by <span class="methodname"><a href="mongodb-driver-serverdescription.gettype.html" class="methodname">MongoDB\Driver\ServerDescription::getType()</a></span>.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-serverdescription.constants.type-rs-secondary"><strong><code>MongoDB\Driver\ServerDescription::TYPE_RS_SECONDARY</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Replica set secondary server type, returned by <span class="methodname"><a href="mongodb-driver-serverdescription.gettype.html" class="methodname">MongoDB\Driver\ServerDescription::getType()</a></span>.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-serverdescription.constants.type-rs-arbiter"><strong><code>MongoDB\Driver\ServerDescription::TYPE_RS_ARBITER</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Replica set arbiter server type, returned by <span class="methodname"><a href="mongodb-driver-serverdescription.gettype.html" class="methodname">MongoDB\Driver\ServerDescription::getType()</a></span>.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-serverdescription.constants.type-rs-other"><strong><code>MongoDB\Driver\ServerDescription::TYPE_RS_OTHER</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Replica set other server type, returned by <span class="methodname"><a href="mongodb-driver-serverdescription.gettype.html" class="methodname">MongoDB\Driver\ServerDescription::getType()</a></span>.</p>
+      <p class="para">Such servers may be hidden, starting up, or recovering. They cannot be queried, but their hosts lists are useful for discovering the current replica set configuration.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-serverdescription.constants.type-rs-ghost"><strong><code>MongoDB\Driver\ServerDescription::TYPE_RS_GHOST</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Replica set ghost server type, returned by <span class="methodname"><a href="mongodb-driver-serverdescription.gettype.html" class="methodname">MongoDB\Driver\ServerDescription::getType()</a></span>.</p>
+      <p class="para">Servers may be identified as such in at least three situations: briefly during server startup; in an uninitialized replica set; or when the server is shunned (i.e. removed from the replica set config). They cannot be queried, nor can their host list be used to discover the current replica set configuration; however, the client may monitor this server in hope that it transitions to a more useful state.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-serverdescription.constants.type-load-balancer"><strong><code>MongoDB\Driver\ServerDescription::TYPE_LOAD_BALANCER</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Load balancer server type, returned by <span class="methodname"><a href="mongodb-driver-serverdescription.gettype.html" class="methodname">MongoDB\Driver\ServerDescription::getType()</a></span>.</p>
+     </dd>
+
+    
+
+   </dl>
+
+  </div>
+
+
+ </div>
+
+ 
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-driver-serverdescription.gethelloresponse.html">MongoDB\Driver\ServerDescription::getHelloResponse</a> — Returns the server's most recent &quot;hello&quot; response</li><li><a href="mongodb-driver-serverdescription.gethost.html">MongoDB\Driver\ServerDescription::getHost</a> — Returns the hostname of this server</li><li><a href="mongodb-driver-serverdescription.getlastupdatetime.html">MongoDB\Driver\ServerDescription::getLastUpdateTime</a> — Returns the server's last update time in microseconds</li><li><a href="mongodb-driver-serverdescription.getport.html">MongoDB\Driver\ServerDescription::getPort</a> — Returns the port on which this server is listening</li><li><a href="mongodb-driver-serverdescription.getroundtriptime.html">MongoDB\Driver\ServerDescription::getRoundTripTime</a> — Returns the server's round trip time in milliseconds</li><li><a href="mongodb-driver-serverdescription.gettype.html">MongoDB\Driver\ServerDescription::getType</a> — Returns a string denoting the type of this server</li></ul>
+</div>
+</div></div></body></html>

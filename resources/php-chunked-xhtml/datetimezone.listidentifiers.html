@@ -65,7 +65,7 @@
      <dd>
 
       <p class="para">
-       A two-letter ISO 3166-1 compatible country code.
+       A two-letter (uppercase) ISO 3166-1 compatible country code.
       </p>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <span class="simpara">
@@ -85,7 +85,10 @@
  <div class="refsect1 returnvalues" id="refsect1-datetimezone.listidentifiers-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the array of timezone identifiers.
+   Returns the array of timezone identifiers. Only non-outdated items are
+   returned. To get all, including outdated timezone identifiers, use the
+   <code class="literal">DateTimeZone::ALL_WITH_BC</code> as value for
+   <code class="parameter">timezoneGroup</code>.
   </p>
  </div>
 
@@ -129,11 +132,11 @@
  <div class="refsect1 examples" id="refsect1-datetimezone.listidentifiers-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2057">
-    <p><strong>Example #1 A <span class="function"><a href="function.timezone-identifiers-list.html" class="function">timezone_identifiers_list()</a></span> example</strong></p>
+   <div class="example" id="example-2104">
+    <p><strong>Example #1 A <span class="methodname"><strong>DateTimeZone::listIdentifiers()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$timezone_identifiers&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">::</span><span style="color: #0000BB">listIdentifiers</span><span style="color: #007700">();<br />for&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$timezone_identifiers</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$timezone_identifiers </span><span style="color: #007700">= </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">::</span><span style="color: #0000BB">listIdentifiers</span><span style="color: #007700">();<br />for (</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">; </span><span style="color: #0000BB">$i </span><span style="color: #007700">&lt; </span><span style="color: #0000BB">5</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++) {<br />    echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$timezone_identifiers</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -147,6 +150,98 @@ Africa/Accra
 Africa/Addis_Ababa
 Africa/Algiers
 Africa/Asmara
+</pre></div>
+    </div>
+   </div>
+  </p>
+
+  <p class="para">
+   <div class="example" id="example-2105">
+    <p><strong>Example #2 Listing identifiers for a specific region</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$timezone_identifiers </span><span style="color: #007700">= </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">::</span><span style="color: #0000BB">listIdentifiers</span><span style="color: #007700">( </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">::</span><span style="color: #0000BB">ASIA </span><span style="color: #007700">);<br />for (</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">; </span><span style="color: #0000BB">$i </span><span style="color: #007700">&lt; </span><span style="color: #0000BB">5</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++) {<br />    echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$timezone_identifiers</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Asia/Aden
+Asia/Almaty
+Asia/Amman
+Asia/Anadyr
+Asia/Aqtau
+</pre></div>
+    </div>
+   </div>
+  </p>
+
+  <p class="para">
+   <div class="example" id="example-2106">
+    <p><strong>Example #3 Listing identifiers for multiple regions</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$timezone_identifiers </span><span style="color: #007700">= </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">::</span><span style="color: #0000BB">listIdentifiers</span><span style="color: #007700">( </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">::</span><span style="color: #0000BB">ASIA </span><span style="color: #007700">| </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">::</span><span style="color: #0000BB">PACIFIC </span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">join</span><span style="color: #007700">( </span><span style="color: #DD0000">', '</span><span style="color: #007700">, </span><span style="color: #0000BB">$timezone_identifiers </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Asia/Aden, Asia/Almaty, Asia/Amman, Asia/Anadyr, Asia/Aqtau, Asia/Aqtobe,
+Asia/Ashgabat, Asia/Atyrau, Asia/Baghdad, Asia/Bahrain, Asia/Baku,
+Asia/Bangkok, Asia/Barnaul, Asia/Beirut, Asia/Bishkek, Asia/Brunei,
+Asia/Chita, Asia/Choibalsan, Asia/Colombo, Asia/Damascus, Asia/Dhaka,
+Asia/Dili, Asia/Dubai, Asia/Dushanbe, Asia/Famagusta, Asia/Gaza, Asia/Hebron,
+Asia/Ho_Chi_Minh, Asia/Hong_Kong, Asia/Hovd, Asia/Irkutsk, Asia/Jakarta,
+Asia/Jayapura, Asia/Jerusalem, Asia/Kabul, Asia/Kamchatka, Asia/Karachi,
+Asia/Kathmandu, Asia/Khandyga, Asia/Kolkata, Asia/Krasnoyarsk,
+Asia/Kuala_Lumpur, Asia/Kuching, Asia/Kuwait, Asia/Macau, Asia/Magadan,
+Asia/Makassar, Asia/Manila, Asia/Muscat, Asia/Nicosia, Asia/Novokuznetsk,
+Asia/Novosibirsk, Asia/Omsk, Asia/Oral, Asia/Phnom_Penh, Asia/Pontianak,
+Asia/Pyongyang, Asia/Qatar, Asia/Qostanay, Asia/Qyzylorda, Asia/Riyadh,
+Asia/Sakhalin, Asia/Samarkand, Asia/Seoul, Asia/Shanghai, Asia/Singapore,
+Asia/Srednekolymsk, Asia/Taipei, Asia/Tashkent, Asia/Tbilisi, Asia/Tehran,
+Asia/Thimphu, Asia/Tokyo, Asia/Tomsk, Asia/Ulaanbaatar, Asia/Urumqi,
+Asia/Ust-Nera, Asia/Vientiane, Asia/Vladivostok, Asia/Yakutsk, Asia/Yangon,
+Asia/Yekaterinburg, Asia/Yerevan, Pacific/Apia, Pacific/Auckland,
+Pacific/Bougainville, Pacific/Chatham, Pacific/Chuuk, Pacific/Easter,
+Pacific/Efate, Pacific/Fakaofo, Pacific/Fiji, Pacific/Funafuti,
+Pacific/Galapagos, Pacific/Gambier, Pacific/Guadalcanal, Pacific/Guam,
+Pacific/Honolulu, Pacific/Kanton, Pacific/Kiritimati, Pacific/Kosrae,
+Pacific/Kwajalein, Pacific/Majuro, Pacific/Marquesas, Pacific/Midway,
+Pacific/Nauru, Pacific/Niue, Pacific/Norfolk, Pacific/Noumea,
+Pacific/Pago_Pago, Pacific/Palau, Pacific/Pitcairn, Pacific/Pohnpei,
+Pacific/Port_Moresby, Pacific/Rarotonga, Pacific/Saipan, Pacific/Tahiti,
+Pacific/Tarawa, Pacific/Tongatapu, Pacific/Wake, Pacific/Wallis
+</pre></div>
+    </div>
+   </div>
+  </p>
+
+  <p class="para">
+   <div class="example" id="example-2107">
+    <p><strong>Example #4 Listing identifiers for a single country</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$timezone_identifiers </span><span style="color: #007700">= </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">::</span><span style="color: #0000BB">listIdentifiers</span><span style="color: #007700">( </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">::</span><span style="color: #0000BB">PER_COUNTRY</span><span style="color: #007700">, </span><span style="color: #DD0000">"UA" </span><span style="color: #007700">);<br />foreach( </span><span style="color: #0000BB">$timezone_identifiers </span><span style="color: #007700">as </span><span style="color: #0000BB">$identifier </span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$identifier</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Europe/Kyiv
+Europe/Simferopol
+Europe/Uzhgorod
+Europe/Zaporozhye
 </pre></div>
     </div>
    </div>

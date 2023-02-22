@@ -141,13 +141,24 @@ DSN prefix</dt>
    <div class="refsect1 examples" id="refsect1-ref.pdo-pgsql.connection-examples">
     <h3 class="title">Examples</h3>
     <p class="para">
-     <div class="example" id="example-1082">
+     <div class="example" id="example-1113">
       <p><strong>Example #1 PDO_PGSQL DSN examples</strong></p>
       <div class="example-contents"><p>
        The following example shows a PDO_PGSQL DSN for connecting to
        a PostgreSQL database:
-       <div class="example-contents"><div class="cdata"><pre>
+       <div class="example-contents">
+<div class="cdata"><pre>
 pgsql:host=localhost;port=5432;dbname=testdb;user=bruce;password=mypass
+</pre></div>
+       </div>
+
+      </p></div>
+      <div class="example-contents"><p>
+       The following example shows a PDO_PGSQL DSN for connecting to
+       a PostgreSQL database via unix socket <var class="filename">/tmp/.s.PGSQL.5432</var>:
+       <div class="example-contents">
+<div class="cdata"><pre>
+pgsql:host=/tmp;port=5432;dbname=testdb;user=bruce;password=mypass
 </pre></div>
        </div>
 

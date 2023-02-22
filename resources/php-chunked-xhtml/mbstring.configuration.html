@@ -115,6 +115,20 @@ The behaviour of these functions is affected by settings in <var class="filename
       <td class="empty">&nbsp;</td>
      </tr>
 
+     <tr>
+      <td><a href="mbstring.configuration.html#ini.mbstring.regex-retry-limit" class="link">mbstring.regex_retry_limit</a></td>
+      <td>&quot;1000000&quot;</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available as of PHP 7.4.0.</td>
+     </tr>
+
+     <tr>
+      <td><a href="mbstring.configuration.html#ini.mbstring.regex-stack-limit" class="link">mbstring.regex_stack_limit</a></td>
+      <td>&quot;100000&quot;</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available as of PHP 7.3.5.</td>
+     </tr>
+
     </tbody>
    
   </table>
@@ -310,6 +324,38 @@ is highly discouraged.</p></div>
     </dd>
 
    
+   
+    <dt id="ini.mbstring.regex-retry-limit">
+     <code class="parameter">mbstring.regex_retry_limit</code>
+     <span class="type">int</span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Limits the amount of backtracking that may be performed during one mbregex
+      match.
+     </p>
+     <p class="para">
+      This setting only takes effect when linking against oniguruma &gt;= 6.8.0.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.mbstring.regex-stack-limit">
+     <code class="parameter">mbstring.regex_stack_limit</code>
+     <span class="type">int</span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Limits the stack depth of mbstring regular expressions.
+     </p>
+    </dd>
+
+   
   </dl>
 
  </p>
@@ -330,7 +376,7 @@ is highly discouraged.</p></div>
   <a href="ini.core.html#ini.sect.data-handling" class="link">default_charset</a> ini setting.
  </p>
  <p class="para">
-  <div class="example" id="example-2537">
+  <div class="example" id="example-2607">
   <p><strong>Example #1 <var class="filename">php.ini</var> setting examples</strong></p>
    <div class="example-contents">
 <div class="cdata"><pre>
@@ -372,7 +418,7 @@ mbstring.substitute_character = long    ; Long Example: U+3000,JIS+7E7E
   </div>
  </p>
  <p class="para">
-  <div class="example" id="example-2538">
+  <div class="example" id="example-2608">
    <p><strong>Example #2 <var class="filename">php.ini</var> setting for <code class="literal">EUC-JP</code> users</strong></p>
    <div class="example-contents">
 <div class="cdata"><pre>
@@ -405,7 +451,7 @@ mbstring.substitute_character = none
   </div>
  </p>
  <p class="para">
-  <div class="example" id="example-2539">
+  <div class="example" id="example-2609">
    <p><strong>Example #3 <var class="filename">php.ini</var> setting for <code class="literal">SJIS</code> users</strong></p>
    <div class="example-contents">
 <div class="cdata"><pre>

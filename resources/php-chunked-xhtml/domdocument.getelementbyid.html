@@ -80,7 +80,7 @@
 
  <div class="refsect1 examples" id="refsect1-domdocument.getelementbyid-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-5333">
+  <div class="example" id="example-5507">
    <p><strong>Example #1 DOMDocument::getElementById() Example</strong></p>
    <div class="example-contents"><p>The following examples use <var class="filename">book.xml</var> which contains the following:</p></div>
 <div class="example-contents">
@@ -116,7 +116,7 @@
 
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$doc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DomDocument</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;We&nbsp;need&nbsp;to&nbsp;validate&nbsp;our&nbsp;document&nbsp;before&nbsp;referring&nbsp;to&nbsp;the&nbsp;id<br /></span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">validateOnParse&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Load</span><span style="color: #007700">(</span><span style="color: #DD0000">'book.xml'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;element&nbsp;whose&nbsp;id&nbsp;is&nbsp;'php-basics'&nbsp;is:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElementById</span><span style="color: #007700">(</span><span style="color: #DD0000">'php-basics'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">tagName&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$doc </span><span style="color: #007700">= new </span><span style="color: #0000BB">DomDocument</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// We need to validate our document before referring to the id<br /></span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">validateOnParse </span><span style="color: #007700">= </span><span style="color: #0000BB">true</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Load</span><span style="color: #007700">(</span><span style="color: #DD0000">'book.xml'</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #DD0000">"The element whose id is 'php-basics' is: " </span><span style="color: #007700">. </span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElementById</span><span style="color: #007700">(</span><span style="color: #DD0000">'php-basics'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">tagName </span><span style="color: #007700">. </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

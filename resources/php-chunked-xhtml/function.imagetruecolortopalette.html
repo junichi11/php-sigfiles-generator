@@ -113,7 +113,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <td>8.0.0</td>
  <td>
   <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
-  instance now; previously, a <span class="type">resource</span> was expected.
+  instance now; previously, a valid <code class="literal">gd</code> <span class="type">resource</span> was expected.
  </td>
 </tr>
 
@@ -127,11 +127,11 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imagetruecolortopalette-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2719">
+   <div class="example" id="example-2789">
     <p><strong>Example #1 Converting a true color image to a palette-based image</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Create&nbsp;a&nbsp;new&nbsp;true&nbsp;color&nbsp;image<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Convert&nbsp;to&nbsp;palette-based&nbsp;with&nbsp;no&nbsp;dithering&nbsp;and&nbsp;255&nbsp;colors<br /></span><span style="color: #0000BB">imagetruecolortopalette</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Save&nbsp;the&nbsp;image<br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'./paletteimage.png'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Create a new true color image<br /></span><span style="color: #0000BB">$im </span><span style="color: #007700">= </span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">, </span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Convert to palette-based with no dithering and 255 colors<br /></span><span style="color: #0000BB">imagetruecolortopalette</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">, </span><span style="color: #0000BB">false</span><span style="color: #007700">, </span><span style="color: #0000BB">255</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Save the image<br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">, </span><span style="color: #DD0000">'./paletteimage.png'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

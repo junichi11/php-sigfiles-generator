@@ -59,11 +59,11 @@
  <div class="refsect1 examples" id="refsect1-function.snmp-get-valueretrieval-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4473">
+   <div class="example" id="example-4552">
     <p><strong>Example #1 Using <span class="function"><strong>snmp_get_valueretrieval()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">snmpget</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'public'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'IF-MIB::ifName.1'</span><span style="color: #007700">);<br />&nbsp;if&nbsp;(</span><span style="color: #0000BB">snmp_get_valueretrieval</span><span style="color: #007700">()&nbsp;&amp;&nbsp;</span><span style="color: #0000BB">SNMP_VALUE_OBJECT</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$ret</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">;<br />&nbsp;}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$ret</span><span style="color: #007700">;<br />&nbsp;}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /> $ret </span><span style="color: #007700">= </span><span style="color: #0000BB">snmpget</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #DD0000">'public'</span><span style="color: #007700">, </span><span style="color: #DD0000">'IF-MIB::ifName.1'</span><span style="color: #007700">);<br /> if (</span><span style="color: #0000BB">snmp_get_valueretrieval</span><span style="color: #007700">() &amp; </span><span style="color: #0000BB">SNMP_VALUE_OBJECT</span><span style="color: #007700">) {<br />   echo </span><span style="color: #0000BB">$ret</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">;<br /> } else {<br />   echo </span><span style="color: #0000BB">$ret</span><span style="color: #007700">;<br /> }<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

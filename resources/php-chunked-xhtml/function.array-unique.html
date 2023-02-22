@@ -78,10 +78,10 @@
 
       <p class="para">
        The optional second parameter <code class="parameter">flags</code>
-       may be used to modify the sorting behavior using these values:
+       may be used to modify the comparison behavior using these values:
       </p>
       <p class="para">
-       Sorting type flags:
+       Comparison type flags:
        <ul class="itemizedlist">
         <li class="listitem">
          <span class="simpara"><strong><code>SORT_REGULAR</code></strong> - compare items normally
@@ -153,11 +153,11 @@
  <div class="refsect1 examples" id="refsect1-function.array-unique-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4972">
+   <div class="example" id="example-5065">
     <p><strong>Example #1 <span class="function"><strong>array_unique()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$input&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"a"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"green"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"red"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"b"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"green"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"blue"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"red"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_unique</span><span style="color: #007700">(</span><span style="color: #0000BB">$input</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$input </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"a" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"green"</span><span style="color: #007700">, </span><span style="color: #DD0000">"red"</span><span style="color: #007700">, </span><span style="color: #DD0000">"b" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"green"</span><span style="color: #007700">, </span><span style="color: #DD0000">"blue"</span><span style="color: #007700">, </span><span style="color: #DD0000">"red"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result </span><span style="color: #007700">= </span><span style="color: #0000BB">array_unique</span><span style="color: #007700">(</span><span style="color: #0000BB">$input</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -176,11 +176,11 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4973">
+   <div class="example" id="example-5066">
     <p><strong>Example #2 <span class="function"><strong>array_unique()</strong></span> and types</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$input&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"4"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"3"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"3"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_unique</span><span style="color: #007700">(</span><span style="color: #0000BB">$input</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$input </span><span style="color: #007700">= array(</span><span style="color: #0000BB">4</span><span style="color: #007700">, </span><span style="color: #DD0000">"4"</span><span style="color: #007700">, </span><span style="color: #DD0000">"3"</span><span style="color: #007700">, </span><span style="color: #0000BB">4</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">, </span><span style="color: #DD0000">"3"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result </span><span style="color: #007700">= </span><span style="color: #0000BB">array_unique</span><span style="color: #007700">(</span><span style="color: #0000BB">$input</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

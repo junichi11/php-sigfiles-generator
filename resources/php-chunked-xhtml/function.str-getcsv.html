@@ -38,7 +38,7 @@
    <span class="methodname"><strong>str_getcsv</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code><span class="initializer"> = &quot;,&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$enclosure</code><span class="initializer"> = &quot;\&quot;&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$escape</code><span class="initializer"> = &quot;\\&quot;</span></span><br>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
-   Parses a string input for fields in <acronym title="Comma Separated Value">CSV</acronym> format
+   Parses a string input for fields in <abbr title="Comma Separated Value">CSV</abbr> format
    and returns an array containing the fields read.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
@@ -158,6 +158,40 @@
     
    </table>
 
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.str-getcsv-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-4922">
+    <p><strong>Example #1 <span class="function"><strong>str_getcsv()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$string </span><span style="color: #007700">= </span><span style="color: #DD0000">'PHP,Java,Python,Kotlin,Swift'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$data </span><span style="color: #007700">= </span><span style="color: #0000BB">str_getcsv</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+array(5) {
+  [0]=&gt;
+  string(3) &quot;PHP&quot;
+  [1]=&gt;
+  string(4) &quot;Java&quot;
+  [2]=&gt;
+  string(6) &quot;Python&quot;
+  [3]=&gt;
+  string(6) &quot;Kotlin&quot;
+  [4]=&gt;
+  string(5) &quot;Swift&quot;
+}
+</pre></div>
+    </div>
+   </div>
   </p>
  </div>
 

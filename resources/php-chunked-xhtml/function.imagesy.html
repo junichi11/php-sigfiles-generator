@@ -58,8 +58,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 returnvalues" id="refsect1-function.imagesy-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Return the height of the <code class="parameter">image</code> or <strong><code>false</code></strong> on 
-   errors.
+   Return the height of the <code class="parameter">image</code>.
   </p>
  </div>
 
@@ -81,7 +80,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <td>8.0.0</td>
  <td>
   <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
-  instance now; previously, a <span class="type">resource</span> was expected.
+  instance now; previously, a valid <code class="literal">gd</code> <span class="type">resource</span> was expected.
  </td>
 </tr>
 
@@ -95,11 +94,11 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imagesy-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2718">
+   <div class="example" id="example-2788">
     <p><strong>Example #1 Using <span class="function"><strong>imagesy()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;create&nbsp;a&nbsp;300*200&nbsp;image<br /></span><span style="color: #0000BB">$img&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">300</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">200</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">imagesy</span><span style="color: #007700">(</span><span style="color: #0000BB">$img</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;200<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">// create a 300*200 image<br /></span><span style="color: #0000BB">$img </span><span style="color: #007700">= </span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">300</span><span style="color: #007700">, </span><span style="color: #0000BB">200</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #0000BB">imagesy</span><span style="color: #007700">(</span><span style="color: #0000BB">$img</span><span style="color: #007700">); </span><span style="color: #FF8000">// 200<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

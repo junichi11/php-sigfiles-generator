@@ -84,11 +84,11 @@
  <div class="refsect1 examples" id="refsect1-function.debug-zval-dump-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5210">
+   <div class="example" id="example-5382">
     <p><strong>Example #1 <span class="function"><strong>debug_zval_dump()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$var1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Hello'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$var1&nbsp;</span><span style="color: #007700">.=&nbsp;</span><span style="color: #DD0000">'&nbsp;World'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$var2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$var1</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">debug_zval_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$var1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$var1 </span><span style="color: #007700">= </span><span style="color: #DD0000">'Hello'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$var1 </span><span style="color: #007700">.= </span><span style="color: #DD0000">' World'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$var2 </span><span style="color: #007700">= </span><span style="color: #0000BB">$var1</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">debug_zval_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$var1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -141,11 +141,11 @@ string(11) &quot;Hello World&quot; refcount(3)
     consider a slightly modified version of the above example:
    </p>
    <p class="para">
-    <div class="example" id="example-5211">
+    <div class="example" id="example-5383">
      
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$var1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Hello'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$var1&nbsp;</span><span style="color: #007700">.=&nbsp;</span><span style="color: #DD0000">'&nbsp;World'</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;Point&nbsp;three&nbsp;variables&nbsp;as&nbsp;references&nbsp;to&nbsp;the&nbsp;same&nbsp;value<br /></span><span style="color: #0000BB">$var2&nbsp;</span><span style="color: #007700">=&amp;&nbsp;</span><span style="color: #0000BB">$var1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$var3&nbsp;</span><span style="color: #007700">=&amp;&nbsp;</span><span style="color: #0000BB">$var1</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">debug_zval_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$var1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$var1 </span><span style="color: #007700">= </span><span style="color: #DD0000">'Hello'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$var1 </span><span style="color: #007700">.= </span><span style="color: #DD0000">' World'</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">// Point three variables as references to the same value<br /></span><span style="color: #0000BB">$var2 </span><span style="color: #007700">=&amp; </span><span style="color: #0000BB">$var1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$var3 </span><span style="color: #007700">=&amp; </span><span style="color: #0000BB">$var1</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">debug_zval_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$var1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

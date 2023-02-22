@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Checks if the object is of this class or has this class as one of its parents</title>
+  <title>Checks whether the object is of a given type or subtype</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,14 +19,14 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="ref.classobj.html">Classes/Object Functions</a></li>
-    <li>Checks if the object is of this class or has this class as one of its parents</li>
+    <li>Checks whether the object is of a given type or subtype</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="function.is-a" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">is_a</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">is_a</span> &mdash; <span class="dc-title">Checks if the object is of this class or has this class as one of its parents</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">is_a</span> &mdash; <span class="dc-title">Checks whether the object is of a given type or subtype</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.is-a-description">
@@ -35,7 +35,7 @@
    <span class="methodname"><strong>is_a</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$object_or_class</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$allow_string</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Checks if the given <code class="parameter">object_or_class</code> is of this class or has
+   Checks if the given <code class="parameter">object_or_class</code> is of this object type or has
    this class as one of its parents.
   </p>
  </div>
@@ -63,7 +63,7 @@
      <dd>
 
       <p class="para">
-       The class name
+       The class or interface name
       </p>
      </dd>
 
@@ -97,21 +97,21 @@
  <div class="refsect1 examples" id="refsect1-function.is-a-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5042">
+   <div class="example" id="example-5138">
     <p><strong>Example #1 <span class="function"><strong>is_a()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;define&nbsp;a&nbsp;class<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">WidgetFactory<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$oink&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'moo'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;create&nbsp;a&nbsp;new&nbsp;object<br /></span><span style="color: #0000BB">$WF&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">WidgetFactory</span><span style="color: #007700">();<br /><br />if&nbsp;(</span><span style="color: #0000BB">is_a</span><span style="color: #007700">(</span><span style="color: #0000BB">$WF</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'WidgetFactory'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"yes,&nbsp;\$WF&nbsp;is&nbsp;still&nbsp;a&nbsp;WidgetFactory\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// define a class<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">WidgetFactory<br /></span><span style="color: #007700">{<br />  var </span><span style="color: #0000BB">$oink </span><span style="color: #007700">= </span><span style="color: #DD0000">'moo'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">// create a new object<br /></span><span style="color: #0000BB">$WF </span><span style="color: #007700">= new </span><span style="color: #0000BB">WidgetFactory</span><span style="color: #007700">();<br /><br />if (</span><span style="color: #0000BB">is_a</span><span style="color: #007700">(</span><span style="color: #0000BB">$WF</span><span style="color: #007700">, </span><span style="color: #DD0000">'WidgetFactory'</span><span style="color: #007700">)) {<br />  echo </span><span style="color: #DD0000">"yes, \$WF is still a WidgetFactory\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-5043">
+   <div class="example" id="example-5139">
     <p><strong>Example #2 Using the <em class="emphasis">instanceof</em> operator</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$WF&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">WidgetFactory</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Yes,&nbsp;$WF&nbsp;is&nbsp;a&nbsp;WidgetFactory'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">$WF </span><span style="color: #007700">instanceof </span><span style="color: #0000BB">WidgetFactory</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">'Yes, $WF is a WidgetFactory'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

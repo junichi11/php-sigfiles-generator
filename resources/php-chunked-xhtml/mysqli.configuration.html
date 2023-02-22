@@ -54,7 +54,7 @@ The behaviour of these functions is affected by settings in <var class="filename
       <td><a href="mysqli.configuration.html#ini.mysqli.local-infile-directory" class="link">mysqli.local_infile_directory</a></td>
       <td class="empty">&nbsp;</td>
       <td>PHP_INI_SYSTEM</td>
-      <td class="empty">&nbsp;</td>
+      <td>Available as of PHP 8.1.0.</td>
      </tr>
 
      <tr>
@@ -117,7 +117,7 @@ The behaviour of these functions is affected by settings in <var class="filename
       <td><a href="mysqli.configuration.html#ini.mysqli.reconnect" class="link">mysqli.reconnect</a></td>
       <td>&quot;0&quot;</td>
       <td>PHP_INI_SYSTEM</td>
-      <td class="empty">&nbsp;</td>
+      <td>Removed as of PHP 8.2.0</td>
      </tr>
 
      <tr>
@@ -317,7 +317,9 @@ the configuration directives.</p>
      Automatically reconnect if the connection was lost.
     </p>
     <blockquote class="note"><p><strong class="note">Note</strong>: 
-     <span class="simpara">This <var class="filename">php.ini</var> setting is ignored by the mysqlnd driver.</span>
+     <span class="simpara">This <var class="filename">php.ini</var> setting had been ignored by the mysqlnd driver, and was removed
+      as of PHP 8.2.0.
+     </span>
     </p></blockquote>
    </dd>
 

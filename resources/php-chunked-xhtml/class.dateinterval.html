@@ -39,7 +39,8 @@
    <p class="para">
     A date interval stores either a fixed amount of time (in years, months,
     days, hours etc) or a relative time string in the format that
-    <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span>&#039;s constructor supports.
+    <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span>&#039;s and
+    <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span>&#039;s constructors support.
    </p>
    <p class="para">
     More specifically, the information in an object of the
@@ -49,7 +50,12 @@
    <p class="para">
     A common way to create a <span class="classname"><strong class="classname">DateInterval</strong></span> object
     is by calculating the difference between two date/time objects through
-    <span class="function"><a href="datetime.diff.html" class="function">DateTimeInterface::diff()</a></span>.
+    <span class="methodname"><a href="datetime.diff.html" class="methodname">DateTimeInterface::diff()</a></span>.
+   </p>
+   <p class="para">
+    Since there is no well defined way to compare date intervals,
+    <span class="classname"><strong class="classname">DateInterval</strong></span> instances are
+    <a href="language.operators.comparison.html#language.operators.comparison.incomparable" class="link">incomparable</a>.
    </p>
   </div>
 
@@ -107,6 +113,14 @@
      <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
       <var class="varname"><a href="class.dateinterval.html#dateinterval.props.days">$<var class="varname">days</var></a></var>;</div>
 
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">bool</span>
+      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.from-string">$<var class="varname">from_string</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.dateinterval.html#dateinterval.props.date-string">$<var class="varname">date_string</var></a></var>;</div>
+
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="constructorsynopsis dc-description">
@@ -122,6 +136,12 @@
   
   <div class="section" id="dateinterval.props">
    <h2 class="title">Properties</h2>
+   <div class="warning"><strong class="warning">Warning</strong>
+    <p class="para">
+     The available properties listed below depend on PHP version, and should
+     be considered as <em class="emphasis">readonly</em>.
+    </p>
+   </div>
    <dl>
     
      <dt id="dateinterval.props.y"><var class="varname">y</var></dt>
@@ -221,9 +241,39 @@
 
       <p class="para">
        If the DateInterval object was created by
-       <span class="function"><a href="datetime.diff.html" class="function">DateTime::diff()</a></span>, then this is the total number of
-       days between the start and end dates. Otherwise,
+       <span class="methodname"><a href="datetime.diff.html" class="methodname">DateTimeImmutable::diff()</a></span> or
+       <span class="methodname"><a href="datetime.diff.html" class="methodname">DateTime::diff()</a></span>, then this is the
+       total number of full days between the start and end dates. Otherwise,
        <var class="varname">days</var> will be <strong><code>false</code></strong>.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="dateinterval.props.from-string"><var class="varname">from_string</var></dt>
+
+     <dd>
+
+      <p class="para">
+       If the DateInterval object was created by
+       <span class="methodname"><a href="dateinterval.createfromdatestring.html" class="methodname">DateInterval::createFromDateString()</a></span>, then
+       this property&#039;s value will be <strong><code>true</code></strong>, and the
+       <var class="varname">date_string</var> property will be populated. Otherwise,
+       the value will be <strong><code>false</code></strong>, and the <var class="varname">y</var> to
+       <var class="varname">f</var>, <var class="varname">invert</var>, and
+       <var class="varname">days</var> properties will be populated.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="dateinterval.props.date-string"><var class="varname">date_string</var></dt>
+
+     <dd>
+
+      <p class="para">
+       The string used as argument to
+       <span class="methodname"><a href="dateinterval.createfromdatestring.html" class="methodname">DateInterval::createFromDateString()</a></span>.
       </p>
      </dd>
 
@@ -247,6 +297,32 @@
 
       <tbody class="tbody">
        <tr>
+        <td>8.2.0</td>
+        <td>
+         The <var class="varname">from_string</var> and <var class="varname">date_string</var>
+         properties were added for <span class="classname"><strong class="classname">DateInterval</strong></span>
+         instances that were created using the
+         <span class="methodname"><a href="dateinterval.createfromdatestring.html" class="methodname">DateInterval::createFromDateString()</a></span> method.
+        </td>
+       </tr>
+
+       <tr>
+        <td>8.2.0</td>
+        <td>
+         Only the <code class="literal">y</code> to <code class="literal">f</code>,
+         <code class="literal">invert</code>, and <code class="literal">days</code> will be visible.
+        </td>
+       </tr>
+
+       <tr>
+        <td>7.4.0</td>
+        <td>
+         <span class="classname"><strong class="classname">DateInterval</strong></span> instances are incomparable now;
+         previously, all <span class="classname"><strong class="classname">DateInterval</strong></span> instances were considered equal.
+        </td>
+       </tr>
+
+       <tr>
         <td>7.1.0</td>
         <td>The <var class="varname">f</var> property was added.</td>
        </tr>
@@ -261,8 +337,6 @@
  </div>
 
  
-
-
 
 
 

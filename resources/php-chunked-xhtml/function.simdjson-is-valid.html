@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Check if a JSON string is valid</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.simdjson-decode.html">« simdjson_decode</a></li>
+      <li style="float: right;"><a href="function.simdjson-key-count.html">simdjson_key_count »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.simdjson.html">Simdjson Functions</a></li>
+    <li>Check if a JSON string is valid</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.simdjson-is-valid" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">simdjson_is_valid</h1>
+  <p class="verinfo">(PECL simdjson &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">simdjson_is_valid</span> &mdash; <span class="dc-title">Check if a JSON string is valid</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.simdjson-is-valid-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>simdjson_is_valid</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$json</code><span class="initializer"> = <strong><code>false</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$depth</code><span class="initializer"> = 512</span></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Takes a JSON encoded string and returns true if it is valid.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.simdjson-is-valid-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">json</code></dt>
+
+    <dd>
+
+      <p class="para">
+       The <code class="parameter">json</code> <span class="type">string</span> being validated.
+      </p>
+      <p class="para">
+       This function only works with UTF-8 encoded strings.
+      </p>
+      <p class="para">
+       This function validates inputs which
+       <span class="function"><a href="function.json-decode.html" class="function">json_decode()</a></span> can decode,
+       provided that they are less than 4 GiB long.
+      </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">depth</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Maximum nesting depth of the structure being validated.
+      The value must be greater than <code class="literal">0</code>,
+      and less than or equal to <code class="literal">2147483647</code>.
+
+      Callers should use reasonably small values,
+      because larger depths require more buffer space and will
+      increase the recursion depth, unlike the current <span class="function"><a href="function.json-decode.html" class="function">json_decode()</a></span> implementation.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.simdjson-is-valid-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> if <code class="parameter">json</code> is a valid JSON
+   string, <strong><code>false</code></strong> otherwise.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.simdjson-is-valid-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   If <code class="parameter">json</code> is longer than 4 GiB, a <span class="classname"><a href="class.simdjsonexception.html" class="classname">SimdJsonException</a></span> is thrown as of PECL simdjson 2.1.0,
+   while previously, a <span class="classname"><a href="class.runtimeexception.html" class="classname">RuntimeException</a></span> was thrown.
+  </p>
+  <p class="para">
+   If <code class="parameter">depth</code> is outside the allowed range,
+   a <span class="classname"><a href="class.simdjsonvalueerror.html" class="classname">SimdJsonValueError</a></span> is thrown as of PECL simdjson 3.0.0,
+   while previously, an error of level <strong><code>E_WARNING</code></strong> was raised.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.simdjson-is-valid-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-3519">
+    <p><strong>Example #1 <span class="function"><a href="function.simdjson-decode.html" class="function">simdjson_decode()</a></span> examples</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$json </span><span style="color: #007700">= </span><span style="color: #DD0000">'{"a":1,"b":2,"c":3}'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$invalidJson </span><span style="color: #007700">= </span><span style="color: #DD0000">'{"a":1,"b":2,"c":'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">simdjson_is_valid</span><span style="color: #007700">(</span><span style="color: #0000BB">$json</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">simdjson_is_valid</span><span style="color: #007700">(</span><span style="color: #0000BB">$invalidJson</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+bool(true)
+bool(false)
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-3520">
+    <p><strong>Example #2 <code class="parameter">depth</code> errors</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Encode some data with a maximum depth of 4<br />// (array -&gt; array -&gt; array -&gt; string)<br /></span><span style="color: #0000BB">$json </span><span style="color: #007700">= </span><span style="color: #0000BB">json_encode</span><span style="color: #007700">(<br />    [<br />        </span><span style="color: #0000BB">1 </span><span style="color: #007700">=&gt; [<br />            </span><span style="color: #DD0000">'English' </span><span style="color: #007700">=&gt; [<br />                </span><span style="color: #DD0000">'One'</span><span style="color: #007700">,<br />                </span><span style="color: #DD0000">'January'<br />            </span><span style="color: #007700">],<br />            </span><span style="color: #DD0000">'French' </span><span style="color: #007700">=&gt; [<br />                </span><span style="color: #DD0000">'Une'</span><span style="color: #007700">,<br />                </span><span style="color: #DD0000">'Janvier'<br />            </span><span style="color: #007700">]<br />        ]<br />    ]<br />);<br /><br /></span><span style="color: #FF8000">// Show the errors for different depths.<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">simdjson_is_valid</span><span style="color: #007700">(</span><span style="color: #0000BB">$json</span><span style="color: #007700">, </span><span style="color: #0000BB">4</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">simdjson_is_valid</span><span style="color: #007700">(</span><span style="color: #0000BB">$json</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+bool(true)
+bool(false)
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.simdjson-is-valid-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    The JSON spec is not JavaScript, but a subset of JavaScript.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    In the event of a failure to decode,
+    a <span class="classname"><a href="class.simdjsonexception.html" class="classname">SimdJsonException</a></span> is thrown
+    and <span class="methodname"><strong>SimdJsonException::getCode()</strong></span> and
+    <span class="methodname"><strong>SimdJsonException::getMessage()</strong></span> can be used
+    to determine the exact nature of the error.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.simdjson-is-valid-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.json-encode.html" class="function" rel="rdfs-seeAlso">json_encode()</a> - Returns the JSON representation of a value</span></li>
+    <li class="member"><span class="function"><a href="function.json-decode.html" class="function" rel="rdfs-seeAlso">json_decode()</a> - Decodes a JSON string</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

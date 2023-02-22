@@ -33,26 +33,34 @@
  <div class="refsect1 description" id="refsect1-reserved.variables.server-description">
   <h3 class="title">Description</h3>
   <p class="para">
-   <var class="varname">$_SERVER</var> is an array containing information
-   such as headers, paths, and script locations. The entries in this
-   array are created by the web server. There is no guarantee that
-   every web server will provide any of these; servers may omit some,
-   or provide others not listed here. That said, a large number of
-   these variables are accounted for in the <a href="http://www.faqs.org/rfcs/rfc3875" class="link external">&raquo;&nbsp;CGI/1.1 specification</a>, so you should
-   be able to expect those.
+   <var class="varname">$_SERVER</var> is an <span class="type">array</span> containing information
+   such as headers, paths, and script locations.
+   The entries in this array are created by the web server, therefore there
+   is no guarantee that every web server will provide any of these;
+   servers may omit some, or provide others not listed here.
+   However, most of these variables are accounted for in the
+   <a href="http://www.faqs.org/rfcs/rfc3875" class="link external">&raquo;&nbsp;CGI/1.1 specification</a>,
+   and are likely to be defined.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    When running PHP on the <a href="features.commandline.html" class="link">command line</a>
+    most of these entries will not be available or have any meaning.
+   </span>
+  </p></blockquote>
+  <p class="para">
+   In addition to the elements listed below, PHP will create additional
+   elements with values from request headers. These entries will be named
+   <code class="literal">HTTP_</code> followed by the header name,
+   capitalized and with underscores instead of hyphens.
+   For example, the <code class="literal">Accept-Language</code> header would be
+   available as <code class="code">$_SERVER[&#039;HTTP_ACCEPT_LANGUAGE&#039;]</code>.
   </p>
  </div>
 
 
  <div class="refsect1 indices" id="refsect1-reserved.variables.server-indices">
   <h3 class="title">Indices</h3>
-
-  <p class="simpara">
-   You may or may not find any of the following elements in
-   <var class="varname">$_SERVER</var>. Note that few, if any, of these will be
-   available (or indeed have any meaning) if running PHP on the
-   <a href="features.commandline.html" class="link">command line</a>.
-  </p>
 
   <p class="para">
    <dl>
@@ -118,7 +126,7 @@
 
       <span class="simpara">
        What revision of the CGI specification the server is using;
-       e.g. &#039;<code class="literal">CGI/1.1</code>&#039;.
+       e.g. <code class="literal">&#039;CGI/1.1&#039;</code>.
       </span>
      </dd>
 
@@ -151,9 +159,9 @@
       </span>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <span class="simpara">
-        Under Apache 2, you must set <code class="literal">UseCanonicalName = On</code>
-        and <code class="literal">ServerName</code>. Otherwise, this value reflects the
-        hostname supplied by the client, which can be spoofed.
+        Under Apache 2, <code class="literal">UseCanonicalName = On</code> and
+        <code class="literal">ServerName</code> must be set. Otherwise, this value
+        reflects the hostname supplied by the client, which can be spoofed.
         It is not safe to rely on this value in security-dependent contexts.
        </span>
       </p></blockquote>
@@ -183,7 +191,7 @@
 
       <span class="simpara">
        Name and revision of the information protocol via which the
-       page was requested; e.g. &#039;<code class="literal">HTTP/1.0</code>&#039;;
+       page was requested; e.g. <code class="literal">&#039;HTTP/1.0&#039;</code>;
       </span>
      </dd>
 
@@ -196,8 +204,8 @@
      <dd>
 
       <span class="simpara">
-       Which request method was used to access the page; e.g. &#039;<code class="literal">GET</code>&#039;,
-       &#039;<code class="literal">HEAD</code>&#039;, &#039;<code class="literal">POST</code>&#039;, &#039;<code class="literal">PUT</code>&#039;.
+       Which request method was used to access the page; e.g. <code class="literal">&#039;GET&#039;</code>,
+       <code class="literal">&#039;HEAD&#039;</code>, <code class="literal">&#039;POST&#039;</code>, <code class="literal">&#039;PUT&#039;</code>.
       </span>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
@@ -265,128 +273,6 @@
 
     
      <dt>
-&#039;<var class="varname">HTTP_ACCEPT</var>&#039;</dt>
-
-     <dd>
-
-      <span class="simpara">
-       Contents of the <code class="literal">Accept:</code> header from the
-       current request, if there is one.
-      </span>
-     </dd>
-
-    
-
-    
-     <dt>
-&#039;<var class="varname">HTTP_ACCEPT_CHARSET</var>&#039;</dt>
-
-     <dd>
-
-      <span class="simpara">
-       Contents of the <code class="literal">Accept-Charset:</code> header
-       from the current request, if there is one. Example:
-       &#039;<code class="literal">iso-8859-1,*,utf-8</code>&#039;.
-      </span>
-     </dd>
-
-    
-
-    
-     <dt>
-&#039;<var class="varname">HTTP_ACCEPT_ENCODING</var>&#039;</dt>
-
-     <dd>
-
-      <span class="simpara">
-       Contents of the <code class="literal">Accept-Encoding:</code> header
-       from the current request, if there is one. Example: &#039;<code class="literal">gzip</code>&#039;.
-      </span>
-     </dd>
-
-    
-    
-    
-     <dt>
-&#039;<var class="varname">HTTP_ACCEPT_LANGUAGE</var>&#039;</dt>
-
-     <dd>
-
-      <span class="simpara">
-       Contents of the <code class="literal">Accept-Language:</code> header
-       from the current request, if there is one. Example: &#039;<code class="literal">en</code>&#039;.
-      </span>
-     </dd>
-
-    
-    
-    
-     <dt>
-&#039;<var class="varname">HTTP_CONNECTION</var>&#039;</dt>
-
-     <dd>
-
-      <span class="simpara">
-       Contents of the <code class="literal">Connection:</code> header from
-       the current request, if there is one. Example: &#039;<code class="literal">Keep-Alive</code>&#039;.
-      </span>
-     </dd>
-
-    
-
-    
-     <dt>
-&#039;<var class="varname">HTTP_HOST</var>&#039;</dt>
-
-     <dd>
-
-      <span class="simpara">
-       Contents of the <code class="literal">Host:</code> header from the
-       current request, if there is one.
-      </span>
-     </dd>
-
-    
-
-    
-     <dt>
-&#039;<var class="varname">HTTP_REFERER</var>&#039;</dt>
-
-     <dd>
-
-      <span class="simpara">
-       The address of the page (if any) which referred the user
-       agent to the current page. This is set by the user agent. Not
-       all user agents will set this, and some provide the ability
-       to modify <var class="varname">HTTP_REFERER</var> as a feature. In
-       short, it cannot really be trusted.
-      </span>
-     </dd>
-
-    
-
-    
-     <dt>
-&#039;<var class="varname">HTTP_USER_AGENT</var>&#039;</dt>
-
-     <dd>
-
-      <span class="simpara">
-       Contents of the <code class="literal">User-Agent:</code> header from
-       the current request, if there is one. This is a string
-       denoting the user agent being which is accessing the page. A
-       typical example is: <span class="computeroutput">Mozilla/4.5 [en] (X11; U;
-       Linux 2.2.9 i586)</span>. Among other things, you
-       can use this value with <span class="function"><a href="function.get-browser.html" class="function">get_browser()</a></span> to
-       tailor your page&#039;s output to the capabilities of the user
-       agent.
-      </span>
-     </dd>
-
-    
-
-    
-     <dt>
 &#039;<var class="varname">HTTPS</var>&#039;</dt>
 
      <dd>
@@ -426,9 +312,9 @@
       </span>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <span class="simpara">
-        Your web server must be configured to create this variable. For
-        example in Apache you&#039;ll need <code class="literal">HostnameLookups On</code>
-        inside <var class="filename">httpd.conf</var> for it to exist.  See also
+        The web server must be configured to create this variable.
+        For example in Apache <code class="literal">HostnameLookups On</code> must be
+        set inside <var class="filename">httpd.conf</var> for it to exist.  See also
         <span class="function"><a href="function.gethostbyaddr.html" class="function">gethostbyaddr()</a></span>.
        </span>
       </p></blockquote>
@@ -522,16 +408,16 @@
 
       <span class="simpara">
        The port on the server machine being used by the web server
-       for communication. For default setups, this will be &#039;<code class="literal">80</code>&#039;;
+       for communication. For default setups, this will be <code class="literal">&#039;80&#039;</code>;
        using SSL, for instance, will change this to whatever your
        defined secure HTTP port is.
       </span>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <span class="simpara">
-        Under the Apache 2, you must set <code class="literal">UseCanonicalName = On</code>, 
-        as well as <code class="literal">UseCanonicalPhysicalPort = On</code> in order to
-        get the physical (real) port, otherwise, this value can be spoofed and it
-        may or may not return the physical port value.
+        Under Apache 2, <code class="literal">UseCanonicalName = On</code>, as well
+        as <code class="literal">UseCanonicalPhysicalPort = On</code> must be set in
+        order to get the physical (real) port, otherwise, this value can be
+        spoofed, and it may or may not return the physical port value.
         It is not safe to rely on this value in security-dependent contexts.
        </span>
       </p></blockquote>
@@ -670,10 +556,9 @@
 
       <span class="simpara">
        Contains any client-provided pathname information trailing the
-       actual script filename but preceding the query string, if
-       available. For instance, if the current script was accessed via
-       the
-       URL <var class="filename">http://www.example.com/php/path_info.php/some/stuff?foo=bar</var>,
+       actual script filename but preceding the query string, if available.
+       For instance, if the current script was accessed via the URI
+       <var class="filename">http://www.example.com/php/path_info.php/some/stuff?foo=bar</var>,
        then <var class="varname">$_SERVER['PATH_INFO']</var> would
        contain <code class="literal">/some/stuff</code>.
       </span>
@@ -708,7 +593,7 @@
     <p><strong>Example #1 <var class="varname">$_SERVER</var> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SERVER_NAME'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SERVER_NAME'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

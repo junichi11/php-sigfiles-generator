@@ -91,11 +91,11 @@
  <div class="refsect1 examples" id="refsect1-luasandbox.setcpulimit-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3489">
+   <div class="example" id="example-3532">
     <p><strong>Example #1 Calling a Lua function</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;create&nbsp;a&nbsp;new&nbsp;LuaSandbox<br /></span><span style="color: #0000BB">$sandbox&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LuaSandbox</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;set&nbsp;a&nbsp;time&nbsp;limit<br /></span><span style="color: #0000BB">$sandbox</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setCPULimit</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Run&nbsp;Lua&nbsp;code<br /></span><span style="color: #0000BB">$sandbox</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadString</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'while&nbsp;true&nbsp;do&nbsp;end'&nbsp;</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">call</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">// create a new LuaSandbox<br /></span><span style="color: #0000BB">$sandbox </span><span style="color: #007700">= new </span><span style="color: #0000BB">LuaSandbox</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">// set a time limit<br /></span><span style="color: #0000BB">$sandbox</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setCPULimit</span><span style="color: #007700">( </span><span style="color: #0000BB">2 </span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Run Lua code<br /></span><span style="color: #0000BB">$sandbox</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadString</span><span style="color: #007700">( </span><span style="color: #DD0000">'while true do end' </span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">call</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

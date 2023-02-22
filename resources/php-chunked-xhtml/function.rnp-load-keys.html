@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Load keys from PHP string</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.rnp-load-keys-from-path.html">« rnp_load_keys_from_path</a></li>
+      <li style="float: right;"><a href="function.rnp-locate-key.html">rnp_locate_key »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.rnp.html">Rnp Functions</a></li>
+    <li>Load keys from PHP string</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.rnp-load-keys" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">rnp_load_keys</h1>
+  <p class="verinfo">(PECL rnp &gt;= 0.1.1)</p><p class="refpurpose"><span class="refname">rnp_load_keys</span> &mdash; <span class="dc-title">Load keys from PHP string</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.rnp-load-keys-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>rnp_load_keys</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.rnpffi.html" class="type RnpFFI">RnpFFI</a></span> <code class="parameter">$ffi</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$input</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span><br>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Note that for G10, the input must be a directory (which must already exist).
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.rnp-load-keys-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">ffi</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The FFI object returned by rnp_ffi_create.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">format</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The key format of the data (GPG, KBX, G10).
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">input</code></dt>
+
+    <dd>
+
+     <p class="para">
+      OpenPGP packets containing key(s) to be loaded. Can be either binary or ASCII armored.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">flags</code></dt>
+
+    <dd>
+
+     <p class="para">
+      See RNP_LOAD_SAVE_* flags description.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.rnp-load-keys-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
+  </p>
+ </div>
+
+
+
+</div></div></div></body></html>

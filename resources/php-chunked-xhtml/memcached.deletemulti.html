@@ -36,21 +36,8 @@
    <span class="modifier">public</span> <span class="methodname"><strong>Memcached::deleteMulti</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$keys</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$time</code><span class="initializer"> = 0</span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>Memcached::deleteMulti()</strong></span> deletes the array of
-   <code class="parameter">keys</code> from the server. The <code class="parameter">time</code>
-   parameter is the amount of time in seconds (or Unix time until which) the
-   client wishes the server to refuse <code class="literal">add</code> and
-   <code class="literal">replace</code> commands for these keys. For this amount of time,
-   the item is put into a delete queue, which means that it won&#039;t be possible to
-   retrieve it by the <code class="literal">get</code> command, but
-   <code class="literal">add</code> and <code class="literal">replace</code> command with these keys
-   will also fail (the <code class="literal">set</code> command will succeed, however).
-   After the time passes, the item is finally deleted from server memory. The
-   parameter <code class="parameter">time</code> defaults to 0 (which means that the
-   item will be deleted immediately and further storage commands with these keys
-   will succeed).
+   Delete the array of <code class="parameter">keys</code> from the server.
   </p>
-
  </div>
 
 
@@ -79,6 +66,13 @@
       <p class="para">
        The amount of time the server will wait to delete the items.
       </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">
+       As of memcached 1.3.0 (released 2009) this feature is no longer
+       supported. Passing a non-zero <code class="parameter">time</code> will cause
+       the deletion to fail. <span class="methodname"><a href="memcached.getresultcode.html" class="methodname">Memcached::getResultCode()</a></span>
+       will return <strong><code>MEMCACHED_INVALID_ARGUMENTS</code></strong>.
+      </span></p></blockquote>
+
      </dd>
 
     
@@ -91,10 +85,17 @@
  <div class="refsect1 returnvalues" id="refsect1-memcached.deletemulti-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns array indexed by <code class="parameter">keys</code> and where values are indicating whether operation succeeded or not.
+   Returns an array indexed by <code class="parameter">keys</code>. Each element
+   is <strong><code>true</code></strong> if the corresponding key was deleted, or one of the
+   <strong><code>Memcached::RES_*</code></strong> constants if the corresponding deletion
+   failed.
+   </p>
+  <p class="para">
    The <span class="methodname"><a href="memcached.getresultcode.html" class="methodname">Memcached::getResultCode()</a></span> will return
-   <strong><code>Memcached::RES_NOTFOUND</code></strong> if the key does not exist.
+   the result code for the last executed delete operation, that is, the delete
+   operation for the last element of <code class="parameter">keys</code>.
   </p>
+
  </div>
 
 

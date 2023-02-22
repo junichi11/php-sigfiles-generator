@@ -56,7 +56,7 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">A&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">counter</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: #0000BB">$counter&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$counter</span><span style="color: #007700">++;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$counter</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br />class&nbsp;</span><span style="color: #0000BB">B&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">A&nbsp;</span><span style="color: #007700">{}<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">A</span><span style="color: #007700">::</span><span style="color: #0000BB">counter</span><span style="color: #007700">());&nbsp;</span><span style="color: #FF8000">//&nbsp;int(1)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">A</span><span style="color: #007700">::</span><span style="color: #0000BB">counter</span><span style="color: #007700">());&nbsp;</span><span style="color: #FF8000">//&nbsp;int(2)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">B</span><span style="color: #007700">::</span><span style="color: #0000BB">counter</span><span style="color: #007700">());&nbsp;</span><span style="color: #FF8000">//&nbsp;int(3),&nbsp;previously&nbsp;int(1)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">B</span><span style="color: #007700">::</span><span style="color: #0000BB">counter</span><span style="color: #007700">());&nbsp;</span><span style="color: #FF8000">//&nbsp;int(4),&nbsp;previously&nbsp;int(2)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">A </span><span style="color: #007700">{<br />    public static function </span><span style="color: #0000BB">counter</span><span style="color: #007700">() {<br />        static </span><span style="color: #0000BB">$counter </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />        </span><span style="color: #0000BB">$counter</span><span style="color: #007700">++;<br />        return </span><span style="color: #0000BB">$counter</span><span style="color: #007700">;<br />    }<br />}<br />class </span><span style="color: #0000BB">B </span><span style="color: #007700">extends </span><span style="color: #0000BB">A </span><span style="color: #007700">{}<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">A</span><span style="color: #007700">::</span><span style="color: #0000BB">counter</span><span style="color: #007700">()); </span><span style="color: #FF8000">// int(1)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">A</span><span style="color: #007700">::</span><span style="color: #0000BB">counter</span><span style="color: #007700">()); </span><span style="color: #FF8000">// int(2)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">B</span><span style="color: #007700">::</span><span style="color: #0000BB">counter</span><span style="color: #007700">()); </span><span style="color: #FF8000">// int(3), previously int(1)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">B</span><span style="color: #007700">::</span><span style="color: #0000BB">counter</span><span style="color: #007700">()); </span><span style="color: #FF8000">// int(4), previously int(2)<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -65,6 +65,52 @@
 
     This means that static variables in methods now behave the same way as
     static properties.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.incompatible.core.optional-before-required">
+   <h4 class="title">Optional parameters specified before required parameters</h4>
+
+   <p class="para">
+    An <a href="functions.arguments.html#functions.arguments.default" class="link">optional parameter</a>
+    specified before required parameters is now always treated as required,
+    even when called using
+    <a href="functions.arguments.html#functions.named-arguments" class="link">named arguments</a>.
+    As of PHP 8.0.0, but prior to PHP 8.1.0, the below emits a deprecation notice
+    on the definition, but runs successfully when called. As of PHP 8.1.0, an error
+    of class <span class="classname"><a href="class.argumentcounterror.html" class="classname">ArgumentCountError</a></span> is thrown, as it would be when
+    called with positional arguments.
+
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">makeyogurt</span><span style="color: #007700">(</span><span style="color: #0000BB">$container </span><span style="color: #007700">= </span><span style="color: #DD0000">"bowl"</span><span style="color: #007700">, </span><span style="color: #0000BB">$flavour</span><span style="color: #007700">)<br />{<br />    return </span><span style="color: #DD0000">"Making a </span><span style="color: #0000BB">$container</span><span style="color: #DD0000"> of </span><span style="color: #0000BB">$flavour</span><span style="color: #DD0000"> yogurt.\n"</span><span style="color: #007700">;<br />}<br />try<br />{<br />    echo </span><span style="color: #0000BB">makeyogurt</span><span style="color: #007700">(</span><span style="color: #0000BB">flavour</span><span style="color: #007700">: </span><span style="color: #DD0000">"raspberry"</span><span style="color: #007700">);<br />}<br />catch (</span><span style="color: #0000BB">Error $e</span><span style="color: #007700">)<br />{<br />    echo </span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$e</span><span style="color: #007700">), </span><span style="color: #DD0000">' - '</span><span style="color: #007700">, </span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">(), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+     <p class="para">Output of the above example in PHP 8.0:</p>
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+Deprecated: Required parameter $flavour follows optional parameter $container
+ in example.php on line 3
+Making a bowl of raspberry yogurt.
+</pre></div>
+     </div>
+     <p class="para">Output of the above example in PHP 8.1:</p>
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+Deprecated: Optional parameter $container declared before required parameter
+ $flavour is implicitly treated as a required parameter in example.php on line 3
+ArgumentCountError - makeyogurt(): Argument #1 ($container) not passed
+</pre></div>
+     </div>
+    </div>
+   </p>
+   <p class="para">
+    Note that a default value of <strong><code>null</code></strong> can be used before required parameters to
+    specify a <a href="language.types.declarations.html#language.types.declarations.nullable" class="link">nullable type</a>,
+    but the parameter will still be required.
    </p>
   </div>
 
@@ -77,7 +123,7 @@
     inheritance validation.
     In case the return type cannot be declared for an overriding method due to
     PHP cross-version compatibility concerns,
-    a <code class="code">#[ReturnTypeWillChange]</code> attribute can be added to silence
+    a <span class="classname"><a href="class.returntypewillchange.html" class="classname">ReturnTypeWillChange</a></span> attribute can be added to silence
     the deprecation notice.
    </p>
   </div>
@@ -87,6 +133,10 @@
    <p class="para">
     <code class="literal">readonly</code> is a keyword now. However, it still may be used
     as function name.
+   </p>
+   <p class="para">
+    <code class="literal">never</code> is now a reserved word, so it cannot be used to name a class,
+    interface or trait, and is also prohibited from being used in namespaces.
    </p>
   </div>
  </div>
@@ -218,7 +268,7 @@
 
   <p class="para">
    Classes extending <span class="methodname"><a href="mysqli-stmt.execute.html" class="methodname">mysqli_stmt::execute()</a></span>
-   are now required to specify the additional mandatory parameter.
+   are now required to specify the additional optional parameter.
   </p>
  </div>
 

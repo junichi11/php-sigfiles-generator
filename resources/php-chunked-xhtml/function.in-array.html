@@ -86,6 +86,14 @@
        <a href="language.types.html" class="link">types</a> of the
        <code class="parameter">needle</code> in the <code class="parameter">haystack</code>.
       </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+       <p class="para">
+        Prior to PHP 8.0.0, a <code class="literal">string</code> <code class="parameter">needle</code> will match an array
+        value of <code class="literal">0</code> in non-strict mode, and vice versa.  That may lead to undesireable
+        results.  Similar edge cases exist for other types, as well.  If not absolutely certain of the
+        types of values involved, always use the <code class="parameter">strict</code> flag to avoid unexpected behavior.
+       </p>
+      </p></blockquote>
      </dd>
 
     
@@ -105,11 +113,11 @@
  <div class="refsect1 examples" id="refsect1-function.in-array-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4994">
+   <div class="example" id="example-5089">
     <p><strong>Example #1 <span class="function"><strong>in_array()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$os&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"Mac"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"NT"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Irix"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Linux"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #DD0000">"Irix"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$os</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Got&nbsp;Irix"</span><span style="color: #007700">;<br />}<br />if&nbsp;(</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #DD0000">"mac"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$os</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Got&nbsp;mac"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$os </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"Mac"</span><span style="color: #007700">, </span><span style="color: #DD0000">"NT"</span><span style="color: #007700">, </span><span style="color: #DD0000">"Irix"</span><span style="color: #007700">, </span><span style="color: #DD0000">"Linux"</span><span style="color: #007700">);<br />if (</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #DD0000">"Irix"</span><span style="color: #007700">, </span><span style="color: #0000BB">$os</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">"Got Irix"</span><span style="color: #007700">;<br />}<br />if (</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #DD0000">"mac"</span><span style="color: #007700">, </span><span style="color: #0000BB">$os</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">"Got mac"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -126,11 +134,11 @@ Got Irix
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4995">
+   <div class="example" id="example-5090">
     <p><strong>Example #2 <span class="function"><strong>in_array()</strong></span> with strict example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'1.10'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">12.4</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1.13</span><span style="color: #007700">);<br /><br />if&nbsp;(</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'12.4'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"'12.4'&nbsp;found&nbsp;with&nbsp;strict&nbsp;check\n"</span><span style="color: #007700">;<br />}<br /><br />if&nbsp;(</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #0000BB">1.13</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"1.13&nbsp;found&nbsp;with&nbsp;strict&nbsp;check\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'1.10'</span><span style="color: #007700">, </span><span style="color: #0000BB">12.4</span><span style="color: #007700">, </span><span style="color: #0000BB">1.13</span><span style="color: #007700">);<br /><br />if (</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'12.4'</span><span style="color: #007700">, </span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">true</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">"'12.4' found with strict check\n"</span><span style="color: #007700">;<br />}<br /><br />if (</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #0000BB">1.13</span><span style="color: #007700">, </span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">true</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">"1.13 found with strict check\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -144,11 +152,11 @@ Got Irix
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4996">
+   <div class="example" id="example-5091">
     <p><strong>Example #3 <span class="function"><strong>in_array()</strong></span> with an array as needle</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;array(array(</span><span style="color: #DD0000">'p'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'h'</span><span style="color: #007700">),&nbsp;array(</span><span style="color: #DD0000">'p'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'r'</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">'o'</span><span style="color: #007700">);<br /><br />if&nbsp;(</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'p'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'h'</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"'ph'&nbsp;was&nbsp;found\n"</span><span style="color: #007700">;<br />}<br /><br />if&nbsp;(</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'f'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'i'</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"'fi'&nbsp;was&nbsp;found\n"</span><span style="color: #007700">;<br />}<br /><br />if&nbsp;(</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'o'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"'o'&nbsp;was&nbsp;found\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= array(array(</span><span style="color: #DD0000">'p'</span><span style="color: #007700">, </span><span style="color: #DD0000">'h'</span><span style="color: #007700">), array(</span><span style="color: #DD0000">'p'</span><span style="color: #007700">, </span><span style="color: #DD0000">'r'</span><span style="color: #007700">), </span><span style="color: #DD0000">'o'</span><span style="color: #007700">);<br /><br />if (</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'p'</span><span style="color: #007700">, </span><span style="color: #DD0000">'h'</span><span style="color: #007700">), </span><span style="color: #0000BB">$a</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">"'ph' was found\n"</span><span style="color: #007700">;<br />}<br /><br />if (</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'f'</span><span style="color: #007700">, </span><span style="color: #DD0000">'i'</span><span style="color: #007700">), </span><span style="color: #0000BB">$a</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">"'fi' was found\n"</span><span style="color: #007700">;<br />}<br /><br />if (</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'o'</span><span style="color: #007700">, </span><span style="color: #0000BB">$a</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">"'o' was found\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -163,6 +171,7 @@ Got Irix
    </div>
   </p>
  </div>
+
 
  <div class="refsect1 seealso" id="refsect1-function.in-array-seealso">
   <h3 class="title">See Also</h3>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Never</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="language.types.void.html">« Void</a></li>
+      <li style="float: right;"><a href="language.types.relative-class-types.html">Relative class types »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.types.html">Types</a></li>
+    <li>Never</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="language.types.never" class="sect1">
+ <h2 class="title">Never</h2>
+
+ <p class="para">
+  <span class="type"><span class="type never">never</span></span> is a return-only type indicating the function
+  does not terminate. This means that it either calls <span class="function"><a href="function.exit.html" class="function">exit()</a></span>,
+  throws an exception, or is an infinite loop.
+  Therefore, it cannot be part of a
+  <a href="language.types.type-system.html#language.types.type-system.composite.union" class="link">union type</a>
+  declaration. Available as of PHP 8.1.0.
+ </p>
+ <p class="para">
+  <span class="type"><span class="type never">never</span></span> is, in type theory parlance, the bottom type.
+  Meaning it is the subtype of every other type and can replace any other
+  return type during inheritance.
+ </p>
+
+</div></div></div></body></html>

@@ -36,9 +36,135 @@
    <span class="modifier">public</span> <span class="methodname"><strong>DateTimeImmutable::setISODate</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$year</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$week</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$dayOfWeek</code><span class="initializer"> = 1</span></span>): <span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span></div>
 
   <p class="para rdfs-comment">
-   Like <span class="methodname"><a href="datetime.setisodate.html" class="methodname">DateTime::setISODate()</a></span> but works with
-   <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span>.
+   Returns a new DateTimeImmutable object with the date set according to the
+   ISO 8601 standard - using weeks and day offsets rather than specific dates.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-datetimeimmutable.setisodate-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">year</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Year of the date.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">week</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Week of the date.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">dayOfWeek</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Offset from the first day of the week.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-datetimeimmutable.setisodate-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a new <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> object with the modified data.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-datetimeimmutable.setisodate-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-2077">
+   <p><strong>Example #1 <span class="function"><strong>DateTimeImmutable::setISODate()</strong></span> example</strong></p>
+   <div class="example-contents"><p>Object-oriented style</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$date </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setISODate</span><span style="color: #007700">(</span><span style="color: #0000BB">2008</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setISODate</span><span style="color: #007700">(</span><span style="color: #0000BB">2008</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">, </span><span style="color: #0000BB">7</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>Procedural style</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$date </span><span style="color: #007700">= </span><span style="color: #0000BB">date_create</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">date_isodate_set</span><span style="color: #007700">(</span><span style="color: #0000BB">$date</span><span style="color: #007700">, </span><span style="color: #0000BB">2008</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">date_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$date</span><span style="color: #007700">, </span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">date_isodate_set</span><span style="color: #007700">(</span><span style="color: #0000BB">$date</span><span style="color: #007700">, </span><span style="color: #0000BB">2008</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">, </span><span style="color: #0000BB">7</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">date_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$date</span><span style="color: #007700">, </span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above examples will output:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+2008-01-07
+2008-01-13
+</pre></div>
+   </div>
+  </div>
+  <div class="example" id="example-2078">
+   <p><strong>Example #2 Values exceeding ranges are added to their parent values</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$date </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$newDate </span><span style="color: #007700">= </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setISODate</span><span style="color: #007700">(</span><span style="color: #0000BB">2008</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">, </span><span style="color: #0000BB">7</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$newDate</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$newDate </span><span style="color: #007700">= </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setISODate</span><span style="color: #007700">(</span><span style="color: #0000BB">2008</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">, </span><span style="color: #0000BB">8</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$newDate</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$newDate </span><span style="color: #007700">= </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setISODate</span><span style="color: #007700">(</span><span style="color: #0000BB">2008</span><span style="color: #007700">, </span><span style="color: #0000BB">53</span><span style="color: #007700">, </span><span style="color: #0000BB">7</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$newDate</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+2008-01-13
+2008-01-14
+2009-01-04
+</pre></div>
+   </div>
+  </div>
+  <div class="example" id="example-2079">
+   <p><strong>Example #3 Finding the month a week is in</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$date </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$newDate </span><span style="color: #007700">= </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setISODate</span><span style="color: #007700">(</span><span style="color: #0000BB">2008</span><span style="color: #007700">, </span><span style="color: #0000BB">14</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$newDate</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'n'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above examples will output:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+3
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-datetimeimmutable.setisodate-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="datetimeimmutable.setdate.html" class="function" rel="rdfs-seeAlso">DateTimeImmutable::setDate()</a> - Sets the date</span></li>
+   <li class="member"><span class="function"><a href="datetimeimmutable.settime.html" class="function" rel="rdfs-seeAlso">DateTimeImmutable::setTime()</a> - Sets the time</span></li>
+  </ul>
  </div>
 
 

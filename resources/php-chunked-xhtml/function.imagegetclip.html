@@ -97,7 +97,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <td>8.0.0</td>
  <td>
   <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
-  instance now; previously, a <span class="type">resource</span> was expected.
+  instance now; previously, a valid <code class="literal">gd</code> <span class="type">resource</span> was expected.
  </td>
 </tr>
 
@@ -117,7 +117,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreate</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagesetclip</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">,</span><span style="color: #0000BB">10</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">89</span><span style="color: #007700">,</span><span style="color: #0000BB">89</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">imagegetclip</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">));</span>
+<span style="color: #0000BB">&lt;?php<br />$im </span><span style="color: #007700">= </span><span style="color: #0000BB">imagecreate</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">, </span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagesetclip</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">, </span><span style="color: #0000BB">10</span><span style="color: #007700">,</span><span style="color: #0000BB">10</span><span style="color: #007700">, </span><span style="color: #0000BB">89</span><span style="color: #007700">,</span><span style="color: #0000BB">89</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">imagegetclip</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">));</span>
 </span>
 </code></div>
    </div>

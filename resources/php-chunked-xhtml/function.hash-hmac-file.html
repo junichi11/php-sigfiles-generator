@@ -102,9 +102,16 @@
    Returns a string containing the calculated message digest as lowercase hexits
    unless <code class="parameter">binary</code> is set to true in which case the raw
    binary representation of the message digest is returned.
-   Returns <strong><code>false</code></strong> when <code class="parameter">algo</code> is unknown or is a
-   non-cryptographic hash function, or if the file
-   <code class="parameter">filename</code> cannot be read.
+   Returns <strong><code>false</code></strong> if the file <code class="parameter">filename</code> cannot be read.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.hash-hmac-file-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> exception if
+   <code class="parameter">algo</code> is unknown or is a non-cryptographic hash function.
   </p>
  </div>
 
@@ -124,6 +131,15 @@
 
      <tbody class="tbody">
       <tr>
+       <td>8.0.0</td>
+       <td>
+        Now throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> exception if
+        <code class="parameter">algo</code> is unknown or is a non-cryptographic hash
+        function; previously, <strong><code>false</code></strong> was returned instead.
+       </td>
+      </tr>
+
+      <tr>
        <td>7.2.0</td>
        <td>Usage of non-cryptographic hash functions (adler32, crc32, crc32b, fnv132, fnv1a32, fnv164, fnv1a64, joaat) was disabled.</td>
       </tr>
@@ -139,11 +155,11 @@
  <div class="refsect1 examples" id="refsect1-function.hash-hmac-file-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-887">
+   <div class="example" id="example-903">
     <p><strong>Example #1 <span class="function"><strong>hash_hmac_file()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;file&nbsp;to&nbsp;calculate&nbsp;hash&nbsp;of&nbsp;*/<br /></span><span style="color: #0000BB">file_put_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'example.txt'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'The&nbsp;quick&nbsp;brown&nbsp;fox&nbsp;jumped&nbsp;over&nbsp;the&nbsp;lazy&nbsp;dog.'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">hash_hmac_file</span><span style="color: #007700">(</span><span style="color: #DD0000">'md5'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'example.txt'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Create a file to calculate hash of */<br /></span><span style="color: #0000BB">file_put_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'example.txt'</span><span style="color: #007700">, </span><span style="color: #DD0000">'The quick brown fox jumped over the lazy dog.'</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #0000BB">hash_hmac_file</span><span style="color: #007700">(</span><span style="color: #DD0000">'md5'</span><span style="color: #007700">, </span><span style="color: #DD0000">'example.txt'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

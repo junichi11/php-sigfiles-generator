@@ -315,7 +315,7 @@
  <div class="refsect1 examples" id="refsect1-function.session-set-save-handler-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4728">
+   <div class="example" id="example-4807">
     <p><strong>Example #1 
      Custom session handler: see full code in <span class="classname"><a href="class.sessionhandlerinterface.html" class="classname">SessionHandlerInterface</a></span> synopsis.
     </strong></p>
@@ -330,7 +330,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MySessionHandler&nbsp;</span><span style="color: #007700">implements&nbsp;</span><span style="color: #0000BB">SessionHandlerInterface<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;implement&nbsp;interfaces&nbsp;here<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">$handler&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MySessionHandler</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">session_set_save_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$handler</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">session_start</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;proceed&nbsp;to&nbsp;set&nbsp;and&nbsp;retrieve&nbsp;values&nbsp;by&nbsp;key&nbsp;from&nbsp;$_SESSION</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">MySessionHandler </span><span style="color: #007700">implements </span><span style="color: #0000BB">SessionHandlerInterface<br /></span><span style="color: #007700">{<br />    </span><span style="color: #FF8000">// implement interfaces here<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">$handler </span><span style="color: #007700">= new </span><span style="color: #0000BB">MySessionHandler</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">session_set_save_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$handler</span><span style="color: #007700">, </span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">session_start</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">// proceed to set and retrieve values by key from $_SESSION</span>
 </span>
 </code></div>
     </div>

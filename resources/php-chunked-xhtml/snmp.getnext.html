@@ -28,7 +28,7 @@
   <div id="layout-content"><div id="snmp.getnext" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SNMP::getnext</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SNMP::getnext</span> &mdash; <span class="dc-title">Fetch an <acronym title="Simple Network Management Protocol">SNMP</acronym> object which
+  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SNMP::getnext</span> &mdash; <span class="dc-title">Fetch an <abbr title="Simple Network Management Protocol">SNMP</abbr> object which
   follows the given object id
   </span></p>
 
@@ -41,7 +41,7 @@
    <span class="modifier">public</span> <span class="methodname"><strong>SNMP::getnext</strong></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$objectId</code></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
-   Fetch an <acronym title="Simple Network Management Protocol">SNMP</acronym> object that follows specified <code class="parameter">objectId</code>.
+   Fetch an <abbr title="Simple Network Management Protocol">SNMP</abbr> object that follows specified <code class="parameter">objectId</code>.
   </p>
  </div>
 
@@ -50,9 +50,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
   If <code class="parameter">objectId</code> is a string, then <span class="methodname"><strong>SNMP::getnext()</strong></span>
-  will return <acronym title="Simple Network Management Protocol">SNMP</acronym> object as string. If
-  <code class="parameter">objectId</code> is a array, all requested <acronym title="Simple Network Management Protocol">SNMP</acronym>
-  objects will be returned as associative array of the <acronym title="Simple Network Management Protocol">SNMP</acronym> object ids and their
+  will return <abbr title="Simple Network Management Protocol">SNMP</abbr> object as string. If
+  <code class="parameter">objectId</code> is a array, all requested <abbr title="Simple Network Management Protocol">SNMP</abbr>
+  objects will be returned as associative array of the <abbr title="Simple Network Management Protocol">SNMP</abbr> object ids and their
   values. 
   </p>
   <p class="para">
@@ -64,7 +64,7 @@
     <dd>
 
      <p class="para">
-      The <acronym title="Simple Network Management Protocol">SNMP</acronym> object (OID) or objects
+      The <abbr title="Simple Network Management Protocol">SNMP</abbr> object (OID) or objects
      </p>
     </dd>
 
@@ -78,7 +78,7 @@
  <div class="refsect1 returnvalues" id="refsect1-snmp.getnext-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <acronym title="Simple Network Management Protocol">SNMP</acronym> objects requested as string or array
+   Returns <abbr title="Simple Network Management Protocol">SNMP</abbr> objects requested as string or array
    depending on <code class="parameter">objectId</code> type or <strong><code>false</code></strong> on error.
   </p>
  </div>
@@ -100,15 +100,15 @@
  <div class="refsect1 examples" id="refsect1-snmp.getnext-examples">
   <h3 class="title">Examples</h3>
   <div class="example" id="snmp.getnext.example.singleoid">
-   <p><strong>Example #1 Single <acronym title="Simple Network Management Protocol">SNMP</acronym> object</strong></p>
+   <p><strong>Example #1 Single <abbr title="Simple Network Management Protocol">SNMP</abbr> object</strong></p>
    <div class="example-contents"><p>
-     Single <acronym title="Simple Network Management Protocol">SNMP</acronym> object may be requested in two ways: as
+     Single <abbr title="Simple Network Management Protocol">SNMP</abbr> object may be requested in two ways: as
      string resulting string return value or as single-element array with
      associative array as output.
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$session&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">(</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">::</span><span style="color: #0000BB">VERSION_1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"127.0.0.1"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"public"</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$nsysdescr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getnext</span><span style="color: #007700">(</span><span style="color: #DD0000">"sysDescr.0"</span><span style="color: #007700">);<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$nsysdescr</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$nsysdescr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getnext</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"sysDescr.0"</span><span style="color: #007700">));<br />&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$nsysdescr</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />  $session </span><span style="color: #007700">= new </span><span style="color: #0000BB">SNMP</span><span style="color: #007700">(</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">::</span><span style="color: #0000BB">VERSION_1</span><span style="color: #007700">, </span><span style="color: #DD0000">"127.0.0.1"</span><span style="color: #007700">, </span><span style="color: #DD0000">"public"</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">$nsysdescr </span><span style="color: #007700">= </span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getnext</span><span style="color: #007700">(</span><span style="color: #DD0000">"sysDescr.0"</span><span style="color: #007700">);<br />  echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$nsysdescr</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />  </span><span style="color: #0000BB">$nsysdescr </span><span style="color: #007700">= </span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getnext</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"sysDescr.0"</span><span style="color: #007700">));<br />  </span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$nsysdescr</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -126,10 +126,10 @@ Array
    </div>
   </div>
   <div class="example" id="snmp.getnext.example.oidarray">
-   <p><strong>Example #2 Miltiple <acronym title="Simple Network Management Protocol">SNMP</acronym> objects</strong></p>
+   <p><strong>Example #2 Miltiple <abbr title="Simple Network Management Protocol">SNMP</abbr> objects</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$session&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">(</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">::</span><span style="color: #0000BB">VERSION_1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"127.0.0.1"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"public"</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$results&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getnext</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"sysDescr.0"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"sysName.0"</span><span style="color: #007700">));<br />&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$results</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />  $session </span><span style="color: #007700">= new </span><span style="color: #0000BB">SNMP</span><span style="color: #007700">(</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">::</span><span style="color: #0000BB">VERSION_1</span><span style="color: #007700">, </span><span style="color: #DD0000">"127.0.0.1"</span><span style="color: #007700">, </span><span style="color: #DD0000">"public"</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">$results </span><span style="color: #007700">= </span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getnext</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"sysDescr.0"</span><span style="color: #007700">, </span><span style="color: #DD0000">"sysName.0"</span><span style="color: #007700">));<br />  </span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$results</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

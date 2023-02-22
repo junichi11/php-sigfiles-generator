@@ -101,14 +101,14 @@
  <div class="refsect1 examples" id="refsect1-function.xdiff-file-bpatch-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2234">
+   <div class="example" id="example-2299">
     <p><strong>Example #1 <span class="function"><strong>xdiff_file_bpatch()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      The following code applies binary diff to a file.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$old_version&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'archive-1.0.tgz'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patch&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'archive.bpatch'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">xdiff_file_bpatch</span><span style="color: #007700">(</span><span style="color: #0000BB">$old_version</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$patch</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'archive-1.1.tgz'</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"File&nbsp;patched"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"File&nbsp;couldn't&nbsp;be&nbsp;patched"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$old_version </span><span style="color: #007700">= </span><span style="color: #DD0000">'archive-1.0.tgz'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patch </span><span style="color: #007700">= </span><span style="color: #DD0000">'archive.bpatch'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$result </span><span style="color: #007700">= </span><span style="color: #0000BB">xdiff_file_bpatch</span><span style="color: #007700">(</span><span style="color: #0000BB">$old_version</span><span style="color: #007700">, </span><span style="color: #0000BB">$patch</span><span style="color: #007700">, </span><span style="color: #DD0000">'archive-1.1.tgz'</span><span style="color: #007700">);<br />if (</span><span style="color: #0000BB">$result</span><span style="color: #007700">) {<br />   echo </span><span style="color: #DD0000">"File patched"</span><span style="color: #007700">;<br />} else {<br />   echo </span><span style="color: #DD0000">"File couldn't be patched"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

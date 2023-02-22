@@ -32,14 +32,17 @@
  <div class="refsect1 description" id="refsect1-function.dba-fetch-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>dba_fetch</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>): <span class="type">string</span></div>
+   <span class="methodname"><strong>dba_fetch</strong></span>(<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$dba</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$skip</code><span class="initializer"> = 0</span></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
-   <div class="methodsynopsis dc-description"><span class="methodname"><strong>dba_fetch</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$skip</code></span>, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>): <span class="type">string</span></div>
+  <p class="simpara">
+   Discouraged overloaded signature:
+  </p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>dba_fetch</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$skip</code></span>, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$dba</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>dba_fetch()</strong></span> fetches the data specified by
    <code class="parameter">key</code> from the database specified with
-   <code class="parameter">handle</code>.
+   <code class="parameter">dba</code>.
   </p>
  </div>
 
@@ -68,21 +71,7 @@
     
     
      <dt>
-<code class="parameter">skip</code></dt>
-
-     <dd>
-
-      <p class="para">
-       The number of key-value pairs to ignore when using cdb databases. 
-       This value is ignored for all other databases which do not support
-       multiple keys with the same name.
-      </p>
-     </dd>
-
-    
-    
-     <dt>
-<code class="parameter">handle</code></dt>
+<code class="parameter">dba</code></dt>
 
      <dd>
 
@@ -93,10 +82,25 @@
      </dd>
 
     
+    
+     <dt>
+<code class="parameter">skip</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The number of key-value pairs to ignore when using cdb databases.
+       This value is ignored for all other databases which do not support
+       multiple keys with the same name.
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>
  </div>
+
 
  <div class="refsect1 returnvalues" id="refsect1-function.dba-fetch-returnvalues">
   <h3 class="title">Return Values</h3>
@@ -104,6 +108,35 @@
    Returns the associated string if the key/data pair is found, <strong><code>false</code></strong> 
    otherwise.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.dba-fetch-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.2.0</td>
+      <td>
+       <span class="function"><strong>dba_fetch()</strong></span>&#039;s optional skip argument is now at the end
+       in line with PHP userland semantics. The previously overloaded signature
+       is still accepted but discouraged.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

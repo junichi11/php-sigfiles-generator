@@ -47,28 +47,28 @@
 
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>PDO::query()</strong></span> prepares and executes an SQL statement in
+   <span class="methodname"><strong>PDO::query()</strong></span> prepares and executes an SQL statement in
    a single function call, returning the statement as a <span class="classname"><a href="class.pdostatement.html" class="classname">PDOStatement</a></span> object.
   </p>
   <p class="para">
    For a query that you need to issue multiple times, you will realize better
    performance if you prepare a <span class="classname"><a href="class.pdostatement.html" class="classname">PDOStatement</a></span> object using
-   <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span> and issue the statement with multiple
-   calls to <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span>.
+   <span class="methodname"><a href="pdo.prepare.html" class="methodname">PDO::prepare()</a></span> and issue the statement with multiple
+   calls to <span class="methodname"><a href="pdostatement.execute.html" class="methodname">PDOStatement::execute()</a></span>.
   </p>
   <p class="para">
    If you do not fetch all of the data in a result set before issuing your
-   next call to <span class="function"><strong>PDO::query()</strong></span>, your call may fail. Call
-   <span class="function"><a href="pdostatement.closecursor.html" class="function">PDOStatement::closeCursor()</a></span> to release the database
+   next call to <span class="methodname"><strong>PDO::query()</strong></span>, your call may fail. Call
+   <span class="methodname"><a href="pdostatement.closecursor.html" class="methodname">PDOStatement::closeCursor()</a></span> to release the database
    resources associated with the <span class="classname"><a href="class.pdostatement.html" class="classname">PDOStatement</a></span> object before issuing your
-   next call to <span class="function"><strong>PDO::query()</strong></span>.
+   next call to <span class="methodname"><strong>PDO::query()</strong></span>.
   </p>
 
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     If the <code class="parameter">query</code> contains placeholders, the statement
-    must be prepared and executed separately using <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span> and 
-    <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span> methods.
+    must be prepared and executed separately using <span class="methodname"><a href="pdo.prepare.html" class="methodname">PDO::prepare()</a></span> and 
+    <span class="methodname"><a href="pdostatement.execute.html" class="methodname">PDOStatement::execute()</a></span> methods.
    </p>
   </p></blockquote>
 
@@ -88,11 +88,11 @@
         The SQL statement to prepare and execute.
        </p>
        <p class="para">
-        If the SQL contains placeholders, <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span> and 
-        <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span> must be used instead.
+        If the SQL contains placeholders, <span class="methodname"><a href="pdo.prepare.html" class="methodname">PDO::prepare()</a></span> and 
+        <span class="methodname"><a href="pdostatement.execute.html" class="methodname">PDOStatement::execute()</a></span> must be used instead.
         Alternatively, the SQL can be prepared manually before calling 
-        <span class="function"><strong>PDO::query()</strong></span>, with the data properly formatted using
-        <span class="function"><a href="pdo.quote.html" class="function">PDO::quote()</a></span> if the driver supports it.
+        <span class="methodname"><strong>PDO::query()</strong></span>, with the data properly formatted using
+        <span class="methodname"><a href="pdo.quote.html" class="methodname">PDO::quote()</a></span> if the driver supports it.
        </p>
       </dd>
 
@@ -129,14 +129,27 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-pdo.query-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+Emits an error with level <strong><code>E_WARNING</code></strong> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong> is set
+to <strong><code>PDO::ERRMODE_WARNING</code></strong>.
+</p>
+<p class="para">
+Throws a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong>
+is set to <strong><code>PDO::ERRMODE_EXCEPTION</code></strong>.
+</p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-pdo.query-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1024">
-    <p><strong>Example #1 SQL with no placeholders can be executed using <span class="function"><strong>PDO::query()</strong></span></strong></p>
+   <div class="example" id="example-1055">
+    <p><strong>Example #1 SQL with no placeholders can be executed using <span class="methodname"><strong>PDO::query()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'SELECT&nbsp;name,&nbsp;color,&nbsp;calories&nbsp;FROM&nbsp;fruit&nbsp;ORDER&nbsp;BY&nbsp;name'</span><span style="color: #007700">;<br />foreach&nbsp;(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"\t"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'color'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"\t"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'calories'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$sql </span><span style="color: #007700">= </span><span style="color: #DD0000">'SELECT name, color, calories FROM fruit ORDER BY name'</span><span style="color: #007700">;<br />foreach (</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">) as </span><span style="color: #0000BB">$row</span><span style="color: #007700">) {<br />    print </span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">] . </span><span style="color: #DD0000">"\t"</span><span style="color: #007700">;<br />    print </span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'color'</span><span style="color: #007700">] . </span><span style="color: #DD0000">"\t"</span><span style="color: #007700">;<br />    print </span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'calories'</span><span style="color: #007700">] . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -163,9 +176,9 @@ watermelon      pink    90
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="pdo.exec.html" class="function" rel="rdfs-seeAlso">PDO::exec()</a> - Execute an SQL statement and return the number of affected rows</span></li>
-    <li class="member"><span class="function"><a href="pdo.prepare.html" class="function" rel="rdfs-seeAlso">PDO::prepare()</a> - Prepares a statement for execution and returns a statement object</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.execute.html" class="function" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
+    <li class="member"><span class="methodname"><a href="pdo.exec.html" class="methodname" rel="rdfs-seeAlso">PDO::exec()</a> - Execute an SQL statement and return the number of affected rows</span></li>
+    <li class="member"><span class="methodname"><a href="pdo.prepare.html" class="methodname" rel="rdfs-seeAlso">PDO::prepare()</a> - Prepares a statement for execution and returns a statement object</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.execute.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
    </ul>
   </p>
  </div>

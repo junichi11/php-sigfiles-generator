@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Format a local time/date</title>
+  <title>Format a Unix timestamp</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,27 +19,35 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="ref.datetime.html">Date/Time Functions</a></li>
-    <li>Format a local time/date</li>
+    <li>Format a Unix timestamp</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="function.date" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">date</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">date</span> &mdash; <span class="dc-title">Format a local time/date</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">date</span> &mdash; <span class="dc-title">Format a Unix timestamp</span></p>
 
  </div>
-  
+
  <div class="refsect1 description" id="refsect1-function.date-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description"><span class="methodname"><strong>date</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$timestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns a string formatted according to the given format string using the
-   given integer <code class="parameter">timestamp</code> or the current time
-   if no timestamp is given.  In other words, <code class="parameter">timestamp</code>
+   given integer <code class="parameter">timestamp</code> (Unix timestamp) or the current time
+   if no timestamp is given. In other words, <code class="parameter">timestamp</code>
    is optional and defaults to the value of <span class="function"><a href="function.time.html" class="function">time()</a></span>.
   </p>
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="para">
+    Unix timestamps do not handle timezones. Use the
+    <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> class, and its
+    <span class="methodname"><a href="datetime.format.html" class="methodname">DateTimeInterface::format()</a></span> formatting method to
+    format date/time information with a timezone attached.
+   </p>
+  </div>
  </div>
 
 
@@ -53,12 +61,21 @@
     <dd>
 
      <p class="para">
-      Format accepted by <span class="function"><a href="datetime.format.html" class="function">DateTimeInterface::format()</a></span>.
+      Format accepted by <span class="methodname"><a href="datetime.format.html" class="methodname">DateTimeInterface::format()</a></span>.
      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+       <span class="simpara">
+        <span class="function"><strong>date()</strong></span> will always generate
+        <code class="literal">000000</code> as microseconds since it takes an <span class="type">int</span>
+        parameter, whereas <span class="methodname"><a href="datetime.format.html" class="methodname">DateTime::format()</a></span> does
+        support microseconds if <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> was
+        created with microseconds.
+       </span>
+      </p></blockquote>
     </dd>
 
    
-    
+
    
 <dt>
 <code class="parameter">timestamp</code></dt>
@@ -70,7 +87,7 @@ local time if <code class="parameter">timestamp</code> is omitted or <strong><co
 words, it defaults to the value of <span class="function"><a href="function.time.html" class="function">time()</a></span>.
 </p></dd>
 
-   
+
   </dl>
 
  </div>
@@ -79,20 +96,18 @@ words, it defaults to the value of <span class="function"><a href="function.time
  <div class="refsect1 returnvalues" id="refsect1-function.date-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a formatted date string. If a non-numeric value is used for 
-   <code class="parameter">timestamp</code>, <strong><code>false</code></strong> is returned and an 
-   <strong><code>E_WARNING</code></strong> level error is emitted.
+   Returns a formatted date string.
   </p>
  </div>
 
 
  <div class="refsect1 errors" id="refsect1-function.date-errors">
   <h3 class="title">Errors/Exceptions</h3>
-   
+
    <p class="para">
 Every call to a date/time function will generate a <strong><code>E_WARNING</code></strong>
 if the time zone is not valid. See also <span class="function"><a href="function.date-default-timezone-set.html" class="function">date_default_timezone_set()</a></span></p>
- 
+
  </div>
 
 
@@ -128,11 +143,11 @@ if the time zone is not valid. See also <span class="function"><a href="function
  <div class="refsect1 examples" id="refsect1-function.date-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2083">
+   <div class="example" id="example-2146">
     <p><strong>Example #1 <span class="function"><strong>date()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;set&nbsp;the&nbsp;default&nbsp;timezone&nbsp;to&nbsp;use.<br /></span><span style="color: #0000BB">date_default_timezone_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'UTC'</span><span style="color: #007700">);<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;Prints&nbsp;something&nbsp;like:&nbsp;Monday<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"l"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Prints&nbsp;something&nbsp;like:&nbsp;Monday&nbsp;8th&nbsp;of&nbsp;August&nbsp;2005&nbsp;03:12:46&nbsp;PM<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'l&nbsp;jS&nbsp;\of&nbsp;F&nbsp;Y&nbsp;h:i:s&nbsp;A'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Prints:&nbsp;July&nbsp;1,&nbsp;2000&nbsp;is&nbsp;on&nbsp;a&nbsp;Saturday<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"July&nbsp;1,&nbsp;2000&nbsp;is&nbsp;on&nbsp;a&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"l"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2000</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">/*&nbsp;use&nbsp;the&nbsp;constants&nbsp;in&nbsp;the&nbsp;format&nbsp;parameter&nbsp;*/<br />//&nbsp;prints&nbsp;something&nbsp;like:&nbsp;Wed,&nbsp;25&nbsp;Sep&nbsp;2013&nbsp;15:28:57&nbsp;-0700<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #0000BB">DATE_RFC2822</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;prints&nbsp;something&nbsp;like:&nbsp;2000-07-01T00:00:00+00:00<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #0000BB">DATE_ATOM</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2000</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// set the default timezone to use.<br /></span><span style="color: #0000BB">date_default_timezone_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'UTC'</span><span style="color: #007700">);<br /><br /><br /></span><span style="color: #FF8000">// Prints something like: Monday<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"l"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Prints something like: Monday 8th of August 2005 03:12:46 PM<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'l jS \of F Y h:i:s A'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Prints: July 1, 2000 is on a Saturday<br /></span><span style="color: #007700">echo </span><span style="color: #DD0000">"July 1, 2000 is on a " </span><span style="color: #007700">. </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"l"</span><span style="color: #007700">, </span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">7</span><span style="color: #007700">, </span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">2000</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">/* use the constants in the format parameter */<br />// prints something like: Wed, 25 Sep 2013 15:28:57 -0700<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #0000BB">DATE_RFC2822</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// prints something like: 2000-07-01T00:00:00+00:00<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #0000BB">DATE_ATOM</span><span style="color: #007700">, </span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">7</span><span style="color: #007700">, </span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">2000</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -144,11 +159,11 @@ if the time zone is not valid. See also <span class="function"><a href="function
    expanded by escaping it with a preceding backslash. If the character with
    a backslash is already a special sequence, you may need to also escape
    the backslash.
-   <div class="example" id="example-2084">
+   <div class="example" id="example-2147">
     <p><strong>Example #2 Escaping characters in <span class="function"><strong>date()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;prints&nbsp;something&nbsp;like:&nbsp;Wednesday&nbsp;the&nbsp;15th<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'l&nbsp;\t\h\e&nbsp;jS'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// prints something like: Wednesday the 15th<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'l \t\h\e jS'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -159,11 +174,11 @@ if the time zone is not valid. See also <span class="function"><a href="function
    It is possible to use <span class="function"><strong>date()</strong></span> and
    <span class="function"><a href="function.mktime.html" class="function">mktime()</a></span> together to find dates in the future
    or the past.
-   <div class="example" id="example-2085">
+   <div class="example" id="example-2148">
     <p><strong>Example #3 <span class="function"><strong>date()</strong></span> and <span class="function"><a href="function.mktime.html" class="function">mktime()</a></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$tomorrow&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"m"</span><span style="color: #007700">)&nbsp;&nbsp;,&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"d"</span><span style="color: #007700">)+</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$lastmonth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"m"</span><span style="color: #007700">)-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"d"</span><span style="color: #007700">),&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$nextyear&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"m"</span><span style="color: #007700">),&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"d"</span><span style="color: #007700">),&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y"</span><span style="color: #007700">)+</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$tomorrow  </span><span style="color: #007700">= </span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"m"</span><span style="color: #007700">)  , </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"d"</span><span style="color: #007700">)+</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$lastmonth </span><span style="color: #007700">= </span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"m"</span><span style="color: #007700">)-</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"d"</span><span style="color: #007700">),   </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$nextyear  </span><span style="color: #007700">= </span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"m"</span><span style="color: #007700">),   </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"d"</span><span style="color: #007700">),   </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y"</span><span style="color: #007700">)+</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -184,11 +199,11 @@ if the time zone is not valid. See also <span class="function"><a href="function
    other characters may be assigned meaning in future PHP versions.
    When escaping, be sure to use single quotes to prevent characters
    like \n from becoming newlines.
-   <div class="example" id="example-2086">
+   <div class="example" id="example-2149">
     <p><strong>Example #4 <span class="function"><strong>date()</strong></span> Formatting</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Assuming&nbsp;today&nbsp;is&nbsp;March&nbsp;10th,&nbsp;2001,&nbsp;5:16:18&nbsp;pm,&nbsp;and&nbsp;that&nbsp;we&nbsp;are&nbsp;in&nbsp;the<br />//&nbsp;Mountain&nbsp;Standard&nbsp;Time&nbsp;(MST)&nbsp;Time&nbsp;Zone<br /><br /></span><span style="color: #0000BB">$today&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"F&nbsp;j,&nbsp;Y,&nbsp;g:i&nbsp;a"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;March&nbsp;10,&nbsp;2001,&nbsp;5:16&nbsp;pm<br /></span><span style="color: #0000BB">$today&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"m.d.y"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;03.10.01<br /></span><span style="color: #0000BB">$today&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"j,&nbsp;n,&nbsp;Y"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;10,&nbsp;3,&nbsp;2001<br /></span><span style="color: #0000BB">$today&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Ymd"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;20010310<br /></span><span style="color: #0000BB">$today&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'h-i-s,&nbsp;j-m-y,&nbsp;it&nbsp;is&nbsp;w&nbsp;Day'</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;05-16-18,&nbsp;10-03-01,&nbsp;1631&nbsp;1618&nbsp;6&nbsp;Satpm01<br /></span><span style="color: #0000BB">$today&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'\i\t&nbsp;\i\s&nbsp;\t\h\e&nbsp;jS&nbsp;\d\a\y.'</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;it&nbsp;is&nbsp;the&nbsp;10th&nbsp;day.<br /></span><span style="color: #0000BB">$today&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"D&nbsp;M&nbsp;j&nbsp;G:i:s&nbsp;T&nbsp;Y"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Sat&nbsp;Mar&nbsp;10&nbsp;17:16:18&nbsp;MST&nbsp;2001<br /></span><span style="color: #0000BB">$today&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'H:m:s&nbsp;\m&nbsp;\i\s\&nbsp;\m\o\n\t\h'</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;17:03:18&nbsp;m&nbsp;is&nbsp;month<br /></span><span style="color: #0000BB">$today&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"H:i:s"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;17:16:18<br /></span><span style="color: #0000BB">$today&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y-m-d&nbsp;H:i:s"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;2001-03-10&nbsp;17:16:18&nbsp;(the&nbsp;MySQL&nbsp;DATETIME&nbsp;format)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Assuming today is March 10th, 2001, 5:16:18 pm, and that we are in the<br />// Mountain Standard Time (MST) Time Zone<br /><br /></span><span style="color: #0000BB">$today </span><span style="color: #007700">= </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"F j, Y, g:i a"</span><span style="color: #007700">);                 </span><span style="color: #FF8000">// March 10, 2001, 5:16 pm<br /></span><span style="color: #0000BB">$today </span><span style="color: #007700">= </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"m.d.y"</span><span style="color: #007700">);                         </span><span style="color: #FF8000">// 03.10.01<br /></span><span style="color: #0000BB">$today </span><span style="color: #007700">= </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"j, n, Y"</span><span style="color: #007700">);                       </span><span style="color: #FF8000">// 10, 3, 2001<br /></span><span style="color: #0000BB">$today </span><span style="color: #007700">= </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Ymd"</span><span style="color: #007700">);                           </span><span style="color: #FF8000">// 20010310<br /></span><span style="color: #0000BB">$today </span><span style="color: #007700">= </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'h-i-s, j-m-y, it is w Day'</span><span style="color: #007700">);     </span><span style="color: #FF8000">// 05-16-18, 10-03-01, 1631 1618 6 Satpm01<br /></span><span style="color: #0000BB">$today </span><span style="color: #007700">= </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'\i\t \i\s \t\h\e jS \d\a\y.'</span><span style="color: #007700">);   </span><span style="color: #FF8000">// it is the 10th day.<br /></span><span style="color: #0000BB">$today </span><span style="color: #007700">= </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"D M j G:i:s T Y"</span><span style="color: #007700">);               </span><span style="color: #FF8000">// Sat Mar 10 17:16:18 MST 2001<br /></span><span style="color: #0000BB">$today </span><span style="color: #007700">= </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'H:m:s \m \i\s\ \m\o\n\t\h'</span><span style="color: #007700">);     </span><span style="color: #FF8000">// 17:03:18 m is month<br /></span><span style="color: #0000BB">$today </span><span style="color: #007700">= </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"H:i:s"</span><span style="color: #007700">);                         </span><span style="color: #FF8000">// 17:16:18<br /></span><span style="color: #0000BB">$today </span><span style="color: #007700">= </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y-m-d H:i:s"</span><span style="color: #007700">);                   </span><span style="color: #FF8000">// 2001-03-10 17:16:18 (the MySQL DATETIME format)<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -227,15 +242,16 @@ if the time zone is not valid. See also <span class="function"><a href="function
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="datetimeimmutable.construct.html" class="methodname" rel="rdfs-seeAlso">DateTimeImmutable::__construct()</a> - Returns new DateTimeImmutable object</span></li>
+    <li class="member"><span class="methodname"><a href="datetime.format.html" class="methodname" rel="rdfs-seeAlso">DateTimeInterface::format()</a> - Returns date formatted according to given format</span></li>
     <li class="member"><span class="function"><a href="function.gmdate.html" class="function" rel="rdfs-seeAlso">gmdate()</a> - Format a GMT/UTC date/time</span></li>
-    <li class="member"><span class="function"><a href="function.idate.html" class="function" rel="rdfs-seeAlso">idate()</a> - Format a local time/date as integer</span></li>
+    <li class="member"><span class="function"><a href="function.idate.html" class="function" rel="rdfs-seeAlso">idate()</a> - Format a local time/date part as integer</span></li>
     <li class="member"><span class="function"><a href="function.getdate.html" class="function" rel="rdfs-seeAlso">getdate()</a> - Get date/time information</span></li>
     <li class="member"><span class="function"><a href="function.getlastmod.html" class="function" rel="rdfs-seeAlso">getlastmod()</a> - Gets time of last page modification</span></li>
     <li class="member"><span class="function"><a href="function.mktime.html" class="function" rel="rdfs-seeAlso">mktime()</a> - Get Unix timestamp for a date</span></li>
     <li class="member"><span class="methodname"><a href="intldateformatter.format.html" class="methodname" rel="rdfs-seeAlso">IntlDateFormatter::format()</a> - Format the date/time value as a string</span></li>
     <li class="member"><span class="function"><a href="function.time.html" class="function" rel="rdfs-seeAlso">time()</a> - Return current Unix timestamp</span></li>
-    <li class="member"><span class="function"><a href="datetimeimmutable.construct.html" class="function" rel="rdfs-seeAlso">DateTimeImmutable::__construct()</a> - Returns new DateTimeImmutable object</span></li>
-    <li class="member"><a href="class.datetimeinterface.html#datetime.constants.types" class="link">Predefined DateTime Constants</a></li>
+    <li class="member"><a href="class.datetimeinterface.html#datetimeinterface.constants.types" class="link">Predefined DateTime Constants</a></li>
    </ul>
   </p>
  </div>

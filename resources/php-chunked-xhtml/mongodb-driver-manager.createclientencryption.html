@@ -94,7 +94,8 @@
            <div class="example-contents">
 <div class="javascriptcode"><pre class="javascriptcode">aws: {
     accessKeyId: &lt;string&gt;,
-    secretAccessKey: &lt;string&gt;
+    secretAccessKey: &lt;string&gt;,
+    sessionToken: &lt;optional string&gt;
 }</pre>
 </div>
            </div>
@@ -161,7 +162,8 @@
 <div class="javascriptcode"><pre class="javascriptcode">&lt;provider&gt;: {
     tlsCaFile: &lt;optional string&gt;,
     tlsCertificateKeyFile: &lt;optional string&gt;,
-    tlsCertificateKeyFilePassword: &lt;optional string&gt;
+    tlsCertificateKeyFilePassword: &lt;optional string&gt;,
+    tlsDisableOCSPEndpointCheck: &lt;optional bool&gt;
 }</pre>
 </div>
            </div>
@@ -215,6 +217,17 @@
 
      <tbody class="tbody">
       <tr>
+       <td>PECL mongodb 1.16.0</td>
+       <td>
+        <p class="para">
+         The AWS KMS provider for client-side encryption now accepts a
+         <code class="literal">&quot;sessionToken&quot;</code> option, which can be used to
+         authenticate with temporary AWS credentials.
+        </p>
+       </td>
+      </tr>
+
+      <tr>
        <td>PECL mongodb 1.12.0</td>
        <td>
         <p class="para">
@@ -249,8 +262,8 @@
  <div class="refsect1 seealso" id="refsect1-mongodb-driver-manager.createclientencryption-seealso">
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
-   <li class="member"><span class="classname"><a href="class.mongodb-driver-clientencryption.html" class="classname">MongoDB\Driver\ClientEncryption</a></span></li>
-   <li class="member"><a href="https://docs.mongodb.com/manual/core/security-explicit-client-side-encryption/" class="link external">&raquo;&nbsp;Explicit (Manual) Client-Side Field Level Encryption</a> in the MongoDB manual</li>
+   <li class="member"><span class="function"><a href="mongodb-driver-clientencryption.construct.html" class="function" rel="rdfs-seeAlso">MongoDB\Driver\ClientEncryption::__construct()</a> - Create a new ClientEncryption object</span></li>
+   <li class="member"><a href="https://www.mongodb.com/docs/manual/core/security-explicit-client-side-encryption/" class="link external">&raquo;&nbsp;Explicit (Manual) Client-Side Field Level Encryption</a> in the MongoDB manual</li>
   </ul>
  </div>
 

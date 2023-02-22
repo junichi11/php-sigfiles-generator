@@ -67,6 +67,13 @@
 
      <tbody class="tbody">
       <tr>
+       <td>8.1.0</td>
+       <td>
+        Support for MurmurHash3 and xxHash algorithms has been added.
+       </td>
+      </tr>
+
+      <tr>
        <td>7.4.0</td>
        <td>
         Support for crc32c has been added.
@@ -88,14 +95,14 @@
   </p>
  </div>
 
- 
+
  <div class="refsect1 examples" id="refsect1-function.hash-algos-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-880">
+   <div class="example" id="example-896">
     <p><strong>Example #1 <span class="function"><strong>hash_algos()</strong></span> example</strong></p>
     <div class="example-contents"><p>
-     As of PHP 7.4.0, <span class="function"><strong>hash_algos()</strong></span> will return the
+     As of PHP 8.1.0, <span class="function"><strong>hash_algos()</strong></span> will return the
      following list of algorithm names.
     </p></div>
     <div class="example-contents">
@@ -149,21 +156,28 @@ Array
     [35] =&gt; fnv164
     [36] =&gt; fnv1a64
     [37] =&gt; joaat
-    [38] =&gt; haval128,3
-    [39] =&gt; haval160,3
-    [40] =&gt; haval192,3
-    [41] =&gt; haval224,3
-    [42] =&gt; haval256,3
-    [43] =&gt; haval128,4
-    [44] =&gt; haval160,4
-    [45] =&gt; haval192,4
-    [46] =&gt; haval224,4
-    [47] =&gt; haval256,4
-    [48] =&gt; haval128,5
-    [49] =&gt; haval160,5
-    [50] =&gt; haval192,5
-    [51] =&gt; haval224,5
-    [52] =&gt; haval256,5
+    [38] =&gt; murmur3a
+    [39] =&gt; murmur3c
+    [40] =&gt; murmur3f
+    [41] =&gt; xxh32
+    [42] =&gt; xxh64
+    [43] =&gt; xxh3
+    [44] =&gt; xxh128
+    [45] =&gt; haval128,3
+    [46] =&gt; haval160,3
+    [47] =&gt; haval192,3
+    [48] =&gt; haval224,3
+    [49] =&gt; haval256,3
+    [50] =&gt; haval128,4
+    [51] =&gt; haval160,4
+    [52] =&gt; haval192,4
+    [53] =&gt; haval224,4
+    [54] =&gt; haval256,4
+    [55] =&gt; haval128,5
+    [56] =&gt; haval160,5
+    [57] =&gt; haval192,5
+    [58] =&gt; haval224,5
+    [59] =&gt; haval256,5
 )
 </pre></div>
     </div>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="random.resources.html">« Resource Types</a></li>
+      <li style="float: right;"><a href="random.examples.html">Examples »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.random.html">Random</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="random.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are always available as part of the PHP core.
+</p>
+ <p class="para">
+  <dl>
+   
+    <dt id="constant.mt-rand-mt19937">
+     <strong><code>MT_RAND_MT19937</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Indicates that the correct <a href="http://www.math.sci.hiroshima-u.ac.jp/m-mat/MT/ARTICLES/mt.pdf" class="link external">&raquo;&nbsp;Mt19937</a> (Mersenne Twister)
+      implementation will be used by the algorithm, when creating a <span class="classname"><a href="class.random-engine-mt19937.html" class="classname">Random\Engine\Mt19937</a></span> instance
+      using <span class="function"><a href="random-engine-mt19937.construct.html" class="function">Random\Engine\Mt19937::__construct()</a></span> or seeding the global Mersenne Twister
+      with <span class="function"><a href="function.mt-srand.html" class="function">mt_srand()</a></span>.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.mt-rand-php">
+     <strong><code>MT_RAND_PHP</code></strong>
+     (<span class="type">integer</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Indicates that an incorrect Mersenne Twister implementation will be used by the algorithm, when
+      creating a <span class="classname"><a href="class.random-engine-mt19937.html" class="classname">Random\Engine\Mt19937</a></span> instance using <span class="function"><a href="random-engine-mt19937.construct.html" class="function">Random\Engine\Mt19937::__construct()</a></span>
+      or seeding the global Mersenne Twister with <span class="function"><a href="function.mt-srand.html" class="function">mt_srand()</a></span>.
+     </span>
+     <span class="simpara">
+      The incorrect implementation is available for backwards compatibility with
+      <span class="function"><a href="function.mt-srand.html" class="function">mt_srand()</a></span> prior to PHP 7.1.0.
+     </span>
+    </dd>
+
+   
+  </dl>
+
+ </p>
+</div>
+</div></div></body></html>

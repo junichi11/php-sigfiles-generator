@@ -92,21 +92,21 @@
  <div class="refsect1 examples" id="refsect1-function.gnupg-setsignmode-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3193">
+   <div class="example" id="example-3264">
     <p><strong>Example #1 Procedural <span class="function"><strong>gnupg_setsignmode()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gnupg_init</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">gnupg_setsignmode</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,</span><span style="color: #0000BB">GNUPG_SIG_MODE_DETACH</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;produce&nbsp;a&nbsp;detached&nbsp;signature<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$res </span><span style="color: #007700">= </span><span style="color: #0000BB">gnupg_init</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">gnupg_setsignmode</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,</span><span style="color: #0000BB">GNUPG_SIG_MODE_DETACH</span><span style="color: #007700">); </span><span style="color: #FF8000">// produce a detached signature<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-3194">
+   <div class="example" id="example-3265">
     <p><strong>Example #2 OO <span class="function"><strong>gnupg_setsignmode()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$gpg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$gpg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setsignmode</span><span style="color: #007700">(</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">::</span><span style="color: #0000BB">SIG_MODE_DETACH</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;produce&nbsp;a&nbsp;detached&nbsp;signature<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$gpg </span><span style="color: #007700">= new </span><span style="color: #0000BB">gnupg</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$gpg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setsignmode</span><span style="color: #007700">(</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">::</span><span style="color: #0000BB">SIG_MODE_DETACH</span><span style="color: #007700">); </span><span style="color: #FF8000">// produce a detached signature<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

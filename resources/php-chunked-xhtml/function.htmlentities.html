@@ -39,6 +39,9 @@
    This function is identical to <span class="function"><a href="function.htmlspecialchars.html" class="function">htmlspecialchars()</a></span> in all
    ways, except with <span class="function"><strong>htmlentities()</strong></span>, all characters which
    have HTML character entity equivalents are translated into these entities.
+   The <span class="function"><a href="function.get-html-translation-table.html" class="function">get_html_translation_table()</a></span> function can be used
+   to return the translation table used dependent upon the provided
+   <code class="parameter">flags</code> constants.
   </p>
   <p class="para">
    If you want to decode instead (the reverse) you can use
@@ -415,11 +418,11 @@
  <div class="refsect1 examples" id="refsect1-function.htmlentities-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4790">
+   <div class="example" id="example-4871">
     <p><strong>Example #1 A <span class="function"><strong>htmlentities()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"A&nbsp;'quote'&nbsp;is&nbsp;&lt;b&gt;bold&lt;/b&gt;"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Outputs:&nbsp;A&nbsp;'quote'&nbsp;is&nbsp;&amp;lt;b&amp;gt;bold&amp;lt;/b&amp;gt;<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Outputs:&nbsp;A&nbsp;&amp;#039;quote&amp;#039;&nbsp;is&nbsp;&amp;lt;b&amp;gt;bold&amp;lt;/b&amp;gt;<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ENT_QUOTES</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$str </span><span style="color: #007700">= </span><span style="color: #DD0000">"A 'quote' is &lt;b&gt;bold&lt;/b&gt;"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// Outputs: A 'quote' is &amp;lt;b&amp;gt;bold&amp;lt;/b&amp;gt;<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Outputs: A &amp;#039;quote&amp;#039; is &amp;lt;b&amp;gt;bold&amp;lt;/b&amp;gt;<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">, </span><span style="color: #0000BB">ENT_QUOTES</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -428,11 +431,11 @@
   </p>
   
   <p class="para">
-   <div class="example" id="example-4791">
+   <div class="example" id="example-4872">
     <p><strong>Example #2 Usage of <strong><code>ENT_IGNORE</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"\x8F!!!"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Outputs&nbsp;an&nbsp;empty&nbsp;string<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ENT_QUOTES</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"UTF-8"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Outputs&nbsp;"!!!"<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ENT_QUOTES&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">ENT_IGNORE</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"UTF-8"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$str </span><span style="color: #007700">= </span><span style="color: #DD0000">"\x8F!!!"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// Outputs an empty string<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">, </span><span style="color: #0000BB">ENT_QUOTES</span><span style="color: #007700">, </span><span style="color: #DD0000">"UTF-8"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Outputs "!!!"<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">, </span><span style="color: #0000BB">ENT_QUOTES </span><span style="color: #007700">| </span><span style="color: #0000BB">ENT_IGNORE</span><span style="color: #007700">, </span><span style="color: #DD0000">"UTF-8"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

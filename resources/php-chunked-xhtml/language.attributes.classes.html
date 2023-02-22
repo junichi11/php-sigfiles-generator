@@ -32,12 +32,12 @@
     that can be imported from the global namespace with a use statement.
    </p>
 
-  <div class="example" id="example-343">
+  <div class="example" id="example-352">
    <p><strong>Example #1 Simple Attribute Class</strong></p>
 
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">;<br /><br />use&nbsp;</span><span style="color: #0000BB">Attribute</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">#[Attribute]<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MyAttribute<br /></span><span style="color: #007700">{<br />}</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace </span><span style="color: #0000BB">Example</span><span style="color: #007700">;<br /><br />use </span><span style="color: #0000BB">Attribute</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">#[Attribute]<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">MyAttribute<br /></span><span style="color: #007700">{<br />}</span>
 </span>
 </code></div>
    </div>
@@ -49,12 +49,12 @@
    argument to the <code class="literal">#[Attribute]</code> declaration.
   </p>
 
-  <div class="example" id="example-344">
+  <div class="example" id="example-353">
    <p><strong>Example #2 Using target specification to restrict where attributes can be used</strong></p>
 
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">;<br /><br />use&nbsp;</span><span style="color: #0000BB">Attribute</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">#[Attribute(Attribute::TARGET_METHOD&nbsp;|&nbsp;Attribute::TARGET_FUNCTION)]<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MyAttribute<br /></span><span style="color: #007700">{<br />}</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace </span><span style="color: #0000BB">Example</span><span style="color: #007700">;<br /><br />use </span><span style="color: #0000BB">Attribute</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">#[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_FUNCTION)]<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">MyAttribute<br /></span><span style="color: #007700">{<br />}</span>
 </span>
 </code></div>
     </div>
@@ -83,12 +83,12 @@
     be specified as part of the bitmask to the <code class="literal">#[Attribute]</code> declaration.
    </p>
 
-   <div class="example" id="example-345">
+   <div class="example" id="example-354">
     <p><strong>Example #3 Using IS_REPEATABLE to allow attribute on a declaration multiple times</strong></p>
 
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">;<br /><br />use&nbsp;</span><span style="color: #0000BB">Attribute</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">#[Attribute(Attribute::TARGET_METHOD&nbsp;|&nbsp;Attribute::TARGET_FUNCTION&nbsp;|&nbsp;Attribute::IS_REPEATABLE)]<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MyAttribute<br /></span><span style="color: #007700">{<br />}</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace </span><span style="color: #0000BB">Example</span><span style="color: #007700">;<br /><br />use </span><span style="color: #0000BB">Attribute</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">#[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_FUNCTION | Attribute::IS_REPEATABLE)]<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">MyAttribute<br /></span><span style="color: #007700">{<br />}</span>
 </span>
 </code></div>
     </div>
