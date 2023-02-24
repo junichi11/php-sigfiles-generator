@@ -66,8 +66,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.xml-get-current-line-number-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   This function returns <strong><code>false</code></strong> if <code class="parameter">parser</code> does
-   not refer to a valid parser, or else it returns which line the
+   Returns which line the
    parser is currently at in its data buffer.
   </p>
  </div>
@@ -90,7 +89,7 @@
  <td>8.0.0</td>
  <td>
   <code class="parameter">parser</code> expects an <span class="classname"><a href="class.xmlparser.html" class="classname">XMLParser</a></span>
-  instance now; previously, a <span class="type">resource</span> was expected.
+  instance now; previously, a valid <code class="literal">xml</code> <span class="type">resource</span> was expected.
  </td>
 </tr>
 

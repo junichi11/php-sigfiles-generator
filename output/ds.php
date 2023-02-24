@@ -49,8 +49,8 @@ namespace Ds {
 	}
 
 	/**
-	 * <p>A Deque (pronounced &ldquo;deck&rdquo;) is a sequence of values in a contiguous buffer that grows and shrinks automatically. The name is a common abbreviation of &ldquo;double-ended queue&rdquo; and is used internally by <b>Ds\Queue</b>.</p>
-	 * <p>Two pointers are used to keep track of a head and a tail. The pointers can &ldquo;wrap around&rdquo; the end of the buffer, which avoids the need to move other values around to make room. This makes shift and unshift very fast&#8202;&mdash;&#8202; something a <b>Ds\Vector</b> can&rsquo;t compete with.</p>
+	 * <p>A Deque (pronounced &#x201C;deck&#x201D;) is a sequence of values in a contiguous buffer that grows and shrinks automatically. The name is a common abbreviation of &#x201C;double-ended queue&#x201D; and is used internally by <b>Ds\Queue</b>.</p>
+	 * <p>Two pointers are used to keep track of a head and a tail. The pointers can &#x201C;wrap around&#x201D; the end of the buffer, which avoids the need to move other values around to make room. This makes shift and unshift very fast&#x200A;&#x2014;&#x200A; something a <b>Ds\Vector</b> can&#x2019;t compete with.</p>
 	 * <p>Accessing a value by index requires a translation between the index and its corresponding position in the buffer: <code>((head + position) % capacity)</code>.</p>
 	 * @link https://php.net/manual/en/class.ds-deque.php
 	 * @since No version information available, might only be in Git
@@ -367,7 +367,7 @@ namespace Ds {
 	}
 
 	/**
-	 * <p>Hashable is an interface which allows objects to be used as keys. It&rsquo;s an alternative to <code>spl_object_hash()</code>, which determines an object&rsquo;s hash based on its handle: this means that two objects that are considered equal by an implicit definition would not treated as equal because they are not the same instance.</p>
+	 * <p>Hashable is an interface which allows objects to be used as keys. It&#x2019;s an alternative to <code>spl_object_hash()</code>, which determines an object&#x2019;s hash based on its handle: this means that two objects that are considered equal by an implicit definition would not treated as equal because they are not the same instance.</p>
 	 * <p><code>hash()</code> is used to return a scalar value to be used as the object's hash value, which determines where it goes in the hash table. While this value does not have to be unique, objects which are equal must have the same hash value.</p>
 	 * <p><b>equals()</b> is used to determine if two objects are equal. It's guaranteed that the comparing object will be an instance of the same class as the subject.</p>
 	 * @link https://php.net/manual/en/class.ds-hashable.php
@@ -457,7 +457,7 @@ namespace Ds {
 
 		/**
 		 * Creates a new map using keys that aren't in another map
-		 * <p>Returns the result of removing all keys from the current instance that are present in a given <code>map</code>.</p><p><code>A \ B = {x &isin; A | x &notin; B}</code></p>
+		 * <p>Returns the result of removing all keys from the current instance that are present in a given <code>map</code>.</p><p><code>A \ B = {x &#x2208; A | x &#x2209; B}</code></p>
 		 * @param \Ds\Map $map <p>The map containing the keys to exclude in the resulting map.</p>
 		 * @return Ds\Map <p>The result of removing all keys from the current instance that are present in a given <code>map</code>.</p>
 		 * @link https://php.net/manual/en/ds-map.diff.php
@@ -517,7 +517,7 @@ namespace Ds {
 
 		/**
 		 * Creates a new map by intersecting keys with another map
-		 * <p>Creates a new map containing the pairs of the current instance whose keys are also present in the given <code>map</code>. In other words, returns a copy of the current instance with all keys removed that are not also in the other <code>map</code>.</p><p><code>A &cap; B = {x : x &isin; A &and; x &isin; B}</code></p><p><b>Note</b>:</p><p>Values from the current instance will be kept.</p>
+		 * <p>Creates a new map containing the pairs of the current instance whose keys are also present in the given <code>map</code>. In other words, returns a copy of the current instance with all keys removed that are not also in the other <code>map</code>.</p><p><code>A &#x2229; B = {x : x &#x2208; A &#x2227; x &#x2208; B}</code></p><p><b>Note</b>:</p><p>Values from the current instance will be kept.</p>
 		 * @param \Ds\Map $map <p>The other map, containing the keys to intersect with.</p>
 		 * @return Ds\Map <p>The key intersection of the current instance and another <code>map</code>.</p>
 		 * @link https://php.net/manual/en/ds-map.intersect.php
@@ -723,7 +723,7 @@ namespace Ds {
 
 		/**
 		 * Creates a new map using values from the current instance and another map
-		 * <p>Creates a new map that contains the pairs of the current instance as well as the pairs of another <code>map</code>.</p><p><code>A &cup; B = {x: x &isin; A &or; x &isin; B}</code></p><p><b>Note</b>:</p><p>Values of the current instance will be overwritten by those provided where keys are equal.</p>
+		 * <p>Creates a new map that contains the pairs of the current instance as well as the pairs of another <code>map</code>.</p><p><code>A &#x222A; B = {x: x &#x2208; A &#x2228; x &#x2208; B}</code></p><p><b>Note</b>:</p><p>Values of the current instance will be overwritten by those provided where keys are equal.</p>
 		 * @param \Ds\Map $map <p>The other map, to combine with the current instance.</p>
 		 * @return Ds\Map <p>A new map containing all the pairs of the current instance as well as another <code>map</code>.</p>
 		 * @link https://php.net/manual/en/ds-map.union.php
@@ -742,7 +742,7 @@ namespace Ds {
 
 		/**
 		 * Creates a new map using keys of either the current instance or of another map, but not of both
-		 * <p>Creates a new map containing keys of the current instance as well as another <code>map</code>, but not of both.</p><p><code>A &#8854; B = {x : x &isin; (A \ B) &cup; (B \ A)}</code></p>
+		 * <p>Creates a new map containing keys of the current instance as well as another <code>map</code>, but not of both.</p><p><code>A &#x2296; B = {x : x &#x2208; (A \ B) &#x222A; (B \ A)}</code></p>
 		 * @param \Ds\Map $map <p>The other map.</p>
 		 * @return Ds\Map <p>A new map containing keys in the current instance as well as another <code>map</code>, but not in both.</p>
 		 * @link https://php.net/manual/en/ds-map.xor.php
@@ -910,7 +910,7 @@ namespace Ds {
 	}
 
 	/**
-	 * <p>A Queue is a &ldquo;first in, first out&rdquo; or &ldquo;FIFO&rdquo; collection that only allows access to the value at the front of the queue and iterates in that order, destructively.</p>
+	 * <p>A Queue is a &#x201C;first in, first out&#x201D; or &#x201C;FIFO&#x201D; collection that only allows access to the value at the front of the queue and iterates in that order, destructively.</p>
 	 * @link https://php.net/manual/en/class.ds-queue.php
 	 * @since No version information available, might only be in Git
 	 */
@@ -1007,7 +1007,7 @@ namespace Ds {
 	}
 
 	/**
-	 * <p>A Sequence describes the behaviour of values arranged in a single, linear dimension. Some languages refer to this as a "List". It&rsquo;s similar to an array that uses incremental integer keys, with the exception of a few characteristics:</p>
+	 * <p>A Sequence describes the behaviour of values arranged in a single, linear dimension. Some languages refer to this as a "List". It&#x2019;s similar to an array that uses incremental integer keys, with the exception of a few characteristics:</p>
 	 * <p>Use cases:</p>
 	 * @link https://php.net/manual/en/class.ds-sequence.php
 	 * @since No version information available, might only be in Git
@@ -1353,7 +1353,7 @@ namespace Ds {
 
 		/**
 		 * Creates a new set using values that aren't in another set
-		 * <p>Creates a new set using values that aren't in another set.</p><p><code>A \ B = {x &isin; A | x &notin; B}</code></p>
+		 * <p>Creates a new set using values that aren't in another set.</p><p><code>A \ B = {x &#x2208; A | x &#x2209; B}</code></p>
 		 * @param \Ds\Set $set <p>Set containing the values to exclude.</p>
 		 * @return Ds\Set <p>A new set containing all values that were not in the other <code>set</code>.</p>
 		 * @link https://php.net/manual/en/ds-set.diff.php
@@ -1392,7 +1392,7 @@ namespace Ds {
 
 		/**
 		 * Creates a new set by intersecting values with another set
-		 * <p>Creates a new set using values common to both the current instance and another <code>set</code>. In other words, returns a copy of the current instance with all values removed that are not in the other <code>set</code>.</p><p><code>A &cap; B = {x : x &isin; A &and; x &isin; B}</code></p>
+		 * <p>Creates a new set using values common to both the current instance and another <code>set</code>. In other words, returns a copy of the current instance with all values removed that are not in the other <code>set</code>.</p><p><code>A &#x2229; B = {x : x &#x2208; A &#x2227; x &#x2208; B}</code></p>
 		 * @param \Ds\Set $set <p>The other set.</p>
 		 * @return Ds\Set <p>The intersection of the current instance and another <code>set</code>.</p>
 		 * @link https://php.net/manual/en/ds-set.intersect.php
@@ -1528,7 +1528,7 @@ namespace Ds {
 
 		/**
 		 * Creates a new set using values from the current instance and another set
-		 * <p>Creates a new set that contains the values of the current instance as well as the values of another <code>set</code>.</p><p><code>A &cup; B = {x: x &isin; A &or; x &isin; B}</code></p>
+		 * <p>Creates a new set that contains the values of the current instance as well as the values of another <code>set</code>.</p><p><code>A &#x222A; B = {x: x &#x2208; A &#x2228; x &#x2208; B}</code></p>
 		 * @param \Ds\Set $set <p>The other set, to combine with the current instance.</p>
 		 * @return Ds\Set <p>A new set containing all the values of the current instance as well as another <code>set</code>.</p>
 		 * @link https://php.net/manual/en/ds-set.union.php
@@ -1538,7 +1538,7 @@ namespace Ds {
 
 		/**
 		 * Creates a new set using values in either the current instance or in another set, but not in both
-		 * <p>Creates a new set containing values in the current instance as well as another <code>set</code>, but not in both.</p><p><code>A &#8854; B = {x : x &isin; (A \ B) &cup; (B \ A)}</code></p>
+		 * <p>Creates a new set containing values in the current instance as well as another <code>set</code>, but not in both.</p><p><code>A &#x2296; B = {x : x &#x2208; (A \ B) &#x222A; (B \ A)}</code></p>
 		 * @param \Ds\Set $set <p>The other set.</p>
 		 * @return Ds\Set <p>A new set containing values in the current instance as well as another <code>set</code>, but not in both.</p>
 		 * @link https://php.net/manual/en/ds-set.xor.php
@@ -1548,7 +1548,7 @@ namespace Ds {
 	}
 
 	/**
-	 * <p>A Stack is a &ldquo;last in, first out&rdquo; or &ldquo;LIFO&rdquo; collection that only allows access to the value at the top of the structure and iterates in that order, destructively.</p>
+	 * <p>A Stack is a &#x201C;last in, first out&#x201D; or &#x201C;LIFO&#x201D; collection that only allows access to the value at the top of the structure and iterates in that order, destructively.</p>
 	 * <p>Uses a <b>Ds\Vector</b> internally.</p>
 	 * @link https://php.net/manual/en/class.ds-stack.php
 	 * @since No version information available, might only be in Git
@@ -1640,7 +1640,7 @@ namespace Ds {
 	}
 
 	/**
-	 * <p>A Vector is a sequence of values in a contiguous buffer that grows and shrinks automatically. It&rsquo;s the most efficient sequential structure because a value&rsquo;s index is a direct mapping to its index in the buffer, and the growth factor isn't bound to a specific multiple or exponent.</p>
+	 * <p>A Vector is a sequence of values in a contiguous buffer that grows and shrinks automatically. It&#x2019;s the most efficient sequential structure because a value&#x2019;s index is a direct mapping to its index in the buffer, and the growth factor isn't bound to a specific multiple or exponent.</p>
 	 * @link https://php.net/manual/en/class.ds-vector.php
 	 * @since No version information available, might only be in Git
 	 */

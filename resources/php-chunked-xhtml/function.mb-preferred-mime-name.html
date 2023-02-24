@@ -76,11 +76,11 @@
  <div class="refsect1 examples" id="refsect1-function.mb-preferred-mime-name-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2566">
+   <div class="example" id="example-2636">
     <p><strong>Example #1 <span class="function"><strong>mb_preferred_mime_name()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$outputenc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"sjis-win"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mb_http_output</span><span style="color: #007700">(</span><span style="color: #0000BB">$outputenc</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ob_start</span><span style="color: #007700">(</span><span style="color: #DD0000">"mb_output_handler"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-Type:&nbsp;text/html;&nbsp;charset="&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mb_preferred_mime_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$outputenc</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$outputenc </span><span style="color: #007700">= </span><span style="color: #DD0000">"sjis-win"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mb_http_output</span><span style="color: #007700">(</span><span style="color: #0000BB">$outputenc</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ob_start</span><span style="color: #007700">(</span><span style="color: #DD0000">"mb_output_handler"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-Type: text/html; charset=" </span><span style="color: #007700">. </span><span style="color: #0000BB">mb_preferred_mime_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$outputenc</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

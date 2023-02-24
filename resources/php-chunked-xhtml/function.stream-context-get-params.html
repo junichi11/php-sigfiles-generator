@@ -75,14 +75,14 @@
  <div class="refsect1 examples" id="refsect1-function.stream-context-get-params-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3772">
+   <div class="example" id="example-3850">
     <p><strong>Example #1 <span class="function"><strong>stream_context_get_params()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      Basic usage example
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$ctx&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">stream_context_create</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$params&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"notification"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"stream_notification_callback"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">stream_context_set_params</span><span style="color: #007700">(</span><span style="color: #0000BB">$ctx</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">stream_context_get_params</span><span style="color: #007700">(</span><span style="color: #0000BB">$ctx</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$ctx </span><span style="color: #007700">= </span><span style="color: #0000BB">stream_context_create</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$params </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"notification" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"stream_notification_callback"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">stream_context_set_params</span><span style="color: #007700">(</span><span style="color: #0000BB">$ctx</span><span style="color: #007700">, </span><span style="color: #0000BB">$params</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">stream_context_get_params</span><span style="color: #007700">(</span><span style="color: #0000BB">$ctx</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

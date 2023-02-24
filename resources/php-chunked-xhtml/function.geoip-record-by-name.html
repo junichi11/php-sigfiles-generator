@@ -90,12 +90,12 @@
     </li>
     <li class="listitem">
      <span class="simpara">
-      &quot;latitude&quot; -- The Latitude as signed double.
+      &quot;latitude&quot; -- The Latitude as signed <span class="type">float</span>.
      </span>
     </li>
     <li class="listitem">
      <span class="simpara">
-      &quot;longitude&quot; -- The Longitude as signed double.
+      &quot;longitude&quot; -- The Longitude as signed <span class="type">float</span>.
      </span>
     </li>
     <li class="listitem">
@@ -182,14 +182,14 @@
  <div class="refsect1 examples" id="refsect1-function.geoip-record-by-name-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3448">
+   <div class="example" id="example-3484">
     <p><strong>Example #1 A <span class="function"><strong>geoip_record_by_name()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This will print the array containing the record of host example.com.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$record&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">geoip_record_by_name</span><span style="color: #007700">(</span><span style="color: #DD0000">'www.example.com'</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$record</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$record</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$record </span><span style="color: #007700">= </span><span style="color: #0000BB">geoip_record_by_name</span><span style="color: #007700">(</span><span style="color: #DD0000">'www.example.com'</span><span style="color: #007700">);<br />if (</span><span style="color: #0000BB">$record</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$record</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

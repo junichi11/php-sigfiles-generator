@@ -56,10 +56,15 @@
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
     <div class="fieldsynopsis">
      <span class="modifier">public</span>
+     <span class="modifier">readonly</span>
      <span class="type"><a href="class.domdocument.html" class="type DOMDocument">DOMDocument</a></span>
       <var class="varname"><a href="class.domxpath.html#domxpath.props.document">$<var class="varname">document</var></a></var>;</div>
 
- 
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">bool</span>
+      <var class="varname"><a href="class.domxpath.html#domxpath.props.registernodenamespaces">$<var class="varname">registerNodeNamespaces</var></a></var>;</div>
+
+
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="domxpath.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type"><a href="class.domdocument.html" class="type DOMDocument">DOMDocument</a></span> <code class="parameter">$document</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$registerNodeNS</code><span class="initializer"> = <strong><code>true</code></strong></span></span>)</div>
@@ -88,10 +93,45 @@
      </dd>
 
     
+    
+     <dt id="domxpath.props.registernodenamespaces"><var class="varname">registerNodeNamespaces</var></dt>
+
+     <dd>
+
+      <p class="para">When set to <strong><code>true</code></strong>, namespaces in the node are registered.</p>
+     </dd>
+
+    
    </dl>
 
   </div>
 
+
+  <div class="section">
+   <h2 class="title">Changelog</h2>
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        The <var class="varname">registerNodeNamespaces</var> property has been added.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </div>
   
 
 

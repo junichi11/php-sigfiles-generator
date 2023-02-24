@@ -44,24 +44,24 @@
      Owing to the lack of input validation and connecting to the database on
      behalf of a superuser or the one who can create users, the attacker
      may create a superuser in your database.
-     <div class="example" id="example-421">
+     <div class="example" id="example-437">
       <p><strong>Example #1 
        Splitting the result set into pages ... and making superusers
        (PostgreSQL)
       </strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$offset&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$argv</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;beware,&nbsp;no&nbsp;input&nbsp;validation!<br /></span><span style="color: #0000BB">$query&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;id,&nbsp;name&nbsp;FROM&nbsp;products&nbsp;ORDER&nbsp;BY&nbsp;name&nbsp;LIMIT&nbsp;20&nbsp;OFFSET&nbsp;</span><span style="color: #0000BB">$offset</span><span style="color: #DD0000">;"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$offset </span><span style="color: #007700">= </span><span style="color: #0000BB">$argv</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]; </span><span style="color: #FF8000">// beware, no input validation!<br /></span><span style="color: #0000BB">$query  </span><span style="color: #007700">= </span><span style="color: #DD0000">"SELECT id, name FROM products ORDER BY name LIMIT 20 OFFSET </span><span style="color: #0000BB">$offset</span><span style="color: #DD0000">;"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$result </span><span style="color: #007700">= </span><span style="color: #0000BB">pg_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">, </span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
 
      </div>
       Normal users click on the &#039;next&#039;, &#039;prev&#039; links where the <var class="varname">$offset</var>
-      is encoded into the <acronym title="Uniform Resource Locator">URL</acronym>. The script expects that the incoming
+      is encoded into the <abbr title="Uniform Resource Locator">URL</abbr>. The script expects that the incoming
       <var class="varname">$offset</var> is a decimal number. However, what if someone tries to
       break in by appending a <span class="function"><a href="function.urlencode.html" class="function">urlencode()</a></span>&#039;d form of the
-      following to the <acronym title="Uniform Resource Locator">URL</acronym>
+      following to the <abbr title="Uniform Resource Locator">URL</abbr>
       <div class="informalexample">
        <div class="example-contents">
 <div class="sqlcode"><pre class="sqlcode">0;
@@ -94,13 +94,13 @@ insert into pg_shadow(usename,usesysid,usesuper,usecatupd,passwd)
      the attacker may try to append an entire query to the original one to list
      passwords from an arbitrary table. Using encrypted password fields is 
      strongly encouraged.
-     <div class="example" id="example-422">
+     <div class="example" id="example-438">
       <p><strong>Example #2 
        Listing out articles ... and some passwords (any database server)
       </strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$query&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;id,&nbsp;name,&nbsp;inserted,&nbsp;size&nbsp;FROM&nbsp;products<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;size&nbsp;=&nbsp;'</span><span style="color: #0000BB">$size</span><span style="color: #DD0000">'"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">odbc_exec</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$query  </span><span style="color: #007700">= </span><span style="color: #DD0000">"SELECT id, name, inserted, size FROM products<br />           WHERE size = '</span><span style="color: #0000BB">$size</span><span style="color: #DD0000">'"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$result </span><span style="color: #007700">= </span><span style="color: #0000BB">odbc_exec</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">, </span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -129,13 +129,13 @@ union select &#039;1&#039;, concat(uname||&#039;-&#039;||passwd) as name, &#039;
      successfully. This can be acquired by examining the form variable names, or
      just simply brute forcing. There are not so many naming conventions for
      fields storing passwords or usernames.
-     <div class="example" id="example-423">
+     <div class="example" id="example-439">
      <p><strong>Example #3 
       From resetting a password ... to gaining more privileges (any database server)
      </strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"UPDATE&nbsp;usertable&nbsp;SET&nbsp;pwd='</span><span style="color: #0000BB">$pwd</span><span style="color: #DD0000">'&nbsp;WHERE&nbsp;uid='</span><span style="color: #0000BB">$uid</span><span style="color: #DD0000">';"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$query </span><span style="color: #007700">= </span><span style="color: #DD0000">"UPDATE usertable SET pwd='</span><span style="color: #0000BB">$pwd</span><span style="color: #DD0000">' WHERE uid='</span><span style="color: #0000BB">$uid</span><span style="color: #DD0000">';"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -149,7 +149,7 @@ union select &#039;1&#039;, concat(uname||&#039;-&#039;||passwd) as name, &#039;
      <div class="informalexample">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;$uid:&nbsp;'&nbsp;or&nbsp;uid&nbsp;like&nbsp;'%admin%<br /></span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"UPDATE&nbsp;usertable&nbsp;SET&nbsp;pwd='...'&nbsp;WHERE&nbsp;uid=''&nbsp;or&nbsp;uid&nbsp;like&nbsp;'%admin%';"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;$pwd:&nbsp;hehehe',&nbsp;trusted=100,&nbsp;admin='yes<br /></span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"UPDATE&nbsp;usertable&nbsp;SET&nbsp;pwd='hehehe',&nbsp;trusted=100,&nbsp;admin='yes'&nbsp;WHERE<br />...;"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">// $uid: ' or uid like '%admin%<br /></span><span style="color: #0000BB">$query </span><span style="color: #007700">= </span><span style="color: #DD0000">"UPDATE usertable SET pwd='...' WHERE uid='' or uid like '%admin%';"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// $pwd: hehehe', trusted=100, admin='yes<br /></span><span style="color: #0000BB">$query </span><span style="color: #007700">= </span><span style="color: #DD0000">"UPDATE usertable SET pwd='hehehe', trusted=100, admin='yes' WHERE<br />...;"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -159,11 +159,11 @@ union select &#039;1&#039;, concat(uname||&#039;-&#039;||passwd) as name, &#039;
     <p class="para">
      A frightening example of how operating system level commands can be accessed
      on some database hosts.
-     <div class="example" id="example-424">
+     <div class="example" id="example-440">
      <p><strong>Example #4 Attacking the database hosts operating system (MSSQL Server)</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$query&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;products&nbsp;WHERE&nbsp;id&nbsp;LIKE&nbsp;'%</span><span style="color: #0000BB">$prod</span><span style="color: #DD0000">%'"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mssql_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$query  </span><span style="color: #007700">= </span><span style="color: #DD0000">"SELECT * FROM products WHERE id LIKE '%</span><span style="color: #0000BB">$prod</span><span style="color: #DD0000">%'"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$result </span><span style="color: #007700">= </span><span style="color: #0000BB">mssql_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -175,7 +175,7 @@ union select &#039;1&#039;, concat(uname||&#039;-&#039;||passwd) as name, &#039;
      <div class="informalexample">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$query&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;products<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;id&nbsp;LIKE&nbsp;'%a%'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exec&nbsp;master..xp_cmdshell&nbsp;'net&nbsp;user&nbsp;test&nbsp;testpass&nbsp;/ADD'&nbsp;--%'"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mssql_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$query  </span><span style="color: #007700">= </span><span style="color: #DD0000">"SELECT * FROM products<br />           WHERE id LIKE '%a%'<br />           exec master..xp_cmdshell 'net user test testpass /ADD' --%'"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$result </span><span style="color: #007700">= </span><span style="color: #0000BB">mssql_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -244,7 +244,7 @@ union select &#039;1&#039;, concat(uname||&#039;-&#039;||passwd) as name, &#039;
       </li>
       <li class="listitem">
        <span class="simpara">
-        Check if the given input has the expected data type. <acronym title="PHP: Hypertext Preprocessor">PHP</acronym> has
+        Check if the given input has the expected data type. <abbr title="PHP: Hypertext Preprocessor">PHP</abbr> has
         a wide range of input validating functions, from the simplest ones
         found in <a href="ref.var.html" class="link">Variable Functions</a> and
         in <a href="ref.ctype.html" class="link">Character Type Functions</a>
@@ -260,11 +260,11 @@ union select &#039;1&#039;, concat(uname||&#039;-&#039;||passwd) as name, &#039;
         with <span class="function"><a href="function.ctype-digit.html" class="function">ctype_digit()</a></span>, or silently change its type
         using <span class="function"><a href="function.settype.html" class="function">settype()</a></span>, or use its numeric representation
         by <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span>.
-        <div class="example" id="example-425">
+        <div class="example" id="example-441">
          <p><strong>Example #5 A more secure way to compose a query for paging</strong></p>
          <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />settype</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'integer'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;id,&nbsp;name&nbsp;FROM&nbsp;products&nbsp;ORDER&nbsp;BY&nbsp;name&nbsp;LIMIT&nbsp;20&nbsp;OFFSET&nbsp;</span><span style="color: #0000BB">$offset</span><span style="color: #DD0000">;"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;please&nbsp;note&nbsp;%d&nbsp;in&nbsp;the&nbsp;format&nbsp;string,&nbsp;using&nbsp;%s&nbsp;would&nbsp;be&nbsp;meaningless<br /></span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;id,&nbsp;name&nbsp;FROM&nbsp;products&nbsp;ORDER&nbsp;BY&nbsp;name&nbsp;LIMIT&nbsp;20&nbsp;OFFSET&nbsp;%d;"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$offset</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />settype</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">, </span><span style="color: #DD0000">'integer'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$query </span><span style="color: #007700">= </span><span style="color: #DD0000">"SELECT id, name FROM products ORDER BY name LIMIT 20 OFFSET </span><span style="color: #0000BB">$offset</span><span style="color: #DD0000">;"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// please note %d in the format string, using %s would be meaningless<br /></span><span style="color: #0000BB">$query </span><span style="color: #007700">= </span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT id, name FROM products ORDER BY name LIMIT 20 OFFSET %d;"</span><span style="color: #007700">,<br />                 </span><span style="color: #0000BB">$offset</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
          </div>

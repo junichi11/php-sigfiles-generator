@@ -31,33 +31,22 @@
   ℤ = {..., -2, -1, 0, 1, 2, ...}.
  </p>
 
- <p class="para">
-  See also:
- </p>
-
- <ul class="itemizedlist">
-  <li class="listitem">
-   <span class="simpara">
-    <a href="book.gmp.html" class="link">Arbitrary length integer / GMP</a>
-   </span>
-  </li>
-  <li class="listitem">
-   <span class="simpara">
-    <a href="language.types.float.html" class="link">Floating point numbers</a>
-   </span>
-  </li>
-  <li class="listitem">
-   <span class="simpara">
-    <a href="book.bc.html" class="link">Arbitrary precision / BCMath</a>
-   </span>
-  </li>
- </ul>
+ <div class="sect2">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a href="language.types.float.html" class="link">Floating point numbers</a></li>
+    <li class="member"><a href="book.bc.html" class="link">Arbitrary precision / BCMath</a></li>
+    <li class="member"><a href="book.gmp.html" class="link">Arbitrary length integer / GMP</a></li>
+   </ul>
+  </p>
+ </div>
 
  <div class="sect2" id="language.types.integer.syntax">
   <h3 class="title">Syntax</h3>
 
   <p class="simpara">
-   <span class="type">int</span>s can be specified in decimal (base 10), hexadecimal
+   <span class="type">Int</span>s can be specified in decimal (base 10), hexadecimal
    (base 16), octal (base 8) or binary (base 2) notation.
    The <a href="language.operators.arithmetic.html" class="link">negation operator</a>
    can be used to denote a negative <span class="type">int</span>.
@@ -79,7 +68,7 @@
    <p><strong>Example #1 Integer literals</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1234</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;decimal&nbsp;number<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0123</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;octal&nbsp;number&nbsp;(equivalent&nbsp;to&nbsp;83&nbsp;decimal)<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0o123</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;octal&nbsp;number&nbsp;(as&nbsp;of&nbsp;PHP&nbsp;8.1.0)<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0x1A</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;hexadecimal&nbsp;number&nbsp;(equivalent&nbsp;to&nbsp;26&nbsp;decimal)<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0b11111111</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;binary&nbsp;number&nbsp;(equivalent&nbsp;to&nbsp;255&nbsp;decimal)<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1_234_567</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;decimal&nbsp;number&nbsp;(as&nbsp;of&nbsp;PHP&nbsp;7.4.0)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= </span><span style="color: #0000BB">1234</span><span style="color: #007700">; </span><span style="color: #FF8000">// decimal number<br /></span><span style="color: #0000BB">$a </span><span style="color: #007700">= </span><span style="color: #0000BB">0123</span><span style="color: #007700">; </span><span style="color: #FF8000">// octal number (equivalent to 83 decimal)<br /></span><span style="color: #0000BB">$a </span><span style="color: #007700">= </span><span style="color: #0000BB">0o123</span><span style="color: #007700">; </span><span style="color: #FF8000">// octal number (as of PHP 8.1.0)<br /></span><span style="color: #0000BB">$a </span><span style="color: #007700">= </span><span style="color: #0000BB">0x1A</span><span style="color: #007700">; </span><span style="color: #FF8000">// hexadecimal number (equivalent to 26 decimal)<br /></span><span style="color: #0000BB">$a </span><span style="color: #007700">= </span><span style="color: #0000BB">0b11111111</span><span style="color: #007700">; </span><span style="color: #FF8000">// binary number (equivalent to 255 decimal)<br /></span><span style="color: #0000BB">$a </span><span style="color: #007700">= </span><span style="color: #0000BB">1_234_567</span><span style="color: #007700">; </span><span style="color: #FF8000">// decimal number (as of PHP 7.4.0)<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -87,8 +76,10 @@
   </div>
 
   <p class="para">
-   Formally, the structure for <span class="type">int</span> literals is as of PHP 7.4.0
-   (previously, underscores have not been allowed):
+   Formally, the structure for <span class="type">int</span> literals is as of PHP 8.1.0
+   (previously, the <code class="literal">0o</code> or <code class="literal">0O</code> octal
+   prefixes were not allowed, and prior to PHP 7.4.0 the underscores were
+   not allowed):
   </p>
 
   <div class="informalexample">
@@ -138,7 +129,7 @@ integer     : decimal
    <p><strong>Example #2 Integer overflow on a 32-bit system</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$large_number&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">2147483647</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;int(2147483647)<br /><br /></span><span style="color: #0000BB">$large_number&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">2147483648</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;float(2147483648)<br /><br /></span><span style="color: #0000BB">$million&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1000000</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$large_number&nbsp;</span><span style="color: #007700">=&nbsp;&nbsp;</span><span style="color: #0000BB">50000&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">$million</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;float(50000000000)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$large_number </span><span style="color: #007700">= </span><span style="color: #0000BB">2147483647</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);                     </span><span style="color: #FF8000">// int(2147483647)<br /><br /></span><span style="color: #0000BB">$large_number </span><span style="color: #007700">= </span><span style="color: #0000BB">2147483648</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);                     </span><span style="color: #FF8000">// float(2147483648)<br /><br /></span><span style="color: #0000BB">$million </span><span style="color: #007700">= </span><span style="color: #0000BB">1000000</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$large_number </span><span style="color: #007700">=  </span><span style="color: #0000BB">50000 </span><span style="color: #007700">* </span><span style="color: #0000BB">$million</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);                     </span><span style="color: #FF8000">// float(50000000000)<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -149,7 +140,7 @@ integer     : decimal
    <p><strong>Example #3 Integer overflow on a 64-bit system</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$large_number&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">9223372036854775807</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;int(9223372036854775807)<br /><br /></span><span style="color: #0000BB">$large_number&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">9223372036854775808</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;float(9.2233720368548E+18)<br /><br /></span><span style="color: #0000BB">$million&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1000000</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$large_number&nbsp;</span><span style="color: #007700">=&nbsp;&nbsp;</span><span style="color: #0000BB">50000000000000&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">$million</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;float(5.0E+19)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$large_number </span><span style="color: #007700">= </span><span style="color: #0000BB">9223372036854775807</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);                     </span><span style="color: #FF8000">// int(9223372036854775807)<br /><br /></span><span style="color: #0000BB">$large_number </span><span style="color: #007700">= </span><span style="color: #0000BB">9223372036854775808</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);                     </span><span style="color: #FF8000">// float(9.2233720368548E+18)<br /><br /></span><span style="color: #0000BB">$million </span><span style="color: #007700">= </span><span style="color: #0000BB">1000000</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$large_number </span><span style="color: #007700">=  </span><span style="color: #0000BB">50000000000000 </span><span style="color: #007700">* </span><span style="color: #0000BB">$million</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);                     </span><span style="color: #FF8000">// float(5.0E+19)<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -167,7 +158,7 @@ integer     : decimal
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">25</span><span style="color: #007700">/</span><span style="color: #0000BB">7</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;float(3.5714285714286)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((int)&nbsp;(</span><span style="color: #0000BB">25</span><span style="color: #007700">/</span><span style="color: #0000BB">7</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;int(3)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">round</span><span style="color: #007700">(</span><span style="color: #0000BB">25</span><span style="color: #007700">/</span><span style="color: #0000BB">7</span><span style="color: #007700">));&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;float(4)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">25</span><span style="color: #007700">/</span><span style="color: #0000BB">7</span><span style="color: #007700">);         </span><span style="color: #FF8000">// float(3.5714285714286)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((int) (</span><span style="color: #0000BB">25</span><span style="color: #007700">/</span><span style="color: #0000BB">7</span><span style="color: #007700">)); </span><span style="color: #FF8000">// int(3)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">round</span><span style="color: #007700">(</span><span style="color: #0000BB">25</span><span style="color: #007700">/</span><span style="color: #0000BB">7</span><span style="color: #007700">));  </span><span style="color: #FF8000">// float(4)<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -214,7 +205,16 @@ integer     : decimal
    <p class="simpara">
     When converting from <span class="type">float</span> to <span class="type">int</span>, the number
     will be rounded <em class="emphasis">towards zero</em>.
+    As of PHP 8.1.0, a deprecation notice is emitted when implicitly converting a non-integral <span class="type">float</span> to <span class="type">int</span> which loses precision.
    </p>
+
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function </span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">): </span><span style="color: #0000BB">int </span><span style="color: #007700">{<br />  return </span><span style="color: #0000BB">$value</span><span style="color: #007700">; <br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">8.1</span><span style="color: #007700">)); </span><span style="color: #FF8000">// "Deprecated: Implicit conversion from float 8.1 to int loses precision" as of PHP 8.1.0<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">8.1</span><span style="color: #007700">)); </span><span style="color: #FF8000">// 8 prior to PHP 8.1.0<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">8.0</span><span style="color: #007700">)); </span><span style="color: #FF8000">// 8 in both cases<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((int)</span><span style="color: #0000BB">8.1</span><span style="color: #007700">); </span><span style="color: #FF8000">// 8 in both cases<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">intval</span><span style="color: #007700">(</span><span style="color: #0000BB">8.1</span><span style="color: #007700">)); </span><span style="color: #FF8000">// 8 in both cases<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
 
    <p class="para">
     If the float is beyond the boundaries of <span class="type">int</span> (usually
@@ -240,7 +240,7 @@ integer     : decimal
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;(int)&nbsp;(&nbsp;(</span><span style="color: #0000BB">0.1</span><span style="color: #007700">+</span><span style="color: #0000BB">0.7</span><span style="color: #007700">)&nbsp;*&nbsp;</span><span style="color: #0000BB">10&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;echoes&nbsp;7!<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo (int) ( (</span><span style="color: #0000BB">0.1</span><span style="color: #007700">+</span><span style="color: #0000BB">0.7</span><span style="color: #007700">) * </span><span style="color: #0000BB">10 </span><span style="color: #007700">); </span><span style="color: #FF8000">// echoes 7!<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

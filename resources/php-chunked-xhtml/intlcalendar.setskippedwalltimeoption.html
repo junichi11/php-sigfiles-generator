@@ -36,12 +36,12 @@
    Object-oriented style
   </p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>IntlCalendar::setSkippedWallTimeOption</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>): <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>IntlCalendar::setSkippedWallTimeOption</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>): <span class="type"><span class="type true">true</span></span></div>
 
   <p class="para rdfs-comment">
    Procedural style
   </p>
-  <div class="methodsynopsis dc-description"><span class="methodname"><strong>intlcal_set_skipped_wall_time_option</strong></span>(<span class="methodparam"><span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span> <code class="parameter">$calendar</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>): <span class="type">bool</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>intlcal_set_skipped_wall_time_option</strong></span>(<span class="methodparam"><span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span> <code class="parameter">$calendar</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>): <span class="type"><span class="type true">true</span></span></div>
 
   <p class="para rdfs-comment">
    Sets the current strategy for dealing with wall times that are skipped
@@ -109,6 +109,34 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-intlcalendar.setskippedwalltimeoption-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+ <td>8.2.0</td>
+ <td>
+  The return type is <strong><code>true</code></strong> now; previously, it was <span class="type">bool</span>.
+ </td>
+</tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
 
 
  <div class="refsect1 examples" id="refsect1-intlcalendar.setskippedwalltimeoption-examples">

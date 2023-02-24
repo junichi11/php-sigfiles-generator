@@ -33,11 +33,11 @@
    into an array.
   </p>
   
-  <div class="example" id="example-5415">
+  <div class="example" id="example-5589">
    <p><strong>Example #1 Serializing a single value with WDDX</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">wddx_serialize_value</span><span style="color: #007700">(</span><span style="color: #DD0000">"PHP&nbsp;to&nbsp;WDDX&nbsp;packet&nbsp;example"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PHP&nbsp;packet"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">wddx_serialize_value</span><span style="color: #007700">(</span><span style="color: #DD0000">"PHP to WDDX packet example"</span><span style="color: #007700">, </span><span style="color: #DD0000">"PHP packet"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -53,11 +53,11 @@
    </div>
   </div>
 
-  <div class="example" id="example-5416">
+  <div class="example" id="example-5590">
    <p><strong>Example #2 Using incremental packets with WDDX</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$pi&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">3.1415926</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$packet_id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">wddx_packet_start</span><span style="color: #007700">(</span><span style="color: #DD0000">"PHP"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">wddx_add_vars</span><span style="color: #007700">(</span><span style="color: #0000BB">$packet_id</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"pi"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Suppose&nbsp;$cities&nbsp;came&nbsp;from&nbsp;database&nbsp;*/<br /></span><span style="color: #0000BB">$cities&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"Austin"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Novato"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Seattle"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">wddx_add_vars</span><span style="color: #007700">(</span><span style="color: #0000BB">$packet_id</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"cities"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$packet&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">wddx_packet_end</span><span style="color: #007700">(</span><span style="color: #0000BB">$packet_id</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$packet</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$pi </span><span style="color: #007700">= </span><span style="color: #0000BB">3.1415926</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$packet_id </span><span style="color: #007700">= </span><span style="color: #0000BB">wddx_packet_start</span><span style="color: #007700">(</span><span style="color: #DD0000">"PHP"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">wddx_add_vars</span><span style="color: #007700">(</span><span style="color: #0000BB">$packet_id</span><span style="color: #007700">, </span><span style="color: #DD0000">"pi"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Suppose $cities came from database */<br /></span><span style="color: #0000BB">$cities </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"Austin"</span><span style="color: #007700">, </span><span style="color: #DD0000">"Novato"</span><span style="color: #007700">, </span><span style="color: #DD0000">"Seattle"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">wddx_add_vars</span><span style="color: #007700">(</span><span style="color: #0000BB">$packet_id</span><span style="color: #007700">, </span><span style="color: #DD0000">"cities"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$packet </span><span style="color: #007700">= </span><span style="color: #0000BB">wddx_packet_end</span><span style="color: #007700">(</span><span style="color: #0000BB">$packet_id</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$packet</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -77,9 +77,9 @@
 
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    If you want to serialize non-ASCII characters you have to convert
-    your data to UTF-8 first (see <span class="function"><a href="function.utf8-encode.html" class="function">utf8_encode()</a></span> and
-    <span class="function"><a href="function.iconv.html" class="function">iconv()</a></span>).
+    Strings should be encoded in UTF-8; to handle other encodings, convert
+    the string first using <span class="function"><a href="function.mb-convert-encoding.html" class="function">mb_convert_encoding()</a></span>,
+    <span class="methodname"><a href="uconverter.transcode.html" class="methodname">UConverter::transcode()</a></span>, or <span class="function"><a href="function.iconv.html" class="function">iconv()</a></span>.
    </p>
   </p></blockquote>
  </div></div></div></body></html>

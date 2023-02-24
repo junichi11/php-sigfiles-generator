@@ -91,13 +91,22 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-mysqli-result.construct-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+If mysqli error reporting is enabled (<strong><code>MYSQLI_REPORT_ERROR</code></strong>) and the requested operation fails,
+a warning is generated. If, in addition, the mode is set to <strong><code>MYSQLI_REPORT_STRICT</code></strong>,
+a <span class="classname"><a href="class.mysqli-sql-exception.html" class="classname">mysqli_sql_exception</a></span> is thrown instead.</p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-mysqli-result.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1491">
+  <div class="example" id="example-1523">
    <p><strong>Example #1 Creation of a <span class="classname"><a href="class.mysqli-result.html" class="classname">mysqli_result</a></span> object</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />mysqli_report</span><span style="color: #007700">(</span><span style="color: #0000BB">MYSQLI_REPORT_ERROR&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MYSQLI_REPORT_STRICT</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Select&nbsp;queries&nbsp;return&nbsp;a&nbsp;result&nbsp;set&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">real_query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;Name&nbsp;FROM&nbsp;City&nbsp;LIMIT&nbsp;10"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli_result</span><span style="color: #007700">(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Select&nbsp;returned&nbsp;%d&nbsp;rows.\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">num_rows</span><span style="color: #007700">);</span>
+<span style="color: #0000BB">&lt;?php<br /><br />mysqli_report</span><span style="color: #007700">(</span><span style="color: #0000BB">MYSQLI_REPORT_ERROR </span><span style="color: #007700">| </span><span style="color: #0000BB">MYSQLI_REPORT_STRICT</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli </span><span style="color: #007700">= new </span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">, </span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">, </span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">, </span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Select queries return a result set */<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">real_query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT Name FROM City LIMIT 10"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$result </span><span style="color: #007700">= new </span><span style="color: #0000BB">mysqli_result</span><span style="color: #007700">(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Select returned %d rows.\n"</span><span style="color: #007700">, </span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">num_rows</span><span style="color: #007700">);</span>
 </span>
 </code></div>
    </div>

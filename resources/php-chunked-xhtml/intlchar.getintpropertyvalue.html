@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-intlchar.getintpropertyvalue-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::getIntPropertyValue</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$codepoint</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$property</code></span>): <span class="type">int</span></div>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::getIntPropertyValue</strong></span>(<span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$codepoint</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$property</code></span>): <span class="type"><span class="type">?</span><span class="type">int</span></span></div>
 
   <p class="para rdfs-comment">
    Gets the property value for an enumerated or integer Unicode property for a code point.
@@ -74,7 +74,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the numeric value that is directly the property value or, for enumerated properties, corresponds to the
-   numeric value of the enumerated constant of the respective property value enumeration type.
+   numeric value of the enumerated constant of the respective property value enumeration type. Returns <strong><code>null</code></strong> on failure.
   </p>
   <p class="para">
    Returns <code class="literal">0</code> or <code class="literal">1</code> (for <strong><code>false</code></strong>/<strong><code>true</code></strong>) for binary Unicode properties.
@@ -91,11 +91,11 @@
 
  <div class="refsect1 examples" id="refsect1-intlchar.getintpropertyvalue-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2493">
+  <div class="example" id="example-2563">
    <p><strong>Example #1 Testing different properties</strong></p>
    <div class="example-contents">
     <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">getIntPropertyValue</span><span style="color: #007700">(</span><span style="color: #DD0000">"A"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">PROPERTY_ALPHABETIC</span><span style="color: #007700">)&nbsp;===&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">getIntPropertyValue</span><span style="color: #007700">(</span><span style="color: #DD0000">"["</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">PROPERTY_BIDI_MIRRORED</span><span style="color: #007700">)&nbsp;===&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">getIntPropertyValue</span><span style="color: #007700">(</span><span style="color: #DD0000">"Φ"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">PROPERTY_BLOCK</span><span style="color: #007700">)&nbsp;===&nbsp;</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">BLOCK_CODE_GREEK</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">getIntPropertyValue</span><span style="color: #007700">(</span><span style="color: #DD0000">"A"</span><span style="color: #007700">, </span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">PROPERTY_ALPHABETIC</span><span style="color: #007700">) === </span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">getIntPropertyValue</span><span style="color: #007700">(</span><span style="color: #DD0000">"["</span><span style="color: #007700">, </span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">PROPERTY_BIDI_MIRRORED</span><span style="color: #007700">) === </span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">getIntPropertyValue</span><span style="color: #007700">(</span><span style="color: #DD0000">"Φ"</span><span style="color: #007700">, </span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">PROPERTY_BLOCK</span><span style="color: #007700">) === </span><span style="color: #0000BB">IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">BLOCK_CODE_GREEK</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

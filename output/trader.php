@@ -1575,7 +1575,7 @@ namespace {
 
 	/**
 	 * Set unstable period
-	 * <p>Influences unstable period factor for functions, which are sensible to it. More information about unstable periods can be found on the TA-Lib API documentation page.</p>
+	 * <p>Influences unstable period factor for functions, which are sensible to it. More information about unstable periods can be found on the &#xBB;&#xA0;TA-Lib API documentation page.</p>
 	 * @param int $functionId <p>Function ID the factor should be set for. TRADER_FUNC_UNST_&#42; constant series can be used to affect the corresponding function.</p>
 	 * @param int $timePeriod <p>Unstable period value.</p>
 	 * @return void <p>No value is returned.</p>

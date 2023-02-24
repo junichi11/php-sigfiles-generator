@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="reflectionfunction.invoke.html">« ReflectionFunction::invoke</a></li>
-      <li style="float: right;"><a href="reflectionfunction.isdisabled.html">ReflectionFunction::isDisabled »</a></li>
+      <li style="float: right;"><a href="reflectionfunction.isanonymous.html">ReflectionFunction::isAnonymous »</a></li>
     </ul>
   </div>
 </div>
@@ -73,14 +73,43 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-reflectionfunction.invokeargs-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">args</code> keys will now be interpreted as parameter names, instead of being silently ignored.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-reflectionfunction.invokeargs-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5154">
+   <div class="example" id="example-5311">
     <p><strong>Example #1 <span class="methodname"><strong>ReflectionFunction::invokeArgs()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">title</span><span style="color: #007700">(</span><span style="color: #0000BB">$title</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%s.&nbsp;%s\r\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$title</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">$function&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'title'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">$function</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">invokeArgs</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'Dr'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Phil'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">title</span><span style="color: #007700">(</span><span style="color: #0000BB">$title</span><span style="color: #007700">, </span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />    return </span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%s. %s\r\n"</span><span style="color: #007700">, </span><span style="color: #0000BB">$title</span><span style="color: #007700">, </span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">$function </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'title'</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #0000BB">$function</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">invokeArgs</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'Dr'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Phil'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -94,11 +123,11 @@ Dr. Phil
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5155">
+   <div class="example" id="example-5312">
     <p><strong>Example #2 <span class="methodname"><strong>ReflectionFunction::invokeArgs()</strong></span> with references example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">get_false_conditions</span><span style="color: #007700">(array&nbsp;</span><span style="color: #0000BB">$conditions</span><span style="color: #007700">,&nbsp;array&nbsp;&amp;</span><span style="color: #0000BB">$false_conditions</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: #0000BB">$conditions&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$condition</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">$condition</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$false_conditions</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #0000BB">$condition</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$function_ref&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'get_false_conditions'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$conditions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">true</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$false_conditions&nbsp;</span><span style="color: #007700">=&nbsp;array();<br /><br /></span><span style="color: #0000BB">$function_ref</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">invokeArgs</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$conditions</span><span style="color: #007700">,&nbsp;&amp;</span><span style="color: #0000BB">$false_conditions</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$false_conditions</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">get_false_conditions</span><span style="color: #007700">(array </span><span style="color: #0000BB">$conditions</span><span style="color: #007700">, array &amp;</span><span style="color: #0000BB">$false_conditions</span><span style="color: #007700">)<br />{<br />    foreach (</span><span style="color: #0000BB">$conditions </span><span style="color: #007700">as </span><span style="color: #0000BB">$condition</span><span style="color: #007700">) {<br />        if (!</span><span style="color: #0000BB">$condition</span><span style="color: #007700">) {<br />            </span><span style="color: #0000BB">$false_conditions</span><span style="color: #007700">[] = </span><span style="color: #0000BB">$condition</span><span style="color: #007700">;<br />        }<br />    }<br />}<br /><br /></span><span style="color: #0000BB">$function_ref     </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'get_false_conditions'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$conditions       </span><span style="color: #007700">= array(</span><span style="color: #0000BB">true</span><span style="color: #007700">, </span><span style="color: #0000BB">false</span><span style="color: #007700">, -</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$false_conditions </span><span style="color: #007700">= array();<br /><br /></span><span style="color: #0000BB">$function_ref</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">invokeArgs</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$conditions</span><span style="color: #007700">, &amp;</span><span style="color: #0000BB">$false_conditions</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$false_conditions</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

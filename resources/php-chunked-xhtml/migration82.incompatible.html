@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Backward Incompatible Changes</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration82.constants.html">« New Global Constants</a></li>
+      <li style="float: right;"><a href="migration82.deprecated.html">Deprecated Features »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration82.html">Migrating from PHP 8.1.x to PHP 8.2.x</a></li>
+    <li>Backward Incompatible Changes</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration82.incompatible" class="sect1">
+ <h2 class="title">Backward Incompatible Changes</h2>
+
+ <div class="sect2" id="migration82.incompatible.date">
+  <h3 class="title">Date</h3>
+
+  <p class="para">
+   <span class="methodname"><a href="datetime.createfromimmutable.html" class="methodname">DateTime::createFromImmutable()</a></span> now has a tentative
+   return type of <span class="type"><span class="type static">static</span></span>, previously it was <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>.
+  </p>
+
+  <p class="para">
+   <span class="methodname"><a href="datetimeimmutable.createfrommutable.html" class="methodname">DateTimeImmutable::createFromMutable()</a></span> now has a tentative
+   return type of <span class="type"><span class="type static">static</span></span>, previously it was <span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span>.
+  </p>
+
+  <p class="para">
+   <code class="literal">number</code> symbols in <a href="datetime.formats.relative.html" class="link">relative formats</a>
+   no longer accept multiple signs, e.g. <code class="literal">+-2</code>.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration82.incompatible.odbc">
+  <h3 class="title">ODBC</h3>
+
+  <p class="para">
+   The ODBC extension now escapes the username and password for the case when
+   both a connection string and username/password are passed, and the string
+   must be appended to. Before, user values containing values needing escaping
+   could have created a malformed connection string, or injected values from
+   user-provided data. The escaping rules should be identical to the .NET BCL
+   DbConnectionOptions behaviour.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration82.incompatible.pdo-odbc">
+  <h3 class="title">PDO_ODBC</h3>
+
+  <p class="para">
+   The PDO_ODBC extension also escapes the username and password when a
+   connection string is passed. See the <a href="migration82.incompatible.html#migration82.incompatible.odbc" class="link">change to the ODBC extension</a> for
+   further details.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration82.incompatible.standard">
+  <h3 class="title">Standard</h3>
+
+  <p class="para">
+   <span class="function"><a href="function.glob.html" class="function">glob()</a></span> now returns an empty <span class="type">array</span> if all paths are
+   restricted by <a href="ini.core.html#ini.open-basedir" class="link">open_basedir</a>.
+   Previously it returned <strong><code>false</code></strong>.
+   Moreover, a warning is now emitted even if only some paths are restricted by
+   <a href="ini.core.html#ini.open-basedir" class="link">open_basedir</a>.
+  </p>
+
+  <p class="para">
+   <span class="methodname"><a href="filesystemiterator.construct.html" class="methodname">FilesystemIterator::__construct()</a></span>: prior to PHP 8.2.0,
+   <strong><code>FilesystemIterator::SKIP_DOTS</code></strong> constant was always set
+   and couldn&#039;t be disabled. In order to maintain the previous behaviour the constant
+   must be explicitly set when using the <code class="parameter">flags</code> parameter.
+   The default value from <code class="parameter">flags</code> parameter has
+   not been modified.
+  </p>
+
+  <p class="para">
+   <span class="function"><a href="function.strtolower.html" class="function">strtolower()</a></span>,
+   <span class="function"><a href="function.strtoupper.html" class="function">strtoupper()</a></span>,
+   <span class="function"><a href="function.stristr.html" class="function">stristr()</a></span>,
+   <span class="function"><a href="function.stripos.html" class="function">stripos()</a></span>,
+   <span class="function"><a href="function.strripos.html" class="function">strripos()</a></span>,
+   <span class="function"><a href="function.lcfirst.html" class="function">lcfirst()</a></span>,
+   <span class="function"><a href="function.ucfirst.html" class="function">ucfirst()</a></span>,
+   <span class="function"><a href="function.ucwords.html" class="function">ucwords()</a></span>,
+   and <span class="function"><a href="function.str-ireplace.html" class="function">str_ireplace()</a></span> are no longer locale-sensitive.
+   They now perform ASCII case conversion, as if the locale were &quot;C&quot;.
+   Localized versions of these functions are available in the <a href="book.mbstring.html" class="link">MBString extension</a>.
+   Moreover, <span class="function"><a href="function.array-change-key-case.html" class="function">array_change_key_case()</a></span>, and sorting with
+   <strong><code>SORT_FLAG_CASE</code></strong> now also use ASCII case conversion.
+  </p>
+
+  <p class="para">
+   <span class="function"><a href="function.str-split.html" class="function">str_split()</a></span> returns an empty <span class="type">array</span> for an empty <span class="type">string</span> now.
+   Previously it returned an array with a single empty string entry.
+   <span class="function"><a href="function.mb-str-split.html" class="function">mb_str_split()</a></span> is not affected by this change as it was
+   already behaving like that.
+  </p>
+
+  <p class="para">
+   <span class="function"><a href="function.ksort.html" class="function">ksort()</a></span> and <span class="function"><a href="function.krsort.html" class="function">krsort()</a></span> now do numeric string
+   comparison under <strong><code>SORT_REGULAR</code></strong> using the standard PHP 8 rules now.
+  </p>
+
+  <p class="para">
+   <span class="function"><a href="function.var-export.html" class="function">var_export()</a></span> no longer omits the leading backslash for exported classes,
+   i.e. these are now fully qualified. 
+  </p>
+ </div>
+
+ <div class="sect2" id="migration82.incompatible.spl">
+  <h3 class="title">Standard PHP Library (SPL)</h3>
+
+  <p class="para">
+   The following methods now enforce their signature:
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><strong>SplFileInfo::_bad_state_ex()</strong></span></li>
+    <li class="member"><span class="methodname"><a href="splfileobject.getcsvcontrol.html" class="methodname">SplFileObject::getCsvControl()</a></span></li>
+    <li class="member"><span class="methodname"><a href="splfileobject.fflush.html" class="methodname">SplFileObject::fflush()</a></span></li>
+    <li class="member"><span class="methodname"><a href="splfileobject.ftell.html" class="methodname">SplFileObject::ftell()</a></span></li>
+    <li class="member"><span class="methodname"><a href="splfileobject.fgetc.html" class="methodname">SplFileObject::fgetc()</a></span></li>
+    <li class="member"><span class="methodname"><a href="splfileobject.fpassthru.html" class="methodname">SplFileObject::fpassthru()</a></span></li>
+   </ul>
+  </p>
+
+  <p class="para">
+   <span class="methodname"><a href="splfileobject.haschildren.html" class="methodname">SplFileObject::hasChildren()</a></span> now has a tentative
+   return type of <span class="type"><span class="type false">false</span></span>, previously it was <span class="type">bool</span>.
+  </p>
+
+  <p class="para">
+   <span class="methodname"><a href="splfileobject.getchildren.html" class="methodname">SplFileObject::getChildren()</a></span> now has a tentative
+   return type of <span class="type">null</span>, previously it was
+   <span class="type">?</span><span class="type"><span class="type"><a href="class.recursiveiterator.html" class="type RecursiveIterator">RecursiveIterator</a></span><span class="type"></span></span>.
+  </p>
+
+  <p class="para">
+   <span class="classname"><a href="class.globiterator.html" class="classname">GlobIterator</a></span> now returns an empty <span class="type">array</span> if all
+   paths are restricted by <a href="ini.core.html#ini.open-basedir" class="link">open_basedir</a>.
+   Previously it returned <strong><code>false</code></strong>.
+   Moreover, a warning is now emitted even if only some paths are restricted by
+   <a href="ini.core.html#ini.open-basedir" class="link">open_basedir</a>.
+  </p>
+ </div>
+
+</div></div></div></body></html>

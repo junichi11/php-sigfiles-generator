@@ -91,11 +91,11 @@
  <div class="refsect1 examples" id="refsect1-function.exit-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3496">
+   <div class="example" id="example-3539">
     <p><strong>Example #1 <code class="literal">exit</code> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$filename&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'/path/to/data-file'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$file&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'r'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;exit(</span><span style="color: #DD0000">"unable&nbsp;to&nbsp;open&nbsp;file&nbsp;(</span><span style="color: #0000BB">$filename</span><span style="color: #DD0000">)"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$filename </span><span style="color: #007700">= </span><span style="color: #DD0000">'/path/to/data-file'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$file </span><span style="color: #007700">= </span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">, </span><span style="color: #DD0000">'r'</span><span style="color: #007700">)<br />    or exit(</span><span style="color: #DD0000">"unable to open file (</span><span style="color: #0000BB">$filename</span><span style="color: #DD0000">)"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -103,11 +103,11 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3497">
+   <div class="example" id="example-3540">
     <p><strong>Example #2 <code class="literal">exit</code> status example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//exit&nbsp;program&nbsp;normally<br /></span><span style="color: #007700">exit;<br />exit();<br />exit(</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//exit&nbsp;with&nbsp;an&nbsp;error&nbsp;code<br /></span><span style="color: #007700">exit(</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />exit(</span><span style="color: #0000BB">0376</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//octal<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//exit program normally<br /></span><span style="color: #007700">exit;<br />exit();<br />exit(</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//exit with an error code<br /></span><span style="color: #007700">exit(</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />exit(</span><span style="color: #0000BB">0376</span><span style="color: #007700">); </span><span style="color: #FF8000">//octal<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -115,11 +115,11 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3498">
+   <div class="example" id="example-3541">
     <p><strong>Example #3 Shutdown functions and destructors run regardless</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__destruct</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Destruct:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">__METHOD__&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'()'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />function&nbsp;</span><span style="color: #0000BB">shutdown</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Shutdown:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">__FUNCTION__&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'()'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">register_shutdown_function</span><span style="color: #007700">(</span><span style="color: #DD0000">'shutdown'</span><span style="color: #007700">);<br /><br />exit();<br />echo&nbsp;</span><span style="color: #DD0000">'This&nbsp;will&nbsp;not&nbsp;be&nbsp;output.'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />    public function </span><span style="color: #0000BB">__destruct</span><span style="color: #007700">()<br />    {<br />        echo </span><span style="color: #DD0000">'Destruct: ' </span><span style="color: #007700">. </span><span style="color: #0000BB">__METHOD__ </span><span style="color: #007700">. </span><span style="color: #DD0000">'()' </span><span style="color: #007700">. </span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />    }<br />}<br /><br />function </span><span style="color: #0000BB">shutdown</span><span style="color: #007700">()<br />{<br />    echo </span><span style="color: #DD0000">'Shutdown: ' </span><span style="color: #007700">. </span><span style="color: #0000BB">__FUNCTION__ </span><span style="color: #007700">. </span><span style="color: #DD0000">'()' </span><span style="color: #007700">. </span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$foo </span><span style="color: #007700">= new </span><span style="color: #0000BB">Foo</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">register_shutdown_function</span><span style="color: #007700">(</span><span style="color: #DD0000">'shutdown'</span><span style="color: #007700">);<br /><br />exit();<br />echo </span><span style="color: #DD0000">'This will not be output.'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -141,7 +141,8 @@
   
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">Because this is a
 language construct and not a function, it cannot be called using
-<a href="functions.variable-functions.html" class="link">variable functions</a>.</span>
+<a href="functions.variable-functions.html" class="link">variable functions</a>,
+or <a href="functions.arguments.html#functions.named-arguments" class="link">named arguments</a>.</span>
 </p></blockquote>
 
   <blockquote class="note"><p><strong class="note">Note</strong>: 

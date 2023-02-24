@@ -62,8 +62,9 @@
        If <code class="parameter">start_index</code> is negative, 
        the first index of the returned array will be 
        <code class="parameter">start_index</code> and the following 
-       indices will start from zero 
-       (see <a href="function.array-fill.html#function.array-fill.example.basic" class="link">example</a>).
+       indices will start from zero prior to PHP 8.0.0;
+       as of PHP 8.0.0, negative keys are incremented normally
+       (see <a href="function.array-fill.html#function.array-fill.example.negative-start-index" class="link">example</a>).
       </p>
      </dd>
 
@@ -77,7 +78,7 @@
 
       <p class="para">
        Number of elements to insert.
-       Must be greater than or equal to zero.
+       Must be greater than or equal to zero, and less than or equal to <code class="literal">2147483647</code>.
       </p>
      </dd>
 
@@ -113,9 +114,38 @@
  <div class="refsect1 errors" id="refsect1-function.array-fill-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Throws a <strong><code>E_WARNING</code></strong> if <code class="parameter">count</code> is
-   less than zero.
+   Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> if <code class="parameter">count</code> is
+   out of range.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.array-fill-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <span class="function"><strong>array_fill()</strong></span> now throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span>
+       if <code class="parameter">count</code> is out of range; previously <strong><code>E_WARNING</code></strong>
+       was raised, and the function returned <strong><code>false</code></strong>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
@@ -126,7 +156,7 @@
     <p><strong>Example #1 <span class="function"><strong>array_fill()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_fill</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">6</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'banana'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_fill</span><span style="color: #007700">(-</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'pear'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$b</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= </span><span style="color: #0000BB">array_fill</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">, </span><span style="color: #0000BB">6</span><span style="color: #007700">, </span><span style="color: #DD0000">'banana'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -143,6 +173,23 @@ Array
     [9]  =&gt; banana
     [10] =&gt; banana
 )
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="function.array-fill.example.negative-start-index">
+    <p><strong>Example #2 <span class="function"><strong>array_fill()</strong></span> example with a negative start index</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= </span><span style="color: #0000BB">array_fill</span><span style="color: #007700">(-</span><span style="color: #0000BB">2</span><span style="color: #007700">, </span><span style="color: #0000BB">4</span><span style="color: #007700">, </span><span style="color: #DD0000">'pear'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Output of the above example in PHP 7:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
 Array
 (
     [-2] =&gt; pear
@@ -152,7 +199,22 @@ Array
 )
 </pre></div>
     </div>
+    <div class="example-contents"><p>Output of the above example in PHP 8:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [-2] =&gt; pear
+    [-1] =&gt; pear
+    [0] =&gt; pear
+    [1] =&gt; pear
+)
+</pre></div>
+    </div>
    </div>
+  </p>
+  <p class="para">
+   Note that index <code class="literal">-1</code> is not present prior to PHP 8.0.0.
   </p>
  </div>
 
@@ -165,7 +227,7 @@ Array
   </p>
  </div>
 
- 
+
  <div class="refsect1 seealso" id="refsect1-function.array-fill-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">

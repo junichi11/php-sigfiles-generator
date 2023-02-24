@@ -60,14 +60,14 @@
  <div class="refsect1 examples" id="refsect1-directoryiterator.getowner-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3612">
+   <div class="example" id="example-3690">
     <p><strong>Example #1 <span class="methodname"><strong>DirectoryIterator::getOwner()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This example displays the owner of the directory which contains the script.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$iterator&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DirectoryIterator</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">posix_getpwuid</span><span style="color: #007700">(</span><span style="color: #0000BB">$iterator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOwner</span><span style="color: #007700">()));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$iterator </span><span style="color: #007700">= new </span><span style="color: #0000BB">DirectoryIterator</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">posix_getpwuid</span><span style="color: #007700">(</span><span style="color: #0000BB">$iterator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOwner</span><span style="color: #007700">()));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

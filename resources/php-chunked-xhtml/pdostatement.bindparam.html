@@ -39,9 +39,9 @@
   <p class="para rdfs-comment">
    Binds a PHP variable to a corresponding named or question mark placeholder
    in the SQL statement that was used to prepare the statement.  Unlike
-   <span class="function"><a href="pdostatement.bindvalue.html" class="function">PDOStatement::bindValue()</a></span>, the variable is bound as a
+   <span class="methodname"><a href="pdostatement.bindvalue.html" class="methodname">PDOStatement::bindValue()</a></span>, the variable is bound as a
    reference and will only be evaluated at the time that
-   <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span> is called.
+   <span class="methodname"><a href="pdostatement.execute.html" class="methodname">PDOStatement::execute()</a></span> is called.
   </p>
   <p class="para">
    Most parameters are input parameters, that is, parameters that are used
@@ -97,7 +97,7 @@
         Explicit data type for the parameter using the <a href="pdo.constants.html" class="link"><code class="literal">PDO::PARAM_*</code>
         constants</a>.
         To return an INOUT parameter from a stored procedure, 
-        use the bitwise OR operator to set the PDO::PARAM_INPUT_OUTPUT bits
+        use the bitwise OR operator to set the <strong><code>PDO::PARAM_INPUT_OUTPUT</code></strong> bits
         for the <code class="parameter">type</code> parameter.
        </p>
       </dd>
@@ -113,6 +113,7 @@
         Length of the data type. To indicate that a parameter is an OUT
         parameter from a stored procedure, you must explicitly set the
         length.
+        Meaningful only when <code class="parameter">type</code> parameter is <strong><code>PDO::PARAM_INPUT_OUTPUT</code></strong>.
        </p>
       </dd>
 
@@ -143,22 +144,35 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-pdostatement.bindparam-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+Emits an error with level <strong><code>E_WARNING</code></strong> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong> is set
+to <strong><code>PDO::ERRMODE_WARNING</code></strong>.
+</p>
+<p class="para">
+Throws a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong>
+is set to <strong><code>PDO::ERRMODE_EXCEPTION</code></strong>.
+</p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-pdostatement.bindparam-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1030"><p><strong>Example #1 Execute a prepared statement with named placeholders</strong></p>
+  <div class="example" id="example-1061"><p><strong>Example #1 Execute a prepared statement with named placeholders</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Execute&nbsp;a&nbsp;prepared&nbsp;statement&nbsp;by&nbsp;binding&nbsp;PHP&nbsp;variables&nbsp;*/<br /></span><span style="color: #0000BB">$calories&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">150</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$colour&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'red'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;name,&nbsp;colour,&nbsp;calories<br />&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;fruit<br />&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;calories&nbsp;&lt;&nbsp;:calories&nbsp;AND&nbsp;colour&nbsp;=&nbsp;:colour'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #DD0000">'calories'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$calories</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_INT</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/*&nbsp;Names&nbsp;can&nbsp;be&nbsp;prefixed&nbsp;with&nbsp;colons&nbsp;":"&nbsp;too&nbsp;(optional)&nbsp;*/<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #DD0000">':colour'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$colour</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_STR</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">12</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Execute a prepared statement by binding PHP variables */<br /></span><span style="color: #0000BB">$calories </span><span style="color: #007700">= </span><span style="color: #0000BB">150</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$colour </span><span style="color: #007700">= </span><span style="color: #DD0000">'red'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$sth </span><span style="color: #007700">= </span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT name, colour, calories<br />    FROM fruit<br />    WHERE calories &lt; :calories AND colour = :colour'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #DD0000">'calories'</span><span style="color: #007700">, </span><span style="color: #0000BB">$calories</span><span style="color: #007700">, </span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_INT</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/* Names can be prefixed with colons ":" too (optional) */<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #DD0000">':colour'</span><span style="color: #007700">, </span><span style="color: #0000BB">$colour</span><span style="color: #007700">, </span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_STR</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
   </div>
 
-  <div class="example" id="example-1031"><p><strong>Example #2 Execute a prepared statement with question mark placeholders</strong></p>
+  <div class="example" id="example-1062"><p><strong>Example #2 Execute a prepared statement with question mark placeholders</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Execute&nbsp;a&nbsp;prepared&nbsp;statement&nbsp;by&nbsp;binding&nbsp;PHP&nbsp;variables&nbsp;*/<br /></span><span style="color: #0000BB">$calories&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">150</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$colour&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'red'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;name,&nbsp;colour,&nbsp;calories<br />&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;fruit<br />&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;calories&nbsp;&lt;&nbsp;?&nbsp;AND&nbsp;colour&nbsp;=&nbsp;?'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$calories</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_INT</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$colour</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_STR</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">12</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Execute a prepared statement by binding PHP variables */<br /></span><span style="color: #0000BB">$calories </span><span style="color: #007700">= </span><span style="color: #0000BB">150</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$colour </span><span style="color: #007700">= </span><span style="color: #DD0000">'red'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$sth </span><span style="color: #007700">= </span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT name, colour, calories<br />    FROM fruit<br />    WHERE calories &lt; ? AND colour = ?'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">$calories</span><span style="color: #007700">, </span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_INT</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">, </span><span style="color: #0000BB">$colour</span><span style="color: #007700">, </span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_STR</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -166,10 +180,10 @@
   </div>
 
 
-  <div class="example" id="example-1032"><p><strong>Example #3 Call a stored procedure with an INOUT parameter</strong></p>
+  <div class="example" id="example-1063"><p><strong>Example #3 Call a stored procedure with an INOUT parameter</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Call&nbsp;a&nbsp;stored&nbsp;procedure&nbsp;with&nbsp;an&nbsp;INOUT&nbsp;parameter&nbsp;*/<br /></span><span style="color: #0000BB">$colour&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'red'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'CALL&nbsp;puree_fruit(?)'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$colour</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_STR</span><span style="color: #007700">|</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_INPUT_OUTPUT</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">12</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br />print(</span><span style="color: #DD0000">"After&nbsp;pureeing&nbsp;fruit,&nbsp;the&nbsp;colour&nbsp;is:&nbsp;</span><span style="color: #0000BB">$colour</span><span style="color: #DD0000">"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Call a stored procedure with an INOUT parameter */<br /></span><span style="color: #0000BB">$colour </span><span style="color: #007700">= </span><span style="color: #DD0000">'red'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$sth </span><span style="color: #007700">= </span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'CALL puree_fruit(?)'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">$colour</span><span style="color: #007700">, </span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_STR</span><span style="color: #007700">|</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_INPUT_OUTPUT</span><span style="color: #007700">, </span><span style="color: #0000BB">12</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br />print(</span><span style="color: #DD0000">"After pureeing fruit, the colour is: </span><span style="color: #0000BB">$colour</span><span style="color: #DD0000">"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -183,9 +197,9 @@
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="pdo.prepare.html" class="function" rel="rdfs-seeAlso">PDO::prepare()</a> - Prepares a statement for execution and returns a statement object</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.execute.html" class="function" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.bindvalue.html" class="function" rel="rdfs-seeAlso">PDOStatement::bindValue()</a> - Binds a value to a parameter</span></li>
+    <li class="member"><span class="methodname"><a href="pdo.prepare.html" class="methodname" rel="rdfs-seeAlso">PDO::prepare()</a> - Prepares a statement for execution and returns a statement object</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.execute.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.bindvalue.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::bindValue()</a> - Binds a value to a parameter</span></li>
    </ul>
   </p>
 

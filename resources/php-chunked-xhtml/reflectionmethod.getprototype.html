@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="reflectionmethod.getmodifiers.html">« ReflectionMethod::getModifiers</a></li>
-      <li style="float: right;"><a href="reflectionmethod.invoke.html">ReflectionMethod::invoke »</a></li>
+      <li style="float: right;"><a href="reflectionmethod.hasprototype.html">ReflectionMethod::hasPrototype »</a></li>
     </ul>
   </div>
 </div>
@@ -68,11 +68,11 @@
  <div class="refsect1 examples" id="refsect1-reflectionmethod.getprototype-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5166">
+   <div class="example" id="example-5331">
     <p><strong>Example #1 <span class="methodname"><strong>ReflectionMethod::getPrototype()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Hello&nbsp;</span><span style="color: #007700">{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">sayHelloTo</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />}<br />class&nbsp;</span><span style="color: #0000BB">HelloWorld&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Hello&nbsp;</span><span style="color: #007700">{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">sayHelloTo</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;world:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />}<br /><br /></span><span style="color: #0000BB">$reflectionMethod&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionMethod</span><span style="color: #007700">(</span><span style="color: #DD0000">'HelloWorld'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'sayHelloTo'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflectionMethod</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getPrototype</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Hello </span><span style="color: #007700">{<br /><br />    public function </span><span style="color: #0000BB">sayHelloTo</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">) {<br />        return </span><span style="color: #DD0000">'Hello ' </span><span style="color: #007700">. </span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />    }<br /><br />}<br />class </span><span style="color: #0000BB">HelloWorld </span><span style="color: #007700">extends </span><span style="color: #0000BB">Hello </span><span style="color: #007700">{<br /><br />    public function </span><span style="color: #0000BB">sayHelloTo</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">) {<br />        return </span><span style="color: #DD0000">'Hello world: ' </span><span style="color: #007700">. </span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />    }<br /><br />}<br /><br /></span><span style="color: #0000BB">$reflectionMethod </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionMethod</span><span style="color: #007700">(</span><span style="color: #DD0000">'HelloWorld'</span><span style="color: #007700">, </span><span style="color: #DD0000">'sayHelloTo'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflectionMethod</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getPrototype</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -98,6 +98,7 @@ object(ReflectionMethod)#2 (2) {
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="methodname"><a href="reflectionmethod.getmodifiers.html" class="methodname" rel="rdfs-seeAlso">ReflectionMethod::getModifiers()</a> - Gets the method modifiers</span></li>
+    <li class="member"><span class="methodname"><a href="reflectionmethod.hasprototype.html" class="methodname" rel="rdfs-seeAlso">ReflectionMethod::hasPrototype()</a> - Returns whether a method has a prototype</span></li>
    </ul>
   </p>
  </div>

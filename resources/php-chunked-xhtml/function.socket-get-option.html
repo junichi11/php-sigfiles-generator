@@ -418,11 +418,11 @@
          <tr>
           <td><strong><code>IP_MULTICAST_LOOP</code></strong></td>
           <td>
-           The multicast loopback policy for IPv4 packets, which
-           determines whether multicast packets sent by this socket also reach
-           receivers in the same host that have joined the same multicast group
-           on the outgoing interface used by this socket. This is the case by
-           default.
+           The multicast loopback policy for IPv4 packets enables or disables
+           loopback of outgoing multicasts, which must have been previously joined.
+           The effect differs, however, whether it applies on unixes or Windows,
+           the former being on the receive path whereas the latter being
+           on the send path.
           </td>
           <td>
            <span class="type">int</span> (either <code class="literal">0</code> or
@@ -501,6 +501,17 @@
          </tr>
 
          <tr>
+          <td><strong><code>SO_RTABLE</code></strong></td>
+          <td>
+           Sets an identifier on the socket for packet filtering
+           purpose on OpenBSD.
+          </td>
+          <td>
+           <span class="type">int</span>
+          </td>
+         </tr>
+
+         <tr>
           <td><strong><code>SO_DONTTRUNC</code></strong></td>
           <td>
            Retain unread data.
@@ -524,6 +535,106 @@
           <td><strong><code>TCP_DEFER_ACCEPT</code></strong></td>
           <td>
            Don&#039;t notify a listening socket until data is ready.
+          </td>
+          <td>
+           <span class="type">int</span>
+          </td>
+         </tr>
+
+         <tr>
+          <td><strong><code>SO_INCOMING_CPU</code></strong></td>
+          <td>
+           Gets/Sets the cpu affinity of a socket.
+          </td>
+          <td>
+           <span class="type">int</span>
+          </td>
+         </tr>
+
+         <tr>
+          <td><strong><code>SO_MEMINFO</code></strong></td>
+          <td>
+           Gets all the meminfo of a socket.
+          </td>
+          <td>
+           <span class="type">int</span>
+          </td>
+         </tr>
+
+         <tr>
+          <td><strong><code>SO_BPF_EXTENSIONS</code></strong></td>
+          <td>
+           Gets the supported BPF extensions by the kernel to attach to a socket.
+          </td>
+          <td>
+           <span class="type">int</span>
+          </td>
+         </tr>
+
+         <tr>
+          <td><strong><code>SO_SETFIB</code></strong></td>
+          <td>
+           Sets the route table (FIB) of a socket. (FreeBSD only)
+          </td>
+          <td>
+           <span class="type">int</span>
+          </td>
+         </tr>
+
+         <tr>
+          <td><strong><code>SOL_FILTER</code></strong></td>
+          <td>
+           Filters attributed to a socket. (Solaris/Illumos only)
+          </td>
+          <td>
+           <span class="type">int</span>
+          </td>
+         </tr>
+
+         <tr>
+          <td><strong><code>TCP_KEEPCNT</code></strong></td>
+          <td>
+           Sets the maximum number of keepalive probes TCP should send before dropping the connection.
+          </td>
+          <td>
+           <span class="type">int</span>
+          </td>
+         </tr>
+
+         <tr>
+          <td><strong><code>TCP_KEEPIDLE</code></strong></td>
+          <td>
+           Sets the time the connection needs to remain idle.
+          </td>
+          <td>
+           <span class="type">int</span>
+          </td>
+         </tr>
+
+         <tr>
+          <td><strong><code>TCP_KEEPINTVL</code></strong></td>
+          <td>
+           Sets the time between individual keepalive probes.
+          </td>
+          <td>
+           <span class="type">int</span>
+          </td>
+         </tr>
+
+         <tr>
+          <td><strong><code>TCP_KEEPALIVE</code></strong></td>
+          <td>
+           Sets the time the connection needs to remain idle. (macOS only)
+          </td>
+          <td>
+           <span class="type">int</span>
+          </td>
+         </tr>
+
+         <tr>
+          <td><strong><code>TCP_NOTSENT_LOWAT</code></strong></td>
+          <td>
+           Sets the limit number of unsent data in write queue by the socket stream. (Linux only)
           </td>
           <td>
            <span class="type">int</span>
@@ -582,11 +693,11 @@
  <div class="refsect1 examples" id="refsect1-function.socket-get-option-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4517">
+   <div class="example" id="example-4596">
     <p><strong>Example #1 <span class="function"><strong>socket_get_option()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$socket&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">socket_create_listen</span><span style="color: #007700">(</span><span style="color: #0000BB">1223</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$linger&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'l_linger'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'l_onoff'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">socket_set_option</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SOL_SOCKET</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SO_LINGER</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$linger</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">socket_get_option</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SOL_SOCKET</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SO_REUSEADDR</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$socket </span><span style="color: #007700">= </span><span style="color: #0000BB">socket_create_listen</span><span style="color: #007700">(</span><span style="color: #0000BB">1223</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$linger </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'l_linger' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #DD0000">'l_onoff' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">socket_set_option</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">, </span><span style="color: #0000BB">SOL_SOCKET</span><span style="color: #007700">, </span><span style="color: #0000BB">SO_LINGER</span><span style="color: #007700">, </span><span style="color: #0000BB">$linger</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">socket_get_option</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">, </span><span style="color: #0000BB">SOL_SOCKET</span><span style="color: #007700">, </span><span style="color: #0000BB">SO_REUSEADDR</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

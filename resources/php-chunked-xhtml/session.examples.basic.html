@@ -56,19 +56,19 @@
     manually shutdown using the <span class="function"><a href="function.session-write-close.html" class="function">session_write_close()</a></span> function.
    </p>
   <p class="para">
-   <div class="example" id="example-4715">
+   <div class="example" id="example-4794">
     <p><strong>Example #1 
      Registering a variable with <var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var>.
     </strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />session_start</span><span style="color: #007700">();<br />if&nbsp;(!isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]))&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]++;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />session_start</span><span style="color: #007700">();<br />if (!isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">])) {<br />  </span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">] = </span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />} else {<br />  </span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]++;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-4716">
+   <div class="example" id="example-4795">
     <p><strong>Example #2 
      Unregistering a variable with <var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var>.
     </strong></p>

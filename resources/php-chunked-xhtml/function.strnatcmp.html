@@ -81,11 +81,40 @@
  <div class="refsect1 returnvalues" id="refsect1-function.strnatcmp-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Similar to other string comparison functions, this one returns &lt; 0 if
-   <code class="parameter">string1</code> is less than <code class="parameter">string2</code>; &gt;
-   0 if <code class="parameter">string1</code> is greater than
-   <code class="parameter">string2</code>, and 0 if they are equal.
+   Similar to other string comparison functions, this one returns <code class="literal">-1</code> if
+   <code class="parameter">string1</code> is less than <code class="parameter">string2</code>;
+   <code class="literal">1</code> if <code class="parameter">string1</code> is greater than
+   <code class="parameter">string2</code>, and <code class="literal">0</code> if they are equal.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.strnatcmp-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.2.0</td>
+ <td>
+  This function now returns <code class="literal">-1</code> or <code class="literal">1</code>,
+  where it previously returned a negative or positive number.
+ </td>
+</tr>
+
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
@@ -98,7 +127,7 @@
    <div class="informalexample">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$arr1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$arr2&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"img12.png"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"img10.png"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"img2.png"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"img1.png"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Standard&nbsp;string&nbsp;comparison\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">usort</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"strcmp"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr1</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"\nNatural&nbsp;order&nbsp;string&nbsp;comparison\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">usort</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr2</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"strnatcmp"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$arr1 </span><span style="color: #007700">= </span><span style="color: #0000BB">$arr2 </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"img12.png"</span><span style="color: #007700">, </span><span style="color: #DD0000">"img10.png"</span><span style="color: #007700">, </span><span style="color: #DD0000">"img2.png"</span><span style="color: #007700">, </span><span style="color: #DD0000">"img1.png"</span><span style="color: #007700">);<br />echo </span><span style="color: #DD0000">"Standard string comparison\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">usort</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr1</span><span style="color: #007700">, </span><span style="color: #DD0000">"strcmp"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr1</span><span style="color: #007700">);<br />echo </span><span style="color: #DD0000">"\nNatural order string comparison\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">usort</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr2</span><span style="color: #007700">, </span><span style="color: #DD0000">"strnatcmp"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -126,7 +155,7 @@ Array
 </pre></div>
     </div>
    </div>
-   For more information see: Martin Pool&#039;s <a href="http://sourcefrog.net/projects/natsort/" class="link external">&raquo;&nbsp;Natural Order String Comparison</a>
+   For more information see: Martin Pool&#039;s <a href="https://github.com/sourcefrog/natsort" class="link external">&raquo;&nbsp;Natural Order String Comparison</a>
    page.
   </p>
  </div>

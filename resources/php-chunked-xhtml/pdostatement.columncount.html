@@ -38,17 +38,17 @@
 
 
   <p class="para rdfs-comment">
-   Use <span class="function"><strong>PDOStatement::columnCount()</strong></span> to return the number
+   Use <span class="methodname"><strong>PDOStatement::columnCount()</strong></span> to return the number
    of columns in the result set represented by the PDOStatement object.
   </p>
   <p class="para">
-   If the PDOStatement object was returned from <span class="function"><a href="pdo.query.html" class="function">PDO::query()</a></span>,
+   If the PDOStatement object was returned from <span class="methodname"><a href="pdo.query.html" class="methodname">PDO::query()</a></span>,
    the column count is immediately available.
   </p>
   <p class="para">
    If the PDOStatement object was returned from
-   <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span>, an accurate column count will not be
-   available until you invoke <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span>.
+   <span class="methodname"><a href="pdo.prepare.html" class="methodname">PDO::prepare()</a></span>, an accurate column count will not be
+   available until you invoke <span class="methodname"><a href="pdostatement.execute.html" class="methodname">PDOStatement::execute()</a></span>.
   </p>
  </div>
 
@@ -64,23 +64,36 @@
   <p class="para">
    Returns the number of columns in the result set represented by the
    PDOStatement object, even if the result set is empty. If there is no result set,
-   <span class="function"><strong>PDOStatement::columnCount()</strong></span> returns <code class="literal">0</code>.
+   <span class="methodname"><strong>PDOStatement::columnCount()</strong></span> returns <code class="literal">0</code>.
   </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-pdostatement.columncount-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+Emits an error with level <strong><code>E_WARNING</code></strong> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong> is set
+to <strong><code>PDO::ERRMODE_WARNING</code></strong>.
+</p>
+<p class="para">
+Throws a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong>
+is set to <strong><code>PDO::ERRMODE_EXCEPTION</code></strong>.
+</p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-pdostatement.columncount-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1036">
+   <div class="example" id="example-1067">
     <p><strong>Example #1 Counting columns</strong></p>
     <div class="example-contents"><p>
-     This example demonstrates how <span class="function"><strong>PDOStatement::columnCount()</strong></span>
+     This example demonstrates how <span class="methodname"><strong>PDOStatement::columnCount()</strong></span>
      operates with and without a result set.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'odbc:sample'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'db2inst1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'ibmdb2'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;name,&nbsp;colour&nbsp;FROM&nbsp;fruit"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Count&nbsp;the&nbsp;number&nbsp;of&nbsp;columns&nbsp;in&nbsp;the&nbsp;(non-existent)&nbsp;result&nbsp;set&nbsp;*/<br /></span><span style="color: #0000BB">$colcount&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">columnCount</span><span style="color: #007700">();<br />print(</span><span style="color: #DD0000">"Before&nbsp;execute(),&nbsp;result&nbsp;set&nbsp;has&nbsp;</span><span style="color: #0000BB">$colcount</span><span style="color: #DD0000">&nbsp;columns&nbsp;(should&nbsp;be&nbsp;0)\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Count&nbsp;the&nbsp;number&nbsp;of&nbsp;columns&nbsp;in&nbsp;the&nbsp;result&nbsp;set&nbsp;*/<br /></span><span style="color: #0000BB">$colcount&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">columnCount</span><span style="color: #007700">();<br />print(</span><span style="color: #DD0000">"After&nbsp;execute(),&nbsp;result&nbsp;set&nbsp;has&nbsp;</span><span style="color: #0000BB">$colcount</span><span style="color: #DD0000">&nbsp;columns&nbsp;(should&nbsp;be&nbsp;2)\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$dbh </span><span style="color: #007700">= new </span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'odbc:sample'</span><span style="color: #007700">, </span><span style="color: #DD0000">'db2inst1'</span><span style="color: #007700">, </span><span style="color: #DD0000">'ibmdb2'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$sth </span><span style="color: #007700">= </span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT name, colour FROM fruit"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Count the number of columns in the (non-existent) result set */<br /></span><span style="color: #0000BB">$colcount </span><span style="color: #007700">= </span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">columnCount</span><span style="color: #007700">();<br />print(</span><span style="color: #DD0000">"Before execute(), result set has </span><span style="color: #0000BB">$colcount</span><span style="color: #DD0000"> columns (should be 0)\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/* Count the number of columns in the result set */<br /></span><span style="color: #0000BB">$colcount </span><span style="color: #007700">= </span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">columnCount</span><span style="color: #007700">();<br />print(</span><span style="color: #DD0000">"After execute(), result set has </span><span style="color: #0000BB">$colcount</span><span style="color: #DD0000"> columns (should be 2)\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -102,9 +115,9 @@ After execute(), result set has 2 columns (should be 2)
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="pdo.prepare.html" class="function" rel="rdfs-seeAlso">PDO::prepare()</a> - Prepares a statement for execution and returns a statement object</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.execute.html" class="function" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.rowcount.html" class="function" rel="rdfs-seeAlso">PDOStatement::rowCount()</a> - Returns the number of rows affected by the last SQL statement</span></li>
+    <li class="member"><span class="methodname"><a href="pdo.prepare.html" class="methodname" rel="rdfs-seeAlso">PDO::prepare()</a> - Prepares a statement for execution and returns a statement object</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.execute.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.rowcount.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::rowCount()</a> - Returns the number of rows affected by the last SQL statement</span></li>
    </ul>
   </p>
  </div>

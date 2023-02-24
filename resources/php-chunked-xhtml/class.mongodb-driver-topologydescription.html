@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The MongoDB\Driver\TopologyDescription class</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-driver-serverdescription.gettype.html">« MongoDB\Driver\ServerDescription::getType</a></li>
+      <li style="float: right;"><a href="mongodb-driver-topologydescription.getservers.html">MongoDB\Driver\TopologyDescription::getServers »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mongodb.html">MongoDB\Driver</a></li>
+    <li>The MongoDB\Driver\TopologyDescription class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.mongodb-driver-topologydescription" class="reference">
+
+ <h1 class="title">The MongoDB\Driver\TopologyDescription class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(mongodb &gt;=1.13.0)</p>
+
+
+  <div class="section" id="mongodb-driver-topologydescription.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    The <span class="classname"><strong class="classname">MongoDB\Driver\TopologyDescription</strong></span> class is a
+    value object that represents a topology to which the driver is connected.
+    Instances of this class are returned by
+    <span class="classname"><a href="class.mongodb-driver-monitoring-topologychangedevent.html" class="classname">MongoDB\Driver\Monitoring\TopologyChangedEvent</a></span>
+    methods.
+   </p>
+  </div>
+
+
+  <div class="section" id="mongodb-driver-topologydescription.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="modifier">final</span>
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">MongoDB\Driver\TopologyDescription</strong>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-topologydescription.html#mongodb-driver-topologydescription.constants.type-unknown"><var class="varname">TYPE_UNKNOWN</var></a></var><span class="initializer"> = &quot;Unknown&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-topologydescription.html#mongodb-driver-topologydescription.constants.type-single"><var class="varname">TYPE_SINGLE</var></a></var><span class="initializer"> = &quot;Single&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-topologydescription.html#mongodb-driver-topologydescription.constants.type-sharded"><var class="varname">TYPE_SHARDED</var></a></var><span class="initializer"> = &quot;Sharded&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-topologydescription.html#mongodb-driver-topologydescription.constants.type-replica-set-no-primary"><var class="varname">TYPE_REPLICA_SET_NO_PRIMARY</var></a></var><span class="initializer"> = &quot;ReplicaSetNoPrimary&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-topologydescription.html#mongodb-driver-topologydescription.constants.type-replica-set-with-primary"><var class="varname">TYPE_REPLICA_SET_WITH_PRIMARY</var></a></var><span class="initializer"> = &quot;ReplicaSetWithPrimary&quot;</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-topologydescription.html#mongodb-driver-topologydescription.constants.type-load-balanced"><var class="varname">TYPE_LOAD_BALANCED</var></a></var><span class="initializer"> = &quot;LoadBalanced&quot;</span>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-topologydescription.getservers.html" class="methodname">getServers</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-topologydescription.gettype.html" class="methodname">getType</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-topologydescription.hasreadableserver.html" class="methodname">hasReadableServer</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a href="class.mongodb-driver-readpreference.html" class="type MongoDB\Driver\ReadPreference">MongoDB\Driver\ReadPreference</a></span><span class="type"></span></span> <code class="parameter">$readPreference</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-topologydescription.haswritableserver.html" class="methodname">hasWritableServer</a></span>(): <span class="type">bool</span></div>
+
+   }</div>
+
+
+  </div>
+  
+
+  <div class="section" id="mongodb-driver-topologydescription.constants">
+   <h2 class="title">Predefined Constants</h2>
+   <dl>
+
+    
+     <dt id="mongodb-driver-topologydescription.constants.type-unknown"><strong><code>MongoDB\Driver\TopologyDescription::TYPE_UNKNOWN</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Unknown topology type, returned by <span class="methodname"><a href="mongodb-driver-topologydescription.gettype.html" class="methodname">MongoDB\Driver\TopologyDescription::getType()</a></span>.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-topologydescription.constants.type-single"><strong><code>MongoDB\Driver\TopologyDescription::TYPE_SINGLE</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Single server (i.e. direct connection), returned by <span class="methodname"><a href="mongodb-driver-topologydescription.gettype.html" class="methodname">MongoDB\Driver\TopologyDescription::getType()</a></span>.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-topologydescription.constants.type-sharded"><strong><code>MongoDB\Driver\TopologyDescription::TYPE_SHARDED</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Sharded cluster, returned by <span class="methodname"><a href="mongodb-driver-topologydescription.gettype.html" class="methodname">MongoDB\Driver\TopologyDescription::getType()</a></span>.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-topologydescription.constants.type-replica-set-no-primary"><strong><code>MongoDB\Driver\TopologyDescription::TYPE_REPLICA_SET_NO_PRIMARY</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Replica set with no primary server, returned by <span class="methodname"><a href="mongodb-driver-topologydescription.gettype.html" class="methodname">MongoDB\Driver\TopologyDescription::getType()</a></span>.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-topologydescription.constants.type-replica-set-with-primary"><strong><code>MongoDB\Driver\TopologyDescription::TYPE_REPLICA_SET_WITH_PRIMARY</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Replica set with a primary server, returned by <span class="methodname"><a href="mongodb-driver-topologydescription.gettype.html" class="methodname">MongoDB\Driver\TopologyDescription::getType()</a></span>.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-topologydescription.constants.type-load-balanced"><strong><code>MongoDB\Driver\TopologyDescription::TYPE_LOAD_BALANCED</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Load balanced topology, returned by <span class="methodname"><a href="mongodb-driver-topologydescription.gettype.html" class="methodname">MongoDB\Driver\TopologyDescription::getType()</a></span>.</p>
+     </dd>
+
+    
+
+   </dl>
+
+  </div>
+
+
+ </div>
+
+ 
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-driver-topologydescription.getservers.html">MongoDB\Driver\TopologyDescription::getServers</a> — Returns the servers in the topology</li><li><a href="mongodb-driver-topologydescription.gettype.html">MongoDB\Driver\TopologyDescription::getType</a> — Returns a string denoting the type of this topology</li><li><a href="mongodb-driver-topologydescription.hasreadableserver.html">MongoDB\Driver\TopologyDescription::hasReadableServer</a> — Returns whether the topology has a readable server</li><li><a href="mongodb-driver-topologydescription.haswritableserver.html">MongoDB\Driver\TopologyDescription::hasWritableServer</a> — Returns whether the topology has a writable server</li></ul>
+</div>
+</div></div></body></html>

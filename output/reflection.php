@@ -34,11 +34,17 @@ namespace {
 	}
 
 	/**
-	 * <p>The <b>ReflectionAttribute</b> class provides information about an Attributes.</p>
+	 * <p>The <b>ReflectionAttribute</b> class provides information about an Attribute.</p>
 	 * @link https://php.net/manual/en/class.reflectionattribute.php
 	 * @since PHP 8
 	 */
 	class ReflectionAttribute implements \Reflector {
+
+		/**
+		 * @var int <p>Retrieve attributes using an <code>instanceof</code> check.</p>
+		 * @link https://php.net/manual/en/class.reflectionattribute.php
+		 */
+		public const IS_INSTANCEOF = 2;
 
 		/**
 		 * Private constructor to disallow direct instantiation
@@ -76,8 +82,8 @@ namespace {
 		public function getTarget(): int {}
 
 		/**
-		 * Returns whether the attribute of this name could occur repeatedly on a code element
-		 * <p>Returns whether the attribute of this name could occur repeatedly on a code element.</p>
+		 * Returns whether the attribute of this name has been repeated on a code element
+		 * <p>Returns whether the attribute of this name has been repeated on a code element.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> when attribute is used repeatedly, otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/reflectionattribute.isrepeated.php
 		 * @since PHP 8
@@ -102,22 +108,28 @@ namespace {
 	class ReflectionClass implements \Reflector {
 
 		/**
-		 * @var int <p>Indicates class that is  abstract because it has some abstract methods.</p>
+		 * @var int <p>Indicates the class is  abstract because it has some abstract methods.</p>
 		 * @link https://php.net/manual/en/class.reflectionclass.php
 		 */
-		const IS_IMPLICIT_ABSTRACT = 16;
+		public const IS_IMPLICIT_ABSTRACT = 16;
 
 		/**
-		 * @var int <p>Indicates class that is  abstract because of its definition.</p>
+		 * @var int <p>Indicates the class is  abstract because of its definition.</p>
 		 * @link https://php.net/manual/en/class.reflectionclass.php
 		 */
-		const IS_EXPLICIT_ABSTRACT = 32;
+		public const IS_EXPLICIT_ABSTRACT = 64;
 
 		/**
-		 * @var int <p>Indicates final class.</p>
+		 * @var int <p>Indicates the class is final.</p>
 		 * @link https://php.net/manual/en/class.reflectionclass.php
 		 */
-		const IS_FINAL = 64;
+		public const IS_FINAL = 32;
+
+		/**
+		 * @var int <p>Indicates the class is readonly.</p>
+		 * @link https://php.net/manual/en/class.reflectionclass.php
+		 */
+		public const IS_READONLY = 65536;
 
 		/**
 		 * @var string <p>Name of the class. Read-only, throws <code>ReflectionException</code> in attempt to write.</p>
@@ -129,7 +141,7 @@ namespace {
 		 * Constructs a ReflectionClass
 		 * <p>Constructs a new <code>ReflectionClass</code> object.</p>
 		 * @param object|string $objectOrClass <p>Either a <code>string</code> containing the name of the class to reflect, or an <code>object</code>.</p>
-		 * @return self <p>Returns constructed <code>ReflectionClass</code> instance.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/reflectionclass.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -157,9 +169,9 @@ namespace {
 
 		/**
 		 * Gets Attributes
-		 * <p>Returns all attributes declared on this class as an array of <code>ReflectionAttribute</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param ?string $name
-		 * @param int $flags
+		 * <p>Returns all attributes declared on this class as an array of <code>ReflectionAttribute</code>.</p>
+		 * @param ?string $name <p>Filter the results to include only <code>ReflectionAttribute</code> instances for attributes matching this class name.</p>
+		 * @param int $flags <p>Flags for determining how to filter the results, if <code>name</code> is provided.</p> <p>Default is <code>0</code> which will only return results for attributes that are of the class <code>name</code>.</p> <p>The only other option available, is to use <b><code>ReflectionAttribute::IS_INSTANCEOF</code></b>, which will instead use <code>instanceof</code> for filtering.</p>
 		 * @return array <p>Array of attributes, as a <code>ReflectionAttribute</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getattributes.php
 		 * @since PHP 8
@@ -168,7 +180,7 @@ namespace {
 
 		/**
 		 * Gets defined constant
-		 * <p>Gets the defined constant.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the defined constant.</p>
 		 * @param string $name <p>The name of the class constant to get.</p>
 		 * @return mixed <p>Value of the constant with the name <code>name</code>. Returns <b><code>false</code></b> if the constant was not found in the class.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getconstant.php
@@ -206,7 +218,7 @@ namespace {
 
 		/**
 		 * Gets doc comments
-		 * <p>Gets doc comments from a class. Doc comments start with /&#42;&#42;. If there are multiple doc comments above the class definition, the one closest to the class will be taken.</p>
+		 * <p>Gets doc comments from a class. Doc comments start with <code>/&#42;&#42;</code>, followed by whitespace. If there are multiple doc comments above the class definition, the one closest to the class will be taken.</p>
 		 * @return string|false <p>The doc comment if it exists, otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getdoccomment.php
 		 * @since PHP 5, PHP 7, PHP 8
@@ -299,7 +311,7 @@ namespace {
 
 		/**
 		 * Gets class name
-		 * <p>Gets the class name.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the class name.</p>
 		 * @return string <p>The class name.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getname.php
 		 * @since PHP 5, PHP 7, PHP 8
@@ -308,7 +320,7 @@ namespace {
 
 		/**
 		 * Gets namespace name
-		 * <p>Gets the namespace name.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the namespace name.</p>
 		 * @return string <p>The namespace name.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getnamespacename.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -405,7 +417,7 @@ namespace {
 		/**
 		 * Returns an array of trait aliases
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return array <p>Returns an array with new method names in keys and original names (in the format <code>"TraitName::original"</code>) in values. Returns <b><code>null</code></b> in case of an error.</p>
+		 * @return array <p>Returns an array with new method names in keys and original names (in the format <code>"TraitName::original"</code>) in values.</p>
 		 * @link https://php.net/manual/en/reflectionclass.gettraitaliases.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 		 */
@@ -414,7 +426,7 @@ namespace {
 		/**
 		 * Returns an array of names of traits used by this class
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return array <p>Returns an array with trait names in values. Returns <b><code>null</code></b> in case of an error.</p>
+		 * @return array <p>Returns an array with trait names in values.</p>
 		 * @link https://php.net/manual/en/reflectionclass.gettraitnames.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 		 */
@@ -507,6 +519,15 @@ namespace {
 		public function isCloneable(): bool {}
 
 		/**
+		 * Returns whether this is an enum
+		 * <p>Checks if a class is an enum.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if this is an enum, <b><code>false</code></b> otherwise.</p>
+		 * @link https://php.net/manual/en/reflectionclass.isenum.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function isEnum(): bool {}
+
+		/**
 		 * Checks if class is final
 		 * <p>Checks if a class is final.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -561,6 +582,15 @@ namespace {
 		 * @since PHP 7 >= 7.2.0, PHP 8
 		 */
 		public function isIterable(): bool {}
+
+		/**
+		 * Checks if class is readonly
+		 * <p>Checks if a class is readonly.</p>
+		 * @return bool <p><b><code>true</code></b> if a class is readonly, <b><code>false</code></b> otherwise.</p>
+		 * @link https://php.net/manual/en/reflectionclass.isreadonly.php
+		 * @since PHP 8 >= 8.2.0
+		 */
+		public function isReadOnly(): bool {}
 
 		/**
 		 * Checks if a subclass
@@ -622,7 +652,7 @@ namespace {
 
 		/**
 		 * Sets static property value
-		 * <p>Sets static property value.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Sets static property value.</p>
 		 * @param string $name <p>Property name.</p>
 		 * @param mixed $value <p>New property value.</p>
 		 * @return void <p>No value is returned.</p>
@@ -643,19 +673,25 @@ namespace {
 		 * @var int <p>Indicates public constants. Prior to PHP 7.4.0, the value was <code>256</code>.</p>
 		 * @link https://php.net/manual/en/class.reflectionclassconstant.php
 		 */
-		const IS_PUBLIC = 1;
+		public const IS_PUBLIC = 1;
 
 		/**
 		 * @var int <p>Indicates protected constants. Prior to PHP 7.4.0, the value was <code>512</code>.</p>
 		 * @link https://php.net/manual/en/class.reflectionclassconstant.php
 		 */
-		const IS_PROTECTED = 2;
+		public const IS_PROTECTED = 2;
 
 		/**
 		 * @var int <p>Indicates private constants. Prior to PHP 7.4.0, the value was <code>1024</code>.</p>
 		 * @link https://php.net/manual/en/class.reflectionclassconstant.php
 		 */
-		const IS_PRIVATE = 4;
+		public const IS_PRIVATE = 4;
+
+		/**
+		 * @var int <p>Indicates final constants. Available as of PHP 8.1.0.</p>
+		 * @link https://php.net/manual/en/class.reflectionclassconstant.php
+		 */
+		public const IS_FINAL = 32;
 
 		/**
 		 * @var string <p>Name of the class constant. Read-only, throws <code>ReflectionException</code> in attempt to write.</p>
@@ -674,7 +710,7 @@ namespace {
 		 * <p>Constructs a new <code>ReflectionClassConstant</code> object.</p>
 		 * @param object|string $class <p>Either a <code>string</code> containing the name of the class to reflect, or an <code>object</code>.</p>
 		 * @param string $constant <p>The name of the class constant.</p>
-		 * @return self <p>Returns constructed <code>ReflectionClassConstant</code> instance.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/reflectionclassconstant.construct.php
 		 * @since PHP 7 >= 7.1.0, PHP 8
 		 */
@@ -703,9 +739,9 @@ namespace {
 
 		/**
 		 * Gets Attributes
-		 * <p>Returns all attributes declared on this class constant as an array of <code>ReflectionAttribute</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param ?string $name
-		 * @param int $flags
+		 * <p>Returns all attributes declared on this class constant as an array of <code>ReflectionAttribute</code>.</p>
+		 * @param ?string $name <p>Filter the results to include only <code>ReflectionAttribute</code> instances for attributes matching this class name.</p>
+		 * @param int $flags <p>Flags for determining how to filter the results, if <code>name</code> is provided.</p> <p>Default is <code>0</code> which will only return results for attributes that are of the class <code>name</code>.</p> <p>The only other option available, is to use <b><code>ReflectionAttribute::IS_INSTANCEOF</code></b>, which will instead use <code>instanceof</code> for filtering.</p>
 		 * @return array <p>Array of attributes, as a <code>ReflectionAttribute</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionclassconstant.getattributes.php
 		 * @since PHP 8
@@ -755,6 +791,15 @@ namespace {
 		 * @since PHP 7 >= 7.1.0, PHP 8
 		 */
 		public function getValue(): mixed {}
+
+		/**
+		 * Checks if class constant is an Enum case
+		 * <p>Checks if the class constant is an Enum case.</p>
+		 * @return bool <p><b><code>true</code></b> if the class constant is an Enum case; <b><code>false</code></b> otherwise.</p>
+		 * @link https://php.net/manual/en/reflectionclassconstant.isenumcase.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function isEnumCase(): bool {}
 
 		/**
 		 * Checks if class constant is final
@@ -837,9 +882,9 @@ namespace {
 
 		/**
 		 * Gets Attributes
-		 * <p>Returns all attributes declared on this class as an array of <code>ReflectionAttribute</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param ?string $name
-		 * @param int $flags
+		 * <p>Returns all attributes declared on this class as an array of <code>ReflectionAttribute</code>.</p>
+		 * @param ?string $name <p>Filter the results to include only <code>ReflectionAttribute</code> instances for attributes matching this class name.</p>
+		 * @param int $flags <p>Flags for determining how to filter the results, if <code>name</code> is provided.</p> <p>Default is <code>0</code> which will only return results for attributes that are of the class <code>name</code>.</p> <p>The only other option available, is to use <b><code>ReflectionAttribute::IS_INSTANCEOF</code></b>, which will instead use <code>instanceof</code> for filtering.</p>
 		 * @return array <p>Array of attributes, as a <code>ReflectionAttribute</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getattributes.php
 		 * @since PHP 8
@@ -849,11 +894,11 @@ namespace {
 		/**
 		 * Gets the backing type of an Enum, if any
 		 * <p>If the enumeration is a Backed Enum, this method will return an instance of <code>ReflectionType</code> for the backing type of the Enum. If it is not a Backed Enum, it will return <code>null</code>.</p>
-		 * @return ?ReflectionType <p>An instance of <code>ReflectionType</code>, or <code>null</code> if the Enum has no backing type.</p>
+		 * @return ?ReflectionNamedType <p>An instance of <code>ReflectionNamedType</code>, or <code>null</code> if the Enum has no backing type.</p>
 		 * @link https://php.net/manual/en/reflectionenum.getbackingtype.php
 		 * @since PHP 8 >= 8.1.0
 		 */
-		public function getBackingType(): ?\ReflectionType {}
+		public function getBackingType(): ?\ReflectionNamedType {}
 
 		/**
 		 * Returns a specific case of an Enum
@@ -876,7 +921,7 @@ namespace {
 
 		/**
 		 * Gets defined constant
-		 * <p>Gets the defined constant.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the defined constant.</p>
 		 * @param string $name <p>The name of the class constant to get.</p>
 		 * @return mixed <p>Value of the constant with the name <code>name</code>. Returns <b><code>false</code></b> if the constant was not found in the class.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getconstant.php
@@ -914,7 +959,7 @@ namespace {
 
 		/**
 		 * Gets doc comments
-		 * <p>Gets doc comments from a class. Doc comments start with /&#42;&#42;. If there are multiple doc comments above the class definition, the one closest to the class will be taken.</p>
+		 * <p>Gets doc comments from a class. Doc comments start with <code>/&#42;&#42;</code>, followed by whitespace. If there are multiple doc comments above the class definition, the one closest to the class will be taken.</p>
 		 * @return string|false <p>The doc comment if it exists, otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getdoccomment.php
 		 * @since PHP 5, PHP 7, PHP 8
@@ -1007,7 +1052,7 @@ namespace {
 
 		/**
 		 * Gets class name
-		 * <p>Gets the class name.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the class name.</p>
 		 * @return string <p>The class name.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getname.php
 		 * @since PHP 5, PHP 7, PHP 8
@@ -1016,7 +1061,7 @@ namespace {
 
 		/**
 		 * Gets namespace name
-		 * <p>Gets the namespace name.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the namespace name.</p>
 		 * @return string <p>The namespace name.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getnamespacename.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -1113,7 +1158,7 @@ namespace {
 		/**
 		 * Returns an array of trait aliases
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return array <p>Returns an array with new method names in keys and original names (in the format <code>"TraitName::original"</code>) in values. Returns <b><code>null</code></b> in case of an error.</p>
+		 * @return array <p>Returns an array with new method names in keys and original names (in the format <code>"TraitName::original"</code>) in values.</p>
 		 * @link https://php.net/manual/en/reflectionclass.gettraitaliases.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 		 */
@@ -1122,7 +1167,7 @@ namespace {
 		/**
 		 * Returns an array of names of traits used by this class
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return array <p>Returns an array with trait names in values. Returns <b><code>null</code></b> in case of an error.</p>
+		 * @return array <p>Returns an array with trait names in values.</p>
 		 * @link https://php.net/manual/en/reflectionclass.gettraitnames.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 		 */
@@ -1234,6 +1279,15 @@ namespace {
 		public function isCloneable(): bool {}
 
 		/**
+		 * Returns whether this is an enum
+		 * <p>Checks if a class is an enum.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if this is an enum, <b><code>false</code></b> otherwise.</p>
+		 * @link https://php.net/manual/en/reflectionclass.isenum.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function isEnum(): bool {}
+
+		/**
 		 * Checks if class is final
 		 * <p>Checks if a class is final.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -1288,6 +1342,15 @@ namespace {
 		 * @since PHP 7 >= 7.2.0, PHP 8
 		 */
 		public function isIterable(): bool {}
+
+		/**
+		 * Checks if class is readonly
+		 * <p>Checks if a class is readonly.</p>
+		 * @return bool <p><b><code>true</code></b> if a class is readonly, <b><code>false</code></b> otherwise.</p>
+		 * @link https://php.net/manual/en/reflectionclass.isreadonly.php
+		 * @since PHP 8 >= 8.2.0
+		 */
+		public function isReadOnly(): bool {}
 
 		/**
 		 * Checks if a subclass
@@ -1349,7 +1412,7 @@ namespace {
 
 		/**
 		 * Sets static property value
-		 * <p>Sets static property value.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Sets static property value.</p>
 		 * @param string $name <p>Property name.</p>
 		 * @param mixed $value <p>New property value.</p>
 		 * @return void <p>No value is returned.</p>
@@ -1411,9 +1474,9 @@ namespace {
 
 		/**
 		 * Gets Attributes
-		 * <p>Returns all attributes declared on this class constant as an array of <code>ReflectionAttribute</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param ?string $name
-		 * @param int $flags
+		 * <p>Returns all attributes declared on this class constant as an array of <code>ReflectionAttribute</code>.</p>
+		 * @param ?string $name <p>Filter the results to include only <code>ReflectionAttribute</code> instances for attributes matching this class name.</p>
+		 * @param int $flags <p>Flags for determining how to filter the results, if <code>name</code> is provided.</p> <p>Default is <code>0</code> which will only return results for attributes that are of the class <code>name</code>.</p> <p>The only other option available, is to use <b><code>ReflectionAttribute::IS_INSTANCEOF</code></b>, which will instead use <code>instanceof</code> for filtering.</p>
 		 * @return array <p>Array of attributes, as a <code>ReflectionAttribute</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionclassconstant.getattributes.php
 		 * @since PHP 8
@@ -1481,6 +1544,15 @@ namespace {
 		 * @since PHP 8 >= 8.1.0
 		 */
 		public function getValue(): \UnitEnum {}
+
+		/**
+		 * Checks if class constant is an Enum case
+		 * <p>Checks if the class constant is an Enum case.</p>
+		 * @return bool <p><b><code>true</code></b> if the class constant is an Enum case; <b><code>false</code></b> otherwise.</p>
+		 * @link https://php.net/manual/en/reflectionclassconstant.isenumcase.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function isEnumCase(): bool {}
 
 		/**
 		 * Checks if class constant is final
@@ -1571,9 +1643,9 @@ namespace {
 
 		/**
 		 * Gets Attributes
-		 * <p>Returns all attributes declared on this class constant as an array of <code>ReflectionAttribute</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param ?string $name
-		 * @param int $flags
+		 * <p>Returns all attributes declared on this class constant as an array of <code>ReflectionAttribute</code>.</p>
+		 * @param ?string $name <p>Filter the results to include only <code>ReflectionAttribute</code> instances for attributes matching this class name.</p>
+		 * @param int $flags <p>Flags for determining how to filter the results, if <code>name</code> is provided.</p> <p>Default is <code>0</code> which will only return results for attributes that are of the class <code>name</code>.</p> <p>The only other option available, is to use <b><code>ReflectionAttribute::IS_INSTANCEOF</code></b>, which will instead use <code>instanceof</code> for filtering.</p>
 		 * @return array <p>Array of attributes, as a <code>ReflectionAttribute</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionclassconstant.getattributes.php
 		 * @since PHP 8
@@ -1632,6 +1704,15 @@ namespace {
 		 * @since PHP 8 >= 8.1.0
 		 */
 		public function getValue(): \UnitEnum {}
+
+		/**
+		 * Checks if class constant is an Enum case
+		 * <p>Checks if the class constant is an Enum case.</p>
+		 * @return bool <p><b><code>true</code></b> if the class constant is an Enum case; <b><code>false</code></b> otherwise.</p>
+		 * @link https://php.net/manual/en/reflectionclassconstant.isenumcase.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function isEnumCase(): bool {}
 
 		/**
 		 * Checks if class constant is final
@@ -1727,6 +1808,18 @@ namespace {
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -1827,7 +1920,7 @@ namespace {
 		 * Constructs a ReflectionExtension
 		 * <p>Construct a <code>ReflectionExtension</code> <code>object</code>.</p>
 		 * @param string $name <p>Name of the extension.</p>
-		 * @return self <p>A <code>ReflectionExtension</code> <code>object</code>.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/reflectionextension.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -2030,7 +2123,7 @@ namespace {
 		 * @var int <p>Indicates deprecated functions.</p>
 		 * @link https://php.net/manual/en/class.reflectionfunction.php
 		 */
-		const IS_DEPRECATED = 262144;
+		public const IS_DEPRECATED = 2048;
 
 		/**
 		 * @var string <p>Name of the function. Read-only, throws <code>ReflectionException</code> in attempt to write.</p>
@@ -2040,8 +2133,8 @@ namespace {
 
 		/**
 		 * Clones function
-		 * <p>Clones a function.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return void
+		 * <p>Clones a function.</p>
+		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
@@ -2051,7 +2144,7 @@ namespace {
 		 * Constructs a ReflectionFunction object
 		 * <p>Constructs a <code>ReflectionFunction</code> object.</p>
 		 * @param \Closure|string $function <p>The name of the function to reflect or a closure.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/reflectionfunction.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -2079,9 +2172,9 @@ namespace {
 
 		/**
 		 * Gets Attributes
-		 * <p>Returns all attributes declared on this function or method as an array of <code>ReflectionAttribute</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param ?string $name
-		 * @param int $flags
+		 * <p>Returns all attributes declared on this function or method as an array of <code>ReflectionAttribute</code>.</p>
+		 * @param ?string $name <p>Filter the results to include only <code>ReflectionAttribute</code> instances for attributes matching this class name.</p>
+		 * @param int $flags <p>Flags for determining how to filter the results, if <code>name</code> is provided.</p> <p>Default is <code>0</code> which will only return results for attributes that are of the class <code>name</code>.</p> <p>The only other option available, is to use <b><code>ReflectionAttribute::IS_INSTANCEOF</code></b>, which will instead use <code>instanceof</code> for filtering.</p>
 		 * @return array <p>Array of attributes, as a <code>ReflectionAttribute</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getattributes.php
 		 * @since PHP 8
@@ -2091,7 +2184,7 @@ namespace {
 		/**
 		 * Returns a dynamically created closure for the function
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return Closure <p>Returns <code>Closure</code>. Returns <b><code>null</code></b> in case of an error.</p>
+		 * @return Closure <p>Returns <code>Closure</code>.</p>
 		 * @link https://php.net/manual/en/reflectionfunction.getclosure.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 		 */
@@ -2116,8 +2209,18 @@ namespace {
 		public function getClosureThis(): ?object {}
 
 		/**
+		 * Returns an array of the used variables in the Closure
+		 * <p>Returns an <code>array</code> of the used variables in the <code>Closure</code>.</p>
+		 * @return array <p>Returns an <code>array</code> of the used variables in the <code>Closure</code>.</p>
+		 * @link https://php.net/manual/en/reflectionfunctionabstract.getclosureusedvariables.php
+		 * @see ReflectionFunctionAbstract::getClosureScopeClass(), ReflectionFunctionAbstract::getClosureThis()
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function getClosureUsedVariables(): array {}
+
+		/**
 		 * Gets doc comment
-		 * <p>Get a Doc comment from a function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get a Doc comment from a function.</p>
 		 * @return string|false <p>The doc comment if it exists, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
@@ -2126,7 +2229,7 @@ namespace {
 
 		/**
 		 * Gets end line number
-		 * <p>Get the ending line number.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the ending line number.</p>
 		 * @return int|false <p>The ending line number of the user defined function, or <b><code>false</code></b> if unknown.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getendline.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2135,7 +2238,7 @@ namespace {
 
 		/**
 		 * Gets extension info
-		 * <p>Get the extension information of a function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the extension information of a function.</p>
 		 * @return ?ReflectionExtension <p>The extension information, as a <code>ReflectionExtension</code> object, or <b><code>null</code></b> for user-defined functions.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getextension.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2144,7 +2247,7 @@ namespace {
 
 		/**
 		 * Gets extension name
-		 * <p>Get the extensions name.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the extensions name.</p>
 		 * @return string|false <p>The name of the extension which defined the function, or <b><code>false</code></b> for user-defined functions.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getextensionname.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2153,7 +2256,7 @@ namespace {
 
 		/**
 		 * Gets file name
-		 * <p>Gets the file name from a user-defined function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the file name from a user-defined function.</p>
 		 * @return string|false <p>Returns the filename of the file in which the function has been defined. If the class is defined in the PHP core or in a PHP extension, <b><code>false</code></b> is returned.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getfilename.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2162,7 +2265,7 @@ namespace {
 
 		/**
 		 * Gets function name
-		 * <p>Get the name of the function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the name of the function.</p>
 		 * @return string <p>The name of the function.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getname.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2171,7 +2274,7 @@ namespace {
 
 		/**
 		 * Gets namespace name
-		 * <p>Get the namespace name where the class is defined.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the namespace name where the class is defined.</p>
 		 * @return string <p>The namespace name.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getnamespacename.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -2180,7 +2283,7 @@ namespace {
 
 		/**
 		 * Gets number of parameters
-		 * <p>Get the number of parameters that a function defines, both optional and required.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the number of parameters that a function defines, both optional and required.</p>
 		 * @return int <p>The number of parameters.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getnumberofparameters.php
 		 * @see func_num_args()
@@ -2190,7 +2293,7 @@ namespace {
 
 		/**
 		 * Gets number of required parameters
-		 * <p>Get the number of required parameters that a function defines.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the number of required parameters that a function defines.</p>
 		 * @return int <p>The number of required parameters.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getnumberofrequiredparameters.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -2199,7 +2302,7 @@ namespace {
 
 		/**
 		 * Gets parameters
-		 * <p>Get the parameters as an array of <code>ReflectionParameter</code>, in the order in which they are defined in the source.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the parameters as an array of <code>ReflectionParameter</code>, in the order in which they are defined in the source.</p>
 		 * @return array <p>The parameters, as a <code>ReflectionParameter</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getparameters.php
 		 * @see func_get_args()
@@ -2218,7 +2321,7 @@ namespace {
 
 		/**
 		 * Gets function short name
-		 * <p>Get the short name of the function (without the namespace part).</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the short name of the function (without the namespace part).</p>
 		 * @return string <p>The short name of the function.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getshortname.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -2227,7 +2330,7 @@ namespace {
 
 		/**
 		 * Gets starting line number
-		 * <p>Gets the starting line number of the function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the starting line number of the function.</p>
 		 * @return int|false <p>The starting line number, or <b><code>false</code></b> if unknown.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getstartline.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2236,12 +2339,21 @@ namespace {
 
 		/**
 		 * Gets static variables
-		 * <p>Get the static variables.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the static variables.</p>
 		 * @return array <p>An <code>array</code> of static variables.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getstaticvariables.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
 		public function getStaticVariables(): array {}
+
+		/**
+		 * Returns the tentative return type associated with the function
+		 * <p>Returns the tentative return type associated with the function.</p>
+		 * @return ?ReflectionType <p>Returns a <code>ReflectionType</code> object if a tentative return type is specified, <b><code>null</code></b> otherwise.</p>
+		 * @link https://php.net/manual/en/reflectionfunctionabstract.gettentativereturntype.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function getTentativeReturnType(): ?\ReflectionType {}
 
 		/**
 		 * Checks if the function has a specified return type
@@ -2253,8 +2365,17 @@ namespace {
 		public function hasReturnType(): bool {}
 
 		/**
+		 * Returns whether the function has a tentative return type
+		 * <p>Returns whether the function has a tentative return type.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the function has a tentative return type, otherwise <b><code>false</code></b>.</p>
+		 * @link https://php.net/manual/en/reflectionfunctionabstract.hastentativereturntype.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function hasTentativeReturnType(): bool {}
+
+		/**
 		 * Checks if function in namespace
-		 * <p>Checks whether a function is defined in a namespace.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks whether a function is defined in a namespace.</p>
 		 * @return bool <p><b><code>true</code></b> if it's in a namespace, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.innamespace.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -2282,6 +2403,15 @@ namespace {
 		 * @since PHP 5 >= 5.1.2, PHP 7, PHP 8
 		 */
 		public function invokeArgs(array $args): mixed {}
+
+		/**
+		 * Checks if a function is anonymous
+		 * <p>Checks if a function is anonymous.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the function is anonymous, otherwise <b><code>false</code></b>.</p>
+		 * @link https://php.net/manual/en/reflectionfunction.isanonymous.php
+		 * @since PHP 8 >= 8.2.0
+		 */
+		public function isAnonymous(): bool {}
 
 		/**
 		 * Checks if closure
@@ -2312,7 +2442,6 @@ namespace {
 
 		/**
 		 * Returns whether this function is a generator
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> if the function is generator, <b><code>false</code></b> if it is not or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.isgenerator.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
@@ -2321,7 +2450,7 @@ namespace {
 
 		/**
 		 * Checks if is internal
-		 * <p>Checks whether the function is internal, as opposed to user-defined.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks whether the function is internal, as opposed to user-defined.</p>
 		 * @return bool <p><b><code>true</code></b> if it's internal, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.isinternal.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2329,8 +2458,17 @@ namespace {
 		public function isInternal(): bool {}
 
 		/**
+		 * Checks if the function is static
+		 * <p>Checks if the function is static.</p>
+		 * @return bool <p><b><code>true</code></b> if the function is static, otherwise <b><code>false</code></b></p>
+		 * @link https://php.net/manual/en/reflectiofunctionabstract.isstatic.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function isStatic(): bool {}
+
+		/**
 		 * Checks if user defined
-		 * <p>Checks whether the function is user-defined, as opposed to internal.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks whether the function is user-defined, as opposed to internal.</p>
 		 * @return bool <p><b><code>true</code></b> if it's user-defined, otherwise false;</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.isuserdefined.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2348,7 +2486,7 @@ namespace {
 
 		/**
 		 * Checks if returns reference
-		 * <p>Checks whether the function returns a reference.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks whether the function returns a reference.</p>
 		 * @return bool <p><b><code>true</code></b> if it returns a reference, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.returnsreference.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2371,8 +2509,8 @@ namespace {
 
 		/**
 		 * Clones function
-		 * <p>Clones a function.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return void
+		 * <p>Clones a function.</p>
+		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
@@ -2389,9 +2527,9 @@ namespace {
 
 		/**
 		 * Gets Attributes
-		 * <p>Returns all attributes declared on this function or method as an array of <code>ReflectionAttribute</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param ?string $name
-		 * @param int $flags
+		 * <p>Returns all attributes declared on this function or method as an array of <code>ReflectionAttribute</code>.</p>
+		 * @param ?string $name <p>Filter the results to include only <code>ReflectionAttribute</code> instances for attributes matching this class name.</p>
+		 * @param int $flags <p>Flags for determining how to filter the results, if <code>name</code> is provided.</p> <p>Default is <code>0</code> which will only return results for attributes that are of the class <code>name</code>.</p> <p>The only other option available, is to use <b><code>ReflectionAttribute::IS_INSTANCEOF</code></b>, which will instead use <code>instanceof</code> for filtering.</p>
 		 * @return array <p>Array of attributes, as a <code>ReflectionAttribute</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getattributes.php
 		 * @since PHP 8
@@ -2417,8 +2555,18 @@ namespace {
 		public function getClosureThis(): ?object {}
 
 		/**
+		 * Returns an array of the used variables in the Closure
+		 * <p>Returns an <code>array</code> of the used variables in the <code>Closure</code>.</p>
+		 * @return array <p>Returns an <code>array</code> of the used variables in the <code>Closure</code>.</p>
+		 * @link https://php.net/manual/en/reflectionfunctionabstract.getclosureusedvariables.php
+		 * @see ReflectionFunctionAbstract::getClosureScopeClass(), ReflectionFunctionAbstract::getClosureThis()
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function getClosureUsedVariables(): array {}
+
+		/**
 		 * Gets doc comment
-		 * <p>Get a Doc comment from a function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get a Doc comment from a function.</p>
 		 * @return string|false <p>The doc comment if it exists, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
@@ -2427,7 +2575,7 @@ namespace {
 
 		/**
 		 * Gets end line number
-		 * <p>Get the ending line number.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the ending line number.</p>
 		 * @return int|false <p>The ending line number of the user defined function, or <b><code>false</code></b> if unknown.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getendline.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2436,7 +2584,7 @@ namespace {
 
 		/**
 		 * Gets extension info
-		 * <p>Get the extension information of a function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the extension information of a function.</p>
 		 * @return ?ReflectionExtension <p>The extension information, as a <code>ReflectionExtension</code> object, or <b><code>null</code></b> for user-defined functions.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getextension.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2445,7 +2593,7 @@ namespace {
 
 		/**
 		 * Gets extension name
-		 * <p>Get the extensions name.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the extensions name.</p>
 		 * @return string|false <p>The name of the extension which defined the function, or <b><code>false</code></b> for user-defined functions.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getextensionname.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2454,7 +2602,7 @@ namespace {
 
 		/**
 		 * Gets file name
-		 * <p>Gets the file name from a user-defined function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the file name from a user-defined function.</p>
 		 * @return string|false <p>Returns the filename of the file in which the function has been defined. If the class is defined in the PHP core or in a PHP extension, <b><code>false</code></b> is returned.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getfilename.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2463,7 +2611,7 @@ namespace {
 
 		/**
 		 * Gets function name
-		 * <p>Get the name of the function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the name of the function.</p>
 		 * @return string <p>The name of the function.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getname.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2472,7 +2620,7 @@ namespace {
 
 		/**
 		 * Gets namespace name
-		 * <p>Get the namespace name where the class is defined.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the namespace name where the class is defined.</p>
 		 * @return string <p>The namespace name.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getnamespacename.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -2481,7 +2629,7 @@ namespace {
 
 		/**
 		 * Gets number of parameters
-		 * <p>Get the number of parameters that a function defines, both optional and required.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the number of parameters that a function defines, both optional and required.</p>
 		 * @return int <p>The number of parameters.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getnumberofparameters.php
 		 * @see func_num_args()
@@ -2491,7 +2639,7 @@ namespace {
 
 		/**
 		 * Gets number of required parameters
-		 * <p>Get the number of required parameters that a function defines.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the number of required parameters that a function defines.</p>
 		 * @return int <p>The number of required parameters.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getnumberofrequiredparameters.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -2500,7 +2648,7 @@ namespace {
 
 		/**
 		 * Gets parameters
-		 * <p>Get the parameters as an array of <code>ReflectionParameter</code>, in the order in which they are defined in the source.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the parameters as an array of <code>ReflectionParameter</code>, in the order in which they are defined in the source.</p>
 		 * @return array <p>The parameters, as a <code>ReflectionParameter</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getparameters.php
 		 * @see func_get_args()
@@ -2519,7 +2667,7 @@ namespace {
 
 		/**
 		 * Gets function short name
-		 * <p>Get the short name of the function (without the namespace part).</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the short name of the function (without the namespace part).</p>
 		 * @return string <p>The short name of the function.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getshortname.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -2528,7 +2676,7 @@ namespace {
 
 		/**
 		 * Gets starting line number
-		 * <p>Gets the starting line number of the function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the starting line number of the function.</p>
 		 * @return int|false <p>The starting line number, or <b><code>false</code></b> if unknown.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getstartline.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2537,12 +2685,21 @@ namespace {
 
 		/**
 		 * Gets static variables
-		 * <p>Get the static variables.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the static variables.</p>
 		 * @return array <p>An <code>array</code> of static variables.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getstaticvariables.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
 		public function getStaticVariables(): array {}
+
+		/**
+		 * Returns the tentative return type associated with the function
+		 * <p>Returns the tentative return type associated with the function.</p>
+		 * @return ?ReflectionType <p>Returns a <code>ReflectionType</code> object if a tentative return type is specified, <b><code>null</code></b> otherwise.</p>
+		 * @link https://php.net/manual/en/reflectionfunctionabstract.gettentativereturntype.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function getTentativeReturnType(): ?\ReflectionType {}
 
 		/**
 		 * Checks if the function has a specified return type
@@ -2554,8 +2711,17 @@ namespace {
 		public function hasReturnType(): bool {}
 
 		/**
+		 * Returns whether the function has a tentative return type
+		 * <p>Returns whether the function has a tentative return type.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the function has a tentative return type, otherwise <b><code>false</code></b>.</p>
+		 * @link https://php.net/manual/en/reflectionfunctionabstract.hastentativereturntype.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function hasTentativeReturnType(): bool {}
+
+		/**
 		 * Checks if function in namespace
-		 * <p>Checks whether a function is defined in a namespace.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks whether a function is defined in a namespace.</p>
 		 * @return bool <p><b><code>true</code></b> if it's in a namespace, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.innamespace.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -2582,7 +2748,6 @@ namespace {
 
 		/**
 		 * Returns whether this function is a generator
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> if the function is generator, <b><code>false</code></b> if it is not or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.isgenerator.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
@@ -2591,7 +2756,7 @@ namespace {
 
 		/**
 		 * Checks if is internal
-		 * <p>Checks whether the function is internal, as opposed to user-defined.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks whether the function is internal, as opposed to user-defined.</p>
 		 * @return bool <p><b><code>true</code></b> if it's internal, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.isinternal.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2599,8 +2764,17 @@ namespace {
 		public function isInternal(): bool {}
 
 		/**
+		 * Checks if the function is static
+		 * <p>Checks if the function is static.</p>
+		 * @return bool <p><b><code>true</code></b> if the function is static, otherwise <b><code>false</code></b></p>
+		 * @link https://php.net/manual/en/reflectiofunctionabstract.isstatic.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function isStatic(): bool {}
+
+		/**
 		 * Checks if user defined
-		 * <p>Checks whether the function is user-defined, as opposed to internal.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks whether the function is user-defined, as opposed to internal.</p>
 		 * @return bool <p><b><code>true</code></b> if it's user-defined, otherwise false;</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.isuserdefined.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2618,7 +2792,7 @@ namespace {
 
 		/**
 		 * Checks if returns reference
-		 * <p>Checks whether the function returns a reference.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks whether the function returns a reference.</p>
 		 * @return bool <p><b><code>true</code></b> if it returns a reference, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.returnsreference.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2637,7 +2811,7 @@ namespace {
 		 * Constructs a ReflectionGenerator object
 		 * <p>Constructs a <code>ReflectionGenerator</code> object.</p>
 		 * @param \Generator $generator <p>A generator object.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/reflectiongenerator.construct.php
 		 * @since PHP 7, PHP 8
 		 */
@@ -2744,37 +2918,37 @@ namespace {
 		 * @var int <p>Indicates that the method is static. Prior to PHP 7.4.0, the value was <code>1</code>.</p>
 		 * @link https://php.net/manual/en/class.reflectionmethod.php
 		 */
-		const IS_STATIC = 16;
+		public const IS_STATIC = 16;
 
 		/**
 		 * @var int <p>Indicates that the method is public. Prior to PHP 7.4.0, the value was <code>256</code>.</p>
 		 * @link https://php.net/manual/en/class.reflectionmethod.php
 		 */
-		const IS_PUBLIC = 1;
+		public const IS_PUBLIC = 1;
 
 		/**
 		 * @var int <p>Indicates that the method is protected. Prior to PHP 7.4.0, the value was <code>512</code>.</p>
 		 * @link https://php.net/manual/en/class.reflectionmethod.php
 		 */
-		const IS_PROTECTED = 2;
+		public const IS_PROTECTED = 2;
 
 		/**
 		 * @var int <p>Indicates that the method is private. Prior to PHP 7.4.0, the value was <code>1024</code>.</p>
 		 * @link https://php.net/manual/en/class.reflectionmethod.php
 		 */
-		const IS_PRIVATE = 4;
+		public const IS_PRIVATE = 4;
 
 		/**
 		 * @var int <p>Indicates that the method is abstract. Prior to PHP 7.4.0, the value was <code>2</code>.</p>
 		 * @link https://php.net/manual/en/class.reflectionmethod.php
 		 */
-		const IS_ABSTRACT = 64;
+		public const IS_ABSTRACT = 64;
 
 		/**
 		 * @var int <p>Indicates that the method is final. Prior to PHP 7.4.0, the value was <code>4</code>.</p>
 		 * @link https://php.net/manual/en/class.reflectionmethod.php
 		 */
-		const IS_FINAL = 32;
+		public const IS_FINAL = 32;
 
 		/**
 		 * @var string <p>Class name</p>
@@ -2790,8 +2964,8 @@ namespace {
 
 		/**
 		 * Clones function
-		 * <p>Clones a function.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return void
+		 * <p>Clones a function.</p>
+		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
@@ -2802,7 +2976,7 @@ namespace {
 		 * <p>Alternative signature (not supported with named arguments):</p><p>Constructs a new <code>ReflectionMethod</code>.</p>
 		 * @param object|string $objectOrMethod <p>Classname or object (instance of the class) that contains the method.</p>
 		 * @param string $method <p>Name of the method.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/reflectionmethod.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -2819,7 +2993,7 @@ namespace {
 
 		/**
 		 * Export a reflection method
-		 * <p>Exports a ReflectionMethod.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Exports a ReflectionMethod.</p>
 		 * @param string $class <p>The class name.</p>
 		 * @param string $name <p>The name of the method.</p>
 		 * @param bool $return <p>Setting to <b><code>true</code></b> will return the export, as opposed to emitting it. Setting to <b><code>false</code></b> (the default) will do the opposite.</p>
@@ -2831,9 +3005,9 @@ namespace {
 
 		/**
 		 * Gets Attributes
-		 * <p>Returns all attributes declared on this function or method as an array of <code>ReflectionAttribute</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param ?string $name
-		 * @param int $flags
+		 * <p>Returns all attributes declared on this function or method as an array of <code>ReflectionAttribute</code>.</p>
+		 * @param ?string $name <p>Filter the results to include only <code>ReflectionAttribute</code> instances for attributes matching this class name.</p>
+		 * @param int $flags <p>Flags for determining how to filter the results, if <code>name</code> is provided.</p> <p>Default is <code>0</code> which will only return results for attributes that are of the class <code>name</code>.</p> <p>The only other option available, is to use <b><code>ReflectionAttribute::IS_INSTANCEOF</code></b>, which will instead use <code>instanceof</code> for filtering.</p>
 		 * @return array <p>Array of attributes, as a <code>ReflectionAttribute</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getattributes.php
 		 * @since PHP 8
@@ -2869,6 +3043,16 @@ namespace {
 		public function getClosureThis(): ?object {}
 
 		/**
+		 * Returns an array of the used variables in the Closure
+		 * <p>Returns an <code>array</code> of the used variables in the <code>Closure</code>.</p>
+		 * @return array <p>Returns an <code>array</code> of the used variables in the <code>Closure</code>.</p>
+		 * @link https://php.net/manual/en/reflectionfunctionabstract.getclosureusedvariables.php
+		 * @see ReflectionFunctionAbstract::getClosureScopeClass(), ReflectionFunctionAbstract::getClosureThis()
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function getClosureUsedVariables(): array {}
+
+		/**
 		 * Gets declaring class for the reflected method
 		 * <p>Gets the declaring class for the reflected method.</p>
 		 * @return ReflectionClass <p>A <code>ReflectionClass</code> object of the class that the reflected method is part of.</p>
@@ -2879,7 +3063,7 @@ namespace {
 
 		/**
 		 * Gets doc comment
-		 * <p>Get a Doc comment from a function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get a Doc comment from a function.</p>
 		 * @return string|false <p>The doc comment if it exists, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
@@ -2888,7 +3072,7 @@ namespace {
 
 		/**
 		 * Gets end line number
-		 * <p>Get the ending line number.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the ending line number.</p>
 		 * @return int|false <p>The ending line number of the user defined function, or <b><code>false</code></b> if unknown.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getendline.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2897,7 +3081,7 @@ namespace {
 
 		/**
 		 * Gets extension info
-		 * <p>Get the extension information of a function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the extension information of a function.</p>
 		 * @return ?ReflectionExtension <p>The extension information, as a <code>ReflectionExtension</code> object, or <b><code>null</code></b> for user-defined functions.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getextension.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2906,7 +3090,7 @@ namespace {
 
 		/**
 		 * Gets extension name
-		 * <p>Get the extensions name.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the extensions name.</p>
 		 * @return string|false <p>The name of the extension which defined the function, or <b><code>false</code></b> for user-defined functions.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getextensionname.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2915,7 +3099,7 @@ namespace {
 
 		/**
 		 * Gets file name
-		 * <p>Gets the file name from a user-defined function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the file name from a user-defined function.</p>
 		 * @return string|false <p>Returns the filename of the file in which the function has been defined. If the class is defined in the PHP core or in a PHP extension, <b><code>false</code></b> is returned.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getfilename.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2933,7 +3117,7 @@ namespace {
 
 		/**
 		 * Gets function name
-		 * <p>Get the name of the function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the name of the function.</p>
 		 * @return string <p>The name of the function.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getname.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -2942,7 +3126,7 @@ namespace {
 
 		/**
 		 * Gets namespace name
-		 * <p>Get the namespace name where the class is defined.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the namespace name where the class is defined.</p>
 		 * @return string <p>The namespace name.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getnamespacename.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -2951,7 +3135,7 @@ namespace {
 
 		/**
 		 * Gets number of parameters
-		 * <p>Get the number of parameters that a function defines, both optional and required.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the number of parameters that a function defines, both optional and required.</p>
 		 * @return int <p>The number of parameters.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getnumberofparameters.php
 		 * @see func_num_args()
@@ -2961,7 +3145,7 @@ namespace {
 
 		/**
 		 * Gets number of required parameters
-		 * <p>Get the number of required parameters that a function defines.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the number of required parameters that a function defines.</p>
 		 * @return int <p>The number of required parameters.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getnumberofrequiredparameters.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -2970,7 +3154,7 @@ namespace {
 
 		/**
 		 * Gets parameters
-		 * <p>Get the parameters as an array of <code>ReflectionParameter</code>, in the order in which they are defined in the source.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the parameters as an array of <code>ReflectionParameter</code>, in the order in which they are defined in the source.</p>
 		 * @return array <p>The parameters, as a <code>ReflectionParameter</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getparameters.php
 		 * @see func_get_args()
@@ -2998,7 +3182,7 @@ namespace {
 
 		/**
 		 * Gets function short name
-		 * <p>Get the short name of the function (without the namespace part).</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the short name of the function (without the namespace part).</p>
 		 * @return string <p>The short name of the function.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getshortname.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -3007,7 +3191,7 @@ namespace {
 
 		/**
 		 * Gets starting line number
-		 * <p>Gets the starting line number of the function.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the starting line number of the function.</p>
 		 * @return int|false <p>The starting line number, or <b><code>false</code></b> if unknown.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getstartline.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -3016,12 +3200,30 @@ namespace {
 
 		/**
 		 * Gets static variables
-		 * <p>Get the static variables.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Get the static variables.</p>
 		 * @return array <p>An <code>array</code> of static variables.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.getstaticvariables.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
 		public function getStaticVariables(): array {}
+
+		/**
+		 * Returns the tentative return type associated with the function
+		 * <p>Returns the tentative return type associated with the function.</p>
+		 * @return ?ReflectionType <p>Returns a <code>ReflectionType</code> object if a tentative return type is specified, <b><code>null</code></b> otherwise.</p>
+		 * @link https://php.net/manual/en/reflectionfunctionabstract.gettentativereturntype.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function getTentativeReturnType(): ?\ReflectionType {}
+
+		/**
+		 * Returns whether a method has a prototype
+		 * <p>Returns whether a method has a prototype.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the method has a prototype, otherwise <b><code>false</code></b>.</p>
+		 * @link https://php.net/manual/en/reflectionmethod.hasprototype.php
+		 * @since PHP 8 >= 8.2.0
+		 */
+		public function hasPrototype(): bool {}
 
 		/**
 		 * Checks if the function has a specified return type
@@ -3033,8 +3235,17 @@ namespace {
 		public function hasReturnType(): bool {}
 
 		/**
+		 * Returns whether the function has a tentative return type
+		 * <p>Returns whether the function has a tentative return type.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the function has a tentative return type, otherwise <b><code>false</code></b>.</p>
+		 * @link https://php.net/manual/en/reflectionfunctionabstract.hastentativereturntype.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function hasTentativeReturnType(): bool {}
+
+		/**
 		 * Checks if function in namespace
-		 * <p>Checks whether a function is defined in a namespace.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks whether a function is defined in a namespace.</p>
 		 * @return bool <p><b><code>true</code></b> if it's in a namespace, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.innamespace.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -3121,7 +3332,6 @@ namespace {
 
 		/**
 		 * Returns whether this function is a generator
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> if the function is generator, <b><code>false</code></b> if it is not or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.isgenerator.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
@@ -3130,7 +3340,7 @@ namespace {
 
 		/**
 		 * Checks if is internal
-		 * <p>Checks whether the function is internal, as opposed to user-defined.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks whether the function is internal, as opposed to user-defined.</p>
 		 * @return bool <p><b><code>true</code></b> if it's internal, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.isinternal.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -3139,7 +3349,7 @@ namespace {
 
 		/**
 		 * Checks if method is private
-		 * <p>Checks if the method is private.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks if the method is private.</p>
 		 * @return bool <p><b><code>true</code></b> if the method is private, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionmethod.isprivate.php
 		 * @since PHP 5, PHP 7, PHP 8
@@ -3165,17 +3375,17 @@ namespace {
 		public function isPublic(): bool {}
 
 		/**
-		 * Checks if method is static
-		 * <p>Checks if the method is static.</p>
-		 * @return bool <p><b><code>true</code></b> if the method is static, otherwise <b><code>false</code></b></p>
-		 * @link https://php.net/manual/en/reflectionmethod.isstatic.php
+		 * Checks if the function is static
+		 * <p>Checks if the function is static.</p>
+		 * @return bool <p><b><code>true</code></b> if the function is static, otherwise <b><code>false</code></b></p>
+		 * @link https://php.net/manual/en/reflectiofunctionabstract.isstatic.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function isStatic(): bool {}
 
 		/**
 		 * Checks if user defined
-		 * <p>Checks whether the function is user-defined, as opposed to internal.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks whether the function is user-defined, as opposed to internal.</p>
 		 * @return bool <p><b><code>true</code></b> if it's user-defined, otherwise false;</p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.isuserdefined.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -3193,7 +3403,7 @@ namespace {
 
 		/**
 		 * Checks if returns reference
-		 * <p>Checks whether the function returns a reference.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks whether the function returns a reference.</p>
 		 * @return bool <p><b><code>true</code></b> if it returns a reference, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionfunctionabstract.returnsreference.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
@@ -3268,9 +3478,9 @@ namespace {
 
 		/**
 		 * Constructs a ReflectionObject
-		 * <p>Constructs a <code>ReflectionObject</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Constructs a <code>ReflectionObject</code>.</p>
 		 * @param object $object <p>An object instance.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/reflectionobject.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -3298,9 +3508,9 @@ namespace {
 
 		/**
 		 * Gets Attributes
-		 * <p>Returns all attributes declared on this class as an array of <code>ReflectionAttribute</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param ?string $name
-		 * @param int $flags
+		 * <p>Returns all attributes declared on this class as an array of <code>ReflectionAttribute</code>.</p>
+		 * @param ?string $name <p>Filter the results to include only <code>ReflectionAttribute</code> instances for attributes matching this class name.</p>
+		 * @param int $flags <p>Flags for determining how to filter the results, if <code>name</code> is provided.</p> <p>Default is <code>0</code> which will only return results for attributes that are of the class <code>name</code>.</p> <p>The only other option available, is to use <b><code>ReflectionAttribute::IS_INSTANCEOF</code></b>, which will instead use <code>instanceof</code> for filtering.</p>
 		 * @return array <p>Array of attributes, as a <code>ReflectionAttribute</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getattributes.php
 		 * @since PHP 8
@@ -3309,7 +3519,7 @@ namespace {
 
 		/**
 		 * Gets defined constant
-		 * <p>Gets the defined constant.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the defined constant.</p>
 		 * @param string $name <p>The name of the class constant to get.</p>
 		 * @return mixed <p>Value of the constant with the name <code>name</code>. Returns <b><code>false</code></b> if the constant was not found in the class.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getconstant.php
@@ -3347,7 +3557,7 @@ namespace {
 
 		/**
 		 * Gets doc comments
-		 * <p>Gets doc comments from a class. Doc comments start with /&#42;&#42;. If there are multiple doc comments above the class definition, the one closest to the class will be taken.</p>
+		 * <p>Gets doc comments from a class. Doc comments start with <code>/&#42;&#42;</code>, followed by whitespace. If there are multiple doc comments above the class definition, the one closest to the class will be taken.</p>
 		 * @return string|false <p>The doc comment if it exists, otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getdoccomment.php
 		 * @since PHP 5, PHP 7, PHP 8
@@ -3440,7 +3650,7 @@ namespace {
 
 		/**
 		 * Gets class name
-		 * <p>Gets the class name.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the class name.</p>
 		 * @return string <p>The class name.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getname.php
 		 * @since PHP 5, PHP 7, PHP 8
@@ -3449,7 +3659,7 @@ namespace {
 
 		/**
 		 * Gets namespace name
-		 * <p>Gets the namespace name.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the namespace name.</p>
 		 * @return string <p>The namespace name.</p>
 		 * @link https://php.net/manual/en/reflectionclass.getnamespacename.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -3546,7 +3756,7 @@ namespace {
 		/**
 		 * Returns an array of trait aliases
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return array <p>Returns an array with new method names in keys and original names (in the format <code>"TraitName::original"</code>) in values. Returns <b><code>null</code></b> in case of an error.</p>
+		 * @return array <p>Returns an array with new method names in keys and original names (in the format <code>"TraitName::original"</code>) in values.</p>
 		 * @link https://php.net/manual/en/reflectionclass.gettraitaliases.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 		 */
@@ -3555,7 +3765,7 @@ namespace {
 		/**
 		 * Returns an array of names of traits used by this class
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return array <p>Returns an array with trait names in values. Returns <b><code>null</code></b> in case of an error.</p>
+		 * @return array <p>Returns an array with trait names in values.</p>
 		 * @link https://php.net/manual/en/reflectionclass.gettraitnames.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 		 */
@@ -3648,6 +3858,15 @@ namespace {
 		public function isCloneable(): bool {}
 
 		/**
+		 * Returns whether this is an enum
+		 * <p>Checks if a class is an enum.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if this is an enum, <b><code>false</code></b> otherwise.</p>
+		 * @link https://php.net/manual/en/reflectionclass.isenum.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function isEnum(): bool {}
+
+		/**
 		 * Checks if class is final
 		 * <p>Checks if a class is final.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -3702,6 +3921,15 @@ namespace {
 		 * @since PHP 7 >= 7.2.0, PHP 8
 		 */
 		public function isIterable(): bool {}
+
+		/**
+		 * Checks if class is readonly
+		 * <p>Checks if a class is readonly.</p>
+		 * @return bool <p><b><code>true</code></b> if a class is readonly, <b><code>false</code></b> otherwise.</p>
+		 * @link https://php.net/manual/en/reflectionclass.isreadonly.php
+		 * @since PHP 8 >= 8.2.0
+		 */
+		public function isReadOnly(): bool {}
 
 		/**
 		 * Checks if a subclass
@@ -3763,7 +3991,7 @@ namespace {
 
 		/**
 		 * Sets static property value
-		 * <p>Sets static property value.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Sets static property value.</p>
 		 * @param string $name <p>Property name.</p>
 		 * @param mixed $value <p>New property value.</p>
 		 * @return void <p>No value is returned.</p>
@@ -3801,7 +4029,7 @@ namespace {
 		 * <p>Constructs a <code>ReflectionParameter</code> instance.</p>
 		 * @param string|array|object $function <p>The function to reflect parameters from.</p>
 		 * @param int|string $param <p>Either an <code>int</code> specifying the position of the parameter (starting with zero), or the parameter name as <code>string</code>.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/reflectionparameter.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -3818,7 +4046,7 @@ namespace {
 
 		/**
 		 * Checks if null is allowed
-		 * <p>Checks whether the parameter allows <b><code>null</code></b>.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks whether the parameter allows <b><code>null</code></b>.</p>
 		 * @return bool <p><b><code>true</code></b> if <b><code>null</code></b> is allowed, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionparameter.allowsnull.php
 		 * @since PHP 5, PHP 7, PHP 8
@@ -3827,7 +4055,6 @@ namespace {
 
 		/**
 		 * Returns whether this parameter can be passed by value
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> if the parameter can be passed by value, <b><code>false</code></b> otherwise. Returns <b><code>null</code></b> in case of an error.</p>
 		 * @link https://php.net/manual/en/reflectionparameter.canbepassedbyvalue.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
@@ -3848,9 +4075,9 @@ namespace {
 
 		/**
 		 * Gets Attributes
-		 * <p>Returns all attributes declared on this parameter as an array of <code>ReflectionAttribute</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param ?string $name
-		 * @param int $flags
+		 * <p>Returns all attributes declared on this parameter as an array of <code>ReflectionAttribute</code>.</p>
+		 * @param ?string $name <p>Filter the results to include only <code>ReflectionAttribute</code> instances for attributes matching this class name.</p>
+		 * @param int $flags <p>Flags for determining how to filter the results, if <code>name</code> is provided.</p> <p>Default is <code>0</code> which will only return results for attributes that are of the class <code>name</code>.</p> <p>The only other option available, is to use <b><code>ReflectionAttribute::IS_INSTANCEOF</code></b>, which will instead use <code>instanceof</code> for filtering.</p>
 		 * @return array <p>Array of attributes, as a <code>ReflectionAttribute</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionparameter.getattributes.php
 		 * @since PHP 8
@@ -3868,7 +4095,7 @@ namespace {
 
 		/**
 		 * Gets declaring class
-		 * <p>Gets the declaring class.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the declaring class.</p>
 		 * @return ?ReflectionClass <p>A <code>ReflectionClass</code> object or <b><code>null</code></b> if called on function.</p>
 		 * @link https://php.net/manual/en/reflectionparameter.getdeclaringclass.php
 		 * @since PHP 5 >= 5.1.3, PHP 7, PHP 8
@@ -3985,7 +4212,7 @@ namespace {
 
 		/**
 		 * Checks if passed by reference
-		 * <p>Checks if the parameter is passed in by reference.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Checks if the parameter is passed in by reference.</p>
 		 * @return bool <p><b><code>true</code></b> if the parameter is passed in by reference, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/reflectionparameter.ispassedbyreference.php
 		 * @since PHP 5, PHP 7, PHP 8
@@ -4013,25 +4240,31 @@ namespace {
 		 * @var int <p>Indicates static properties. Prior to PHP 7.4.0, the value was <code>1</code>.</p>
 		 * @link https://php.net/manual/en/class.reflectionproperty.php
 		 */
-		const IS_STATIC = 16;
+		public const IS_STATIC = 16;
+
+		/**
+		 * @var int <p>Indicates readonly properties. Available as of PHP 8.1.0.</p>
+		 * @link https://php.net/manual/en/class.reflectionproperty.php
+		 */
+		public const IS_READONLY = 128;
 
 		/**
 		 * @var int <p>Indicates public properties. Prior to PHP 7.4.0, the value was <code>256</code>.</p>
 		 * @link https://php.net/manual/en/class.reflectionproperty.php
 		 */
-		const IS_PUBLIC = 1;
+		public const IS_PUBLIC = 1;
 
 		/**
 		 * @var int <p>Indicates protected properties. Prior to PHP 7.4.0, the value was <code>512</code>.</p>
 		 * @link https://php.net/manual/en/class.reflectionproperty.php
 		 */
-		const IS_PROTECTED = 2;
+		public const IS_PROTECTED = 2;
 
 		/**
 		 * @var int <p>Indicates private properties. Prior to PHP 7.4.0, the value was <code>1024</code>.</p>
 		 * @link https://php.net/manual/en/class.reflectionproperty.php
 		 */
-		const IS_PRIVATE = 4;
+		public const IS_PRIVATE = 4;
 
 		/**
 		 * @var string <p>Name of the property. Read-only, throws <code>ReflectionException</code> in attempt to write.</p>
@@ -4056,10 +4289,9 @@ namespace {
 
 		/**
 		 * Construct a ReflectionProperty object
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param object|string $class <p>Either a string containing the name of the class to reflect, or an object.</p>
 		 * @param string $property <p>The name of the property being reflected.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/reflectionproperty.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -4088,9 +4320,9 @@ namespace {
 
 		/**
 		 * Gets Attributes
-		 * <p>Returns all attributes declared on this class property as an array of <code>ReflectionAttribute</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param ?string $name
-		 * @param int $flags
+		 * <p>Returns all attributes declared on this class property as an array of <code>ReflectionAttribute</code>.</p>
+		 * @param ?string $name <p>Filter the results to include only <code>ReflectionAttribute</code> instances for attributes matching this class name.</p>
+		 * @param int $flags <p>Flags for determining how to filter the results, if <code>name</code> is provided.</p> <p>Default is <code>0</code> which will only return results for attributes that are of the class <code>name</code>.</p> <p>The only other option available, is to use <b><code>ReflectionAttribute::IS_INSTANCEOF</code></b>, which will instead use <code>instanceof</code> for filtering.</p>
 		 * @return array <p>Array of attributes, as a <code>ReflectionAttribute</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionproperty.getattributes.php
 		 * @since PHP 8
@@ -4099,7 +4331,7 @@ namespace {
 
 		/**
 		 * Gets declaring class
-		 * <p>Gets the declaring class.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the declaring class.</p>
 		 * @return ReflectionClass <p>A <code>ReflectionClass</code> object.</p>
 		 * @link https://php.net/manual/en/reflectionproperty.getdeclaringclass.php
 		 * @since PHP 5, PHP 7, PHP 8
@@ -4126,7 +4358,7 @@ namespace {
 
 		/**
 		 * Gets the property modifiers
-		 * <p>Gets the modifiers.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the modifiers.</p>
 		 * @return int <p>A numeric representation of the modifiers. The actual meaning of these modifiers are described under predefined constants.</p>
 		 * @link https://php.net/manual/en/reflectionproperty.getmodifiers.php
 		 * @since PHP 5, PHP 7, PHP 8
@@ -4135,7 +4367,7 @@ namespace {
 
 		/**
 		 * Gets property name
-		 * <p>Gets the properties name.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets the properties name.</p>
 		 * @return string <p>The name of the reflected property.</p>
 		 * @link https://php.net/manual/en/reflectionproperty.getname.php
 		 * @since PHP 5, PHP 7, PHP 8
@@ -4475,22 +4707,12 @@ namespace {
 	interface Reflector extends Stringable {
 
 		/**
-		 * To string
-		 * <p>To string.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return string
-		 * @link https://php.net/manual/en/reflector.tostring.php
-		 * @since PHP 5, PHP 7, PHP 8
+		 * Gets a string representation of the object
+		 * @return string <p>Returns the <code>string</code> representation of the object.</p>
+		 * @link https://php.net/manual/en/stringable.tostring.php
+		 * @since PHP 8
 		 */
 		public function __toString(): string;
-
-		/**
-		 * Exports
-		 * <p>Exports.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return string
-		 * @link https://php.net/manual/en/reflector.export.php
-		 * @since PHP 5, PHP 7
-		 */
-		public static function export(): string;
 	}
 
 }

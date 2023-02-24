@@ -87,7 +87,7 @@
   be installed. Although these binary versions are typically built with
   support for the MySQL extensions, the extension libraries
   themselves may need to be installed using an additional package. Check
-  the package manager than comes with your chosen distribution for
+  the package manager that comes with your chosen distribution for
   availability.
  </p>
  
@@ -131,7 +131,7 @@ $ ./configure --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock
   SSL support is enabled using the appropriate <a href="ref.pdo-mysql.html#pdo-mysql.constants" class="link">PDO_MySQL constants</a>,
   which is equivalent to calling the <a href="http://dev.mysql.com/doc/mysql/en/mysql-ssl-set.html" class="link external">&raquo;&nbsp;MySQL C API function mysql_ssl_set()</a>.
   Also, SSL cannot be enabled with <span class="classname"><strong class="classname">PDO::setAttribute</strong></span> because the connection
-  already exists. See also the MySQL documentation about <a href="http://dev.mysql.com/doc/mysql/en/configuring-for-ssl.html" class="link external">&raquo;&nbsp;connecting to
+  already exists. See also the MySQL documentation about <a href="https://dev.mysql.com/doc/en/using-encrypted-connections.html" class="link external">&raquo;&nbsp;connecting to
   MySQL with SSL</a>.
  </p>
 
@@ -167,10 +167,10 @@ driver, if your code can run against multiple drivers.</p>
      should use <span class="function"><a href="pdostatement.fetchall.html" class="function">PDOStatement::fetchAll()</a></span> instead.
     </span>
     <p class="para">
-     <div class="example" id="example-1075"><p><strong>Example #1 Forcing queries to be buffered in mysql</strong></p>
+     <div class="example" id="example-1106"><p><strong>Example #1 Forcing queries to be buffered in mysql</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_DRIVER_NAME</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #DD0000">'mysql'</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'select&nbsp;*&nbsp;from&nbsp;foo'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">MYSQL_ATTR_USE_BUFFERED_QUERY&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">"my&nbsp;application&nbsp;only&nbsp;works&nbsp;with&nbsp;mysql;&nbsp;I&nbsp;should&nbsp;use&nbsp;\$stmt-&gt;fetchAll()&nbsp;instead"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_DRIVER_NAME</span><span style="color: #007700">) == </span><span style="color: #DD0000">'mysql'</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">$stmt </span><span style="color: #007700">= </span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'select * from foo'</span><span style="color: #007700">,<br />        array(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">MYSQL_ATTR_USE_BUFFERED_QUERY </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">true</span><span style="color: #007700">));<br />} else {<br />    die(</span><span style="color: #DD0000">"my application only works with mysql; I should use \$stmt-&gt;fetchAll() instead"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -208,7 +208,7 @@ driver, if your code can run against multiple drivers.</p>
 
     <p class="para">
      Allows restricting LOCAL DATA loading to files located in this designated 
-     directory.
+     directory. Available as of PHP 8.1.0.
     </p>
     <p class="para">
      Note, this constant can only be used in the <code class="parameter">driver_options</code> 

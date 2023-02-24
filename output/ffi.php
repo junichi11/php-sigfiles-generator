@@ -6,12 +6,18 @@ namespace {
 
 	/**
 	 * <p>Objects of this class are created by the factory methods <code>FFI::cdef()</code>, <code>FFI::load()</code> or <code>FFI::scope()</code>. Defined C variables are made available as properties of the FFI instance, and defined C functions are made available as methods of the FFI instance. Declared C types can be used to create new C data structures using <code>FFI::new()</code> and <code>FFI::type()</code>.</p>
-	 * <p>FFI definition parsing and shared library loading may take significant time. It is not useful to do it on each HTTP request in a Web environment. However, it is possible to preload FFI definitions and libraries at PHP startup, and to instantiate FFI objects when necessary. Header files may be extended with special <code>FFI_SCOPE</code> defines (e.g. <code>#define FFI_SCOPE "foo"&rdquo;"</code>; the default scope is "C") and then loaded by <code>FFI::load()</code> during preloading. This leads to the creation of a persistent binding, that will be available to all the following requests through <code>FFI::scope()</code>. Refer to the complete PHP/FFI/preloading example for details.</p>
+	 * <p>FFI definition parsing and shared library loading may take significant time. It is not useful to do it on each HTTP request in a Web environment. However, it is possible to preload FFI definitions and libraries at PHP startup, and to instantiate FFI objects when necessary. Header files may be extended with special <code>FFI_SCOPE</code> defines (e.g. <code>#define FFI_SCOPE "foo"&#x201D;"</code>; the default scope is "C") and then loaded by <code>FFI::load()</code> during preloading. This leads to the creation of a persistent binding, that will be available to all the following requests through <code>FFI::scope()</code>. Refer to the complete PHP/FFI/preloading example for details.</p>
 	 * <p>It is possible to preload more than one C header file into the same scope.</p>
 	 * @link https://php.net/manual/en/class.ffi.php
 	 * @since PHP 7 >= 7.4.0, PHP 8
 	 */
 	final class FFI {
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi.php
+		 */
+		public const __BIGGEST_ALIGNMENT__ = 16;
 
 		/**
 		 * Creates an unmanaged pointer to C data
@@ -214,6 +220,234 @@ namespace FFI {
 	 * @since PHP 7 >= 7.4.0, PHP 8
 	 */
 	final class CType {
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_VOID = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_FLOAT = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_DOUBLE = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_LONGDOUBLE = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_UINT8 = 4;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_SINT8 = 5;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_UINT16 = 6;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_SINT16 = 7;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_UINT32 = 8;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_SINT32 = 9;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_UINT64 = 10;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_SINT64 = 11;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_ENUM = 12;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_BOOL = 13;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_CHAR = 14;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_POINTER = 15;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_FUNC = 16;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_ARRAY = 17;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const TYPE_STRUCT = 18;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ATTR_CONST = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ATTR_INCOMPLETE_TAG = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ATTR_VARIADIC = 4;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ATTR_INCOMPLETE_ARRAY = 8;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ATTR_VLA = 16;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ATTR_UNION = 32;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ATTR_PACKED = 64;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ATTR_MS_STRUCT = 128;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ATTR_GCC_STRUCT = 256;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ABI_DEFAULT = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ABI_CDECL = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ABI_FASTCALL = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ABI_THISCALL = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ABI_STDCALL = 4;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ABI_PASCAL = 5;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ABI_REGISTER = 6;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ABI_MS = 7;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ABI_SYSV = 8;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.ffi-ctype.php
+		 */
+		public const ABI_VECTORCALL = 9;
 
 		/**
 		 * Description
@@ -421,6 +655,18 @@ namespace FFI {
 		private function __clone() {}
 
 		/**
+		 * Construct the error object
+		 * <p>Constructs the Error.</p>
+		 * @param string $message <p>The error message.</p>
+		 * @param int $code <p>The error code.</p>
+		 * @param ?\Throwable $previous <p>The previous throwable used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/error.construct.php
+		 * @since PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the error
 		 * <p>Returns the <code>string</code> representation of the error.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the error.</p>
@@ -549,6 +795,18 @@ namespace FFI {
 		 * @since PHP 7, PHP 8
 		 */
 		private function __clone() {}
+
+		/**
+		 * Construct the error object
+		 * <p>Constructs the Error.</p>
+		 * @param string $message <p>The error message.</p>
+		 * @param int $code <p>The error code.</p>
+		 * @param ?\Throwable $previous <p>The previous throwable used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/error.construct.php
+		 * @since PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
 
 		/**
 		 * String representation of the error

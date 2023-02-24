@@ -89,6 +89,8 @@
        The
        <a href="class.numberformatter.html#intl.numberformatter-constants.types" class="link">
         formatting type</a> to use.
+       Note that <strong><code>NumberFormatter::TYPE_CURRENCY</code></strong> is not supported;
+       use <span class="methodname"><a href="numberformatter.formatcurrency.html" class="methodname">NumberFormatter::formatCurrency()</a></span> instead.
       </p>
      </dd>
 
@@ -110,21 +112,21 @@
 
  <div class="refsect1 examples" id="refsect1-numberformatter.format-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2291">
+  <div class="example" id="example-2356">
    <p><strong>Example #1 <span class="function"><strong>numfmt_format()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$fmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">numfmt_create</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'de_DE'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">NumberFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">DECIMAL&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">numfmt_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$fmt</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1234567.891234567890000</span><span style="color: #007700">);<br />if(</span><span style="color: #0000BB">intl_is_failure</span><span style="color: #007700">(</span><span style="color: #0000BB">numfmt_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$fmt</span><span style="color: #007700">)))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">report_error</span><span style="color: #007700">(</span><span style="color: #DD0000">"Formatter&nbsp;error"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$fmt </span><span style="color: #007700">= </span><span style="color: #0000BB">numfmt_create</span><span style="color: #007700">( </span><span style="color: #DD0000">'de_DE'</span><span style="color: #007700">, </span><span style="color: #0000BB">NumberFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">DECIMAL </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$data </span><span style="color: #007700">= </span><span style="color: #0000BB">numfmt_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$fmt</span><span style="color: #007700">, </span><span style="color: #0000BB">1234567.891234567890000</span><span style="color: #007700">);<br />if(</span><span style="color: #0000BB">intl_is_failure</span><span style="color: #007700">(</span><span style="color: #0000BB">numfmt_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$fmt</span><span style="color: #007700">))) {<br />    </span><span style="color: #0000BB">report_error</span><span style="color: #007700">(</span><span style="color: #DD0000">"Formatter error"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
   </div>
-  <div class="example" id="example-2292">
+  <div class="example" id="example-2357">
    <p><strong>Example #2 OO example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$fmt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">NumberFormatter</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'de_DE'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">NumberFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">DECIMAL&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$fmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">1234567.891234567890000</span><span style="color: #007700">);<br />if(</span><span style="color: #0000BB">intl_is_failure</span><span style="color: #007700">(</span><span style="color: #0000BB">$fmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getErrorCode</span><span style="color: #007700">()))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">report_error</span><span style="color: #007700">(</span><span style="color: #DD0000">"Formatter&nbsp;error"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$fmt </span><span style="color: #007700">= new </span><span style="color: #0000BB">NumberFormatter</span><span style="color: #007700">( </span><span style="color: #DD0000">'de_DE'</span><span style="color: #007700">, </span><span style="color: #0000BB">NumberFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">DECIMAL </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$fmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">1234567.891234567890000</span><span style="color: #007700">);<br />if(</span><span style="color: #0000BB">intl_is_failure</span><span style="color: #007700">(</span><span style="color: #0000BB">$fmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getErrorCode</span><span style="color: #007700">())) {<br />    </span><span style="color: #0000BB">report_error</span><span style="color: #007700">(</span><span style="color: #DD0000">"Formatter error"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -139,6 +141,20 @@
  </div>
 
 
+ <div class="refsect1 notes" id="refsect1-numberformatter.format-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    Formats achievable by this method of formatting cannot fully use the possibilities of underlying ICU library,
+    such as to format currency with narrow currency symbol.
+   </p>
+   <p class="para">
+    To fully utilize them use <span class="function"><a href="messageformatter.formatmessage.html" class="function">msgfmt_format_message()</a></span>.
+   </p>
+  </p></blockquote>
+ </div>
+
+
  <div class="refsect1 seealso" id="refsect1-numberformatter.format-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">
@@ -146,6 +162,7 @@
     <li class="member"><span class="function"><a href="numberformatter.geterrorcode.html" class="function" rel="rdfs-seeAlso">numfmt_get_error_code()</a> - Get formatter's last error code</span></li>
     <li class="member"><span class="function"><a href="numberformatter.formatcurrency.html" class="function" rel="rdfs-seeAlso">numfmt_format_currency()</a> - Format a currency value</span></li>
     <li class="member"><span class="function"><a href="numberformatter.parse.html" class="function" rel="rdfs-seeAlso">numfmt_parse()</a> - Parse a number</span></li>
+    <li class="member"><span class="function"><a href="messageformatter.formatmessage.html" class="function" rel="rdfs-seeAlso">msgfmt_format_message()</a> - Quick format message</span></li>
    </ul>
   </p>
  </div>

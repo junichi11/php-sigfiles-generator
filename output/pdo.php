@@ -69,7 +69,7 @@ namespace {
 		 * @var int Specifies that the default fetch mode shall be used. Available as of PHP 8.0.7.
 		 * @link https://php.net/manual/en/pdo.constants.php
 		 */
-		const FETCH_DEFAULT = null;
+		const FETCH_DEFAULT = 0;
 
 		/**
 		 * @var int Specifies that the fetch method shall return each row as an object with variable names that correspond to the column names returned in the result set. <b><code>PDO::FETCH_LAZY</code></b> creates the object variable names as they are accessed. Not valid inside <code>PDOStatement::fetchAll()</code>.
@@ -240,7 +240,7 @@ namespace {
 		const ATTR_CURSOR = 10;
 
 		/**
-		 * @var string Returns the name of the driver.  <p></p><p><b>Example #1 using <b><code>PDO::ATTR_DRIVER_NAME</code></b></b></p>  <code> &lt;&#63;php<br>if&nbsp;($db-&gt;getAttribute(PDO::ATTR_DRIVER_NAME)&nbsp;==&nbsp;'mysql')&nbsp;{<br>&nbsp;&nbsp;echo&nbsp;"Running&nbsp;on&nbsp;mysql;&nbsp;doing&nbsp;something&nbsp;mysql&nbsp;specific&nbsp;here\n";<br>}<br>&#63;&gt;  </code>
+		 * @var string Returns the name of the driver.  <p></p><p><b>Example #1 using <b><code>PDO::ATTR_DRIVER_NAME</code></b></b></p>  <code> &lt;&#63;php<br>if ($db-&gt;getAttribute(PDO::ATTR_DRIVER_NAME) == 'mysql') {<br> echo "Running on mysql; doing something mysql specific here\n";<br>}<br>&#63;&gt;  </code>
 		 * @link https://php.net/manual/en/pdo.constants.php
 		 */
 		const ATTR_DRIVER_NAME = '16';
@@ -466,7 +466,7 @@ namespace {
 		 * <p>Creates a PDO instance to represent a connection to the requested database.</p>
 		 * @param string $dsn <p>The Data Source Name, or DSN, contains the information required to connect to the database.</p> <p>In general, a DSN consists of the PDO driver name, followed by a colon, followed by the PDO driver-specific connection syntax. Further information is available from the PDO driver-specific documentation.</p> <p>The <code>dsn</code> parameter supports three different methods of specifying the arguments required to create a database connection:</p> <p></p>  Driver invocation  <p><code>dsn</code> contains the full DSN.</p>   URI invocation  <p><code>dsn</code> consists of <b><code>uri:</code></b> followed by a URI that defines the location of a file containing the DSN string. The URI can specify a local file or a remote URL.</p> <p><b><code>uri:file:///path/to/dsnfile</code></b></p>   Aliasing  <p><code>dsn</code> consists of a name <code>name</code> that maps to <code>pdo.dsn.<code>name</code></code> in php.ini defining the DSN string.</p> <p><b>Note</b>:</p><p>The alias must be defined in php.ini, and not .htaccess or httpd.conf</p>
 		 * @param ?string $username <p>The user name for the DSN string. This parameter is optional for some PDO drivers.</p>
-		 * @param ?string $password
+		 * @param ?string $password <p>The password for the DSN string. This parameter is optional for some PDO drivers.</p>
 		 * @param ?array $options <p>A key=&gt;value array of driver-specific connection options.</p>
 		 * @return self
 		 * @link https://php.net/manual/en/pdo.construct.php
@@ -479,7 +479,6 @@ namespace {
 		 * <p>Turns off autocommit mode. While autocommit mode is turned off, changes made to the database via the PDO object instance are not committed until you end the transaction by calling <code>PDO::commit()</code>. Calling <code>PDO::rollBack()</code> will roll back all changes to the database and return the connection to autocommit mode.</p><p>Some databases, including MySQL, automatically issue an implicit COMMIT when a database definition language (DDL) statement such as DROP TABLE or CREATE TABLE is issued within a transaction. The implicit COMMIT will prevent you from rolling back any other changes within the transaction boundary.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pdo.begintransaction.php
-		 * @see PDO::commit(), PDO::rollBack()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function beginTransaction(): bool {}
@@ -489,7 +488,6 @@ namespace {
 		 * <p>Commits a transaction, returning the database connection to autocommit mode until the next call to <code>PDO::beginTransaction()</code> starts a new transaction.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pdo.commit.php
-		 * @see PDO::beginTransaction(), PDO::rollBack()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function commit(): bool {}
@@ -498,7 +496,6 @@ namespace {
 		 * Fetch the SQLSTATE associated with the last operation on the database handle
 		 * @return ?string <p>Returns an SQLSTATE, a five characters alphanumeric identifier defined in the ANSI SQL-92 standard. Briefly, an SQLSTATE consists of a two characters class value followed by a three characters subclass value. A class value of 01 indicates a warning and is accompanied by a return code of SQL_SUCCESS_WITH_INFO. Class values other than '01', except for the class 'IM', indicate an error. The class 'IM' is specific to warnings and errors that derive from the implementation of PDO (or perhaps ODBC, if you're using the ODBC driver) itself. The subclass value '000' in any class indicates that there is no subclass for that SQLSTATE.</p><p><b>PDO::errorCode()</b> only retrieves error codes for operations performed directly on the database handle. If you create a PDOStatement object through <code>PDO::prepare()</code> or <code>PDO::query()</code> and invoke an error on the statement handle, <b>PDO::errorCode()</b> will not reflect that error. You must call <code>PDOStatement::errorCode()</code> to return the error code for an operation performed on a particular statement handle.</p><p>Returns <b><code>null</code></b> if no operation has been run on the database handle.</p>
 		 * @link https://php.net/manual/en/pdo.errorcode.php
-		 * @see PDO::errorInfo(), PDOStatement::errorCode(), PDOStatement::errorInfo()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function errorCode(): ?string {}
@@ -507,7 +504,6 @@ namespace {
 		 * Fetch extended error information associated with the last operation on the database handle
 		 * @return array <p><b>PDO::errorInfo()</b> returns an array of error information about the last operation performed by this database handle. The array consists of at least the following fields:</p>   Element Information     0 SQLSTATE error code (a five characters alphanumeric identifier defined in the ANSI SQL standard).   1 Driver-specific error code.   2 Driver-specific error message.   <p><b>Note</b>:</p><p>If the SQLSTATE error code is not set or there is no driver-specific error, the elements following element 0 will be set to <b><code>null</code></b>.</p> <p><b>PDO::errorInfo()</b> only retrieves error information for operations performed directly on the database handle. If you create a PDOStatement object through <code>PDO::prepare()</code> or <code>PDO::query()</code> and invoke an error on the statement handle, <b>PDO::errorInfo()</b> will not reflect the error from the statement handle. You must call <code>PDOStatement::errorInfo()</code> to return the error information for an operation performed on a particular statement handle.</p>
 		 * @link https://php.net/manual/en/pdo.errorinfo.php
-		 * @see PDO::errorCode(), PDOStatement::errorCode(), PDOStatement::errorInfo()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function errorInfo(): array {}
@@ -516,9 +512,8 @@ namespace {
 		 * Execute an SQL statement and return the number of affected rows
 		 * <p><b>PDO::exec()</b> executes an SQL statement in a single function call, returning the number of rows affected by the statement.</p><p><b>PDO::exec()</b> does not return results from a SELECT statement. For a SELECT statement that you only need to issue once during your program, consider issuing <code>PDO::query()</code>. For a statement that you need to issue multiple times, prepare a PDOStatement object with <code>PDO::prepare()</code> and issue the statement with <code>PDOStatement::execute()</code>.</p>
 		 * @param string $statement <p>The SQL statement to prepare and execute.</p> <p>Data inside the query should be properly escaped.</p>
-		 * @return int|false <p><b>PDO::exec()</b> returns the number of rows that were modified or deleted by the SQL statement you issued. If no rows were affected, <b>PDO::exec()</b> returns <code>0</code>.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p><p>The following example incorrectly relies on the return value of <b>PDO::exec()</b>, wherein a statement that affected 0 rows results in a call to <code>die()</code>:</p> <code> &lt;&#63;php<br>$db-&gt;exec()&nbsp;or&nbsp;die(print_r($db-&gt;errorInfo(),&nbsp;true));&nbsp;//&nbsp;incorrect<br>&#63;&gt;  </code>
+		 * @return int|false <p><b>PDO::exec()</b> returns the number of rows that were modified or deleted by the SQL statement you issued. If no rows were affected, <b>PDO::exec()</b> returns <code>0</code>.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p><p>The following example incorrectly relies on the return value of <b>PDO::exec()</b>, wherein a statement that affected 0 rows results in a call to <code>die()</code>:</p> <code> &lt;&#63;php<br>$db-&gt;exec() or die(print_r($db-&gt;errorInfo(), true)); // incorrect<br>&#63;&gt;  </code>
 		 * @link https://php.net/manual/en/pdo.exec.php
-		 * @see PDO::prepare(), PDO::query(), PDOStatement::execute()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function exec(string $statement): int|false {}
@@ -529,7 +524,6 @@ namespace {
 		 * @param int $attribute <p>One of the <code>PDO::ATTR_&#42;</code> constants. The generic attributes that apply to database connections are as follows:</p><ul> <li><code>PDO::ATTR_AUTOCOMMIT</code></li> <li><code>PDO::ATTR_CASE</code></li> <li><code>PDO::ATTR_CLIENT_VERSION</code></li> <li><code>PDO::ATTR_CONNECTION_STATUS</code></li> <li><code>PDO::ATTR_DRIVER_NAME</code></li> <li><code>PDO::ATTR_ERRMODE</code></li> <li><code>PDO::ATTR_ORACLE_NULLS</code></li> <li><code>PDO::ATTR_PERSISTENT</code></li> <li><code>PDO::ATTR_PREFETCH</code></li> <li><code>PDO::ATTR_SERVER_INFO</code></li> <li><code>PDO::ATTR_SERVER_VERSION</code></li> <li><code>PDO::ATTR_TIMEOUT</code></li> </ul>  Some drivers may make use of additional driver specific attributes. Note that driver specific attributes <i>must not</i> be used with other drivers.
 		 * @return mixed <p>A successful call returns the value of the requested PDO attribute. An unsuccessful call returns <code>null</code>.</p>
 		 * @link https://php.net/manual/en/pdo.getattribute.php
-		 * @see PDO::setAttribute(), PDOStatement::getAttribute(), PDOStatement::setAttribute()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.2.0
 		 */
 		public function getAttribute(int $attribute): mixed {}
@@ -569,7 +563,6 @@ namespace {
 		 * @param array $options <p>This array holds one or more key=&gt;value pairs to set attribute values for the PDOStatement object that this method returns. You would most commonly use this to set the <code>PDO::ATTR_CURSOR</code> value to <code>PDO::CURSOR_SCROLL</code> to request a scrollable cursor. Some drivers have driver-specific options that may be set at prepare-time.</p>
 		 * @return PDOStatement|false <p>If the database server successfully prepares the statement, <b>PDO::prepare()</b> returns a <code>PDOStatement</code> object. If the database server cannot successfully prepare the statement, <b>PDO::prepare()</b> returns <b><code>false</code></b> or emits <code>PDOException</code> (depending on error handling).</p><p><b>Note</b>:</p><p>Emulated prepared statements does not communicate with the database server so <b>PDO::prepare()</b> does not check the statement.</p>
 		 * @link https://php.net/manual/en/pdo.prepare.php
-		 * @see PDO::exec(), PDO::query(), PDOStatement::execute()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PHP 8,PECL pdo >= 0.1.0
 		 */
 		public function prepare(string $query, array $options = []): \PDOStatement|false {}
@@ -581,7 +574,6 @@ namespace {
 		 * @param ?int $fetchMode <p>The default fetch mode for the returned <code>PDOStatement</code>. It must be one of the <code>PDO::FETCH_&#42;</code> constants.</p> <p>If this argument is passed to the function, the remaining arguments will be treated as though <code>PDOStatement::setFetchMode()</code> was called on the resultant statement object. The subsequent arguments vary depending on the selected fetch mode.</p>
 		 * @return PDOStatement|false <p>Returns a <code>PDOStatement</code> object or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pdo.query.php
-		 * @see PDO::exec(), PDO::prepare(), PDOStatement::execute()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.2.0
 		 */
 		public function query(string $query, ?int $fetchMode = null): \PDOStatement|false {}
@@ -593,7 +585,6 @@ namespace {
 		 * @param int $type <p>Provides a hint to the type of data for drivers that have alternate quoting styles. For example <b><code>PDO_PARAM_LOB</code></b> will tell the driver to escape binary data.</p>
 		 * @return string|false <p>Returns a quoted string that is theoretically safe to pass into an SQL statement. Returns <b><code>false</code></b> if the driver does not support quoting in this way.</p>
 		 * @link https://php.net/manual/en/pdo.quote.php
-		 * @see PDO::prepare(), PDOStatement::execute()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.2.1
 		 */
 		public function quote(string $string, int $type = PDO::PARAM_STR): string|false {}
@@ -603,18 +594,18 @@ namespace {
 		 * <p>Rolls back the current transaction, as initiated by <code>PDO::beginTransaction()</code>.</p><p>If the database was set to autocommit mode, this function will restore autocommit mode after it has rolled back the transaction.</p><p>Some databases, including MySQL, automatically issue an implicit COMMIT when a database definition language (DDL) statement such as DROP TABLE or CREATE TABLE is issued within a transaction. The implicit COMMIT will prevent you from rolling back any other changes within the transaction boundary.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pdo.rollback.php
-		 * @see PDO::beginTransaction(), PDO::commit()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function rollBack(): bool {}
 
 		/**
 		 * Set an attribute
-		 * <p>Sets an attribute on the database handle. Some of the available generic attributes are listed below; some drivers may make use of additional driver specific attributes. Note that driver specific attributes <i>must not</i> be used with other drivers.</p><p><code>PDO::ATTR_CASE</code>: Force column names to a specific case.</p><p><code>PDO::CASE_LOWER</code>: Force column names to lower case.</p><p><code>PDO::CASE_NATURAL</code>: Leave column names as returned by the database driver.</p><p><code>PDO::CASE_UPPER</code>: Force column names to upper case.</p><p><code>PDO::ATTR_ERRMODE</code>: Error reporting.</p><p><code>PDO::ERRMODE_SILENT</code>: Just set error codes.</p><p><code>PDO::ERRMODE_WARNING</code>: Raise <b><code>E_WARNING</code></b>.</p><p><code>PDO::ERRMODE_EXCEPTION</code>: Throw exceptions.</p><p><code>PDO::ATTR_ORACLE_NULLS</code> (available with all drivers, not just Oracle): Conversion of NULL and empty strings.</p><p><code>PDO::NULL_NATURAL</code>: No conversion.</p><p><code>PDO::NULL_EMPTY_STRING</code>: Empty string is converted to <b><code>null</code></b>.</p><p><code>PDO::NULL_TO_STRING</code>: NULL is converted to an empty string.</p><p><code>PDO::ATTR_STRINGIFY_FETCHES</code>: Convert numeric values to strings when fetching. Requires <code>bool</code>.</p><p><code>PDO::ATTR_STATEMENT_CLASS</code>: Set user-supplied statement class derived from PDOStatement. Cannot be used with persistent PDO instances. Requires <code>array(string classname, array(mixed constructor_args))</code>.</p><p><code>PDO::ATTR_TIMEOUT</code>: Specifies the timeout duration in seconds. Not all drivers support this option, and its meaning may differ from driver to driver. For example, sqlite will wait for up to this time value before giving up on obtaining an writable lock, but other drivers may interpret this as a connect or a read timeout interval. Requires <code>int</code>.</p><p><code>PDO::ATTR_AUTOCOMMIT</code> (available in OCI, Firebird and MySQL): Whether to autocommit every single statement.</p><p><code>PDO::ATTR_EMULATE_PREPARES</code> Enables or disables emulation of prepared statements. Some drivers do not support native prepared statements or have limited support for them. Use this setting to force PDO to either always emulate prepared statements (if <b><code>true</code></b> and emulated prepares are supported by the driver), or to try to use native prepared statements (if <b><code>false</code></b>). It will always fall back to emulating the prepared statement if the driver cannot successfully prepare the current query. Requires <code>bool</code>.</p><p><code>PDO::MYSQL_ATTR_USE_BUFFERED_QUERY</code> (available in MySQL): Use buffered queries.</p><p><code>PDO::ATTR_DEFAULT_FETCH_MODE</code>: Set default fetch mode. Description of modes is available in <code>PDOStatement::fetch()</code> documentation.</p>
-		 * @param int $attribute
-		 * @param mixed $value
+		 * <p>Sets an attribute on the database handle. Some available generic attributes are listed below; some drivers may make use of additional driver specific attributes. Note that driver specific attributes <i>must not</i> be used with other drivers.</p><p>Force column names to a specific case. Can take one of the following values:</p><p>Error reporting mode of PDO. Can take one of the following values:</p><p><b>Note</b>:  This attribute is available with all drivers, not just Oracle. </p><p>Determines if and how <b><code>null</code></b> and empty strings should be converted. Can take one of the following values:</p><p>Whether to convert numeric values to strings when fetching. Takes a value of type <code>bool</code>: <b><code>true</code></b> to enable and <b><code>false</code></b> to disable.</p><p>Set user-supplied statement class derived from PDOStatement. Requires <code>array(string classname, array(mixed constructor_args))</code>.</p><p>Cannot be used with persistent PDO instances.</p><p>Specifies the timeout duration in seconds. Takes a value of type <code>int</code>.</p><p><b>Note</b>:</p><p>Not all drivers support this option, and its meaning may differ from driver to driver. For example, SQLite will wait for up to this time value before giving up on obtaining a writable lock, but other drivers may interpret this as a connection or a read timeout interval.</p><p><b>Note</b>:  Only available for the OCI, Firebird, and MySQL drivers. </p><p>Whether to autocommit every single statement. Takes a value of type <code>bool</code>: <b><code>true</code></b> to enable and <b><code>false</code></b> to disable. By default, <b><code>true</code></b>.</p><p><b>Note</b>:  Only available for the OCI, Firebird, and MySQL drivers. </p><p>Whether enable or disable emulation of prepared statements. Some drivers do not support prepared statements natively or have limited support for them. If set to <b><code>true</code></b> PDO will always emulate prepared statements, otherwise PDO will attempt to use native prepared statements. In case the driver cannot successfully prepare the current query, PDO will always fall back to emulating the prepared statement.</p><p><b>Note</b>:  Only available for the MySQL driver. </p><p>Whether to use buffered queries. Takes a value of type <code>bool</code>: <b><code>true</code></b> to enable and <b><code>false</code></b> to disable. By default, <b><code>false</code></b>.</p><p>Set the default fetch mode. A description of the modes and how to use them is available in the <code>PDOStatement::fetch()</code> documentation.</p>
+		 * @param int $attribute <p>The attribute to modify.</p>
+		 * @param mixed $value <p>The value to set the <code>attribute</code>, might require a specific type depending on the attribute.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pdo.setattribute.php
+		 * @see PDO::getAttribute(), PDOStatement::getAttribute(), PDOStatement::setAttribute()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function setAttribute(int $attribute, mixed $value): bool {}
@@ -683,6 +674,18 @@ namespace {
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -780,7 +783,6 @@ namespace {
 		 * @param mixed $driverOptions <p>Optional parameter(s) for the driver.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pdostatement.bindcolumn.php
-		 * @see PDOStatement::execute(), PDOStatement::fetch(), PDOStatement::fetchAll(), PDOStatement::fetchColumn()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function bindColumn(string|int $column, mixed &$var, int $type = PDO::PARAM_STR, int $maxLength = 0, mixed $driverOptions = null): bool {}
@@ -790,12 +792,11 @@ namespace {
 		 * <p>Binds a PHP variable to a corresponding named or question mark placeholder in the SQL statement that was used to prepare the statement. Unlike <code>PDOStatement::bindValue()</code>, the variable is bound as a reference and will only be evaluated at the time that <code>PDOStatement::execute()</code> is called.</p><p>Most parameters are input parameters, that is, parameters that are used in a read-only fashion to build up the query (but may nonetheless be cast according to <code>type</code>). Some drivers support the invocation of stored procedures that return data as output parameters, and some also as input/output parameters that both send in data and are updated to receive it.</p>
 		 * @param string|int $param <p>Parameter identifier. For a prepared statement using named placeholders, this will be a parameter name of the form :name. For a prepared statement using question mark placeholders, this will be the 1-indexed position of the parameter.</p>
 		 * @param mixed $var <p>Name of the PHP variable to bind to the SQL statement parameter.</p>
-		 * @param int $type <p>Explicit data type for the parameter using the <code>PDO::PARAM_&#42;</code> constants. To return an INOUT parameter from a stored procedure, use the bitwise OR operator to set the PDO::PARAM_INPUT_OUTPUT bits for the <code>type</code> parameter.</p>
-		 * @param int $maxLength <p>Length of the data type. To indicate that a parameter is an OUT parameter from a stored procedure, you must explicitly set the length.</p>
+		 * @param int $type <p>Explicit data type for the parameter using the <code>PDO::PARAM_&#42;</code> constants. To return an INOUT parameter from a stored procedure, use the bitwise OR operator to set the <b><code>PDO::PARAM_INPUT_OUTPUT</code></b> bits for the <code>type</code> parameter.</p>
+		 * @param int $maxLength <p>Length of the data type. To indicate that a parameter is an OUT parameter from a stored procedure, you must explicitly set the length. Meaningful only when <code>type</code> parameter is <b><code>PDO::PARAM_INPUT_OUTPUT</code></b>.</p>
 		 * @param mixed $driverOptions
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pdostatement.bindparam.php
-		 * @see PDO::prepare(), PDOStatement::execute(), PDOStatement::bindValue()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function bindParam(string|int $param, mixed &$var, int $type = PDO::PARAM_STR, int $maxLength = 0, mixed $driverOptions = null): bool {}
@@ -808,7 +809,6 @@ namespace {
 		 * @param int $type <p>Explicit data type for the parameter using the <code>PDO::PARAM_&#42;</code> constants.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pdostatement.bindvalue.php
-		 * @see PDO::prepare(), PDOStatement::execute(), PDOStatement::bindParam()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 1.0.0
 		 */
 		public function bindValue(string|int $param, mixed $value, int $type = PDO::PARAM_STR): bool {}
@@ -818,7 +818,6 @@ namespace {
 		 * <p><b>PDOStatement::closeCursor()</b> frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.</p><p>This method is useful for database drivers that do not support executing a PDOStatement object when a previously executed PDOStatement object still has unfetched rows. If your database driver suffers from this limitation, the problem may manifest itself in an out-of-sequence error.</p><p><b>PDOStatement::closeCursor()</b> is implemented either as an optional driver specific method (allowing for maximum efficiency), or as the generic PDO fallback if no driver specific function is installed. The PDO generic fallback is semantically the same as writing the following code in your PHP script:</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pdostatement.closecursor.php
-		 * @see PDOStatement::execute()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.9.0
 		 */
 		public function closeCursor(): bool {}
@@ -828,7 +827,6 @@ namespace {
 		 * <p>Use <b>PDOStatement::columnCount()</b> to return the number of columns in the result set represented by the PDOStatement object.</p><p>If the PDOStatement object was returned from <code>PDO::query()</code>, the column count is immediately available.</p><p>If the PDOStatement object was returned from <code>PDO::prepare()</code>, an accurate column count will not be available until you invoke <code>PDOStatement::execute()</code>.</p>
 		 * @return int <p>Returns the number of columns in the result set represented by the PDOStatement object, even if the result set is empty. If there is no result set, <b>PDOStatement::columnCount()</b> returns <code>0</code>.</p>
 		 * @link https://php.net/manual/en/pdostatement.columncount.php
-		 * @see PDO::prepare(), PDOStatement::execute(), PDOStatement::rowCount()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.2.0
 		 */
 		public function columnCount(): int {}
@@ -838,7 +836,6 @@ namespace {
 		 * <p>Dumps the information contained by a prepared statement directly on the output. It will provide the <code>SQL</code> query in use, the number of parameters used (<code>Params</code>), the list of parameters with their key name or position, their name, their position in the query (if this is supported by the PDO driver, otherwise, it will be -1), type (<code>param_type</code>) as an integer, and a boolean value <code>is_param</code>.</p><p>This is a debug function, which dumps the data directly to the normal output.</p><p>As with anything that outputs its result directly to the browser, the output-control functions can be used to capture the output of this function, and save it in a <code>string</code> (for example).</p><p>This will only dump the parameters in the statement at the moment of the dump. Extra parameters are not stored in the statement, and not displayed.</p>
 		 * @return ?bool <p>Returns <b><code>null</code></b>, or <b><code>false</code></b> in case of an error.</p>
 		 * @link https://php.net/manual/en/pdostatement.debugdumpparams.php
-		 * @see PDO::prepare(), PDOStatement::bindParam(), PDOStatement::bindValue()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.9.0
 		 */
 		public function debugDumpParams(): ?bool {}
@@ -847,7 +844,6 @@ namespace {
 		 * Fetch the SQLSTATE associated with the last operation on the statement handle
 		 * @return ?string <p>Identical to <code>PDO::errorCode()</code>, except that <b>PDOStatement::errorCode()</b> only retrieves error codes for operations performed with PDOStatement objects.</p>
 		 * @link https://php.net/manual/en/pdostatement.errorcode.php
-		 * @see PDO::errorCode(), PDO::errorInfo(), PDOStatement::errorInfo()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function errorCode(): ?string {}
@@ -856,7 +852,6 @@ namespace {
 		 * Fetch extended error information associated with the last operation on the statement handle
 		 * @return array <p><b>PDOStatement::errorInfo()</b> returns an array of error information about the last operation performed by this statement handle. The array consists of at least the following fields:</p>   Element Information     0 SQLSTATE error code (a five characters alphanumeric identifier defined in the ANSI SQL standard).   1 Driver specific error code.   2 Driver specific error message.
 		 * @link https://php.net/manual/en/pdostatement.errorinfo.php
-		 * @see PDO::errorCode(), PDO::errorInfo(), PDOStatement::errorCode()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function errorInfo(): array {}
@@ -867,7 +862,6 @@ namespace {
 		 * @param ?array $params <p>An array of values with as many elements as there are bound parameters in the SQL statement being executed. All values are treated as <b><code>PDO::PARAM_STR</code></b>.</p> <p>Multiple values cannot be bound to a single parameter; for example, it is not allowed to bind two values to a single named parameter in an IN() clause.</p> <p>Binding more values than specified is not possible; if more keys exist in <code>params</code> than in the SQL specified in the <code>PDO::prepare()</code>, then the statement will fail and an error is emitted.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pdostatement.execute.php
-		 * @see PDO::prepare(), PDOStatement::bindParam(), PDOStatement::fetch(), PDOStatement::fetchAll(), PDOStatement::fetchColumn()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function execute(?array $params = null): bool {}
@@ -877,10 +871,9 @@ namespace {
 		 * <p>Fetches a row from a result set associated with a PDOStatement object. The <code>mode</code> parameter determines how PDO returns the row.</p>
 		 * @param int $mode <p>Controls how the next row will be returned to the caller. This value must be one of the <code>PDO::FETCH_&#42;</code> constants, defaulting to value of <code>PDO::ATTR_DEFAULT_FETCH_MODE</code> (which defaults to <code>PDO::FETCH_BOTH</code>).</p><ul> <li><p><code>PDO::FETCH_ASSOC</code>: returns an array indexed by column name as returned in your result set</p></li> <li><p><code>PDO::FETCH_BOTH</code> (default): returns an array indexed by both column name and 0-indexed column number as returned in your result set</p></li> <li><p><code>PDO::FETCH_BOUND</code>: returns <b><code>true</code></b> and assigns the values of the columns in your result set to the PHP variables to which they were bound with the <code>PDOStatement::bindColumn()</code> method</p></li> <li><p><code>PDO::FETCH_CLASS</code>: returns a new instance of the requested class, mapping the columns of the result set to named properties in the class, and calling the constructor afterwards, unless <code>PDO::FETCH_PROPS_LATE</code> is also given. If <code>mode</code> includes PDO::FETCH_CLASSTYPE (e.g. <code>PDO::FETCH_CLASS | PDO::FETCH_CLASSTYPE</code>) then the name of the class is determined from a value of the first column.</p></li> <li><p><code>PDO::FETCH_INTO</code>: updates an existing instance of the requested class, mapping the columns of the result set to named properties in the class</p></li> <li><p><code>PDO::FETCH_LAZY</code>: combines <code>PDO::FETCH_BOTH</code> and <code>PDO::FETCH_OBJ</code>, creating the object variable names as they are accessed</p></li> <li><p><code>PDO::FETCH_NAMED</code>: returns an array with the same form as <code>PDO::FETCH_ASSOC</code>, except that if there are multiple columns with the same name, the value referred to by that key will be an array of all the values in the row that had that column name</p></li> <li><p><code>PDO::FETCH_NUM</code>: returns an array indexed by column number as returned in your result set, starting at column 0</p></li> <li><p><code>PDO::FETCH_OBJ</code>: returns an anonymous object with property names that correspond to the column names returned in your result set</p></li> <li><p><code>PDO::FETCH_PROPS_LATE</code>: when used with <code>PDO::FETCH_CLASS</code>, the constructor of the class is called before the properties are assigned from the respective column values.</p></li> </ul>
 		 * @param int $cursorOrientation <p>For a PDOStatement object representing a scrollable cursor, this value determines which row will be returned to the caller. This value must be one of the <code>PDO::FETCH_ORI_&#42;</code> constants, defaulting to <code>PDO::FETCH_ORI_NEXT</code>. To request a scrollable cursor for your PDOStatement object, you must set the <code>PDO::ATTR_CURSOR</code> attribute to <code>PDO::CURSOR_SCROLL</code> when you prepare the SQL statement with <code>PDO::prepare()</code>.</p>
-		 * @param int $cursorOffset
-		 * @return mixed <p>The return value of this function on success depends on the fetch type. In all cases, <b><code>false</code></b> is returned on failure.</p>
+		 * @param int $cursorOffset <p>For a PDOStatement object representing a scrollable cursor for which the <code>cursorOrientation</code> parameter is set to <code>PDO::FETCH_ORI_ABS</code>, this value specifies the absolute number of the row in the result set that shall be fetched.</p> <p>For a PDOStatement object representing a scrollable cursor for which the <code>cursorOrientation</code> parameter is set to <code>PDO::FETCH_ORI_REL</code>, this value specifies the row to fetch relative to the cursor position before <b>PDOStatement::fetch()</b> was called.</p>
+		 * @return mixed <p>The return value of this function on success depends on the fetch type. In all cases, <b><code>false</code></b> is returned on failure or if there are no more rows.</p>
 		 * @link https://php.net/manual/en/pdostatement.fetch.php
-		 * @see PDO::prepare(), PDOStatement::execute(), PDOStatement::fetchAll(), PDOStatement::fetchColumn(), PDOStatement::fetchObject(), PDOStatement::setFetchMode()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function fetch(int $mode = PDO::FETCH_DEFAULT, int $cursorOrientation = PDO::FETCH_ORI_NEXT, int $cursorOffset = 0): mixed {}
@@ -890,7 +883,6 @@ namespace {
 		 * @param int $mode <p>Controls the contents of the returned array as documented in <code>PDOStatement::fetch()</code>. Defaults to value of <b><code>PDO::ATTR_DEFAULT_FETCH_MODE</code></b> (which defaults to <b><code>PDO::FETCH_BOTH</code></b>)</p> <p>To return an array consisting of all values of a single column from the result set, specify <b><code>PDO::FETCH_COLUMN</code></b>. You can specify which column you want with the <code>column</code> parameter.</p> <p>To fetch only the unique values of a single column from the result set, bitwise-OR <b><code>PDO::FETCH_COLUMN</code></b> with <b><code>PDO::FETCH_UNIQUE</code></b>.</p> <p>To return an associative array grouped by the values of a specified column, bitwise-OR <b><code>PDO::FETCH_COLUMN</code></b> with <b><code>PDO::FETCH_GROUP</code></b>.</p>
 		 * @return array <p><b>PDOStatement::fetchAll()</b> returns an array containing all of the remaining rows in the result set. The array represents each row as either an array of column values or an object with properties corresponding to each column name. An empty array is returned if there are zero results to fetch.</p><p>Using this method to fetch large result sets will result in a heavy demand on system and possibly network resources. Rather than retrieving all of the data and manipulating it in PHP, consider using the database server to manipulate the result sets. For example, use the WHERE and ORDER BY clauses in SQL to restrict results before retrieving and processing them with PHP.</p>
 		 * @link https://php.net/manual/en/pdostatement.fetchall.php
-		 * @see PDO::query(), PDOStatement::fetch(), PDOStatement::fetchColumn(), PDO::prepare(), PDOStatement::setFetchMode()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function fetchAll(int $mode = PDO::FETCH_DEFAULT): array {}
@@ -901,7 +893,6 @@ namespace {
 		 * @param int $column <p>0-indexed number of the column you wish to retrieve from the row. If no value is supplied, <b>PDOStatement::fetchColumn()</b> fetches the first column.</p>
 		 * @return mixed <p><b>PDOStatement::fetchColumn()</b> returns a single column from the next row of a result set or <b><code>false</code></b> if there are no more rows.</p><p><b>Warning</b></p> <p>There is no way to return another column from the same row if you use <b>PDOStatement::fetchColumn()</b> to retrieve data.</p>
 		 * @link https://php.net/manual/en/pdostatement.fetchcolumn.php
-		 * @see PDO::query(), PDOStatement::fetch(), PDOStatement::fetchAll(), PDO::prepare(), PDOStatement::setFetchMode()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.9.0
 		 */
 		public function fetchColumn(int $column = 0): mixed {}
@@ -913,7 +904,6 @@ namespace {
 		 * @param array $constructorArgs <p>Elements of this array are passed to the constructor.</p>
 		 * @return object|false <p>Returns an instance of the required class with property names that correspond to the column names or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pdostatement.fetchobject.php
-		 * @see PDOStatement::fetch()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.2.4
 		 */
 		public function fetchObject(?string $class = "stdClass", array $constructorArgs = []): object|false {}
@@ -921,21 +911,19 @@ namespace {
 		/**
 		 * Retrieve a statement attribute
 		 * <p>Gets an attribute of the statement. Currently, no generic attributes exist but only driver specific:</p><p><code>PDO::ATTR_CURSOR_NAME</code> (Firebird and ODBC specific): Get the name of cursor for <code>UPDATE ... WHERE CURRENT OF</code>.</p>
-		 * @param int $name
+		 * @param int $name <p>The attribute to query.</p>
 		 * @return mixed <p>Returns the attribute value.</p>
 		 * @link https://php.net/manual/en/pdostatement.getattribute.php
-		 * @see PDO::getAttribute(), PDO::setAttribute(), PDOStatement::setAttribute()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.2.0
 		 */
 		public function getAttribute(int $name): mixed {}
 
 		/**
 		 * Returns metadata for a column in a result set
-		 * <p>Retrieves the metadata for a 0-indexed column in a result set as an associative array.</p><p>Not all PDO drivers support <b>PDOStatement::getColumnMeta()</b>.</p><p>The following drivers support this method:</p>
+		 * <p>Retrieves the metadata for a 0-indexed column in a result set as an associative array.</p><p>Some drivers may not implement <b>PDOStatement::getColumnMeta()</b>, as it is optional. However, all PDO drivers documented in the manual implement this function.</p>
 		 * @param int $column <p>The 0-indexed column in the result set.</p>
 		 * @return array|false <p>Returns an associative array containing the following values representing the metadata for a single column:</p> <b>Column metadata</b>     Name Value     <code>native_type</code> The PHP native type used to represent the column value.   <code>driver:decl_type</code> The SQL type used to represent the column value in the database. If the column in the result set is the result of a function, this value is not returned by <b>PDOStatement::getColumnMeta()</b>.    <code>flags</code> Any flags set for this column.   <code>name</code> The name of this column as returned by the database.   <code>table</code> The name of this column's table as returned by the database.   <code>len</code> The length of this column. Normally <code>-1</code> for types other than floating point decimals.   <code>precision</code> The numeric precision of this column. Normally <code>0</code> for types other than floating point decimals.   <code>pdo_type</code> The type of this column as represented by the <code>PDO::PARAM_&#42;</code> constants.   <p>Returns <b><code>false</code></b> if the requested column does not exist in the result set, or if no result set exists.</p>
 		 * @link https://php.net/manual/en/pdostatement.getcolumnmeta.php
-		 * @see PDOStatement::columnCount(), PDOStatement::rowCount()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.2.0
 		 */
 		public function getColumnMeta(int $column): array|false {}
@@ -954,17 +942,15 @@ namespace {
 		 * <p>Some database servers support stored procedures that return more than one rowset (also known as a result set). <b>PDOStatement::nextRowset()</b> enables you to access the second and subsequent rowsets associated with a PDOStatement object. Each rowset can have a different set of columns from the preceding rowset.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pdostatement.nextrowset.php
-		 * @see PDOStatement::columnCount(), PDOStatement::execute(), PDOStatement::getColumnMeta(), PDO::query()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.2.0
 		 */
 		public function nextRowset(): bool {}
 
 		/**
 		 * Returns the number of rows affected by the last SQL statement
-		 * <p><b>PDOStatement::rowCount()</b> returns the number of rows affected by the last DELETE, INSERT, or UPDATE statement executed by the corresponding <code>PDOStatement</code> object.</p><p>If the last SQL statement executed by the associated <code>PDOStatement</code> was a SELECT statement, some databases may return the number of rows returned by that statement. However, this behaviour is not guaranteed for all databases and should not be relied on for portable applications.</p><p><b>Note</b>:</p><p>This method returns "0" (zero) with the SQLite driver at all times, and with the PostgreSQL driver only when setting the <b><code>PDO::ATTR_CURSOR</code></b> statement attribute to <b><code>PDO::CURSOR_SCROLL</code></b>.</p>
+		 * <p><b>PDOStatement::rowCount()</b> returns the number of rows affected by the last DELETE, INSERT, or UPDATE statement executed by the corresponding <code>PDOStatement</code> object.</p><p>For statements that produce result sets, such as <code>SELECT</code>, the behavior is undefined and can be different for each driver. Some databases may return the number of rows produced by that statement (e.g. MySQL in buffered mode), but this behaviour is not guaranteed for all databases and should not be relied on for portable applications.</p><p><b>Note</b>:</p><p>This method returns "0" (zero) with the SQLite driver at all times, and with the PostgreSQL driver only when setting the <b><code>PDO::ATTR_CURSOR</code></b> statement attribute to <b><code>PDO::CURSOR_SCROLL</code></b>.</p>
 		 * @return int <p>Returns the number of rows.</p>
 		 * @link https://php.net/manual/en/pdostatement.rowcount.php
-		 * @see PDOStatement::columnCount(), PDOStatement::fetchColumn(), PDO::query()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.1.0
 		 */
 		public function rowCount(): int {}
@@ -972,11 +958,10 @@ namespace {
 		/**
 		 * Set a statement attribute
 		 * <p>Sets an attribute on the statement. Currently, no generic attributes are set but only driver specific:</p><p><code>PDO::ATTR_CURSOR_NAME</code> (Firebird and ODBC specific): Set the name of cursor for <code>UPDATE ... WHERE CURRENT OF</code>.</p>
-		 * @param int $attribute
-		 * @param mixed $value
+		 * @param int $attribute <p>The attribute to modify.</p>
+		 * @param mixed $value <p>The value to set the <code>attribute</code>, might require a specific type depending on the attribute.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pdostatement.setattribute.php
-		 * @see PDO::getAttribute(), PDO::setAttribute(), PDOStatement::getAttribute()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo >= 0.2.0
 		 */
 		public function setAttribute(int $attribute, mixed $value): bool {}

@@ -30,7 +30,7 @@ namespace {
 		public $line;
 
 		/**
-		 * @var int <p>The starting position (0-based) in the tokenized string.</p>
+		 * @var int <p>The starting position (0-based) in the tokenized string (the number of bytes).</p>
 		 * @link https://php.net/manual/en/class.phptoken.php#phptoken.props.pos
 		 */
 		public $pos;
@@ -41,8 +41,8 @@ namespace {
 		 * @param int $id <p>One of the T_&#42; constants (see List of Parser Tokens), or an ASCII codepoint representing a single-char token.</p>
 		 * @param string $text <p>The textual content of the token.</p>
 		 * @param int $line <p>The starting line number (1-based) of the token.</p>
-		 * @param int $pos <p>The starting position (0-based) in the tokenized string.</p>
-		 * @return self <p>Returns a new PhpToken instance.</p>
+		 * @param int $pos <p>The starting position (0-based) in the tokenized string (the number of bytes).</p>
+		 * @return self
 		 * @link https://php.net/manual/en/phptoken.construct.php
 		 * @see PhpToken::tokenize()
 		 * @since PHP 8

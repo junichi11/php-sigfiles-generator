@@ -49,12 +49,13 @@ located here:
    If your system has multiple version of PHP installed (e.g. macOS default,
    Homebrew, <a href="https://www.apachefriends.org/" class="link external">&raquo;&nbsp;XAMPP</a>), note that each
    version of PHP has its own <a href="install.pecl.html" class="link">pecl</a>
-   command and <var class="filename">php.ini</var> file.
+   command and <var class="filename">php.ini</var> file(s). Additionally, each PHP environments (e.g.
+   CLI, web) may use separate <var class="filename">php.ini</var> files.
   </p>
 
   <p class="para">
    Installing the driver via PECL will use bundled versions of
-   <a href="https://github.com/mongodb/libbson" class="link external">&raquo;&nbsp;libbson</a> and
+   <a href="https://github.com/mongodb/mongo-c-driver/tree/master/src/libbson" class="link external">&raquo;&nbsp;libbson</a> and
    <a href="https://github.com/mongodb/mongo-c-driver" class="link external">&raquo;&nbsp;libmongoc</a> and attempt to
    automatically configure them.
   </p>
@@ -71,7 +72,8 @@ located here:
   </p></blockquote>
 
   <p class="para">
-   Finally, add the following line to your <var class="filename">php.ini</var> file:
+   Finally, add the following line to the <var class="filename">php.ini</var> file for each environment
+   in which you intend to use the driver:
    <div class="example-contents">
 <div class="inicode"><pre class="inicode">extension=mongodb.so</pre>
 </div>

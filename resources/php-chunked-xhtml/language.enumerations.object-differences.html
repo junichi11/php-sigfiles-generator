@@ -35,8 +35,9 @@
    <li class="member">Constructors and Destructors are forbidden.</li>
    <li class="member">Inheritance is not supported. Enums may not extend or be extended.</li>
    <li class="member">Static or object properties are not allowed.</li>
-   <li class="member">Cloning an Enum case is not supported, as cases must be singleton instances</li>
+   <li class="member">Cloning an Enum case is not supported, as cases must be singleton instances.</li>
    <li class="member"><a href="language.oop5.magic.html" class="link">Magic methods</a>, except for those listed below, are disallowed.</li>
+   <li class="member">Enums must always be declared before they are used.</li>
   </ul>
 
   <p class="para">The following object functionality is available, and behaves just as it does on any other object:</p>
@@ -73,7 +74,7 @@
 
   <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$clovers&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Suit</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">//&nbsp;Error:&nbsp;Cannot&nbsp;instantiate&nbsp;enum&nbsp;Suit<br /></span><span style="color: #0000BB">$horseshoes&nbsp;</span><span style="color: #007700">=&nbsp;(new&nbsp;</span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::class))-&gt;</span><span style="color: #0000BB">newInstanceWithoutConstructor</span><span style="color: #007700">()<br /></span><span style="color: #FF8000">//&nbsp;Error:&nbsp;Cannot&nbsp;instantiate&nbsp;enum&nbsp;Suit<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$clovers </span><span style="color: #007700">= new </span><span style="color: #0000BB">Suit</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">// Error: Cannot instantiate enum Suit<br /></span><span style="color: #0000BB">$horseshoes </span><span style="color: #007700">= (new </span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::class))-&gt;</span><span style="color: #0000BB">newInstanceWithoutConstructor</span><span style="color: #007700">()<br /></span><span style="color: #FF8000">// Error: Cannot instantiate enum Suit<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
   </div>

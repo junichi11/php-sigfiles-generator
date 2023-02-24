@@ -49,11 +49,11 @@
 
 <div class="refsect1 examples" id="refsect1-mysql-xdevapi-client.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1530">
+  <div class="example" id="example-1562">
    <p><strong>Example #1 <span class="function"><strong>mysql_xdevapi\Client::__construct()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$pooling_options&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'{<br />&nbsp;&nbsp;"enabled":&nbsp;true,<br />&nbsp;&nbsp;&nbsp;&nbsp;"maxSize":&nbsp;10,<br />&nbsp;&nbsp;&nbsp;&nbsp;"maxIdleTime":&nbsp;3600,<br />&nbsp;&nbsp;&nbsp;&nbsp;"queueTimeOut":&nbsp;1000<br />}'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$client&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_xdevapi</span><span style="color: #007700">\</span><span style="color: #0000BB">getClient</span><span style="color: #007700">(</span><span style="color: #0000BB">$connection_uri</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$pooling_options</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$session&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$client</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSession</span><span style="color: #007700">();</span>
+<span style="color: #0000BB">&lt;?php<br />$pooling_options </span><span style="color: #007700">= </span><span style="color: #DD0000">'{<br />  "enabled": true,<br />    "maxSize": 10,<br />    "maxIdleTime": 3600,<br />    "queueTimeOut": 1000<br />}'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$client </span><span style="color: #007700">= </span><span style="color: #0000BB">mysql_xdevapi</span><span style="color: #007700">\</span><span style="color: #0000BB">getClient</span><span style="color: #007700">(</span><span style="color: #0000BB">$connection_uri</span><span style="color: #007700">, </span><span style="color: #0000BB">$pooling_options</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$session </span><span style="color: #007700">= </span><span style="color: #0000BB">$client</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSession</span><span style="color: #007700">();</span>
 </span>
 </code></div>
    </div>

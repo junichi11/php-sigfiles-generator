@@ -99,11 +99,11 @@ As of PHP 8.0.0 calling this method statically throws an <span class="classname"
  <div class="refsect1 examples" id="refsect1-domdocument.loadxml-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5340">
+   <div class="example" id="example-5514">
     <p><strong>Example #1 Creating a Document</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$doc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DOMDocument</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadXML</span><span style="color: #007700">(</span><span style="color: #DD0000">'&lt;root&gt;&lt;node/&gt;&lt;/root&gt;'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">saveXML</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$doc </span><span style="color: #007700">= new </span><span style="color: #0000BB">DOMDocument</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadXML</span><span style="color: #007700">(</span><span style="color: #DD0000">'&lt;root&gt;&lt;node/&gt;&lt;/root&gt;'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">saveXML</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -111,11 +111,11 @@ As of PHP 8.0.0 calling this method statically throws an <span class="classname"
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5341">
+   <div class="example" id="example-5515">
     <p><strong>Example #2 Static invocation of <code class="literal">loadXML</code></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Issues&nbsp;an&nbsp;E_DEPRECATED&nbsp;error<br /></span><span style="color: #0000BB">$doc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DOMDocument</span><span style="color: #007700">::</span><span style="color: #0000BB">loadXML</span><span style="color: #007700">(</span><span style="color: #DD0000">'&lt;root&gt;&lt;node/&gt;&lt;/root&gt;'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">saveXML</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Issues an E_DEPRECATED error<br /></span><span style="color: #0000BB">$doc </span><span style="color: #007700">= </span><span style="color: #0000BB">DOMDocument</span><span style="color: #007700">::</span><span style="color: #0000BB">loadXML</span><span style="color: #007700">(</span><span style="color: #DD0000">'&lt;root&gt;&lt;node/&gt;&lt;/root&gt;'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">saveXML</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -105,7 +105,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <td>8.0.0</td>
  <td>
   <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
-  instance now; previously, a <span class="type">resource</span> was expected.
+  instance now; previously, a valid <code class="literal">gd</code> <span class="type">resource</span> was expected.
  </td>
 </tr>
 
@@ -119,11 +119,11 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imagegammacorrect-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2683">
+   <div class="example" id="example-2753">
     <p><strong>Example #1 <span class="function"><strong>imagegammacorrect()</strong></span> usage</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Create&nbsp;image&nbsp;instance<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefromgif</span><span style="color: #007700">(</span><span style="color: #DD0000">'php.gif'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Correct&nbsp;gamma,&nbsp;out&nbsp;=&nbsp;1.537<br /></span><span style="color: #0000BB">imagegammacorrect</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1.537</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Save&nbsp;and&nbsp;free&nbsp;image<br /></span><span style="color: #0000BB">imagegif</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'./php_gamma_corrected.gif'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Create image instance<br /></span><span style="color: #0000BB">$im </span><span style="color: #007700">= </span><span style="color: #0000BB">imagecreatefromgif</span><span style="color: #007700">(</span><span style="color: #DD0000">'php.gif'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Correct gamma, out = 1.537<br /></span><span style="color: #0000BB">imagegammacorrect</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">, </span><span style="color: #0000BB">1.0</span><span style="color: #007700">, </span><span style="color: #0000BB">1.537</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Save and free image<br /></span><span style="color: #0000BB">imagegif</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">, </span><span style="color: #DD0000">'./php_gamma_corrected.gif'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

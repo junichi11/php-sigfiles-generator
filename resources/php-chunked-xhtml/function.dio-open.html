@@ -170,11 +170,11 @@
 
  <div class="refsect1 examples" id="refsect1-function.dio-open-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2112">
+  <div class="example" id="example-2177">
    <p><strong>Example #1 Opening a file descriptor</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$fd&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dio_open</span><span style="color: #007700">(</span><span style="color: #DD0000">'/dev/ttyS0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">O_RDWR&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">O_NOCTTY&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">O_NONBLOCK</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">dio_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$fd</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$fd </span><span style="color: #007700">= </span><span style="color: #0000BB">dio_open</span><span style="color: #007700">(</span><span style="color: #DD0000">'/dev/ttyS0'</span><span style="color: #007700">, </span><span style="color: #0000BB">O_RDWR </span><span style="color: #007700">| </span><span style="color: #0000BB">O_NOCTTY </span><span style="color: #007700">| </span><span style="color: #0000BB">O_NONBLOCK</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">dio_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$fd</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

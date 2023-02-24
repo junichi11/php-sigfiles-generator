@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Relative class types</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="language.types.never.html">« Never</a></li>
+      <li style="float: right;"><a href="language.types.literal.html">Literal types »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.types.html">Types</a></li>
+    <li>Relative class types</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="language.types.relative-class-types" class="sect1">
+ <h2 class="title">Relative class types</h2>
+
+ <p class="para">
+  These types declarations can only be used within classes.
+ </p>
+
+ <div class="sect2" id="language.types.relative-class-types.self">
+  <h3 class="title"><span class="type"><span class="type self">self</span></span></h3>
+  <p class="para">
+   The value must be an <a href="language.operators.type.html" class="link"><code class="literal">instanceof</code></a> the same class as the one
+   in which the type declaration is used.
+  </p>
+ </div>
+
+ <div class="sect2" id="language.types.relative-class-types.parent">
+  <h3 class="title"><span class="type"><span class="type parent">parent</span></span></h3>
+  <p class="para">
+   The value must be an <a href="language.operators.type.html" class="link"><code class="literal">instanceof</code></a> a parent of the class
+   in which the type declaration is used.
+  </p>
+ </div>
+
+ <div class="sect2" id="language.types.relative-class-types.static">
+  <h3 class="title">static</h3>
+  <p class="para">
+   <span class="type"><span class="type static">static</span></span> is a return-only type which requires that the
+   value returned must be an <a href="language.operators.type.html" class="link"><code class="literal">instanceof</code></a> the same class as the one
+   the method is called in.
+   Available as of PHP 8.0.0.
+  </p>
+ </div>
+
+</div></div></div></body></html>

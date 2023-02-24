@@ -79,21 +79,34 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    If a sequence name was not specified for the <code class="parameter">name</code>
-   parameter, <span class="function"><strong>PDO::lastInsertId()</strong></span> returns a
+   parameter, <span class="methodname"><strong>PDO::lastInsertId()</strong></span> returns a
    string representing the row ID of the last row that was inserted into
    the database.
   </p>
   <p class="para">
    If a sequence name was specified for the <code class="parameter">name</code>
-   parameter, <span class="function"><strong>PDO::lastInsertId()</strong></span> returns a
+   parameter, <span class="methodname"><strong>PDO::lastInsertId()</strong></span> returns a
    string representing the last value retrieved from the specified sequence
    object.
   </p>
   <p class="para">
    If the PDO driver does not support this capability,
-   <span class="function"><strong>PDO::lastInsertId()</strong></span> triggers an
+   <span class="methodname"><strong>PDO::lastInsertId()</strong></span> triggers an
    <code class="literal">IM001</code> SQLSTATE.
   </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-pdo.lastinsertid-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+Emits an error with level <strong><code>E_WARNING</code></strong> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong> is set
+to <strong><code>PDO::ERRMODE_WARNING</code></strong>.
+</p>
+<p class="para">
+Throws a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong>
+is set to <strong><code>PDO::ERRMODE_EXCEPTION</code></strong>.
+</p>
  </div>
 
 

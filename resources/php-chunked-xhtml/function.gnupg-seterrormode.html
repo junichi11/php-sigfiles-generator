@@ -93,21 +93,21 @@
  <div class="refsect1 examples" id="refsect1-function.gnupg-seterrormode-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3191">
+   <div class="example" id="example-3262">
     <p><strong>Example #1 Procedural <span class="function"><strong>gnupg_seterrormode()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gnupg_init</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">gnupg_seterrormode</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,</span><span style="color: #0000BB">GNUPG_ERROR_WARNING</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;raise&nbsp;a&nbsp;PHP-Warning&nbsp;in&nbsp;case&nbsp;of&nbsp;an&nbsp;error<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$res </span><span style="color: #007700">= </span><span style="color: #0000BB">gnupg_init</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">gnupg_seterrormode</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,</span><span style="color: #0000BB">GNUPG_ERROR_WARNING</span><span style="color: #007700">); </span><span style="color: #FF8000">// raise a PHP-Warning in case of an error<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-3192">
+   <div class="example" id="example-3263">
     <p><strong>Example #2 OO <span class="function"><strong>gnupg_seterrormode()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$gpg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$gpg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">seterrormode</span><span style="color: #007700">(</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">::</span><span style="color: #0000BB">ERROR_EXCEPTION</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;throw&nbsp;an&nbsp;exception&nbsp;in&nbsp;case&nbsp;of&nbsp;an&nbsp;error<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$gpg </span><span style="color: #007700">= new </span><span style="color: #0000BB">gnupg</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$gpg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">seterrormode</span><span style="color: #007700">(</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">::</span><span style="color: #0000BB">ERROR_EXCEPTION</span><span style="color: #007700">); </span><span style="color: #FF8000">// throw an exception in case of an error<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

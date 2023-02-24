@@ -42,6 +42,18 @@
   <p class="para rdfs-comment">
    Creates a new DatePeriod object.
   </p>
+  <p class="para">
+   <span class="classname"><a href="class.dateperiod.html" class="classname">DatePeriod</a></span> objects can be used as an iterator to
+   generate a number of <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> or
+   <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> object from a <code class="parameter">start</code>
+   date, a <code class="parameter">interval</code>, and an <code class="parameter">end</code>
+   date or the number of <code class="parameter">recurrences</code>.
+  </p>
+  <p class="para">
+   The class of returned objects is equivalent to the
+   <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> or <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span>
+   ancestor class of the <code class="parameter">start</code> object.
+  </p>
  </div>
 
 
@@ -56,7 +68,7 @@
      <dd>
 
       <p class="para">
-       The start date of the period.
+       The start date of the period. Included by default in the result set.
       </p>
      </dd>
 
@@ -80,7 +92,9 @@
      <dd>
 
       <p class="para">
-       The number of recurrences. Must be greater than <code class="literal">0</code>.
+       The number of recurrences. The number of returned results is
+       one higher than this, as the start date is included in the result set
+       by default. Must be greater than <code class="literal">0</code>.
       </p>
      </dd>
 
@@ -92,7 +106,7 @@
      <dd>
 
       <p class="para">
-       The end date of the period.
+       The end date of the period. Excluded by default from the result set.
       </p>
      </dd>
 
@@ -104,9 +118,25 @@
      <dd>
 
       <p class="para">
-       An <a href="http://en.wikipedia.org/wiki/Iso8601#Repeating_intervals" class="link external">&raquo;&nbsp;ISO 8601 repeating interval specification</a>.
-       Zero occurrences (<code class="literal">R0/</code>) are not supported.
+       A subset of the <a href="http://en.wikipedia.org/wiki/Iso8601#Repeating_intervals" class="link external">&raquo;&nbsp;ISO 8601 repeating
+       interval specification</a>.
       </p>
+      <p class="para">
+       Examples of some ISO 8601 interval specification features that PHP does
+       not support are:
+      </p>
+      <ol type="1">
+       <li class="listitem">
+        <span class="simpara">
+         zero occurrences (<code class="literal">R0/</code>)
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         time offsets other than UTC (<code class="literal">Z</code>), such as <code class="literal">+02:00</code>.
+        </span>
+       </li>
+      </ol>
      </dd>
 
     
@@ -117,8 +147,17 @@
      <dd>
 
       <p class="para">
-       Can be set to <strong><code>DatePeriod::EXCLUDE_START_DATE</code></strong> to
+       A bit field which can be used to control certain behaviour with start-
+       and end- dates.
+      </p>
+      <p class="para">
+       With <strong><code>DatePeriod::EXCLUDE_START_DATE</code></strong> you
        exclude the start date from the set of recurring dates within the
+       period.
+      </p>
+      <p class="para">
+       With <strong><code>DatePeriod::INCLUDE_END_DATE</code></strong> you
+       include the end date in the set of recurring dates within the
        period.
       </p>
      </dd>
@@ -145,6 +184,13 @@
 
      <tbody class="tbody">
       <tr>
+       <td>8.2.0</td>
+       <td>
+        The <strong><code>DatePeriod::INCLUDE_END_DATE</code></strong> constant has been added.
+       </td>
+      </tr>
+
+      <tr>
        <td>7.2.19, 7.3.6, 7.4.0</td>
        <td>
         <code class="parameter">recurrences</code> must be greater than <code class="literal">0</code> now.
@@ -162,11 +208,11 @@
  <div class="refsect1 examples" id="refsect1-dateperiod.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2063">
+   <div class="example" id="example-2117">
     <p><strong>Example #1 DatePeriod example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$start&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2012-07-01'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$interval&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P7D'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$end&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2012-07-31'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$recurrences&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$iso&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'R4/2012-07-01T00:00:00Z/P7D'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;All&nbsp;of&nbsp;these&nbsp;periods&nbsp;are&nbsp;equivalent.<br /></span><span style="color: #0000BB">$period&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$start</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$interval</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$recurrences</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$period&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$start</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$interval</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$end</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$period&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$iso</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;By&nbsp;iterating&nbsp;over&nbsp;the&nbsp;DatePeriod&nbsp;object,&nbsp;all&nbsp;of&nbsp;the<br />//&nbsp;recurring&nbsp;dates&nbsp;within&nbsp;that&nbsp;period&nbsp;are&nbsp;printed.<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">$period&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$start </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2012-07-01'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$interval </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P7D'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$end </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2012-07-31'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$recurrences </span><span style="color: #007700">= </span><span style="color: #0000BB">4</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$iso </span><span style="color: #007700">= </span><span style="color: #DD0000">'R4/2012-07-01T00:00:00Z/P7D'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// All of these periods are equivalent.<br /></span><span style="color: #0000BB">$period </span><span style="color: #007700">= new </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$start</span><span style="color: #007700">, </span><span style="color: #0000BB">$interval</span><span style="color: #007700">, </span><span style="color: #0000BB">$recurrences</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$period </span><span style="color: #007700">= new </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$start</span><span style="color: #007700">, </span><span style="color: #0000BB">$interval</span><span style="color: #007700">, </span><span style="color: #0000BB">$end</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$period </span><span style="color: #007700">= new </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$iso</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// By iterating over the DatePeriod object, all of the<br />// recurring dates within that period are printed.<br /></span><span style="color: #007700">foreach (</span><span style="color: #0000BB">$period </span><span style="color: #007700">as </span><span style="color: #0000BB">$date</span><span style="color: #007700">) {<br />    echo </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -184,11 +230,11 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2064">
+   <div class="example" id="example-2118">
     <p><strong>Example #2 DatePeriod example with <strong><code>DatePeriod::EXCLUDE_START_DATE</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$start&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2012-07-01'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$interval&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P7D'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$end&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2012-07-31'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$period&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$start</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$interval</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$end</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">::</span><span style="color: #0000BB">EXCLUDE_START_DATE</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;By&nbsp;iterating&nbsp;over&nbsp;the&nbsp;DatePeriod&nbsp;object,&nbsp;all&nbsp;of&nbsp;the<br />//&nbsp;recurring&nbsp;dates&nbsp;within&nbsp;that&nbsp;period&nbsp;are&nbsp;printed.<br />//&nbsp;Note&nbsp;that,&nbsp;in&nbsp;this&nbsp;case,&nbsp;2012-07-01&nbsp;is&nbsp;not&nbsp;printed.<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">$period&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$start </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2012-07-01'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$interval </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P7D'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$end </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2012-07-31'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$period </span><span style="color: #007700">= new </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$start</span><span style="color: #007700">, </span><span style="color: #0000BB">$interval</span><span style="color: #007700">, </span><span style="color: #0000BB">$end</span><span style="color: #007700">,<br />                         </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">::</span><span style="color: #0000BB">EXCLUDE_START_DATE</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// By iterating over the DatePeriod object, all of the<br />// recurring dates within that period are printed.<br />// Note that, in this case, 2012-07-01 is not printed.<br /></span><span style="color: #007700">foreach (</span><span style="color: #0000BB">$period </span><span style="color: #007700">as </span><span style="color: #0000BB">$date</span><span style="color: #007700">) {<br />    echo </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -200,6 +246,35 @@
 2012-07-15
 2012-07-22
 2012-07-29
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-2119">
+    <p><strong>Example #3 DatePeriod example showing all last Thursdays in a year</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$begin </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2021-12-31'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$end </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2022-12-31 23:59:59'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$interval </span><span style="color: #007700">= </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'last thursday of next month'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$period </span><span style="color: #007700">= new </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">(</span><span style="color: #0000BB">$begin</span><span style="color: #007700">, </span><span style="color: #0000BB">$interval</span><span style="color: #007700">, </span><span style="color: #0000BB">$end</span><span style="color: #007700">, </span><span style="color: #0000BB">DatePeriod</span><span style="color: #007700">::</span><span style="color: #0000BB">EXCLUDE_START_DATE</span><span style="color: #007700">);<br /><br />foreach (</span><span style="color: #0000BB">$period </span><span style="color: #007700">as </span><span style="color: #0000BB">$dt</span><span style="color: #007700">) {<br />    echo </span><span style="color: #0000BB">$dt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'l Y-m-d'</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Thursday 2022-01-27
+Thursday 2022-02-24
+Thursday 2022-03-31
+Thursday 2022-04-28
+Thursday 2022-05-26
+Thursday 2022-06-30
+Thursday 2022-07-28
+Thursday 2022-08-25
+Thursday 2022-09-29
+Thursday 2022-10-27
+Thursday 2022-11-24
+Thursday 2022-12-29
 </pre></div>
     </div>
    </div>

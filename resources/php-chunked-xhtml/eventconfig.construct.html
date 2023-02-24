@@ -58,12 +58,12 @@
 
  <div class="refsect1 examples" id="refsect1-eventconfig.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4260">
+  <div class="example" id="example-4339">
    <p><strong>Example #1 
     <span class="function"><strong>EventConfig::__construct()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Avoiding&nbsp;"select"&nbsp;method<br /></span><span style="color: #0000BB">$cfg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">EventConfig</span><span style="color: #007700">();<br />if&nbsp;(</span><span style="color: #0000BB">$cfg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">avoidMethod</span><span style="color: #007700">(</span><span style="color: #DD0000">"select"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"'select'&nbsp;method&nbsp;avoided\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Create&nbsp;event_base&nbsp;associated&nbsp;with&nbsp;the&nbsp;config<br /></span><span style="color: #0000BB">$base&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">EventBase</span><span style="color: #007700">(</span><span style="color: #0000BB">$cfg</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Now&nbsp;$base&nbsp;is&nbsp;configured&nbsp;to&nbsp;avoid&nbsp;select&nbsp;backend(method)&nbsp;*/<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Avoiding "select" method<br /></span><span style="color: #0000BB">$cfg </span><span style="color: #007700">= new </span><span style="color: #0000BB">EventConfig</span><span style="color: #007700">();<br />if (</span><span style="color: #0000BB">$cfg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">avoidMethod</span><span style="color: #007700">(</span><span style="color: #DD0000">"select"</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">"'select' method avoided\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">// Create event_base associated with the config<br /></span><span style="color: #0000BB">$base </span><span style="color: #007700">= new </span><span style="color: #0000BB">EventBase</span><span style="color: #007700">(</span><span style="color: #0000BB">$cfg</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Now $base is configured to avoid select backend(method) */<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

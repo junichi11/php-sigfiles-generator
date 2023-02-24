@@ -89,14 +89,14 @@
  <div class="refsect1 examples" id="refsect1-function.geoip-db-get-all-info-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3441">
+   <div class="example" id="example-3477">
     <p><strong>Example #1 A <span class="function"><strong>geoip_db_get_all_info()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This will print the array containing all the information.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$infos&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">geoip_db_get_all_info</span><span style="color: #007700">();<br />if&nbsp;(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$infos</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$infos</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$infos </span><span style="color: #007700">= </span><span style="color: #0000BB">geoip_db_get_all_info</span><span style="color: #007700">();<br />if (</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$infos</span><span style="color: #007700">)) {<br />    </span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$infos</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -133,14 +133,14 @@ array(11) {
   </p>
 
 <p class="para">
-   <div class="example" id="example-3442">
+   <div class="example" id="example-3478">
     <p><strong>Example #2 A <span class="function"><strong>geoip_db_get_all_info()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      You can use the various constants as keys to get only parts of the information.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$infos&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">geoip_db_get_all_info</span><span style="color: #007700">();<br />if&nbsp;(</span><span style="color: #0000BB">$infos</span><span style="color: #007700">[</span><span style="color: #0000BB">GEOIP_COUNTRY_EDITION</span><span style="color: #007700">][</span><span style="color: #DD0000">'available'</span><span style="color: #007700">])&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$infos</span><span style="color: #007700">[</span><span style="color: #0000BB">GEOIP_COUNTRY_EDITION</span><span style="color: #007700">][</span><span style="color: #DD0000">'description'</span><span style="color: #007700">];<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$infos </span><span style="color: #007700">= </span><span style="color: #0000BB">geoip_db_get_all_info</span><span style="color: #007700">();<br />if (</span><span style="color: #0000BB">$infos</span><span style="color: #007700">[</span><span style="color: #0000BB">GEOIP_COUNTRY_EDITION</span><span style="color: #007700">][</span><span style="color: #DD0000">'available'</span><span style="color: #007700">]) {<br />    echo </span><span style="color: #0000BB">$infos</span><span style="color: #007700">[</span><span style="color: #0000BB">GEOIP_COUNTRY_EDITION</span><span style="color: #007700">][</span><span style="color: #DD0000">'description'</span><span style="color: #007700">];<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

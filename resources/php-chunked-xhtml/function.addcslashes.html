@@ -73,13 +73,13 @@
        octal representation.
       </p>
       <p class="para">
-       When you define a sequence of characters in the charlist argument
+       When you define a sequence of characters in the <code class="parameter">characters</code> argument
        make sure that you know what characters come between the
        characters that you set as the start and end of the range.
        <div class="informalexample">
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">addcslashes</span><span style="color: #007700">(</span><span style="color: #DD0000">'foo[&nbsp;]'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'A..z'</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;output:&nbsp;&nbsp;\f\o\o\[&nbsp;\]<br />//&nbsp;All&nbsp;upper&nbsp;and&nbsp;lower-case&nbsp;letters&nbsp;will&nbsp;be&nbsp;escaped<br />//&nbsp;...&nbsp;but&nbsp;so&nbsp;will&nbsp;the&nbsp;[\]^_`<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">addcslashes</span><span style="color: #007700">(</span><span style="color: #DD0000">'foo[ ]'</span><span style="color: #007700">, </span><span style="color: #DD0000">'A..z'</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// output:  \f\o\o\[ \]<br />// All upper and lower-case letters will be escaped<br />// ... but so will the [\]^_`<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
         </div>
@@ -93,7 +93,7 @@
        <div class="informalexample">
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">addcslashes</span><span style="color: #007700">(</span><span style="color: #DD0000">"zoo['.']"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'z..A'</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;output:&nbsp;&nbsp;\zoo['\.']<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">addcslashes</span><span style="color: #007700">(</span><span style="color: #DD0000">"zoo['.']"</span><span style="color: #007700">, </span><span style="color: #DD0000">'z..A'</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// output:  \zoo['\.']<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
         </div>
@@ -131,11 +131,11 @@
   <p class="para">
     <code class="parameter">characters</code> like &quot;\0..\37&quot;, which would
     escape all characters with ASCII code between 0 and 31.
-   <div class="example" id="example-4767">
+   <div class="example" id="example-4847">
     <p><strong>Example #1 <span class="function"><strong>addcslashes()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$escaped&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">addcslashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$not_escaped</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\0..\37!@\177..\377"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$escaped </span><span style="color: #007700">= </span><span style="color: #0000BB">addcslashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$not_escaped</span><span style="color: #007700">, </span><span style="color: #DD0000">"\0..\37!@\177..\377"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

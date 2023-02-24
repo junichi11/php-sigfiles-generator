@@ -59,7 +59,7 @@
 <code class="parameter">filename</code></dt>
 
      <dd>
-<p class="para">The filename of the <acronym>MIB</acronym>.</p></dd>
+<p class="para">The filename of the <abbr>MIB</abbr>.</p></dd>
 
     
    </dl>
@@ -79,11 +79,11 @@
  <div class="refsect1 examples" id="refsect1-function.snmp-read-mib-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4474">
+   <div class="example" id="example-4553">
     <p><strong>Example #1 Using <span class="function"><strong>snmp_read_mib()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;print_r</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">snmprealwalk</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'public'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'.1.3.6.1.2.1.2.3.4.5'</span><span style="color: #007700">)&nbsp;);<br />&nbsp;<br />&nbsp;</span><span style="color: #0000BB">snmp_read_mib</span><span style="color: #007700">(</span><span style="color: #DD0000">'./FOO-BAR-MIB.txt'</span><span style="color: #007700">);<br />&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">snmprealwalk</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'public'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'FOO-BAR-MIB::someTable'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /> print_r</span><span style="color: #007700">( </span><span style="color: #0000BB">snmprealwalk</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #DD0000">'public'</span><span style="color: #007700">, </span><span style="color: #DD0000">'.1.3.6.1.2.1.2.3.4.5'</span><span style="color: #007700">) );<br /> <br /> </span><span style="color: #0000BB">snmp_read_mib</span><span style="color: #007700">(</span><span style="color: #DD0000">'./FOO-BAR-MIB.txt'</span><span style="color: #007700">);<br /> </span><span style="color: #0000BB">print_r</span><span style="color: #007700">( </span><span style="color: #0000BB">snmprealwalk</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #DD0000">'public'</span><span style="color: #007700">, </span><span style="color: #DD0000">'FOO-BAR-MIB::someTable'</span><span style="color: #007700">) );<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

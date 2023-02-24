@@ -38,12 +38,8 @@
   <p class="para rdfs-comment">
    Returns a string with the first character of
    <code class="parameter">string</code> lowercased if that character is
-   alphabetic.
-  </p>
-  <p class="para">
-   Note that &#039;alphabetic&#039; is determined by the current locale. For
-   instance, in the default &quot;C&quot; locale characters such as umlaut-a
-   (ä) will not be converted.
+   an ASCII character in the range <code class="literal">&quot;A&quot;</code> (0x41) to
+   <code class="literal">&quot;Z&quot;</code> (0x5a).
   </p>
  </div>
 
@@ -78,14 +74,44 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.lcfirst-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     
+ <tr>
+  <td>8.2.0</td>
+  <td>
+   Case conversion no longer depends on the locale set with
+   <span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span>. Only ASCII characters will be converted.
+  </td>
+ </tr>
+
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.lcfirst-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4795">
+   <div class="example" id="example-4876">
     <p><strong>Example #1 <span class="function"><strong>lcfirst()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'HelloWorld'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">lcfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;helloWorld<br /><br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'HELLO&nbsp;WORLD!'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">lcfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;hELLO&nbsp;WORLD!<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">lcfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">strtoupper</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;hELLO&nbsp;WORLD!<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$foo </span><span style="color: #007700">= </span><span style="color: #DD0000">'HelloWorld'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$foo </span><span style="color: #007700">= </span><span style="color: #0000BB">lcfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">);             </span><span style="color: #FF8000">// helloWorld<br /><br /></span><span style="color: #0000BB">$bar </span><span style="color: #007700">= </span><span style="color: #DD0000">'HELLO WORLD!'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$bar </span><span style="color: #007700">= </span><span style="color: #0000BB">lcfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">);             </span><span style="color: #FF8000">// hELLO WORLD!<br /></span><span style="color: #0000BB">$bar </span><span style="color: #007700">= </span><span style="color: #0000BB">lcfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">strtoupper</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">)); </span><span style="color: #FF8000">// hELLO WORLD!<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

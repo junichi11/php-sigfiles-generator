@@ -1361,7 +1361,7 @@ the configuration directives.</p>
         <span class="function"><a href="function.set-include-path.html" class="function">set_include_path()</a></span>.
        </p>
        <p class="para">
-        <div class="example" id="example-5457">
+        <div class="example" id="example-5631">
          <p><strong>Example #1 Unix include_path</strong></p>
          <div class="example-contents">
 <div class="php.inicode"><pre class="php.inicode">include_path=&quot;.:/php/includes&quot;</pre>
@@ -1371,7 +1371,7 @@ the configuration directives.</p>
         </div>
        </p>
        <p class="para">
-        <div class="example" id="example-5458">
+        <div class="example" id="example-5632">
          <p><strong>Example #2 Windows include_path</strong></p>
          <div class="example-contents">
 <div class="php.inicode"><pre class="php.inicode">include_path=&quot;.;c:\php\includes&quot;</pre>
@@ -1399,7 +1399,7 @@ the configuration directives.</p>
         </p>       
        </p></blockquote>
        <p class="para">
-        <div class="example" id="example-5459">
+        <div class="example" id="example-5633">
          <p><strong>Example #3 Unix include_path using ${USER} env variable</strong></p>
          <div class="example-contents">
 <div class="php.inicode"><pre class="php.inicode">include_path = &quot;.:${USER}/pear/php&quot;</pre>
@@ -1422,9 +1422,7 @@ the configuration directives.</p>
 
        <p class="para">
         Limit the files that can be accessed by PHP to the specified
-        directory-tree, including the file itself.  This directive 
-        is <em class="emphasis">NOT</em> affected by whether Safe Mode is 
-        turned On or Off.
+        directory-tree, including the file itself.
        </p>
        <p class="para">
         When a script tries to access the filesystem, for example using 
@@ -1617,11 +1615,11 @@ the configuration directives.</p>
       <dd>
 
        <p class="para">
-        Controls whether <acronym title="Common Gateway Interface">CGI</acronym> PHP checks for line starting
+        Controls whether <abbr title="Common Gateway Interface">CGI</abbr> PHP checks for line starting
         with <code class="literal">#!</code> (shebang) at the top of the running script.
         This line might be needed if the script support running both as
-        stand-alone script and via PHP <acronym title="Common Gateway Interface">CGI</acronym>. PHP in
-        <acronym title="Common Gateway Interface">CGI</acronym> mode skips this line and ignores its content if
+        stand-alone script and via PHP <abbr title="Common Gateway Interface">CGI</abbr>. PHP in
+        <abbr title="Common Gateway Interface">CGI</abbr> mode skips this line and ignores its content if
         this directive is turned on.
        </p>
       </dd>
@@ -1654,13 +1652,13 @@ the configuration directives.</p>
 
        <p class="para">
         Provides <em class="emphasis">real</em> <code class="literal">PATH_INFO</code>/
-        <code class="literal">PATH_TRANSLATED</code> support for <acronym title="Common Gateway Interface">CGI</acronym>.
+        <code class="literal">PATH_TRANSLATED</code> support for <abbr title="Common Gateway Interface">CGI</abbr>.
         PHP&#039;s previous behaviour was to set <code class="literal">PATH_TRANSLATED</code>
         to <code class="literal">SCRIPT_FILENAME</code>, and to not grok what <code class="literal">
         PATH_INFO</code> is. For more information on
-        <code class="literal">PATH_INFO</code>, see the <acronym title="Common Gateway Interface">CGI</acronym> specs.
+        <code class="literal">PATH_INFO</code>, see the <abbr title="Common Gateway Interface">CGI</abbr> specs.
         Setting this to <code class="literal">1</code> will cause PHP
-        <acronym title="Common Gateway Interface">CGI</acronym> to fix its paths to conform to the spec. A
+        <abbr title="Common Gateway Interface">CGI</abbr> to fix its paths to conform to the spec. A
         setting of zero causes PHP to behave as before. It is turned on by
         default. You should fix your scripts to use
         <code class="literal">SCRIPT_FILENAME</code> rather than
@@ -1680,7 +1678,7 @@ the configuration directives.</p>
 
        <p class="para">
         cgi.force_redirect is necessary to provide security running PHP as a
-        <acronym title="Common Gateway Interface">CGI</acronym> under most web servers. Left undefined, PHP
+        <abbr title="Common Gateway Interface">CGI</abbr> under most web servers. Left undefined, PHP
         turns this on by default. You can turn it off <em class="emphasis">at your own
         risk</em>.
        </p>

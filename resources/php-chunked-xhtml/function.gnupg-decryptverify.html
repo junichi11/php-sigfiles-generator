@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="function.gnupg-decrypt.html">« gnupg_decrypt</a></li>
-      <li style="float: right;"><a href="function.gnupg-encrypt.html">gnupg_encrypt »</a></li>
+      <li style="float: right;"><a href="function.gnupg-deletekey.html">gnupg_deletekey »</a></li>
     </ul>
   </div>
 </div>
@@ -101,21 +101,21 @@
  <div class="refsect1 examples" id="refsect1-function.gnupg-decryptverify-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3165">
+   <div class="example" id="example-3230">
     <p><strong>Example #1 Procedural <span class="function"><strong>gnupg_decryptverify()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$plaintext&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gnupg_init</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">gnupg_adddecryptkey</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,</span><span style="color: #DD0000">"8660281B6051D071D94B5B230549F9DC851566DC"</span><span style="color: #007700">,</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$info&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gnupg_decryptverify</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,</span><span style="color: #0000BB">$text</span><span style="color: #007700">,</span><span style="color: #0000BB">$plaintext</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$plaintext </span><span style="color: #007700">= </span><span style="color: #DD0000">""</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$res </span><span style="color: #007700">= </span><span style="color: #0000BB">gnupg_init</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">gnupg_adddecryptkey</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,</span><span style="color: #DD0000">"8660281B6051D071D94B5B230549F9DC851566DC"</span><span style="color: #007700">,</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$info </span><span style="color: #007700">= </span><span style="color: #0000BB">gnupg_decryptverify</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,</span><span style="color: #0000BB">$text</span><span style="color: #007700">,</span><span style="color: #0000BB">$plaintext</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-3166">
+   <div class="example" id="example-3231">
     <p><strong>Example #2 OO <span class="function"><strong>gnupg_decryptverify()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$plaintext&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$gpg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$gpg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">adddecryptkey</span><span style="color: #007700">(</span><span style="color: #DD0000">"8660281B6051D071D94B5B230549F9DC851566DC"</span><span style="color: #007700">,</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$info&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$gpg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">decryptverify</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">,</span><span style="color: #0000BB">$plaintext</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$plaintext </span><span style="color: #007700">= </span><span style="color: #DD0000">""</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$gpg </span><span style="color: #007700">= new </span><span style="color: #0000BB">gnupg</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$gpg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">adddecryptkey</span><span style="color: #007700">(</span><span style="color: #DD0000">"8660281B6051D071D94B5B230549F9DC851566DC"</span><span style="color: #007700">,</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$info </span><span style="color: #007700">= </span><span style="color: #0000BB">$gpg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">decryptverify</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">,</span><span style="color: #0000BB">$plaintext</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

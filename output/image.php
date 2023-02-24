@@ -23,9 +23,9 @@ namespace {
 	/**
 	 * Retrieve information about the currently installed GD library
 	 * <p>Gets information about the version and capabilities of the installed GD library.</p>
-	 * @return array <p>Returns an associative array.</p> <b>Elements of array returned by <b>gd_info()</b></b>   Attribute Meaning     GD Version <code>string</code> value describing the installed <code>libgd</code> version.   FreeType Support <code>bool</code> value. <b><code>true</code></b> if FreeType Support is installed.   FreeType Linkage <code>string</code> value describing the way in which FreeType was linked. Expected values are: 'with freetype', 'with TTF library', and 'with unknown library'. This element will only be defined if <code>FreeType Support</code> evaluated to <b><code>true</code></b>.   GIF Read Support <code>bool</code> value. <b><code>true</code></b> if support for <i>reading</i> <code>GIF</code> images is included.   GIF Create Support <code>bool</code> value. <b><code>true</code></b> if support for <i>creating</i> <code>GIF</code> images is included.   JPEG Support <code>bool</code> value. <b><code>true</code></b> if <code>JPEG</code> support is included.   PNG Support <code>bool</code> value. <b><code>true</code></b> if <code>PNG</code> support is included.   WBMP Support <code>bool</code> value. <b><code>true</code></b> if <code>WBMP</code> support is included.   XBM Support <code>bool</code> value. <b><code>true</code></b> if <code>XBM</code> support is included.   WebP Support <code>bool</code> value. <b><code>true</code></b> if <code>WebP</code> support is included.
+	 * @return array <p>Returns an associative array.</p> <b>Elements of array returned by <b>gd_info()</b></b>   Attribute Meaning     GD Version <code>string</code> value describing the installed <code>libgd</code> version.   FreeType Support <code>bool</code> value. <b><code>true</code></b> if FreeType Support is installed.   FreeType Linkage <code>string</code> value describing the way in which FreeType was linked. Expected values are: 'with freetype', 'with TTF library', and 'with unknown library'. This element will only be defined if <code>FreeType Support</code> evaluated to <b><code>true</code></b>.   GIF Read Support <code>bool</code> value. <b><code>true</code></b> if support for <i>reading</i> <code>GIF</code> images is included.   GIF Create Support <code>bool</code> value. <b><code>true</code></b> if support for <i>creating</i> <code>GIF</code> images is included.   JPEG Support <code>bool</code> value. <b><code>true</code></b> if <code>JPEG</code> support is included.   PNG Support <code>bool</code> value. <b><code>true</code></b> if <code>PNG</code> support is included.   WBMP Support <code>bool</code> value. <b><code>true</code></b> if <code>WBMP</code> support is included.   XBM Support <code>bool</code> value. <b><code>true</code></b> if <code>XBM</code> support is included.   WebP Support <code>bool</code> value. <b><code>true</code></b> if <code>WebP</code> support is included.   AVIF Support <code>bool</code> value. <b><code>true</code></b> if <code>AVIF</code> support is included. Available as of PHP 8.1.0.
 	 * @link https://php.net/manual/en/function.gd-info.php
-	 * @see imagepng(), imagejpeg(), imagegif(), imagewbmp(), imagewebp(), imagetypes()
+	 * @see imagepng(), imagejpeg(), imagegif(), imagewbmp(), imagewebp(), imageavif(), imagetypes()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function gd_info(): array {}
@@ -34,8 +34,8 @@ namespace {
 	 * Get the size of an image
 	 * <p>The <b>getimagesize()</b> function will determine the size of any supported given image file and return the dimensions along with the file type and a <code>height/width</code> text string to be used inside a normal HTML <code>IMG</code> tag and the correspondent HTTP content type.</p><p><b>getimagesize()</b> can also return some more information in <code>image_info</code> parameter.</p><p>This function expects <code>filename</code> to be a valid image file. If a non-image file is supplied, it may be incorrectly detected as an image and the function will return successfully, but the array may contain nonsensical values.</p><p>Do not use <b>getimagesize()</b> to check that a given file is a valid image. Use a purpose-built solution such as the Fileinfo extension instead.</p><p><b>Note</b>:  Note that JPC and JP2 are capable of having components with different bit depths. In this case, the value for "bits" is the highest bit depth encountered. Also, JP2 files may contain <code>multiple JPEG 2000 codestreams</code>. In this case, <b>getimagesize()</b> returns the values for the first codestream it encounters in the root of the file. </p><p><b>Note</b>:  The information about icons are retrieved from the icon with the highest bitrate. </p><p><b>Note</b>:  GIF images consist of one or more frames, where each frame may only occupy part of the image. The size of the image which is reported by <b>getimagesize()</b> is the overall size (read from the logical screen descriptor). </p>
 	 * @param string $filename <p>This parameter specifies the file you wish to retrieve information about. It can reference a local file or (configuration permitting) a remote file using one of the supported streams.</p>
-	 * @param array $image_info <p>This optional parameter allows you to extract some extended information from the image file. Currently, this will return the different JPG APP markers as an associative array. Some programs use these APP markers to embed text information in images. A very common one is to embed IPTC information in the APP13 marker. You can use the <code>iptcparse()</code> function to parse the binary APP13 marker into something readable.</p> <p><b>Note</b>:</p><p>The <code>image_info</code> only supports JFIF files.</p>
-	 * @return array|false <p>Returns an array with up to 7 elements. Not all image types will include the <code>channels</code> and <code>bits</code> elements.</p><p>Index 0 and 1 contains respectively the width and the height of the image.</p><p><b>Note</b>:</p><p>Some formats may contain no image or may contain multiple images. In these cases, <b>getimagesize()</b> might not be able to properly determine the image size. <b>getimagesize()</b> will return zero for width and height in these cases.</p> <p>Index 2 is one of the IMAGETYPE_XXX constants indicating the type of the image.</p><p>Index 3 is a text string with the correct <code>height="yyy" width="xxx"</code> string that can be used directly in an IMG tag.</p><p><code>mime</code> is the correspondant MIME type of the image. This information can be used to deliver images with the correct HTTP <code>Content-type</code> header:</p> <p><b>Example #1 <b>getimagesize()</b> and MIME types</b></p>  <code> &lt;&#63;php<br>$size&nbsp;=&nbsp;getimagesize($filename);<br>$fp&nbsp;=&nbsp;fopen($filename,&nbsp;"rb");<br>if&nbsp;($size&nbsp;&amp;&amp;&nbsp;$fp)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;header("Content-type:&nbsp;{$size['mime']}");<br>&nbsp;&nbsp;&nbsp;&nbsp;fpassthru($fp);<br>&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;error<br>}<br>&#63;&gt;  </code>  <p><code>channels</code> will be 3 for RGB pictures and 4 for CMYK pictures.</p><p><code>bits</code> is the number of bits for each color.</p><p>For some image types, the presence of <code>channels</code> and <code>bits</code> values can be a bit confusing. As an example, GIF always uses 3 channels per pixel, but the number of bits per pixel cannot be calculated for an animated GIF with a global color table.</p><p>On failure, <b><code>false</code></b> is returned.</p>
+	 * @param array $image_info <p>This optional parameter allows you to extract some extended information from the image file. Currently, this will return the different JPG APP markers as an associative array. Some programs use these APP markers to embed text information in images. A very common one is to embed &#xBB;&#xA0;IPTC information in the APP13 marker. You can use the <code>iptcparse()</code> function to parse the binary APP13 marker into something readable.</p> <p><b>Note</b>:</p><p>The <code>image_info</code> only supports JFIF files.</p>
+	 * @return array|false <p>Returns an array with up to 7 elements. Not all image types will include the <code>channels</code> and <code>bits</code> elements.</p><p>Index 0 and 1 contains respectively the width and the height of the image.</p><p><b>Note</b>:</p><p>Some formats may contain no image or may contain multiple images. In these cases, <b>getimagesize()</b> might not be able to properly determine the image size. <b>getimagesize()</b> will return zero for width and height in these cases.</p> <p>Index 2 is one of the IMAGETYPE_XXX constants indicating the type of the image.</p><p>Index 3 is a text string with the correct <code>height="yyy" width="xxx"</code> string that can be used directly in an IMG tag.</p><p><code>mime</code> is the correspondant MIME type of the image. This information can be used to deliver images with the correct HTTP <code>Content-type</code> header:</p> <p><b>Example #1 <b>getimagesize()</b> and MIME types</b></p>  <code> &lt;&#63;php<br>$size = getimagesize($filename);<br>$fp = fopen($filename, "rb");<br>if ($size &amp;&amp; $fp) {<br> header("Content-type: {$size['mime']}");<br> fpassthru($fp);<br> exit;<br>} else {<br> // error<br>}<br>&#63;&gt;  </code>  <p><code>channels</code> will be 3 for RGB pictures and 4 for CMYK pictures.</p><p><code>bits</code> is the number of bits for each color.</p><p>For some image types, the presence of <code>channels</code> and <code>bits</code> values can be a bit confusing. As an example, GIF always uses 3 channels per pixel, but the number of bits per pixel cannot be calculated for an animated GIF with a global color table.</p><p>On failure, <b><code>false</code></b> is returned.</p>
 	 * @link https://php.net/manual/en/function.getimagesize.php
 	 * @see image_type_to_mime_type(), exif_imagetype(), exif_read_data(), exif_thumbnail(), imagesx(), imagesy()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -157,7 +157,7 @@ namespace {
 	 * @param int $width <p>The arc width.</p>
 	 * @param int $height <p>The arc height.</p>
 	 * @param int $start_angle <p>The arc start angle, in degrees.</p>
-	 * @param int $end_angle <p>The arc end angle, in degrees. 0&deg; is located at the three-o'clock position, and the arc is drawn clockwise.</p>
+	 * @param int $end_angle <p>The arc end angle, in degrees. 0&#xB0; is located at the three-o'clock position, and the arc is drawn clockwise.</p>
 	 * @param int $color <p>A color identifier created with <code>imagecolorallocate()</code>.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagearc.php
@@ -400,12 +400,12 @@ namespace {
 	 * @param int $green <p>Value of green component.</p>
 	 * @param int $blue <p>Value of blue component.</p>
 	 * @param int $alpha <p>Value of alpha component.</p>
-	 * @return ?bool <p>The function returns <b><code>null</code></b> on success, or <b><code>false</code></b> on failure.</p>
+	 * @return ?false <p>The function returns <b><code>null</code></b> on success, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagecolorset.php
 	 * @see imagecolorat()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function imagecolorset(\GdImage $image, int $color, int $red, int $green, int $blue, int $alpha = 0): ?bool {}
+	function imagecolorset(\GdImage $image, int $color, int $red, int $green, int $blue, int $alpha = 0): ?false {}
 
 	/**
 	 * Get the colors for an index
@@ -809,7 +809,7 @@ namespace {
 	 * @param int $width <p>The arc width.</p>
 	 * @param int $height <p>The arc height.</p>
 	 * @param int $start_angle <p>The arc start angle, in degrees.</p>
-	 * @param int $end_angle <p>The arc end angle, in degrees. 0&deg; is located at the three-o'clock position, and the arc is drawn clockwise.</p>
+	 * @param int $end_angle <p>The arc end angle, in degrees. 0&#xB0; is located at the three-o'clock position, and the arc is drawn clockwise.</p>
 	 * @param int $color <p>A color identifier created with <code>imagecolorallocate()</code>.</p>
 	 * @param int $style <p>A bitwise OR of the following possibilities:</p><ol> <li><b><code>IMG_ARC_PIE</code></b></li> <li><b><code>IMG_ARC_CHORD</code></b></li> <li><b><code>IMG_ARC_NOFILL</code></b></li> <li><b><code>IMG_ARC_EDGED</code></b></li> </ol> <b><code>IMG_ARC_PIE</code></b> and <b><code>IMG_ARC_CHORD</code></b> are mutually exclusive; <b><code>IMG_ARC_CHORD</code></b> just connects the starting and ending angles with a straight line, while <b><code>IMG_ARC_PIE</code></b> produces a rounded edge. <b><code>IMG_ARC_NOFILL</code></b> indicates that the arc or chord should be outlined, not filled. <b><code>IMG_ARC_EDGED</code></b>, used together with <b><code>IMG_ARC_NOFILL</code></b>, indicates that the beginning and ending angles should be connected to the center - this is a good way to outline (rather than fill) a 'pie slice'.
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -946,7 +946,7 @@ namespace {
 	 * @param int $x <p>The coordinates given by <code>x</code> and <code>y</code> will define the basepoint of the first character (roughly the lower-left corner of the character). This is different from the <code>imagestring()</code>, where <code>x</code> and <code>y</code> define the upper-left corner of the first character. For example, "top left" is 0, 0.</p>
 	 * @param int $y <p>The y-ordinate. This sets the position of the fonts baseline, not the very bottom of the character.</p>
 	 * @param int $color <p>The index of the desired color for the text, see <code>imagecolorexact()</code>.</p>
-	 * @param string $font_filename <p>The path to the TrueType font you wish to use.</p> <p>Depending on which version of the GD library PHP is using, <i>when <code>font_filename</code> does not begin with a leading <code>/</code> then <code>.ttf</code> will be appended</i> to the filename and the library will attempt to search for that filename along a library-defined font path.</p> <p>In many cases where a font resides in the same directory as the script using it the following trick will alleviate any include problems.</p> <code> &lt;&#63;php<br>//&nbsp;Set&nbsp;the&nbsp;environment&nbsp;variable&nbsp;for&nbsp;GD<br>putenv('GDFONTPATH='&nbsp;.&nbsp;realpath('.'));<br><br>//&nbsp;Name&nbsp;the&nbsp;font&nbsp;to&nbsp;be&nbsp;used&nbsp;(note&nbsp;the&nbsp;lack&nbsp;of&nbsp;the&nbsp;.ttf&nbsp;extension)<br>$font&nbsp;=&nbsp;'SomeFont';<br>&#63;&gt;  </code>
+	 * @param string $font_filename <p>The path to the TrueType font you wish to use.</p> <p>Depending on which version of the GD library PHP is using, <i>when <code>font_filename</code> does not begin with a leading <code>/</code> then <code>.ttf</code> will be appended</i> to the filename and the library will attempt to search for that filename along a library-defined font path.</p> <p>In many cases where a font resides in the same directory as the script using it the following trick will alleviate any include problems.</p> <code> &lt;&#63;php<br>// Set the environment variable for GD<br>putenv('GDFONTPATH=' . realpath('.'));<br><br>// Name the font to be used (note the lack of the .ttf extension)<br>$font = 'SomeFont';<br>&#63;&gt;  </code>
 	 * @param string $text <p>Text to be inserted into image.</p>
 	 * @param array $options <p></p> <b>Possible array indexes for <code>options</code></b>   Key Type Meaning     <code>linespacing</code> <code>float</code> Defines drawing linespacing
 	 * @return array|false <p>This function returns an array defining the four points of the box, starting in the lower left and moving counter-clockwise:</p>   0 lower left x-coordinate   1 lower left y-coordinate   2 lower right x-coordinate   3 lower right y-coordinate   4 upper right x-coordinate   5 upper right y-coordinate   6 upper left x-coordinate   7 upper left y-coordinate   <p>On failure, <b><code>false</code></b> is returned.</p>
@@ -1163,7 +1163,7 @@ namespace {
 	 * <p>Outputs or saves a PNG image from the given <code>image</code>.</p>
 	 * @param \GdImage $image <p>A <code>GdImage</code> object, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param resource|string|null $file <p>The path or an open stream resource (which is automatically closed after this function returns) to save the file to. If not set or <b><code>null</code></b>, the raw image stream will be output directly.</p> <p><b>Note</b>:</p><p><b><code>null</code></b> is invalid if the <code>quality</code> and <code>filters</code> arguments are not used.</p>
-	 * @param int $quality <p>Compression level: from 0 (no compression) to 9. The default (<code>-1</code>) uses the zlib compression default. For more information see the zlib manual.</p>
+	 * @param int $quality <p>Compression level: from 0 (no compression) to 9. The default (<code>-1</code>) uses the zlib compression default. For more information see the &#xBB;&#xA0;zlib manual.</p>
 	 * @param int $filters <p>Allows reducing the PNG file size. It is a bitmask field which may be set to any combination of the <code>PNG_FILTER_XXX</code> constants. <b><code>PNG_NO_FILTER</code></b> or <b><code>PNG_ALL_FILTERS</code></b> may also be used to respectively disable or activate all filters. The default value (<code>-1</code>) disables filtering.</p> <b>Caution</b> <p>The <code>filters</code> parameter is ignored by system libgd.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.imagepng.php
@@ -1227,8 +1227,8 @@ namespace {
 	function imagerotate(\GdImage $image, float $angle, int $background_color, bool $ignore_transparent = false): \GdImage|false {}
 
 	/**
-	 * Whether to retain full alpha channel information when saving PNG images
-	 * <p><b>imagesavealpha()</b> sets the flag which determines whether to retain full alpha channel information (as opposed to single-color transparency) when saving PNG images.</p><p>Alphablending has to be disabled (<code>imagealphablending($im, false)</code>) to retain the alpha-channel in the first place.</p>
+	 * Whether to retain full alpha channel information when saving images
+	 * <p><b>imagesavealpha()</b> sets the flag which determines whether to retain full alpha channel information (as opposed to single-color transparency) when saving images. This is only supported for image formats which support full alpha channel information, i.e. <code>PNG</code>, <code>WebP</code> and <code>AVIF</code>.</p><p><b>Note</b>:  <b>imagesavealpha()</b> is only meaningful for <code>PNG</code> images, since the full alpha channel is always saved for <code>WebP</code> and <code>AVIF</code>. It is not recommended to rely on this behavior, as it may change in the future. Thus, <b>imagesavealpha()</b> should be called deliberately also for <code>WebP</code> and <code>AVIF</code> images. </p><p>Alphablending has to be disabled (<code>imagealphablending($im, false)</code>) to retain the alpha-channel in the first place.</p>
 	 * @param \GdImage $image <p>A <code>GdImage</code> object, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param bool $enable <p>Whether to save the alpha channel or not. Defaults to <b><code>false</code></b>.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -1374,7 +1374,7 @@ namespace {
 	 * Get image width
 	 * <p>Returns the width of the given <code>image</code> object.</p>
 	 * @param \GdImage $image <p>A <code>GdImage</code> object, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @return int <p>Return the width of the <code>image</code> or <b><code>false</code></b> on errors.</p>
+	 * @return int <p>Return the width of the <code>image</code>.</p>
 	 * @link https://php.net/manual/en/function.imagesx.php
 	 * @see imagecreatetruecolor(), getimagesize(), imagesy()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -1385,7 +1385,7 @@ namespace {
 	 * Get image height
 	 * <p>Returns the height of the given <code>image</code> object.</p>
 	 * @param \GdImage $image <p>A <code>GdImage</code> object, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @return int <p>Return the height of the <code>image</code> or <b><code>false</code></b> on errors.</p>
+	 * @return int <p>Return the height of the <code>image</code>.</p>
 	 * @link https://php.net/manual/en/function.imagesy.php
 	 * @see imagecreatetruecolor(), getimagesize(), imagesx()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -1441,7 +1441,7 @@ namespace {
 	/**
 	 * Return the image types supported by this PHP build
 	 * <p>Returns the image types supported by the current PHP installation.</p>
-	 * @return int <p>Returns a bit-field corresponding to the image formats supported by the version of GD linked into PHP. The following bits are returned, <b><code>IMG_BMP</code></b> | <b><code>IMG_GIF</code></b> | <b><code>IMG_JPG</code></b> | <b><code>IMG_PNG</code></b> | <b><code>IMG_WBMP</code></b> | <b><code>IMG_XPM</code></b> | <b><code>IMG_WEBP</code></b>.</p>
+	 * @return int <p>Returns a bit-field corresponding to the image formats supported by the version of GD linked into PHP. The following bits are returned, <b><code>IMG_AVIF</code></b> | <b><code>IMG_BMP</code></b> | <b><code>IMG_GIF</code></b> | <b><code>IMG_JPG</code></b> | <b><code>IMG_PNG</code></b> | <b><code>IMG_WBMP</code></b> | <b><code>IMG_XPM</code></b> | <b><code>IMG_WEBP</code></b>.</p>
 	 * @link https://php.net/manual/en/function.imagetypes.php
 	 * @see gd_info()
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7, PHP 8
@@ -1499,7 +1499,7 @@ namespace {
 
 	/**
 	 * Parse a binary IPTC block into single tags
-	 * <p>Parses an IPTC block into its single tags.</p>
+	 * <p>Parses an &#xBB;&#xA0;IPTC block into its single tags.</p>
 	 * @param string $iptc_block <p>A binary IPTC block.</p>
 	 * @return array|false <p>Returns an array using the tagmarker as an index and the value as the value. It returns <b><code>false</code></b> on error or if no IPTC data was found.</p>
 	 * @link https://php.net/manual/en/function.iptcparse.php
@@ -1711,6 +1711,11 @@ namespace {
 	 * A style constant used by the <code>imagefilledarc()</code> function.  <p><b>Note</b>:</p><p>This constant has the same value as <b><code>IMG_ARC_PIE</code></b></p>
 	 */
 	define('IMG_ARC_ROUNDED', null);
+
+	/**
+	 * Used as a return value by <code>imagetypes()</code>   Available as of PHP 8.1.0.
+	 */
+	define('IMG_AVIF', null);
 
 	/**
 	 * Used together with <code>imagesetinterpolation()</code>, available as of PHP 5.5.0.
@@ -1986,6 +1991,11 @@ namespace {
 	 * Used as a return value by <code>imagetypes()</code>   Available as of PHP 7.0.10.
 	 */
 	define('IMG_WEBP', null);
+
+	/**
+	 * Available as of PHP 8.1.0.
+	 */
+	define('IMG_WEBP_LOSSLESS', null);
 
 	/**
 	 * Used together with <code>imagesetinterpolation()</code>, available as of PHP 5.5.0.

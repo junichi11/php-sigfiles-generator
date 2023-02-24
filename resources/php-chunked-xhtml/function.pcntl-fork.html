@@ -65,11 +65,11 @@
  <div class="refsect1 examples" id="refsect1-function.pcntl-fork-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3294">
+   <div class="example" id="example-3365">
     <p><strong>Example #1 <span class="function"><strong>pcntl_fork()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$pid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pcntl_fork</span><span style="color: #007700">();<br />if&nbsp;(</span><span style="color: #0000BB">$pid&nbsp;</span><span style="color: #007700">==&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'could&nbsp;not&nbsp;fork'</span><span style="color: #007700">);<br />}&nbsp;else&nbsp;if&nbsp;(</span><span style="color: #0000BB">$pid</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;we&nbsp;are&nbsp;the&nbsp;parent<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">pcntl_wait</span><span style="color: #007700">(</span><span style="color: #0000BB">$status</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//Protect&nbsp;against&nbsp;Zombie&nbsp;children<br /></span><span style="color: #007700">}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;we&nbsp;are&nbsp;the&nbsp;child<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$pid </span><span style="color: #007700">= </span><span style="color: #0000BB">pcntl_fork</span><span style="color: #007700">();<br />if (</span><span style="color: #0000BB">$pid </span><span style="color: #007700">== -</span><span style="color: #0000BB">1</span><span style="color: #007700">) {<br />     die(</span><span style="color: #DD0000">'could not fork'</span><span style="color: #007700">);<br />} else if (</span><span style="color: #0000BB">$pid</span><span style="color: #007700">) {<br />     </span><span style="color: #FF8000">// we are the parent<br />     </span><span style="color: #0000BB">pcntl_wait</span><span style="color: #007700">(</span><span style="color: #0000BB">$status</span><span style="color: #007700">); </span><span style="color: #FF8000">//Protect against Zombie children<br /></span><span style="color: #007700">} else {<br />     </span><span style="color: #FF8000">// we are the child<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -83,6 +83,7 @@
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.pcntl-rfork.html" class="function" rel="rdfs-seeAlso">pcntl_rfork()</a> - Manipulates process resources</span></li>
     <li class="member"><span class="function"><a href="function.pcntl-waitpid.html" class="function" rel="rdfs-seeAlso">pcntl_waitpid()</a> - Waits on or returns the status of a forked child</span></li>
     <li class="member"><span class="function"><a href="function.pcntl-signal.html" class="function" rel="rdfs-seeAlso">pcntl_signal()</a> - Installs a signal handler</span></li>
     <li class="member"><span class="function"><a href="function.cli-set-process-title.html" class="function" rel="rdfs-seeAlso">cli_set_process_title()</a> - Sets the process title</span></li>

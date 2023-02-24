@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Description</title>
+  <title>Formats a string with image details</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,14 +19,14 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="class.imagick.html">Imagick</a></li>
-    <li>Description</li>
+    <li>Formats a string with image details</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="imagick.identifyformat" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Imagick::identifyFormat</h1>
-  <p class="verinfo">(PECL imagick 3 &gt;= 3.3.0)</p><p class="refpurpose"><span class="refname">Imagick::identifyFormat</span> &mdash; <span class="dc-title">Description</span></p>
+  <p class="verinfo">(PECL imagick 3 &gt;= 3.3.0)</p><p class="refpurpose"><span class="refname">Imagick::identifyFormat</span> &mdash; <span class="dc-title">Formats a string with image details</span></p>
 
  </div>
 
@@ -77,11 +77,11 @@
  <div class="refsect1 examples" id="refsect1-imagick.identifyformat-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-    <div class="example" id="example-2800">
+    <div class="example" id="example-2870">
       <p><strong>Example #1  <span class="function"><strong>Imagick::identifyFormat()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$output&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Output&nbsp;of&nbsp;'Trim&nbsp;box:&nbsp;%@&nbsp;number&nbsp;of&nbsp;unique&nbsp;colors:&nbsp;%k'&nbsp;is:&nbsp;&lt;br/&gt;"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$imagick&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;\</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">(</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #DD0000">"./images/artifact/mask.png"</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output&nbsp;</span><span style="color: #007700">.=&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">identifyFormat</span><span style="color: #007700">(</span><span style="color: #DD0000">"Trim&nbsp;box:&nbsp;%@&nbsp;number&nbsp;of&nbsp;unique&nbsp;colors:&nbsp;%k"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />        $output </span><span style="color: #007700">= </span><span style="color: #DD0000">"Output of 'Trim box: %@ number of unique colors: %k' is: &lt;br/&gt;"</span><span style="color: #007700">;<br />        </span><span style="color: #0000BB">$imagick </span><span style="color: #007700">= new \</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">(</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #DD0000">"./images/artifact/mask.png"</span><span style="color: #007700">));<br />        </span><span style="color: #0000BB">$output </span><span style="color: #007700">.= </span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">identifyFormat</span><span style="color: #007700">(</span><span style="color: #DD0000">"Trim box: %@ number of unique colors: %k"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>

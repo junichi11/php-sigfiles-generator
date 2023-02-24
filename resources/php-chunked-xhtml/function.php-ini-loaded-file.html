@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="function.memory-get-usage.html">« memory_get_usage</a></li>
+      <li style="float: left;"><a href="function.memory-reset-peak-usage.html">« memory_reset_peak_usage</a></li>
       <li style="float: right;"><a href="function.php-ini-scanned-files.html">php_ini_scanned_files »</a></li>
     </ul>
   </div>
@@ -58,11 +58,11 @@
  <div class="refsect1 examples" id="refsect1-function.php-ini-loaded-file-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-566">
+   <div class="example" id="example-584">
     <p><strong>Example #1 <span class="function"><strong>php_ini_loaded_file()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$inipath&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">php_ini_loaded_file</span><span style="color: #007700">();<br /><br />if&nbsp;(</span><span style="color: #0000BB">$inipath</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Loaded&nbsp;php.ini:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$inipath</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'A&nbsp;php.ini&nbsp;file&nbsp;is&nbsp;not&nbsp;loaded'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$inipath </span><span style="color: #007700">= </span><span style="color: #0000BB">php_ini_loaded_file</span><span style="color: #007700">();<br /><br />if (</span><span style="color: #0000BB">$inipath</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">'Loaded php.ini: ' </span><span style="color: #007700">. </span><span style="color: #0000BB">$inipath</span><span style="color: #007700">;<br />} else {<br />    echo </span><span style="color: #DD0000">'A php.ini file is not loaded'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

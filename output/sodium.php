@@ -63,6 +63,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -478,6 +490,152 @@ namespace {
 	function sodium_crypto_box_seed_keypair(string $seed): string {}
 
 	/**
+	 * Adds an element
+	 * <p>Adds an element <code>q</code> to <code>p</code>. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $p <p>An element.</p>
+	 * @param string $q <p>An element.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-add.php
+	 * @see sodium_crypto_core_ristretto255_random(), sodium_crypto_core_ristretto255_sub()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_core_ristretto255_add(string $p, string $q): string {}
+
+	/**
+	 * Maps a vector
+	 * <p>Maps a 64-bytes vector <code>s</code> to a group element. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $s <p>A 64-bytes vector.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-from-hash.php
+	 * @see sodium_hex2bin(), sodium_bin2hex()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_core_ristretto255_from_hash(string $s): string {}
+
+	/**
+	 * Determines if a point on the ristretto255 curve
+	 * <p>Determines if a point on the ristretto255 curve, in canonical form, on the main subgroup, and that the point doesn't have a small order. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $s <p>An Elliptic-curve point.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if <code>s</code> is on the ristretto255 curve, <b><code>false</code></b> otherwise.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-is-valid-point.php
+	 * @see sodium_crypto_core_ristretto255_scalar_random(), sodium_crypto_scalarmult_ristretto255_base()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_core_ristretto255_is_valid_point(string $s): bool {}
+
+	/**
+	 * Generates a random key
+	 * <p>Generates a random key. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-random.php
+	 * @see sodium_crypto_core_ristretto255_add(), sodium_crypto_core_ristretto255_sub()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_core_ristretto255_random(): string {}
+
+	/**
+	 * Adds a scalar value
+	 * <p>Adds an element <code>y</code> to <code>x</code>. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $x <p>Scalar, representing the X coordinate.</p>
+	 * @param string $y <p>Scalar, representing the Y coordinate.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-add.php
+	 * @see sodium_crypto_core_ristretto255_scalar_random(), sodium_crypto_core_ristretto255_scalar_sub()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_core_ristretto255_scalar_add(string $x, string $y): string {}
+
+	/**
+	 * The sodium_crypto_core_ristretto255_scalar_complement purpose
+	 * <p>Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $s <p>Scalar value.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-complement.php
+	 * @see sodium_crypto_core_ristretto255_scalar_random()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_core_ristretto255_scalar_complement(string $s): string {}
+
+	/**
+	 * Inverts a scalar value
+	 * <p>Inverts a scalar value. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $s <p>Scalar value.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-invert.php
+	 * @see sodium_crypto_core_ristretto255_scalar_random()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_core_ristretto255_scalar_invert(string $s): string {}
+
+	/**
+	 * Multiplies a scalar value
+	 * <p>Multiplies a scalar value. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $x <p>Scalar, representing the X coordinate.</p>
+	 * @param string $y <p>Scalar, representing the Y coordinate.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-mul.php
+	 * @see sodium_crypto_core_ristretto255_scalar_random()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_core_ristretto255_scalar_mul(string $x, string $y): string {}
+
+	/**
+	 * Negates a scalar value
+	 * <p>Negates a scalar value. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $s <p>Scalar value.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-negate.php
+	 * @see sodium_crypto_core_ristretto255_scalar_random()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_core_ristretto255_scalar_negate(string $s): string {}
+
+	/**
+	 * Generates a random key
+	 * <p>Generates a random key. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-random.php
+	 * @see sodium_crypto_core_ristretto255_scalar_add(), sodium_crypto_core_ristretto255_scalar_sub()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_core_ristretto255_scalar_random(): string {}
+
+	/**
+	 * Reduces a scalar value
+	 * <p>Reduces a scalar value. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $s <p>Scalar value.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-reduce.php
+	 * @see sodium_crypto_core_ristretto255_scalar_random()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_core_ristretto255_scalar_reduce(string $s): string {}
+
+	/**
+	 * Subtracts a scalar value
+	 * <p>Subtracts a scalar <code>y</code> from <code>x</code>. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $x <p>Scalar, representing the X coordinate.</p>
+	 * @param string $y <p>Scalar, representing the Y coordinate.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-sub.php
+	 * @see sodium_crypto_core_ristretto255_scalar_random(), sodium_crypto_core_ristretto255_scalar_add()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_core_ristretto255_scalar_sub(string $x, string $y): string {}
+
+	/**
+	 * Subtracts an element
+	 * <p>Subtracts an element <code>q</code> from <code>p</code>. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $p <p>An element.</p>
+	 * @param string $q <p>An element.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-sub.php
+	 * @see sodium_crypto_core_ristretto255_random(), sodium_crypto_core_ristretto255_add()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_core_ristretto255_sub(string $p, string $q): string {}
+
+	/**
 	 * Get a hash of the message
 	 * <p>Hash a message with BLAKE2b.</p>
 	 * @param string $message <p>The message being hashed.</p>
@@ -723,6 +881,29 @@ namespace {
 	 * @since PHP 7 >= 7.2.0, PHP 8
 	 */
 	function sodium_crypto_scalarmult_base(string $secret_key): string {}
+
+	/**
+	 * Computes a shared secret
+	 * <p>Calculates scalar <code>n</code> times point <code>p</code>. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $n <p>A scalar, which is typically a secret key.</p>
+	 * @param string $p <p>A point (x-coordinate), which is typically a public key.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-scalarmult-ristretto255.php
+	 * @see sodium_crypto_scalarmult_ristretto255_base()
+	 * @since PHP 8 >= 8.1.1
+	 */
+	function sodium_crypto_scalarmult_ristretto255(string $n, string $p): string {}
+
+	/**
+	 * Calculates the public key from a secret key
+	 * <p>Given a secret key, calculates the corresponding public key. Available as of libsodium 1.0.18.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $n <p>A secret key.</p>
+	 * @return string <p>Returns a 32-byte random <code>string</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-scalarmult-ristretto255-base.php
+	 * @see sodium_crypto_scalarmult_ristretto255()
+	 * @since PHP 8 >= 8.1.1
+	 */
+	function sodium_crypto_scalarmult_ristretto255_base(string $n): string {}
 
 	/**
 	 * Authenticated shared-key encryption
@@ -992,6 +1173,54 @@ namespace {
 	function sodium_crypto_stream_keygen(): string {}
 
 	/**
+	 * Expands the key and nonce into a keystream of pseudorandom bytes
+	 * <p>Expands the <code>key</code> and <code>nonce</code> into a keystream of pseudorandom bytes.</p>
+	 * @param int $length <p>Number of bytes desired.</p>
+	 * @param string $nonce <p>24-byte nonce.</p>
+	 * @param string $key <p>Key, possibly generated from <code>sodium_crypto_stream_xchacha20_keygen()</code>.</p>
+	 * @return string <p>Returns a pseudorandom stream that can be used with <code>sodium_crypto_stream_xchacha20_xor()</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-stream-xchacha20.php
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_stream_xchacha20(int $length, string $nonce, string $key): string {}
+
+	/**
+	 * Returns a secure random key
+	 * <p>Returns a secure random key for use with <code>sodium_crypto_stream_xchacha20()</code>.</p>
+	 * @return string <p>Returns a 32-byte secure random key for use with <code>sodium_crypto_stream_xchacha20()</code>.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-stream-xchacha20-keygen.php
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_stream_xchacha20_keygen(): string {}
+
+	/**
+	 * Encrypts a message using a nonce and a secret key (no authentication)
+	 * <p>Encrypts a <code>message</code> using a <code>nonce</code> and a secret <code>key</code> (no authentication).</p><p>This encryption is unauthenticated, and does not prevent chosen-ciphertext attacks. Make sure to combine the ciphertext with a Message Authentication Code, for example with <code>sodium_crypto_aead_xchacha20poly1305_ietf_encrypt()</code> function, or <code>sodium_crypto_auth()</code>.</p>
+	 * @param string $message <p>The message to encrypt.</p>
+	 * @param string $nonce <p>24-byte nonce.</p>
+	 * @param string $key <p>Key, possibly generated from <code>sodium_crypto_stream_xchacha20_keygen()</code>.</p>
+	 * @return string <p>Encrypted message.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-stream-xchacha20-xor.php
+	 * @see sodium_crypto_stream_xchacha20_xor_ic()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function sodium_crypto_stream_xchacha20_xor(string $message, string $nonce, string $key): string {}
+
+	/**
+	 * Encrypts a message using a nonce and a secret key (no authentication)
+	 * <p>The function is similar to <code>sodium_crypto_stream_xchacha20_xor()</code> but adds the ability to set the initial value of the block counter to a non-zero value. This permits direct access to any block without having to compute the previous ones.</p><p>This encryption is unauthenticated, and does not prevent chosen-ciphertext attacks. Make sure to combine the ciphertext with a Message Authentication Code, for example with <code>sodium_crypto_aead_xchacha20poly1305_ietf_encrypt()</code> function, or <code>sodium_crypto_auth()</code>.</p>
+	 * @param string $message <p>The message to encrypt.</p>
+	 * @param string $nonce <p>24-byte nonce.</p>
+	 * @param int $counter <p>The initial value of the block counter.</p>
+	 * @param string $key <p>Key, possibly generated from <code>sodium_crypto_stream_xchacha20_keygen()</code>.</p>
+	 * @return string <p>Encrypted message, or <b><code>false</code></b> on failure.</p>
+	 * @link https://php.net/manual/en/function.sodium-crypto-stream-xchacha20-xor-ic.php
+	 * @see sodium_crypto_stream_xchacha20_xor()
+	 * @since PHP 8 >= 8.2.0
+	 */
+	function sodium_crypto_stream_xchacha20_xor_ic(string $message, string $nonce, int $counter, string $key): string {}
+
+	/**
 	 * Encrypt a message without authentication
 	 * <p>This function encrypts a message with XSalsa20, but does not provide any ciphertext guarantees about the plaintext.</p>
 	 * @param string $message <p>The message to encrypt</p>
@@ -1109,6 +1338,26 @@ namespace {
 
 	define('SODIUM_CRYPTO_BOX_SEEDBYTES', 32);
 
+	/**
+	 * Available as of PHP 8.1.0.
+	 */
+	define('SODIUM_CRYPTO_CORE_RISTRETTO255_BYTES', 32);
+
+	/**
+	 * Available as of PHP 8.1.0.
+	 */
+	define('SODIUM_CRYPTO_CORE_RISTRETTO255_HASHBYTES', 64);
+
+	/**
+	 * Available as of PHP 8.1.0.
+	 */
+	define('SODIUM_CRYPTO_CORE_RISTRETTO255_NONREDUCEDSCALARBYTES', 64);
+
+	/**
+	 * Available as of PHP 8.1.0.
+	 */
+	define('SODIUM_CRYPTO_CORE_RISTRETTO255_SCALARBYTES', 32);
+
 	define('SODIUM_CRYPTO_GENERICHASH_BYTES', 32);
 
 	define('SODIUM_CRYPTO_GENERICHASH_BYTES_MAX', 64);
@@ -1175,6 +1424,16 @@ namespace {
 
 	define('SODIUM_CRYPTO_SCALARMULT_BYTES', 32);
 
+	/**
+	 * Available as of PHP 8.1.0.
+	 */
+	define('SODIUM_CRYPTO_SCALARMULT_RISTRETTO255_BYTES', 32);
+
+	/**
+	 * Available as of PHP 8.1.0.
+	 */
+	define('SODIUM_CRYPTO_SCALARMULT_RISTRETTO255_SCALARBYTES', 32);
+
 	define('SODIUM_CRYPTO_SCALARMULT_SCALARBYTES', 32);
 
 	define('SODIUM_CRYPTO_SECRETBOX_KEYBYTES', 32);
@@ -1200,6 +1459,16 @@ namespace {
 	define('SODIUM_CRYPTO_STREAM_KEYBYTES', 32);
 
 	define('SODIUM_CRYPTO_STREAM_NONCEBYTES', 24);
+
+	/**
+	 * Available as of PHP 8.1.0.
+	 */
+	define('SODIUM_CRYPTO_STREAM_XCHACHA20_KEYBYTES', 32);
+
+	/**
+	 * Available as of PHP 8.1.0.
+	 */
+	define('SODIUM_CRYPTO_STREAM_XCHACHA20_NONCEBYTES', 24);
 
 	define('SODIUM_LIBRARY_MAJOR_VERSION', 10);
 

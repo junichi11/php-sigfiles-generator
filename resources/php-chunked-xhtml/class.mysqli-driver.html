@@ -74,23 +74,8 @@
       <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.driver-version">$<var class="varname">driver_version</var></a></var>;</div>
 
     <div class="fieldsynopsis"><span class="modifier">public</span>
-     <span class="modifier">readonly</span>
-     <span class="type">bool</span>
-      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.embedded">$<var class="varname">embedded</var></a></var>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">public</span>
-     <span class="type">bool</span>
-      <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.reconnect">$<var class="varname">reconnect</var></a></var><span class="initializer"> = false</span>;</div>
-
-    <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="type">int</span>
       <var class="varname"><a href="class.mysqli-driver.html#mysqli-driver.props.report-mode">$<var class="varname">report_mode</var></a></var>;</div>
-
- 
-    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
-    <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="mysqli-driver.embedded-server-end.html" class="methodname">embedded_server_end</a></span>(): <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="mysqli-driver.embedded-server-start.html" class="methodname">embedded_server_start</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$arguments</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$groups</code></span>): <span class="type">bool</span></div>
 
    }</div>
 
@@ -146,7 +131,12 @@
 
      <dd>
 
-      <p class="para">Allow or prevent reconnect (see the mysqli.reconnect INI directive)</p>
+      <p class="para">Allow or prevent reconnect (see the <a href="mysqli.configuration.html#ini.mysqli.reconnect" class="link">mysqli.reconnect</a> INI directive)</p>
+      <div class="warning"><strong class="warning">Warning</strong>
+       <p class="simpara">This property has been <em class="emphasis">removed</em>
+        along with the <a href="mysqli.configuration.html#ini.mysqli.reconnect" class="link">mysqli.reconnect</a> INI directive as of PHP 8.2.0.
+       </p>
+      </div>
      </dd>
 
     
@@ -170,6 +160,54 @@
 
   </div>
 
+
+  <div class="section">
+   <h2 class="title">Changelog</h2>
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.2.0</td>
+       <td>
+         <span class="property">mysqli_driver::$reconnect</span> was removed.
+       </td>
+      </tr>
+
+      <tr>
+       <td>8.1.0</td>
+       <td>
+        <span class="property">mysqli_driver::$driver_version</span> has been deprecated.
+       </td>
+      </tr>
+
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <span class="property">mysqli_driver::$embedded</span> was removed.
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.4.0</td>
+       <td>
+        <span class="methodname"><a href="mysqli-driver.embedded-server-start.html" class="methodname">mysqli_driver::embedded_server_start()</a></span> and
+        <span class="methodname"><strong>mysqli_driver:embedded_server_end()</strong></span> were removed.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </div>
   
  </div>
  

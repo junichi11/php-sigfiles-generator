@@ -52,7 +52,9 @@
      <dd>
 
       <p class="para">
-       An <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span> instance, returned by <span class="function"><a href="function.ldap-connect.html" class="function">ldap_connect()</a></span>.
+       Either an <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span> instance, returned by
+       <span class="function"><a href="function.ldap-connect.html" class="function">ldap_connect()</a></span>, to set the option for that connection,
+       or <strong><code>null</code></strong> to set the option globally.
       </p>
      </dd>
 
@@ -311,7 +313,7 @@
  <td>8.1.0</td>
  <td>
   The <code class="parameter">ldap</code> parameter expects an <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">ldap link</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
 
@@ -325,21 +327,21 @@
  <div class="refsect1 examples" id="refsect1-function.ldap-set-option-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4369">
+   <div class="example" id="example-4448">
     <p><strong>Example #1 Set protocol version</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;$ds&nbsp;is&nbsp;a&nbsp;valid&nbsp;link&nbsp;identifier&nbsp;for&nbsp;a&nbsp;directory&nbsp;server<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">ldap_set_option</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">LDAP_OPT_PROTOCOL_VERSION</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Using&nbsp;LDAPv3"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Failed&nbsp;to&nbsp;set&nbsp;protocol&nbsp;version&nbsp;to&nbsp;3"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// $ds is a valid LDAP\Connection instance for a directory server<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">ldap_set_option</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">, </span><span style="color: #0000BB">LDAP_OPT_PROTOCOL_VERSION</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">"Using LDAPv3"</span><span style="color: #007700">;<br />} else {<br />    echo </span><span style="color: #DD0000">"Failed to set protocol version to 3"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-4370">
+   <div class="example" id="example-4449">
     <p><strong>Example #2 Set server controls</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;$ds&nbsp;is&nbsp;a&nbsp;valid&nbsp;link&nbsp;identifier&nbsp;for&nbsp;a&nbsp;directory&nbsp;server<br />//&nbsp;control&nbsp;with&nbsp;no&nbsp;value<br /></span><span style="color: #0000BB">$ctrl1&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"oid"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"1.2.752.58.10.1"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"iscritical"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;iscritical&nbsp;defaults&nbsp;to&nbsp;FALSE<br /></span><span style="color: #0000BB">$ctrl2&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"oid"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"1.2.752.58.1.10"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"value"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"magic"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;try&nbsp;to&nbsp;set&nbsp;both&nbsp;controls<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">ldap_set_option</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">LDAP_OPT_SERVER_CONTROLS</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">$ctrl1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ctrl2</span><span style="color: #007700">)))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Failed&nbsp;to&nbsp;set&nbsp;server&nbsp;controls"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// $ds is a valid LDAP\Connection instance for a directory server<br />// control with no value<br /></span><span style="color: #0000BB">$ctrl1 </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"oid" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"1.2.752.58.10.1"</span><span style="color: #007700">, </span><span style="color: #DD0000">"iscritical" </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// iscritical defaults to FALSE<br /></span><span style="color: #0000BB">$ctrl2 </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"oid" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"1.2.752.58.1.10"</span><span style="color: #007700">, </span><span style="color: #DD0000">"value" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"magic"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// try to set both controls<br /></span><span style="color: #007700">if (!</span><span style="color: #0000BB">ldap_set_option</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">, </span><span style="color: #0000BB">LDAP_OPT_SERVER_CONTROLS</span><span style="color: #007700">, array(</span><span style="color: #0000BB">$ctrl1</span><span style="color: #007700">, </span><span style="color: #0000BB">$ctrl2</span><span style="color: #007700">))) {<br />    echo </span><span style="color: #DD0000">"Failed to set server controls"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

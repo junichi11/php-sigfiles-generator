@@ -1658,7 +1658,7 @@ namespace {
 		 * The Gmagick constructor
 		 * <p>The <code>Gmagick</code> constructor.</p>
 		 * @param string $filename <p>The path to an image to load or array of paths.</p>
-		 * @return self <p>Returns a new <code>Gmagick</code> object.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/gmagick.construct.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2975,7 +2975,7 @@ namespace {
 		/**
 		 * Sets the image sampling factors
 		 * <p>Sets the image sampling factors.</p>
-		 * @param array $factors <p>An array of doubles representing the sampling factor for each color component (in RGB order).</p>
+		 * @param array $factors <p>An array of <code>float</code>s representing the sampling factor for each color component (in RGB order).</p>
 		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setsamplingfactors.php
 		 * @since PECL gmagick >= Unknown
@@ -3202,7 +3202,7 @@ namespace {
 		/**
 		 * Returns the opacity of stroked object outlines
 		 * <p>Returns the opacity of stroked object outlines.</p>
-		 * @return float <p>Returns a double describing the opacity.</p>
+		 * @return float <p>Returns a <code>float</code> describing the opacity.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.getstrokeopacity.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3211,7 +3211,7 @@ namespace {
 		/**
 		 * Returns the width of the stroke used to draw object outlines
 		 * <p>Returns the width of the stroke used to draw object outlines.</p>
-		 * @return float <p>Returns a double describing the stroke width.</p>
+		 * @return float <p>Returns a <code>float</code> describing the stroke width.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.getstrokewidth.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3449,7 +3449,7 @@ namespace {
 		 * The GmagickPixel constructor
 		 * <p>Constructs an <code>GmagickPixel</code> object. If a color is specified, the object is constructed and then initialised with that color before being returned.</p>
 		 * @param string $color <p>The optional color string to use as the initial value of this object.</p>
-		 * @return self <p>The <code>GmagickPixel</code> object.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/gmagickpixel.construct.php
 		 * @since PECL gmagick >= Unknown
 		 */

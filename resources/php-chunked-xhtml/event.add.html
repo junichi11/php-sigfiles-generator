@@ -40,7 +40,7 @@
 
   <p class="para rdfs-comment">
    Marks event pending. Non-pending event will never occur, and the event
-   callback will never be called. In conjuction with
+   callback will never be called. In conjunction with
    <span class="methodname"><a href="event.del.html" class="methodname">Event::del()</a></span>
    an event could be re-scheduled by user at any time.
   </p>
@@ -54,6 +54,7 @@
    has no effect.
   </p>
  </div>
+
 
  <div class="refsect1 parameters" id="refsect1-event.add-parameters">
   <h3 class="title">Parameters</h3>
@@ -76,6 +77,7 @@
 
  </div>
 
+
  <div class="refsect1 returnvalues" id="refsect1-event.add-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
@@ -83,18 +85,54 @@
   </p>
  </div>
 
+
+ <div class="refsect1 examples" id="refsect1-event.add-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-4326">
+   <p><strong>Example #1 Adding a custom signal</strong></p>
+   <div class="example-contents">
+    <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*<br />Launch it in a terminal window:<br /><br />$ php examples/signal.php<br /><br />In another terminal window find out the pid and send SIGTERM, e.g.:<br /><br />$ ps aux | grep examp<br />ruslan    3976  0.2  0.0 139896 11256 pts/1    S+   10:25   0:00 php examples/signal.php<br />ruslan    3978  0.0  0.0   9572   864 pts/2    S+   10:26   0:00 grep --color=auto examp<br />$ kill -TERM 3976<br /><br />At the first terminal window you should catch the following:<br /><br />Caught signal 15<br />*/<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">MyEventSignal </span><span style="color: #007700">{<br />    private </span><span style="color: #0000BB">$base</span><span style="color: #007700">, </span><span style="color: #0000BB">$ev</span><span style="color: #007700">;<br /><br />    public function </span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">) {<br />        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">base </span><span style="color: #007700">= </span><span style="color: #0000BB">$base</span><span style="color: #007700">;<br />        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ev </span><span style="color: #007700">= </span><span style="color: #0000BB">Event</span><span style="color: #007700">::</span><span style="color: #0000BB">signal</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">, </span><span style="color: #0000BB">SIGTERM</span><span style="color: #007700">, array(</span><span style="color: #0000BB">$this</span><span style="color: #007700">, </span><span style="color: #DD0000">'eventSighandler'</span><span style="color: #007700">));<br />        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ev</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">add</span><span style="color: #007700">();<br />    }<br /><br />    public function </span><span style="color: #0000BB">eventSighandler</span><span style="color: #007700">(</span><span style="color: #0000BB">$no</span><span style="color: #007700">, </span><span style="color: #0000BB">$c</span><span style="color: #007700">) {<br />        echo </span><span style="color: #DD0000">"Caught signal </span><span style="color: #0000BB">$no</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">base</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exit</span><span style="color: #007700">();<br />    }<br />}<br /><br /></span><span style="color: #0000BB">$base </span><span style="color: #007700">= new </span><span style="color: #0000BB">EventBase</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$c    </span><span style="color: #007700">= new </span><span style="color: #0000BB">MyEventSignal</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$base</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loop</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Caught signal 15
+</pre></div>
+   </div>
+  </div>
+
+  <div class="example" id="example-4327">
+   <p><strong>Example #2 Adding a timer</strong></p>
+   <div class="example-contents">
+    <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$base </span><span style="color: #007700">= new </span><span style="color: #0000BB">EventBase</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$n </span><span style="color: #007700">= </span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$e </span><span style="color: #007700">= </span><span style="color: #0000BB">Event</span><span style="color: #007700">::</span><span style="color: #0000BB">timer</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">, function(</span><span style="color: #0000BB">$n</span><span style="color: #007700">) use (&amp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$n</span><span style="color: #DD0000"> seconds elapsed\n"</span><span style="color: #007700">;<br />    </span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">delTimer</span><span style="color: #007700">();<br />}, </span><span style="color: #0000BB">$n</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$n</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$base</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loop</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+    <div class="cdata"><pre>
+2 seconds elapsed
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
  <div class="refsect1 seealso" id="refsect1-event.add-seealso">
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
-   <li class="member">
-    <span class="methodname"><a href="event.addsignal.html" class="methodname" rel="rdfs-seeAlso">Event::addSignal()</a> - Makes signal event pending</span>
-   </li>
-   <li class="member">
-    <span class="methodname"><a href="event.addtimer.html" class="methodname" rel="rdfs-seeAlso">Event::addTimer()</a> - Makes timer event pending</span>
-   </li>
-   <li class="member">
-    <span class="methodname"><a href="event.del.html" class="methodname" rel="rdfs-seeAlso">Event::del()</a> - Makes event non-pending</span>
-   </li>
+   <li class="member"><span class="methodname"><strong>Event::add()</strong></span></li>
+   <li class="member"><span class="methodname"><a href="event.del.html" class="methodname" rel="rdfs-seeAlso">Event::del()</a> - Makes event non-pending</span></li>
+   <li class="member"><span class="methodname"><a href="event.signal.html" class="methodname" rel="rdfs-seeAlso">Event::signal()</a> - Constructs signal event object</span></li>
+   <li class="member"><span class="methodname"><a href="event.timer.html" class="methodname" rel="rdfs-seeAlso">Event::timer()</a> - Constructs timer event object</span></li>
   </ul>
  </div>
 

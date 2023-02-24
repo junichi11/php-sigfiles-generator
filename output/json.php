@@ -63,6 +63,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -154,10 +166,10 @@ namespace {
 
 	/**
 	 * Decodes a JSON string
-	 * <p>Takes a JSON encoded string and converts it into a PHP variable.</p>
-	 * @param string $json <p>The <code>json</code> <code>string</code> being decoded.</p> <p>This function only works with UTF-8 encoded strings.</p> <p><b>Note</b>:</p><p>PHP implements a superset of JSON as specified in the original RFC 7159.</p>
+	 * <p>Takes a JSON encoded string and converts it into a PHP value.</p>
+	 * @param string $json <p>The <code>json</code> <code>string</code> being decoded.</p> <p>This function only works with UTF-8 encoded strings.</p> <p><b>Note</b>:</p><p>PHP implements a superset of JSON as specified in the original &#xBB;&#xA0;RFC 7159.</p>
 	 * @param ?bool $associative <p>When <b><code>true</code></b>, JSON objects will be returned as associative <code>array</code>s; when <b><code>false</code></b>, JSON objects will be returned as <code>object</code>s. When <b><code>null</code></b>, JSON objects will be returned as associative <code>array</code>s or <code>object</code>s depending on whether <b><code>JSON_OBJECT_AS_ARRAY</code></b> is set in the <code>flags</code>.</p>
-	 * @param int $depth <p>Maximum nesting depth of the structure being decoded.</p>
+	 * @param int $depth <p>Maximum nesting depth of the structure being decoded. The value must be greater than <code>0</code>, and less than or equal to <code>2147483647</code>.</p>
 	 * @param int $flags <p>Bitmask of <b><code>JSON_BIGINT_AS_STRING</code></b>, <b><code>JSON_INVALID_UTF8_IGNORE</code></b>, <b><code>JSON_INVALID_UTF8_SUBSTITUTE</code></b>, <b><code>JSON_OBJECT_AS_ARRAY</code></b>, <b><code>JSON_THROW_ON_ERROR</code></b>. The behaviour of these constants is described on the JSON constants page.</p>
 	 * @return mixed <p>Returns the value encoded in <code>json</code> in appropriate PHP type. Values <code>true</code>, <code>false</code> and <code>null</code> are returned as <b><code>true</code></b>, <b><code>false</code></b> and <b><code>null</code></b> respectively. <b><code>null</code></b> is returned if the <code>json</code> cannot be decoded or if the encoded data is deeper than the nesting limit.</p>
 	 * @link https://php.net/manual/en/function.json-decode.php
@@ -168,8 +180,8 @@ namespace {
 
 	/**
 	 * Returns the JSON representation of a value
-	 * <p>Returns a string containing the JSON representation of the supplied <code>value</code>.</p><p>The encoding is affected by the supplied <code>flags</code> and additionally the encoding of float values depends on the value of serialize_precision.</p>
-	 * @param mixed $value <p>The <code>value</code> being encoded. Can be any type except a resource.</p> <p>All string data must be UTF-8 encoded.</p> <p><b>Note</b>:</p><p>PHP implements a superset of JSON as specified in the original RFC 7159.</p>
+	 * <p>Returns a string containing the JSON representation of the supplied <code>value</code>. If the parameter is an <code>array</code> or <code>object</code>, it will be serialized recursively.</p><p>If a value to be serialized is an object, then by default only publicly visible properties will be included. Alternatively, a class may implement <code>JsonSerializable</code> to control how its values are serialized to JSON.</p><p>The encoding is affected by the supplied <code>flags</code> and additionally the encoding of float values depends on the value of serialize_precision.</p>
+	 * @param mixed $value <p>The <code>value</code> being encoded. Can be any type except a resource.</p> <p>All string data must be UTF-8 encoded.</p> <p><b>Note</b>:</p><p>PHP implements a superset of JSON as specified in the original &#xBB;&#xA0;RFC 7159.</p>
 	 * @param int $flags <p>Bitmask consisting of <b><code>JSON_FORCE_OBJECT</code></b>, <b><code>JSON_HEX_QUOT</code></b>, <b><code>JSON_HEX_TAG</code></b>, <b><code>JSON_HEX_AMP</code></b>, <b><code>JSON_HEX_APOS</code></b>, <b><code>JSON_INVALID_UTF8_IGNORE</code></b>, <b><code>JSON_INVALID_UTF8_SUBSTITUTE</code></b>, <b><code>JSON_NUMERIC_CHECK</code></b>, <b><code>JSON_PARTIAL_OUTPUT_ON_ERROR</code></b>, <b><code>JSON_PRESERVE_ZERO_FRACTION</code></b>, <b><code>JSON_PRETTY_PRINT</code></b>, <b><code>JSON_UNESCAPED_LINE_TERMINATORS</code></b>, <b><code>JSON_UNESCAPED_SLASHES</code></b>, <b><code>JSON_UNESCAPED_UNICODE</code></b>, <b><code>JSON_THROW_ON_ERROR</code></b>. The behaviour of these constants is described on the JSON constants page.</p>
 	 * @param int $depth <p>Set the maximum depth. Must be greater than zero.</p>
 	 * @return string|false <p>Returns a JSON encoded <code>string</code> on success or <b><code>false</code></b> on failure.</p>
@@ -182,7 +194,7 @@ namespace {
 	/**
 	 * Returns the last error occurred
 	 * <p>Returns the last error (if any) occurred during the last JSON encoding/decoding, which did not specify <b><code>JSON_THROW_ON_ERROR</code></b>.</p>
-	 * @return int <p>Returns an integer, the value can be one of the following constants:</p> <b>JSON error codes</b>   Constant Meaning Availability     <b><code>JSON_ERROR_NONE</code></b> No error has occurred &nbsp;   <b><code>JSON_ERROR_DEPTH</code></b> The maximum stack depth has been exceeded &nbsp;   <b><code>JSON_ERROR_STATE_MISMATCH</code></b> Invalid or malformed JSON &nbsp;   <b><code>JSON_ERROR_CTRL_CHAR</code></b> Control character error, possibly incorrectly encoded &nbsp;   <b><code>JSON_ERROR_SYNTAX</code></b> Syntax error &nbsp;   <b><code>JSON_ERROR_UTF8</code></b> Malformed UTF-8 characters, possibly incorrectly encoded &nbsp;   <b><code>JSON_ERROR_RECURSION</code></b> One or more recursive references in the value to be encoded &nbsp;   <b><code>JSON_ERROR_INF_OR_NAN</code></b>  One or more <b><code>NAN</code></b> or <b><code>INF</code></b> values in the value to be encoded  &nbsp;   <b><code>JSON_ERROR_UNSUPPORTED_TYPE</code></b> A value of a type that cannot be encoded was given &nbsp;   <b><code>JSON_ERROR_INVALID_PROPERTY_NAME</code></b> A property name that cannot be encoded was given &nbsp;   <b><code>JSON_ERROR_UTF16</code></b> Malformed UTF-16 characters, possibly incorrectly encoded &nbsp;
+	 * @return int <p>Returns an integer, the value can be one of the following constants:</p> <b>JSON error codes</b>   Constant Meaning Availability     <b><code>JSON_ERROR_NONE</code></b> No error has occurred &#xA0;   <b><code>JSON_ERROR_DEPTH</code></b> The maximum stack depth has been exceeded &#xA0;   <b><code>JSON_ERROR_STATE_MISMATCH</code></b> Invalid or malformed JSON &#xA0;   <b><code>JSON_ERROR_CTRL_CHAR</code></b> Control character error, possibly incorrectly encoded &#xA0;   <b><code>JSON_ERROR_SYNTAX</code></b> Syntax error &#xA0;   <b><code>JSON_ERROR_UTF8</code></b> Malformed UTF-8 characters, possibly incorrectly encoded &#xA0;   <b><code>JSON_ERROR_RECURSION</code></b> One or more recursive references in the value to be encoded &#xA0;   <b><code>JSON_ERROR_INF_OR_NAN</code></b>  One or more <b><code>NAN</code></b> or <b><code>INF</code></b> values in the value to be encoded  &#xA0;   <b><code>JSON_ERROR_UNSUPPORTED_TYPE</code></b> A value of a type that cannot be encoded was given &#xA0;   <b><code>JSON_ERROR_INVALID_PROPERTY_NAME</code></b> A property name that cannot be encoded was given &#xA0;   <b><code>JSON_ERROR_UTF16</code></b> Malformed UTF-16 characters, possibly incorrectly encoded &#xA0;
 	 * @link https://php.net/manual/en/function.json-last-error.php
 	 * @see json_last_error_msg(), json_decode(), json_encode()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8

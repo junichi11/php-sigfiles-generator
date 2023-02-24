@@ -38,7 +38,7 @@
     For example, if an attacker had gleaned information about a page
     based on a prior form submission, they may attempt to override
     variables, or modify them:
-    <div class="example" id="example-426">
+    <div class="example" id="example-442">
      <p><strong>Example #1 Attacking Variables with a custom HTML page</strong></p>
      <div class="example-contents">
 <div class="htmlcode"><pre class="htmlcode">&lt;form method=&quot;post&quot; action=&quot;attacktarget?username=badfoo&amp;amp;password=badfoo&quot;&gt;
@@ -65,7 +65,7 @@
     common debugging techniques. If the attacker can determine what
     general technique you are using, they may try to brute-force a page,
     by sending various common debugging strings:
-    <div class="example" id="example-427">
+    <div class="example" id="example-443">
      <p><strong>Example #2 Exploiting common debugging variables</strong></p>
      <div class="example-contents">
 <div class="htmlcode"><pre class="htmlcode">&lt;form method=&quot;post&quot; action=&quot;attacktarget?errors=Y&amp;amp;showerrors=1&amp;amp;debug=1&quot;&gt;
@@ -130,11 +130,11 @@
     you should also define the path to your log file using the
     <code class="literal">error_log</code> ini directive, and turn
     <code class="literal">log_errors</code> on.
-    <div class="example" id="example-428">
+    <div class="example" id="example-444">
      <p><strong>Example #3 Finding dangerous variables with E_ALL</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$username</span><span style="color: #007700">)&nbsp;{&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Not&nbsp;initialized&nbsp;or&nbsp;checked&nbsp;before&nbsp;usage<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$good_login&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br />if&nbsp;(</span><span style="color: #0000BB">$good_login&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;{&nbsp;</span><span style="color: #FF8000">//&nbsp;If&nbsp;above&nbsp;test&nbsp;fails,&nbsp;not&nbsp;initialized&nbsp;or&nbsp;checked&nbsp;before&nbsp;usage<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">readfile&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"/highly/sensitive/data/index.html"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">$username</span><span style="color: #007700">) {  </span><span style="color: #FF8000">// Not initialized or checked before usage<br />    </span><span style="color: #0000BB">$good_login </span><span style="color: #007700">= </span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br />if (</span><span style="color: #0000BB">$good_login </span><span style="color: #007700">== </span><span style="color: #0000BB">1</span><span style="color: #007700">) { </span><span style="color: #FF8000">// If above test fails, not initialized or checked before usage<br />    </span><span style="color: #0000BB">readfile </span><span style="color: #007700">(</span><span style="color: #DD0000">"/highly/sensitive/data/index.html"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

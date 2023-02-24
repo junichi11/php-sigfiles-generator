@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Get information about the key</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.rnp-key-export.html">« rnp_key_export</a></li>
+      <li style="float: right;"><a href="function.rnp-key-remove.html">rnp_key_remove »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.rnp.html">Rnp Functions</a></li>
+    <li>Get information about the key</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.rnp-key-get-info" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">rnp_key_get_info</h1>
+  <p class="verinfo">(PECL rnp &gt;= 0.1.1)</p><p class="refpurpose"><span class="refname">rnp_key_get_info</span> &mdash; <span class="dc-title">Get information about the key</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.rnp-key-get-info-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>rnp_key_get_info</strong></span>(<span class="methodparam"><span class="type"><a href="class.rnpffi.html" class="type RnpFFI">RnpFFI</a></span> <code class="parameter">$ffi</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$key_fp</code></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">
+
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.rnp-key-get-info-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">ffi</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The FFI object returned by rnp_ffi_create.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">key_fp</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Key fingerprint.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.rnp-key-get-info-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   An associative array with information about the key or <strong><code>false</code></strong> on failure.
+  </p>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Key</th>
+      <th>Data type</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><code class="literal">&quot;is_primary&quot;</code></td>
+      <td>boolean</td>
+      <td>
+       <strong><code>true</code></strong> if this key is the primary key.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;is_sub&quot;</code></td>
+      <td>boolean</td>
+      <td>
+       <strong><code>true</code></strong> if this key is a subkey.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;is_valid&quot;</code></td>
+      <td>boolean</td>
+      <td>
+       <strong><code>true</code></strong> if public key is valid.
+       This includes checks of the self-signatures,
+       expiration times, revocations and so on.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;is_revoked&quot;</code></td>
+      <td>boolean</td>
+      <td>
+       <strong><code>true</code></strong> if this key is revoked.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;is_superseded&quot;</code></td>
+      <td>boolean</td>
+      <td>
+       <strong><code>true</code></strong> if this key is superseded. Present only if the key is revoked.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;is_compromised&quot;</code></td>
+      <td>boolean</td>
+      <td>
+       <strong><code>true</code></strong> if this key is compromised. Present only if the key is revoked.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;is_retired&quot;</code></td>
+      <td>boolean</td>
+      <td>
+       <strong><code>true</code></strong> if this key is retired. Present only if the key is revoked.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;is_expired&quot;</code></td>
+      <td>boolean</td>
+      <td>
+       <strong><code>true</code></strong> if this key is expired.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;have_secret&quot;</code></td>
+      <td>boolean</td>
+      <td>
+       <strong><code>true</code></strong> if this key has secret part.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;is_locked&quot;</code></td>
+      <td>boolean</td>
+      <td>
+       <strong><code>true</code></strong> if this key is currently locked. Only present for secret keys.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;is_protected&quot;</code></td>
+      <td>boolean</td>
+      <td>
+       <strong><code>true</code></strong> if this key is protected. Only present for secret keys.
+       A protected key is one that is encrypted and can be safely held in memory
+       and locked/unlocked as needed.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;have_public&quot;</code></td>
+      <td>boolean</td>
+      <td>
+       <strong><code>true</code></strong> if this key has public part. Generally all keys would have public part.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;valid_till&quot;</code></td>
+      <td>integer</td>
+      <td>
+       The timestamp till which key can be considered as valid.
+       Note: this will take into account not only key&#039;s expiration, but revocations as well.
+       For the subkey primary key&#039;s validity time will be also checked.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;bits&quot;</code></td>
+      <td>integer</td>
+      <td>
+       Number of bits in the key. For EC-based keys it will contain size of the curve.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;alg&quot;</code></td>
+      <td>string</td>
+      <td>
+       Key algorithm name.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;subkeys&quot;</code></td>
+      <td>array</td>
+      <td>
+       An indexed array containing fingerprint strings of subkeys. Only present for
+       primary keys. Could be empty if primary key has no subkeys.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;uids&quot;</code></td>
+      <td>array</td>
+      <td>
+       An indexed array containing user ID strings. Only present for
+       primary keys. Could be empty if primary key has no user ID-s.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+
+</div></div></div></body></html>

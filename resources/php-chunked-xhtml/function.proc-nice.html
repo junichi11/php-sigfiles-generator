@@ -64,11 +64,11 @@
       </p>
       <p class="para">
        On Unix, a low value, such as <code class="literal">-20</code> means high priority 
-       wheras a positive value have a lower priority.
+       whereas positive values have a lower priority.
       </p>
       <p class="para">
-       For Windows the <code class="parameter">priority</code> parameter have the 
-       following meanings:
+       For Windows the <code class="parameter">priority</code> parameter has the 
+       following meaning:
       </p>
       <table class="doctable informaltable">
        
@@ -172,11 +172,11 @@
  <div class="refsect1 examples" id="refsect1-function.proc-nice-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3329">
+   <div class="example" id="example-3401">
     <p><strong>Example #1 Using <span class="function"><strong>proc_nice()</strong></span> to set the process priority to high</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Highest&nbsp;priority<br /></span><span style="color: #0000BB">proc_nice</span><span style="color: #007700">(-</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Highest priority<br /></span><span style="color: #0000BB">proc_nice</span><span style="color: #007700">(-</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -200,10 +200,18 @@
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <strong>Windows only</strong><br />
    <p class="para">
-    <span class="function"><strong>proc_nice()</strong></span> will change the <em class="emphasis">current</em> process 
+    <span class="function"><strong>proc_nice()</strong></span> will change the current <em class="emphasis">process</em>
     priority, even if PHP was compiled using thread safety.
    </p>
   </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.proc-nice-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="function.pcntl-setpriority.html" class="function" rel="rdfs-seeAlso">pcntl_setpriority()</a> - Change the priority of any process</span></li>
+  </ul>
  </div>
 
 </div></div></div></body></html>

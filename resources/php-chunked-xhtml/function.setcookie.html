@@ -97,12 +97,13 @@
 
       <p class="para">
        The time the cookie expires.  This is a Unix timestamp so is
-       in number of seconds since the epoch.  In other words, you&#039;ll
-       most likely set this with the <span class="function"><a href="function.time.html" class="function">time()</a></span> function
-       plus the number of seconds before you want it to expire.  Or
-       you might use <span class="function"><a href="function.mktime.html" class="function">mktime()</a></span>.
-       <code class="literal">time()+60*60*24*30</code> will set the cookie to
-       expire in 30 days. If set to 0, or omitted, the cookie will expire at
+       in number of seconds since the epoch.
+       One way to set this is by adding the number of seconds before the cookie
+       should expire to the result of calling <span class="function"><a href="function.time.html" class="function">time()</a></span>.
+       For instance, <code class="literal">time()+60*60*24*30</code> will set the cookie to
+       expire in 30 days.
+       Another option is to use the <span class="function"><a href="function.mktime.html" class="function">mktime()</a></span> function.
+       If set to <code class="literal">0</code>, or omitted, the cookie will expire at
        the end of the session (when the browser closes).
       </p>
       <p class="para">
@@ -249,6 +250,14 @@
 
      <tbody class="tbody">
       <tr>
+       <td>8.2.0</td>
+       <td>
+        The date format of the cookie is now <code class="literal">&#039;D, d M Y H:i:s \G\M\T&#039;</code>;
+        previously it was <code class="literal">&#039;D, d-M-Y H:i:s T&#039;</code>.
+       </td>
+      </tr>
+
+      <tr>
        <td>7.3.0</td>
        <td>
         An alternative signature supporting an <code class="parameter">options</code>
@@ -269,11 +278,11 @@
   <h3 class="title">Examples</h3>
   <p class="para">
    Some examples follow how to send cookies:
-   <div class="example" id="example-4461">
+   <div class="example" id="example-4540">
     <p><strong>Example #1 <span class="function"><strong>setcookie()</strong></span> send example</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$value&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'something&nbsp;from&nbsp;somewhere'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;expire&nbsp;in&nbsp;1&nbsp;hour&nbsp;*/<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"/~rasmus/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"example.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$value </span><span style="color: #007700">= </span><span style="color: #DD0000">'something from somewhere'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">, </span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">, </span><span style="color: #0000BB">$value</span><span style="color: #007700">, </span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">);  </span><span style="color: #FF8000">/* expire in 1 hour */<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">, </span><span style="color: #0000BB">$value</span><span style="color: #007700">, </span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">, </span><span style="color: #DD0000">"/~rasmus/"</span><span style="color: #007700">, </span><span style="color: #DD0000">"example.com"</span><span style="color: #007700">, </span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -293,7 +302,7 @@
    <div class="informalexample">
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Print&nbsp;an&nbsp;individual&nbsp;cookie<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;Another&nbsp;way&nbsp;to&nbsp;debug/test&nbsp;is&nbsp;to&nbsp;view&nbsp;all&nbsp;cookies<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Print an individual cookie<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">// Another way to debug/test is to view all cookies<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -301,7 +310,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4462">
+   <div class="example" id="example-4541">
     <p><strong>Example #2 <span class="function"><strong>setcookie()</strong></span> delete example</strong></p>
     <div class="example-contents"><p>
      When deleting a cookie you should assure that the expiration date
@@ -310,7 +319,7 @@
     </p></div>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;set&nbsp;the&nbsp;expiration&nbsp;date&nbsp;to&nbsp;one&nbsp;hour&nbsp;ago<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">3600</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"/~rasmus/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"example.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// set the expiration date to one hour ago<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">, </span><span style="color: #DD0000">""</span><span style="color: #007700">, </span><span style="color: #0000BB">time</span><span style="color: #007700">() - </span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">, </span><span style="color: #DD0000">""</span><span style="color: #007700">, </span><span style="color: #0000BB">time</span><span style="color: #007700">() - </span><span style="color: #0000BB">3600</span><span style="color: #007700">, </span><span style="color: #DD0000">"/~rasmus/"</span><span style="color: #007700">, </span><span style="color: #DD0000">"example.com"</span><span style="color: #007700">, </span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -318,7 +327,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4463">
+   <div class="example" id="example-4542">
     <p><strong>Example #3 <span class="function"><strong>setcookie()</strong></span> and arrays</strong></p>
     <div class="example-contents"><p>
      You may also set array cookies by using array notation in the
@@ -329,7 +338,7 @@
     </p></div>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;set&nbsp;the&nbsp;cookies<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"cookie[three]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"cookiethree"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"cookie[two]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"cookietwo"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"cookie[one]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"cookieone"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;after&nbsp;the&nbsp;page&nbsp;reloads,&nbsp;print&nbsp;them&nbsp;out<br /></span><span style="color: #007700">if&nbsp;(isset(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">'cookie'</span><span style="color: #007700">]))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">'cookie'</span><span style="color: #007700">]&nbsp;as&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$value&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">&nbsp;:&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #DD0000">&nbsp;&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// set the cookies<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"cookie[three]"</span><span style="color: #007700">, </span><span style="color: #DD0000">"cookiethree"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"cookie[two]"</span><span style="color: #007700">, </span><span style="color: #DD0000">"cookietwo"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"cookie[one]"</span><span style="color: #007700">, </span><span style="color: #DD0000">"cookieone"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// after the page reloads, print them out<br /></span><span style="color: #007700">if (isset(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">'cookie'</span><span style="color: #007700">])) {<br />    foreach (</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">'cookie'</span><span style="color: #007700">] as </span><span style="color: #0000BB">$name </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$value</span><span style="color: #007700">) {<br />        </span><span style="color: #0000BB">$name </span><span style="color: #007700">= </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />        </span><span style="color: #0000BB">$value </span><span style="color: #007700">= </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />        echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$name</span><span style="color: #DD0000"> : </span><span style="color: #0000BB">$value</span><span style="color: #DD0000"> &lt;br /&gt;\n"</span><span style="color: #007700">;<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

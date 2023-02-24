@@ -46,6 +46,12 @@
    (Equivalent to typing &quot;<strong class="command">ls</strong>&quot; and getting a list of files and folders in the
    current working directory.)
   </p>
+   <p class="para">It is also possible to perform parallel searches. In this case, the first argument should be an array of
+<span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span> instances, rather than a single one.
+If the searches should not all use the same base DN and filter, an array of base DNs and/or an array of filters can be passed as arguments instead.
+These arrays must be of the same size as the <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span> instances array,
+since the first entries of the arrays are used for one search, the second entries are used for another, and so on.
+When doing parallel searches an array of <span class="classname"><a href="class.ldap-result.html" class="classname">LDAP\Result</a></span> instances is returned, except in case of error, when the return value will be <strong><code>false</code></strong>.</p>
  </div>
 
 
@@ -227,7 +233,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ldap-list-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns an <span class="classname"><a href="class.ldap-result.html" class="classname">LDAP\Result</a></span> instance, or <strong><code>false</code></strong> on failure.
+   Returns an <span class="classname"><a href="class.ldap-result.html" class="classname">LDAP\Result</a></span> instance, an array of <span class="classname"><a href="class.ldap-result.html" class="classname">LDAP\Result</a></span> instances, or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -250,7 +256,7 @@
  <td>8.1.0</td>
  <td>
   The <code class="parameter">ldap</code> parameter expects an <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">ldap link</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
 
@@ -270,7 +276,7 @@
 </tr>
 
       <tr>
-       <td>7.3</td>
+       <td>7.3.0</td>
        <td>
         Support for <code class="parameter">controls</code> added
        </td>
@@ -287,11 +293,11 @@
  <div class="refsect1 examples" id="refsect1-function.ldap-list-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4361">
+   <div class="example" id="example-4440">
     <p><strong>Example #1 Produce a list of all organizational units of an organization</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;$ds&nbsp;is&nbsp;a&nbsp;valid&nbsp;link&nbsp;identifier&nbsp;for&nbsp;a&nbsp;directory&nbsp;server<br /><br /></span><span style="color: #0000BB">$basedn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"o=My&nbsp;Company,&nbsp;c=US"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$justthese&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"ou"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$sr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_list</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$basedn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"ou=*"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$justthese</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$info&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_get_entries</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$sr</span><span style="color: #007700">);<br /><br />for&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">"count"</span><span style="color: #007700">];&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">][</span><span style="color: #DD0000">"ou"</span><span style="color: #007700">][</span><span style="color: #0000BB">0</span><span style="color: #007700">];<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// $ds is a valid LDAP\Connection instance for a directory server<br /><br /></span><span style="color: #0000BB">$basedn </span><span style="color: #007700">= </span><span style="color: #DD0000">"o=My Company, c=US"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$justthese </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"ou"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$sr </span><span style="color: #007700">= </span><span style="color: #0000BB">ldap_list</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">, </span><span style="color: #0000BB">$basedn</span><span style="color: #007700">, </span><span style="color: #DD0000">"ou=*"</span><span style="color: #007700">, </span><span style="color: #0000BB">$justthese</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$info </span><span style="color: #007700">= </span><span style="color: #0000BB">ldap_get_entries</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">, </span><span style="color: #0000BB">$sr</span><span style="color: #007700">);<br /><br />for (</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">; </span><span style="color: #0000BB">$i </span><span style="color: #007700">&lt; </span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">"count"</span><span style="color: #007700">]; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++) {<br />    echo </span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">][</span><span style="color: #DD0000">"ou"</span><span style="color: #007700">][</span><span style="color: #0000BB">0</span><span style="color: #007700">];<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

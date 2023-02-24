@@ -17,7 +17,7 @@ namespace {
 		 * @param string $path <p>Path for newly created RRD database file.</p>
 		 * @param string $startTime <p>Time for the first value in RRD database. Parameter supports all formats which are supported by rrd create call.</p>
 		 * @param int $step
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/rrdcreator.construct.php
 		 * @since PECL rrd >= 0.9.0
 		 */
@@ -64,7 +64,7 @@ namespace {
 		 * Creates new RRDGraph instance
 		 * <p>Creates new <code>RRDGraph</code> instance. This instance is responsible for rendering the result of RRD database query into image.</p>
 		 * @param string $path <p>Full path for the newly created image.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/rrdgraph.construct.php
 		 * @since PECL rrd >= 0.9.0
 		 */
@@ -109,7 +109,7 @@ namespace {
 		 * Creates new RRDUpdater instance
 		 * <p>Creates new RRDUpdater instance. This instance is responsible for updating the RRD database file.</p>
 		 * @param string $path <p>Filesystem path for RRD database file, which will be updated.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/rrdupdater.construct.php
 		 * @since PECL rrd >= 0.9.0
 		 */

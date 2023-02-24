@@ -36,7 +36,7 @@
    <span class="methodname"><strong>grapheme_stristr</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$beforeNeedle</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
-   Returns part of haystack string starting from and including the first occurrence of case-insensitive needle to the end of haystack.
+   Returns part of <code class="parameter">haystack</code> string starting from and including the first occurrence of case-insensitive needle to the end of <code class="parameter">haystack</code>.
   </p> 
  </div>
 
@@ -76,8 +76,8 @@
      <dd>
 
       <p class="para">
-       If <strong><code>true</code></strong>, grapheme_strstr() returns the part of the
-       haystack before the first occurrence of the needle (excluding needle).
+       If <strong><code>true</code></strong>, <span class="function"><a href="function.grapheme-strstr.html" class="function">grapheme_strstr()</a></span> returns the part of the
+       <code class="parameter">haystack</code> before the first occurrence of the needle (excluding <code class="parameter">needle</code>).
       </p>
      </dd>
 
@@ -92,18 +92,18 @@
  <div class="refsect1 returnvalues" id="refsect1-function.grapheme-stristr-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the portion of $haystack, or <strong><code>false</code></strong> if $needle is not found.   
+   Returns the portion of <code class="parameter">haystack</code>, or <strong><code>false</code></strong> if <code class="parameter">needle</code> is not found.
   </p>
  </div>
 
  
  <div class="refsect1 examples" id="refsect1-function.grapheme-stristr-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2466">
+  <div class="example" id="example-2536">
    <p><strong>Example #1 <span class="function"><strong>grapheme_stristr()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$char_a_ring_nfd&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"a\xCC\x8A"</span><span style="color: #007700">;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;'LATIN&nbsp;SMALL&nbsp;LETTER&nbsp;A&nbsp;WITH&nbsp;RING&nbsp;ABOVE'&nbsp;(U+00E5)&nbsp;normalization&nbsp;form&nbsp;"D"<br /></span><span style="color: #0000BB">$char_o_diaeresis_nfd&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"o\xCC\x88"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;'LATIN&nbsp;SMALL&nbsp;LETTER&nbsp;O&nbsp;WITH&nbsp;DIAERESIS'&nbsp;(U+00F6)&nbsp;normalization&nbsp;form&nbsp;"D"<br /></span><span style="color: #0000BB">$char_O_diaeresis_nfd&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"O\xCC\x88"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;'LATIN&nbsp;CAPITAL&nbsp;LETTER&nbsp;O&nbsp;WITH&nbsp;DIAERESIS'&nbsp;(U+00D6)&nbsp;normalization&nbsp;form&nbsp;"D"<br /><br /></span><span style="color: #007700">print&nbsp;</span><span style="color: #0000BB">urlencode</span><span style="color: #007700">(</span><span style="color: #0000BB">grapheme_stristr</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$char_a_ring_nfd&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$char_o_diaeresis_nfd&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$char_a_ring_nfd</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$char_O_diaeresis_nfd</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$char_a_ring_nfd </span><span style="color: #007700">= </span><span style="color: #DD0000">"a\xCC\x8A"</span><span style="color: #007700">;  </span><span style="color: #FF8000">// 'LATIN SMALL LETTER A WITH RING ABOVE' (U+00E5) normalization form "D"<br /></span><span style="color: #0000BB">$char_o_diaeresis_nfd </span><span style="color: #007700">= </span><span style="color: #DD0000">"o\xCC\x88"</span><span style="color: #007700">; </span><span style="color: #FF8000">// 'LATIN SMALL LETTER O WITH DIAERESIS' (U+00F6) normalization form "D"<br /></span><span style="color: #0000BB">$char_O_diaeresis_nfd </span><span style="color: #007700">= </span><span style="color: #DD0000">"O\xCC\x88"</span><span style="color: #007700">; </span><span style="color: #FF8000">// 'LATIN CAPITAL LETTER O WITH DIAERESIS' (U+00D6) normalization form "D"<br /><br /></span><span style="color: #007700">print </span><span style="color: #0000BB">urlencode</span><span style="color: #007700">(</span><span style="color: #0000BB">grapheme_stristr</span><span style="color: #007700">( </span><span style="color: #0000BB">$char_a_ring_nfd </span><span style="color: #007700">. </span><span style="color: #0000BB">$char_o_diaeresis_nfd </span><span style="color: #007700">. </span><span style="color: #0000BB">$char_a_ring_nfd</span><span style="color: #007700">, </span><span style="color: #0000BB">$char_O_diaeresis_nfd</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

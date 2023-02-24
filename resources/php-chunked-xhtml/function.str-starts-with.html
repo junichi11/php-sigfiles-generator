@@ -88,11 +88,11 @@
  <div class="refsect1 examples" id="refsect1-function.str-starts-with-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4845">
+   <div class="example" id="example-4931">
     <p><strong>Example #1 Using the empty string <code class="literal">&#039;&#039;</code></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">str_starts_with</span><span style="color: #007700">(</span><span style="color: #DD0000">'abc'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"All&nbsp;strings&nbsp;start&nbsp;with&nbsp;the&nbsp;empty&nbsp;string"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">str_starts_with</span><span style="color: #007700">(</span><span style="color: #DD0000">'abc'</span><span style="color: #007700">, </span><span style="color: #DD0000">''</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">"All strings start with the empty string"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -105,11 +105,11 @@ All strings start with the empty string
     </div>
    </div>
 
-   <div class="example" id="example-4846">
+   <div class="example" id="example-4932">
     <p><strong>Example #2 Showing case-sensitivity</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'The&nbsp;lazy&nbsp;fox&nbsp;jumped&nbsp;over&nbsp;the&nbsp;fence'</span><span style="color: #007700">;<br /><br />if&nbsp;(</span><span style="color: #0000BB">str_starts_with</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'The'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;string&nbsp;starts&nbsp;with&nbsp;'The'\n"</span><span style="color: #007700">;<br />}<br /><br />if&nbsp;(</span><span style="color: #0000BB">str_starts_with</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'the'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'The&nbsp;string&nbsp;starts&nbsp;with&nbsp;"the"'</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'"the"&nbsp;was&nbsp;not&nbsp;found&nbsp;because&nbsp;the&nbsp;case&nbsp;does&nbsp;not&nbsp;match'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$string </span><span style="color: #007700">= </span><span style="color: #DD0000">'The lazy fox jumped over the fence'</span><span style="color: #007700">;<br /><br />if (</span><span style="color: #0000BB">str_starts_with</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">, </span><span style="color: #DD0000">'The'</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">"The string starts with 'The'\n"</span><span style="color: #007700">;<br />}<br /><br />if (</span><span style="color: #0000BB">str_starts_with</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">, </span><span style="color: #DD0000">'the'</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">'The string starts with "the"'</span><span style="color: #007700">;<br />} else {<br />    echo </span><span style="color: #DD0000">'"the" was not found because the case does not match'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

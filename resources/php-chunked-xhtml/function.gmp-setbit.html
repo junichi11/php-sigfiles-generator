@@ -29,14 +29,14 @@
   <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">gmp_setbit</span> &mdash; <span class="dc-title">Set bit</span></p>
 
  </div>
- 
+
  <div class="refsect1 description" id="refsect1-function.gmp-setbit-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>gmp_setbit</strong></span>(<span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$num</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$value</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
-   Sets bit <code class="parameter">index</code> in <code class="parameter">num</code>. 
+   Sets bit <code class="parameter">index</code> in <code class="parameter">num</code>.
   </p>
  </div>
 
@@ -52,9 +52,8 @@
      <dd>
 
       <p class="para">
-       The value to modify.
+       A <span class="classname"><a href="class.gmp.html" class="classname">GMP</a></span> object.
       </p>
-      <p class="para">A <span class="classname"><a href="class.gmp.html" class="classname">GMP</a></span> object, an <span class="type">int</span> or a numeric <span class="type">string</span>.</p> 
      </dd>
 
     
@@ -99,11 +98,11 @@
  <div class="refsect1 examples" id="refsect1-function.gmp-setbit-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3093">
+   <div class="example" id="example-3163">
     <p><strong>Example #1 <span class="function"><strong>gmp_setbit()</strong></span> example - 0 index</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gmp_init</span><span style="color: #007700">(</span><span style="color: #DD0000">"2"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">'&nbsp;-&gt;&nbsp;0b'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">gmp_setbit</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;0b10&nbsp;now&nbsp;becomes&nbsp;0b11<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">'&nbsp;-&gt;&nbsp;0b'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= </span><span style="color: #0000BB">gmp_init</span><span style="color: #007700">(</span><span style="color: #DD0000">"2"</span><span style="color: #007700">); </span><span style="color: #FF8000">//<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">), </span><span style="color: #DD0000">' -&gt; 0b'</span><span style="color: #007700">, </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">gmp_setbit</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">); </span><span style="color: #FF8000">// 0b10 now becomes 0b11<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">), </span><span style="color: #DD0000">' -&gt; 0b'</span><span style="color: #007700">, </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -117,11 +116,11 @@
     </div>
    </div>
 
-   <div class="example" id="example-3094">
+   <div class="example" id="example-3164">
     <p><strong>Example #2 <span class="function"><strong>gmp_setbit()</strong></span> example - 1 index</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gmp_init</span><span style="color: #007700">(</span><span style="color: #DD0000">"0xfd"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">'&nbsp;-&gt;&nbsp;0b'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">gmp_setbit</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;index&nbsp;starts&nbsp;at&nbsp;0<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">'&nbsp;-&gt;&nbsp;0b'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= </span><span style="color: #0000BB">gmp_init</span><span style="color: #007700">(</span><span style="color: #DD0000">"0xfd"</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">), </span><span style="color: #DD0000">' -&gt; 0b'</span><span style="color: #007700">, </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">gmp_setbit</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">1</span><span style="color: #007700">); </span><span style="color: #FF8000">// index starts at 0<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">), </span><span style="color: #DD0000">' -&gt; 0b'</span><span style="color: #007700">, </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -134,12 +133,12 @@
 </pre></div>
     </div>
    </div>
-   
-   <div class="example" id="example-3095">
+
+   <div class="example" id="example-3165">
     <p><strong>Example #3 <span class="function"><strong>gmp_setbit()</strong></span> example - clearing a bit</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gmp_init</span><span style="color: #007700">(</span><span style="color: #DD0000">"0xff"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">'&nbsp;-&gt;&nbsp;0b'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">gmp_setbit</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;clear&nbsp;bit&nbsp;at&nbsp;index&nbsp;0<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">'&nbsp;-&gt;&nbsp;0b'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= </span><span style="color: #0000BB">gmp_init</span><span style="color: #007700">(</span><span style="color: #DD0000">"0xff"</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">), </span><span style="color: #DD0000">' -&gt; 0b'</span><span style="color: #007700">, </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">gmp_setbit</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">false</span><span style="color: #007700">); </span><span style="color: #FF8000">// clear bit at index 0<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">), </span><span style="color: #DD0000">' -&gt; 0b'</span><span style="color: #007700">, </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -152,7 +151,7 @@
 </pre></div>
     </div>
    </div>
-   
+
   </p>
  </div>
 

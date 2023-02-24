@@ -5,7 +5,7 @@
 namespace {
 
 	/**
-	 * <p>Contains various information about errors thrown by libxml. The error codes are described within the official xmlError API documentation.</p>
+	 * <p>Contains various information about errors thrown by libxml. The error codes are described within the official &#xBB;&#xA0;xmlError API documentation.</p>
 	 * @link https://php.net/manual/en/class.libxmlerror.php
 	 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 	 */
@@ -80,6 +80,16 @@ namespace {
 	function libxml_get_errors(): array {}
 
 	/**
+	 * Get the current external entity loader
+	 * <p>Get external entity loader previously installed by <code>libxml_set_external_entity_loader()</code>.</p>
+	 * @return ?callable <p>The external entity loader previously installed by <code>libxml_set_external_entity_loader()</code>. If that function was never called, or if it was called with <b><code>null</code></b>, <b><code>null</code></b> will be returned.</p>
+	 * @link https://php.net/manual/en/function.libxml-get-external-entity-loader.php
+	 * @see libxml_set_external_entity_loader()
+	 * @since PHP 8 >= 8.2.0
+	 */
+	function libxml_get_external_entity_loader(): ?callable {}
+
+	/**
 	 * Retrieve last error from libxml
 	 * <p>Retrieve last error from libxml.</p>
 	 * @return LibXMLError|false <p>Returns a <code>LibXMLError</code> object if there is any error in the buffer, <b><code>false</code></b> otherwise.</p>
@@ -95,7 +105,7 @@ namespace {
 	 * @param ?callable $resolver_function <p>A <code>callable</code> with the following signature:</p> resolver(<code>string</code> <code>$public_id</code>, <code>string</code> <code>$system_id</code>, <code>array</code> <code>$context</code>): <code>resource</code>|<code>string</code>|<code>null</code>   <code>public_id</code>   The public ID.    <code>system_id</code>   The system ID.    <code>context</code>   An array with the four elements <code>"directory"</code>, <code>"intSubName"</code>, <code>"extSubURI"</code> and <code>"extSubSystem"</code>.    This callable should return a resource, a <code>string</code> from which a resource can be opened. If <b><code>null</code></b> is returned, the entity reference resolution will fail.
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.libxml-set-external-entity-loader.php
-	 * @see libxml_disable_entity_loader()
+	 * @see libxml_disable_entity_loader(), libxml_get_external_entity_loader()
 	 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 	 */
 	function libxml_set_external_entity_loader(?callable $resolver_function): bool {}
@@ -135,7 +145,7 @@ namespace {
 	/**
 	 * libxml version like 2.6.5 or 2.6.17
 	 */
-	define('LIBXML_DOTTED_VERSION', '2.9.10');
+	define('LIBXML_DOTTED_VERSION', '2.9.14');
 
 	/**
 	 * Default DTD attributes
@@ -245,7 +255,7 @@ namespace {
 	/**
 	 * libxml version like 20605 or 20617
 	 */
-	define('LIBXML_VERSION', 20910);
+	define('LIBXML_VERSION', 20914);
 
 	/**
 	 * Implement XInclude substitution

@@ -6,8 +6,8 @@ namespace {
 
 	/**
 	 * Checks if assertion is false
-	 * <p>PHP 5 and 7</p><p>PHP 7</p><p><b>assert()</b> will check the given <code>assertion</code> and take appropriate action if its result is <b><code>false</code></b>.</p><p>If the <code>assertion</code> is given as a string it will be evaluated as PHP code by <b>assert()</b>. If you pass a boolean condition as <code>assertion</code>, this condition will not show up as parameter to the assertion function which you may have defined with <code>assert_options()</code>. The condition is converted to a string before calling that handler function, and the boolean <b><code>false</code></b> is converted as the empty string.</p><p>Assertions should be used as a debugging feature only. You may use them for sanity-checks that test for conditions that should always be <b><code>true</code></b> and that indicate some programming errors if not or to check for the presence of certain features like extension functions or certain system limits and features.</p><p>Assertions should not be used for normal runtime operations like input parameter checks. As a rule of thumb your code should always be able to work correctly if assertion checking is not activated.</p><p>The behavior of <b>assert()</b> may be configured by <code>assert_options()</code> or by .ini-settings described in that functions manual page.</p><p>The <code>assert_options()</code> function and/or <b><code>ASSERT_CALLBACK</code></b> configuration directive allow a callback function to be set to handle failed assertions.</p><p><b>assert()</b> callbacks are particularly useful for building automated test suites because they allow you to easily capture the code passed to the assertion, along with information on where the assertion was made. While this information can be captured via other methods, using assertions makes it much faster and easier!</p><p>The callback function should accept three arguments. The first argument will contain the file the assertion failed in. The second argument will contain the line the assertion failed on and the third argument will contain the expression that failed (if any &mdash; literal values such as 1 or "two" will not be passed via this argument). Users of PHP 5.4.8 and later may also provide a fourth optional argument, which will contain the <code>description</code> given to <b>assert()</b>, if it was set.</p><p><b>assert()</b> is a language construct in PHP 7, allowing for the definition of expectations: assertions that take effect in development and testing environments, but are optimised away to have zero cost in production.</p><p>While <code>assert_options()</code> can still be used to control behaviour as described above for backward compatibility reasons, PHP 7 only code should use the two new configuration directives to control the behaviour of <b>assert()</b> and not call <code>assert_options()</code>.</p>
-	 * @param mixed $assertion <p>The assertion. In PHP 5, this must be either a <code>string</code> to be evaluated or a <code>bool</code> to be tested. In PHP 7, this may also be any expression that returns a value, which will be executed and the result used to indicate whether the assertion succeeded or failed.</p> <p><b>Warning</b></p> <p>Using <code>string</code> as the <code>assertion</code> is <i>DEPRECATED</i> as of PHP 7.2.</p>
+	 * <p>PHP 5 and 7</p><p>PHP 7</p><p><b>assert()</b> will check the given <code>assertion</code> and take appropriate action if its result is <b><code>false</code></b>.</p><p>If the <code>assertion</code> is given as a string it will be evaluated as PHP code by <b>assert()</b>. If you pass a boolean condition as <code>assertion</code>, this condition will not be passed as a parameter to the assertion callback which you may have defined with <code>assert_options()</code>. Rather, the callback will receive an empty string.</p><p>Assertions should be used as a debugging feature only. You may use them for sanity-checks that test for conditions that should always be <b><code>true</code></b> and that indicate some programming errors if not or to check for the presence of certain features like extension functions or certain system limits and features.</p><p>Assertions should not be used for normal runtime operations like input parameter checks. As a rule of thumb your code should always be able to work correctly if assertion checking is not activated.</p><p>The behavior of <b>assert()</b> may be configured by <code>assert_options()</code> or by .ini-settings described in that functions manual page.</p><p>The <code>assert_options()</code> function and/or <b><code>ASSERT_CALLBACK</code></b> configuration directive allow a callback function to be set to handle failed assertions.</p><p><b>assert()</b> callbacks are particularly useful for building automated test suites because they allow you to easily capture the code passed to the assertion, along with information on where the assertion was made. While this information can be captured via other methods, using assertions makes it much faster and easier!</p><p>The callback function should accept three arguments. The first argument will contain the file the assertion failed in. The second argument will contain the line the assertion failed on and the third argument will contain the expression that failed (if any &#x2014; literal values such as 1 or "two" will not be passed via this argument). Users of PHP 5.4.8 and later may also provide a fourth optional argument, which will contain the <code>description</code> given to <b>assert()</b>, if it was set.</p><p><b>assert()</b> is a language construct in PHP 7, allowing for the definition of expectations: assertions that take effect in development and testing environments, but are optimised away to have zero cost in production.</p><p>While <code>assert_options()</code> can still be used to control behaviour as described above for backward compatibility reasons, PHP 7 only code should use the two new configuration directives to control the behaviour of <b>assert()</b> and not call <code>assert_options()</code>.</p>
+	 * @param mixed $assertion <p>The assertion. In PHP 5, this must be either a <code>string</code> to be evaluated or a <code>bool</code> to be tested. In PHP 7, this may also be any expression that returns a value, which will be executed and the result used to indicate whether the assertion succeeded or failed.</p> <p><b>Warning</b></p> <p>Using <code>string</code> as the <code>assertion</code> is <i>DEPRECATED</i> as of PHP 7.2.0 and <i>REMOVED</i> as of PHP 8.0.0.</p>
 	 * @param string $description <p>An optional description that will be included in the failure message if the <code>assertion</code> fails. From PHP 7, if no description is provided, a default description equal to the source code for the invocation of <b>assert()</b> is provided.</p>
 	 * @return bool <p><b><code>false</code></b> if the assertion is false, <b><code>true</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.assert.php
@@ -20,7 +20,7 @@ namespace {
 	 * Set/get the various assert flags
 	 * <p>Set the various <code>assert()</code> control options or just query their current settings.</p><p><b>Note</b>:  As of PHP 7.0.0, the use of <b>assert_options()</b> is discouraged in favor of setting and getting the php.ini directives zend.assertions and assert.exception with <code>ini_set()</code> and <code>ini_get()</code>, respectively. </p>
 	 * @param int $what <p></p> <b>Assert Options</b>   Option INI Setting Default value Description     ASSERT_ACTIVE assert.active 1 enable <code>assert()</code> evaluation   ASSERT_WARNING assert.warning 1 issue a PHP warning for each failed assertion   ASSERT_BAIL assert.bail 0 terminate execution on failed assertions   ASSERT_QUIET_EVAL assert.quiet_eval 0  disable error_reporting during assertion expression evaluation    ASSERT_CALLBACK assert.callback (<b><code>null</code></b>) Callback to call on failed assertions
-	 * @param mixed $value <p>An optional new value for the option.</p> <p>The callback function set via <b><code>ASSERT_CALLBACK</code></b> or assert.callback should have the following signature:</p> <b>assert_callback</b>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$file</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>int</code> <code>$line</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$assertion</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$description</code> = &#63;<br>): void   <code>file</code>   The file where <code>assert()</code> has been called.    <code>line</code>   The line where <code>assert()</code> has been called.    <code>assertion</code>   The assertion that has been passed to <code>assert()</code>, converted to a string.    <code>description</code>   The description that has been passed to <code>assert()</code>.
+	 * @param mixed $value <p>An optional new value for the option.</p> <p>The callback function set via <b><code>ASSERT_CALLBACK</code></b> or assert.callback should have the following signature:</p> <b>assert_callback</b>(<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$file</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>int</code> <code>$line</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>&#63;</code><code>string</code> <code>$assertion</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$description</code> = &#63;<br>): void   <code>file</code>   The file where <code>assert()</code> has been called.    <code>line</code>   The line where <code>assert()</code> has been called.    <code>assertion</code>   Prior to PHP 8.0.0, the assertion which has been passed to <code>assert()</code>, but only when the assertion is given as a string. (If the assertion is a boolean condition, this parameter will be an empty string.) As of PHP 8.0.0, this parameter is always <b><code>null</code></b>.    <code>description</code>   The description that has been passed to <code>assert()</code>.
 	 * @return mixed <p>Returns the original setting of any option or <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.assert-options.php
 	 * @see assert()
@@ -51,8 +51,8 @@ namespace {
 
 	/**
 	 * Loads a PHP extension at runtime
-	 * <p>Loads the PHP extension given by the parameter <code>extension_filename</code>.</p><p>Use <code>extension_loaded()</code> to test whether a given extension is already available or not. This works on both built-in extensions and dynamically loaded ones (either through php.ini or <b>dl()</b>).</p><p>This function was removed from most SAPIs in PHP 5.3.0, and was removed from PHP-FPM in PHP 7.0.0.</p>
-	 * @param string $extension_filename <p>This parameter is <i>only</i> the filename of the extension to load which also depends on your platform. For example, the sockets extension (if compiled as a shared module, not the default!) would be called sockets.so on Unix platforms whereas it is called php_sockets.dll on the Windows platform.</p> <p>The directory where the extension is loaded from depends on your platform:</p> <p>Windows - If not explicitly set in the php.ini, the extension is loaded from C:\php5\ by default.</p> <p>Unix - If not explicitly set in the php.ini, the default extension directory depends on</p><ul> <li>  whether PHP has been built with <code>--enable-debug</code> or not  </li> <li>  whether PHP has been built with (experimental) ZTS (Zend Thread Safety) support or not  </li> <li>  the current internal <code>ZEND_MODULE_API_NO</code> (Zend internal module API number, which is basically the date on which a major module API change happened, e.g. <code>20010901</code>)  </li> </ul> Taking into account the above, the directory then defaults to <code>&lt;install-dir&gt;/lib/php/extensions/ &lt;debug-or-not&gt;-&lt;zts-or-not&gt;-ZEND_MODULE_API_NO</code>, e.g. /usr/local/php/lib/php/extensions/debug-non-zts-20010901 or /usr/local/php/lib/php/extensions/no-debug-zts-20010901.
+	 * <p>Loads the PHP extension given by the parameter <code>extension_filename</code>.</p><p>Use <code>extension_loaded()</code> to test whether a given extension is already available or not. This works on both built-in extensions and dynamically loaded ones (either through php.ini or <b>dl()</b>).</p><p>This function is only available for the CLI and embed SAPIs, and the CGI SAPI when run from the command line.</p>
+	 * @param string $extension_filename <p>This parameter is <i>only</i> the filename of the extension to load which also depends on your platform. For example, the sockets extension (if compiled as a shared module, not the default!) would be called sockets.so on Unix platforms whereas it is called php_sockets.dll on the Windows platform.</p> <p>The directory where the extension is loaded from depends on your platform:</p> <p>Windows - If not explicitly set in the php.ini, the extension is loaded from C:\php5\ by default.</p> <p>Unix - If not explicitly set in the php.ini, the default extension directory depends on</p><ul> <li>  whether PHP has been built with <code>--enable-debug</code> or not  </li> <li>  whether PHP has been built with ZTS (Zend Thread Safety) support or not  </li> <li>  the current internal <code>ZEND_MODULE_API_NO</code> (Zend internal module API number, which is basically the date on which a major module API change happened, e.g. <code>20010901</code>)  </li> </ul> Taking into account the above, the directory then defaults to <code>&lt;install-dir&gt;/lib/php/extensions/ &lt;debug-or-not&gt;-&lt;zts-or-not&gt;-ZEND_MODULE_API_NO</code>, e.g. /usr/local/php/lib/php/extensions/debug-non-zts-20010901 or /usr/local/php/lib/php/extensions/no-debug-zts-20010901.
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure. If the functionality of loading modules is not available or has been disabled (by setting enable_dl off in php.ini) an <b><code>E_ERROR</code></b> is emitted and execution is stopped. If <b>dl()</b> fails because the specified library couldn't be loaded, in addition to <b><code>false</code></b> an <b><code>E_WARNING</code></b> message is emitted.</p>
 	 * @link https://php.net/manual/en/function.dl.php
 	 * @see extension_loaded()
@@ -149,10 +149,10 @@ namespace {
 	/**
 	 * Returns an associative array with the names of all the constants and their values
 	 * <p>Returns the names and values of all the constants currently defined. This includes those created by extensions as well as those created with the <code>define()</code> function.</p>
-	 * @param bool $categorize <p>Causing this function to return a multi-dimensional array with categories in the keys of the first dimension and constants and their values in the second dimension.</p>  <code> &lt;&#63;php<br>define("MY_CONSTANT",&nbsp;1);<br>print_r(get_defined_constants(true));<br>&#63;&gt;  </code>  <p>The above example will output something similar to:</p>  <pre> Array ( [Core] =&gt; Array ( [E_ERROR] =&gt; 1 [E_WARNING] =&gt; 2 [E_PARSE] =&gt; 4 [E_NOTICE] =&gt; 8 [E_CORE_ERROR] =&gt; 16 [E_CORE_WARNING] =&gt; 32 [E_COMPILE_ERROR] =&gt; 64 [E_COMPILE_WARNING] =&gt; 128 [E_USER_ERROR] =&gt; 256 [E_USER_WARNING] =&gt; 512 [E_USER_NOTICE] =&gt; 1024 [E_ALL] =&gt; 2047 [TRUE] =&gt; 1 ) [pcre] =&gt; Array ( [PREG_PATTERN_ORDER] =&gt; 1 [PREG_SET_ORDER] =&gt; 2 [PREG_OFFSET_CAPTURE] =&gt; 256 [PREG_SPLIT_NO_EMPTY] =&gt; 1 [PREG_SPLIT_DELIM_CAPTURE] =&gt; 2 [PREG_SPLIT_OFFSET_CAPTURE] =&gt; 4 [PREG_GREP_INVERT] =&gt; 1 ) [user] =&gt; Array ( [MY_CONSTANT] =&gt; 1 ) ) </pre>
+	 * @param bool $categorize <p>Causing this function to return a multi-dimensional array with categories in the keys of the first dimension and constants and their values in the second dimension.</p>  <code> &lt;&#63;php<br>define("MY_CONSTANT", 1);<br>print_r(get_defined_constants(true));<br>&#63;&gt;  </code>  <p>The above example will output something similar to:</p>  <pre> Array ( [Core] =&gt; Array ( [E_ERROR] =&gt; 1 [E_WARNING] =&gt; 2 [E_PARSE] =&gt; 4 [E_NOTICE] =&gt; 8 [E_CORE_ERROR] =&gt; 16 [E_CORE_WARNING] =&gt; 32 [E_COMPILE_ERROR] =&gt; 64 [E_COMPILE_WARNING] =&gt; 128 [E_USER_ERROR] =&gt; 256 [E_USER_WARNING] =&gt; 512 [E_USER_NOTICE] =&gt; 1024 [E_ALL] =&gt; 2047 [TRUE] =&gt; 1 ) [pcre] =&gt; Array ( [PREG_PATTERN_ORDER] =&gt; 1 [PREG_SET_ORDER] =&gt; 2 [PREG_OFFSET_CAPTURE] =&gt; 256 [PREG_SPLIT_NO_EMPTY] =&gt; 1 [PREG_SPLIT_DELIM_CAPTURE] =&gt; 2 [PREG_SPLIT_OFFSET_CAPTURE] =&gt; 4 [PREG_GREP_INVERT] =&gt; 1 ) [user] =&gt; Array ( [MY_CONSTANT] =&gt; 1 ) ) </pre>
 	 * @return array <p>Returns an array of constant name =&gt; constant value array, optionally groupped by extension name registering the constant.</p>
 	 * @link https://php.net/manual/en/function.get-defined-constants.php
-	 * @see defined(), get_loaded_extensions(), get_defined_functions(), get_defined_vars()
+	 * @see defined(), constant(), get_loaded_extensions(), get_defined_functions(), get_defined_vars()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function get_defined_constants(bool $categorize = false): array {}
@@ -241,7 +241,7 @@ namespace {
 
 	/**
 	 * Gets the value of an environment variable
-	 * <p>Gets the value of an environment variable.</p><p>You can see a list of all the environmental variables by using <code>phpinfo()</code>. Many of these variables are listed within RFC 3875, specifically section 4.1, "Request Meta-Variables".</p>
+	 * <p>Gets the value of an environment variable.</p><p>You can see a list of all the environmental variables by using <code>phpinfo()</code>. Many of these variables are listed within &#xBB;&#xA0;RFC 3875, specifically section 4.1, "Request Meta-Variables".</p>
 	 * @param string $varname <p>The variable name.</p>
 	 * @param bool $local_only <p>Set to true to only return local environment variables (set by the operating system or putenv).</p>
 	 * @return string|false <p>Returns the value of the environment variable <code>varname</code>, or <b><code>false</code></b> if the environment variable <code>varname</code> does not exist. If <code>varname</code> is omitted, all environment variables are returned as associative <code>array</code>.</p>
@@ -358,6 +358,17 @@ namespace {
 	function ini_get_all(?string $extension = null, bool $details = true): array|false {}
 
 	/**
+	 * Get interpreted size from ini shorthand syntax
+	 * <p>Returns the interpreted size in bytes on success from an ini shorthand.</p>
+	 * @param string $shorthand <p>Ini shorthand to parse, must be a number followed by an optional multiplier. The followig multipliers are supported: <code>k</code>/<code>K</code> (<code>1024</code>), <code>m</code>/<code>M</code> (<code>1048576</code>), <code>g</code>/<code>G</code> (<code>1073741824</code>). The number can be a decimal, hex (prefixed with <code>0x</code> or <code>0X</code>), octal (prefixed with <code>0o</code>, <code>0O</code> or <code>0</code>) or binary (prefixed with <code>0b</code> or <code>0B</code>)</p>
+	 * @return int <p>Returns the interpreted size in bytes as an <code>int</code>.</p>
+	 * @link https://php.net/manual/en/function.ini-parse-quantity.php
+	 * @see ini_get()
+	 * @since PHP 8 >= 8.2.0
+	 */
+	function ini_parse_quantity(string $shorthand): int {}
+
+	/**
 	 * Restores the value of a configuration option
 	 * <p>Restores a given configuration option to its original value.</p>
 	 * @param string $option <p>The configuration option name.</p>
@@ -386,7 +397,7 @@ namespace {
 	 * @param bool $real_usage <p>Set this to <b><code>true</code></b> to get the real size of memory allocated from system. If not set or <b><code>false</code></b> only the memory used by <code>emalloc()</code> is reported.</p>
 	 * @return int <p>Returns the memory peak in bytes.</p>
 	 * @link https://php.net/manual/en/function.memory-get-peak-usage.php
-	 * @see memory_get_usage()
+	 * @see memory_get_usage(), memory_reset_peak_usage()
 	 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 	 */
 	function memory_get_peak_usage(bool $real_usage = false): int {}
@@ -401,6 +412,16 @@ namespace {
 	 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7, PHP 8
 	 */
 	function memory_get_usage(bool $real_usage = false): int {}
+
+	/**
+	 * Reset the peak memory usage
+	 * <p>Resets the peak memory usage returned by the <code>memory_get_peak_usage()</code> function.</p>
+	 * @return void <p>No value is returned.</p>
+	 * @link https://php.net/manual/en/function.memory-reset-peak-usage.php
+	 * @see memory_get_peak_usage()
+	 * @since PHP 8 >= 8.2.0
+	 */
+	function memory_reset_peak_usage(): void {}
 
 	/**
 	 * Retrieve a path to the loaded php.ini file
@@ -456,7 +477,7 @@ namespace {
 	/**
 	 * Outputs information about PHP's configuration
 	 * <p>Outputs a large amount of information about the current state of PHP. This includes information about PHP compilation options and extensions, the PHP version, server information and environment (if compiled as a module), the PHP environment, OS version information, paths, master and local values of configuration options, HTTP headers, and the PHP License.</p><p>Because every system is setup differently, <b>phpinfo()</b> is commonly used to check configuration settings and for available predefined variables on a given system.</p><p><b>phpinfo()</b> is also a valuable debugging tool as it contains all EGPCS (Environment, GET, POST, Cookie, Server) data.</p>
-	 * @param int $flags <p>The output may be customized by passing one or more of the following <i>constants</i> bitwise values summed together in the optional <code>flags</code> parameter. One can also combine the respective constants or bitwise values together with the bitwise or operator.</p> <p></p> <b><b>phpinfo()</b> options</b>   Name (constant) Value Description     INFO_GENERAL 1  The configuration line, php.ini location, build date, Web Server, System and more.    INFO_CREDITS 2  PHP Credits. See also <code>phpcredits()</code>.    INFO_CONFIGURATION 4  Current Local and Master values for PHP directives. See also <code>ini_get()</code>.    INFO_MODULES 8  Loaded modules and their respective settings. See also <code>get_loaded_extensions()</code>.    INFO_ENVIRONMENT 16  Environment Variable information that's also available in $_ENV.    INFO_VARIABLES 32  Shows all  predefined variables from EGPCS (Environment, GET, POST, Cookie, Server).    INFO_LICENSE 64  PHP License information. See also the license FAQ.    INFO_ALL -1  Shows all of the above.
+	 * @param int $flags <p>The output may be customized by passing one or more of the following <i>constants</i> bitwise values summed together in the optional <code>flags</code> parameter. One can also combine the respective constants or bitwise values together with the bitwise or operator.</p> <p></p> <b><b>phpinfo()</b> options</b>   Name (constant) Value Description     INFO_GENERAL 1  The configuration line, php.ini location, build date, Web Server, System and more.    INFO_CREDITS 2  PHP Credits. See also <code>phpcredits()</code>.    INFO_CONFIGURATION 4  Current Local and Master values for PHP directives. See also <code>ini_get()</code>.    INFO_MODULES 8  Loaded modules and their respective settings. See also <code>get_loaded_extensions()</code>.    INFO_ENVIRONMENT 16  Environment Variable information that's also available in $_ENV.    INFO_VARIABLES 32  Shows all  predefined variables from EGPCS (Environment, GET, POST, Cookie, Server).    INFO_LICENSE 64  PHP License information. See also the &#xBB;&#xA0;license FAQ.    INFO_ALL -1  Shows all of the above.
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.phpinfo.php
 	 * @see phpversion(), phpcredits(), ini_get(), ini_set(), get_loaded_extensions()
@@ -640,9 +661,9 @@ namespace {
 	define('ASSERT_CALLBACK', 2);
 
 	/**
-	 * Disable <code>error_reporting</code> during assertion expression evaluation.
+	 * Disable <code>error_reporting</code> during assertion expression evaluation. Removed as of PHP 8.0.0.
 	 */
-	define('ASSERT_QUIET_EVAL', 5);
+	define('ASSERT_QUIET_EVAL', null);
 
 	/**
 	 * Issues a PHP warning for each failed assertion
@@ -715,7 +736,7 @@ namespace {
 	define('INFO_GENERAL', 1);
 
 	/**
-	 * PHP License information. See also the license faq.
+	 * PHP License information. See also the &#xBB;&#xA0;license faq.
 	 */
 	define('INFO_LICENSE', 64);
 

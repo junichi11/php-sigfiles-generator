@@ -125,11 +125,11 @@
  <div class="refsect1 examples" id="refsect1-function.apache-note-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4709">
+   <div class="example" id="example-4788">
     <p><strong>Example #1 Passing information between PHP and Perl</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />apache_note</span><span style="color: #007700">(</span><span style="color: #DD0000">'name'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Fredrik&nbsp;Ekengren'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Call&nbsp;perl&nbsp;script<br /></span><span style="color: #0000BB">virtual</span><span style="color: #007700">(</span><span style="color: #DD0000">"/perl/some_script.pl"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">apache_note</span><span style="color: #007700">(</span><span style="color: #DD0000">"resultdata"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />apache_note</span><span style="color: #007700">(</span><span style="color: #DD0000">'name'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Fredrik Ekengren'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Call perl script<br /></span><span style="color: #0000BB">virtual</span><span style="color: #007700">(</span><span style="color: #DD0000">"/perl/some_script.pl"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$result </span><span style="color: #007700">= </span><span style="color: #0000BB">apache_note</span><span style="color: #007700">(</span><span style="color: #DD0000">"resultdata"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -151,11 +151,11 @@ $r-&gt;notes(&#039;resultdata&#039;, $result);</pre>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4710">
+   <div class="example" id="example-4789">
     <p><strong>Example #2 Logging values in access.log</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />apache_note</span><span style="color: #007700">(</span><span style="color: #DD0000">'sessionID'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">session_id</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />apache_note</span><span style="color: #007700">(</span><span style="color: #DD0000">'sessionID'</span><span style="color: #007700">, </span><span style="color: #0000BB">session_id</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

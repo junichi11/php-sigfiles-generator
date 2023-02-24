@@ -36,7 +36,7 @@
    <span class="methodname"><strong>snmp3_set</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$hostname</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$security_name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$security_level</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$auth_protocol</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$auth_passphrase</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$privacy_protocol</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$privacy_passphrase</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$object_id</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$type</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$value</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code><span class="initializer"> = -1</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = -1</span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>snmp3_set()</strong></span> is used to set the value of an <acronym title="Simple Network Management Protocol">SNMP</acronym> object
+   <span class="function"><strong>snmp3_set()</strong></span> is used to set the value of an <abbr title="Simple Network Management Protocol">SNMP</abbr> object
    specified by the <code class="parameter">object_id</code>.
   </p>
   <p class="para">
@@ -140,7 +140,7 @@
     <dd>
 
      <p class="para">
-      The <acronym title="Simple Network Management Protocol">SNMP</acronym> object id.
+      The <abbr title="Simple Network Management Protocol">SNMP</abbr> object id.
      </p>
     </dd>
 
@@ -152,7 +152,7 @@
     <dd>
 
      <p class="para">
- The <acronym>MIB</acronym> defines the type of each object id. It has to be specified as a single character from the below list.
+ The <abbr>MIB</abbr> defines the type of each object id. It has to be specified as a single character from the below list.
 </p>
 <table class="doctable table">
  <caption><strong>types</strong></caption>
@@ -185,7 +185,7 @@
 </table>
 
 <p class="para">
- If <strong><code>OPAQUE_SPECIAL_TYPES</code></strong> was defined while compiling the <acronym title="Simple Network Management Protocol">SNMP</acronym> library, the following are also valid:
+ If <strong><code>OPAQUE_SPECIAL_TYPES</code></strong> was defined while compiling the <abbr title="Simple Network Management Protocol">SNMP</abbr> library, the following are also valid:
 </p>
 <table class="doctable table">
  <caption><strong>types</strong></caption>
@@ -292,21 +292,21 @@
  
  <div class="refsect1 examples" id="refsect1-function.snmp3-set-examples">
   <h3 class="title">Examples</h3>
-   <div class="example" id="example-4488">
+   <div class="example" id="example-4567">
     <p><strong>Example #1 Using <span class="function"><strong>snmp3_set()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;snmp3_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'james'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'AES'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'IF-MIB::ifAlias.3'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'s'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />  snmp3_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #DD0000">'james'</span><span style="color: #007700">, </span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">, </span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">, </span><span style="color: #DD0000">'AES'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">, </span><span style="color: #DD0000">'IF-MIB::ifAlias.3'</span><span style="color: #007700">, </span><span style="color: #DD0000">'s'</span><span style="color: #007700">, </span><span style="color: #DD0000">"foo"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-4489">
-    <p><strong>Example #2 Using <span class="function"><strong>snmp3_set()</strong></span> for setting BITS <acronym title="Simple Network Management Protocol">SNMP</acronym> object id</strong></p>
+   <div class="example" id="example-4568">
+    <p><strong>Example #2 Using <span class="function"><strong>snmp3_set()</strong></span> for setting BITS <abbr title="Simple Network Management Protocol">SNMP</abbr> object id</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;snmp3_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'james'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'AES'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'FOO-MIB::bar.42'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'b'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'0&nbsp;1&nbsp;2&nbsp;3&nbsp;4'</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;or<br />&nbsp;&nbsp;</span><span style="color: #0000BB">snmp3_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'james'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'AES'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'FOO-MIB::bar.42'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'x'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'F0'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />  snmp3_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #DD0000">'james'</span><span style="color: #007700">, </span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">, </span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">, </span><span style="color: #DD0000">'AES'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">, </span><span style="color: #DD0000">'FOO-MIB::bar.42'</span><span style="color: #007700">, </span><span style="color: #DD0000">'b'</span><span style="color: #007700">, </span><span style="color: #DD0000">'0 1 2 3 4'</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// or<br />  </span><span style="color: #0000BB">snmp3_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #DD0000">'james'</span><span style="color: #007700">, </span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">, </span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">, </span><span style="color: #DD0000">'AES'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">, </span><span style="color: #DD0000">'FOO-MIB::bar.42'</span><span style="color: #007700">, </span><span style="color: #DD0000">'x'</span><span style="color: #007700">, </span><span style="color: #DD0000">'F0'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

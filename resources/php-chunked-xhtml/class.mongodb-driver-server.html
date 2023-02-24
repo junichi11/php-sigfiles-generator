@@ -100,16 +100,17 @@
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">private</span> <span class="methodname"><a href="mongodb-driver-server.construct.html" class="methodname">__construct</a></span>()</div>
-<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.executebulkwrite.html" class="methodname">executeBulkWrite</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-bulkwrite.html" class="type MongoDB\Driver\BulkWrite">MongoDB\Driver\BulkWrite</a></span> <code class="parameter">$bulk</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>): <span class="type"><a href="class.mongodb-driver-writeresult.html" class="type MongoDB\Driver\WriteResult">MongoDB\Driver\WriteResult</a></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.executecommand.html" class="methodname">executeCommand</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.executequery.html" class="methodname">executeQuery</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-query.html" class="type MongoDB\Driver\Query">MongoDB\Driver\Query</a></span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.executereadcommand.html" class="methodname">executeReadCommand</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.executereadwritecommand.html" class="methodname">executeReadWriteCommand</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.executewritecommand.html" class="methodname">executeWriteCommand</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.executebulkwrite.html" class="methodname">executeBulkWrite</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-bulkwrite.html" class="type MongoDB\Driver\BulkWrite">MongoDB\Driver\BulkWrite</a></span> <code class="parameter">$bulk</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type"><a href="class.mongodb-driver-writeconcern.html" class="type MongoDB\Driver\WriteConcern">MongoDB\Driver\WriteConcern</a></span>|<span class="type">null</span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a href="class.mongodb-driver-writeresult.html" class="type MongoDB\Driver\WriteResult">MongoDB\Driver\WriteResult</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.executecommand.html" class="methodname">executeCommand</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type"><a href="class.mongodb-driver-readpreference.html" class="type MongoDB\Driver\ReadPreference">MongoDB\Driver\ReadPreference</a></span>|<span class="type">null</span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.executequery.html" class="methodname">executeQuery</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-query.html" class="type MongoDB\Driver\Query">MongoDB\Driver\Query</a></span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type"><a href="class.mongodb-driver-readpreference.html" class="type MongoDB\Driver\ReadPreference">MongoDB\Driver\ReadPreference</a></span>|<span class="type">null</span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.executereadcommand.html" class="methodname">executeReadCommand</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.executereadwritecommand.html" class="methodname">executeReadWriteCommand</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.executewritecommand.html" class="methodname">executeWriteCommand</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.gethost.html" class="methodname">getHost</a></span>(): <span class="type">string</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.getinfo.html" class="methodname">getInfo</a></span>(): <span class="type">array</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.getlatency.html" class="methodname">getLatency</a></span>(): <span class="type"><span class="type">?</span><span class="type">integer</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.getport.html" class="methodname">getPort</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.getserverdescription.html" class="methodname">getServerDescription</a></span>(): <span class="type"><a href="class.mongodb-driver-serverdescription.html" class="type MongoDB\Driver\ServerDescription">MongoDB\Driver\ServerDescription</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.gettags.html" class="methodname">getTags</a></span>(): <span class="type">array</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.gettype.html" class="methodname">getType</a></span>(): <span class="type">int</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-server.isarbiter.html" class="methodname">isArbiter</a></span>(): <span class="type">bool</span></div>
@@ -278,6 +279,69 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 
@@ -327,62 +391,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-
-
  
 
 
@@ -398,6 +406,6 @@
 
 
 
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-driver-server.construct.html">MongoDB\Driver\Server::__construct</a> — Create a new Server (not used)</li><li><a href="mongodb-driver-server.executebulkwrite.html">MongoDB\Driver\Server::executeBulkWrite</a> — Execute one or more write operations on this server</li><li><a href="mongodb-driver-server.executecommand.html">MongoDB\Driver\Server::executeCommand</a> — Execute a database command on this server</li><li><a href="mongodb-driver-server.executequery.html">MongoDB\Driver\Server::executeQuery</a> — Execute a database query on this server</li><li><a href="mongodb-driver-server.executereadcommand.html">MongoDB\Driver\Server::executeReadCommand</a> — Execute a database command that reads on this server</li><li><a href="mongodb-driver-server.executereadwritecommand.html">MongoDB\Driver\Server::executeReadWriteCommand</a> — Execute a database command that reads and writes on this server</li><li><a href="mongodb-driver-server.executewritecommand.html">MongoDB\Driver\Server::executeWriteCommand</a> — Execute a database command that writes on this server</li><li><a href="mongodb-driver-server.gethost.html">MongoDB\Driver\Server::getHost</a> — Returns the hostname of this server</li><li><a href="mongodb-driver-server.getinfo.html">MongoDB\Driver\Server::getInfo</a> — Returns an array of information describing this server</li><li><a href="mongodb-driver-server.getlatency.html">MongoDB\Driver\Server::getLatency</a> — Returns the latency of this server in milliseconds</li><li><a href="mongodb-driver-server.getport.html">MongoDB\Driver\Server::getPort</a> — Returns the port on which this server is listening</li><li><a href="mongodb-driver-server.gettags.html">MongoDB\Driver\Server::getTags</a> — Returns an array of tags describing this server in a replica set</li><li><a href="mongodb-driver-server.gettype.html">MongoDB\Driver\Server::getType</a> — Returns an integer denoting the type of this server</li><li><a href="mongodb-driver-server.isarbiter.html">MongoDB\Driver\Server::isArbiter</a> — Checks if this server is an arbiter member of a replica set</li><li><a href="mongodb-driver-server.ishidden.html">MongoDB\Driver\Server::isHidden</a> — Checks if this server is a hidden member of a replica set</li><li><a href="mongodb-driver-server.ispassive.html">MongoDB\Driver\Server::isPassive</a> — Checks if this server is a passive member of a replica set</li><li><a href="mongodb-driver-server.isprimary.html">MongoDB\Driver\Server::isPrimary</a> — Checks if this server is a primary member of a replica set</li><li><a href="mongodb-driver-server.issecondary.html">MongoDB\Driver\Server::isSecondary</a> — Checks if this server is a secondary member of a replica set</li></ul>
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-driver-server.construct.html">MongoDB\Driver\Server::__construct</a> — Create a new Server (not used)</li><li><a href="mongodb-driver-server.executebulkwrite.html">MongoDB\Driver\Server::executeBulkWrite</a> — Execute one or more write operations on this server</li><li><a href="mongodb-driver-server.executecommand.html">MongoDB\Driver\Server::executeCommand</a> — Execute a database command on this server</li><li><a href="mongodb-driver-server.executequery.html">MongoDB\Driver\Server::executeQuery</a> — Execute a database query on this server</li><li><a href="mongodb-driver-server.executereadcommand.html">MongoDB\Driver\Server::executeReadCommand</a> — Execute a database command that reads on this server</li><li><a href="mongodb-driver-server.executereadwritecommand.html">MongoDB\Driver\Server::executeReadWriteCommand</a> — Execute a database command that reads and writes on this server</li><li><a href="mongodb-driver-server.executewritecommand.html">MongoDB\Driver\Server::executeWriteCommand</a> — Execute a database command that writes on this server</li><li><a href="mongodb-driver-server.gethost.html">MongoDB\Driver\Server::getHost</a> — Returns the hostname of this server</li><li><a href="mongodb-driver-server.getinfo.html">MongoDB\Driver\Server::getInfo</a> — Returns an array of information describing this server</li><li><a href="mongodb-driver-server.getlatency.html">MongoDB\Driver\Server::getLatency</a> — Returns the latency of this server in milliseconds</li><li><a href="mongodb-driver-server.getport.html">MongoDB\Driver\Server::getPort</a> — Returns the port on which this server is listening</li><li><a href="mongodb-driver-server.getserverdescription.html">MongoDB\Driver\Server::getServerDescription</a> — Returns a ServerDescription for this server</li><li><a href="mongodb-driver-server.gettags.html">MongoDB\Driver\Server::getTags</a> — Returns an array of tags describing this server in a replica set</li><li><a href="mongodb-driver-server.gettype.html">MongoDB\Driver\Server::getType</a> — Returns an integer denoting the type of this server</li><li><a href="mongodb-driver-server.isarbiter.html">MongoDB\Driver\Server::isArbiter</a> — Checks if this server is an arbiter member of a replica set</li><li><a href="mongodb-driver-server.ishidden.html">MongoDB\Driver\Server::isHidden</a> — Checks if this server is a hidden member of a replica set</li><li><a href="mongodb-driver-server.ispassive.html">MongoDB\Driver\Server::isPassive</a> — Checks if this server is a passive member of a replica set</li><li><a href="mongodb-driver-server.isprimary.html">MongoDB\Driver\Server::isPrimary</a> — Checks if this server is a primary member of a replica set</li><li><a href="mongodb-driver-server.issecondary.html">MongoDB\Driver\Server::isSecondary</a> — Checks if this server is a secondary member of a replica set</li></ul>
 </div>
 </div></div></body></html>

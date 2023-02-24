@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="snmp.walk" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SNMP::walk</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SNMP::walk</span> &mdash; <span class="dc-title">Fetch <acronym title="Simple Network Management Protocol">SNMP</acronym> object subtree</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SNMP::walk</span> &mdash; <span class="dc-title">Fetch <abbr title="Simple Network Management Protocol">SNMP</abbr> object subtree</span></p>
 
  </div>
 
@@ -37,7 +37,7 @@
    <span class="modifier">public</span> <span class="methodname"><strong>SNMP::walk</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$objectId</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$suffixAsKey</code><span class="initializer"> = <strong><code>false</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$maxRepetitions</code><span class="initializer"> = -1</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$nonRepeaters</code><span class="initializer"> = -1</span></span><br>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
-   <span class="methodname"><strong>SNMP::walk()</strong></span> is used to read <acronym title="Simple Network Management Protocol">SNMP</acronym> subtree rooted at specified <code class="parameter">objectId</code>.
+   <span class="methodname"><strong>SNMP::walk()</strong></span> is used to read <abbr title="Simple Network Management Protocol">SNMP</abbr> subtree rooted at specified <code class="parameter">objectId</code>.
   </p>
  </div>
 
@@ -78,7 +78,7 @@
 
      <p class="para">
       This specifies the number of supplied variables that should not be iterated over.
-      The default is to use this value from <acronym title="Simple Network Management Protocol">SNMP</acronym> object.
+      The default is to use this value from <abbr title="Simple Network Management Protocol">SNMP</abbr> object.
      </p>
     </dd>
 
@@ -91,7 +91,7 @@
 
      <p class="para">
        This specifies the maximum number of iterations over the repeating variables.
-       The default is to use this value from <acronym title="Simple Network Management Protocol">SNMP</acronym> object.
+       The default is to use this value from <abbr title="Simple Network Management Protocol">SNMP</abbr> object.
      </p>
     </dd>
 
@@ -104,8 +104,8 @@
  <div class="refsect1 returnvalues" id="refsect1-snmp.walk-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns an associative array of the <acronym title="Simple Network Management Protocol">SNMP</acronym> object ids and their values on success or <strong><code>false</code></strong> on error.
-   When a <acronym title="Simple Network Management Protocol">SNMP</acronym> error occures <span class="methodname"><a href="snmp.geterrno.html" class="methodname">SNMP::getErrno()</a></span> and
+   Returns an associative array of the <abbr title="Simple Network Management Protocol">SNMP</abbr> object ids and their values on success or <strong><code>false</code></strong> on error.
+   When a <abbr title="Simple Network Management Protocol">SNMP</abbr> error occures <span class="methodname"><a href="snmp.geterrno.html" class="methodname">SNMP::getErrno()</a></span> and
    <span class="methodname"><a href="snmp.geterror.html" class="methodname">SNMP::getError()</a></span> can be used for retrieving error
    number (specific to SNMP extension, see class constants) and error message
    respectively.
@@ -132,7 +132,7 @@
    <p><strong>Example #1 <span class="methodname"><strong>SNMP::walk()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$session&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">(</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">::</span><span style="color: #0000BB">VERSION_1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"127.0.0.1"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"public"</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$fulltree&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">walk</span><span style="color: #007700">(</span><span style="color: #DD0000">"."</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$fulltree</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />  $session </span><span style="color: #007700">= new </span><span style="color: #0000BB">SNMP</span><span style="color: #007700">(</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">::</span><span style="color: #0000BB">VERSION_1</span><span style="color: #007700">, </span><span style="color: #DD0000">"127.0.0.1"</span><span style="color: #007700">, </span><span style="color: #DD0000">"public"</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">$fulltree </span><span style="color: #007700">= </span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">walk</span><span style="color: #007700">(</span><span style="color: #DD0000">"."</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$fulltree</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -156,12 +156,12 @@ Array
   <div class="example" id="snmp.walk.example.suffix-as-key">
    <p><strong>Example #2 <code class="parameter">suffixAsKey</code> example</strong></p>
    <div class="example-contents"><p>
-     <code class="parameter">suffixAsKey</code> may be used when merging multiple <acronym title="Simple Network Management Protocol">SNMP</acronym> subtrees into one.
+     <code class="parameter">suffixAsKey</code> may be used when merging multiple <abbr title="Simple Network Management Protocol">SNMP</abbr> subtrees into one.
      This example maps interface names to their type.
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$session&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">(</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">::</span><span style="color: #0000BB">VERSION_1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"127.0.0.1"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"public"</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">valueretrieval&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">SNMP_VALUE_PLAIN</span><span style="color: #007700">;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$ifDescr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">walk</span><span style="color: #007700">(</span><span style="color: #DD0000">".1.3.6.1.2.1.2.2.1.2"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">valueretrieval&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">SNMP_VALUE_LIBRARY</span><span style="color: #007700">;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$ifType&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">walk</span><span style="color: #007700">(</span><span style="color: #DD0000">".1.3.6.1.2.1.2.2.1.3"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$ifDescr</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$ifType</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;array();<br />&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$ifDescr&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$n</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">[</span><span style="color: #0000BB">$n</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$ifType</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">];<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />  $session </span><span style="color: #007700">= new </span><span style="color: #0000BB">SNMP</span><span style="color: #007700">(</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">::</span><span style="color: #0000BB">VERSION_1</span><span style="color: #007700">, </span><span style="color: #DD0000">"127.0.0.1"</span><span style="color: #007700">, </span><span style="color: #DD0000">"public"</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">valueretrieval </span><span style="color: #007700">= </span><span style="color: #0000BB">SNMP_VALUE_PLAIN</span><span style="color: #007700">;<br />  </span><span style="color: #0000BB">$ifDescr </span><span style="color: #007700">= </span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">walk</span><span style="color: #007700">(</span><span style="color: #DD0000">".1.3.6.1.2.1.2.2.1.2"</span><span style="color: #007700">, </span><span style="color: #0000BB">TRUE</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">valueretrieval </span><span style="color: #007700">= </span><span style="color: #0000BB">SNMP_VALUE_LIBRARY</span><span style="color: #007700">;<br />  </span><span style="color: #0000BB">$ifType </span><span style="color: #007700">= </span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">walk</span><span style="color: #007700">(</span><span style="color: #DD0000">".1.3.6.1.2.1.2.2.1.3"</span><span style="color: #007700">, </span><span style="color: #0000BB">TRUE</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$ifDescr</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$ifType</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">$result </span><span style="color: #007700">= array();<br />  foreach(</span><span style="color: #0000BB">$ifDescr </span><span style="color: #007700">as </span><span style="color: #0000BB">$i </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$n</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">$result</span><span style="color: #007700">[</span><span style="color: #0000BB">$n</span><span style="color: #007700">] = </span><span style="color: #0000BB">$ifType</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">];<br />  }<br />  </span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

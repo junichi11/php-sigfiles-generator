@@ -84,11 +84,11 @@
  <div class="refsect1 examples" id="refsect1-threaded.chunk-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3336">
+   <div class="example" id="example-3408">
     <p><strong>Example #1 Fetch a chunk of the property table</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$safe&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Threaded</span><span style="color: #007700">();<br /><br />while&nbsp;(</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$safe</span><span style="color: #007700">)&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$safe</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$safe</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$safe</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">chunk</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$safe </span><span style="color: #007700">= new </span><span style="color: #0000BB">Threaded</span><span style="color: #007700">();<br /><br />while (</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$safe</span><span style="color: #007700">) &lt; </span><span style="color: #0000BB">10</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">$safe</span><span style="color: #007700">[] = </span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$safe</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$safe</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">chunk</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

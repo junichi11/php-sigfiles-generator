@@ -84,43 +84,14 @@ returned by <span class="function"><a href="function.timezone-open.html" class="
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-datetimezone.getoffset-changelog">
-  <h3 class="title">Changelog</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>Version</th>
-       <th>Description</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>8.0.0</td>
-       <td>
-        Prior to this version, <strong><code>false</code></strong> was returned on failure.
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-datetimezone.getoffset-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2054">
+   <div class="example" id="example-2100">
     <p><strong>Example #1 <span class="function"><strong>DateTimeZone::getOffset()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Create&nbsp;two&nbsp;timezone&nbsp;objects,&nbsp;one&nbsp;for&nbsp;Taipei&nbsp;(Taiwan)&nbsp;and&nbsp;one&nbsp;for<br />//&nbsp;Tokyo&nbsp;(Japan)<br /></span><span style="color: #0000BB">$dateTimeZoneTaipei&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">"Asia/Taipei"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$dateTimeZoneJapan&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">"Asia/Tokyo"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Create&nbsp;two&nbsp;DateTime&nbsp;objects&nbsp;that&nbsp;will&nbsp;contain&nbsp;the&nbsp;same&nbsp;Unix&nbsp;timestamp,&nbsp;but<br />//&nbsp;have&nbsp;different&nbsp;timezones&nbsp;attached&nbsp;to&nbsp;them.<br /></span><span style="color: #0000BB">$dateTimeTaipei&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">"now"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$dateTimeZoneTaipei</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$dateTimeJapan&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">"now"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$dateTimeZoneJapan</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Calculate&nbsp;the&nbsp;GMT&nbsp;offset&nbsp;for&nbsp;the&nbsp;date/time&nbsp;contained&nbsp;in&nbsp;the&nbsp;$dateTimeTaipei<br />//&nbsp;object,&nbsp;but&nbsp;using&nbsp;the&nbsp;timezone&nbsp;rules&nbsp;as&nbsp;defined&nbsp;for&nbsp;Tokyo<br />//&nbsp;($dateTimeZoneJapan).<br /></span><span style="color: #0000BB">$timeOffset&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dateTimeZoneJapan</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOffset</span><span style="color: #007700">(</span><span style="color: #0000BB">$dateTimeTaipei</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Should&nbsp;show&nbsp;int(32400)&nbsp;(for&nbsp;dates&nbsp;after&nbsp;Sat&nbsp;Sep&nbsp;8&nbsp;01:00:00&nbsp;1951&nbsp;JST).<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$timeOffset</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Create two timezone objects, one for Taipei (Taiwan) and one for<br />// Tokyo (Japan)<br /></span><span style="color: #0000BB">$dateTimeZoneTaipei </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">"Asia/Taipei"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$dateTimeZoneJapan </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">"Asia/Tokyo"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Create two DateTime objects that will contain the same Unix timestamp, but<br />// have different timezones attached to them.<br /></span><span style="color: #0000BB">$dateTimeTaipei </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">"now"</span><span style="color: #007700">, </span><span style="color: #0000BB">$dateTimeZoneTaipei</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$dateTimeJapan </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">"now"</span><span style="color: #007700">, </span><span style="color: #0000BB">$dateTimeZoneJapan</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Calculate the GMT offset for the date/time contained in the $dateTimeTaipei<br />// object, but using the timezone rules as defined for Tokyo<br />// ($dateTimeZoneJapan).<br /></span><span style="color: #0000BB">$timeOffset </span><span style="color: #007700">= </span><span style="color: #0000BB">$dateTimeZoneJapan</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOffset</span><span style="color: #007700">(</span><span style="color: #0000BB">$dateTimeTaipei</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Should show int(32400) (for dates after Sat Sep 8 01:00:00 1951 JST).<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$timeOffset</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

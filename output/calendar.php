@@ -79,7 +79,7 @@ namespace {
 	/**
 	 * Converts a date from the French Republican Calendar to a Julian Day Count
 	 * <p>Converts a date from the French Republican Calendar to a Julian Day Count.</p><p>These routines only convert dates in years 1 through 14 (Gregorian dates 22 September 1792 through 22 September 1806). This more than covers the period when the calendar was in use.</p>
-	 * @param int $month <p>The month as a number from 1 (for Vend&eacute;miaire) to 13 (for the period of 5-6 days at the end of each year)</p>
+	 * @param int $month <p>The month as a number from 1 (for Vend&#xE9;miaire) to 13 (for the period of 5-6 days at the end of each year)</p>
 	 * @param int $day <p>The day as a number from 1 to 30</p>
 	 * @param int $year <p>The year as a number between 1 and 14</p>
 	 * @return int <p>The julian day for the given french revolution date as an integer.</p>
@@ -127,7 +127,7 @@ namespace {
 	/**
 	 * Converts a Julian Day Count to the French Republican Calendar
 	 * <p>Converts a Julian Day Count to the French Republican Calendar.</p>
-	 * @param int $julian_day
+	 * @param int $julian_day <p>A julian day number as integer</p>
 	 * @return string <p>The french revolution date as a string in the form "month/day/year"</p>
 	 * @link https://php.net/manual/en/function.jdtofrench.php
 	 * @see frenchtojd(), cal_from_jd()
@@ -149,7 +149,7 @@ namespace {
 	/**
 	 * Converts a Julian day count to a Jewish calendar date
 	 * <p>Converts a Julian Day Count to the Jewish Calendar.</p>
-	 * @param int $julian_day
+	 * @param int $julian_day <p>A julian day number as integer</p>
 	 * @param bool $hebrew <p>If the <code>hebrew</code> parameter is set to <b><code>true</code></b>, the <code>flags</code> parameter is used for Hebrew, ISO-8859-8 encoded string based, output format.</p>
 	 * @param int $flags <p>A bitmask which may consist of <b><code>CAL_JEWISH_ADD_ALAFIM_GERESH</code></b>, <b><code>CAL_JEWISH_ADD_ALAFIM</code></b> and <b><code>CAL_JEWISH_ADD_GERESHAYIM</code></b>.</p>
 	 * @return string <p>The Jewish date as a string in the form "month/day/year", or an ISO-8859-8 encoded Hebrew date string, according to the <code>hebrew</code> parameter.</p>

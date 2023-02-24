@@ -55,11 +55,11 @@ Alternatives to this function include:</p>
    link is used.
   </p>
   <p class="para">
-Open non-persistent MySQL connections and result sets are automatically destroyed when a 
-PHP script finishes its execution. So, while explicitly closing open 
-connections and freeing result sets is optional, doing so is recommended. 
-This will immediately return resources to PHP and MySQL, which can 
-improve performance. For related information, see 
+Open non-persistent MySQL connections and result sets are automatically destroyed when a
+PHP script finishes its execution. So, while explicitly closing open
+connections and freeing result sets is optional, doing so is recommended.
+This will immediately return resources to PHP and MySQL, which can
+improve performance. For related information, see
 <a href="language.types.resource.html#language.types.resource.self-destruct" class="link">freeing resources</a></p>
  </div>
 
@@ -95,11 +95,11 @@ generated.</p></dd>
  <div class="refsect1 examples" id="refsect1-function.mysql-close-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1716">
+   <div class="example" id="example-1748">
     <p><strong>Example #1 <span class="function"><strong>mysql_close()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br />echo&nbsp;</span><span style="color: #DD0000">'Connected&nbsp;successfully'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$link </span><span style="color: #007700">= </span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">, </span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if (!</span><span style="color: #0000BB">$link</span><span style="color: #007700">) {<br />    die(</span><span style="color: #DD0000">'Could not connect: ' </span><span style="color: #007700">. </span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br />echo </span><span style="color: #DD0000">'Connected successfully'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

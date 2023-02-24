@@ -63,6 +63,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the error object
+		 * <p>Constructs the Error.</p>
+		 * @param string $message <p>The error message.</p>
+		 * @param int $code <p>The error code.</p>
+		 * @param ?\Throwable $previous <p>The previous throwable used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/error.construct.php
+		 * @since PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the error
 		 * <p>Returns the <code>string</code> representation of the error.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the error.</p>

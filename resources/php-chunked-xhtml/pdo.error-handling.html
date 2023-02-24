@@ -37,12 +37,12 @@
    </p>
    <p class="para">
      Prior to PHP 8.0.0, this was the default mode. PDO will simply set the error code for you
-     to inspect using the <span class="function"><a href="pdo.errorcode.html" class="function">PDO::errorCode()</a></span> and
-     <span class="function"><a href="pdo.errorinfo.html" class="function">PDO::errorInfo()</a></span> methods on both the
+     to inspect using the <span class="methodname"><a href="pdo.errorcode.html" class="methodname">PDO::errorCode()</a></span> and
+     <span class="methodname"><a href="pdo.errorinfo.html" class="methodname">PDO::errorInfo()</a></span> methods on both the
      statement and database objects; if the error resulted from a call on a
      statement object, you would invoke the
-     <span class="function"><a href="pdostatement.errorcode.html" class="function">PDOStatement::errorCode()</a></span> or
-     <span class="function"><a href="pdostatement.errorinfo.html" class="function">PDOStatement::errorInfo()</a></span>
+     <span class="methodname"><a href="pdostatement.errorcode.html" class="methodname">PDOStatement::errorCode()</a></span> or
+     <span class="methodname"><a href="pdostatement.errorinfo.html" class="methodname">PDOStatement::errorInfo()</a></span>
      method on that object. If the error resulted from a call on the
      database object, you would invoke those methods on the database object
      instead.
@@ -89,38 +89,48 @@
  <p class="para">
   PDO standardizes on using SQL-92 SQLSTATE error code strings; individual
   PDO drivers are responsible for mapping their native codes to the
-  appropriate SQLSTATE codes.   The <span class="function"><a href="pdo.errorcode.html" class="function">PDO::errorCode()</a></span>
+  appropriate SQLSTATE codes.   The <span class="methodname"><a href="pdo.errorcode.html" class="methodname">PDO::errorCode()</a></span>
   method returns a single SQLSTATE code. If you need more specific
   information about an error, PDO also offers an
-  <span class="function"><a href="pdo.errorinfo.html" class="function">PDO::errorInfo()</a></span> method which returns an array
+  <span class="methodname"><a href="pdo.errorinfo.html" class="methodname">PDO::errorInfo()</a></span> method which returns an array
   containing the SQLSTATE code, the driver specific error code and driver
   specific error string.
  </p>
  
  <p class="para">
-  <div class="example" id="example-1005">
+  <div class="example" id="example-1036">
    <p><strong>Example #1 Create a PDO instance and set the error mode</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$dsn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'mysql:dbname=testdb;host=127.0.0.1'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'dbuser'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'dbpass'</span><span style="color: #007700">;<br /><br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_ERRMODE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ERRMODE_EXCEPTION</span><span style="color: #007700">);<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">PDOException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Connection&nbsp;failed:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$dsn </span><span style="color: #007700">= </span><span style="color: #DD0000">'mysql:dbname=testdb;host=127.0.0.1'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user </span><span style="color: #007700">= </span><span style="color: #DD0000">'dbuser'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password </span><span style="color: #007700">= </span><span style="color: #DD0000">'dbpass'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$dbh </span><span style="color: #007700">= new </span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">, </span><span style="color: #0000BB">$user</span><span style="color: #007700">, </span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_ERRMODE</span><span style="color: #007700">, </span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ERRMODE_EXCEPTION</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// This will cause PDO to throw a PDOException (when the table doesn't exist)<br /></span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT wrongcolumn FROM wrongtable"</span><span style="color: #007700">);</span>
 </span>
 </code></div>
    </div>
 
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Fatal error: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table &#039;testdb.wrongtable&#039; doesn&#039;t exist in /tmp/pdo_test.php:10
+Stack trace:
+#0 /tmp/pdo_test.php(10): PDO-&gt;query(&#039;SELECT wrongcol...&#039;)
+#1 {main}
+  thrown in /tmp/pdo_test.php on line 10
+</pre></div>
+    </div>
   </div>
  </p>
  <blockquote class="note"><p><strong class="note">Note</strong>: 
   <p class="para">
-   <span class="function"><a href="pdo.construct.html" class="function">PDO::__construct()</a></span> will always throw a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if the connection fails
-   regardless of which <strong><code>PDO::ATTR_ERRMODE</code></strong> is currently set. Uncaught Exceptions are fatal.
+   <span class="methodname"><a href="pdo.construct.html" class="methodname">PDO::__construct()</a></span> will always throw a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if the connection fails
+   regardless of which <strong><code>PDO::ATTR_ERRMODE</code></strong> is currently set.
   </p>
  </p></blockquote>
  <p class="para">
-  <div class="example" id="example-1006">
+  <div class="example" id="example-1037">
    <p><strong>Example #2 Create a PDO instance and set the error mode from the constructor</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$dsn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'mysql:dbname=test;host=127.0.0.1'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'googleguy'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'googleguy'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/*<br />&nbsp;&nbsp;&nbsp;&nbsp;Using&nbsp;try/catch&nbsp;around&nbsp;the&nbsp;constructor&nbsp;is&nbsp;still&nbsp;valid&nbsp;even&nbsp;though&nbsp;we&nbsp;set&nbsp;the&nbsp;ERRMODE&nbsp;to&nbsp;WARNING&nbsp;since<br />&nbsp;&nbsp;&nbsp;&nbsp;PDO::__construct&nbsp;will&nbsp;always&nbsp;throw&nbsp;a&nbsp;PDOException&nbsp;if&nbsp;the&nbsp;connection&nbsp;fails.<br />*/<br /></span><span style="color: #007700">try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_ERRMODE&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ERRMODE_WARNING</span><span style="color: #007700">));<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">PDOException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Connection&nbsp;failed:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;will&nbsp;cause&nbsp;PDO&nbsp;to&nbsp;throw&nbsp;an&nbsp;error&nbsp;of&nbsp;level&nbsp;E_WARNING&nbsp;instead&nbsp;of&nbsp;an&nbsp;exception&nbsp;(when&nbsp;the&nbsp;table&nbsp;doesn't&nbsp;exist)<br /></span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;wrongcolumn&nbsp;FROM&nbsp;wrongtable"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$dsn </span><span style="color: #007700">= </span><span style="color: #DD0000">'mysql:dbname=test;host=127.0.0.1'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user </span><span style="color: #007700">= </span><span style="color: #DD0000">'googleguy'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password </span><span style="color: #007700">= </span><span style="color: #DD0000">'googleguy'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$dbh </span><span style="color: #007700">= new </span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">, </span><span style="color: #0000BB">$user</span><span style="color: #007700">, </span><span style="color: #0000BB">$password</span><span style="color: #007700">, array(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_ERRMODE </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ERRMODE_WARNING</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">// This will cause PDO to throw an error of level E_WARNING instead of an exception (when the table doesn't exist)<br /></span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT wrongcolumn FROM wrongtable"</span><span style="color: #007700">);</span>
 </span>
 </code></div>
    </div>
@@ -129,7 +139,7 @@
     <div class="example-contents screen">
 <div class="cdata"><pre>
 Warning: PDO::query(): SQLSTATE[42S02]: Base table or view not found: 1146 Table &#039;test.wrongtable&#039; doesn&#039;t exist in
-/tmp/pdo_test.php on line 18
+/tmp/pdo_test.php on line 9
 </pre></div>
     </div>
   </div>

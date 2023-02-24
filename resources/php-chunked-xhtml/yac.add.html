@@ -95,11 +95,11 @@
     <p class="para">
      <span class="methodname"><strong>Yac::add()</strong></span> may fail if cas lock could not obtain,
      so, if you need the value to be stored properly, you may write codes like:
-     <div class="example" id="example-669">
+     <div class="example" id="example-687">
       <p><strong>Example #1 Make sure the item is stored</strong></p>
       <div class="example-contents">
        <div class="phpcode"><code><span style="color: #000000">
-while(!$yac-&gt;set("key",&nbsp;"vale));</span>
+while(!$yac-&gt;set("key", "vale));</span>
 </code></div>
       </div>
  

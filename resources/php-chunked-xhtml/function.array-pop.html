@@ -72,17 +72,8 @@ use.</span></p></blockquote>
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the value of the last element of <code class="parameter">array</code>.
-   If <code class="parameter">array</code> is empty (or is not an array),
+   If <code class="parameter">array</code> is empty,
    <strong><code>null</code></strong> will be returned.
-  </p>
- </div>
-
-
- <div class="refsect1 errors" id="refsect1-function.array-pop-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">
-   This function will produce an error of level <a href="errorfunc.constants.html" class="link">
-   E_WARNING</a> when called on a non-array.
   </p>
  </div>
 
@@ -90,11 +81,11 @@ use.</span></p></blockquote>
  <div class="refsect1 examples" id="refsect1-function.array-pop-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4948">
+   <div class="example" id="example-5041">
     <p><strong>Example #1 <span class="function"><strong>array_pop()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$stack&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"orange"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"banana"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"apple"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"raspberry"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$fruit&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_pop</span><span style="color: #007700">(</span><span style="color: #0000BB">$stack</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$stack</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$stack </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"orange"</span><span style="color: #007700">, </span><span style="color: #DD0000">"banana"</span><span style="color: #007700">, </span><span style="color: #DD0000">"apple"</span><span style="color: #007700">, </span><span style="color: #DD0000">"raspberry"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$fruit </span><span style="color: #007700">= </span><span style="color: #0000BB">array_pop</span><span style="color: #007700">(</span><span style="color: #0000BB">$stack</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$stack</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

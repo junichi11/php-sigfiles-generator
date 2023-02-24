@@ -31,17 +31,17 @@
     But in some cases, every little bit of extra security is desirable.
    </p>
    <p class="para">
-    A few simple techniques can help to hide <acronym title="PHP: Hypertext Preprocessor">PHP</acronym>, possibly slowing
+    A few simple techniques can help to hide <abbr title="PHP: Hypertext Preprocessor">PHP</abbr>, possibly slowing
     down an attacker who is attempting to discover weaknesses in your
     system. By setting expose_php to <code class="literal">off</code> in your 
     <var class="filename">php.ini</var> file, you reduce the amount of information available to them.
    </p>
    <p class="para">
     Another tactic is to configure web servers such as apache to
-    parse different filetypes through <acronym title="PHP: Hypertext Preprocessor">PHP</acronym>, either with an <var class="filename">.htaccess</var>
+    parse different filetypes through <abbr title="PHP: Hypertext Preprocessor">PHP</abbr>, either with an <var class="filename">.htaccess</var>
     directive, or in the apache configuration file itself. You can
     then use misleading file extensions:
-    <div class="example" id="example-430">
+    <div class="example" id="example-446">
      <p><strong>Example #1 Hiding PHP as another language</strong></p>
      <div class="example-contents">
 <div class="apache-confcode"><pre class="apache-confcode"># Make PHP code look like other code types
@@ -51,7 +51,7 @@ AddType application/x-httpd-php .asp .py .pl</pre>
 
     </div>
     Or obscure it completely:
-    <div class="example" id="example-431">
+    <div class="example" id="example-447">
      <p><strong>Example #2 Using unknown types for PHP extensions</strong></p>
      <div class="example-contents">
 <div class="apache-confcode"><pre class="apache-confcode"># Make PHP code look like unknown types
@@ -60,10 +60,10 @@ AddType application/x-httpd-php .bop .foo .133t</pre>
      </div>
 
     </div>
-    Or hide it as <acronym title="Hyper Text Markup Language">HTML</acronym> code, which has a slight performance hit because
-    all <acronym title="Hyper Text Markup Language">HTML</acronym> will be parsed through the <acronym title="PHP: Hypertext Preprocessor">PHP</acronym> engine:
-    <div class="example" id="example-432">
-     <p><strong>Example #3 Using <acronym title="Hyper Text Markup Language">HTML</acronym> types for PHP extensions</strong></p>
+    Or hide it as <abbr title="Hyper Text Markup Language">HTML</abbr> code, which has a slight performance hit because
+    all <abbr title="Hyper Text Markup Language">HTML</abbr> will be parsed through the <abbr title="PHP: Hypertext Preprocessor">PHP</abbr> engine:
+    <div class="example" id="example-448">
+     <p><strong>Example #3 Using <abbr title="Hyper Text Markup Language">HTML</abbr> types for PHP extensions</strong></p>
      <div class="example-contents">
 <div class="apache-confcode"><pre class="apache-confcode"># Make all PHP code look like HTML
 AddType application/x-httpd-php .htm .html</pre>
@@ -71,7 +71,7 @@ AddType application/x-httpd-php .htm .html</pre>
      </div>
 
     </div>
-    For this to work effectively, you must rename your <acronym title="PHP: Hypertext Preprocessor">PHP</acronym> files with
+    For this to work effectively, you must rename your <abbr title="PHP: Hypertext Preprocessor">PHP</abbr> files with
     the above extensions. While it is a form of security through
     obscurity, it&#039;s a minor preventative measure with few drawbacks.
    </p>

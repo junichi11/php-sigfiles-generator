@@ -28,7 +28,7 @@
   
   
   <p class="para">
-   There are three different ways of supplying the <acronym title="Command Line Interpreter/Interface">CLI</acronym> <acronym title="Server Application Programming Interface">SAPI</acronym> with PHP code
+   There are three different ways of supplying the <abbr title="Command Line Interpreter/Interface">CLI</abbr> <abbr title="Server Application Programming Interface">SAPI</abbr> with PHP code
    to be executed:
    <ol type="1">
     <li class="listitem">
@@ -149,14 +149,14 @@ array(2) {
   <p class="para">
    However, on Unix systems there&#039;s another way of using PHP for shell
    scripting: make the first line of the script start with
-   <code class="literal">#!/usr/bin/php</code> (or whatever the path to your PHP <acronym title="Command Line Interpreter/Interface">CLI</acronym>
+   <code class="literal">#!/usr/bin/php</code> (or whatever the path to your PHP <abbr title="Command Line Interpreter/Interface">CLI</abbr>
    binary is if different). The rest of the file should contain normal PHP code
    within the usual PHP starting and end tags. Once the execution attributes of
    the file are set appropriately (e.g. <strong class="command">chmod +x test</strong>),
    the script can be executed like any other shell or perl script:
   </p>
   
-  <div class="example" id="example-458">
+  <div class="example" id="example-474">
    <p><strong>Example #1 Execute PHP script as shell script</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -206,11 +206,11 @@ array(4) {
   </p>
   
   <p class="para">
-   <div class="example" id="example-459">
+   <div class="example" id="example-475">
     <p><strong>Example #2 Script intended to be run from command line (script.php)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-#!/usr/bin/php<br /><span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$argc&nbsp;</span><span style="color: #007700">!=&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$argv</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">],&nbsp;array(</span><span style="color: #DD0000">'--help'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'-help'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'-h'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'-?'</span><span style="color: #007700">)))&nbsp;{<br /></span><span style="color: #0000BB">?&gt;<br /></span><br />This&nbsp;is&nbsp;a&nbsp;command&nbsp;line&nbsp;PHP&nbsp;script&nbsp;with&nbsp;one&nbsp;option.<br /><br />&nbsp;&nbsp;Usage:<br />&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$argv</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">];&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;&lt;option&gt;<br /><br />&nbsp;&nbsp;&lt;option&gt;&nbsp;can&nbsp;be&nbsp;some&nbsp;word&nbsp;you&nbsp;would&nbsp;like<br />&nbsp;&nbsp;to&nbsp;print&nbsp;out.&nbsp;With&nbsp;the&nbsp;--help,&nbsp;-help,&nbsp;-h,<br />&nbsp;&nbsp;or&nbsp;-?&nbsp;options,&nbsp;you&nbsp;can&nbsp;get&nbsp;this&nbsp;help.<br /><br /><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$argv</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">];<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+#!/usr/bin/php<br /><span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">$argc </span><span style="color: #007700">!= </span><span style="color: #0000BB">2 </span><span style="color: #007700">|| </span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$argv</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">], array(</span><span style="color: #DD0000">'--help'</span><span style="color: #007700">, </span><span style="color: #DD0000">'-help'</span><span style="color: #007700">, </span><span style="color: #DD0000">'-h'</span><span style="color: #007700">, </span><span style="color: #DD0000">'-?'</span><span style="color: #007700">))) {<br /></span><span style="color: #0000BB">?&gt;<br /></span><br />This is a command line PHP script with one option.<br /><br />  Usage:<br />  <span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$argv</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]; </span><span style="color: #0000BB">?&gt;</span> &lt;option&gt;<br /><br />  &lt;option&gt; can be some word you would like<br />  to print out. With the --help, -help, -h,<br />  or -? options, you can get this help.<br /><br /><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">} else {<br />    echo </span><span style="color: #0000BB">$argv</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">];<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -220,8 +220,8 @@ array(4) {
   
   <p class="para">
    The script above includes the Unix shebang first line to indicate that this
-   file should be run by PHP. We are working with a <acronym title="Command Line Interpreter/Interface">CLI</acronym> version here, so
-   no <acronym title="Hypertext Transfer Protocol">HTTP</acronym> headers will be output.
+   file should be run by PHP. We are working with a <abbr title="Command Line Interpreter/Interface">CLI</abbr> version here, so
+   no <abbr title="Hypertext Transfer Protocol">HTTP</abbr> headers will be output.
   </p>
   
   <p class="para">
@@ -242,7 +242,7 @@ array(4) {
   </p>
   
   <p class="para">
-   <div class="example" id="example-460">
+   <div class="example" id="example-476">
     <p><strong>Example #3 Batch file to run a command line PHP script (script.bat)</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">@echo OFF
@@ -255,7 +255,7 @@ array(4) {
   
   <p class="para">
    Assuming the above program is named <var class="filename">script.php</var>, and the
-   <acronym title="Command Line Interpreter/Interface">CLI</acronym> <var class="filename">php.exe</var> is in <var class="filename">C:\php\php.exe</var>,
+   <abbr title="Command Line Interpreter/Interface">CLI</abbr> <var class="filename">php.exe</var> is in <var class="filename">C:\php\php.exe</var>,
    this batch file will run it, passing on all appended options:
    <strong class="command">script.bat echothis</strong> or <strong class="command">script.bat -h</strong>.
   </p>

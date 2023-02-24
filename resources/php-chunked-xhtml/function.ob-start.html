@@ -257,11 +257,11 @@
  <div class="refsect1 examples" id="refsect1-function.ob-start-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-529">
+   <div class="example" id="example-545">
     <p><strong>Example #1 User defined callback function example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">callback</span><span style="color: #007700">(</span><span style="color: #0000BB">$buffer</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;replace&nbsp;all&nbsp;the&nbsp;apples&nbsp;with&nbsp;oranges<br />&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;(</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">"apples"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"oranges"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$buffer</span><span style="color: #007700">));<br />}<br /><br /></span><span style="color: #0000BB">ob_start</span><span style="color: #007700">(</span><span style="color: #DD0000">"callback"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;<br /></span>&lt;html&gt;<br />&lt;body&gt;<br />&lt;p&gt;It's&nbsp;like&nbsp;comparing&nbsp;apples&nbsp;to&nbsp;oranges.&lt;/p&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;<br /><span style="color: #0000BB">&lt;?php<br /><br />ob_end_flush</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function </span><span style="color: #0000BB">callback</span><span style="color: #007700">(</span><span style="color: #0000BB">$buffer</span><span style="color: #007700">)<br />{<br />  </span><span style="color: #FF8000">// replace all the apples with oranges<br />  </span><span style="color: #007700">return (</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">"apples"</span><span style="color: #007700">, </span><span style="color: #DD0000">"oranges"</span><span style="color: #007700">, </span><span style="color: #0000BB">$buffer</span><span style="color: #007700">));<br />}<br /><br /></span><span style="color: #0000BB">ob_start</span><span style="color: #007700">(</span><span style="color: #DD0000">"callback"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;<br /></span>&lt;html&gt;<br />&lt;body&gt;<br />&lt;p&gt;It's like comparing apples to oranges.&lt;/p&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;<br /><span style="color: #0000BB">&lt;?php<br /><br />ob_end_flush</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -284,7 +284,7 @@
     <p><strong>Example #2 Creating an unerasable output buffer</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />ob_start</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_OUTPUT_HANDLER_STDFLAGS&nbsp;</span><span style="color: #007700">^&nbsp;</span><span style="color: #0000BB">PHP_OUTPUT_HANDLER_REMOVABLE</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />ob_start</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">PHP_OUTPUT_HANDLER_STDFLAGS </span><span style="color: #007700">^ </span><span style="color: #0000BB">PHP_OUTPUT_HANDLER_REMOVABLE</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

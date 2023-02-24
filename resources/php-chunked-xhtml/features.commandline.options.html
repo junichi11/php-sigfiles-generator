@@ -106,7 +106,7 @@ Usage: php [options] [-f] &lt;file&gt; [--] [args...]
        <td>--bindpath</td>
        <td>
         <p class="para">
-         Bind Path for external FASTCGI Server mode (<acronym title="Common Gateway Interface">CGI</acronym>
+         Bind Path for external FASTCGI Server mode (<abbr title="Common Gateway Interface">CGI</abbr>
          only).
         </p>
        </td>
@@ -117,7 +117,7 @@ Usage: php [options] [-f] &lt;file&gt; [--] [args...]
        <td>--no-chdir</td>
        <td>
         <p class="para">
-         Do not chdir to the script&#039;s directory (<acronym title="Common Gateway Interface">CGI</acronym> only).
+         Do not chdir to the script&#039;s directory (<abbr title="Common Gateway Interface">CGI</abbr> only).
         </p>
        </td>
       </tr>
@@ -127,8 +127,8 @@ Usage: php [options] [-f] &lt;file&gt; [--] [args...]
        <td>--no-header</td>
        <td>
         <p class="para">
-         Quiet-mode. Suppress <acronym title="Hypertext Transfer Protocol">HTTP</acronym> header output
-         (<acronym title="Common Gateway Interface">CGI</acronym> only).
+         Quiet-mode. Suppress <abbr title="Hypertext Transfer Protocol">HTTP</abbr> header output
+         (<abbr title="Common Gateway Interface">CGI</abbr> only).
         </p>
        </td>
       </tr>
@@ -139,7 +139,7 @@ Usage: php [options] [-f] &lt;file&gt; [--] [args...]
        <td>
         <p class="para">
          Measure execution time of script repeated <var class="varname">count</var>
-         times (<acronym title="Common Gateway Interface">CGI</acronym> only).
+         times (<abbr title="Common Gateway Interface">CGI</abbr> only).
         </p>
        </td>
       </tr>
@@ -192,7 +192,7 @@ $ php -c /custom/directory/custom-file.ini my_script.php
  </pre></div>
          </div>
         </p>
-        <p class="para"><div class="example" id="example-447">
+        <p class="para"><div class="example" id="example-463">
          <div class="example-contents screen">
 <div class="cdata"><pre>
 # Omitting the value part will set the given configuration directive to &quot;1&quot;
@@ -259,8 +259,8 @@ string(15) &quot;doesntmakesense&quot;
         If PHP is not working correctly, it is advisable to use the command
         <strong class="command">php -i</strong> and see whether any error
         messages are printed out before or in place of the information tables.
-        Beware that when using the <acronym title="Common Gateway Interface">CGI</acronym> mode the output is in
-        <acronym title="Hyper Text Markup Language">HTML</acronym> and therefore very large.
+        Beware that when using the <abbr title="Common Gateway Interface">CGI</abbr> mode the output is in
+        <abbr title="Hyper Text Markup Language">HTML</abbr> and therefore very large.
        </td>
       </tr>
 
@@ -295,7 +295,7 @@ string(15) &quot;doesntmakesense&quot;
        <td>-m</td>
        <td>--modules</td>
        <td>
-        <p class="para"><div class="example" id="example-448">
+        <p class="para"><div class="example" id="example-464">
          <p><strong>Example #1 Printing built in (and loaded) PHP and Zend modules</strong></p>
          <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -335,7 +335,7 @@ ctype
           to collide with command line variable substitution done by the
           shell.
          </p>
-         <div class="example" id="example-449">
+         <div class="example" id="example-465">
           <p><strong>Example #2 Getting a syntax error when using double quotes</strong></p>
           <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -366,7 +366,7 @@ $ php -r &quot; = get_defined_constants();&quot;
           Variables in single-quoted strings are not expanded
           by sh/bash.
          </p>
-         <div class="example" id="example-450">
+         <div class="example" id="example-466">
           <p><strong>Example #3 Using single quotes to prevent the shell&#039;s variable
           substitution</strong></p>
           <div class="example-contents screen">
@@ -397,8 +397,8 @@ array(370) {
         </p></blockquote>
         <blockquote class="note"><p><strong class="note">Note</strong>: 
          <p class="para">
-          <strong class="option unknown">-r</strong> is available in the <acronym title="Command Line Interpreter/Interface">CLI</acronym> <acronym title="Server Application Programming Interface">SAPI</acronym>, but not in the
-          <em class="emphasis">CGI</em> <acronym title="Server Application Programming Interface">SAPI</acronym>.
+          <strong class="option unknown">-r</strong> is available in the <abbr title="Command Line Interpreter/Interface">CLI</abbr> <abbr title="Server Application Programming Interface">SAPI</abbr>, but not in the
+          <em class="emphasis">CGI</em> <abbr title="Server Application Programming Interface">SAPI</abbr>.
          </p>
         </p></blockquote>
         <blockquote class="note"><p><strong class="note">Note</strong>: 
@@ -455,7 +455,7 @@ array(370) {
         <p class="para">
          PHP code to execute after processing the input.
         </p>
-        <p class="para"><div class="example" id="example-451">
+        <p class="para"><div class="example" id="example-467">
          <p><strong>Example #4 Using the <strong class="option unknown">-B</strong>, <strong class="option unknown">-R</strong> and
           <strong class="option unknown">-E</strong> options to count the number of lines of a
           project.
@@ -516,8 +516,8 @@ Total Lines: 37328
        <td>-v</td>
        <td>--version</td>
        <td>
-        <p class="para"><div class="example" id="example-452">
-         <p><strong>Example #5 Using <strong class="option unknown">-v</strong> to get the <acronym title="Server Application Programming Interface">SAPI</acronym>
+        <p class="para"><div class="example" id="example-468">
+         <p><strong>Example #5 Using <strong class="option unknown">-v</strong> to get the <abbr title="Server Application Programming Interface">SAPI</abbr>
          name and the version of PHP and Zend</strong></p>
          <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -569,7 +569,7 @@ Zend Engine v2.3.0, Copyright (c) 1998-2009 Zend Technologies
        <td>
         <p class="para">
          Show configuration file names and scanned directories.
-         <div class="example" id="example-453">
+         <div class="example" id="example-469">
           <p><strong>Example #6 <code class="literal">--ini</code> example</strong></p>
           <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ php --ini
@@ -598,7 +598,7 @@ Additional .ini files parsed:      (none)</pre>
          <a href="book.reflection.html" class="link">Reflection</a> support.
         </p>
         <p class="para">
-         <div class="example" id="example-454">
+         <div class="example" id="example-470">
           <p><strong>Example #7 basic <code class="literal">--rf</code> usage</strong></p>
           <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ php --rf var_dump
@@ -630,7 +630,7 @@ Function [ &lt;internal&gt; public function var_dump ] {
          <a href="book.reflection.html" class="link">Reflection</a> support.
         </p>
         <p class="para">
-         <div class="example" id="example-455">
+         <div class="example" id="example-471">
           <p><strong>Example #8 <code class="literal">--rc</code> example</strong></p>
           <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ php --rc Directory
@@ -680,7 +680,7 @@ Class [ &lt;internal:standard&gt; class Directory ] {
          <a href="book.reflection.html" class="link">Reflection</a> support.
         </p>
         <p class="para">
-         <div class="example" id="example-456">
+         <div class="example" id="example-472">
           <p><strong>Example #9 <code class="literal">--re</code> example</strong></p>
           <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ php --re json
@@ -723,7 +723,7 @@ Extension [ &lt;persistent&gt; extension #19 json version 1.2.1 ] {
          is available using &quot;main&quot; as extension name.
         </p>
         <p class="para">
-         <div class="example" id="example-457">
+         <div class="example" id="example-473">
           <p><strong>Example #10 <code class="literal">--ri</code> example</strong></p>
           <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ php --ri date
@@ -758,7 +758,7 @@ date.sunrise_zenith =&gt; 90.583333 =&gt; 90.583333</pre>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     Options <code class="literal">-rBRFEH</code>, <code class="literal">--ini</code> and
-    <code class="literal">--r[fcezi]</code> are available only in <acronym title="Command Line Interpreter/Interface">CLI</acronym>.
+    <code class="literal">--r[fcezi]</code> are available only in <abbr title="Command Line Interpreter/Interface">CLI</abbr>.
    </p>
   </p></blockquote>
  </div></div></div></body></html>

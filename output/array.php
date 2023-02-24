@@ -45,7 +45,7 @@ namespace {
 	 * <p>Creates an <code>array</code> by using the values from the <code>keys</code> array as keys and the values from the <code>values</code> array as the corresponding values.</p>
 	 * @param array $keys <p>Array of keys to be used. Illegal values for key will be converted to <code>string</code>.</p>
 	 * @param array $values <p><code>Array</code> of values to be used</p>
-	 * @return array <p>Returns the combined <code>array</code>, <b><code>false</code></b> if the number of elements for each array isn't equal.</p>
+	 * @return array <p>Returns the combined <code>array</code>.</p>
 	 * @link https://php.net/manual/en/function.array-combine.php
 	 * @see array_merge(), array_walk(), array_values()
 	 * @since PHP 5, PHP 7, PHP 8
@@ -54,7 +54,7 @@ namespace {
 
 	/**
 	 * Counts all the values of an array
-	 * <p><b>array_count_values()</b> returns an array using the values of <code>array</code> as keys and their frequency in <code>array</code> as values.</p>
+	 * <p><b>array_count_values()</b> returns an array using the values of <code>array</code> (which must be <code>int</code>s or <code>string</code>s) as keys and their frequency in <code>array</code> as values.</p>
 	 * @param array $array <p>The array of values to count</p>
 	 * @return array <p>Returns an associative array of values from <code>array</code> as keys and their count as value.</p>
 	 * @link https://php.net/manual/en/function.array-count-values.php
@@ -128,8 +128,8 @@ namespace {
 	/**
 	 * Fill an array with values
 	 * <p>Fills an array with <code>count</code> entries of the value of the <code>value</code> parameter, keys starting at the <code>start_index</code> parameter.</p>
-	 * @param int $start_index <p>The first index of the returned array.</p> <p>If <code>start_index</code> is negative, the first index of the returned array will be <code>start_index</code> and the following indices will start from zero (see example).</p>
-	 * @param int $count <p>Number of elements to insert. Must be greater than or equal to zero.</p>
+	 * @param int $start_index <p>The first index of the returned array.</p> <p>If <code>start_index</code> is negative, the first index of the returned array will be <code>start_index</code> and the following indices will start from zero prior to PHP 8.0.0; as of PHP 8.0.0, negative keys are incremented normally (see example).</p>
+	 * @param int $count <p>Number of elements to insert. Must be greater than or equal to zero, and less than or equal to <code>2147483647</code>.</p>
 	 * @param mixed $value <p>Value to use for filling</p>
 	 * @return array <p>Returns the filled array</p>
 	 * @link https://php.net/manual/en/function.array-fill.php
@@ -283,7 +283,7 @@ namespace {
 
 	/**
 	 * Return all the keys or a subset of the keys of an array
-	 * <p><b>array_keys()</b> returns the keys, numeric and string, from the <code>array</code>.</p><p>If a <code>search_value</code> is specified, then only the keys for that value are returned. Otherwise, all the keys from the <code>array</code> are returned.</p>
+	 * <p><b>array_keys()</b> returns the keys, numeric and string, from the <code>array</code>.</p><p>If a <code>filter_value</code> is specified, then only the keys for that value are returned. Otherwise, all the keys from the <code>array</code> are returned.</p>
 	 * @param array $array <p>An array containing keys to return.</p>
 	 * @return array <p>Returns an array of all the keys in <code>array</code>.</p>
 	 * @link https://php.net/manual/en/function.array-keys.php
@@ -294,11 +294,11 @@ namespace {
 
 	/**
 	 * Applies the callback to the elements of the given arrays
-	 * <p><b>array_map()</b> returns an <code>array</code> containing the results of applying the <code>callback</code> to the corresponding index of <code>array</code> (and <code>arrays</code> if more arrays are provided) used as arguments for the callback. The number of parameters that the <code>callback</code> function accepts should match the number of arrays passed to <b>array_map()</b>. Excess input arrays are ignored. An <code>ArgumentCountError</code> is thrown if an insufficient number of arguments is provided.</p>
+	 * <p><b>array_map()</b> returns an <code>array</code> containing the results of applying the <code>callback</code> to the corresponding value of <code>array</code> (and <code>arrays</code> if more arrays are provided) used as arguments for the callback. The number of parameters that the <code>callback</code> function accepts should match the number of arrays passed to <b>array_map()</b>. Excess input arrays are ignored. An <code>ArgumentCountError</code> is thrown if an insufficient number of arguments is provided.</p>
 	 * @param ?callable $callback <p>A <code>callable</code> to run for each element in each array.</p> <p><b><code>null</code></b> can be passed as a value to <code>callback</code> to perform a zip operation on multiple arrays. If only <code>array</code> is provided, <b>array_map()</b> will return the input array.</p>
 	 * @param array $array <p>An array to run through the <code>callback</code> function.</p>
 	 * @param array $arrays <p>Supplementary variable list of array arguments to run through the <code>callback</code> function.</p>
-	 * @return array <p>Returns an array containing the results of applying the <code>callback</code> function to the corresponding index of <code>array</code> (and <code>arrays</code> if more arrays are provided) used as arguments for the callback.</p><p>The returned array will preserve the keys of the array argument if and only if exactly one array is passed. If more than one array is passed, the returned array will have sequential integer keys.</p>
+	 * @return array <p>Returns an array containing the results of applying the <code>callback</code> function to the corresponding value of <code>array</code> (and <code>arrays</code> if more arrays are provided) used as arguments for the callback.</p><p>The returned array will preserve the keys of the array argument if and only if exactly one array is passed. If more than one array is passed, the returned array will have sequential integer keys.</p>
 	 * @link https://php.net/manual/en/function.array-map.php
 	 * @see array_filter(), array_reduce(), array_walk()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7, PHP 8
@@ -358,7 +358,7 @@ namespace {
 	 * Pop the element off the end of array
 	 * <p><b>array_pop()</b> pops and returns the value of the last element of <code>array</code>, shortening the <code>array</code> by one element.</p><p><b>Note</b>: This function will <code>reset()</code> the <code>array</code> pointer of the input array after use.</p>
 	 * @param array $array <p>The array to get the value from.</p>
-	 * @return mixed <p>Returns the value of the last element of <code>array</code>. If <code>array</code> is empty (or is not an array), <b><code>null</code></b> will be returned.</p>
+	 * @return mixed <p>Returns the value of the last element of <code>array</code>. If <code>array</code> is empty, <b><code>null</code></b> will be returned.</p>
 	 * @link https://php.net/manual/en/function.array-pop.php
 	 * @see array_push(), array_shift(), array_unshift()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -389,12 +389,12 @@ namespace {
 
 	/**
 	 * Pick one or more random keys out of an array
-	 * <p>Picks one or more random entries out of an array, and returns the key (or keys) of the random entries. It uses a pseudo random number generator that is not suitable for cryptographic purposes.</p>
+	 * <p>Picks one or more random entries out of an array, and returns the key (or keys) of the random entries.</p><p>This function does not generate cryptographically secure values, and <i>must not</i> be used for cryptographic purposes, or purposes that require returned values to be unguessable.</p><p>If cryptographically secure randomness is required, the <code>Random\Randomizer</code> may be used with the <code>Random\Engine\Secure</code> engine. For simple use cases, the <code>random_int()</code> and <code>random_bytes()</code> functions provide a convenient and secure API that is backed by the operating system&#x2019;s CSPRNG.</p>
 	 * @param array $array <p>The input array.</p>
 	 * @param int $num <p>Specifies how many entries should be picked.</p>
 	 * @return int|string|array <p>When picking only one entry, <b>array_rand()</b> returns the key for a random entry. Otherwise, an array of keys for the random entries is returned. This is done so that random keys can be picked from the array as well as random values. If multiple keys are returned, they will be returned in the order they were present in the original array. Trying to pick more elements than there are in the array will result in an <b><code>E_WARNING</code></b> level error, and NULL will be returned.</p>
 	 * @link https://php.net/manual/en/function.array-rand.php
-	 * @see shuffle()
+	 * @see Random\Randomizer::pickArrayKeys(), Random\Randomizer::shuffleArray()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function array_rand(array $array, int $num = 1): int|string|array {}
@@ -417,7 +417,7 @@ namespace {
 	 * <p><b>array_replace()</b> replaces the values of <code>array</code> with values having the same keys in each of the following arrays. If a key from the first array exists in the second array, its value will be replaced by the value from the second array. If the key exists in the second array, and not the first, it will be created in the first array. If a key only exists in the first array, it will be left as is. If several arrays are passed for replacement, they will be processed in order, the later arrays overwriting the previous values.</p><p><b>array_replace()</b> is not recursive : it will replace values in the first array by whatever type is in the second array.</p>
 	 * @param array $array <p>The array in which elements are replaced.</p>
 	 * @param array $replacements <p>Arrays from which elements will be extracted. Values from later arrays overwrite the previous values.</p>
-	 * @return array <p>Returns an <code>array</code>, or <b><code>null</code></b> if an error occurs.</p>
+	 * @return array <p>Returns an <code>array</code>.</p>
 	 * @link https://php.net/manual/en/function.array-replace.php
 	 * @see array_replace_recursive(), array_merge()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -429,7 +429,7 @@ namespace {
 	 * <p><b>array_replace_recursive()</b> replaces the values of <code>array</code> with the same values from all the following arrays. If a key from the first array exists in the second array, its value will be replaced by the value from the second array. If the key exists in the second array, and not the first, it will be created in the first array. If a key only exists in the first array, it will be left as is. If several arrays are passed for replacement, they will be processed in order, the later array overwriting the previous values.</p><p><b>array_replace_recursive()</b> is recursive : it will recurse into arrays and apply the same process to the inner value.</p><p>When the value in the first array is scalar, it will be replaced by the value in the second array, may it be scalar or array. When the value in the first array and the second array are both arrays, <b>array_replace_recursive()</b> will replace their respective value recursively.</p>
 	 * @param array $array <p>The array in which elements are replaced.</p>
 	 * @param array $replacements <p>Arrays from which elements will be extracted.</p>
-	 * @return array <p>Returns an <code>array</code>, or <b><code>null</code></b> if an error occurs.</p>
+	 * @return array <p>Returns an <code>array</code>.</p>
 	 * @link https://php.net/manual/en/function.array-replace-recursive.php
 	 * @see array_replace(), array_merge_recursive()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -594,7 +594,7 @@ namespace {
 	 * Removes duplicate values from an array
 	 * <p>Takes an input <code>array</code> and returns a new array without duplicate values.</p><p>Note that keys are preserved. If multiple elements compare equal under the given <code>flags</code>, then the key and value of the first equal element will be retained.</p><p><b>Note</b>:  Two elements are considered equal if and only if <code>(string) $elem1 === (string) $elem2</code> i.e. when the string representation is the same, the first element will be used. </p>
 	 * @param array $array <p>The input array.</p>
-	 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally (don't change types) </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li> <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale.  </li> </ul>
+	 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the comparison behavior using these values:</p> <p>Comparison type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally (don't change types) </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li> <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale.  </li> </ul>
 	 * @return array <p>Returns the filtered array.</p>
 	 * @link https://php.net/manual/en/function.array-unique.php
 	 * @see array_count_values()
@@ -609,7 +609,7 @@ namespace {
 	 * @param mixed $values <p>The values to prepend.</p>
 	 * @return int <p>Returns the new number of elements in the <code>array</code>.</p>
 	 * @link https://php.net/manual/en/function.array-unshift.php
-	 * @see array_shift(), array_push(), array_pop()
+	 * @see array_merge(), array_shift(), array_push(), array_pop()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function array_unshift(array &$array, mixed ...$values): int {}
@@ -656,24 +656,24 @@ namespace {
 	 * <p>Sorts <code>array</code> in place in descending order, such that its keys maintain their correlation with the values they are associated with.</p><p>This is used mainly when sorting associative arrays where the actual element order is significant.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p><p><b>Note</b>:</p><p>Resets array's internal pointer to the first element.</p>
 	 * @param array $array <p>The input array.</p>
 	 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
-	 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.arsort.php
 	 * @see sort(), asort()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function arsort(array &$array, int $flags = SORT_REGULAR): bool {}
+	function arsort(array &$array, int $flags = SORT_REGULAR): true {}
 
 	/**
 	 * Sort an array in ascending order and maintain index association
 	 * <p>Sorts <code>array</code> in place in ascending order, such that its keys maintain their correlation with the values they are associated with.</p><p>This is used mainly when sorting associative arrays where the actual element order is significant.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p><p><b>Note</b>:</p><p>Resets array's internal pointer to the first element.</p>
 	 * @param array $array <p>The input array.</p>
 	 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
-	 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.asort.php
 	 * @see sort(), arsort()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function asort(array &$array, int $flags = SORT_REGULAR): bool {}
+	function asort(array &$array, int $flags = SORT_REGULAR): true {}
 
 	/**
 	 * Create array containing variables and their values
@@ -750,7 +750,7 @@ namespace {
 	 * <p>Searches for <code>needle</code> in <code>haystack</code> using loose comparison unless <code>strict</code> is set.</p>
 	 * @param mixed $needle <p>The searched value.</p> <p><b>Note</b>:</p><p>If <code>needle</code> is a string, the comparison is done in a case-sensitive manner.</p>
 	 * @param array $haystack <p>The array.</p>
-	 * @param bool $strict <p>If the third parameter <code>strict</code> is set to <b><code>true</code></b> then the <b>in_array()</b> function will also check the types of the <code>needle</code> in the <code>haystack</code>.</p>
+	 * @param bool $strict <p>If the third parameter <code>strict</code> is set to <b><code>true</code></b> then the <b>in_array()</b> function will also check the types of the <code>needle</code> in the <code>haystack</code>.</p> <p><b>Note</b>:</p><p>Prior to PHP 8.0.0, a <code>string</code> <code>needle</code> will match an array value of <code>0</code> in non-strict mode, and vice versa. That may lead to undesireable results. Similar edge cases exist for other types, as well. If not absolutely certain of the types of values involved, always use the <code>strict</code> flag to avoid unexpected behavior.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if <code>needle</code> is found in the array, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.in-array.php
 	 * @see array_search(), isset(), array_key_exists()
@@ -785,46 +785,46 @@ namespace {
 	 * <p>Sorts <code>array</code> in place by keys in descending order.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p><p><b>Note</b>:</p><p>Resets array's internal pointer to the first element.</p>
 	 * @param array $array <p>The input array.</p>
 	 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
-	 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.krsort.php
 	 * @see sort(), ksort()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function krsort(array &$array, int $flags = SORT_REGULAR): bool {}
+	function krsort(array &$array, int $flags = SORT_REGULAR): true {}
 
 	/**
 	 * Sort an array by key in ascending order
 	 * <p>Sorts <code>array</code> in place by keys in ascending order.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p><p><b>Note</b>:</p><p>Resets array's internal pointer to the first element.</p>
 	 * @param array $array <p>The input array.</p>
 	 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
-	 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ksort.php
 	 * @see sort(), krsort()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function ksort(array &$array, int $flags = SORT_REGULAR): bool {}
+	function ksort(array &$array, int $flags = SORT_REGULAR): true {}
 
 	/**
 	 * Sort an array using a case insensitive "natural order" algorithm
 	 * <p><b>natcasesort()</b> is a case insensitive version of <code>natsort()</code>.</p><p>This function implements a sort algorithm that orders alphanumeric strings in the way a human being would while maintaining key/value associations. This is described as a "natural ordering".</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p><p><b>Note</b>:</p><p>Resets array's internal pointer to the first element.</p>
 	 * @param array $array <p>The input array.</p>
-	 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.natcasesort.php
 	 * @see natsort(), strnatcmp(), strnatcasecmp()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function natcasesort(array &$array): bool {}
+	function natcasesort(array &$array): true {}
 
 	/**
 	 * Sort an array using a "natural order" algorithm
 	 * <p>This function implements a sort algorithm that orders alphanumeric strings in the way a human being would while maintaining key/value associations. This is described as a "natural ordering". An example of the difference between this algorithm and the regular computer string sorting algorithms (used in <code>sort()</code>) can be seen in the example below.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p><p><b>Note</b>:</p><p>Resets array's internal pointer to the first element.</p>
 	 * @param array $array <p>The input array.</p>
-	 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.natsort.php
 	 * @see natcasesort(), strnatcmp(), strnatcasecmp()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function natsort(array &$array): bool {}
+	function natsort(array &$array): true {}
 
 	/**
 	 * Advance the internal pointer of an array
@@ -863,7 +863,7 @@ namespace {
 	 * <p>Create an array containing a range of elements.</p>
 	 * @param string|int|float $start <p>First value of the sequence.</p>
 	 * @param string|int|float $end <p>The sequence is ended upon reaching the <code>end</code> value.</p>
-	 * @param int|float $step <p>If a <code>step</code> value is given, it will be used as the increment between elements in the sequence. <code>step</code> should be given as a positive number. If not specified, <code>step</code> will default to 1.</p>
+	 * @param int|float $step <p>If a <code>step</code> value is given, it will be used as the increment (or decrement) between elements in the sequence. <code>step</code> must not equal <code>0</code> and must not exceed the specified range. If not specified, <code>step</code> will default to 1.</p>
 	 * @return array <p>Returns an array of elements from <code>start</code> to <code>end</code>, inclusive.</p>
 	 * @link https://php.net/manual/en/function.range.php
 	 * @see shuffle(), array_fill()
@@ -887,20 +887,20 @@ namespace {
 	 * <p>Sorts <code>array</code> in place by values in descending order.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p><p><b>Note</b>: This function assigns new keys to the elements in <code>array</code>. It will remove any existing keys that may have been assigned, rather than just reordering the keys.</p><p><b>Note</b>:</p><p>Resets array's internal pointer to the first element.</p>
 	 * @param array $array <p>The input array.</p>
 	 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
-	 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.rsort.php
 	 * @see sort(), arsort(), krsort()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function rsort(array &$array, int $flags = SORT_REGULAR): bool {}
+	function rsort(array &$array, int $flags = SORT_REGULAR): true {}
 
 	/**
 	 * Shuffle an array
-	 * <p>This function shuffles (randomizes the order of the elements in) an array. It uses a pseudo random number generator that is not suitable for cryptographic purposes.</p>
+	 * <p>This function shuffles (randomizes the order of the elements in) an array.</p><p>This function does not generate cryptographically secure values, and <i>must not</i> be used for cryptographic purposes, or purposes that require returned values to be unguessable.</p><p>If cryptographically secure randomness is required, the <code>Random\Randomizer</code> may be used with the <code>Random\Engine\Secure</code> engine. For simple use cases, the <code>random_int()</code> and <code>random_bytes()</code> functions provide a convenient and secure API that is backed by the operating system&#x2019;s CSPRNG.</p>
 	 * @param array $array <p>The array.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.shuffle.php
-	 * @see array_rand()
+	 * @see Random\Randomizer::shuffleArray(), Random\Randomizer::shuffleBytes(), Random\Randomizer::pickArrayKeys()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function shuffle(array &$array): bool {}
@@ -921,48 +921,48 @@ namespace {
 	 * <p>Sorts <code>array</code> in place by values in ascending order.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p><p><b>Note</b>: This function assigns new keys to the elements in <code>array</code>. It will remove any existing keys that may have been assigned, rather than just reordering the keys.</p><p><b>Note</b>:</p><p>Resets array's internal pointer to the first element.</p>
 	 * @param array $array <p>The input array.</p>
 	 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
-	 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.sort.php
 	 * @see rsort()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function sort(array &$array, int $flags = SORT_REGULAR): bool {}
+	function sort(array &$array, int $flags = SORT_REGULAR): true {}
 
 	/**
 	 * Sort an array with a user-defined comparison function and maintain index association
 	 * <p>Sorts <code>array</code> in place such that its keys maintain their correlation with the values they are associated with, using a user-defined comparison function.</p><p>This is used mainly when sorting associative arrays where the actual element order is significant.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p><p><b>Note</b>:</p><p>Resets array's internal pointer to the first element.</p>
 	 * @param array $array <p>The input array.</p>
 	 * @param callable $callback <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code>
-	 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.uasort.php
 	 * @see usort(), uksort()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function uasort(array &$array, callable $callback): bool {}
+	function uasort(array &$array, callable $callback): true {}
 
 	/**
 	 * Sort an array by keys using a user-defined comparison function
 	 * <p>Sorts <code>array</code> in place by keys using a user-supplied comparison function to determine the order.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p><p><b>Note</b>:</p><p>Resets array's internal pointer to the first element.</p>
 	 * @param array $array <p>The input array.</p>
 	 * @param callable $callback <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code>
-	 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.uksort.php
 	 * @see usort(), uasort()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function uksort(array &$array, callable $callback): bool {}
+	function uksort(array &$array, callable $callback): true {}
 
 	/**
 	 * Sort an array by values using a user-defined comparison function
 	 * <p>Sorts <code>array</code> in place by values using a user-supplied comparison function to determine the order.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p><p><b>Note</b>: This function assigns new keys to the elements in <code>array</code>. It will remove any existing keys that may have been assigned, rather than just reordering the keys.</p>
 	 * @param array $array <p>The input array.</p>
 	 * @param callable $callback <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code>
-	 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.usort.php
 	 * @see uasort(), uksort()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function usort(array &$array, callable $callback): bool {}
+	function usort(array &$array, callable $callback): true {}
 
 	/**
 	 * <b><code>ARRAY_FILTER_USE_BOTH</code></b> is used with <code>array_filter()</code> to pass both value and key to the given callback function.
@@ -975,12 +975,12 @@ namespace {
 	define('ARRAY_FILTER_USE_KEY', 2);
 
 	/**
-	 * <b><code>CASE_LOWER</code></b> is used with <code>array_change_key_case()</code> and is used to convert array keys to lower case. This is also the default case for <code>array_change_key_case()</code>.
+	 * <b><code>CASE_LOWER</code></b> is used with <code>array_change_key_case()</code> and is used to convert array keys to lower case. This is also the default case for <code>array_change_key_case()</code>. As of PHP 8.2.0, only ASCII characters will be converted.
 	 */
 	define('CASE_LOWER', 0);
 
 	/**
-	 * <b><code>CASE_UPPER</code></b> is used with <code>array_change_key_case()</code> and is used to convert array keys to upper case.
+	 * <b><code>CASE_UPPER</code></b> is used with <code>array_change_key_case()</code> and is used to convert array keys to upper case. As of PHP 8.2.0, only ASCII characters will be converted.
 	 */
 	define('CASE_UPPER', 1);
 
@@ -1015,7 +1015,7 @@ namespace {
 	define('SORT_DESC', 3);
 
 	/**
-	 * <b><code>SORT_FLAG_CASE</code></b> can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively.
+	 * <b><code>SORT_FLAG_CASE</code></b> can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively. As of PHP 8.2.0, only ASCII case folding will be done.
 	 */
 	define('SORT_FLAG_CASE', 8);
 

@@ -63,23 +63,43 @@
   </p>
  </div>
 
- 
- <div class="refsect1 returnvalues" id="refsect1-splfixedarray.construct-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   No value is returned.
-  </p>
- </div>
 
- 
  <div class="refsect1 errors" id="refsect1-splfixedarray.construct-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Throws <span class="classname"><a href="class.invalidargumentexception.html" class="classname">InvalidArgumentException</a></span> when <code class="parameter">size</code> is a negative
-   number.
+   Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> when <code class="parameter">size</code>
+   is a negative integer.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-splfixedarray.construct-changelog">
+  <h3 class="title">Changelog</h3>
   <p class="para">
-   Raises <strong><code>E_WARNING</code></strong> when <code class="parameter">size</code> cannot be parsed as a number.
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        Now throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> if
+        <code class="parameter">size</code> is a negative;
+        previously it threw a <span class="classname"><a href="class.invalidargumentexception.html" class="classname">InvalidArgumentException</a></span>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 
@@ -87,11 +107,11 @@
  <div class="refsect1 examples" id="refsect1-splfixedarray.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3558">
+   <div class="example" id="example-3637">
     <p><strong>Example #1 <span class="function"><strong>SplFixedArray::__construct()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$array&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFixedArray</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #0000BB">4</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">;<br /><br />foreach(</span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$v</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$v</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$array </span><span style="color: #007700">= new </span><span style="color: #0000BB">SplFixedArray</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">] = </span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #0000BB">4</span><span style="color: #007700">] = </span><span style="color: #DD0000">"foo"</span><span style="color: #007700">;<br /><br />foreach(</span><span style="color: #0000BB">$array </span><span style="color: #007700">as </span><span style="color: #0000BB">$v</span><span style="color: #007700">) {<br />  </span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$v</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

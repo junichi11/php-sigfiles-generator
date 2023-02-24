@@ -1777,12 +1777,12 @@ namespace Swoole\Http {
 		/**
 		 * Execute multiple tasks concurrently.
 		 * @param array $tasks
-		 * @param \double $timeout_ms
+		 * @param float $timeout_ms
 		 * @return void
 		 * @link https://php.net/manual/en/swoole-server.taskwaitmulti.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function taskWaitMulti(array $tasks, \double $timeout_ms = null): void {}
+		public function taskWaitMulti(array $tasks, float $timeout_ms = null): void {}
 
 		/**
 		 * Send data to the task worker processes in blocking way.
@@ -2597,12 +2597,12 @@ namespace Swoole\Redis {
 		/**
 		 * Execute multiple tasks concurrently.
 		 * @param array $tasks
-		 * @param \double $timeout_ms
+		 * @param float $timeout_ms
 		 * @return void
 		 * @link https://php.net/manual/en/swoole-server.taskwaitmulti.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function taskWaitMulti(array $tasks, \double $timeout_ms = null): void {}
+		public function taskWaitMulti(array $tasks, float $timeout_ms = null): void {}
 
 		/**
 		 * Send data to the task worker processes in blocking way.
@@ -3001,12 +3001,12 @@ namespace Swoole {
 		/**
 		 * Execute multiple tasks concurrently.
 		 * @param array $tasks
-		 * @param \double $timeout_ms
+		 * @param float $timeout_ms
 		 * @return void
 		 * @link https://php.net/manual/en/swoole-server.taskwaitmulti.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function taskWaitMulti(array $tasks, \double $timeout_ms = null): void {}
+		public function taskWaitMulti(array $tasks, float $timeout_ms = null): void {}
 
 		/**
 		 * Send data to the task worker processes in blocking way.

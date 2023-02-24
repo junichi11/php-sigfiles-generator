@@ -151,11 +151,11 @@ function.</p></div>
  <div class="refsect1 examples" id="refsect1-function.simplexml-load-file-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5413">
+   <div class="example" id="example-5587">
     <p><strong>Example #1 Interpret an XML document</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;The&nbsp;file&nbsp;test.xml&nbsp;contains&nbsp;an&nbsp;XML&nbsp;document&nbsp;with&nbsp;a&nbsp;root&nbsp;element<br />//&nbsp;and&nbsp;at&nbsp;least&nbsp;an&nbsp;element&nbsp;/[root]/title.<br /><br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">file_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'test.xml'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$xml&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">simplexml_load_file</span><span style="color: #007700">(</span><span style="color: #DD0000">'test.xml'</span><span style="color: #007700">);<br />&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$xml</span><span style="color: #007700">);<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;exit(</span><span style="color: #DD0000">'Failed&nbsp;to&nbsp;open&nbsp;test.xml.'</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// The file test.xml contains an XML document with a root element<br />// and at least an element /[root]/title.<br /><br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">file_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'test.xml'</span><span style="color: #007700">)) {<br />    </span><span style="color: #0000BB">$xml </span><span style="color: #007700">= </span><span style="color: #0000BB">simplexml_load_file</span><span style="color: #007700">(</span><span style="color: #DD0000">'test.xml'</span><span style="color: #007700">);<br /> <br />    </span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$xml</span><span style="color: #007700">);<br />} else {<br />    exit(</span><span style="color: #DD0000">'Failed to open test.xml.'</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

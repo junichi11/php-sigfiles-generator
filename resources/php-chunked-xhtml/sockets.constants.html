@@ -229,6 +229,20 @@ been compiled into PHP or dynamically loaded at runtime.
 
   
   
+   <dt id="constant.msg-zerocopy">
+    <strong><code>MSG_ZEROCOPY</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
    <dt id="constant.so-debug">
     <strong><code>SO_DEBUG</code></strong> 
     (<span class="type">int</span>)
@@ -267,7 +281,7 @@ been compiled into PHP or dynamically loaded at runtime.
     <span class="simpara">
      This constant is only available on platforms that
      support the <strong><code>SO_REUSEPORT</code></strong> socket option: this
-     includes macOS and FreeBSD, but does not include Linux or Windows.
+     includes Linux, macOS and *BSD, but does not include Windows.
     </span>
    </dd>
 
@@ -455,8 +469,22 @@ been compiled into PHP or dynamically loaded at runtime.
 
   
   
+   <dt id="constant.so-zerocopy">
+    <strong><code>SO_ZEROCOPY</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
    <dt id="constant.tcp-nodelay">
-    <strong><code>TCP_NODELAY</code></strong> 
+    <strong><code>TCP_NODELAY</code></strong>
     (<span class="type">int</span>)
    </dt>
 
@@ -469,8 +497,78 @@ been compiled into PHP or dynamically loaded at runtime.
 
   
   
+   <dt id="constant.tcp-keepcnt">
+    <strong><code>TCP_KEEPCNT</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.tcp-keepidle">
+    <strong><code>TCP_KEEPIDLE</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.tcp-keepintvl">
+    <strong><code>TCP_KEEPINTVL</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.tcp-keepalive">
+    <strong><code>TCP_KEEPALIVE</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.tcp-nosentlowat">
+    <strong><code>TCP_NOTSENT_LOWAT</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
    <dt id="constant.so-mark">
-    <strong><code>SO_MARK</code></strong> 
+    <strong><code>SO_MARK</code></strong>
     (<span class="type">int</span>)
    </dt>
 
@@ -484,7 +582,7 @@ been compiled into PHP or dynamically loaded at runtime.
   
   
    <dt id="constant.so-user-cookie">
-    <strong><code>SO_USER_COOKIE</code></strong> 
+    <strong><code>SO_USER_COOKIE</code></strong>
     (<span class="type">int</span>)
    </dt>
 
@@ -497,8 +595,22 @@ been compiled into PHP or dynamically loaded at runtime.
 
   
   
+   <dt id="constant.so-rtable">
+    <strong><code>SO_RTABLE</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
    <dt id="constant.so-acceptfilter">
-    <strong><code>SO_ACCEPTFILTER</code></strong> 
+    <strong><code>SO_ACCEPTFILTER</code></strong>
     (<span class="type">string</span>)
    </dt>
 
@@ -539,6 +651,76 @@ been compiled into PHP or dynamically loaded at runtime.
 
   
   
+   <dt id="constant.so-incomingcpu">
+    <strong><code>SO_INCOMING_CPU</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.so-meminfo">
+    <strong><code>SO_MEMINFO</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.so-bpfextensions">
+    <strong><code>SO_BPF_EXTENSIONS</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.so-setfib">
+    <strong><code>SO_SETFIB</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sol-filter">
+    <strong><code>SOL_FILTER</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
    <dt id="constant.tcp-defer-accept">
     <strong><code>TCP_DEFER_ACCEPT</code></strong>
     (<span class="type">int</span>)
@@ -548,6 +730,20 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      Available as of PHP 8.1.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.tcp-congestion">
+    <strong><code>TCP_CONGESTION</code></strong>
+    (<span class="type">string</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
     </span>
    </dd>
 
@@ -654,7 +850,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Bad file number.
+     Bad file descriptor number.
     </span>
    </dd>
 
@@ -2359,6 +2555,314 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
 
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-creds">
+    <strong><code>SCM_CREDS</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-creds2">
+    <strong><code>SCM_CREDS2</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-localcreds">
+    <strong><code>LOCAL_CREDS</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-localcredspersistent">
+    <strong><code>LOCAL_CREDS_PERSISTENT</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadoff">
+    <strong><code>SKF_AD_OFF</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadprotocol">
+    <strong><code>SKF_AD_PROTOCOL</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadpkttype">
+    <strong><code>SKF_AD_PKTTYPE</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadifindex">
+    <strong><code>SKF_AD_IFINDEX</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadnlattr">
+    <strong><code>SKF_AD_NLATTR</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadnlattrnest">
+    <strong><code>SKF_AD_NLATTR_NEST</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadmark">
+    <strong><code>SKF_AD_MARK</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadqueue">
+    <strong><code>SKF_AD_QUEUE</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadhatype">
+    <strong><code>SKF_AD_HATYPE</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadrxhash">
+    <strong><code>SKF_AD_RXHASH</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadcpu">
+    <strong><code>SKF_AD_CPU</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadaluxorx">
+    <strong><code>SKF_AD_ALU_XOR_X</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadvlantag">
+    <strong><code>SKF_AD_VLAN_TAG</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadvlantagpresent">
+    <strong><code>SKF_AD_VLAN_TAG_PRESENT</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadpayoffset">
+    <strong><code>SKF_AD_PAY_OFFSET</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadrandom">
+    <strong><code>SKF_AD_RANDOM</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadvlantpid">
+    <strong><code>SKF_AD_VLAN_TPID</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.socket-skfadmax">
+    <strong><code>SKF_AD_MAX</code></strong>
+    (<span class="type">int</span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Available as of PHP 8.2.0
     </span>
    </dd>
 

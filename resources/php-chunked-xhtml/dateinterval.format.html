@@ -216,6 +216,12 @@
 
      <tbody class="tbody">
       <tr>
+       <td>7.2.12</td>
+       <td>The <code class="literal">F</code> and <code class="literal">f</code> format
+        will now always be positive.</td>
+      </tr>
+
+      <tr>
        <td>7.1.0</td>
        <td>The <code class="literal">F</code> and <code class="literal">f</code> format
         characters were added.</td>
@@ -232,11 +238,11 @@
  <div class="refsect1 examples" id="refsect1-dateinterval.format-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2060">
+   <div class="example" id="example-2113">
     <p><strong>Example #1 <span class="classname"><a href="class.dateinterval.html" class="classname">DateInterval</a></span> example</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$interval&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P2Y4DT6H8M'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$interval</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%d&nbsp;days'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$interval </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P2Y4DT6H8M'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$interval</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%d days'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -250,11 +256,11 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2061">
+   <div class="example" id="example-2114">
     <p><strong>Example #2 <span class="classname"><a href="class.dateinterval.html" class="classname">DateInterval</a></span> and carry over points</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$interval&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P32D'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$interval</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%d&nbsp;days'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$interval </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P32D'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$interval</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%d days'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -268,14 +274,14 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2062">
+   <div class="example" id="example-2115">
     <p><strong>Example #3 
      <span class="classname"><a href="class.dateinterval.html" class="classname">DateInterval</a></span> and
      <span class="methodname"><a href="datetime.diff.html" class="methodname">DateTime::diff()</a></span> with the %a and %d modifiers
     </strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$january&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2010-01-01'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$february&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2010-02-01'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$interval&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$february</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">diff</span><span style="color: #007700">(</span><span style="color: #0000BB">$january</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;%a&nbsp;will&nbsp;output&nbsp;the&nbsp;total&nbsp;number&nbsp;of&nbsp;days.<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$interval</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%a&nbsp;total&nbsp;days'</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;While&nbsp;%d&nbsp;will&nbsp;only&nbsp;output&nbsp;the&nbsp;number&nbsp;of&nbsp;days&nbsp;not&nbsp;already&nbsp;covered&nbsp;by&nbsp;the<br />//&nbsp;month.<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$interval</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%m&nbsp;month,&nbsp;%d&nbsp;days'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$january </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2010-01-01'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$february </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2010-02-01'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$interval </span><span style="color: #007700">= </span><span style="color: #0000BB">$february</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">diff</span><span style="color: #007700">(</span><span style="color: #0000BB">$january</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// %a will output the total number of days.<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$interval</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%a total days'</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// While %d will only output the number of days not already covered by the<br />// month.<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$interval</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%m month, %d days'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

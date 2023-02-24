@@ -35,14 +35,14 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>array_keys</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>): <span class="type">array</span></div>
 
-  <div class="methodsynopsis dc-description"><span class="methodname"><strong>array_keys</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$search_value</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$strict</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">array</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>array_keys</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$filter_value</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$strict</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>array_keys()</strong></span> returns the keys, numeric and
    string, from the <code class="parameter">array</code>.
   </p>
   <p class="para">
-   If a <code class="parameter">search_value</code> is specified,
+   If a <code class="parameter">filter_value</code> is specified,
    then only the keys for that value are returned. Otherwise, all
    the keys from the <code class="parameter">array</code> are returned.
   </p>
@@ -67,12 +67,12 @@
     
     
      <dt>
-<code class="parameter">search_value</code></dt>
+<code class="parameter">filter_value</code></dt>
 
      <dd>
 
       <p class="para">
-       If specified, then only keys containing these values are returned.
+       If specified, then only keys containing this value are returned.
       </p>
      </dd>
 
@@ -106,11 +106,11 @@
  <div class="refsect1 examples" id="refsect1-function.array-keys-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4931">
+   <div class="example" id="example-5024">
     <p><strong>Example #1 <span class="function"><strong>array_keys()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$array&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"color"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"red"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"blue"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"red"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"green"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"blue"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"blue"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"blue"</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"color"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">"blue"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"red"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"green"</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"size"&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">"small"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"medium"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"large"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$array </span><span style="color: #007700">= array(</span><span style="color: #0000BB">0 </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">100</span><span style="color: #007700">, </span><span style="color: #DD0000">"color" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"red"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$array </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"blue"</span><span style="color: #007700">, </span><span style="color: #DD0000">"red"</span><span style="color: #007700">, </span><span style="color: #DD0000">"green"</span><span style="color: #007700">, </span><span style="color: #DD0000">"blue"</span><span style="color: #007700">, </span><span style="color: #DD0000">"blue"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">, </span><span style="color: #DD0000">"blue"</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$array </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"color" </span><span style="color: #007700">=&gt; array(</span><span style="color: #DD0000">"blue"</span><span style="color: #007700">, </span><span style="color: #DD0000">"red"</span><span style="color: #007700">, </span><span style="color: #DD0000">"green"</span><span style="color: #007700">),<br />               </span><span style="color: #DD0000">"size"  </span><span style="color: #007700">=&gt; array(</span><span style="color: #DD0000">"small"</span><span style="color: #007700">, </span><span style="color: #DD0000">"medium"</span><span style="color: #007700">, </span><span style="color: #DD0000">"large"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

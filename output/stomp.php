@@ -18,7 +18,7 @@ namespace {
 		 * @param string $username <p>The username.</p>
 		 * @param string $password <p>The password.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-		 * @return self <p><b>Note</b>:</p><p>A transaction header may be specified, indicating that the message acknowledgment should be part of the named transaction.</p>
+		 * @return resource <p><b>Note</b>:</p><p>A transaction header may be specified, indicating that the message acknowledgment should be part of the named transaction.</p>
 		 * @link https://php.net/manual/en/stomp.construct.php
 		 * @since PECL stomp >= 0.1.0
 		 */
@@ -27,11 +27,12 @@ namespace {
 		/**
 		 * Closes stomp connection
 		 * <p>Object-oriented style (destructor):</p><p>Closes a previously opened connection.</p>
+		 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/stomp.destruct.php
 		 * @since PECL stomp >= 0.1.0
 		 */
-		public function __destruct() {}
+		public function __destruct($link) {}
 
 		/**
 		 * Rolls back a transaction in progress

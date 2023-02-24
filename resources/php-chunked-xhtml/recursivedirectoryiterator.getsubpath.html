@@ -65,7 +65,7 @@
     </p></div>
     <div class="example-contents">
     <div class="phpcode"><code><span style="color: #000000">
-$directory&nbsp;=&nbsp;'/tmp';<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$it&nbsp;=&nbsp;new&nbsp;RecursiveIteratorIterator(new&nbsp;RecursiveDirectoryIterator($directory));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;($it&nbsp;as&nbsp;$file)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;'SubPathName:&nbsp;'&nbsp;.&nbsp;$it-&gt;getSubPathName()&nbsp;.&nbsp;"\n";<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;'SubPath:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;.&nbsp;$it-&gt;getSubPath()&nbsp;.&nbsp;"\n\n";<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+$directory = '/tmp';<br />      <br />      $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory));<br />      <br />      foreach ($it as $file) {<br />          echo 'SubPathName: ' . $it-&gt;getSubPathName() . "\n";<br />          echo 'SubPath:     ' . $it-&gt;getSubPath() . "\n\n";<br />      }</span>
 </code></div>
     </div>
 

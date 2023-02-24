@@ -58,7 +58,7 @@
      <dd>
 
       <p class="para">
-       The length of the desired string of bytes. Must be a positive integer. PHP will
+       The length of the desired string of bytes. Must be a positive integer less than or equal to <code class="literal">2147483647</code>. PHP will
        try to cast this parameter to a non-null integer to use it. 
       </p>
      </dd>
@@ -87,11 +87,20 @@
  <div class="refsect1 returnvalues" id="refsect1-function.openssl-random-pseudo-bytes-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the generated <span class="type">string</span> of bytes on success,  or <strong><code>false</code></strong> on failure.
+   Returns the generated <span class="type">string</span> of bytes.
   </p>
  </div>
 
  
+ <div class="refsect1 errors" id="refsect1-function.openssl-random-pseudo-bytes-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   <span class="function"><strong>openssl_random_pseudo_bytes()</strong></span> throws an <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span>
+   on failure.
+  </p>
+ </div>
+
+
  <div class="refsect1 changelog" id="refsect1-function.openssl-random-pseudo-bytes-changelog">
   <h3 class="title">Changelog</h3>
   <table class="doctable informaltable">
@@ -112,6 +121,13 @@
       </td>
      </tr>
 
+     <tr>
+      <td>7.4.0</td>
+      <td>
+       The function no longer returns <strong><code>false</code></strong> on failure, but throws an <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> instead.
+      </td>
+     </tr>
+
     </tbody>
    
   </table>
@@ -121,11 +137,11 @@
  <div class="refsect1 examples" id="refsect1-function.openssl-random-pseudo-bytes-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-939">
+   <div class="example" id="example-956">
     <p><strong>Example #1 <span class="function"><strong>openssl_random_pseudo_bytes()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">for&nbsp;(</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$bytes&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_random_pseudo_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">$i</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cstrong</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$hex&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">bin2hex</span><span style="color: #007700">(</span><span style="color: #0000BB">$bytes</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Lengths:&nbsp;Bytes:&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #DD0000">&nbsp;and&nbsp;Hex:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$hex</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$hex</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$cstrong</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">for (</span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">1</span><span style="color: #007700">; </span><span style="color: #0000BB">$i </span><span style="color: #007700">&lt;= </span><span style="color: #0000BB">4</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++) {<br />    </span><span style="color: #0000BB">$bytes </span><span style="color: #007700">= </span><span style="color: #0000BB">openssl_random_pseudo_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">$i</span><span style="color: #007700">, </span><span style="color: #0000BB">$cstrong</span><span style="color: #007700">);<br />    </span><span style="color: #0000BB">$hex   </span><span style="color: #007700">= </span><span style="color: #0000BB">bin2hex</span><span style="color: #007700">(</span><span style="color: #0000BB">$bytes</span><span style="color: #007700">);<br /><br />    echo </span><span style="color: #DD0000">"Lengths: Bytes: </span><span style="color: #0000BB">$i</span><span style="color: #DD0000"> and Hex: " </span><span style="color: #007700">. </span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$hex</span><span style="color: #007700">) . </span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />    </span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$hex</span><span style="color: #007700">);<br />    </span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$cstrong</span><span style="color: #007700">);<br />    echo </span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -160,11 +176,10 @@ bool(true)
  <div class="refsect1 seealso" id="refsect1-function.openssl-random-pseudo-bytes-seealso">
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
-   <li class="member"><span class="function"><a href="function.random-bytes.html" class="function" rel="rdfs-seeAlso">random_bytes()</a> - Generates cryptographically secure pseudo-random bytes</span></li>
+   <li class="member"><span class="function"><a href="function.random-bytes.html" class="function" rel="rdfs-seeAlso">random_bytes()</a> - Get cryptographically secure random bytes</span></li>
    <li class="member"><span class="function"><a href="function.bin2hex.html" class="function" rel="rdfs-seeAlso">bin2hex()</a> - Convert binary data into hexadecimal representation</span></li>
    <li class="member"><span class="function"><a href="function.crypt.html" class="function" rel="rdfs-seeAlso">crypt()</a> - One-way string hashing</span></li>
-   <li class="member"><span class="function"><a href="function.mt-rand.html" class="function" rel="rdfs-seeAlso">mt_rand()</a> - Generate a random value via the Mersenne Twister Random Number Generator</span></li>
-   <li class="member"><span class="function"><a href="function.uniqid.html" class="function" rel="rdfs-seeAlso">uniqid()</a> - Generate a unique ID</span></li>
+   <li class="member"><span class="function"><a href="function.random-int.html" class="function" rel="rdfs-seeAlso">random_int()</a> - Get a cryptographically secure, uniformly selected integer</span></li>
   </ul>
  </div>
 

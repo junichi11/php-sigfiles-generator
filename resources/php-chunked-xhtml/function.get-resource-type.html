@@ -83,15 +83,22 @@
  <div class="refsect1 examples" id="refsect1-function.get-resource-type-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5219">
+   <div class="example" id="example-5391">
     <p><strong>Example #1 <span class="function"><strong>get_resource_type()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;prints:&nbsp;stream<br /></span><span style="color: #0000BB">$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"w"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">get_resource_type</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;prints:&nbsp;curl<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">curl_init&nbsp;</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">get_resource_type</span><span style="color: #007700">(</span><span style="color: #0000BB">$c</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;works&nbsp;prior&nbsp;to&nbsp;PHP&nbsp;8.0.0&nbsp;as&nbsp;since&nbsp;8.0&nbsp;curl_init&nbsp;returns&nbsp;a&nbsp;CurlHandle&nbsp;object<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$fp </span><span style="color: #007700">= </span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">, </span><span style="color: #DD0000">"w"</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">get_resource_type</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// As of PHP 8.0.0, the following does not work anymore. The curl_init function returns a CurlHandle object now.<br /></span><span style="color: #0000BB">$c </span><span style="color: #007700">= </span><span style="color: #0000BB">curl_init</span><span style="color: #007700">();<br />echo </span><span style="color: #0000BB">get_resource_type</span><span style="color: #007700">(</span><span style="color: #0000BB">$c</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
+    <div class="example-contents"><p>Output of the above example in PHP 7:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+stream
+curl
+</pre></div>
+    </div>
    </div>
   </p>
  </div>

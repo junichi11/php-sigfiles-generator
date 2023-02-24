@@ -6,7 +6,7 @@ namespace {
 
 	/**
 	 * Convert an 8bit string to a quoted-printable string
-	 * <p>Convert an 8bit string to a quoted-printable string (according to RFC2045, section 6.7).</p>
+	 * <p>Convert an 8bit string to a quoted-printable string (according to &#xBB;&#xA0;RFC2045, section 6.7).</p>
 	 * @param string $string <p>The 8bit string to convert</p>
 	 * @return string|false <p>Returns a quoted-printable string, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imap-8bit.php
@@ -52,7 +52,7 @@ namespace {
 
 	/**
 	 * Convert an 8bit string to a base64 string
-	 * <p>Convert an 8bit string to a base64 string according to RFC2045, Section 6.8.</p>
+	 * <p>Convert an 8bit string to a base64 string according to &#xBB;&#xA0;RFC2045, Section 6.8.</p>
 	 * @param string $string <p>The 8bit string</p>
 	 * @return string|false <p>Returns a base64 encoded string, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imap-binary.php
@@ -90,7 +90,7 @@ namespace {
 	 * Check current mailbox
 	 * <p>Checks information about the current mailbox.</p>
 	 * @param \IMAP\Connection $imap <p>An <code>IMAP\Connection</code> instance.</p>
-	 * @return stdClass|false <p>Returns the information in an object with following properties:</p><ul> <li>  <b><code>Date</code></b> - current system time formatted according to RFC2822  </li> <li>  <b><code>Driver</code></b> - protocol used to access this mailbox: POP3, IMAP, NNTP  </li> <li>  <b><code>Mailbox</code></b> - the mailbox name  </li> <li>  <b><code>Nmsgs</code></b> - number of messages in the mailbox  </li> <li>  <b><code>Recent</code></b> - number of recent messages in the mailbox  </li> </ul><p>Returns <b><code>false</code></b> on failure.</p>
+	 * @return stdClass|false <p>Returns the information in an object with following properties:</p><ul> <li>  <b><code>Date</code></b> - current system time formatted according to &#xBB;&#xA0;RFC2822  </li> <li>  <b><code>Driver</code></b> - protocol used to access this mailbox: POP3, IMAP, NNTP  </li> <li>  <b><code>Mailbox</code></b> - the mailbox name  </li> <li>  <b><code>Nmsgs</code></b> - number of messages in the mailbox  </li> <li>  <b><code>Recent</code></b> - number of recent messages in the mailbox  </li> </ul><p>Returns <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imap-check.php
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
@@ -101,7 +101,7 @@ namespace {
 	 * <p>This function causes a store to delete the specified <code>flag</code> to the flags set for the messages in the specified <code>sequence</code>.</p>
 	 * @param \IMAP\Connection $imap <p>An <code>IMAP\Connection</code> instance.</p>
 	 * @param string $sequence <p>A sequence of message numbers. You can enumerate desired messages with the <code>X,Y</code> syntax, or retrieve all messages within an interval with the <code>X:Y</code> syntax</p>
-	 * @param string $flag <p>The flags which you can unset are "\\Seen", "\\Answered", "\\Flagged", "\\Deleted", and "\\Draft" (as defined by RFC2060)</p>
+	 * @param string $flag <p>The flags which you can unset are "\\Seen", "\\Answered", "\\Flagged", "\\Deleted", and "\\Draft" (as defined by &#xBB;&#xA0;RFC2060)</p>
 	 * @param int $options <p><code>options</code> are a bit mask and may contain the single option:</p><ul> <li>  <b><code>ST_UID</code></b> - The sequence argument contains UIDs instead of sequence numbers  </li> </ul>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imap-clearflag-full.php
@@ -219,7 +219,7 @@ namespace {
 
 	/**
 	 * Returns header for a message
-	 * <p>This function causes a fetch of the complete, unfiltered RFC2822 format header of the specified message.</p>
+	 * <p>This function causes a fetch of the complete, unfiltered &#xBB;&#xA0;RFC2822 format header of the specified message.</p>
 	 * @param \IMAP\Connection $imap <p>An <code>IMAP\Connection</code> instance.</p>
 	 * @param int $message_num <p>The message number</p>
 	 * @param int $flags <p>The possible <code>flags</code> are:</p><ul> <li>  <b><code>FT_UID</code></b> - The <code>message_num</code> argument is a UID  </li> <li>  <b><code>FT_INTERNAL</code></b> - The return string is in "internal" format, without any attempt to canonicalize to CRLF newlines  </li> <li>  <b><code>FT_PREFETCHTEXT</code></b> - The RFC822.TEXT should be pre-fetched at the same time. This avoids an extra RTT on an IMAP connection if a full message text is desired (e.g. in a "save to local file" operation)  </li> </ul>
@@ -285,7 +285,7 @@ namespace {
 	 * <p>Retrieve the quota level settings, and usage statics per mailbox.</p><p>For a non-admin user version of this function, please see the <code>imap_get_quotaroot()</code> function of PHP.</p>
 	 * @param \IMAP\Connection $imap <p>An <code>IMAP\Connection</code> instance.</p>
 	 * @param string $quota_root <p><code>quota_root</code> should normally be in the form of <code>user.name</code> where name is the mailbox you wish to retrieve information about.</p>
-	 * @return array|false <p>Returns an array with integer values limit and usage for the given mailbox. The value of limit represents the total amount of space allowed for this mailbox. The usage value represents the mailboxes current level of capacity. Will return <b><code>false</code></b> in the case of failure.</p><p>As of PHP 4.3, the function more properly reflects the functionality as dictated by the RFC2087. The array return value has changed to support an unlimited number of returned resources (i.e. messages, or sub-folders) with each named resource receiving an individual array key. Each key value then contains an another array with the usage and limit values within it.</p><p>For backwards compatibility reasons, the original access methods are still available for use, although it is suggested to update.</p>
+	 * @return array|false <p>Returns an array with integer values limit and usage for the given mailbox. The value of limit represents the total amount of space allowed for this mailbox. The usage value represents the mailboxes current level of capacity. Will return <b><code>false</code></b> in the case of failure.</p><p>As of PHP 4.3, the function more properly reflects the functionality as dictated by the &#xBB;&#xA0;RFC2087. The array return value has changed to support an unlimited number of returned resources (i.e. messages, or sub-folders) with each named resource receiving an individual array key. Each key value then contains an another array with the usage and limit values within it.</p><p>For backwards compatibility reasons, the original access methods are still available for use, although it is suggested to update.</p>
 	 * @link https://php.net/manual/en/function.imap-get-quota.php
 	 * @see imap_open(), imap_set_quota(), imap_get_quotaroot()
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7, PHP 8
@@ -454,7 +454,7 @@ namespace {
 
 	/**
 	 * Send an email message
-	 * <p>This function allows sending of emails with correct handling of Cc and Bcc receivers.</p><p>The parameters <code>to</code>, <code>cc</code> and <code>bcc</code> are all strings and are all parsed as RFC822 address lists.</p>
+	 * <p>This function allows sending of emails with correct handling of Cc and Bcc receivers.</p><p>The parameters <code>to</code>, <code>cc</code> and <code>bcc</code> are all strings and are all parsed as &#xBB;&#xA0;RFC822 address lists.</p>
 	 * @param string $to <p>The receiver</p>
 	 * @param string $subject <p>The mail subject</p>
 	 * @param string $message <p>The mail body, see <code>imap_mail_compose()</code></p>
@@ -484,7 +484,7 @@ namespace {
 	 * Copy specified messages to a mailbox
 	 * <p>Copies mail messages specified by <code>message_nums</code> to specified mailbox.</p>
 	 * @param \IMAP\Connection $imap <p>An <code>IMAP\Connection</code> instance.</p>
-	 * @param string $message_nums <p><code>message_nums</code> is a range not just message numbers (as described in RFC2060).</p>
+	 * @param string $message_nums <p><code>message_nums</code> is a range not just message numbers (as described in &#xBB;&#xA0;RFC2060).</p>
 	 * @param string $mailbox <p>The mailbox name, see <code>imap_open()</code> for more information</p> <p><b>Warning</b></p><p>Passing untrusted data to this parameter is <i>insecure</i>, unless imap.enable_insecure_rsh is disabled.</p>
 	 * @param int $flags <p><code>flags</code> is a bitmask of one or more of</p><ul> <li>  <b><code>CP_UID</code></b> - the sequence numbers contain UIDS  </li> <li>  <b><code>CP_MOVE</code></b> - Delete the messages from the current mailbox after copying. If this flag is set, the function behaves identically to <code>imap_mail_move()</code>.  </li> </ul>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -498,7 +498,7 @@ namespace {
 	 * Move specified messages to a mailbox
 	 * <p>Moves mail messages specified by <code>message_nums</code> to the specified <code>mailbox</code>. Note that the mail messages are actually <i>copied</i> to the <code>mailbox</code>, and the original messages are flagged for deletion. That implies that the messages in <code>mailbox</code> are assigned new UIDs.</p>
 	 * @param \IMAP\Connection $imap <p>An <code>IMAP\Connection</code> instance.</p>
-	 * @param string $message_nums <p><code>message_nums</code> is a range not just message numbers (as described in RFC2060).</p>
+	 * @param string $message_nums <p><code>message_nums</code> is a range not just message numbers (as described in &#xBB;&#xA0;RFC2060).</p>
 	 * @param string $mailbox <p>The mailbox name, see <code>imap_open()</code> for more information</p> <p><b>Warning</b></p><p>Passing untrusted data to this parameter is <i>insecure</i>, unless imap.enable_insecure_rsh is disabled.</p>
 	 * @param int $flags <p><code>flags</code> is a bitmask and may contain the single option:</p><ul> <li>  <b><code>CP_UID</code></b> - the sequence numbers contain UIDS  </li> </ul>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -512,7 +512,7 @@ namespace {
 	 * Get information about the current mailbox
 	 * <p>Checks the current mailbox status on the server. It is similar to <code>imap_status()</code>, but will additionally sum up the size of all messages in the mailbox, which will take some additional time to execute.</p>
 	 * @param \IMAP\Connection $imap <p>An <code>IMAP\Connection</code> instance.</p>
-	 * @return stdClass <p>Returns the information in an object with following properties:</p> <b>Mailbox properties</b>   Date date of last change (current datetime)   Driver driver   Mailbox name of the mailbox   Nmsgs number of messages   Recent number of recent messages   Unread number of unread messages   Deleted number of deleted messages   Size mailbox size   <p>Returns <b><code>false</code></b> on failure.</p>
+	 * @return stdClass <p>Returns the information in an object with following properties:</p> <b>Mailbox properties</b>   Date date of last change (current datetime)   Driver driver   Mailbox name of the mailbox   Nmsgs number of messages   Recent number of recent messages   Unread number of unread messages   Deleted number of deleted messages   Size mailbox size
 	 * @link https://php.net/manual/en/function.imap-mailboxmsginfo.php
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
@@ -520,7 +520,7 @@ namespace {
 
 	/**
 	 * Decode MIME header elements
-	 * <p>Decodes MIME message header extensions that are non ASCII text (see RFC2047).</p>
+	 * <p>Decodes MIME message header extensions that are non ASCII text (see &#xBB;&#xA0;RFC2047).</p>
 	 * @param string $string <p>The MIME text</p>
 	 * @return array|false <p>The decoded elements are returned in an array of objects, where each object has two properties, <code>charset</code> and <code>text</code>.</p><p>If the element hasn't been encoded, and in other words is in plain US-ASCII, the <code>charset</code> property of that element is set to <code>default</code>.</p><p>The function returns <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imap-mime-header-decode.php
@@ -602,7 +602,7 @@ namespace {
 
 	/**
 	 * Convert a quoted-printable string to an 8 bit string
-	 * <p>Convert a quoted-printable string to an 8 bit string according to RFC2045, section 6.7.</p>
+	 * <p>Convert a quoted-printable string to an 8 bit string according to &#xBB;&#xA0;RFC2045, section 6.7.</p>
 	 * @param string $string <p>A quoted-printable string</p>
 	 * @return string|false <p>Returns an 8 bits string, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imap-qprint.php
@@ -651,7 +651,7 @@ namespace {
 
 	/**
 	 * Parses an address string
-	 * <p>Parses the address string as defined in RFC2822 and for each address.</p>
+	 * <p>Parses the address string as defined in &#xBB;&#xA0;RFC2822 and for each address.</p>
 	 * @param string $string <p>A string containing addresses</p>
 	 * @param string $default_hostname <p>The default host name</p>
 	 * @return array <p>Returns an array of objects. The objects properties are:</p><ul> <li>  mailbox - the mailbox name (username)  </li> <li>  host - the host name  </li> <li>  personal - the personal name  </li> <li>  adl - at domain source route  </li> </ul>
@@ -675,11 +675,11 @@ namespace {
 
 	/**
 	 * Returns a properly formatted email address given the mailbox, host, and personal info
-	 * <p>Returns a properly formatted email address as defined in RFC2822 given the needed information.</p>
+	 * <p>Returns a properly formatted email address as defined in &#xBB;&#xA0;RFC2822 given the needed information.</p>
 	 * @param string $mailbox <p>The mailbox name, see <code>imap_open()</code> for more information</p> <p><b>Warning</b></p><p>Passing untrusted data to this parameter is <i>insecure</i>, unless imap.enable_insecure_rsh is disabled.</p>
 	 * @param string $hostname <p>The email host part</p>
 	 * @param string $personal <p>The name of the account owner</p>
-	 * @return string|false <p>Returns a string properly formatted email address as defined in RFC2822, or <b><code>false</code></b> on failure.</p>
+	 * @return string|false <p>Returns a string properly formatted email address as defined in &#xBB;&#xA0;RFC2822, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imap-rfc822-write-address.php
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
@@ -728,7 +728,7 @@ namespace {
 
 	/**
 	 * This function returns an array of messages matching the given search criteria
-	 * <p>This function performs a search on the mailbox currently opened in the given IMAP stream.</p><p>For example, to match all unanswered messages sent by Mom, you'd use: "UNANSWERED FROM mom". Searches appear to be case insensitive. This list of criteria is from a reading of the UW c-client source code and may be incomplete or inaccurate (see also RFC1176, section "tag SEARCH search_criteria").</p>
+	 * <p>This function performs a search on the mailbox currently opened in the given IMAP stream.</p><p>For example, to match all unanswered messages sent by Mom, you'd use: "UNANSWERED FROM mom". Searches appear to be case insensitive. This list of criteria is from a reading of the UW c-client source code and may be incomplete or inaccurate (see also &#xBB;&#xA0;RFC1176, section "tag SEARCH search_criteria").</p>
 	 * @param \IMAP\Connection $imap <p>An <code>IMAP\Connection</code> instance.</p>
 	 * @param string $criteria <p>A string, delimited by spaces, in which the following keywords are allowed. Any multi-word arguments (e.g. <code>FROM "joey smith"</code>) must be quoted. Results will match all <code>criteria</code> entries.</p><ul> <li>  ALL - return all messages matching the rest of the criteria  </li> <li>  ANSWERED - match messages with the \\ANSWERED flag set  </li> <li>  BCC "string" - match messages with "string" in the Bcc: field  </li> <li>  BEFORE "date" - match messages with Date: before "date"  </li> <li>  BODY "string" - match messages with "string" in the body of the message  </li> <li>  CC "string" - match messages with "string" in the Cc: field  </li> <li>  DELETED - match deleted messages  </li> <li>  FLAGGED - match messages with the \\FLAGGED (sometimes referred to as Important or Urgent) flag set  </li> <li>  FROM "string" - match messages with "string" in the From: field  </li> <li>  KEYWORD "string" - match messages with "string" as a keyword  </li> <li>  NEW - match new messages  </li> <li>  OLD - match old messages  </li> <li>  ON "date" - match messages with Date: matching "date"  </li> <li>  RECENT - match messages with the \\RECENT flag set  </li> <li>  SEEN - match messages that have been read (the \\SEEN flag is set)  </li> <li>  SINCE "date" - match messages with Date: after "date"  </li> <li>  SUBJECT "string" - match messages with "string" in the Subject:  </li> <li>  TEXT "string" - match messages with text "string"  </li> <li>  TO "string" - match messages with "string" in the To:  </li> <li>  UNANSWERED - match messages that have not been answered  </li> <li>  UNDELETED - match messages that are not deleted  </li> <li>  UNFLAGGED - match messages that are not flagged  </li> <li>  UNKEYWORD "string" - match messages that do not have the keyword "string"  </li> <li>  UNSEEN - match messages which have not been read yet  </li> </ul>
 	 * @param int $flags <p>Valid values for <code>flags</code> are <b><code>SE_UID</code></b>, which causes the returned array to contain UIDs instead of messages sequence numbers.</p>
@@ -772,7 +772,7 @@ namespace {
 	 * <p>Causes a store to add the specified <code>flag</code> to the flags set for the messages in the specified <code>sequence</code>.</p>
 	 * @param \IMAP\Connection $imap <p>An <code>IMAP\Connection</code> instance.</p>
 	 * @param string $sequence <p>A sequence of message numbers. You can enumerate desired messages with the <code>X,Y</code> syntax, or retrieve all messages within an interval with the <code>X:Y</code> syntax</p>
-	 * @param string $flag <p>The flags which you can set are <code>\Seen</code>, <code>\Answered</code>, <code>\Flagged</code>, <code>\Deleted</code>, and <code>\Draft</code> as defined by RFC2060.</p>
+	 * @param string $flag <p>The flags which you can set are <code>\Seen</code>, <code>\Answered</code>, <code>\Flagged</code>, <code>\Deleted</code>, and <code>\Draft</code> as defined by &#xBB;&#xA0;RFC2060.</p>
 	 * @param int $options <p>A bit mask that may contain the single option:</p><ul> <li>  <b><code>ST_UID</code></b> - The sequence argument contains UIDs instead of sequence numbers  </li> </ul>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imap-setflag-full.php
@@ -882,7 +882,7 @@ namespace {
 	/**
 	 * Decodes a modified UTF-7 encoded string
 	 * <p>Decodes modified UTF-7 <code>string</code> into ISO-8859-1 string.</p><p>This function is needed to decode mailbox names that contain certain characters which are not in range of printable ASCII characters.</p>
-	 * @param string $string <p>A modified UTF-7 encoding string, as defined in RFC 2060, section 5.1.3.</p>
+	 * @param string $string <p>A modified UTF-7 encoding string, as defined in &#xBB;&#xA0;RFC 2060, section 5.1.3.</p>
 	 * @return string|false <p>Returns a string that is encoded in ISO-8859-1 and consists of the same sequence of characters in <code>string</code>, or <b><code>false</code></b> if <code>string</code> contains invalid modified UTF-7 sequence or <code>string</code> contains a character that is not part of ISO-8859-1 character set.</p>
 	 * @link https://php.net/manual/en/function.imap-utf7-decode.php
 	 * @see imap_utf7_encode()
@@ -894,7 +894,7 @@ namespace {
 	 * Converts ISO-8859-1 string to modified UTF-7 text
 	 * <p>Converts <code>string</code> to modified UTF-7 text.</p><p>This is needed to encode mailbox names that contain certain characters which are not in range of printable ASCII characters.</p>
 	 * @param string $string <p>An ISO-8859-1 string.</p>
-	 * @return string <p>Returns <code>string</code> encoded with the modified UTF-7 encoding as defined in RFC 2060, section 5.1.3.</p>
+	 * @return string <p>Returns <code>string</code> encoded with the modified UTF-7 encoding as defined in &#xBB;&#xA0;RFC 2060, section 5.1.3.</p>
 	 * @link https://php.net/manual/en/function.imap-utf7-encode.php
 	 * @see imap_utf7_decode()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -904,7 +904,7 @@ namespace {
 	/**
 	 * Converts MIME-encoded text to UTF-8
 	 * <p>Converts the given <code>mime_encoded_text</code> to UTF-8, if the declared charset is known to libc-client. Otherwise the given text is decoded, but not converted to UTF-8.</p>
-	 * @param string $mime_encoded_text <p>A MIME encoded string. MIME encoding method and the UTF-8 specification are described in RFC2047 and RFC2044 respectively.</p>
+	 * @param string $mime_encoded_text <p>A MIME encoded string. MIME encoding method and the UTF-8 specification are described in &#xBB;&#xA0;RFC2047 and &#xBB;&#xA0;RFC2044 respectively.</p>
 	 * @return string <p>Returns the decoded string, if possible converted to UTF-8.</p>
 	 * @link https://php.net/manual/en/function.imap-utf8.php
 	 * @see imap_mime_header_decode()

@@ -52,7 +52,7 @@
      <dd>
 
       <p class="para">
-       The operand, as a string.
+       The operand, as a well-formed BCMath numeric string.
       </p>
      </dd>
 
@@ -75,12 +75,24 @@ this has not been set.</p></dd>
  <div class="refsect1 returnvalues" id="refsect1-function.bcsqrt-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the square root as a string, or <strong><code>null</code></strong> if 
-   <code class="parameter">num</code> is negative. 
+   Returns the square root as a well-formed BCMath numeric string.
   </p>
  </div>
 
  
+ <div class="refsect1 errors" id="refsect1-function.bcsqrt-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   This function throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> in the following cases:
+   <ul class="simplelist">
+    <li class="member"><code class="parameter">num</code> is not a well-formed BCMath numeric string</li>
+    <li class="member"><code class="parameter">num</code> is less than <code class="literal">0</code></li>
+    <li class="member"><code class="parameter">scale</code> is outside the valid range</li>
+   </ul>
+  </p>
+ </div>
+
+
  <div class="refsect1 changelog" id="refsect1-function.bcsqrt-changelog">
   <h3 class="title">Changelog</h3>
   <table class="doctable informaltable">
@@ -97,6 +109,24 @@ this has not been set.</p></dd>
      <tr>
       <td>8.0.0</td>
       <td>
+       If <code class="parameter">num</code> is not a well-formed BCMath numeric string,
+       or less than <code class="literal">0</code>, a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is thrown.
+       Previously, <strong><code>E_WARNING</code></strong> was raised instead.
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">scale</code> now needs to be between <code class="literal">0</code>
+       and <code class="literal">2147483647</code>; previously, negative scales have been
+       silently treated as <code class="literal">0</code>.
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
        <code class="parameter">scale</code> is now nullable.
       </td>
      </tr>
@@ -110,11 +140,11 @@ this has not been set.</p></dd>
 
  <div class="refsect1 examples" id="refsect1-function.bcsqrt-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3053">
+  <div class="example" id="example-3123">
    <p><strong>Example #1 <span class="function"><strong>bcsqrt()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">bcsqrt</span><span style="color: #007700">(</span><span style="color: #DD0000">'2'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;1.414<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">bcsqrt</span><span style="color: #007700">(</span><span style="color: #DD0000">'2'</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">); </span><span style="color: #FF8000">// 1.414<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

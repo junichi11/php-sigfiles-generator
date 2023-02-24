@@ -96,7 +96,7 @@
  <div class="refsect1 examples" id="refsect1-function.posix-access-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3300">
+   <div class="example" id="example-3372">
     <p><strong>Example #1 <span class="function"><strong>posix_access()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This example will check if the $file is readable and writable, otherwise
@@ -104,7 +104,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$file&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'some_file'</span><span style="color: #007700">;<br /><br />if&nbsp;(</span><span style="color: #0000BB">posix_access</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">POSIX_R_OK&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">POSIX_W_OK</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'The&nbsp;file&nbsp;is&nbsp;readable&nbsp;and&nbsp;writable!'</span><span style="color: #007700">;<br /><br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$error&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">posix_get_last_error</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error&nbsp;</span><span style="color: #0000BB">$error</span><span style="color: #DD0000">:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">posix_strerror</span><span style="color: #007700">(</span><span style="color: #0000BB">$error</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$file </span><span style="color: #007700">= </span><span style="color: #DD0000">'some_file'</span><span style="color: #007700">;<br /><br />if (</span><span style="color: #0000BB">posix_access</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">, </span><span style="color: #0000BB">POSIX_R_OK </span><span style="color: #007700">| </span><span style="color: #0000BB">POSIX_W_OK</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">'The file is readable and writable!'</span><span style="color: #007700">;<br /><br />} else {<br />    </span><span style="color: #0000BB">$error </span><span style="color: #007700">= </span><span style="color: #0000BB">posix_get_last_error</span><span style="color: #007700">();<br /><br />    echo </span><span style="color: #DD0000">"Error </span><span style="color: #0000BB">$error</span><span style="color: #DD0000">: " </span><span style="color: #007700">. </span><span style="color: #0000BB">posix_strerror</span><span style="color: #007700">(</span><span style="color: #0000BB">$error</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

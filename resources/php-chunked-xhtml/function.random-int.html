@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Generates cryptographically secure pseudo-random integers</title>
+  <title>Get a cryptographically secure, uniformly selected integer</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -11,22 +11,22 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="function.random-bytes.html">« random_bytes</a></li>
-      <li style="float: right;"><a href="book.hash.html">Hash »</a></li>
+      <li style="float: right;"><a href="function.srand.html">srand »</a></li>
     </ul>
   </div>
 </div>
 <div id="breadcrumbs" class="clearfix">
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
-    <li><a href="ref.csprng.html">CSPRNG Functions</a></li>
-    <li>Generates cryptographically secure pseudo-random integers</li>
+    <li><a href="ref.random.html">Random Functions</a></li>
+    <li>Get a cryptographically secure, uniformly selected integer</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="function.random-int" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">random_int</h1>
-  <p class="verinfo">(PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">random_int</span> &mdash; <span class="dc-title">Generates cryptographically secure pseudo-random integers</span></p>
+  <p class="verinfo">(PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">random_int</span> &mdash; <span class="dc-title">Get a cryptographically secure, uniformly selected integer</span></p>
 
  </div>
 
@@ -68,8 +68,8 @@
  </li>
  <li class="listitem">
   <span class="simpara">
-   If none of the aforementioned sources are available, then an
-   <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> will be thrown.
+   If none of the aforementioned sources are available, then a
+   <span class="classname"><a href="class.random-randomexception.html" class="classname">Random\RandomException</a></span> will be thrown.
   </span>
  </li>
 </ul>
@@ -96,8 +96,7 @@
     <dd>
 
      <p class="para">
-      The lowest value to be returned, which must be
-      <strong><code>PHP_INT_MIN</code></strong> or higher.
+      The lowest value to be returned.
      </p>
     </dd>
 
@@ -109,8 +108,7 @@
     <dd>
 
      <p class="para">
-      The highest value to be returned, which must be less than or equal to
-      <strong><code>PHP_INT_MAX</code></strong>.
+      The highest value to be returned.
      </p>
     </dd>
 
@@ -123,8 +121,10 @@
  <div class="refsect1 returnvalues" id="refsect1-function.random-int-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a cryptographically secure random integer in the range
-   <code class="parameter">min</code> to <code class="parameter">max</code>, inclusive.
+   A cryptographically secure, uniformly selected integer from the closed interval
+   [<code class="parameter">min</code>, <code class="parameter">max</code>]. Both
+   <code class="parameter">min</code> and <code class="parameter">max</code> are
+   possible return values.
   </p>
  </div>
 
@@ -136,23 +136,46 @@
  <li class="listitem">
   <span class="simpara">
    If an appropriate source of randomness cannot be found,
-   an <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> will be thrown.
-  </span>
- </li>
- <li class="listitem">
-  <span class="simpara">
-    If invalid parameters are given, a <span class="classname"><a href="class.typeerror.html" class="classname">TypeError</a></span>
-    will be thrown.
+   a <span class="classname"><a href="class.random-randomexception.html" class="classname">Random\RandomException</a></span> will be thrown.
   </span>
  </li>
 
    <li class="listitem">
     <span class="simpara">
      If <code class="parameter">max</code> is less than <code class="parameter">min</code>, an
-     <span class="classname"><a href="class.error.html" class="classname">Error</a></span> will be thrown.
+     <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> will be thrown.
     </span>
    </li>
   </ul>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.random-int-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.2.0</td>
+      <td>
+       In case of a <abbr title="Cryptographically Secure PseudoRandom Number Generator">CSPRNG</abbr> failure, this function will now throw a
+       <span class="classname"><a href="class.random-randomexception.html" class="classname">Random\RandomException</a></span>. Previously a plain
+       <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> was thrown.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
@@ -162,7 +185,7 @@
    <p><strong>Example #1 <span class="function"><strong>random_int()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">random_int</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">999</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">random_int</span><span style="color: #007700">(-</span><span style="color: #0000BB">1000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">random_int</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">, </span><span style="color: #0000BB">999</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">random_int</span><span style="color: #007700">(-</span><span style="color: #0000BB">1000</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -182,7 +205,8 @@ int(-898)
  <div class="refsect1 seealso" id="refsect1-function.random-int-seealso">
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
-   <li class="member"><span class="function"><a href="function.random-bytes.html" class="function" rel="rdfs-seeAlso">random_bytes()</a> - Generates cryptographically secure pseudo-random bytes</span></li>
+   <li class="member"><span class="function"><a href="random-randomizer.getint.html" class="function" rel="rdfs-seeAlso">Random\Randomizer::getInt()</a> - Get a uniformly selected integer</span></li>
+   <li class="member"><span class="function"><a href="function.random-bytes.html" class="function" rel="rdfs-seeAlso">random_bytes()</a> - Get cryptographically secure random bytes</span></li>
   </ul>
  </div>
 

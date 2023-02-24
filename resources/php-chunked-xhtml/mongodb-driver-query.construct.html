@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-mongodb-driver-query.construct-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Query::__construct</strong></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$filter</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$queryOptions</code><span class="initializer"> = ?</span></span>)</div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Query::__construct</strong></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$filter</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$queryOptions</code><span class="initializer"> = <strong><code>null</code></strong></span></span>)</div>
 
   <p class="para rdfs-comment">
    Constructs a new <span class="classname"><a href="class.mongodb-driver-query.html" class="classname">MongoDB\Driver\Query</a></span>, which is an
@@ -55,12 +55,12 @@
     <dd>
 
      <p class="para">
-      The <a href="https://docs.mongodb.com/manual/tutorial/query-documents/" class="link external">&raquo;&nbsp;query predicate</a>.
+      The <a href="https://www.mongodb.com/docs/manual/tutorial/query-documents/" class="link external">&raquo;&nbsp;query predicate</a>.
       An empty predicate will match all documents in the collection.
      </p>
      <blockquote class="note"><p><strong class="note">Note</strong>: 
       <span class="simpara">
-       When evaluating query criteria, MongoDB compares types and values according to its own <a href="https://docs.mongodb.com/manual/reference/bson-type-comparison-order/" class="link external">&raquo;&nbsp;comparison rules for BSON types</a>, which differs from PHP&#039;s <a href="types.comparisons.html" class="link">comparison</a> and <a href="language.types.type-juggling.html" class="link">type juggling</a> rules. When matching a special BSON type the query criteria should use the respective <a href="book.bson.html" class="link">BSON class</a> (e.g. use <span class="classname"><a href="class.mongodb-bson-objectid.html" class="classname">MongoDB\BSON\ObjectId</a></span> to match an <a href="https://docs.mongodb.com/manual/reference/object-id/" class="link external">&raquo;&nbsp;ObjectId</a>).
+       When evaluating query criteria, MongoDB compares types and values according to its own <a href="https://www.mongodb.com/docs/manual/reference/bson-type-comparison-order/" class="link external">&raquo;&nbsp;comparison rules for BSON types</a>, which differs from PHP&#039;s <a href="types.comparisons.html" class="link">comparison</a> and <a href="language.types.type-juggling.html" class="link">type juggling</a> rules. When matching a special BSON type the query criteria should use the respective <a href="book.bson.html" class="link">BSON class</a> (e.g. use <span class="classname"><a href="class.mongodb-bson-objectid.html" class="classname">MongoDB\BSON\ObjectId</a></span> to match an <a href="https://www.mongodb.com/docs/manual/reference/bson-types/#objectid" class="link external">&raquo;&nbsp;ObjectId</a>).
       </span>
      </p></blockquote>
     </dd>
@@ -149,7 +149,7 @@
           <td><span class="type"><span class="type">array</span>|<span class="type">object</span></span></td>
           <td>
            <p class="para">
-            <a href="https://docs.mongodb.com/master/reference/collation/" class="link external">&raquo;&nbsp;Collation</a> allows users to specify language-specific rules for string comparison, such as rules for lettercase and accent marks. When specifying collation, the <code class="literal">&quot;locale&quot;</code> field is mandatory; all other collation fields are optional. For descriptions of the fields, see <a href="https://docs.mongodb.com/master/reference/collation/#collation-document" class="link external">&raquo;&nbsp;Collation Document</a>.
+            <a href="https://www.mongodb.com/docs/upcoming/reference/collation/" class="link external">&raquo;&nbsp;Collation</a> allows users to specify language-specific rules for string comparison, such as rules for lettercase and accent marks. When specifying collation, the <code class="literal">&quot;locale&quot;</code> field is mandatory; all other collation fields are optional. For descriptions of the fields, see <a href="https://www.mongodb.com/docs/upcoming/reference/collation/#collation-document" class="link external">&raquo;&nbsp;Collation Document</a>.
            </p>
            <p class="para">
             If the collation is unspecified but the collection has a default collation, the operation uses the collation specified for the collection. If no collation is specified for the collection or for the operation, MongoDB uses the simple binary comparison used in prior versions for string comparisons.
@@ -163,11 +163,15 @@
 
          <tr>
           <td>comment</td>
-          <td><span class="type">string</span></td>
+          <td><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></td>
           <td>
            <p class="para">
-            A comment to attach to the query to help interpret and trace query
-            profile data.
+            An arbitrary comment to help trace the operation through the
+            database profiler, currentOp output, and logs.
+           </p>
+           <p class="para">
+            The comment can be any valid BSON type for MongoDB 4.4+. Earlier
+            server versions only support string values.
            </p>
            <p class="para">
             Falls back to the deprecated <code class="literal">&quot;$comment&quot;</code> modifier
@@ -212,7 +216,7 @@
             This option is not supported by the find command in MongoDB 3.2+ and
             will only be respected when using the legacy wire protocol version
             (i.e. OP_QUERY). The
-            <a href="https://docs.mongodb.com/manual/reference/command/explain/" class="link external">&raquo;&nbsp;explain</a>
+            <a href="https://www.mongodb.com/docs/manual/reference/command/explain/" class="link external">&raquo;&nbsp;explain</a>
             command should be used on MongoDB 3.0+.
            </p>
           </td>
@@ -233,6 +237,21 @@
            </p>
           </td>
          </tr>
+
+         
+         <tr>
+          <td>let</td>
+          <td><span class="type"><span class="type">array</span>|<span class="type">object</span></span></td>
+          <td>
+           <p class="para">
+            Map of parameter names and values. Values must be constant or closed expressions that do not reference document fields. Parameters can then be accessed as variables in an aggregate expression context (e.g. <code class="literal">$$var</code>).
+           </p>
+           <p class="para">
+            This option is available in MongoDB 5.0+ and will result in an exception at execution time if specified for an older server version.
+           </p>
+          </td>
+         </tr>
+
 
          <tr>
           <td>limit</td>
@@ -334,7 +353,7 @@
           <td>modifiers</td>
           <td><span class="type">array</span></td>
           <td>
-           <a href="https://docs.mongodb.com/manual/reference/operator/query-modifier/" class="link external">&raquo;&nbsp;Meta operators</a>
+           <a href="https://www.mongodb.com/docs/manual/reference/operator/query-modifier/" class="link external">&raquo;&nbsp;Meta operators</a>
            modifying the output or behavior of a query. Use of these operators
            is deprecated in favor of named options.
           </td>
@@ -373,7 +392,7 @@
           <td><span class="type"><span class="type">array</span>|<span class="type">object</span></span></td>
           <td>
            <p class="para">
-            The <a href="https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/" class="link external">&raquo;&nbsp;projection specification</a>
+            The <a href="https://www.mongodb.com/docs/manual/tutorial/project-fields-from-query-results/" class="link external">&raquo;&nbsp;projection specification</a>
             to determine which fields to include in the returned documents.
            </p>
            <p class="para">
@@ -382,7 +401,7 @@
             PHP class, make sure that you include the
             <span class="property">__pclass</span> field in the projection. This is
             required for the deserialization to work and without it, the
-            driver will return (by default) a <span class="classname"><strong class="classname">stdClass</strong></span>
+            driver will return (by default) a <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span>
             object instead.
            </p>
           </td>
@@ -527,6 +546,16 @@
 
      <tbody class="tbody">
       <tr>
+       <td>PECL mongodb 1.14.0</td>
+       <td>
+        <p class="para">
+         Added the <code class="literal">&quot;let&quot;</code> option. The
+         <code class="literal">&quot;comment&quot;</code> option now accepts any type.
+        </p>
+       </td>
+      </tr>
+
+      <tr>
        <td>PECL mongodb 1.8.0</td>
        <td>
         <p class="para">
@@ -600,11 +629,11 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb-driver-query.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1285">
+  <div class="example" id="example-1316">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\Driver\Query::__construct()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Select&nbsp;only&nbsp;documents&nbsp;authord&nbsp;by&nbsp;"bjori"&nbsp;with&nbsp;at&nbsp;least&nbsp;100&nbsp;views&nbsp;*/<br /></span><span style="color: #0000BB">$filter&nbsp;</span><span style="color: #007700">=&nbsp;[<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'author'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'bjori'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'views'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;[<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'$gte'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;],<br />];<br /><br /></span><span style="color: #0000BB">$options&nbsp;</span><span style="color: #007700">=&nbsp;[<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Only&nbsp;return&nbsp;the&nbsp;following&nbsp;fields&nbsp;in&nbsp;the&nbsp;matching&nbsp;documents&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'projection'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;[<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'title'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'article'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;],<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Return&nbsp;the&nbsp;documents&nbsp;in&nbsp;descending&nbsp;order&nbsp;of&nbsp;views&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'sort'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;[<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'views'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;-</span><span style="color: #0000BB">1<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">],<br />];<br /><br /></span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Query</span><span style="color: #007700">(</span><span style="color: #0000BB">$filter</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">'mongodb://localhost:27017'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$readPreference&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadPreference</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadPreference</span><span style="color: #007700">::</span><span style="color: #0000BB">RP_PRIMARY</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$manager</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">executeQuery</span><span style="color: #007700">(</span><span style="color: #DD0000">'databaseName.collectionName'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$query</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$readPreference</span><span style="color: #007700">);<br /><br />foreach(</span><span style="color: #0000BB">$cursor&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$document</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$document</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Select only documents authord by "bjori" with at least 100 views */<br /></span><span style="color: #0000BB">$filter </span><span style="color: #007700">= [<br />    </span><span style="color: #DD0000">'author' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'bjori'</span><span style="color: #007700">,<br />    </span><span style="color: #DD0000">'views' </span><span style="color: #007700">=&gt; [<br />        </span><span style="color: #DD0000">'$gte' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">100</span><span style="color: #007700">,<br />    ],<br />];<br /><br /></span><span style="color: #0000BB">$options </span><span style="color: #007700">= [<br />    </span><span style="color: #FF8000">/* Only return the following fields in the matching documents */<br />    </span><span style="color: #DD0000">'projection' </span><span style="color: #007700">=&gt; [<br />        </span><span style="color: #DD0000">'title' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">,<br />        </span><span style="color: #DD0000">'article' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">,<br />    ],<br />    </span><span style="color: #FF8000">/* Return the documents in descending order of views */<br />    </span><span style="color: #DD0000">'sort' </span><span style="color: #007700">=&gt; [<br />        </span><span style="color: #DD0000">'views' </span><span style="color: #007700">=&gt; -</span><span style="color: #0000BB">1<br />    </span><span style="color: #007700">],<br />];<br /><br /></span><span style="color: #0000BB">$query </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Query</span><span style="color: #007700">(</span><span style="color: #0000BB">$filter</span><span style="color: #007700">, </span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$manager </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">'mongodb://localhost:27017'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$readPreference </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadPreference</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">ReadPreference</span><span style="color: #007700">::</span><span style="color: #0000BB">RP_PRIMARY</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$cursor </span><span style="color: #007700">= </span><span style="color: #0000BB">$manager</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">executeQuery</span><span style="color: #007700">(</span><span style="color: #DD0000">'databaseName.collectionName'</span><span style="color: #007700">, </span><span style="color: #0000BB">$query</span><span style="color: #007700">, </span><span style="color: #0000BB">$readPreference</span><span style="color: #007700">);<br /><br />foreach(</span><span style="color: #0000BB">$cursor </span><span style="color: #007700">as </span><span style="color: #0000BB">$document</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$document</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

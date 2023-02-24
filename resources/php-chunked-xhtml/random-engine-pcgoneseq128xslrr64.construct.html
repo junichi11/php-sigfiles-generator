@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Constructs a new PCG Oneseq 128 XSL RR 64 engine</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="class.random-engine-pcgoneseq128xslrr64.html">« Random\Engine\PcgOneseq128XslRr64</a></li>
+      <li style="float: right;"><a href="random-engine-pcgoneseq128xslrr64.debuginfo.html">Random\Engine\PcgOneseq128XslRr64::__debugInfo »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.random-engine-pcgoneseq128xslrr64.html">Random\Engine\PcgOneseq128XslRr64</a></li>
+    <li>Constructs a new PCG Oneseq 128 XSL RR 64 engine</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="random-engine-pcgoneseq128xslrr64.construct" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">Random\Engine\PcgOneseq128XslRr64::__construct</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.2.0)</p><p class="refpurpose"><span class="refname">Random\Engine\PcgOneseq128XslRr64::__construct</span> &mdash; <span class="dc-title">Constructs a new PCG Oneseq 128 XSL RR 64 engine</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-random-engine-pcgoneseq128xslrr64.construct-description">
+  <h3 class="title">Description</h3>
+  <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>Random\Engine\PcgOneseq128XslRr64::__construct</strong></span>(<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$seed</code><span class="initializer"> = <strong><code>null</code></strong></span></span>)</div>
+
+  <p class="para rdfs-comment">
+
+  </p>
+
+  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
+currently not documented; only its argument list is available.
+</p></div>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-random-engine-pcgoneseq128xslrr64.construct-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">seed</code></dt>
+
+    <dd>
+
+     <p class="para">
+      How the internal 128 bit (16 byte) state consisting of one unsigned 128 bit integer is
+      seeded depends on the type used as the <code class="parameter">seed</code>.
+      <table class="doctable informaltable">
+       
+        <thead>
+         <tr>
+          <th>Type</th>
+          <th>Description</th>
+         </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+         <tr>
+          <td><span class="type">null</span></td>
+          <td>
+           Fills the state with 16 random bytes generated using the <abbr title="Cryptographically Secure PseudoRandom Number Generator">CSPRNG</abbr>.
+          </td>
+         </tr>
+
+         <tr>
+          <td><span class="type">int</span></td>
+          <td>
+           Fills the state by setting the state to <code class="literal">0</code>, advancing the engine one step,
+           adding the value of <code class="parameter">seed</code> interpreted as an unsigned 64 bit integer,
+           and advancing the engine another step.
+          </td>
+         </tr>
+
+         <tr>
+          <td><span class="type">string</span></td>
+          <td>
+           Fills the state by interpreting a 16 byte <span class="type">string</span> as a little-endian unsigned
+           128 bit integer.
+          </td>
+         </tr>
+
+        </tbody>
+       
+      </table>
+
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ 
+
+ <div class="refsect1 errors" id="refsect1-random-engine-pcgoneseq128xslrr64.construct-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     If the length of a <span class="type">string</span> <code class="parameter">seed</code> is
+     not 16 bytes, a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> will be thrown.
+    </span>
+   </li>
+  </ul>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-random-engine-pcgoneseq128xslrr64.construct-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-3585">
+   <p><strong>Example #1 <span class="function"><strong>Random\Engine\PcgOneseq128XslRr64::__construct()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Uses a random 128 Bit seed.<br /></span><span style="color: #0000BB">$e </span><span style="color: #007700">= new \</span><span style="color: #0000BB">Random</span><span style="color: #007700">\</span><span style="color: #0000BB">Engine</span><span style="color: #007700">\</span><span style="color: #0000BB">PcgOneseq128XslRr64</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$r </span><span style="color: #007700">= new \</span><span style="color: #0000BB">Random</span><span style="color: #007700">\</span><span style="color: #0000BB">Randomizer</span><span style="color: #007700">(</span><span style="color: #0000BB">$e</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <div class="example" id="example-3586">
+   <p><strong>Example #2 Deriving a seed from a <span class="type">string</span></strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$string </span><span style="color: #007700">= </span><span style="color: #DD0000">"My string seed"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// Hash the string with truncated SHA-256 using binary output<br />// to turn the $string into a 128 Bit seed. Using the same<br />// string will result in the same sequence of randomness.<br /></span><span style="color: #0000BB">$e </span><span style="color: #007700">= new \</span><span style="color: #0000BB">Random</span><span style="color: #007700">\</span><span style="color: #0000BB">Engine</span><span style="color: #007700">\</span><span style="color: #0000BB">PcgOneseq128XslRr64</span><span style="color: #007700">(<br />    </span><span style="color: #0000BB">substr</span><span style="color: #007700">( </span><span style="color: #0000BB">hash</span><span style="color: #007700">( </span><span style="color: #DD0000">'sha256'</span><span style="color: #007700">, </span><span style="color: #0000BB">$string</span><span style="color: #007700">, </span><span style="color: #0000BB">binary</span><span style="color: #007700">: </span><span style="color: #0000BB">true </span><span style="color: #007700">), </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">16 </span><span style="color: #007700">)<br />);<br /><br />echo </span><span style="color: #0000BB">bin2hex</span><span style="color: #007700">( </span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">generate</span><span style="color: #007700">() ), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+8333ef59315b16d8
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+
+</div></div></div></body></html>

@@ -72,11 +72,11 @@
  <div class="refsect1 examples" id="refsect1-worker.stack-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3360">
+   <div class="example" id="example-3432">
     <p><strong>Example #1 Stacking a task for execution onto a worker</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$worker&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Worker</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$work&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;class&nbsp;extends&nbsp;</span><span style="color: #0000BB">Threaded&nbsp;</span><span style="color: #007700">{};<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$worker</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stack</span><span style="color: #007700">(</span><span style="color: #0000BB">$work</span><span style="color: #007700">));</span>
+<span style="color: #0000BB">&lt;?php<br />$worker </span><span style="color: #007700">= new </span><span style="color: #0000BB">Worker</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$work </span><span style="color: #007700">= new class extends </span><span style="color: #0000BB">Threaded </span><span style="color: #007700">{};<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$worker</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stack</span><span style="color: #007700">(</span><span style="color: #0000BB">$work</span><span style="color: #007700">));</span>
 </span>
 </code></div>
     </div>

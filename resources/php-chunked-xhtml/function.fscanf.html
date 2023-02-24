@@ -39,12 +39,11 @@
    The function <span class="function"><strong>fscanf()</strong></span> is similar to
    <span class="function"><a href="function.sscanf.html" class="function">sscanf()</a></span>, but it takes its input from a file
    associated with <code class="parameter">stream</code> and interprets the
-   input according to the specified <code class="parameter">format</code>, which is
-   described in the documentation for <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span>. 
+   input according to the specified <code class="parameter">format</code>. 
   </p>
   <p class="para">
    Any whitespace in the format string matches any whitespace in the input
-   stream. This means that even a tab <code class="literal">\t</code> in the format
+   stream. This means that even a tab (<code class="literal">\t</code>) in the format
    string can match a single space character in the input stream.
   </p>
   <p class="para">
@@ -70,373 +69,44 @@ that is typically created using <span class="function"><a href="function.fopen.h
     
     
 
- <dt>
+     <dt>
 <code class="parameter">format</code></dt>
 
- <dd>
+     <dd>
 
-  <p class="para">
-   The format string is composed of zero or more directives:
-   ordinary characters (excluding <code class="literal">%</code>) that are
-   copied directly to the result and <em class="emphasis">conversion
-   specifications</em>, each of which results in fetching its
-   own parameter.
-  </p>
+      <p class="para">
+       The interpreted format for <code class="parameter">string</code>, which is
+       described in the documentation for <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span> with
+       following differences:
+       <ul class="simplelist">
+        <li class="member">
+         Function is not locale-aware.
+        </li>
+        <li class="member">
+         <code class="literal">F</code>, <code class="literal">g</code>, <code class="literal">G</code> and
+         <code class="literal">b</code> are not supported.
+        </li>
+        <li class="member">
+         <code class="literal">D</code> stands for decimal number.
+        </li>
+        <li class="member">
+         <code class="literal">i</code> stands for integer with base detection.
+        </li>
+        <li class="member">
+         <code class="literal">n</code> stands for number of characters processed so far.
+        </li>
+        <li class="member">
+         <code class="literal">s</code> stops reading at any whitespace character.
+        </li>
+        <li class="member">
+         <code class="literal">*</code> instead of <code class="literal">argnum$</code> suppresses
+         the assignment of this conversion specification.
+        </li>
+       </ul>
+      </p>
+     </dd>
 
-  <p class="para">
-   A conversion specification follows this prototype:
-   <code class="literal">%[argnum$][flags][width][.precision]specifier</code>.
-  </p>
-
-  <p class="formalpara">
-   <h5 class="title">Argnum</h5>
-   <p class="para">
-    An integer followed by a dollar sign <code class="literal">$</code>,
-    to specify which number argument to treat in the conversion.
-   </p>
-  </p>
-  
-  <p class="para">
-   <table class="doctable table">
-    <caption><strong>Flags</strong></caption>
     
-     <thead>
-      <tr>
-       <th>Flag</th>
-       <th>Description</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td><code class="literal">-</code></td>
-       <td>
-        Left-justify within the given field width;
-        Right justification is the default
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">+</code></td>
-       <td>
-        Prefix positive numbers with a plus sign
-        <code class="literal">+</code>; Default only negative
-        are prefixed with a negative sign.
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal"> </code>(space)</td>
-       <td>
-        Pads the result with spaces.
-        This is the default.
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">0</code></td>
-       <td>
-        Only left-pads numbers with zeros.
-        With <code class="literal">s</code> specifiers this can
-        also right-pad with zeros.
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">&#039;</code>(char)</td>
-       <td>
-        Pads the result with the character (char).
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
-
-  <p class="formalpara">
-   <h5 class="title">Width</h5>
-   <p class="para">
-    An integer that says how many characters (minimum)
-    this conversion should result in.
-   </p>
-  </p>
-
-  <p class="formalpara">
-   <h5 class="title">Precision</h5>
-   <p class="para">
-    A period <code class="literal">.</code> followed by an integer
-    who&#039;s meaning depends on the specifier:
-    <ul class="itemizedlist">
-     <li class="listitem">
-      <span class="simpara">
-       For <code class="literal">e</code>, <code class="literal">E</code>,
-       <code class="literal">f</code> and <code class="literal">F</code>
-       specifiers: this is the number of digits to be printed
-       after the decimal point (by default, this is 6).
-      </span>
-     </li>
-     <li class="listitem">
-      <span class="simpara">
-       For <code class="literal">g</code>, <code class="literal">G</code>,
-       <code class="literal">h</code> and <code class="literal">H</code>
-       specifiers: this is the maximum number of significant
-       digits to be printed.
-      </span>
-     </li>
-     <li class="listitem">
-      <span class="simpara">
-       For <code class="literal">s</code> specifier: it acts as a cutoff point,
-       setting a maximum character limit to the string.
-      </span>
-     </li>
-    </ul>
-    <blockquote class="note"><p><strong class="note">Note</strong>: 
-     <span class="simpara">
-      If the period is specified without an explicit value for precision,
-      0 is assumed.
-     </span>
-    </p></blockquote>
-   </p>
-  </p>
-
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <span class="simpara">
-    Attempting to use a position specifier greater than
-    <strong><code>PHP_INT_MAX</code></strong> will generate warnings.
-   </span>
-  </p></blockquote>
-
-  <p class="para">
-   <table class="doctable table">
-    <caption><strong>Specifiers</strong></caption>
-    
-     <thead>
-      <tr>
-       <th>Specifier</th>
-       <th>Description</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td><code class="literal">%</code></td>
-       <td>
-        A literal percent character. No argument is required.
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">b</code></td>
-       <td>
-        The argument is treated as an integer and presented
-        as a binary number.
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">c</code></td>
-       <td>
-        The argument is treated as an integer and presented
-        as the character with that ASCII.
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">d</code></td>
-       <td>
-        The argument is treated as an integer and presented
-        as a (signed) decimal number.
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">e</code></td>
-       <td>
-        The argument is treated as scientific notation (e.g. 1.2e+2).
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">E</code></td>
-       <td>
-        Like the <code class="literal">e</code> specifier but uses
-        uppercase letter (e.g. 1.2E+2).
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">f</code></td>
-       <td>
-        The argument is treated as a float and presented
-        as a floating-point number (locale aware).
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">F</code></td>
-       <td>
-        The argument is treated as a float and presented
-        as a floating-point number (non-locale aware).
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">g</code></td>
-       <td>
-        <p class="para">
-         General format.
-        </p>
-        <p class="para">
-         Let P equal the precision if nonzero, 6 if the precision is omitted,
-         or 1 if the precision is zero.
-         Then, if a conversion with style E would have an exponent of X:
-        </p>
-        <p class="para">
-         If P &gt; X ≥ −4, the conversion is with style f and precision P − (X + 1).
-         Otherwise, the conversion is with style e and precision P − 1.
-        </p>
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">G</code></td>
-       <td>
-        Like the <code class="literal">g</code> specifier but uses
-        <code class="literal">E</code> and <code class="literal">f</code>.
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">h</code></td>
-       <td>
-        Like the <code class="literal">g</code> specifier but uses <code class="literal">F</code>.
-        Available as of PHP 8.0.0.
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">H</code></td>
-       <td>
-        Like the <code class="literal">g</code> specifier but uses
-        <code class="literal">E</code> and <code class="literal">F</code>. Available as of PHP 8.0.0.
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">o</code></td>
-       <td>
-        The argument is treated as an integer and presented
-        as an octal number.
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">s</code></td>
-       <td>
-        The argument is treated and presented as a string.
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">u</code></td>
-       <td>
-        The argument is treated as an integer and presented
-        as an unsigned decimal number.
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">x</code></td>
-       <td>
-        The argument is treated as an integer and presented
-        as a hexadecimal number (with lowercase letters).
-       </td>
-      </tr>
-
-      <tr>
-       <td><code class="literal">X</code></td>
-       <td>
-        The argument is treated as an integer and presented
-        as a hexadecimal number (with uppercase letters).
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
-
-  <div class="warning"><strong class="warning">Warning</strong>
-   <p class="para">
-    The <code class="literal">c</code> type specifier ignores padding and width
-   </p>
-  </div>
-
-  <div class="warning"><strong class="warning">Warning</strong>
-   <p class="para">
-    Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results
-   </p>
-  </div>
-
-  <p class="para">
-   Variables will be co-erced to a suitable type for the specifier:
-   <table class="doctable table">
-    <caption><strong>Type Handling</strong></caption>
-    
-     <thead>
-      <tr>
-       <th>Type</th>
-       <th>Specifiers</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td><span class="type">string</span></td>
-       <td><code class="literal">s</code></td>
-      </tr>
-
-      <tr>
-       <td><span class="type">int</span></td>
-       <td>
-        <code class="literal">d</code>,
-        <code class="literal">u</code>,
-        <code class="literal">c</code>,
-        <code class="literal">o</code>,
-        <code class="literal">x</code>,
-        <code class="literal">X</code>,
-        <code class="literal">b</code>
-       </td>
-      </tr>
-
-      <tr>
-       <td><span class="type">float</span></td>
-       <td>
-        <code class="literal">e</code>,
-        <code class="literal">E</code>,
-        <code class="literal">f</code>,
-        <code class="literal">F</code>,
-        <code class="literal">g</code>,
-        <code class="literal">G</code>,
-        <code class="literal">h</code>,
-        <code class="literal">H</code>
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </dd>
-
-
 
     
      <dt>
@@ -475,11 +145,11 @@ that is typically created using <span class="function"><a href="function.fopen.h
  <div class="refsect1 examples" id="refsect1-function.fscanf-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2173">
+   <div class="example" id="example-2238">
     <p><strong>Example #1 <span class="function"><strong>fscanf()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$handle&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"users.txt"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"r"</span><span style="color: #007700">);<br />while&nbsp;(</span><span style="color: #0000BB">$userinfo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"%s\t%s\t%s\n"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$profession</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$countrycode</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">$userinfo</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//...&nbsp;do&nbsp;something&nbsp;with&nbsp;the&nbsp;values<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$handle </span><span style="color: #007700">= </span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"users.txt"</span><span style="color: #007700">, </span><span style="color: #DD0000">"r"</span><span style="color: #007700">);<br />while (</span><span style="color: #0000BB">$userinfo </span><span style="color: #007700">= </span><span style="color: #0000BB">fscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">, </span><span style="color: #DD0000">"%s\t%s\t%s\n"</span><span style="color: #007700">)) {<br />    list (</span><span style="color: #0000BB">$name</span><span style="color: #007700">, </span><span style="color: #0000BB">$profession</span><span style="color: #007700">, </span><span style="color: #0000BB">$countrycode</span><span style="color: #007700">) = </span><span style="color: #0000BB">$userinfo</span><span style="color: #007700">;<br />    </span><span style="color: #FF8000">//... do something with the values<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -487,7 +157,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2174">
+   <div class="example" id="example-2239">
     <p><strong>Example #2 Contents of users.txt</strong></p>
     <div class="example-contents">
 <div class="txtcode"><pre class="txtcode">javier  argonaut        pe

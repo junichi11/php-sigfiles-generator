@@ -32,7 +32,7 @@ namespace {
 	 * Decompresses bzip2 encoded data
 	 * <p><b>bzdecompress()</b> decompresses the given string containing bzip2 encoded data.</p>
 	 * @param string $data <p>The string to decompress.</p>
-	 * @param bool $use_less_memory <p>If <b><code>true</code></b>, an alternative decompression algorithm will be used which uses less memory (the maximum memory requirement drops to around 2300K) but works at roughly half the speed.</p> <p>See the bzip2 documentation for more information about this feature.</p>
+	 * @param bool $use_less_memory <p>If <b><code>true</code></b>, an alternative decompression algorithm will be used which uses less memory (the maximum memory requirement drops to around 2300K) but works at roughly half the speed.</p> <p>See the &#xBB;&#xA0;bzip2 documentation for more information about this feature.</p>
 	 * @return string|int|false <p>The decompressed string, or <b><code>false</code></b> or an error number if an error occurred.</p>
 	 * @link https://php.net/manual/en/function.bzdecompress.php
 	 * @see bzcompress()

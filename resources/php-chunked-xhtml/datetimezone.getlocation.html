@@ -74,11 +74,11 @@ returned by <span class="function"><a href="function.timezone-open.html" class="
  <div class="refsect1 examples" id="refsect1-datetimezone.getlocation-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2053">
+   <div class="example" id="example-2099">
     <p><strong>Example #1 <span class="function"><strong>DateTimeZone::getLocation()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$tz&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">"Europe/Prague"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$tz</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getLocation</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">timezone_location_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$tz</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$tz </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">"Europe/Prague"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$tz</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getLocation</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">timezone_location_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$tz</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -104,6 +104,15 @@ Array
     </div>
    </div>
   </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-datetimezone.getlocation-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="datetimezone.listidentifiers.html" class="function" rel="rdfs-seeAlso">DateTimeZone::listIdentifiers()</a> - Returns a numerically indexed array containing all defined timezone identifiers</span> to get a full or
+   partial list of all supported timezone identifiers</li>
+  </ul>
  </div>
 
 

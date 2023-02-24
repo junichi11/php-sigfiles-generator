@@ -60,7 +60,7 @@
  <div class="refsect1 examples" id="refsect1-function.restore-error-handler-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-506">
+   <div class="example" id="example-522">
     <p><strong>Example #1 <span class="function"><strong>restore_error_handler()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      Decide if <span class="function"><a href="function.unserialize.html" class="function">unserialize()</a></span> caused an error, then
@@ -68,7 +68,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">unserialize_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$errno</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$errstr</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Invalid&nbsp;serialized&nbsp;value.\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$serialized&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">set_error_handler</span><span style="color: #007700">(</span><span style="color: #DD0000">'unserialize_handler'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$original&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">unserialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$serialized</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">restore_error_handler</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">unserialize_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$errno</span><span style="color: #007700">, </span><span style="color: #0000BB">$errstr</span><span style="color: #007700">)<br />{<br />    echo </span><span style="color: #DD0000">"Invalid serialized value.\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$serialized </span><span style="color: #007700">= </span><span style="color: #DD0000">'foo'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">set_error_handler</span><span style="color: #007700">(</span><span style="color: #DD0000">'unserialize_handler'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$original </span><span style="color: #007700">= </span><span style="color: #0000BB">unserialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$serialized</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">restore_error_handler</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -10,15 +10,15 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="function.rad2deg.html">« rad2deg</a></li>
-      <li style="float: right;"><a href="function.round.html">round »</a></li>
+      <li style="float: left;"><a href="function.mt-srand.html">« mt_srand</a></li>
+      <li style="float: right;"><a href="function.random-bytes.html">random_bytes »</a></li>
     </ul>
   </div>
 </div>
 <div id="breadcrumbs" class="clearfix">
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
-    <li><a href="ref.math.html">Math Functions</a></li>
+    <li><a href="ref.random.html">Random Functions</a></li>
     <li>Generate a random integer</li>
   </ul>
 </div>
@@ -44,10 +44,18 @@
    between 5 and 15 (inclusive), for example, use <code class="literal">rand(5,
    15)</code>.
   </p>
-  <div class="caution"><strong class="caution">Caution</strong><p class="para">This function does not
-generate cryptographically secure values, and should not be used for cryptographic purposes. If you need a
-cryptographically secure value, consider using <span class="function"><a href="function.random-int.html" class="function">random_int()</a></span>, <span class="function"><a href="function.random-bytes.html" class="function">random_bytes()</a></span>, or
-<span class="function"><a href="function.openssl-random-pseudo-bytes.html" class="function">openssl_random_pseudo_bytes()</a></span> instead.</p></div>
+  <div class="caution"><strong class="caution">Caution</strong>
+ <p class="para">
+  This function does not generate cryptographically secure values, and <em class="emphasis">must not</em>
+  be used for cryptographic purposes, or purposes that require returned values to be unguessable.
+ </p>
+ <p class="para">
+  If cryptographically secure randomness is required, the <span class="classname"><a href="class.random-randomizer.html" class="classname">Random\Randomizer</a></span> may be
+  used with the <span class="classname"><a href="class.random-engine-secure.html" class="classname">Random\Engine\Secure</a></span> engine. For simple use cases, the <span class="function"><a href="function.random-int.html" class="function">random_int()</a></span>
+  and <span class="function"><a href="function.random-bytes.html" class="function">random_bytes()</a></span> functions provide a convenient and secure <abbr title="Application Programming Interface">API</abbr> that is backed by
+  the operating system’s <abbr title="Cryptographically Secure PseudoRandom Number Generator">CSPRNG</abbr>.
+ </p>
+</div>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <span class="simpara">
     On some platforms (such as Windows), <span class="function"><a href="function.getrandmax.html" class="function">getrandmax()</a></span>
@@ -144,11 +152,11 @@ cryptographically secure value, consider using <span class="function"><a href="f
  <div class="refsect1 examples" id="refsect1-function.rand-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3130">
+   <div class="example" id="example-3566">
     <p><strong>Example #1 <span class="function"><strong>rand()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">rand</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">rand</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #0000BB">rand</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">15</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">rand</span><span style="color: #007700">() . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">rand</span><span style="color: #007700">() . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br />echo </span><span style="color: #0000BB">rand</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">, </span><span style="color: #0000BB">15</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -166,7 +174,7 @@ something similar to:</p></div>
   </p>
  </div>
 
- 
+
  <div class="refsect1 notes" id="refsect1-function.rand-notes">
   <h3 class="title">Notes</h3>
   <div class="warning"><strong class="warning">Warning</strong>
@@ -179,7 +187,7 @@ something similar to:</p></div>
   </div>
  </div>
 
- 
+
  <div class="refsect1 seealso" id="refsect1-function.rand-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">
@@ -187,9 +195,8 @@ something similar to:</p></div>
     <li class="member"><span class="function"><a href="function.srand.html" class="function" rel="rdfs-seeAlso">srand()</a> - Seed the random number generator</span></li>
     <li class="member"><span class="function"><a href="function.getrandmax.html" class="function" rel="rdfs-seeAlso">getrandmax()</a> - Show largest possible random value</span></li>
     <li class="member"><span class="function"><a href="function.mt-rand.html" class="function" rel="rdfs-seeAlso">mt_rand()</a> - Generate a random value via the Mersenne Twister Random Number Generator</span></li>
-    <li class="member"><span class="function"><a href="function.random-int.html" class="function" rel="rdfs-seeAlso">random_int()</a> - Generates cryptographically secure pseudo-random integers</span></li>
-    <li class="member"><span class="function"><a href="function.random-bytes.html" class="function" rel="rdfs-seeAlso">random_bytes()</a> - Generates cryptographically secure pseudo-random bytes</span></li>
-    <li class="member"><span class="function"><a href="function.openssl-random-pseudo-bytes.html" class="function" rel="rdfs-seeAlso">openssl_random_pseudo_bytes()</a> - Generate a pseudo-random string of bytes</span></li>
+    <li class="member"><span class="function"><a href="function.random-int.html" class="function" rel="rdfs-seeAlso">random_int()</a> - Get a cryptographically secure, uniformly selected integer</span></li>
+    <li class="member"><span class="function"><a href="function.random-bytes.html" class="function" rel="rdfs-seeAlso">random_bytes()</a> - Get cryptographically secure random bytes</span></li>
    </ul>
   </p>
  </div>

@@ -35,6 +35,7 @@ namespace {
 	 * @param string $string <p>The <code>string</code> to be recoded</p>
 	 * @return string <p>Returns the recoded <code>string</code> or <b><code>false</code></b>, if unable to perform the recode request.</p>
 	 * @link https://php.net/manual/en/function.recode-string.php
+	 * @see mb_convert_encoding(), iconv()
 	 * @since PHP 4, PHP 5, PHP 7 < 7.4.0
 	 */
 	function recode_string(string $request, string $string): string {}

@@ -14,21 +14,27 @@ namespace {
 		/**
 		 * Return warnings and errors which occurred parsing the specified document
 		 * <p>Object-oriented style (property):</p><p>Returns warnings and errors which occurred parsing the specified document.</p>
-		 * @var string <p>Returns the error buffer as a string, or <b><code>false</code></b> if the buffer is empty.</p>
+		 * @var ?string <p>Returns the error buffer as a string, or <b><code>false</code></b> if the buffer is empty.</p>
 		 * @link https://php.net/manual/en/tidy.props.errorbuffer.php
 		 * @see tidy_access_count(), tidy_error_count(), tidy_warning_count()
 		 * @since PHP 5, PHP 7, PHP 8, PECL tidy >= 0.5.2
 		 */
-		public $errorBuffer;
+		public $errorBuffer = null;
+
+		/**
+		 * @var ?string <p>The HTML representation of the node, including the surrounding tags.</p>
+		 * @link https://php.net/manual/en/class.tidy.php#tidy.props.value
+		 */
+		public $value = null;
 
 		/**
 		 * Constructs a new tidy object
 		 * <p>Constructs a new <code>tidy</code> object.</p>
 		 * @param ?string $filename <p>If the <code>filename</code> parameter is given, this function will also read that file and initialize the object with the file, acting like <code>tidy_parse_file()</code>.</p>
-		 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>For an explanation about each option, visit http://api.html-tidy.org/#quick-reference.</p>
+		 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>For an explanation about each option, visit &#xBB;&#xA0;http://api.html-tidy.org/#quick-reference.</p>
 		 * @param ?string $encoding <p>The <code>encoding</code> parameter sets the encoding for input/output documents. The possible values for encoding are: <code>ascii</code>, <code>latin0</code>, <code>latin1</code>, <code>raw</code>, <code>utf8</code>, <code>iso2022</code>, <code>mac</code>, <code>win1252</code>, <code>ibm858</code>, <code>utf16</code>, <code>utf16le</code>, <code>utf16be</code>, <code>big5</code>, and <code>shiftjis</code>.</p>
 		 * @param bool $useIncludePath <p>Search for the file in the include_path.</p>
-		 * @return self <p>Returns the new <code>tidy</code> instance.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/tidy.construct.php
 		 * @see tidy::parseFile(), tidy::parseString()
 		 * @since PHP 5, PHP 7, PHP 8, PECL tidy >= 0.5.2
@@ -67,7 +73,7 @@ namespace {
 		/**
 		 * Get current Tidy configuration
 		 * <p>Object-oriented style</p><p>Gets the list of the configuration options in use by the given tidy <code>tidy</code>.</p>
-		 * @return array <p>Returns an array of configuration options.</p><p>For an explanation about each option, visit http://api.html-tidy.org/#quick-reference.</p>
+		 * @return array <p>Returns an array of configuration options.</p><p>For an explanation about each option, visit &#xBB;&#xA0;http://api.html-tidy.org/#quick-reference.</p>
 		 * @link https://php.net/manual/en/tidy.getconfig.php
 		 * @since PHP 5, PHP 7, PHP 8, PECL tidy >= 0.7.0
 		 */
@@ -85,7 +91,7 @@ namespace {
 		/**
 		 * Returns the value of the specified configuration option for the tidy document
 		 * <p>Object-oriented style</p><p>Returns the value of the specified <code>option</code> for the specified tidy <code>tidy</code>.</p>
-		 * @param string $option <p>You will find a list with each configuration option and their types at: http://api.html-tidy.org/#quick-reference.</p>
+		 * @param string $option <p>You will find a list with each configuration option and their types at: &#xBB;&#xA0;http://api.html-tidy.org/#quick-reference.</p>
 		 * @return string|int|bool <p>Returns the value of the specified <code>option</code>. The return type depends on the type of the specified one.</p>
 		 * @link https://php.net/manual/en/tidy.getopt.php
 		 * @since PHP 5, PHP 7, PHP 8, PECL tidy >= 0.5.2
@@ -163,7 +169,7 @@ namespace {
 		 * Parse markup in file or URI
 		 * <p>Object-oriented style</p><p>Parses the given file.</p>
 		 * @param string $filename <p>If the <code>filename</code> parameter is given, this function will also read that file and initialize the object with the file, acting like <b>tidy_parse_file()</b>.</p>
-		 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>For an explanation about each option, see http://api.html-tidy.org/#quick-reference.</p>
+		 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>For an explanation about each option, see &#xBB;&#xA0;http://api.html-tidy.org/#quick-reference.</p>
 		 * @param ?string $encoding <p>The <code>encoding</code> parameter sets the encoding for input/output documents. The possible values for encoding are: <code>ascii</code>, <code>latin0</code>, <code>latin1</code>, <code>raw</code>, <code>utf8</code>, <code>iso2022</code>, <code>mac</code>, <code>win1252</code>, <code>ibm858</code>, <code>utf16</code>, <code>utf16le</code>, <code>utf16be</code>, <code>big5</code>, and <code>shiftjis</code>.</p>
 		 * @param bool $useIncludePath <p>Search for the file in the include_path.</p>
 		 * @return bool <p><b>tidy::parseFile()</b> returns <b><code>true</code></b> on success. <b>tidy_parse_file()</b> returns a new <code>tidy</code> instance on success. Both, the method and the function return <b><code>false</code></b> on failure.</p>
@@ -177,7 +183,7 @@ namespace {
 		 * Parse a document stored in a string
 		 * <p>Object-oriented style</p><p>Parses a document stored in a string.</p>
 		 * @param string $string <p>The data to be parsed.</p>
-		 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>For an explanation about each option, visit http://api.html-tidy.org/#quick-reference.</p>
+		 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>For an explanation about each option, visit &#xBB;&#xA0;http://api.html-tidy.org/#quick-reference.</p>
 		 * @param ?string $encoding <p>The <code>encoding</code> parameter sets the encoding for input/output documents. The possible values for encoding are: <code>ascii</code>, <code>latin0</code>, <code>latin1</code>, <code>raw</code>, <code>utf8</code>, <code>iso2022</code>, <code>mac</code>, <code>win1252</code>, <code>ibm858</code>, <code>utf16</code>, <code>utf16le</code>, <code>utf16be</code>, <code>big5</code>, and <code>shiftjis</code>.</p>
 		 * @return bool <p><b>tidy::parseString()</b> returns <b><code>true</code></b> on success. <b>tidy_parse_string()</b> returns a new <code>tidy</code> instance on success. Both, the method and the function return <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/tidy.parsestring.php
@@ -204,7 +210,7 @@ namespace {
 		 * Repair a string using an optionally provided configuration file
 		 * <p>Object-oriented style</p><p>Repairs the given string.</p>
 		 * @param string $string <p>The data to be repaired.</p>
-		 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>Check http://api.html-tidy.org/#quick-reference for an explanation about each option.</p>
+		 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>Check &#xBB;&#xA0;http://api.html-tidy.org/#quick-reference for an explanation about each option.</p>
 		 * @param ?string $encoding <p>The <code>encoding</code> parameter sets the encoding for input/output documents. The possible values for encoding are: <code>ascii</code>, <code>latin0</code>, <code>latin1</code>, <code>raw</code>, <code>utf8</code>, <code>iso2022</code>, <code>mac</code>, <code>win1252</code>, <code>ibm858</code>, <code>utf16</code>, <code>utf16le</code>, <code>utf16be</code>, <code>big5</code>, and <code>shiftjis</code>.</p>
 		 * @return string|false <p>Returns the repaired string, or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/tidy.repairstring.php
@@ -267,19 +273,19 @@ namespace {
 		public $proprietary;
 
 		/**
-		 * @var int <p>The ID of the node (one of the tag constants, e.g. <b><code>TIDY_TAG_FRAME</code></b>)</p>
+		 * @var ?int <p>The ID of the node (one of the tag constants, e.g. <b><code>TIDY_TAG_FRAME</code></b>)</p>
 		 * @link https://php.net/manual/en/class.tidynode.php#tidynode.props.id
 		 */
 		public $id;
 
 		/**
-		 * @var array <p>An array of string, representing the attributes names (as keys) of the current node.</p>
+		 * @var ?array <p>An array of string, representing the attributes names (as keys) of the current node.</p>
 		 * @link https://php.net/manual/en/class.tidynode.php#tidynode.props.attribute
 		 */
 		public $attribute;
 
 		/**
-		 * @var array <p>An array of <b>tidyNode</b>, representing the children of the current node.</p>
+		 * @var ?array <p>An array of <b>tidyNode</b>, representing the children of the current node.</p>
 		 * @link https://php.net/manual/en/class.tidynode.php#tidynode.props.child
 		 */
 		public $child;
@@ -454,7 +460,7 @@ namespace {
 	 * Get current Tidy configuration
 	 * <p>Object-oriented style</p><p>Gets the list of the configuration options in use by the given tidy <code>tidy</code>.</p>
 	 * @param \tidy $tidy <p>The <code>Tidy</code> object.</p>
-	 * @return array <p>Returns an array of configuration options.</p><p>For an explanation about each option, visit http://api.html-tidy.org/#quick-reference.</p>
+	 * @return array <p>Returns an array of configuration options.</p><p>For an explanation about each option, visit &#xBB;&#xA0;http://api.html-tidy.org/#quick-reference.</p>
 	 * @link https://php.net/manual/en/tidy.getconfig.php
 	 * @since PHP 5, PHP 7, PHP 8, PECL tidy >= 0.7.0
 	 */
@@ -558,7 +564,7 @@ namespace {
 	 * Returns the value of the specified configuration option for the tidy document
 	 * <p>Object-oriented style</p><p>Returns the value of the specified <code>option</code> for the specified tidy <code>tidy</code>.</p>
 	 * @param \tidy $tidy <p>The <code>Tidy</code> object.</p>
-	 * @param string $option <p>You will find a list with each configuration option and their types at: http://api.html-tidy.org/#quick-reference.</p>
+	 * @param string $option <p>You will find a list with each configuration option and their types at: &#xBB;&#xA0;http://api.html-tidy.org/#quick-reference.</p>
 	 * @return string|int|bool <p>Returns the value of the specified <code>option</code>. The return type depends on the type of the specified one.</p>
 	 * @link https://php.net/manual/en/tidy.getopt.php
 	 * @since PHP 5, PHP 7, PHP 8, PECL tidy >= 0.5.2
@@ -589,7 +595,7 @@ namespace {
 	 * Parse markup in file or URI
 	 * <p>Object-oriented style</p><p>Parses the given file.</p>
 	 * @param string $filename <p>If the <code>filename</code> parameter is given, this function will also read that file and initialize the object with the file, acting like <b>tidy_parse_file()</b>.</p>
-	 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>For an explanation about each option, see http://api.html-tidy.org/#quick-reference.</p>
+	 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>For an explanation about each option, see &#xBB;&#xA0;http://api.html-tidy.org/#quick-reference.</p>
 	 * @param ?string $encoding <p>The <code>encoding</code> parameter sets the encoding for input/output documents. The possible values for encoding are: <code>ascii</code>, <code>latin0</code>, <code>latin1</code>, <code>raw</code>, <code>utf8</code>, <code>iso2022</code>, <code>mac</code>, <code>win1252</code>, <code>ibm858</code>, <code>utf16</code>, <code>utf16le</code>, <code>utf16be</code>, <code>big5</code>, and <code>shiftjis</code>.</p>
 	 * @param bool $useIncludePath <p>Search for the file in the include_path.</p>
 	 * @return tidy|false <p><b>tidy::parseFile()</b> returns <b><code>true</code></b> on success. <b>tidy_parse_file()</b> returns a new <code>tidy</code> instance on success. Both, the method and the function return <b><code>false</code></b> on failure.</p>
@@ -603,7 +609,7 @@ namespace {
 	 * Parse a document stored in a string
 	 * <p>Object-oriented style</p><p>Parses a document stored in a string.</p>
 	 * @param string $string <p>The data to be parsed.</p>
-	 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>For an explanation about each option, visit http://api.html-tidy.org/#quick-reference.</p>
+	 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>For an explanation about each option, visit &#xBB;&#xA0;http://api.html-tidy.org/#quick-reference.</p>
 	 * @param ?string $encoding <p>The <code>encoding</code> parameter sets the encoding for input/output documents. The possible values for encoding are: <code>ascii</code>, <code>latin0</code>, <code>latin1</code>, <code>raw</code>, <code>utf8</code>, <code>iso2022</code>, <code>mac</code>, <code>win1252</code>, <code>ibm858</code>, <code>utf16</code>, <code>utf16le</code>, <code>utf16be</code>, <code>big5</code>, and <code>shiftjis</code>.</p>
 	 * @return tidy|false <p><b>tidy::parseString()</b> returns <b><code>true</code></b> on success. <b>tidy_parse_string()</b> returns a new <code>tidy</code> instance on success. Both, the method and the function return <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/tidy.parsestring.php
@@ -630,7 +636,7 @@ namespace {
 	 * Repair a string using an optionally provided configuration file
 	 * <p>Object-oriented style</p><p>Repairs the given string.</p>
 	 * @param string $string <p>The data to be repaired.</p>
-	 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>Check http://api.html-tidy.org/#quick-reference for an explanation about each option.</p>
+	 * @param array|string|null $config <p>The config <code>config</code> can be passed either as an array or as a string. If a string is passed, it is interpreted as the name of the configuration file, otherwise, it is interpreted as the options themselves.</p> <p>Check &#xBB;&#xA0;http://api.html-tidy.org/#quick-reference for an explanation about each option.</p>
 	 * @param ?string $encoding <p>The <code>encoding</code> parameter sets the encoding for input/output documents. The possible values for encoding are: <code>ascii</code>, <code>latin0</code>, <code>latin1</code>, <code>raw</code>, <code>utf8</code>, <code>iso2022</code>, <code>mac</code>, <code>win1252</code>, <code>ibm858</code>, <code>utf16</code>, <code>utf16le</code>, <code>utf16be</code>, <code>big5</code>, and <code>shiftjis</code>.</p>
 	 * @return string|false <p>Returns the repaired string, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/tidy.repairstring.php

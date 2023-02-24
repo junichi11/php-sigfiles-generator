@@ -103,13 +103,13 @@ namespace {
 		/**
 		 * Constructs a new SyncReaderWriter object
 		 * <p>Constructs a named or unnamed reader-writer object.</p>
-		 * @param string $name <p>The name of the reader-writer if this is a named reader-writer object.</p> <p><b>Note</b>:</p><p>If the name already exists, it must be able to be opened by the current user that the process is running as or an exception will be thrown with a meaningless error message.</p>
-		 * @param bool $autounlock <p>Specifies whether or not to automatically unlock the reader-writer at the conclusion of the PHP script.</p> <p><b>Warning</b></p> <p>If an object is: A named reader-writer with an autounlock of FALSE, the object is locked for either reading or writing, and the PHP script concludes before the object is unlocked, then the underlying objects will end up in an inconsistent state.</p>
+		 * @param string $name <p>The name of the reader-writer if this is a named reader-writer object.</p> <p><b>Note</b>:</p><p>If the name already exists, it must be able to be opened by the current user that the process is running as or an exception will be thrown with a meaningless error message.</p>  <p><b>Note</b>:  On Windows, <code>name</code> must not contain backslashes. </p>
+		 * @param int $autounlock <p>Specifies whether or not to automatically unlock the reader-writer at the conclusion of the PHP script.</p> <p><b>Warning</b></p> <p>If an object is: A named reader-writer with an autounlock of FALSE, the object is locked for either reading or writing, and the PHP script concludes before the object is unlocked, then the underlying objects will end up in an inconsistent state.</p>
 		 * @return self <p>The new <code>SyncReaderWriter</code> object.</p>
 		 * @link https://php.net/manual/en/syncreaderwriter.construct.php
 		 * @since PECL sync >= 1.0.0
 		 */
-		public function __construct(string $name = null, bool $autounlock = true) {}
+		public function __construct(string $name = null, int $autounlock = 1) {}
 
 		/**
 		 * Waits for a read lock
@@ -234,11 +234,11 @@ namespace {
 		/**
 		 * Returns the size of the named shared memory
 		 * <p>Retrieves the shared memory size of a <code>SyncSharedMemory</code> object.</p>
-		 * @return bool <p>An integer containing the size of the shared memory. This will be the same size that was passed to the constructor.</p>
+		 * @return int <p>An integer containing the size of the shared memory. This will be the same size that was passed to the constructor.</p>
 		 * @link https://php.net/manual/en/syncsharedmemory.size.php
 		 * @since PECL sync >= 1.1.0
 		 */
-		public function size(): bool {}
+		public function size(): int {}
 
 		/**
 		 * Copy data to named shared memory

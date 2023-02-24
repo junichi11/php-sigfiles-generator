@@ -55,10 +55,10 @@
 
       <p class="para">
        The path to the HTML file, as a string. This can be a local file or an
-       <acronym title="Uniform Resource Locator">URL</acronym>.
+       <abbr title="Uniform Resource Locator">URL</abbr>.
       </p>
       <p class="para">
-       <div class="example" id="example-3852">
+       <div class="example" id="example-3930">
         <p><strong>Example #1 What <span class="function"><strong>get_meta_tags()</strong></span> parses</strong></p>
         <div class="example-contents">
 <div class="htmlcode"><pre class="htmlcode">&lt;meta name=&quot;author&quot; content=&quot;name&quot;&gt;
@@ -70,8 +70,6 @@
         </div>
 
        </div>
-       (pay attention to line endings - PHP uses a native function to
-       parse the input, so a Mac file won&#039;t work on Unix).
       </p>
      </dd>
 
@@ -119,11 +117,11 @@
  <div class="refsect1 examples" id="refsect1-function.get-meta-tags-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3853">
+   <div class="example" id="example-3931">
     <p><strong>Example #2 What <span class="function"><strong>get_meta_tags()</strong></span> returns</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Assuming&nbsp;the&nbsp;above&nbsp;tags&nbsp;are&nbsp;at&nbsp;www.example.com<br /></span><span style="color: #0000BB">$tags&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">get_meta_tags</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://www.example.com/'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Notice&nbsp;how&nbsp;the&nbsp;keys&nbsp;are&nbsp;all&nbsp;lowercase&nbsp;now,&nbsp;and<br />//&nbsp;how&nbsp;.&nbsp;was&nbsp;replaced&nbsp;by&nbsp;_&nbsp;in&nbsp;the&nbsp;key.<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$tags</span><span style="color: #007700">[</span><span style="color: #DD0000">'author'</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;name<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$tags</span><span style="color: #007700">[</span><span style="color: #DD0000">'keywords'</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;php&nbsp;documentation<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$tags</span><span style="color: #007700">[</span><span style="color: #DD0000">'description'</span><span style="color: #007700">];&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;a&nbsp;php&nbsp;manual<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$tags</span><span style="color: #007700">[</span><span style="color: #DD0000">'geo_position'</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;49.33;-86.59<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Assuming the above tags are at www.example.com<br /></span><span style="color: #0000BB">$tags </span><span style="color: #007700">= </span><span style="color: #0000BB">get_meta_tags</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://www.example.com/'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Notice how the keys are all lowercase now, and<br />// how . was replaced by _ in the key.<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$tags</span><span style="color: #007700">[</span><span style="color: #DD0000">'author'</span><span style="color: #007700">];       </span><span style="color: #FF8000">// name<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$tags</span><span style="color: #007700">[</span><span style="color: #DD0000">'keywords'</span><span style="color: #007700">];     </span><span style="color: #FF8000">// php documentation<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$tags</span><span style="color: #007700">[</span><span style="color: #DD0000">'description'</span><span style="color: #007700">];  </span><span style="color: #FF8000">// a php manual<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$tags</span><span style="color: #007700">[</span><span style="color: #DD0000">'geo_position'</span><span style="color: #007700">]; </span><span style="color: #FF8000">// 49.33;-86.59<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

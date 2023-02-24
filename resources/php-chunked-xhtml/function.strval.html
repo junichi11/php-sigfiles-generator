@@ -88,14 +88,14 @@
  <div class="refsect1 examples" id="refsect1-function.strval-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5243">
+   <div class="example" id="example-5415">
     <p><strong>Example #1 
      <span class="function"><strong>strval()</strong></span> example using PHP magic
      <a href="language.oop5.magic.html#object.tostring" class="link">__toString()</a> method.
     </strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">StrValTest<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__toString</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">__CLASS__</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Prints&nbsp;'StrValTest'<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">strval</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">StrValTest</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">StrValTest<br /></span><span style="color: #007700">{<br />    public function </span><span style="color: #0000BB">__toString</span><span style="color: #007700">()<br />    {<br />        return </span><span style="color: #0000BB">__CLASS__</span><span style="color: #007700">;<br />    }<br />}<br /><br /></span><span style="color: #FF8000">// Prints 'StrValTest'<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">strval</span><span style="color: #007700">(new </span><span style="color: #0000BB">StrValTest</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

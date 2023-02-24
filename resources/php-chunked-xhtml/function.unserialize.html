@@ -137,6 +137,19 @@
           </td>
          </tr>
 
+         <tr>
+          <td><code class="literal">max_depth</code></td>
+          <td><span class="type">int</span></td>
+          <td>
+           <span class="simpara">
+            The maximum depth of structures permitted during unserialization,
+            and is intended to prevent stack overflows. The default depth limit
+            is <code class="literal">4096</code> and can be disabled by setting
+            <code class="literal">max_depth</code> to <code class="literal">0</code>.
+           </span>
+          </td>
+         </tr>
+
         </tbody>
        
       </table>
@@ -187,6 +200,14 @@
 
      <tbody class="tbody">
       <tr>
+       <td>7.4.0</td>
+       <td>
+        Added the <code class="literal">max_depth</code> element of
+        <code class="parameter">options</code> to set the maximum depth of structures permitted during unserialization.
+       </td>
+      </tr>
+
+      <tr>
        <td>7.1.0</td>
        <td>
         The <code class="literal">allowed_classes</code> element of
@@ -208,11 +229,11 @@
  <div class="refsect1 examples" id="refsect1-function.unserialize-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5244">
+   <div class="example" id="example-5416">
     <p><strong>Example #1 <span class="function"><strong>unserialize()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Here,&nbsp;we&nbsp;use&nbsp;unserialize()&nbsp;to&nbsp;load&nbsp;session&nbsp;data&nbsp;to&nbsp;the<br />//&nbsp;$session_data&nbsp;array&nbsp;from&nbsp;the&nbsp;string&nbsp;selected&nbsp;from&nbsp;a&nbsp;database.<br />//&nbsp;This&nbsp;example&nbsp;complements&nbsp;the&nbsp;one&nbsp;described&nbsp;with&nbsp;serialize().<br /><br /></span><span style="color: #0000BB">$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">odbc_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"webdb"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"php"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"chicken"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">odbc_prepare</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;data&nbsp;FROM&nbsp;sessions&nbsp;WHERE&nbsp;id&nbsp;=&nbsp;?"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sqldata&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'PHP_AUTH_USER'</span><span style="color: #007700">]);<br />if&nbsp;(!</span><span style="color: #0000BB">odbc_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$sqldata</span><span style="color: #007700">)&nbsp;||&nbsp;!</span><span style="color: #0000BB">odbc_fetch_into</span><span style="color: #007700">(</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$tmp</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;if&nbsp;the&nbsp;execute&nbsp;or&nbsp;fetch&nbsp;fails,&nbsp;initialize&nbsp;to&nbsp;empty&nbsp;array<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$session_data&nbsp;</span><span style="color: #007700">=&nbsp;array();<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;we&nbsp;should&nbsp;now&nbsp;have&nbsp;the&nbsp;serialized&nbsp;data&nbsp;in&nbsp;$tmp[0].<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$session_data&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">unserialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$tmp</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$session_data</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;something&nbsp;went&nbsp;wrong,&nbsp;initialize&nbsp;to&nbsp;empty&nbsp;array<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$session_data&nbsp;</span><span style="color: #007700">=&nbsp;array();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Here, we use unserialize() to load session data to the<br />// $session_data array from the string selected from a database.<br />// This example complements the one described with serialize().<br /><br /></span><span style="color: #0000BB">$conn </span><span style="color: #007700">= </span><span style="color: #0000BB">odbc_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"webdb"</span><span style="color: #007700">, </span><span style="color: #DD0000">"php"</span><span style="color: #007700">, </span><span style="color: #DD0000">"chicken"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt </span><span style="color: #007700">= </span><span style="color: #0000BB">odbc_prepare</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">, </span><span style="color: #DD0000">"SELECT data FROM sessions WHERE id = ?"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sqldata </span><span style="color: #007700">= array(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'PHP_AUTH_USER'</span><span style="color: #007700">]);<br />if (!</span><span style="color: #0000BB">odbc_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">, </span><span style="color: #0000BB">$sqldata</span><span style="color: #007700">) || !</span><span style="color: #0000BB">odbc_fetch_into</span><span style="color: #007700">(</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">, </span><span style="color: #0000BB">$tmp</span><span style="color: #007700">)) {<br />    </span><span style="color: #FF8000">// if the execute or fetch fails, initialize to empty array<br />    </span><span style="color: #0000BB">$session_data </span><span style="color: #007700">= array();<br />} else {<br />    </span><span style="color: #FF8000">// we should now have the serialized data in $tmp[0].<br />    </span><span style="color: #0000BB">$session_data </span><span style="color: #007700">= </span><span style="color: #0000BB">unserialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$tmp</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]);<br />    if (!</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$session_data</span><span style="color: #007700">)) {<br />        </span><span style="color: #FF8000">// something went wrong, initialize to empty array<br />        </span><span style="color: #0000BB">$session_data </span><span style="color: #007700">= array();<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -220,11 +241,11 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5245">
+   <div class="example" id="example-5417">
     <p><strong>Example #2 unserialize_callback_func example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$serialized_object</span><span style="color: #007700">=</span><span style="color: #DD0000">'O:1:"a":1:{s:5:"value";s:3:"100";}'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'unserialize_callback_func'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mycallback'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;set&nbsp;your&nbsp;callback_function<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">mycallback</span><span style="color: #007700">(</span><span style="color: #0000BB">$classname</span><span style="color: #007700">)&nbsp;<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;just&nbsp;include&nbsp;a&nbsp;file&nbsp;containing&nbsp;your&nbsp;class&nbsp;definition<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;you&nbsp;get&nbsp;$classname&nbsp;to&nbsp;figure&nbsp;out&nbsp;which&nbsp;class&nbsp;definition&nbsp;is&nbsp;required<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$serialized_object</span><span style="color: #007700">=</span><span style="color: #DD0000">'O:1:"a":1:{s:5:"value";s:3:"100";}'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'unserialize_callback_func'</span><span style="color: #007700">, </span><span style="color: #DD0000">'mycallback'</span><span style="color: #007700">); </span><span style="color: #FF8000">// set your callback_function<br /><br /></span><span style="color: #007700">function </span><span style="color: #0000BB">mycallback</span><span style="color: #007700">(</span><span style="color: #0000BB">$classname</span><span style="color: #007700">) <br />{<br />    </span><span style="color: #FF8000">// just include a file containing your class definition<br />    // you get $classname to figure out which class definition is required<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -258,6 +279,7 @@
     <li class="member"><span class="function"><a href="function.serialize.html" class="function" rel="rdfs-seeAlso">serialize()</a> - Generates a storable representation of a value</span></li>
     <li class="member"><a href="language.oop5.autoload.html" class="link">Autoloading Classes</a></li>
     <li class="member"><a href="var.configuration.html#ini.unserialize-callback-func" class="link">unserialize_callback_func</a></li>
+    <li class="member"><a href="var.configuration.html#ini.unserialize-max-depth" class="link">unserialize_max_depth</a></li>
     <li class="member"><a href="language.oop5.magic.html#object.wakeup" class="link">__wakeup()</a></li>
     <li class="member"><a href="language.oop5.magic.html#object.serialize" class="link">__serialize()</a></li>
     <li class="member"><a href="language.oop5.magic.html#object.unserialize" class="link">__unserialize()</a></li>

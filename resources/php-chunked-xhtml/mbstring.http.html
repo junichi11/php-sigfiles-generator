@@ -52,7 +52,7 @@
      There is no way to control HTTP input character
      conversion from a PHP script. To disable HTTP input character
      conversion, it has to be done in <var class="filename">php.ini</var>.
-     <div class="example" id="example-2540">
+     <div class="example" id="example-2610">
       <p><strong>Example #1 
        Disable HTTP input conversion in <var class="filename">php.ini</var>
       </strong></p>
@@ -88,7 +88,7 @@ mbstring.encoding_translation = Off</pre>
   </ul>
  </p>
  <p class="para">
-  <div class="example" id="example-2541">
+  <div class="example" id="example-2611">
    <p><strong>Example #2 <var class="filename">php.ini</var> setting example</strong></p>
    <div class="example-contents">
 <div class="cdata"><pre>
@@ -105,11 +105,11 @@ output_handler      = mb_output_handler
   </div>
  </p>
  <p class="para">
-  <div class="example" id="example-2542">
+  <div class="example" id="example-2612">
    <p><strong>Example #3 Script example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;Enable&nbsp;output&nbsp;character&nbsp;encoding&nbsp;conversion&nbsp;only&nbsp;for&nbsp;this&nbsp;page<br /><br />//&nbsp;Set&nbsp;HTTP&nbsp;output&nbsp;character&nbsp;encoding&nbsp;to&nbsp;SJIS<br /></span><span style="color: #0000BB">mb_http_output</span><span style="color: #007700">(</span><span style="color: #DD0000">'SJIS'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Start&nbsp;buffering&nbsp;and&nbsp;specify&nbsp;"mb_output_handler"&nbsp;as<br />//&nbsp;callback&nbsp;function<br /></span><span style="color: #0000BB">ob_start</span><span style="color: #007700">(</span><span style="color: #DD0000">'mb_output_handler'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">// Enable output character encoding conversion only for this page<br /><br />// Set HTTP output character encoding to SJIS<br /></span><span style="color: #0000BB">mb_http_output</span><span style="color: #007700">(</span><span style="color: #DD0000">'SJIS'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Start buffering and specify "mb_output_handler" as<br />// callback function<br /></span><span style="color: #0000BB">ob_start</span><span style="color: #007700">(</span><span style="color: #DD0000">'mb_output_handler'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

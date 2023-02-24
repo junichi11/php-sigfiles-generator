@@ -50,7 +50,7 @@
      <div class="info"><p><strong>Example #1 Printing a variable (Array element)</strong></p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_USER_AGENT'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_USER_AGENT'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -89,7 +89,7 @@ Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)<br />
      structures</a> and <a href="language.functions.html" class="link">functions</a></strong></p></div>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_USER_AGENT'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">'MSIE'</span><span style="color: #007700">)&nbsp;!==&nbsp;</span><span style="color: #0000BB">FALSE</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'You&nbsp;are&nbsp;using&nbsp;Internet&nbsp;Explorer.&lt;br&nbsp;/&gt;'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_USER_AGENT'</span><span style="color: #007700">], </span><span style="color: #DD0000">'MSIE'</span><span style="color: #007700">) !== </span><span style="color: #0000BB">FALSE</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">'You are using Internet Explorer.&lt;br /&gt;'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -142,7 +142,7 @@ You are using Internet Explorer.&lt;br /&gt;
      <div class="info"><p><strong>Example #3 Mixing both HTML and PHP modes</strong></p></div>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_USER_AGENT'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">'MSIE'</span><span style="color: #007700">)&nbsp;!==&nbsp;</span><span style="color: #0000BB">FALSE</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB">?&gt;<br /></span>&lt;h3&gt;strpos()&nbsp;must&nbsp;have&nbsp;returned&nbsp;non-false&lt;/h3&gt;<br />&lt;p&gt;You&nbsp;are&nbsp;using&nbsp;Internet&nbsp;Explorer&lt;/p&gt;<br /><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">}&nbsp;else&nbsp;{<br /></span><span style="color: #0000BB">?&gt;<br /></span>&lt;h3&gt;strpos()&nbsp;must&nbsp;have&nbsp;returned&nbsp;false&lt;/h3&gt;<br />&lt;p&gt;You&nbsp;are&nbsp;not&nbsp;using&nbsp;Internet&nbsp;Explorer&lt;/p&gt;<br /><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_USER_AGENT'</span><span style="color: #007700">], </span><span style="color: #DD0000">'MSIE'</span><span style="color: #007700">) !== </span><span style="color: #0000BB">FALSE</span><span style="color: #007700">) {<br /></span><span style="color: #0000BB">?&gt;<br /></span>&lt;h3&gt;strpos() must have returned non-false&lt;/h3&gt;<br />&lt;p&gt;You are using Internet Explorer&lt;/p&gt;<br /><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">} else {<br /></span><span style="color: #0000BB">?&gt;<br /></span>&lt;h3&gt;strpos() must have returned false&lt;/h3&gt;<br />&lt;p&gt;You are not using Internet Explorer&lt;/p&gt;<br /><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

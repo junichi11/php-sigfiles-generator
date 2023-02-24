@@ -88,11 +88,11 @@
  <div class="refsect1 examples" id="refsect1-function.escapeshellcmd-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3327">
+   <div class="example" id="example-3399">
     <p><strong>Example #1 <span class="function"><strong>escapeshellcmd()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;We&nbsp;allow&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;arguments&nbsp;intentionally&nbsp;here.<br /></span><span style="color: #0000BB">$command&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'./configure&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'configure_options'</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">$escaped_command&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">escapeshellcmd</span><span style="color: #007700">(</span><span style="color: #0000BB">$command</span><span style="color: #007700">);<br />&nbsp;<br /></span><span style="color: #0000BB">system</span><span style="color: #007700">(</span><span style="color: #0000BB">$escaped_command</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// We allow arbitrary number of arguments intentionally here.<br /></span><span style="color: #0000BB">$command </span><span style="color: #007700">= </span><span style="color: #DD0000">'./configure '</span><span style="color: #007700">.</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'configure_options'</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">$escaped_command </span><span style="color: #007700">= </span><span style="color: #0000BB">escapeshellcmd</span><span style="color: #007700">(</span><span style="color: #0000BB">$command</span><span style="color: #007700">);<br /> <br /></span><span style="color: #0000BB">system</span><span style="color: #007700">(</span><span style="color: #0000BB">$escaped_command</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -119,7 +119,7 @@
      This can be mitigated using the following code snippet:
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$cmd&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'`(?&lt;!^)&nbsp;`'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'^&nbsp;'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">escapeshellcmd</span><span style="color: #007700">(</span><span style="color: #0000BB">$cmd</span><span style="color: #007700">));</span>
+<span style="color: #0000BB">&lt;?php<br />$cmd </span><span style="color: #007700">= </span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'`(?&lt;!^) `'</span><span style="color: #007700">, </span><span style="color: #DD0000">'^ '</span><span style="color: #007700">, </span><span style="color: #0000BB">escapeshellcmd</span><span style="color: #007700">(</span><span style="color: #0000BB">$cmd</span><span style="color: #007700">));</span>
 </span>
 </code></div>
     </div>

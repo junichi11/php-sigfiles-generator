@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.snmp3-walk" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">snmp3_walk</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">snmp3_walk</span> &mdash; <span class="dc-title">Fetch all the <acronym title="Simple Network Management Protocol">SNMP</acronym> objects from an agent</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">snmp3_walk</span> &mdash; <span class="dc-title">Fetch all the <abbr title="Simple Network Management Protocol">SNMP</abbr> objects from an agent</span></p>
 
  </div>
  
@@ -37,7 +37,7 @@
 
   <p class="para rdfs-comment">
    <span class="function"><strong>snmp3_walk()</strong></span> function is used to read all the values from
-   an <acronym title="Simple Network Management Protocol">SNMP</acronym> agent specified by the <code class="parameter">hostname</code>. 
+   an <abbr title="Simple Network Management Protocol">SNMP</abbr> agent specified by the <code class="parameter">hostname</code>. 
   </p>
   <p class="para">
    Even if the security level does not use an auth or priv protocol/password valid values have to be specified.
@@ -91,7 +91,8 @@
     <dd>
 
      <p class="para">
-      the authentication protocol (MD5 or SHA)
+      the authentication protocol (<code class="literal">&quot;MD5&quot;</code>, <code class="literal">&quot;SHA&quot;</code>,
+      <code class="literal">&quot;SHA256&quot;</code>, or <code class="literal">&quot;SHA512&quot;</code>)
      </p>
     </dd>
 
@@ -140,11 +141,11 @@
 
      <p class="para">
       If <strong><code>null</code></strong>, <code class="parameter">object_id</code> is taken as the root of
-      the <acronym title="Simple Network Management Protocol">SNMP</acronym> objects tree and all objects under that tree are returned as
+      the <abbr title="Simple Network Management Protocol">SNMP</abbr> objects tree and all objects under that tree are returned as
       an array. 
      </p>
      <p class="para">
-      If <code class="parameter">object_id</code> is specified, all the <acronym title="Simple Network Management Protocol">SNMP</acronym> objects
+      If <code class="parameter">object_id</code> is specified, all the <abbr title="Simple Network Management Protocol">SNMP</abbr> objects
       below that <code class="parameter">object_id</code> are returned.
      </p>
     </dd>
@@ -182,21 +183,51 @@
  <div class="refsect1 returnvalues" id="refsect1-function.snmp3-walk-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns an array of <acronym title="Simple Network Management Protocol">SNMP</acronym> object values starting from the
+   Returns an array of <abbr title="Simple Network Management Protocol">SNMP</abbr> object values starting from the
    <code class="parameter">object_id</code> as root or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
  
  
+ <div class="refsect1 changelog" id="refsect1-function.snmp3-walk-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.1.0</td>
+       <td>
+        The <code class="parameter">auth_protocol</code> now accepts <code class="literal">&quot;SHA256&quot;</code>
+        and <code class="literal">&quot;SHA512&quot;</code> when supported by libnetsnmp.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.snmp3-walk-examples">
   <h3 class="title">Examples</h3>
   <p class="para"> 
-   <div class="example" id="example-4490">
+   <div class="example" id="example-4569">
     <p><strong>Example #1 <span class="function"><strong>snmp3_walk()</strong></span> Example</strong></p>
     <div class="example-contents"> 
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">snmp3_walk</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'james'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'AES'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'IF-MIB::ifName'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$ret</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$ret </span><span style="color: #007700">= </span><span style="color: #0000BB">snmp3_walk</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #DD0000">'james'</span><span style="color: #007700">, </span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">, </span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">, </span><span style="color: #DD0000">'AES'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">, </span><span style="color: #DD0000">'IF-MIB::ifName'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$ret</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -204,8 +235,8 @@
    </div>
   </p> 
   <p class="para">
-   Above function call would return all the <acronym title="Simple Network Management Protocol">SNMP</acronym> objects from the
-   <acronym title="Simple Network Management Protocol">SNMP</acronym> agent running on localhost:
+   Above function call would return all the <abbr title="Simple Network Management Protocol">SNMP</abbr> objects from the
+   <abbr title="Simple Network Management Protocol">SNMP</abbr> agent running on localhost:
 <div class="cdata"><pre>      
 array (
   0 =&gt; &#039;STRING: lo&#039;,
@@ -218,7 +249,7 @@ array (
   </p>
  </div>
 
- 
+
  <div class="refsect1 seealso" id="refsect1-function.snmp3-walk-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">

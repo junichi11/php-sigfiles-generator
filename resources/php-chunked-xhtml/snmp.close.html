@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="snmp.close" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SNMP::close</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SNMP::close</span> &mdash; <span class="dc-title">Close <acronym title="Simple Network Management Protocol">SNMP</acronym> session</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SNMP::close</span> &mdash; <span class="dc-title">Close <abbr title="Simple Network Management Protocol">SNMP</abbr> session</span></p>
 
  </div>
 
@@ -37,7 +37,7 @@
    <span class="modifier">public</span> <span class="methodname"><strong>SNMP::close</strong></span>(): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Frees previously allocated <acronym title="Simple Network Management Protocol">SNMP</acronym> session object.
+   Frees previously allocated <abbr title="Simple Network Management Protocol">SNMP</abbr> session object.
   </p>
  </div>
 
@@ -64,7 +64,7 @@
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$session&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">(</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">::</span><span style="color: #0000BB">VERSION_1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"127.0.0.1"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"public"</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #FF8000">#&nbsp;...<br />&nbsp;&nbsp;#&nbsp;get,&nbsp;walk,&nbsp;etc&nbsp;goes&nbsp;here<br />&nbsp;&nbsp;#&nbsp;...<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />  $session </span><span style="color: #007700">= new </span><span style="color: #0000BB">SNMP</span><span style="color: #007700">(</span><span style="color: #0000BB">SNMP</span><span style="color: #007700">::</span><span style="color: #0000BB">VERSION_1</span><span style="color: #007700">, </span><span style="color: #DD0000">"127.0.0.1"</span><span style="color: #007700">, </span><span style="color: #DD0000">"public"</span><span style="color: #007700">);<br />  </span><span style="color: #FF8000"># ...<br />  # get, walk, etc goes here<br />  # ...<br />  </span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

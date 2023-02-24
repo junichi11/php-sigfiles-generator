@@ -58,11 +58,11 @@
 
  <div class="refsect1 examples" id="refsect1-syncevent.fire-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3420">
+  <div class="example" id="example-3456">
    <p><strong>Example #1 <span class="function"><strong>SyncEvent::fire()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;In&nbsp;a&nbsp;web&nbsp;application:<br /></span><span style="color: #0000BB">$event&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SyncEvent</span><span style="color: #007700">(</span><span style="color: #DD0000">"GetAppReport"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$event</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fire</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;In&nbsp;a&nbsp;cron&nbsp;job:<br /></span><span style="color: #0000BB">$event&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SyncEvent</span><span style="color: #007700">(</span><span style="color: #DD0000">"GetAppReport"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$event</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">wait</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// In a web application:<br /></span><span style="color: #0000BB">$event </span><span style="color: #007700">= new </span><span style="color: #0000BB">SyncEvent</span><span style="color: #007700">(</span><span style="color: #DD0000">"GetAppReport"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$event</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fire</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">// In a cron job:<br /></span><span style="color: #0000BB">$event </span><span style="color: #007700">= new </span><span style="color: #0000BB">SyncEvent</span><span style="color: #007700">(</span><span style="color: #DD0000">"GetAppReport"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$event</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">wait</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

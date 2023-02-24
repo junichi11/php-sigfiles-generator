@@ -37,7 +37,7 @@ namespace {
 		 * @param array $variables <p>Map of PHP variables that will be available in Javascript. Must be an associative <code>array</code> in format <code>array("name-for-js" =&gt; "name-of-php-variable")</code>. Defaults to empty array.</p>
 		 * @param array $extensions <p>List of extensions registered using <code>V8Js::registerExtension()</code> which should be available in the Javascript context of the created <code>V8Js</code> object.</p><p><b>Note</b>:</p><p>Extensions registered to be enabled automatically do not need to be listed in this array. Also if an extension has dependencies, those dependencies can be omitted as well. Defaults to empty array.</p>
 		 * @param bool $report_uncaught_exceptions <p>Controls whether uncaught Javascript exceptions are reported immediately or not. Defaults to <b><code>true</code></b>. If set to <b><code>false</code></b> the uncaught exception can be accessed using <code>V8Js::getPendingException()</code>.</p>
-		 * @return self <p>Returns a new V8Js context object.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/v8js.construct.php
 		 * @since PECL v8js >= 0.1.0
 		 */

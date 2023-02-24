@@ -66,7 +66,7 @@
        which is equivalent to the following algorithm:
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-while&nbsp;($bytevalue&nbsp;&lt;&nbsp;0)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;$bytevalue&nbsp;+=&nbsp;256;<br />}<br />$bytevalue&nbsp;%=&nbsp;256;</span>
+while ($bytevalue &lt; 0) {<br />    $bytevalue += 256;<br />}<br />$bytevalue %= 256;</span>
 </code></div>
        </div>
 
@@ -119,21 +119,21 @@ while&nbsp;($bytevalue&nbsp;&lt;&nbsp;0)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;$by
  <div class="refsect1 examples" id="refsect1-function.chr-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4769">
+   <div class="example" id="example-4850">
     <p><strong>Example #1 <span class="function"><strong>chr()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Assumes&nbsp;the&nbsp;string&nbsp;will&nbsp;be&nbsp;used&nbsp;as&nbsp;ASCII&nbsp;or&nbsp;an&nbsp;ASCII-compatible&nbsp;encoding<br /><br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"The&nbsp;string&nbsp;ends&nbsp;in&nbsp;escape:&nbsp;"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">.=&nbsp;</span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">27</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">/*&nbsp;add&nbsp;an&nbsp;escape&nbsp;character&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;$str&nbsp;*/<br /><br />/*&nbsp;Often&nbsp;this&nbsp;is&nbsp;more&nbsp;useful&nbsp;*/<br /><br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"The&nbsp;string&nbsp;ends&nbsp;in&nbsp;escape:&nbsp;%c"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">27</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Assumes the string will be used as ASCII or an ASCII-compatible encoding<br /><br /></span><span style="color: #0000BB">$str </span><span style="color: #007700">= </span><span style="color: #DD0000">"The string ends in escape: "</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str </span><span style="color: #007700">.= </span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">27</span><span style="color: #007700">); </span><span style="color: #FF8000">/* add an escape character at the end of $str */<br /><br />/* Often this is more useful */<br /><br /></span><span style="color: #0000BB">$str </span><span style="color: #007700">= </span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"The string ends in escape: %c"</span><span style="color: #007700">, </span><span style="color: #0000BB">27</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-4770">
+   <div class="example" id="example-4851">
     <p><strong>Example #2 Overflow behavior</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">chr</span><span style="color: #007700">(-</span><span style="color: #0000BB">159</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">833</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">chr</span><span style="color: #007700">(-</span><span style="color: #0000BB">159</span><span style="color: #007700">), </span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">833</span><span style="color: #007700">), </span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -147,11 +147,11 @@ aA
    </div>
   </p>
   <p class="para"> 
-   <div class="example" id="example-4771">
+   <div class="example" id="example-4852">
     <p><strong>Example #3 Building a UTF-8 string from individual bytes</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">240</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">159</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">144</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">152</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$str </span><span style="color: #007700">= </span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">240</span><span style="color: #007700">) . </span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">159</span><span style="color: #007700">) . </span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">144</span><span style="color: #007700">) . </span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">152</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$str</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-mongodb-driver-manager.construct-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Manager::__construct</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$uri</code><span class="initializer"> = &quot;mongodb://127.0.0.1/&quot;</span></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$uriOptions</code><span class="initializer"> = array()</span></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$driverOptions</code><span class="initializer"> = array()</span></span>)</div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Manager::__construct</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$uri</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$uriOptions</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$driverOptions</code><span class="initializer"> = <strong><code>null</code></strong></span></span>)</div>
 
   <p class="para rdfs-comment">
    Constructs a new <span class="classname"><a href="class.mongodb-driver-manager.html" class="classname">MongoDB\Driver\Manager</a></span> object with the specified options.
@@ -75,7 +75,7 @@
     <dd>
 
      <p class="para">
-      A <a href="https://docs.mongodb.com/manual/reference/connection-string/" class="link external">&raquo;&nbsp;mongodb://</a> connection URI:
+      A <a href="https://www.mongodb.com/docs/manual/reference/connection-string/" class="link external">&raquo;&nbsp;mongodb://</a> connection URI:
       <div class="example-contents">
 <div class="txtcode"><pre class="txtcode">mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[defaultAuthDb][?options]]</pre>
 </div>
@@ -84,9 +84,9 @@
      </p>
      <p class="para">
       For details on supported URI options, see
-      <a href="https://docs.mongodb.com/manual/reference/connection-string/#connections-connection-options" class="link external">&raquo;&nbsp;Connection String Options</a>
+      <a href="https://www.mongodb.com/docs/manual/reference/connection-string/#connections-connection-options" class="link external">&raquo;&nbsp;Connection String Options</a>
       in the MongoDB manual.
-      <a href="https://docs.mongodb.com/manual/reference/connection-string/#connection-pool-options" class="link external">&raquo;&nbsp;Connection pool options</a>
+      <a href="https://www.mongodb.com/docs/manual/reference/connection-string/#connection-pool-options" class="link external">&raquo;&nbsp;Connection pool options</a>
       are not supported, as the PHP driver does not implement connection pools.
      </p>
      <p class="para">
@@ -119,7 +119,7 @@
 
      <p class="para">
       Additional
-      <a href="https://docs.mongodb.com/manual/reference/connection-string/#connections-connection-options" class="link external">&raquo;&nbsp;connection string options</a>,
+      <a href="https://www.mongodb.com/docs/manual/reference/connection-string/#connections-connection-options" class="link external">&raquo;&nbsp;connection string options</a>,
       which will overwrite any options with the same name in the
       <code class="parameter">uri</code> parameter.
      </p>
@@ -163,7 +163,7 @@
             The authentication mechanism that MongoDB will use to authenticate
             the connection. For additional details and a list of supported
             values, see
-            <a href="https://docs.mongodb.com/manual/reference/connection-string/#urioption.authMechanism" class="link external">&raquo;&nbsp;Authentication Options</a>
+            <a href="https://www.mongodb.com/docs/manual/reference/connection-string/#urioption.authMechanism" class="link external">&raquo;&nbsp;Authentication Options</a>
             in the MongoDB manual.
            </p>
           </td>
@@ -277,7 +277,7 @@
             Set the Kerberos service name when connecting to Kerberized MongoDB
             instances. This value must match the service name set on MongoDB
             instances (i.e.
-            <a href="https://docs.mongodb.com/manual/reference/parameters/#param.saslServiceName" class="link external">&raquo;&nbsp;saslServiceName</a>
+            <a href="https://www.mongodb.com/docs/manual/reference/parameters/#param.saslServiceName" class="link external">&raquo;&nbsp;saslServiceName</a>
             server parameter). Defaults to <code class="literal">&quot;mongodb&quot;</code>.
            </p>
            <p class="para">
@@ -461,7 +461,7 @@
            </p>
            <p class="para">
             See
-            <a href="https://docs.mongodb.com/manual/core/retryable-writes/" class="link external">&raquo;&nbsp;Retryable Writes</a>
+            <a href="https://www.mongodb.com/docs/manual/core/retryable-writes/" class="link external">&raquo;&nbsp;Retryable Writes</a>
             in the MongoDB manual for more information.
            </p>
           </td>
@@ -529,6 +529,29 @@
             The time in milliseconds to attempt a send or receive on a socket
             before timing out. Defaults to 300,000 milliseconds (i.e. five
             minutes).
+           </p>
+          </td>
+         </tr>
+
+         <tr>
+          <td>srvMaxHosts</td>
+          <td><span class="type">int</span></td>
+          <td>
+           <p class="para">
+            The maximum number of SRV results to randomly select when initially
+            populating the seedlist or, during SRV polling, adding new hosts to
+            the topology. Defaults to <code class="literal">0</code> (i.e. no maximum).
+           </p>
+          </td>
+         </tr>
+
+         <tr>
+          <td>srvServiceName</td>
+          <td><span class="type">string</span></td>
+          <td>
+           <p class="para">
+            The service name to use for SRV lookup in initial DNS seedlist
+            discovery and SRV polling. Defaults to <code class="literal">&quot;mongodb&quot;</code>.
            </p>
           </td>
          </tr>
@@ -777,7 +800,31 @@
           <td><span class="type">array</span></td>
           <td>
            <p class="para">
-            Provides options to enable automatic client-side field level encryption.
+            Provides options to enable automatic client-side field level
+            encryption.
+           </p>
+           <blockquote class="note"><p><strong class="note">Note</strong>: 
+            <p class="para">
+             Automatic encryption is an enterprise-only feature that only
+             applies to operations on a collection. Automatic encryption is not
+             supported for operations on a database or view, and operations that
+             are not bypassed will result in error (see
+             <a href="https://github.com/mongodb/specifications/blob/master/source/client-side-encryption/client-side-encryption.rst#libmongocrypt-auto-encryption-allow-list" class="link external">&raquo;&nbsp;libmongocrypt: Auto Encryption Allow-List</a>). To bypass automatic encryption
+             for all operations, set <code class="literal">bypassAutoEncryption</code> to
+             <strong><code>true</code></strong>.
+            </p>
+            <p class="para">
+             Automatic encryption requires the authenticated user to have the
+             <a href="https://www.mongodb.com/docs/manual/reference/command/listCollections/#required-access" class="link external">&raquo;&nbsp;listCollections</a>
+             privilege action.
+            </p>
+            <p class="para">
+             Explicit encryption/decryption and automatic decryption is a
+             community feature. The driver can still automatically decrypt when
+             <code class="literal">bypassAutoEncryption</code> is <strong><code>true</code></strong>.
+            </p>
+           </p></blockquote>
+           <p class="para">
             The following options are supported:
 
             <table class="doctable table">
@@ -823,7 +870,8 @@
            <div class="example-contents">
 <div class="javascriptcode"><pre class="javascriptcode">aws: {
     accessKeyId: &lt;string&gt;,
-    secretAccessKey: &lt;string&gt;
+    secretAccessKey: &lt;string&gt;,
+    sessionToken: &lt;optional string&gt;
 }</pre>
 </div>
            </div>
@@ -890,7 +938,8 @@
 <div class="javascriptcode"><pre class="javascriptcode">&lt;provider&gt;: {
     tlsCaFile: &lt;optional string&gt;,
     tlsCertificateKeyFile: &lt;optional string&gt;,
-    tlsCertificateKeyFilePassword: &lt;optional string&gt;
+    tlsCertificateKeyFilePassword: &lt;optional string&gt;,
+    tlsDisableOCSPEndpointCheck: &lt;optional bool&gt;
 }</pre>
 </div>
            </div>
@@ -901,10 +950,15 @@
 
                <tr>
                 <td>schemaMap</td>
-                <td><span class="type">array</span></td>
+                <td><span class="type"><span class="type">array</span>|<span class="type">object</span></span></td>
                 <td>
                  <p class="para">
-                  Allows specifying a local JSON schema that is used to configure encryption.
+                  Map of collection namespaces to a local JSON schema. This is
+                  used to configure automatic encryption. See
+                  <a href="https://www.mongodb.com/docs/manual/reference/security-client-side-automatic-json-schema/" class="link external">&raquo;&nbsp;Automatic Encryption Rules</a>
+                  in the MongoDB manual for more information. It is an error to
+                  specify a collection in both <code class="literal">schemaMap</code> and
+                  <code class="literal">encryptedFieldsMap</code>.
                  </p>
                  <blockquote class="note"><p><strong class="note">Note</strong>: 
                   <span class="simpara">
@@ -930,9 +984,68 @@
                 <td>bypassAutoEncryption</td>
                 <td><span class="type">bool</span></td>
                 <td>
-                 With this option set to <strong><code>true</code></strong>, <code class="literal">mongocryptd</code>
-                 will not be spawned automatically. This is used to disable
-                 automatic encryption.
+                 If <strong><code>true</code></strong>, <code class="literal">mongocryptd</code> will not be spawned
+                 automatically. This is used to disable automatic encryption.
+                 Defaults to <strong><code>false</code></strong>.
+                </td>
+               </tr>
+
+               <tr>
+                <td>bypassQueryAnalysis</td>
+                <td><span class="type">bool</span></td>
+                <td>
+                 <p class="para">
+                  If <strong><code>true</code></strong>, automatic analysis of outgoing commands will be
+                  disabled and <code class="literal">mongocryptd</code> will not be
+                  spawned automatically. This enables the use case of explicit
+                  encryption for querying indexed fields without requiring the
+                  enterprise licensed <code class="literal">crypt_shared</code> library or
+                  <code class="literal">mongocryptd</code> process. Defaults to <strong><code>false</code></strong>.
+                 </p>
+                 
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <span class="simpara">
+     Queryable Encryption is in public preview and available for evaluation
+     purposes. It is not yet recommended for production deployments as breaking
+     changes may be introduced. See the <a href="https://www.mongodb.com/blog/post/mongodb-releases-queryable-encryption-preview/" class="link external">&raquo;&nbsp;Queryable Encryption Preview</a> blog post for more information.
+    </span>
+   </p></blockquote>
+
+                </td>
+               </tr>
+
+               <tr>
+                <td>encryptedFieldsMap</td>
+                <td><span class="type"><span class="type">array</span>|<span class="type">object</span></span></td>
+                <td>
+                 <p class="para">
+                  Map of collection namespaces to an
+                  <code class="literal">encryptedFields</code> document. This is used to
+                  configure queryable encryption. See
+                  <a href="https://www.mongodb.com/docs/v6.0/core/queryable-encryption/fundamentals/encrypt-and-query/" class="link external">&raquo;&nbsp;Field Encryption and Queryability</a>
+                  in the MongoDB manual for more information. It is an error to
+                  specify a collection in both
+                  <code class="literal">encryptedFieldsMap</code> and
+                  <code class="literal">schemaMap</code>.
+                 </p>
+                 <blockquote class="note"><p><strong class="note">Note</strong>: 
+                  <span class="simpara">
+                   Supplying an <code class="literal">encryptedFieldsMap</code> provides
+                   more security than relying on an encrypted fields
+                   <code class="literal">encryptedFields</code> obtained from the server.
+                   It protects against a malicious server advertising a false
+                   <code class="literal">encryptedFields</code>.
+                  </span>
+                 </p></blockquote>
+                 
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <span class="simpara">
+     Queryable Encryption is in public preview and available for evaluation
+     purposes. It is not yet recommended for production deployments as breaking
+     changes may be introduced. See the <a href="https://www.mongodb.com/blog/post/mongodb-releases-queryable-encryption-preview/" class="link external">&raquo;&nbsp;Queryable Encryption Preview</a> blog post for more information.
+    </span>
+   </p></blockquote>
+
                 </td>
                </tr>
 
@@ -945,16 +1058,14 @@
                   <code class="literal">mongocryptd</code> process. The following options
                   are supported:
                  </p>
-                 <div class="example-contents">
-<div class="javascriptcode"><pre class="javascriptcode">&lt;provider&gt;: {
-    mongocryptdURI: &lt;optional string&gt;, // Defaults to &quot;mongodb://localhost:27027&quot;
-    mongocryptdBypassSpawn: &lt;optional string&gt;, // Defaults to false
-    mongocryptdSpawnPath: &lt;optional string&gt;, // Defaults to empty string and uses default system paths
-    mongocryptdSpawnArgs: &lt;optional array of strings&gt; // Defaults to [ &quot;--idleShutdownTimeoutSecs=60&quot; ]
-}</pre>
-</div>
-                 </div>
-
+                 <ul class="simplelist">
+                  <li class="member"><code class="literal">mongocryptdURI</code> (<span class="type">string</span>): URI to connect to an existing <code class="literal">mongocryptd</code> process. Defaults to <code class="literal">&quot;mongodb://localhost:27020&quot;</code>.</li>
+                  <li class="member"><code class="literal">mongocryptdBypassSpawn</code> (<span class="type">bool</span>): If <strong><code>true</code></strong>, prevent the driver from spawning <code class="literal">mongocryptd</code>. Defaults to <strong><code>false</code></strong>.</li>
+                  <li class="member"><code class="literal">mongocryptdSpawnPath</code> (<span class="type">string</span>): Absolute path to search for <code class="literal">mongocryptd</code> binary. Defaults to empty string and consults system paths.</li>
+                  <li class="member"><code class="literal">mongocryptdSpawnArgs</code> (<span class="type">array</span>): Array of string arguments to pass to <code class="literal">mongocryptd</code> when spawning. Defaults to <code class="literal">[&quot;--idleShutdownTimeoutSecs=60&quot;]</code>.</li>
+                  <li class="member"><code class="literal">cryptSharedLibPath</code> (<span class="type">string</span>): Absolute path to <code class="literal">crypt_shared</code> shared library. Defaults to empty string and consults system paths.</li>
+                  <li class="member"><code class="literal">cryptSharedLibRequired</code> (<span class="type">bool</span>): If <strong><code>true</code></strong>, require the driver to load <code class="literal">crypt_shared</code>. Defaults to <strong><code>false</code></strong>.</li>
+                 </ul>
                  <p class="para">
                   See the <a href="https://github.com/mongodb/specifications/blob/master/source/client-side-encryption/client-side-encryption.rst#extraoptions" class="link external">&raquo;&nbsp;Client-Side Encryption Specification</a> for more information.
                  </p>
@@ -1207,6 +1318,40 @@
 
      <tbody class="tbody">
       <tr>
+       <td>PECL mongodb 1.16.0</td>
+       <td>
+        <p class="para">
+         The AWS KMS provider for client-side encryption now accepts a
+         <code class="literal">&quot;sessionToken&quot;</code> option, which can be used to
+         authenticate with temporary AWS credentials.
+        </p>
+       </td>
+      </tr>
+
+      <tr>
+       <td>PECL mongodb 1.14.0</td>
+       <td>
+        <p class="para">
+         Added the <code class="literal">&quot;bypassQueryAnalysis&quot;</code> and
+         <code class="literal">&quot;encryptedFieldsMap&quot;</code> auto encryption options.
+         Additional options pertaining to <code class="literal">crypt_shared</code> are
+         now supported in the <code class="literal">&quot;extraOptions&quot;</code> auto encryption
+         option.
+        </p>
+       </td>
+      </tr>
+
+      <tr>
+       <td>PECL mongodb 1.13.0</td>
+       <td>
+        <p class="para">
+         Added the <code class="literal">&quot;srvMaxHosts&quot;</code> and
+         <code class="literal">&quot;srvServiceName&quot;</code> URI options.
+        </p>
+       </td>
+      </tr>
+
+      <tr>
        <td>PECL mongodb 1.12.0</td>
        <td>
         <p class="para">
@@ -1386,12 +1531,12 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb-driver-manager.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1271">
+  <div class="example" id="example-1302">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\Driver\Manager::__construct()</strong></span> basic examples</strong></p>
    <div class="example-contents"><p>Connecting to standalone MongoDB node:</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://example.com:27017"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$manager </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://example.com:27017"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -1403,7 +1548,7 @@
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">rawurlencode</span><span style="color: #007700">(</span><span style="color: #DD0000">"/tmp/mongodb-27017.sock"</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$manager </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://" </span><span style="color: #007700">. </span><span style="color: #0000BB">rawurlencode</span><span style="color: #007700">(</span><span style="color: #DD0000">"/tmp/mongodb-27017.sock"</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -1411,7 +1556,7 @@
    <div class="example-contents"><p>Connecting to a replica set:</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://rs1.example.com,rs2.example.com/?replicaSet=myReplicaSet"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$manager </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://rs1.example.com,rs2.example.com/?replicaSet=myReplicaSet"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -1419,7 +1564,7 @@
    <div class="example-contents"><p>Connecting to a sharded cluster (i.e. one or more mongos instances):</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://mongos1.example.com,mongos2.example.com/"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$manager </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://mongos1.example.com,mongos2.example.com/"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -1427,7 +1572,7 @@
    <div class="example-contents"><p>Connecting to MongoDB with authentication credentials for a particular user and database:</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://myusername:mypassword@example.com/?authSource=databaseName"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$manager </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://myusername:mypassword@example.com/?authSource=databaseName"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -1444,7 +1589,7 @@
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://myusername:myp%40ss%3Aw%25rd@example.com/?authSource=databaseName"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$manager </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://myusername:myp%40ss%3Aw%25rd@example.com/?authSource=databaseName"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -1453,7 +1598,7 @@
    <div class="example-contents"><p>Connecting to MongoDB with X509 authentication:</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"mongodb://example.com/?ssl=true&amp;authMechanism=MONGODB-X509"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;[],<br />&nbsp;&nbsp;&nbsp;&nbsp;[<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"pem_file"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"/path/to/client.pem"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;]<br />);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$manager </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(<br />    </span><span style="color: #DD0000">"mongodb://example.com/?ssl=true&amp;authMechanism=MONGODB-X509"</span><span style="color: #007700">,<br />    [],<br />    [<br />        </span><span style="color: #DD0000">"pem_file" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"/path/to/client.pem"</span><span style="color: #007700">,<br />    ]<br />);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -1466,7 +1611,7 @@
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
    <li class="member"><a href="mongodb.connection-handling.html" class="link">Connection handling and persistence</a></li>
-   <li class="member"><a href="https://docs.mongodb.com/manual/reference/connection-string/" class="link external">&raquo;&nbsp;MongoDB Connection String Format</a></li>
+   <li class="member"><a href="https://www.mongodb.com/docs/manual/reference/connection-string/" class="link external">&raquo;&nbsp;MongoDB Connection String Format</a></li>
   </ul>
  </div>
 

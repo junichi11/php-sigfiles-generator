@@ -51,7 +51,7 @@
   <p class="para">
    Returns a bit-field corresponding to the image formats supported by the
    version of GD linked into PHP.  The following bits are returned,
-   <strong><code>IMG_BMP</code></strong> |
+   <strong><code>IMG_AVIF</code></strong> | <strong><code>IMG_BMP</code></strong> |
    <strong><code>IMG_GIF</code></strong> | <strong><code>IMG_JPG</code></strong> |
    <strong><code>IMG_PNG</code></strong> | <strong><code>IMG_WBMP</code></strong> | 
    <strong><code>IMG_XPM</code></strong> | <strong><code>IMG_WEBP</code></strong>.
@@ -73,6 +73,13 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>8.1.0</td>
+       <td>
+        <strong><code>IMG_AVIF</code></strong> added.
+       </td>
+      </tr>
+
       <tr>
        <td>7.2.0</td>
        <td>
@@ -98,11 +105,11 @@
  <div class="refsect1 examples" id="refsect1-function.imagetypes-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2722">
+   <div class="example" id="example-2792">
     <p><strong>Example #1 Checking for PNG support</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">imagetypes</span><span style="color: #007700">()&nbsp;&amp;&nbsp;</span><span style="color: #0000BB">IMG_PNG</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"PNG&nbsp;Support&nbsp;is&nbsp;enabled"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">imagetypes</span><span style="color: #007700">() &amp; </span><span style="color: #0000BB">IMG_PNG</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"PNG Support is enabled"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

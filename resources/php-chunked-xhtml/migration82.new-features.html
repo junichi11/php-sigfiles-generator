@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>New Features</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration82.html">« Migrating from PHP 8.1.x to PHP 8.2.x</a></li>
+      <li style="float: right;"><a href="migration82.new-functions.html">New Functions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration82.html">Migrating from PHP 8.1.x to PHP 8.2.x</a></li>
+    <li>New Features</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration82.new-features" class="sect1">
+ <h2 class="title">New Features</h2>
+
+ <div class="sect2" id="migration82.new-features.core">
+  <h3 class="title">PHP Core</h3>
+
+  <div class="sect3" id="migration82.new-features.core.sensitiveparameter">
+   <h4 class="title">SensitiveParameter Attribute</h4>
+
+   <p class="para">
+    Added the <code class="code">#[\SensitiveParameter]</code> attribute to redact
+    sensitive data in backtraces.
+    
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.new-features.core.error-log-mode-ini">
+   <h4 class="title">error_log_mode INI directive</h4>
+
+   <p class="para">
+    The <a href="errorfunc.configuration.html#ini.error-log-mode" class="link">error_log_mode</a> INI directive has been added which allows setting
+    the permissions for the error log file.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.new-features.core.enums-property-constant-expression">
+   <h4 class="title">Enumerations properties in constant expressions</h4>
+
+   <p class="para">
+    It is now possible to fetch properties of
+    <a href="language.enumerations.html" class="link">Enumerations</a>
+    in constant expressions.
+    
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.new-features.core.type-system">
+   <h4 class="title">Type System Improvements</h4>
+
+   <p class="para">
+    It is now possible to use <span class="type">null</span> and <span class="type"><span class="type false">false</span></span>
+    as stand-alone types.
+    
+   </p>
+
+   <p class="para">
+    The <span class="type"><span class="type true">true</span></span> type has been added.
+    
+   </p>
+
+   <p class="para">
+    It is now possible to combine intersection and union types.
+    The type needs to be written in <abbr title="Disjunctive Normal Form">DNF</abbr>.
+    
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.new-features.core.constant-in-traits">
+   <h4 class="title">Constants in Traits</h4>
+
+   <p class="para">
+    It is now possible to define constants in traits.
+    
+   </p>
+   
+  </div>
+
+  <div class="sect3" id="migration82.new-features.core.readonly-classes">
+   <h4 class="title">Readonly Classes</h4>
+
+   <p class="para">
+    Support for <a href="language.oop5.basic.html#language.oop5.basic.class.readonly" class="link">readonly
+    on classes</a> has been added.
+    
+   </p>
+  </div>
+
+ </div>
+
+ <div class="sect2" id="migration82.new-features.curl">
+  <h3 class="title">cURL</h3>
+
+  <p class="para">
+   Added the <strong><code>CURLINFO_EFFECTIVE_METHOD</code></strong> option,
+   which returns the effective <abbr title="Hypertext Transfer Protocol">HTTP</abbr> method in the return value of
+   <span class="function"><a href="function.curl-getinfo.html" class="function">curl_getinfo()</a></span>.
+  </p>
+
+  <p class="para">
+   Exposed <a href="migration82.constants.html#migration82.constants.curl" class="link">multiple new constants</a> from libcurl 7.62 to 7.80.
+  </p>
+
+  <p class="para">
+   Added the <span class="function"><a href="function.curl_upkeep.html" class="function">curl_upkeep()</a></span> function to perform any connection upkeep checks.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration82.new-features.dba">
+  <h3 class="title">DBA</h3>
+
+  <p class="para">
+   The LMDB Driver now accepts the <strong><code>DBA_LMDB_USE_SUB_DIR</code></strong> or
+   <strong><code>DBA_LMDB_NO_SUB_DIR</code></strong> flags to determine if it should
+   create a subdirectory or not when creating a database file.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration82.new-features.oci8">
+  <h3 class="title">OCI8</h3>
+
+  <p class="para">
+   Added the <a href="oci8.configuration.html#ini.oci8.prefetch-lob-size" class="link">oci8.prefetch_lob_size</a> INI directive and
+   <span class="function"><a href="function.oci-set-prefetch-lob.html" class="function">oci_set_prefetch_lob()</a></span> function to tune LOB query
+   performance by reducing the number of round-trips between PHP and
+   Oracle Databases when fetching LOBS.
+   This is usable with Oracle Database 12.2 or later.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration82.new-features.openssl">
+  <h3 class="title">OpenSSL</h3>
+
+  <p class="para">
+   Added AEAD support for the chacha20-poly1305 algorithm.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration82.new-features.odbc">
+  <h3 class="title">ODBC</h3>
+
+  <p class="para">
+   Added the <span class="function"><a href="function.odbc-connection-string-is-quoted.html" class="function">odbc_connection_string_is_quoted()</a></span>,
+   <span class="function"><a href="function.odbc-connection-string-should-quote.html" class="function">odbc_connection_string_should_quote()</a></span>, and
+   <span class="function"><a href="function.odbc-connection-string-quote.html" class="function">odbc_connection_string_quote()</a></span> functions.
+   These are primarily used behind the scenes in the ODBC and PDO_ODBC extensions,
+   but are exposed to userland for easier unit testing, and for user
+   applications and libraries to perform quoting themselves.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration82.new-features.pcre">
+  <h3 class="title">PCRE</h3>
+
+  <p class="para">
+   Added support for the <code class="literal">n</code> (NO_AUTO_CAPTURE) modifier,
+   which makes simple <code class="code">(xyz)</code> groups non-capturing.
+   Only named groups like <code class="code">(?&lt;name&gt;xyz)</code> are capturing.
+   This only affects which groups are capturing, it is still possible to use
+   numbered subpattern references, and the matches array will still contain
+   numbered results.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration82.new-features.random">
+  <h3 class="title">Random</h3>
+
+  <p class="para">
+   This is a new extension which organises and consolidates existing
+   implementations related to random number generators.
+   New and better RNGs are available with scope issues eliminated.
+   
+   
+  </p>
+ </div>
+
+</div></div></div></body></html>

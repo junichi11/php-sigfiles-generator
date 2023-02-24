@@ -103,11 +103,11 @@
  <div class="refsect1 examples" id="refsect1-function.pg-connection-reset-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1880">
+   <div class="example" id="example-1912">
     <p><strong>Example #1 <span class="function"><strong>pg_connection_reset()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$dbconn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dbname=publisher"</span><span style="color: #007700">)&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Could&nbsp;not&nbsp;connect"</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$dbconn2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_connection_reset</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbconn</span><span style="color: #007700">);<br />&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$dbconn2</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"reset&nbsp;successful\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"reset&nbsp;failed\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />  $dbconn </span><span style="color: #007700">= </span><span style="color: #0000BB">pg_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dbname=publisher"</span><span style="color: #007700">) or die(</span><span style="color: #DD0000">"Could not connect"</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">$dbconn2 </span><span style="color: #007700">= </span><span style="color: #0000BB">pg_connection_reset</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbconn</span><span style="color: #007700">);<br />  if (</span><span style="color: #0000BB">$dbconn2</span><span style="color: #007700">) {<br />      echo </span><span style="color: #DD0000">"reset successful\n"</span><span style="color: #007700">;<br />  } else {<br />      echo </span><span style="color: #DD0000">"reset failed\n"</span><span style="color: #007700">;<br />  }<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

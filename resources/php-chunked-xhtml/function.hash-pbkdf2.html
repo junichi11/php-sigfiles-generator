@@ -144,7 +144,7 @@
  <div class="refsect1 errors" id="refsect1-function.hash-pbkdf2-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   An <strong><code>E_WARNING</code></strong> will be raised if the algorithm is
+   Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> exception if the algorithm is
    unknown, the <code class="parameter">iterations</code> parameter is less than or
    equal to <code class="literal">0</code>, the <code class="parameter">length</code> is less
    than <code class="literal">0</code> or the <code class="parameter">salt</code> is too long
@@ -168,6 +168,15 @@
 
      <tbody class="tbody">
       <tr>
+       <td>8.0.0</td>
+       <td>
+        Now throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> exception on error.
+        Previously, <strong><code>false</code></strong> was returned and an <strong><code>E_WARNING</code></strong>
+        message was emitted.
+       </td>
+      </tr>
+
+      <tr>
        <td>7.2.0</td>
        <td>Usage of non-cryptographic hash functions (adler32, crc32, crc32b, fnv132, fnv1a32, fnv164, fnv1a64, joaat) was disabled.</td>
       </tr>
@@ -183,11 +192,11 @@
  <div class="refsect1 examples" id="refsect1-function.hash-pbkdf2-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-890">
+   <div class="example" id="example-906">
     <p><strong>Example #1 <span class="function"><strong>hash_pbkdf2()</strong></span> example, basic usage</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$iterations&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1000</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Generate&nbsp;a&nbsp;random&nbsp;IV&nbsp;using&nbsp;openssl_random_pseudo_bytes()<br />//&nbsp;random_bytes()&nbsp;or&nbsp;another&nbsp;suitable&nbsp;source&nbsp;of&nbsp;randomness<br /></span><span style="color: #0000BB">$salt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_random_pseudo_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">16</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$hash&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">hash_pbkdf2</span><span style="color: #007700">(</span><span style="color: #DD0000">"sha256"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$salt</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$iterations</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$hash</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;for&nbsp;raw&nbsp;binary,&nbsp;the&nbsp;$length&nbsp;needs&nbsp;to&nbsp;be&nbsp;halved&nbsp;for&nbsp;equivalent&nbsp;results<br /></span><span style="color: #0000BB">$hash&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">hash_pbkdf2</span><span style="color: #007700">(</span><span style="color: #DD0000">"sha256"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$salt</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$iterations</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">bin2hex</span><span style="color: #007700">(</span><span style="color: #0000BB">$hash</span><span style="color: #007700">));</span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$password </span><span style="color: #007700">= </span><span style="color: #DD0000">"password"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$iterations </span><span style="color: #007700">= </span><span style="color: #0000BB">1000</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// Generate a cryptographically secure random IV using random_bytes()<br /></span><span style="color: #0000BB">$salt </span><span style="color: #007700">= </span><span style="color: #0000BB">random_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">16</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$hash </span><span style="color: #007700">= </span><span style="color: #0000BB">hash_pbkdf2</span><span style="color: #007700">(</span><span style="color: #DD0000">"sha256"</span><span style="color: #007700">, </span><span style="color: #0000BB">$password</span><span style="color: #007700">, </span><span style="color: #0000BB">$salt</span><span style="color: #007700">, </span><span style="color: #0000BB">$iterations</span><span style="color: #007700">, </span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$hash</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// for raw binary, the $length needs to be halved for equivalent results<br /></span><span style="color: #0000BB">$hash </span><span style="color: #007700">= </span><span style="color: #0000BB">hash_pbkdf2</span><span style="color: #007700">(</span><span style="color: #DD0000">"sha256"</span><span style="color: #007700">, </span><span style="color: #0000BB">$password</span><span style="color: #007700">, </span><span style="color: #0000BB">$salt</span><span style="color: #007700">, </span><span style="color: #0000BB">$iterations</span><span style="color: #007700">, </span><span style="color: #0000BB">10</span><span style="color: #007700">, </span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">bin2hex</span><span style="color: #007700">(</span><span style="color: #0000BB">$hash</span><span style="color: #007700">));</span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

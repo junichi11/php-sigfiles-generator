@@ -202,7 +202,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <td>8.0.0</td>
  <td>
   <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
-  instance now; previously, a <span class="type">resource</span> was expected.
+  instance now; previously, a valid <code class="literal">gd</code> <span class="type">resource</span> was expected.
  </td>
 </tr>
 
@@ -216,11 +216,11 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imagesetinterpolation-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2710">
+   <div class="example" id="example-2780">
     <p><strong>Example #1 <span class="function"><strong>imagesetinterpolation()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Load&nbsp;an&nbsp;image<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreate</span><span style="color: #007700">(</span><span style="color: #0000BB">500</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">500</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;By&nbsp;default&nbsp;interpolation&nbsp;is&nbsp;IMG_BILINEAR_FIXED,&nbsp;switch&nbsp;<br />//&nbsp;to&nbsp;use&nbsp;the&nbsp;'Mitchell'&nbsp;filter:<br /></span><span style="color: #0000BB">imagesetinterpolation</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_MITCHELL</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Continue&nbsp;to&nbsp;work&nbsp;with&nbsp;$im&nbsp;...<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Load an image<br /></span><span style="color: #0000BB">$im </span><span style="color: #007700">= </span><span style="color: #0000BB">imagecreate</span><span style="color: #007700">(</span><span style="color: #0000BB">500</span><span style="color: #007700">, </span><span style="color: #0000BB">500</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// By default interpolation is IMG_BILINEAR_FIXED, switch <br />// to use the 'Mitchell' filter:<br /></span><span style="color: #0000BB">imagesetinterpolation</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">, </span><span style="color: #0000BB">IMG_MITCHELL</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Continue to work with $im ...<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

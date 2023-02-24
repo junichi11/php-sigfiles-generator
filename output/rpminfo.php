@@ -136,6 +136,11 @@ namespace {
 	define('RPMTAG_ARCHIVESIZE', null);
 
 	/**
+	 * Requires librpm &gt;= 4.18
+	 */
+	define('RPMTAG_ARCHSUFFIX', null);
+
+	/**
 	 * Name (not path) of files, with database index.
 	 */
 	define('RPMTAG_BASENAMES', null);
@@ -587,6 +592,11 @@ namespace {
 
 	define('RPMTAG_SOURCERPM', null);
 
+	/**
+	 * Requires librpm &gt;= 4.18
+	 */
+	define('RPMTAG_SPEC', null);
+
 	define('RPMTAG_SUGGESTFLAGS', null);
 
 	/**
@@ -638,6 +648,11 @@ namespace {
 
 	define('RPMTAG_TRANSFILETRIGGERVERSION', null);
 
+	/**
+	 * Requires librpm &gt;= 4.18
+	 */
+	define('RPMTAG_TRANSLATIONURL', null);
+
 	define('RPMTAG_TRIGGERCONDS', null);
 
 	define('RPMTAG_TRIGGERFLAGS', null);
@@ -658,6 +673,11 @@ namespace {
 	define('RPMTAG_TRIGGERTYPE', null);
 
 	define('RPMTAG_TRIGGERVERSION', null);
+
+	/**
+	 * Requires librpm &gt;= 4.18
+	 */
+	define('RPMTAG_UPSTREAMRELEASES', null);
 
 	define('RPMTAG_URL', null);
 

@@ -76,7 +76,7 @@
  <div class="refsect1 returnvalues" id="refsect1-collator.geterrorcode-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Error code returned by the last Collator <acronym title="Application Programming Interface">API</acronym> function call,
+   Error code returned by the last Collator <abbr title="Application Programming Interface">API</abbr> function call,
     or <strong><code>false</code></strong> on failure.
   </p>
  </div>
@@ -85,11 +85,11 @@
  <div class="refsect1 examples" id="refsect1-collator.geterrorcode-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2278">
+   <div class="example" id="example-2343">
     <p><strong>Example #1 <span class="function"><strong>collator_get_error_code()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$coll&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">collator_create</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'en_US'&nbsp;</span><span style="color: #007700">);<br />if(&nbsp;</span><span style="color: #0000BB">collator_get_attribute</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$coll</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Collator</span><span style="color: #007700">::</span><span style="color: #0000BB">FRENCH_COLLATION&nbsp;</span><span style="color: #007700">)&nbsp;===&nbsp;</span><span style="color: #0000BB">false&nbsp;</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">handle_error</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">collator_get_error_code</span><span style="color: #007700">()&nbsp;);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$coll </span><span style="color: #007700">= </span><span style="color: #0000BB">collator_create</span><span style="color: #007700">( </span><span style="color: #DD0000">'en_US' </span><span style="color: #007700">);<br />if( </span><span style="color: #0000BB">collator_get_attribute</span><span style="color: #007700">( </span><span style="color: #0000BB">$coll</span><span style="color: #007700">, </span><span style="color: #0000BB">Collator</span><span style="color: #007700">::</span><span style="color: #0000BB">FRENCH_COLLATION </span><span style="color: #007700">) === </span><span style="color: #0000BB">false </span><span style="color: #007700">)<br />        </span><span style="color: #0000BB">handle_error</span><span style="color: #007700">( </span><span style="color: #0000BB">collator_get_error_code</span><span style="color: #007700">() );<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

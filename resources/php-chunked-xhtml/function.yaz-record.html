@@ -248,7 +248,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.yaz-record-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4607">
+  <div class="example" id="example-4686">
    <p><strong>Example #1 Array for GRS-1 record</strong></p>
    <div class="example-contents"><p>
     Consider this GRS-1 record:
@@ -269,7 +269,7 @@
     If this record is present at position $p, then
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$ar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">yaz_record</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$p</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"array"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$ar</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$ar </span><span style="color: #007700">= </span><span style="color: #0000BB">yaz_record</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">, </span><span style="color: #0000BB">$p</span><span style="color: #007700">, </span><span style="color: #DD0000">"array"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$ar</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -302,7 +302,7 @@ Array
     </div>
    </p></div>
   </div>
-  <div class="example" id="example-4608">
+  <div class="example" id="example-4687">
    <p><strong>Example #2 Working with MARCXML</strong></p>
    <div class="example-contents"><p>
     The following PHP snippet returns a MARC21/USMARC record as MARCXML. 
@@ -310,7 +310,7 @@ Array
     so we convert it to UTF-8 (which all XML parsers must support).
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$rec&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">yaz_record</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$p</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"xml;&nbsp;charset=marc-8,utf-8"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$rec </span><span style="color: #007700">= </span><span style="color: #0000BB">yaz_record</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">, </span><span style="color: #0000BB">$p</span><span style="color: #007700">, </span><span style="color: #DD0000">"xml; charset=marc-8,utf-8"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -323,7 +323,7 @@ Array
    <div class="example-contents"><p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$xslfile&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'display.xsl'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$processor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">xslt_create</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$parms&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'/_xml'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$rec</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">xslt_process</span><span style="color: #007700">(</span><span style="color: #0000BB">$processor</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'arg:/_xml'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$xslfile</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$parms</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">xslt_free</span><span style="color: #007700">(</span><span style="color: #0000BB">$processor</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">"'&lt;/?html[^&gt;]*&gt;'"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$res</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$res</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$xslfile </span><span style="color: #007700">= </span><span style="color: #DD0000">'display.xsl'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$processor </span><span style="color: #007700">= </span><span style="color: #0000BB">xslt_create</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$parms </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'/_xml' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$rec</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$res </span><span style="color: #007700">= </span><span style="color: #0000BB">xslt_process</span><span style="color: #007700">(</span><span style="color: #0000BB">$processor</span><span style="color: #007700">, </span><span style="color: #DD0000">'arg:/_xml'</span><span style="color: #007700">, </span><span style="color: #0000BB">$xslfile</span><span style="color: #007700">, </span><span style="color: #0000BB">NULL</span><span style="color: #007700">, </span><span style="color: #0000BB">$parms</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">xslt_free</span><span style="color: #007700">(</span><span style="color: #0000BB">$processor</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$res </span><span style="color: #007700">= </span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">"'&lt;/?html[^&gt;]*&gt;'"</span><span style="color: #007700">, </span><span style="color: #DD0000">''</span><span style="color: #007700">, </span><span style="color: #0000BB">$res</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$res</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -98,7 +98,7 @@
 
       <p class="para">
        The returned image type of the returned thumbnail.  This is either
-       <acronym title="Tagged Image File Format">TIFF</acronym> or <acronym title="Joint Photographic Experts Group">JPEG</acronym>.
+       <abbr title="Tagged Image File Format">TIFF</abbr> or <abbr title="Joint Photographic Experts Group">JPEG</abbr>.
       </p>
      </dd>
 
@@ -150,11 +150,11 @@
  <div class="refsect1 examples" id="refsect1-function.exif-thumbnail-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2596">
+   <div class="example" id="example-2666">
     <p><strong>Example #1 <span class="function"><strong>exif_thumbnail()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$image&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">exif_thumbnail</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/image.jpg'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$width</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$height</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$type</span><span style="color: #007700">);<br /><br />if&nbsp;(</span><span style="color: #0000BB">$image</span><span style="color: #007700">!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-type:&nbsp;'&nbsp;</span><span style="color: #007700">.</span><span style="color: #0000BB">image_type_to_mime_type</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$image</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;no&nbsp;thumbnail&nbsp;available,&nbsp;handle&nbsp;the&nbsp;error&nbsp;here<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'No&nbsp;thumbnail&nbsp;available'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$image </span><span style="color: #007700">= </span><span style="color: #0000BB">exif_thumbnail</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/image.jpg'</span><span style="color: #007700">, </span><span style="color: #0000BB">$width</span><span style="color: #007700">, </span><span style="color: #0000BB">$height</span><span style="color: #007700">, </span><span style="color: #0000BB">$type</span><span style="color: #007700">);<br /><br />if (</span><span style="color: #0000BB">$image</span><span style="color: #007700">!==</span><span style="color: #0000BB">false</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-type: ' </span><span style="color: #007700">.</span><span style="color: #0000BB">image_type_to_mime_type</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">));<br />    echo </span><span style="color: #0000BB">$image</span><span style="color: #007700">;<br />    exit;<br />} else {<br />    </span><span style="color: #FF8000">// no thumbnail available, handle the error here<br />    </span><span style="color: #007700">echo </span><span style="color: #DD0000">'No thumbnail available'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

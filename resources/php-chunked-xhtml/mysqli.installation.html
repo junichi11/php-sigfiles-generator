@@ -133,82 +133,28 @@
   <h2 class="title">Installation on Windows Systems</h2>
 
   <p class="para">
-   On Windows, PHP is most commonly installed using the binary
-   installer. 
+   On Windows, <var class="filename">php_mysqli.dll</var> DLL must be enabled in
+   <var class="filename">php.ini</var>.
   </p>
 
-  <div class="section" id="mysqli.installation.windows.php53">
+  <p class="para">
+   As with enabling any PHP extension (such as
+   <var class="filename">php_mysqli.dll</var>), the PHP directive
+   <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a> should be set
+   to the directory where the PHP extensions are located. See also the
+   <a href="install.windows.manual.html" class="link">Manual Windows Installation
+   Instructions</a>. An example <code class="literal">extension_dir</code>
+   value is <var class="filename">c:\php\ext</var>.
+  </p>
 
-    <h2 class="title">PHP 5.3.0 and newer</h2>
-
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    On Windows, for PHP versions 5.3 and newer, the
-    <code class="literal">mysqli</code> extension is enabled and 
-    uses the MySQL Native Driver by default. This means you don&#039;t need to 
-    worry about configuring access
-    to <var class="filename">libmysql.dll</var>.
+    If when starting the web server an error similar to the following
+    occurs: <code class="literal">&quot;Unable to load dynamic library
+    &#039;./php_mysqli.dll&#039;&quot;</code>, this is because
+    <var class="filename">php_mysqli.dll</var> cannot be found by the system.
    </p>
-
-  </div>
-
-  <div class="section" id="mysqli.installation.windows.php52">
-
-   <h2 class="title">PHP 5.0, 5.1, 5.2</h2>
-
-   <p class="para">
-    On these old unsupported PHP versions (PHP 5.2 reached EOL on &#039;6 Jan 2011&#039;),
-    additional configuration procedures are
-    required to enable <code class="literal">mysqli</code> and specify the client
-    library you want it to use.
-   </p>
-
-   <p class="para">
-    The <code class="literal">mysqli</code> extension is not
-    enabled by default, so the <var class="filename">php_mysqli.dll</var> DLL
-    must be enabled inside of <var class="filename">php.ini</var>. In order to do this you need to
-    find the <var class="filename">php.ini</var> file (typically located in
-    <var class="filename">c:\php</var>), and make sure you remove the comment
-    (semi-colon) from the start of the line
-    <code class="literal">extension=php_mysqli.dll</code>, in the section marked
-    <code class="literal">[PHP_MYSQLI]</code>.
-   </p>
-
-   <p class="para">
-    Also, if you want to use the MySQL Client Library with
-    <code class="literal">mysqli</code>, you need to make sure PHP can access the
-    client library file. The MySQL Client Library is included as a file
-    named <var class="filename">libmysql.dll</var> in the Windows PHP
-    distribution. This file needs to be available in the Windows system&#039;s
-    <var class="envar">PATH</var> environment variable, so that it can be
-    successfully loaded. See the FAQ titled
-    &quot;<a href="faq.installation.html#faq.installation.addtopath" class="link">How do I add my PHP
-    directory to the PATH on Windows</a>&quot; for information on how to do
-    this. Copying <var class="filename">libmysql.dll</var> to the Windows system
-    directory (typically <var class="filename">c:\Windows\system</var>) also
-    works, as the system directory is by default in the system&#039;s
-    <var class="envar">PATH</var>. However, this practice is strongly discouraged.
-   </p>
-
-   <p class="para">
-    As with enabling any PHP extension (such as
-    <var class="filename">php_mysqli.dll</var>), the PHP directive
-    <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a> should be set
-    to the directory where the PHP extensions are located. See also the
-    <a href="install.windows.manual.html" class="link">Manual Windows Installation
-    Instructions</a>. An example <code class="literal">extension_dir</code>
-    value for PHP 5 is <var class="filename">c:\php\ext</var>.
-   </p>
-
-   <blockquote class="note"><p><strong class="note">Note</strong>: 
-    <p class="para">
-     If when starting the web server an error similar to the following
-     occurs: <code class="literal">&quot;Unable to load dynamic library
-     &#039;./php_mysqli.dll&#039;&quot;</code>, this is because
-     <var class="filename">php_mysqli.dll</var> and/or
-     <var class="filename">libmysql.dll</var> cannot be found by the system.
-    </p>
-   </p></blockquote>
-  </div>
+  </p></blockquote>
 
  </div>
 

@@ -76,11 +76,11 @@ currently not documented; only its argument list is available.
 
  <div class="refsect1 examples" id="refsect1-mysql-xdevapi-collectionmodify.unset-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1571">
+  <div class="example" id="example-1603">
    <p><strong>Example #1 <span class="function"><strong>mysql_xdevapi\CollectionModify::unset()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$coll</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modify</span><span style="color: #007700">(</span><span style="color: #DD0000">'job&nbsp;like&nbsp;:job_name'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">unset</span><span style="color: #007700">([</span><span style="color: #DD0000">"age"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"name"</span><span style="color: #007700">])-&gt;</span><span style="color: #0000BB">bind</span><span style="color: #007700">([</span><span style="color: #DD0000">'job_name'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Plumber'</span><span style="color: #007700">])-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$res </span><span style="color: #007700">= </span><span style="color: #0000BB">$coll</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modify</span><span style="color: #007700">(</span><span style="color: #DD0000">'job like :job_name'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">unset</span><span style="color: #007700">([</span><span style="color: #DD0000">"age"</span><span style="color: #007700">, </span><span style="color: #DD0000">"name"</span><span style="color: #007700">])-&gt;</span><span style="color: #0000BB">bind</span><span style="color: #007700">([</span><span style="color: #DD0000">'job_name' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Plumber'</span><span style="color: #007700">])-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

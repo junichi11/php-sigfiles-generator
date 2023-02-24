@@ -29,7 +29,7 @@
   PHP is bundled with macOS since macOS X (10.0.0) prior to macOS Monterey (12.0.0).
   Enabling PHP with the default web server requires uncommenting a few lines in the 
   Apache configuration file <var class="filename">httpd.conf</var> whereas the 
-  <acronym title="Common Gateway Interface">CGI</acronym> and/or <acronym title="Command Line Interpreter/Interface">CLI</acronym> are enabled by  
+  <abbr title="Common Gateway Interface">CGI</abbr> and/or <abbr title="Command Line Interpreter/Interface">CLI</abbr> are enabled by  
   default (easily accessible via the Terminal program).
  </p>
  <p class="simpara">
@@ -180,7 +180,7 @@
      Consider creating a file in the DocumentRoot with the following PHP code:
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php&nbsp;phpinfo</span><span style="color: #007700">();&nbsp;</span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php phpinfo</span><span style="color: #007700">(); </span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -195,7 +195,7 @@
      To restart, either execute <code class="literal">sudo apachectl graceful</code> in 
      the shell or stop/start the &quot;Personal Web Server&quot; option in the
      macOS System Preferences. By default, loading local files in the browser 
-     will have an <acronym title="Uniform Resource Locator">URL</acronym> like so: 
+     will have an <abbr title="Uniform Resource Locator">URL</abbr> like so: 
      <var class="filename">http://localhost/info.php</var> Or using the DocumentRoot 
      in the user directory is another option and would end up looking like: 
      <var class="filename">http://localhost/~yourusername/info.php</var>
@@ -204,7 +204,7 @@
   </ol>
  </p>
  <p class="simpara">
-  The <acronym title="Command Line Interpreter/Interface">CLI</acronym> (or <acronym title="Common Gateway Interface">CGI</acronym> in older versions) is 
+  The <abbr title="Command Line Interpreter/Interface">CLI</abbr> (or <abbr title="Common Gateway Interface">CGI</abbr> in older versions) is 
   appropriately named <var class="filename">php</var> and likely exists as  
   <var class="filename">/usr/bin/php</var>. Open up the terminal, read the
   <a href="features.commandline.html" class="link">command line section</a> of the PHP 

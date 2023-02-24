@@ -111,7 +111,7 @@ namespace {
 	 * @param int $length <p>Desired output length in bytes. Cannot be greater than 255 times the chosen hash function size.</p> <p>If <code>length</code> is <code>0</code>, the output length will default to the chosen hash function size.</p>
 	 * @param string $info <p>Application/context-specific info string.</p>
 	 * @param string $salt <p>Salt to use during derivation.</p> <p>While optional, adding random salt significantly improves the strength of HKDF.</p>
-	 * @return string <p>Returns a string containing a raw binary representation of the derived key (also known as output keying material - OKM); or <b><code>false</code></b> on failure.</p>
+	 * @return string <p>Returns a string containing a raw binary representation of the derived key (also known as output keying material - OKM).</p>
 	 * @link https://php.net/manual/en/function.hash-hkdf.php
 	 * @see hash_pbkdf2()
 	 * @since PHP 7 >= 7.1.2, PHP 8
@@ -146,7 +146,7 @@ namespace {
 	 * @param string $filename <p>URL describing location of file to be hashed; Supports fopen wrappers.</p>
 	 * @param string $key <p>Shared secret key used for generating the HMAC variant of the message digest.</p>
 	 * @param bool $binary <p>When set to <b><code>true</code></b>, outputs raw binary data. <b><code>false</code></b> outputs lowercase hexits.</p>
-	 * @return string|false <p>Returns a string containing the calculated message digest as lowercase hexits unless <code>binary</code> is set to true in which case the raw binary representation of the message digest is returned. Returns <b><code>false</code></b> when <code>algo</code> is unknown or is a non-cryptographic hash function, or if the file <code>filename</code> cannot be read.</p>
+	 * @return string|false <p>Returns a string containing the calculated message digest as lowercase hexits unless <code>binary</code> is set to true in which case the raw binary representation of the message digest is returned. Returns <b><code>false</code></b> if the file <code>filename</code> cannot be read.</p>
 	 * @link https://php.net/manual/en/function.hash-hmac-file.php
 	 * @see hash_hmac_algos(), hash_hmac(), hash_file()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PHP 8, PECL hash >= 1.1

@@ -147,11 +147,11 @@
  <div class="refsect1 examples" id="refsect1-function.strtr-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4875">
+   <div class="example" id="example-4965">
     <p><strong>Example #1 <span class="function"><strong>strtr()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//In&nbsp;this&nbsp;form,&nbsp;strtr()&nbsp;does&nbsp;byte-by-byte&nbsp;translation<br />//Therefore,&nbsp;we&nbsp;are&nbsp;assuming&nbsp;a&nbsp;single-byte&nbsp;encoding&nbsp;here:<br /></span><span style="color: #0000BB">$addr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #0000BB">$addr</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"äåö"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"aao"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//In this form, strtr() does byte-by-byte translation<br />//Therefore, we are assuming a single-byte encoding here:<br /></span><span style="color: #0000BB">$addr </span><span style="color: #007700">= </span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #0000BB">$addr</span><span style="color: #007700">, </span><span style="color: #DD0000">"äåö"</span><span style="color: #007700">, </span><span style="color: #DD0000">"aao"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -164,11 +164,11 @@
    (<code class="literal">&quot;h&quot;</code> is not picked because there are longer matches)
    and how replaced text was not searched again.
   </p>
-  <div class="example" id="example-4876">
+  <div class="example" id="example-4966">
    <p><strong>Example #2 <span class="function"><strong>strtr()</strong></span> example with two arguments</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$trans&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"h"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"-"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"hello"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"hi"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"hi"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"hello"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #DD0000">"hi&nbsp;all,&nbsp;I&nbsp;said&nbsp;hello"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$trans</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$trans </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"h" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"-"</span><span style="color: #007700">, </span><span style="color: #DD0000">"hello" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"hi"</span><span style="color: #007700">, </span><span style="color: #DD0000">"hi" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"hello"</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #DD0000">"hi all, I said hello"</span><span style="color: #007700">, </span><span style="color: #0000BB">$trans</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -185,11 +185,11 @@ hello all, I said hi
    <span class="function"><strong>strtr()</strong></span> will replace bytes; with two, it may replace
    longer substrings.
   </p>
-  <div class="example" id="example-4877">
+  <div class="example" id="example-4967">
    <p><strong>Example #3 <span class="function"><strong>strtr()</strong></span> behavior comparison</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #DD0000">"baab"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"ab"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"01"</span><span style="color: #007700">),</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$trans&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"ab"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"01"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #DD0000">"baab"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$trans</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #DD0000">"baab"</span><span style="color: #007700">, </span><span style="color: #DD0000">"ab"</span><span style="color: #007700">, </span><span style="color: #DD0000">"01"</span><span style="color: #007700">),</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$trans </span><span style="color: #007700">= array(</span><span style="color: #DD0000">"ab" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"01"</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #DD0000">"baab"</span><span style="color: #007700">, </span><span style="color: #0000BB">$trans</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

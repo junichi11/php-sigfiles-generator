@@ -54,7 +54,7 @@
    appropriate strategy that will work with both PHP versions and T_* values.
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Prior&nbsp;to&nbsp;PHP&nbsp;7.4.0,&nbsp;T_FN&nbsp;is&nbsp;not&nbsp;defined.<br /></span><span style="color: #0000BB">defined</span><span style="color: #007700">(</span><span style="color: #DD0000">'T_FN'</span><span style="color: #007700">)&nbsp;||&nbsp;</span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'T_FN'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10001</span><span style="color: #007700">);</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Prior to PHP 7.4.0, T_FN is not defined.<br /></span><span style="color: #0000BB">defined</span><span style="color: #007700">(</span><span style="color: #DD0000">'T_FN'</span><span style="color: #007700">) || </span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'T_FN'</span><span style="color: #007700">, </span><span style="color: #0000BB">10001</span><span style="color: #007700">);</span>
 </span>
 </code></div>
    </div>
@@ -79,6 +79,18 @@
      <td><strong><code>T_ABSTRACT</code></strong></td>
      <td>abstract</td>
      <td><a href="language.oop5.abstract.html" class="xref">Class Abstraction</a></td>
+    </tr>
+
+    <tr>
+     <td><strong><code>T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG</code></strong></td>
+     <td>&amp;</td>
+     <td><a href="language.types.declarations.html" class="xref">Type declarations</a> (available as of PHP 8.1.0)</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG</code></strong></td>
+     <td>&amp;</td>
+     <td><a href="language.types.declarations.html" class="xref">Type declarations</a> (available as of PHP 8.1.0)</td>
     </tr>
 
     <tr>
@@ -400,6 +412,12 @@
     </tr>
 
     <tr>
+     <td><strong><code>T_ENUM</code></strong></td>
+     <td>enum</td>
+     <td><a href="language.types.enumerations.html" class="link">Enumerations</a> (available as of PHP 8.1.0)</td>
+    </tr>
+
+    <tr>
      <td><strong><code>T_END_HEREDOC</code></strong></td>
      <td class="empty">&nbsp;</td>
      <td><a href="language.types.string.html#language.types.string.syntax.heredoc" class="link">heredoc
@@ -690,6 +708,22 @@
     </tr>
 
     <tr>
+     <td><strong><code>T_NAME_QUALIFIED</code></strong></td>
+     <td>App\Namespace</td>
+     <td>
+      <a href="language.namespaces.html" class="link">namespaces</a> (available as of PHP 8.0.0)
+     </td>
+    </tr>
+
+    <tr>
+     <td><strong><code>T_NAME_RELATIVE</code></strong></td>
+     <td>namespace\Namespace</td>
+     <td>
+      <a href="language.namespaces.html" class="link">namespaces</a> (available as of PHP 8.0.0)
+     </td>
+    </tr>
+
+    <tr>
      <td><strong><code>T_NEW</code></strong></td>
      <td>new</td>
      <td><a href="language.oop5.html" class="link">classes and objects</a></td>
@@ -814,6 +848,14 @@
      <td>public</td>
      <td>
       <a href="language.oop5.html" class="link">classes and objects</a>
+     </td>
+    </tr>
+
+    <tr>
+     <td><strong><code>T_READONLY</code></strong></td>
+     <td>readonly</td>
+     <td>
+      <a href="language.oop5.html" class="link">classes and objects</a> (available as of PHP 8.1.0)
      </td>
     </tr>
 

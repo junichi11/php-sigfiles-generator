@@ -13,15 +13,6 @@ namespace {
 	final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
 
 		/**
-		 * Constructs a new map
-		 * <p>Constructs a new map.</p>
-		 * @return self <p>No value is returned.</p>
-		 * @link https://php.net/manual/en/ext-weakmap.construct.php
-		 * @since PHP 8
-		 */
-		public function __construct() {}
-
-		/**
 		 * Counts the number of live entries in the map
 		 * <p>Counts the number of live entries in the map.</p>
 		 * @return int <p>Returns the number of live entries in the map.</p>

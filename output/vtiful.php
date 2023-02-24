@@ -15,7 +15,7 @@ namespace Vtiful\Kernel {
 		 * Vtiful\Kernel\Excel constructor
 		 * <p><code>Vtiful\Kernel\Excel</code> constructor, create a class object.</p>
 		 * @param array $config <p>XLSX file export configuration</p>
-		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
+		 * @return self
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.construct.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
@@ -121,13 +121,13 @@ namespace Vtiful\Kernel {
 		 * <p>Write text in a cell.</p>
 		 * @param int $row <p>cell row</p>
 		 * @param int $column <p>cell column</p>
-		 * @param string $data <p>data to be written</p>
+		 * @param int|float|string $data <p>data to be written</p>
 		 * @param string $format <p>String format</p>
 		 * @return self <p><code>Vtiful\Kernel\Excel</code> instance</p>
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.insertText.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
-		public function insertText(int $row, int $column, string $data, string $format = null) {}
+		public function insertText(int $row, int $column, int|float|string $data, string $format = null) {}
 
 		/**
 		 * Vtiful\Kernel\Excel mergeCells

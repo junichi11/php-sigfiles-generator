@@ -25,7 +25,7 @@ namespace {
 	 * <p>Incrementally deflates data in the specified context.</p>
 	 * @param \DeflateContext $context <p>A context created with <code>deflate_init()</code>.</p>
 	 * @param string $data <p>A chunk of data to compress.</p>
-	 * @param int $flush_mode <p>One of <b><code>ZLIB_BLOCK</code></b>, <b><code>ZLIB_NO_FLUSH</code></b>, <b><code>ZLIB_PARTIAL_FLUSH</code></b>, <b><code>ZLIB_SYNC_FLUSH</code></b> (default), <b><code>ZLIB_FULL_FLUSH</code></b>, <b><code>ZLIB_FINISH</code></b>. Normally you will want to set <b><code>ZLIB_NO_FLUSH</code></b> to maximize compression, and <b><code>ZLIB_FINISH</code></b> to terminate with the last chunk of data. See the zlib manual for a detailed description of these constants.</p>
+	 * @param int $flush_mode <p>One of <b><code>ZLIB_BLOCK</code></b>, <b><code>ZLIB_NO_FLUSH</code></b>, <b><code>ZLIB_PARTIAL_FLUSH</code></b>, <b><code>ZLIB_SYNC_FLUSH</code></b> (default), <b><code>ZLIB_FULL_FLUSH</code></b>, <b><code>ZLIB_FINISH</code></b>. Normally you will want to set <b><code>ZLIB_NO_FLUSH</code></b> to maximize compression, and <b><code>ZLIB_FINISH</code></b> to terminate with the last chunk of data. See the &#xBB;&#xA0;zlib manual for a detailed description of these constants.</p>
 	 * @return string|false <p>Returns a chunk of compressed data, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.deflate-add.php
 	 * @see deflate_init()
@@ -58,7 +58,7 @@ namespace {
 
 	/**
 	 * Compress a string
-	 * <p>This function compresses the given string using the <code>ZLIB</code> data format.</p><p>For details on the ZLIB compression algorithm see the document "ZLIB Compressed Data Format Specification version 3.3" (RFC 1950).</p><p><b>Note</b>:</p><p>This is <i>not</i> the same as gzip compression, which includes some header data. See <code>gzencode()</code> for gzip compression.</p>
+	 * <p>This function compresses the given string using the <code>ZLIB</code> data format.</p><p>For details on the ZLIB compression algorithm see the document "&#xBB;&#xA0;ZLIB Compressed Data Format Specification version 3.3" (RFC 1950).</p><p><b>Note</b>:</p><p>This is <i>not</i> the same as gzip compression, which includes some header data. See <code>gzencode()</code> for gzip compression.</p>
 	 * @param string $data <p>The data to compress.</p>
 	 * @param int $level <p>The level of compression. Can be given as 0 for no compression up to 9 for maximum compression.</p> <p>If -1 is used, the default compression of the zlib library is used which is 6.</p>
 	 * @param int $encoding <p>One of <b><code>ZLIB_ENCODING_&#42;</code></b> constants.</p>
@@ -74,7 +74,7 @@ namespace {
 	 * <p>This function returns a decoded version of the input <code>data</code>.</p>
 	 * @param string $data <p>The data to decode, encoded by <code>gzencode()</code>.</p>
 	 * @param int $max_length <p>The maximum length of data to decode.</p>
-	 * @return string|false <p>The decoded string, or <b><code>false</code></b> if an error occurred.</p>
+	 * @return string|false <p>The decoded string, or or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.gzdecode.php
 	 * @see gzencode()
 	 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
@@ -83,7 +83,7 @@ namespace {
 
 	/**
 	 * Deflate a string
-	 * <p>This function compresses the given string using the <code>DEFLATE</code> data format.</p><p>For details on the DEFLATE compression algorithm see the document "DEFLATE Compressed Data Format Specification version 1.3" (RFC 1951).</p>
+	 * <p>This function compresses the given string using the <code>DEFLATE</code> data format.</p><p>For details on the DEFLATE compression algorithm see the document "&#xBB;&#xA0;DEFLATE Compressed Data Format Specification version 1.3" (RFC 1951).</p>
 	 * @param string $data <p>The data to deflate.</p>
 	 * @param int $level <p>The level of compression. Can be given as 0 for no compression up to 9 for maximum compression. If not given, the default compression level will be the default compression level of the zlib library.</p>
 	 * @param int $encoding <p>One of <b><code>ZLIB_ENCODING_&#42;</code></b> constants.</p>
@@ -96,7 +96,7 @@ namespace {
 
 	/**
 	 * Create a gzip compressed string
-	 * <p>This function returns a compressed version of the input <code>data</code> compatible with the output of the <b>gzip</b> program.</p><p>For more information on the GZIP file format, see the document: GZIP file format specification version 4.3 (RFC 1952).</p>
+	 * <p>This function returns a compressed version of the input <code>data</code> compatible with the output of the <b>gzip</b> program.</p><p>For more information on the GZIP file format, see the document: &#xBB;&#xA0;GZIP file format specification version 4.3 (RFC 1952).</p>
 	 * @param string $data <p>The data to encode.</p>
 	 * @param int $level <p>The level of compression. Can be given as 0 for no compression up to 9 for maximum compression. If not given, the default compression level will be the default compression level of the zlib library.</p>
 	 * @param int $encoding <p>The encoding mode. Can be <b><code>FORCE_GZIP</code></b> (the default) or <b><code>FORCE_DEFLATE</code></b>.</p> <p><b><code>FORCE_DEFLATE</code></b> generates RFC 1950 compliant output, consisting of a zlib header, the deflated data, and an Adler checksum.</p>
@@ -194,7 +194,7 @@ namespace {
 	 * Output all remaining data on a gz-file pointer
 	 * <p>Reads to EOF on the given gz-file pointer from the current position and writes the (uncompressed) results to standard output.</p><p><b>Note</b>:</p><p>You may need to call <code>gzrewind()</code> to reset the file pointer to the beginning of the file if you have already written data to it.</p><p>If you just want to dump the contents of a file to the output buffer, without first modifying it or seeking to a particular offset, you may want to use the <code>readgzfile()</code> function, which saves you the <code>gzopen()</code> call.</p>
 	 * @param resource $stream <p>The gz-file pointer. It must be valid, and must point to a file successfully opened by <code>gzopen()</code>.</p>
-	 * @return int <p>The number of uncompressed characters read from <code>gz</code> and passed through to the input, or <b><code>false</code></b> on error.</p>
+	 * @return int <p>The number of uncompressed characters read from <code>gz</code> and passed through to the input.</p>
 	 * @link https://php.net/manual/en/function.gzpassthru.php
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
@@ -289,7 +289,7 @@ namespace {
 	 * <p>Incrementally inflates encoded data in the specified <code>context</code>.</p><p>Limitation: header information from GZIP compressed data are not made available.</p>
 	 * @param \InflateContext $context <p>A context created with <code>inflate_init()</code>.</p>
 	 * @param string $data <p>A chunk of compressed data.</p>
-	 * @param int $flush_mode <p>One of <b><code>ZLIB_BLOCK</code></b>, <b><code>ZLIB_NO_FLUSH</code></b>, <b><code>ZLIB_PARTIAL_FLUSH</code></b>, <b><code>ZLIB_SYNC_FLUSH</code></b> (default), <b><code>ZLIB_FULL_FLUSH</code></b>, <b><code>ZLIB_FINISH</code></b>. Normally you will want to set <b><code>ZLIB_NO_FLUSH</code></b> to maximize compression, and <b><code>ZLIB_FINISH</code></b> to terminate with the last chunk of data. See the zlib manual for a detailed description of these constants.</p>
+	 * @param int $flush_mode <p>One of <b><code>ZLIB_BLOCK</code></b>, <b><code>ZLIB_NO_FLUSH</code></b>, <b><code>ZLIB_PARTIAL_FLUSH</code></b>, <b><code>ZLIB_SYNC_FLUSH</code></b> (default), <b><code>ZLIB_FULL_FLUSH</code></b>, <b><code>ZLIB_FINISH</code></b>. Normally you will want to set <b><code>ZLIB_NO_FLUSH</code></b> to maximize compression, and <b><code>ZLIB_FINISH</code></b> to terminate with the last chunk of data. See the &#xBB;&#xA0;zlib manual for a detailed description of these constants.</p>
 	 * @return string|false <p>Returns a chunk of uncompressed data, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.inflate-add.php
 	 * @see inflate_init()

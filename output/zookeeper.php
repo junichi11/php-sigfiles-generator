@@ -347,7 +347,7 @@ namespace {
 		 * @param string $host <p>comma separated host:port pairs, each corresponding to a zk server. e.g. "127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002"</p>
 		 * @param callable $watcher_cb <p>the global watcher callback function. When notifications are triggered this function will be invoked.</p>
 		 * @param int $recv_timeout <p>the timeout for this session, only valid if the connections is currently connected (ie. last watcher state is ZOO_CONNECTED_STATE).</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/zookeeper.construct.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
@@ -1522,7 +1522,7 @@ namespace {
 
 	/**
 	 * Calls callbacks for pending operations
-	 * <p>The <b>zookeeper_dispatch()</b> function calls the callbacks passwd by operations like <code>Zookeeper::get()</code> or <code>Zookeeper::exists()</code>.</p><p>Since version 0.4.0, this function must be called manually to achieve asynchronous operations. If you want that to be done automatically, you also can declare ticks at the beginning of your program.</p><p>After PHP 7.1, you can ignore this function. This extension uses EG(vm_interrupt) to implement async dispatch.</p>
+	 * <p>The <b>zookeeper_dispatch()</b> function calls the callbacks passed by operations like <code>Zookeeper::get()</code> or <code>Zookeeper::exists()</code>.</p><p>Since version 0.4.0, this function must be called manually to achieve asynchronous operations. If you want that to be done automatically, you also can declare ticks at the beginning of your program.</p><p>After PHP 7.1, you can ignore this function. This extension uses EG(vm_interrupt) to implement async dispatch.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.zookeeper-dispatch.php
 	 * @since PECL zookeeper >= 0.4.0

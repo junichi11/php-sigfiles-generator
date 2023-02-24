@@ -9,36 +9,14 @@ namespace {
 	 * @link https://php.net/manual/en/class.xmlparser.php
 	 * @since PHP 8
 	 */
-	final class XmlParser {
+	final class XMLParser {
 	}
-
-	/**
-	 * Converts a string with ISO-8859-1 characters encoded with UTF-8 to single-byte ISO-8859-1
-	 * <p>This function converts the string <code>string</code> from the <code>UTF-8</code> encoding to <code>ISO-8859-1</code>. Bytes in the string which are not valid <code>UTF-8</code>, and <code>UTF-8</code> characters which do not exist in <code>ISO-8859-1</code> (that is, characters above <code>U+00FF</code>) are replaced with <code>&#63;</code>.</p><p><b>Note</b>:</p><p>Many web pages marked as using the <code>ISO-8859-1</code> character encoding actually use the similar <code>Windows-1252</code> encoding, and web browsers will interpret <code>ISO-8859-1</code> web pages as <code>Windows-1252</code>. <code>Windows-1252</code> features additional printable characters, such as the Euro sign (<code>&euro;</code>) and curly quotes (<code>&ldquo;</code> <code>&rdquo;</code>), instead of certain <code>ISO-8859-1</code> control characters. This function will not convert such <code>Windows-1252</code> characters correctly. Use a different function if <code>Windows-1252</code> conversion is required.</p>
-	 * @param string $string <p>A UTF-8 encoded string.</p>
-	 * @return string <p>Returns the ISO-8859-1 translation of <code>string</code>.</p>
-	 * @link https://php.net/manual/en/function.utf8-decode.php
-	 * @see utf8_encode(), mb_convert_encoding(), iconv(), recode_string()
-	 * @since PHP 4, PHP 5, PHP 7, PHP 8
-	 */
-	function utf8_decode(string $string): string {}
-
-	/**
-	 * Encodes an ISO-8859-1 string to UTF-8
-	 * <p>This function converts the string <code>string</code> from the <code>ISO-8859-1</code> encoding to <code>UTF-8</code>.</p><p><b>Note</b>:</p><p>Many web pages marked as using the <code>ISO-8859-1</code> character encoding actually use the similar <code>Windows-1252</code> encoding, and web browsers will interpret <code>ISO-8859-1</code> web pages as <code>Windows-1252</code>. <code>Windows-1252</code> features additional printable characters, such as the Euro sign (<code>&euro;</code>) and curly quotes (<code>&ldquo;</code> <code>&rdquo;</code>), instead of certain <code>ISO-8859-1</code> control characters. This function will not convert such <code>Windows-1252</code> characters correctly. Use a different function if <code>Windows-1252</code> conversion is required.</p>
-	 * @param string $string <p>An ISO-8859-1 string.</p>
-	 * @return string <p>Returns the UTF-8 translation of <code>string</code>.</p>
-	 * @link https://php.net/manual/en/function.utf8-encode.php
-	 * @see utf8_decode(), mb_convert_encoding(), iconv(), recode_string()
-	 * @since PHP 4, PHP 5, PHP 7, PHP 8
-	 */
-	function utf8_encode(string $string): string {}
 
 	/**
 	 * Get XML parser error string
 	 * <p>Gets the XML parser error string associated with the given <code>error_code</code>.</p>
 	 * @param int $error_code <p>An error code from <code>xml_get_error_code()</code>.</p>
-	 * @return ?string <p>Returns a string with a textual description of the error <code>error_code</code>, or <b><code>false</code></b> if no description was found.</p>
+	 * @return ?string <p>Returns a string with a textual description of the error <code>error_code</code>, or <b><code>null</code></b> if no description was found.</p>
 	 * @link https://php.net/manual/en/function.xml-error-string.php
 	 * @see xml_get_error_code()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -49,7 +27,7 @@ namespace {
 	 * Get current byte index for an XML parser
 	 * <p>Gets the current byte index of the given XML parser.</p>
 	 * @param \XMLParser $parser <p>A reference to the XML parser to get byte index from.</p>
-	 * @return int <p>This function returns <b><code>false</code></b> if <code>parser</code> does not refer to a valid parser, or else it returns which byte index the parser is currently at in its data buffer (starting at 0).</p>
+	 * @return int <p>Returns which byte index the parser is currently at in its data buffer (starting at 0).</p>
 	 * @link https://php.net/manual/en/function.xml-get-current-byte-index.php
 	 * @see xml_get_current_column_number(), xml_get_current_line_number()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -60,7 +38,7 @@ namespace {
 	 * Get current column number for an XML parser
 	 * <p>Gets the current column number of the given XML parser.</p>
 	 * @param \XMLParser $parser <p>A reference to the XML parser to get column number from.</p>
-	 * @return int <p>This function returns <b><code>false</code></b> if <code>parser</code> does not refer to a valid parser, or else it returns which column on the current line (as given by <code>xml_get_current_line_number()</code>) the parser is currently at.</p>
+	 * @return int <p>Returns which column on the current line (as given by <code>xml_get_current_line_number()</code>) the parser is currently at.</p>
 	 * @link https://php.net/manual/en/function.xml-get-current-column-number.php
 	 * @see xml_get_current_byte_index(), xml_get_current_line_number()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -71,7 +49,7 @@ namespace {
 	 * Get current line number for an XML parser
 	 * <p>Gets the current line number for the given XML parser.</p>
 	 * @param \XMLParser $parser <p>A reference to the XML parser to get line number from.</p>
-	 * @return int <p>This function returns <b><code>false</code></b> if <code>parser</code> does not refer to a valid parser, or else it returns which line the parser is currently at in its data buffer.</p>
+	 * @return int <p>Returns which line the parser is currently at in its data buffer.</p>
 	 * @link https://php.net/manual/en/function.xml-get-current-line-number.php
 	 * @see xml_get_current_column_number(), xml_get_current_byte_index()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -82,7 +60,7 @@ namespace {
 	 * Get XML parser error code
 	 * <p>Gets the XML parser error code.</p>
 	 * @param \XMLParser $parser <p>A reference to the XML parser to get error code from.</p>
-	 * @return int <p>This function returns <b><code>false</code></b> if <code>parser</code> does not refer to a valid parser, or else it returns one of the error codes listed in the error codes section.</p>
+	 * @return int <p>Returns one of the error codes listed in the error codes section.</p>
 	 * @link https://php.net/manual/en/function.xml-get-error-code.php
 	 * @see xml_error_string()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -220,7 +198,7 @@ namespace {
 	 * Set up external entity reference handler
 	 * <p>Sets the external entity reference handler function for the XML parser <code>parser</code>.</p>
 	 * @param \XMLParser $parser <p>A reference to the XML parser to set up external entity reference handler function.</p>
-	 * @param callable $handler <p><code>handler</code> is a string containing the name of a function that must exist when <code>xml_parse()</code> is called for <code>parser</code>.</p> <p>The function named by <code>handler</code> must accept five parameters, and should return an integer value.If the value returned from the handler is <b><code>false</code></b> (which it will be if no value is returned), the XML parser will stop parsing and <code>xml_get_error_code()</code> will return <b><code>XML_ERROR_EXTERNAL_ENTITY_HANDLING</code></b>.</p> handler(<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>XMLParser</code> <code>$parser</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$open_entity_names</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$base</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$system_id</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$public_id</code><br>)   <code>parser</code>   The first parameter, parser, is a reference to the XML parser calling the handler.    <code>open_entity_names</code>   The second parameter, <code>open_entity_names</code>, is a space-separated list of the names of the entities that are open for the parse of this entity (including the name of the referenced entity).    <code>base</code>   This is the base for resolving the system identifier (<code>system_id</code>) of the external entity.Currently this parameter will always be set to an empty string.    <code>system_id</code>   The fourth parameter, <code>system_id</code>, is the system identifier as specified in the entity declaration.    <code>public_id</code>   The fifth parameter, <code>public_id</code>, is the public identifier as specified in the entity declaration, or an empty string if none was specified; the whitespace in the public identifier will have been normalized as required by the XML spec.    <p>If a handler function is set to an empty string, or <b><code>false</code></b>, the handler in question is disabled.</p> <p><b>Note</b>: Instead of a function name, an array containing an object reference and a method name can also be supplied.</p>
+	 * @param callable $handler <p><code>handler</code> is a string containing the name of a function that must exist when <code>xml_parse()</code> is called for <code>parser</code>.</p> <p>The function named by <code>handler</code> must accept five parameters, and should return an integer value.If the value returned from the handler is <b><code>false</code></b> (which it will be if no value is returned), the XML parser will stop parsing and <code>xml_get_error_code()</code> will return <b><code>XML_ERROR_EXTERNAL_ENTITY_HANDLING</code></b>.</p> handler(<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>XMLParser</code> <code>$parser</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$open_entity_names</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$base</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$system_id</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$public_id</code><br>)   <code>parser</code>   The first parameter, parser, is a reference to the XML parser calling the handler.    <code>open_entity_names</code>   The second parameter, <code>open_entity_names</code>, is a space-separated list of the names of the entities that are open for the parse of this entity (including the name of the referenced entity).    <code>base</code>   This is the base for resolving the system identifier (<code>system_id</code>) of the external entity.Currently this parameter will always be set to an empty string.    <code>system_id</code>   The fourth parameter, <code>system_id</code>, is the system identifier as specified in the entity declaration.    <code>public_id</code>   The fifth parameter, <code>public_id</code>, is the public identifier as specified in the entity declaration, or an empty string if none was specified; the whitespace in the public identifier will have been normalized as required by the XML spec.    <p>If a handler function is set to an empty string, or <b><code>false</code></b>, the handler in question is disabled.</p> <p><b>Note</b>: Instead of a function name, an array containing an object reference and a method name can also be supplied.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.xml-set-external-entity-ref-handler.php
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -231,7 +209,7 @@ namespace {
 	 * Set up notation declaration handler
 	 * <p>Sets the notation declaration handler function for the XML parser <code>parser</code>.</p><p>A notation declaration is part of the document's DTD and has the following format:</p>
 	 * @param \XMLParser $parser <p>A reference to the XML parser to set up notation declaration handler function.</p>
-	 * @param callable $handler <p><code>handler</code> is a string containing the name of a function that must exist when <code>xml_parse()</code> is called for <code>parser</code>.</p> <p>The function named by <code>handler</code> must accept five parameters:</p> handler(<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>XMLParser</code> <code>$parser</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$notation_name</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$base</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$system_id</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$public_id</code><br>)   <code>parser</code>    The first parameter, parser, is a reference to the XML parser calling the handler.    <code>notation_name</code>   This is the notation's <code>name</code>, as per the notation format described above.    <code>base</code>    This is the base for resolving the system identifier (<code>system_id</code>) of the notation declaration. Currently this parameter will always be set to an empty string.    <code>system_id</code>   System identifier of the external notation declaration.    <code>public_id</code>    Public identifier of the external notation declaration.    <p>If a handler function is set to an empty string, or <b><code>false</code></b>, the handler in question is disabled.</p> <p><b>Note</b>: Instead of a function name, an array containing an object reference and a method name can also be supplied.</p>
+	 * @param callable $handler <p><code>handler</code> is a string containing the name of a function that must exist when <code>xml_parse()</code> is called for <code>parser</code>.</p> <p>The function named by <code>handler</code> must accept five parameters:</p> handler(<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>XMLParser</code> <code>$parser</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$notation_name</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$base</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$system_id</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$public_id</code><br>)   <code>parser</code>    The first parameter, parser, is a reference to the XML parser calling the handler.    <code>notation_name</code>   This is the notation's <code>name</code>, as per the notation format described above.    <code>base</code>    This is the base for resolving the system identifier (<code>system_id</code>) of the notation declaration. Currently this parameter will always be set to an empty string.    <code>system_id</code>   System identifier of the external notation declaration.    <code>public_id</code>    Public identifier of the external notation declaration.    <p>If a handler function is set to an empty string, or <b><code>false</code></b>, the handler in question is disabled.</p> <p><b>Note</b>: Instead of a function name, an array containing an object reference and a method name can also be supplied.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.xml-set-notation-decl-handler.php
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -274,9 +252,9 @@ namespace {
 
 	/**
 	 * Set up unparsed entity declaration handler
-	 * <p>Sets the unparsed entity declaration handler function for the XML parser <code>parser</code>.</p><p>The <code>handler</code> will be called if the XML parser encounters an external entity declaration with an NDATA declaration, like the following:</p><p>See section 4.2.2 of the XML 1.0 spec for the definition of notation declared external entities.</p>
+	 * <p>Sets the unparsed entity declaration handler function for the XML parser <code>parser</code>.</p><p>The <code>handler</code> will be called if the XML parser encounters an external entity declaration with an NDATA declaration, like the following:</p><p>See &#xBB;&#xA0;section 4.2.2 of the XML 1.0 spec for the definition of notation declared external entities.</p>
 	 * @param \XMLParser $parser <p>A reference to the XML parser to set up unparsed entity declaration handler function.</p>
-	 * @param callable $handler <p><code>handler</code> is a string containing the name of a function that must exist when <code>xml_parse()</code> is called for <code>parser</code>.</p> <p>The function named by <code>handler</code> must accept six parameters:</p> handler(<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>XMLParser</code> <code>$parser</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$entity_name</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$base</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$system_id</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$public_id</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$notation_name</code><br>)   <code>parser</code>   The first parameter, parser, is a reference to the XML parser calling the handler.    <code>entity_name</code>   The name of the entity that is about to be defined.    <code>base</code>   This is the base for resolving the system identifier (<code>systemId</code>) of the external entity.Currently this parameter will always be set to an empty string.    <code>system_id</code>   System identifier for the external entity.    <code>public_id</code>   Public identifier for the external entity.    <code>notation_name</code>   Name of the notation of this entity (see <code>xml_set_notation_decl_handler()</code>).    <p>If a handler function is set to an empty string, or <b><code>false</code></b>, the handler in question is disabled.</p> <p><b>Note</b>: Instead of a function name, an array containing an object reference and a method name can also be supplied.</p>
+	 * @param callable $handler <p><code>handler</code> is a string containing the name of a function that must exist when <code>xml_parse()</code> is called for <code>parser</code>.</p> <p>The function named by <code>handler</code> must accept six parameters:</p> handler(<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>XMLParser</code> <code>$parser</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$entity_name</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$base</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$system_id</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$public_id</code>,<br>&#xA0;&#xA0;&#xA0;&#xA0;<code>string</code> <code>$notation_name</code><br>)   <code>parser</code>   The first parameter, parser, is a reference to the XML parser calling the handler.    <code>entity_name</code>   The name of the entity that is about to be defined.    <code>base</code>   This is the base for resolving the system identifier (<code>systemId</code>) of the external entity.Currently this parameter will always be set to an empty string.    <code>system_id</code>   System identifier for the external entity.    <code>public_id</code>   Public identifier for the external entity.    <code>notation_name</code>   Name of the notation of this entity (see <code>xml_set_notation_decl_handler()</code>).    <p>If a handler function is set to an empty string, or <b><code>false</code></b>, the handler in question is disabled.</p> <p><b>Note</b>: Instead of a function name, an array containing an object reference and a method name can also be supplied.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.xml-set-unparsed-entity-decl-handler.php
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8

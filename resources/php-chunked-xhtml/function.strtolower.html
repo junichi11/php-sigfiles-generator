@@ -36,13 +36,18 @@
    <span class="methodname"><strong>strtolower</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
-   Returns <code class="parameter">string</code> with all alphabetic characters
+   Returns <code class="parameter">string</code> with all ASCII alphabetic characters
    converted to lowercase.
   </p>
   <p class="para">
-   Note that &#039;alphabetic&#039; is determined by the current locale. This means
-   that e.g. in the default &quot;C&quot; locale, characters such as umlaut-A
-   (Ä) will not be converted.
+   Bytes in the range <code class="literal">&quot;A&quot;</code> (0x41) to <code class="literal">&quot;Z&quot;</code>
+   (0x5a) will be converted to the corresponding lowercase letter by adding 32
+   to each byte value.
+  </p>
+  <p class="para">
+   This can be used to convert ASCII characters within strings encoded with
+   UTF-8, since multibyte UTF-8 characters will be ignored. To convert multibyte
+   non-ASCII characters, use <span class="function"><a href="function.mb-strtolower.html" class="function">mb_strtolower()</a></span>.
   </p>
  </div>
 
@@ -77,14 +82,44 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.strtolower-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     
+ <tr>
+  <td>8.2.0</td>
+  <td>
+   Case conversion no longer depends on the locale set with
+   <span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span>. Only ASCII characters will be converted.
+  </td>
+ </tr>
+
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.strtolower-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4873">
+   <div class="example" id="example-4963">
     <p><strong>Example #1 <span class="function"><strong>strtolower()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Mary&nbsp;Had&nbsp;A&nbsp;Little&nbsp;Lamb&nbsp;and&nbsp;She&nbsp;LOVED&nbsp;It&nbsp;So"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;Prints&nbsp;mary&nbsp;had&nbsp;a&nbsp;little&nbsp;lamb&nbsp;and&nbsp;she&nbsp;loved&nbsp;it&nbsp;so<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$str </span><span style="color: #007700">= </span><span style="color: #DD0000">"Mary Had A Little Lamb and She LOVED It So"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str </span><span style="color: #007700">= </span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$str</span><span style="color: #007700">; </span><span style="color: #FF8000">// Prints mary had a little lamb and she loved it so<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

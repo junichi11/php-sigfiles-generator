@@ -51,25 +51,15 @@
  </p></blockquote>
 
  <p class="para">
-  The following two examples are two different ways to write the
-  same thing, one using a series of <code class="literal">if</code> and
-  <code class="literal">elseif</code> statements, and the other using the
-  <code class="literal">switch</code> statement:
-  <div class="example" id="example-131">
+  In the following example, each code block is equivalent.
+  One uses a series of <code class="literal">if</code> and
+  <code class="literal">elseif</code> statements, and the other a
+  <code class="literal">switch</code> statement.  In each case, the output is the same.
+  <div class="example" id="example-129">
    <p><strong>Example #1 <code class="literal">switch</code> structure</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;0"</span><span style="color: #007700">;<br />}&nbsp;elseif&nbsp;(</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;1"</span><span style="color: #007700">;<br />}&nbsp;elseif&nbsp;(</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;2"</span><span style="color: #007700">;<br />}<br /><br />switch&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;0"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;1"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;2"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-   </div>
-
-  </div>
-  <div class="example" id="example-132">
-   <p><strong>Example #2 <code class="literal">switch</code> structure allows usage of <span class="type">string</span>s</strong></p>
-   <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">"apple"</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;is&nbsp;apple"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;is&nbsp;bar"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">"cake"</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;is&nbsp;cake"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// This switch statement:<br /><br /></span><span style="color: #007700">switch (</span><span style="color: #0000BB">$i</span><span style="color: #007700">) {<br />    case </span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i equals 0"</span><span style="color: #007700">;<br />        break;<br />    case </span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i equals 1"</span><span style="color: #007700">;<br />        break;<br />    case </span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i equals 2"</span><span style="color: #007700">;<br />        break;<br />}<br /><br /></span><span style="color: #FF8000">// Is equivalent to:<br /><br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">$i </span><span style="color: #007700">== </span><span style="color: #0000BB">0</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"i equals 0"</span><span style="color: #007700">;<br />} elseif (</span><span style="color: #0000BB">$i </span><span style="color: #007700">== </span><span style="color: #0000BB">1</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"i equals 1"</span><span style="color: #007700">;<br />} elseif (</span><span style="color: #0000BB">$i </span><span style="color: #007700">== </span><span style="color: #0000BB">2</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"i equals 2"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -93,7 +83,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;0"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;1"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;2"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch (</span><span style="color: #0000BB">$i</span><span style="color: #007700">) {<br />    case </span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i equals 0"</span><span style="color: #007700">;<br />    case </span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i equals 1"</span><span style="color: #007700">;<br />    case </span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i equals 2"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -123,7 +113,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;is&nbsp;less&nbsp;than&nbsp;3&nbsp;but&nbsp;not&nbsp;negative"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;is&nbsp;3"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch (</span><span style="color: #0000BB">$i</span><span style="color: #007700">) {<br />    case </span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />    case </span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />    case </span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i is less than 3 but not negative"</span><span style="color: #007700">;<br />        break;<br />    case </span><span style="color: #0000BB">3</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i is 3"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -136,7 +126,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;0"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;1"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;2"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;default:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;is&nbsp;not&nbsp;equal&nbsp;to&nbsp;0,&nbsp;1&nbsp;or&nbsp;2"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch (</span><span style="color: #0000BB">$i</span><span style="color: #007700">) {<br />    case </span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i equals 0"</span><span style="color: #007700">;<br />        break;<br />    case </span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i equals 1"</span><span style="color: #007700">;<br />        break;<br />    case </span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i equals 2"</span><span style="color: #007700">;<br />        break;<br />    default:<br />       echo </span><span style="color: #DD0000">"i is not equal to 0, 1 or 2"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -148,6 +138,45 @@
     <strong><code>E_COMPILE_ERROR</code></strong> error.
    </span>
   </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    Technically the <code class="literal">default</code> case may be listed
+    in any order. It will only be used if no other case matches.
+    However, by convention it is best to place it at the end as the
+    last branch.
+   </span>
+  </p></blockquote>
+ </p>
+ <p class="para">
+  If no <code class="literal">case</code> branch matches, and there is no <code class="literal">default</code>
+  branch, then no code will be executed, just as if no <code class="literal">if</code> statement was true.
+ </p>
+ <p class="para">
+  A case value may be given as an expression. However, that expression will be
+  evaluated on its own and then loosely compared with the switch value. That means
+  it cannot be used for complex evaluations of the switch value.  For example:
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$target </span><span style="color: #007700">= </span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$start </span><span style="color: #007700">= </span><span style="color: #0000BB">3</span><span style="color: #007700">;<br /><br />switch (</span><span style="color: #0000BB">$target</span><span style="color: #007700">) {<br />    case </span><span style="color: #0000BB">$start </span><span style="color: #007700">- </span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />        print </span><span style="color: #DD0000">"A"</span><span style="color: #007700">;<br />        break;<br />    case </span><span style="color: #0000BB">$start </span><span style="color: #007700">- </span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />        print </span><span style="color: #DD0000">"B"</span><span style="color: #007700">;<br />        break;<br />    case </span><span style="color: #0000BB">$start </span><span style="color: #007700">- </span><span style="color: #0000BB">3</span><span style="color: #007700">:<br />        print </span><span style="color: #DD0000">"C"</span><span style="color: #007700">;<br />        break;<br />    case </span><span style="color: #0000BB">$start </span><span style="color: #007700">- </span><span style="color: #0000BB">4</span><span style="color: #007700">:<br />        print </span><span style="color: #DD0000">"D"</span><span style="color: #007700">;<br />        break;<br />}<br /><br /></span><span style="color: #FF8000">// Prints "B"<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </p>
+ <p class="para">
+  For more complex comparisons, the value <code class="literal">true</code> may be used as the switch value.
+  Or, alternatively, <code class="literal">if</code>-<code class="literal">else</code> blocks instead of <code class="literal">switch</code>.
+  <div class="informalexample">
+   <div class="example-contents">
+    <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$offset </span><span style="color: #007700">= </span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$start </span><span style="color: #007700">= </span><span style="color: #0000BB">3</span><span style="color: #007700">;<br /><br />switch (</span><span style="color: #0000BB">true</span><span style="color: #007700">) {<br />    case </span><span style="color: #0000BB">$start </span><span style="color: #007700">- </span><span style="color: #0000BB">$offset </span><span style="color: #007700">=== </span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />        print </span><span style="color: #DD0000">"A"</span><span style="color: #007700">;<br />        break;<br />    case </span><span style="color: #0000BB">$start </span><span style="color: #007700">- </span><span style="color: #0000BB">$offset </span><span style="color: #007700">=== </span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />        print </span><span style="color: #DD0000">"B"</span><span style="color: #007700">;<br />        break;<br />    case </span><span style="color: #0000BB">$start </span><span style="color: #007700">- </span><span style="color: #0000BB">$offset </span><span style="color: #007700">=== </span><span style="color: #0000BB">3</span><span style="color: #007700">:<br />        print </span><span style="color: #DD0000">"C"</span><span style="color: #007700">;<br />        break;<br />    case </span><span style="color: #0000BB">$start </span><span style="color: #007700">- </span><span style="color: #0000BB">$offset </span><span style="color: #007700">=== </span><span style="color: #0000BB">4</span><span style="color: #007700">:<br />        print </span><span style="color: #DD0000">"D"</span><span style="color: #007700">;<br />        break;<br />}<br /><br /></span><span style="color: #FF8000">// Prints "B"<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
  </p>
  <p class="para">
   The alternative syntax for control structures is supported with
@@ -156,7 +185,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">):<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;0"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;1"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;equals&nbsp;2"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;default:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;is&nbsp;not&nbsp;equal&nbsp;to&nbsp;0,&nbsp;1&nbsp;or&nbsp;2"</span><span style="color: #007700">;<br />endswitch;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch (</span><span style="color: #0000BB">$i</span><span style="color: #007700">):<br />    case </span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i equals 0"</span><span style="color: #007700">;<br />        break;<br />    case </span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i equals 1"</span><span style="color: #007700">;<br />        break;<br />    case </span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />        echo </span><span style="color: #DD0000">"i equals 2"</span><span style="color: #007700">;<br />        break;<br />    default:<br />        echo </span><span style="color: #DD0000">"i is not equal to 0, 1 or 2"</span><span style="color: #007700">;<br />endswitch;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -168,11 +197,20 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch(</span><span style="color: #0000BB">$beer</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">'tuborg'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">'carlsberg'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">'heineken'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Good&nbsp;choice'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;default;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Please&nbsp;make&nbsp;a&nbsp;new&nbsp;selection...'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch(</span><span style="color: #0000BB">$beer</span><span style="color: #007700">)<br />{<br />    case </span><span style="color: #DD0000">'tuborg'</span><span style="color: #007700">;<br />    case </span><span style="color: #DD0000">'carlsberg'</span><span style="color: #007700">;<br />    case </span><span style="color: #DD0000">'stella'</span><span style="color: #007700">;<br />    case </span><span style="color: #DD0000">'heineken'</span><span style="color: #007700">;<br />        echo </span><span style="color: #DD0000">'Good choice'</span><span style="color: #007700">;<br />        break;<br />    default;<br />        echo </span><span style="color: #DD0000">'Please make a new selection...'</span><span style="color: #007700">;<br />        break;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
   </div>
  </p>
+
+ <div class="sect2">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a href="control-structures.match.html" class="link">match</a></li>
+   </ul>
+  </p>
+ </div>
 </div></div></div></body></html>

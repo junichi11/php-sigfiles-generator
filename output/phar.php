@@ -986,7 +986,7 @@ namespace {
 
 		/**
 		 * Sets phar archive meta-data
-		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for <code>Phar</code> objects. Otherwise, a <code>PharException</code> will be thrown.</p><p><b>Phar::setMetadata()</b> should be used to store customized data that describes something about the phar archive as a complete entity. <code>PharFileInfo::setMetadata()</code> should be used for file-specific meta-data. Meta-data can slow down the performance of loading a phar archive if the data is large.</p><p>Some possible uses for meta-data include specifying which file within the archive should be used to bootstrap the archive, or the location of a file manifest like PEAR's package.xml file. However, any useful data that describes the phar archive may be stored.</p>
+		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for <code>Phar</code> objects. Otherwise, a <code>PharException</code> will be thrown.</p><p><b>Phar::setMetadata()</b> should be used to store customized data that describes something about the phar archive as a complete entity. <code>PharFileInfo::setMetadata()</code> should be used for file-specific meta-data. Meta-data can slow down the performance of loading a phar archive if the data is large.</p><p>Some possible uses for meta-data include specifying which file within the archive should be used to bootstrap the archive, or the location of a file manifest like &#xBB;&#xA0;PEAR's package.xml file. However, any useful data that describes the phar archive may be stored.</p>
 		 * @param mixed $metadata <p>Any PHP variable containing information to store that describes the phar archive</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/phar.setmetadata.php
@@ -999,7 +999,7 @@ namespace {
 		 * Set the signature algorithm for a phar and apply it
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for <code>Phar</code> objects. Otherwise, a <code>PharException</code> will be thrown.</p><p>set the signature algorithm for a phar and apply it. The signature algorithm must be one of <code>Phar::MD5</code>, <code>Phar::SHA1</code>, <code>Phar::SHA256</code>, <code>Phar::SHA512</code>, or <code>Phar::OPENSSL</code>.</p><p>Note that all executable phar archives have a signature created automatically, <code>SHA1</code> by default. data tar- or zip-based archives (archives created with the <code>PharData</code> class) must have their signature created and set explicitly via <b>Phar::setSignatureAlgorithm()</b>.</p>
 		 * @param int $algo <p>One of <code>Phar::MD5</code>, <code>Phar::SHA1</code>, <code>Phar::SHA256</code>, <code>Phar::SHA512</code>, or <code>Phar::OPENSSL</code></p>
-		 * @param ?string $privateKey <p>The contents of an OpenSSL private key, as extracted from a certificate or OpenSSL key file:</p> <code> &lt;&#63;php<br>$private&nbsp;=&nbsp;openssl_get_privatekey(file_get_contents('private.pem'));<br>$pkey&nbsp;=&nbsp;'';<br>openssl_pkey_export($private,&nbsp;$pkey);<br>$p-&gt;setSignatureAlgorithm(Phar::OPENSSL,&nbsp;$pkey);<br>&#63;&gt;  </code>  See phar introduction for instructions on naming and placement of the public key file.
+		 * @param ?string $privateKey <p>The contents of an OpenSSL private key, as extracted from a certificate or OpenSSL key file:</p> <code> &lt;&#63;php<br>$private = openssl_get_privatekey(file_get_contents('private.pem'));<br>$pkey = '';<br>openssl_pkey_export($private, $pkey);<br>$p-&gt;setSignatureAlgorithm(Phar::OPENSSL, $pkey);<br>&#63;&gt;  </code>  See phar introduction for instructions on naming and placement of the public key file.
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/phar.setsignaturealgorithm.php
 		 * @see Phar::getSupportedSignatures(), Phar::getSignature()
@@ -1065,7 +1065,7 @@ namespace {
 		 * @param ?string $alias <p>The alias that can be used in <code>phar://</code> URLs to refer to this archive, rather than its full path.</p>
 		 * @param ?string $index <p>The location within the phar of the directory index.</p>
 		 * @param ?string $fileNotFoundScript <p>The location of the script to run when a file is not found. This script should output the proper HTTP 404 headers.</p>
-		 * @param array $mimeTypes <p>An array mapping additional file extensions to MIME type. If the default mapping is sufficient, pass an empty array. By default, these extensions are mapped to these MIME types:</p> <code> &lt;&#63;php<br>$mimes&nbsp;=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;'phps'&nbsp;=&gt;&nbsp;Phar::PHPS,&nbsp;//&nbsp;pass&nbsp;to&nbsp;highlight_file()<br>&nbsp;&nbsp;&nbsp;&nbsp;'c'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'cc'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'cpp'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'c++'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'dtd'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'log'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'rng'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'txt'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'xsd'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'php'&nbsp;=&gt;&nbsp;Phar::PHP,&nbsp;//&nbsp;parse&nbsp;as&nbsp;PHP<br>&nbsp;&nbsp;&nbsp;&nbsp;'inc'&nbsp;=&gt;&nbsp;Phar::PHP,&nbsp;//&nbsp;parse&nbsp;as&nbsp;PHP<br>&nbsp;&nbsp;&nbsp;&nbsp;'avi'&nbsp;=&gt;&nbsp;'video/avi',<br>&nbsp;&nbsp;&nbsp;&nbsp;'bmp'&nbsp;=&gt;&nbsp;'image/bmp',<br>&nbsp;&nbsp;&nbsp;&nbsp;'css'&nbsp;=&gt;&nbsp;'text/css',<br>&nbsp;&nbsp;&nbsp;&nbsp;'gif'&nbsp;=&gt;&nbsp;'image/gif',<br>&nbsp;&nbsp;&nbsp;&nbsp;'htm'&nbsp;=&gt;&nbsp;'text/html',<br>&nbsp;&nbsp;&nbsp;&nbsp;'html'&nbsp;=&gt;&nbsp;'text/html',<br>&nbsp;&nbsp;&nbsp;&nbsp;'htmls'&nbsp;=&gt;&nbsp;'text/html',<br>&nbsp;&nbsp;&nbsp;&nbsp;'ico'&nbsp;=&gt;&nbsp;'image/x-ico',<br>&nbsp;&nbsp;&nbsp;&nbsp;'jpe'&nbsp;=&gt;&nbsp;'image/jpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'jpg'&nbsp;=&gt;&nbsp;'image/jpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'jpeg'&nbsp;=&gt;&nbsp;'image/jpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'js'&nbsp;=&gt;&nbsp;'application/x-javascript',<br>&nbsp;&nbsp;&nbsp;&nbsp;'midi'&nbsp;=&gt;&nbsp;'audio/midi',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mid'&nbsp;=&gt;&nbsp;'audio/midi',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mod'&nbsp;=&gt;&nbsp;'audio/mod',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mov'&nbsp;=&gt;&nbsp;'movie/quicktime',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mp3'&nbsp;=&gt;&nbsp;'audio/mp3',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mpg'&nbsp;=&gt;&nbsp;'video/mpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mpeg'&nbsp;=&gt;&nbsp;'video/mpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'pdf'&nbsp;=&gt;&nbsp;'application/pdf',<br>&nbsp;&nbsp;&nbsp;&nbsp;'png'&nbsp;=&gt;&nbsp;'image/png',<br>&nbsp;&nbsp;&nbsp;&nbsp;'swf'&nbsp;=&gt;&nbsp;'application/shockwave-flash',<br>&nbsp;&nbsp;&nbsp;&nbsp;'tif'&nbsp;=&gt;&nbsp;'image/tiff',<br>&nbsp;&nbsp;&nbsp;&nbsp;'tiff'&nbsp;=&gt;&nbsp;'image/tiff',<br>&nbsp;&nbsp;&nbsp;&nbsp;'wav'&nbsp;=&gt;&nbsp;'audio/wav',<br>&nbsp;&nbsp;&nbsp;&nbsp;'xbm'&nbsp;=&gt;&nbsp;'image/xbm',<br>&nbsp;&nbsp;&nbsp;&nbsp;'xml'&nbsp;=&gt;&nbsp;'text/xml',<br>);<br>&#63;&gt;  </code>
+		 * @param array $mimeTypes <p>An array mapping additional file extensions to MIME type. If the default mapping is sufficient, pass an empty array. By default, these extensions are mapped to these MIME types:</p> <code> &lt;&#63;php<br>$mimes = array(<br> 'phps' =&gt; Phar::PHPS, // pass to highlight_file()<br> 'c' =&gt; 'text/plain',<br> 'cc' =&gt; 'text/plain',<br> 'cpp' =&gt; 'text/plain',<br> 'c++' =&gt; 'text/plain',<br> 'dtd' =&gt; 'text/plain',<br> 'h' =&gt; 'text/plain',<br> 'log' =&gt; 'text/plain',<br> 'rng' =&gt; 'text/plain',<br> 'txt' =&gt; 'text/plain',<br> 'xsd' =&gt; 'text/plain',<br> 'php' =&gt; Phar::PHP, // parse as PHP<br> 'inc' =&gt; Phar::PHP, // parse as PHP<br> 'avi' =&gt; 'video/avi',<br> 'bmp' =&gt; 'image/bmp',<br> 'css' =&gt; 'text/css',<br> 'gif' =&gt; 'image/gif',<br> 'htm' =&gt; 'text/html',<br> 'html' =&gt; 'text/html',<br> 'htmls' =&gt; 'text/html',<br> 'ico' =&gt; 'image/x-ico',<br> 'jpe' =&gt; 'image/jpeg',<br> 'jpg' =&gt; 'image/jpeg',<br> 'jpeg' =&gt; 'image/jpeg',<br> 'js' =&gt; 'application/x-javascript',<br> 'midi' =&gt; 'audio/midi',<br> 'mid' =&gt; 'audio/midi',<br> 'mod' =&gt; 'audio/mod',<br> 'mov' =&gt; 'movie/quicktime',<br> 'mp3' =&gt; 'audio/mp3',<br> 'mpg' =&gt; 'video/mpeg',<br> 'mpeg' =&gt; 'video/mpeg',<br> 'pdf' =&gt; 'application/pdf',<br> 'png' =&gt; 'image/png',<br> 'swf' =&gt; 'application/shockwave-flash',<br> 'tif' =&gt; 'image/tiff',<br> 'tiff' =&gt; 'image/tiff',<br> 'wav' =&gt; 'audio/wav',<br> 'xbm' =&gt; 'image/xbm',<br> 'xml' =&gt; 'text/xml',<br>);<br>&#63;&gt;  </code>
 		 * @param ?callable $rewrite <p>The rewrites function is passed a string as its only parameter and must return a <code>string</code> or <b><code>false</code></b>.</p> <p>If you are using fast-cgi or cgi then the parameter passed to the function is the value of the $_SERVER['PATH_INFO'] variable. Otherwise, the parameter passed to the function is the value of the $_SERVER['REQUEST_URI'] variable.</p> <p>If a string is returned it is used as the internal file path. If <b><code>false</code></b> is returned then webPhar() will send a HTTP 403 Denied Code.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/phar.webphar.php
@@ -1090,7 +1090,7 @@ namespace {
 		 * @param int $format <p>One of the file format constants available within the <code>Phar</code> class.</p>
 		 * @return self
 		 * @link https://php.net/manual/en/phardata.construct.php
-		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL phar >= 2.0.0
 		 */
 		public function __construct(string $filename, int $flags = FilesystemIterator::SKIP_DOTS | FilesystemIterator::UNIX_PATHS, ?string $alias = null, int $format = 0) {}
 
@@ -1098,7 +1098,7 @@ namespace {
 		 * Destructs a non-executable tar or zip archive object
 		 * @return void
 		 * @link https://php.net/manual/en/phardata.destruct.php
-		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL phar >= 2.0.0
 		 */
 		public function __destruct() {}
 
@@ -1709,7 +1709,7 @@ namespace {
 
 		/**
 		 * Sets phar archive meta-data
-		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for <code>Phar</code> objects. Otherwise, a <code>PharException</code> will be thrown.</p><p><code>Phar::setMetadata()</code> should be used to store customized data that describes something about the phar archive as a complete entity. <code>PharFileInfo::setMetadata()</code> should be used for file-specific meta-data. Meta-data can slow down the performance of loading a phar archive if the data is large.</p><p>Some possible uses for meta-data include specifying which file within the archive should be used to bootstrap the archive, or the location of a file manifest like PEAR's package.xml file. However, any useful data that describes the phar archive may be stored.</p>
+		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for <code>Phar</code> objects. Otherwise, a <code>PharException</code> will be thrown.</p><p><code>Phar::setMetadata()</code> should be used to store customized data that describes something about the phar archive as a complete entity. <code>PharFileInfo::setMetadata()</code> should be used for file-specific meta-data. Meta-data can slow down the performance of loading a phar archive if the data is large.</p><p>Some possible uses for meta-data include specifying which file within the archive should be used to bootstrap the archive, or the location of a file manifest like &#xBB;&#xA0;PEAR's package.xml file. However, any useful data that describes the phar archive may be stored.</p>
 		 * @param mixed $metadata <p>Any PHP variable containing information to store that describes the phar archive</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/phardata.setmetadata.php
@@ -1809,6 +1809,18 @@ namespace {
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -1934,7 +1946,7 @@ namespace {
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pharfileinfo.compress.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::decompress(), Phar::canCompress(), Phar::isCompressed(), Phar::compressFiles(), Phar::decompressFiles(), Phar::compress(), Phar::decompress(), Phar::getSupportedCompression()
-		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL phar >= 2.0.0
 		 */
 		public function compress(int $compression): bool {}
 
@@ -1944,7 +1956,7 @@ namespace {
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/pharfileinfo.decompress.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::compress(), Phar::canCompress(), Phar::isCompressed(), Phar::compressFiles(), Phar::decompressFiles(), Phar::compress(), Phar::decompress(), Phar::getSupportedCompression()
-		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL phar >= 2.0.0
 		 */
 		public function decompress(): bool {}
 

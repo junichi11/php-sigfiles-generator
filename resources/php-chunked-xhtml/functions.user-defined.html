@@ -30,11 +30,11 @@
     A function may be defined using syntax such as the following:
    </p>
    <p class="para">
-    <div class="example" id="example-149">
+    <div class="example" id="example-146">
      <p><strong>Example #1 Pseudo code to demonstrate function uses</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg_1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$arg_2</span><span style="color: #007700">,&nbsp;</span><span style="color: #FF8000">/*&nbsp;...,&nbsp;*/&nbsp;</span><span style="color: #0000BB">$arg_n</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Example&nbsp;function.\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$retval</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg_1</span><span style="color: #007700">, </span><span style="color: #0000BB">$arg_2</span><span style="color: #007700">, </span><span style="color: #FF8000">/* ..., */ </span><span style="color: #0000BB">$arg_n</span><span style="color: #007700">)<br />{<br />    echo </span><span style="color: #DD0000">"Example function.\n"</span><span style="color: #007700">;<br />    return </span><span style="color: #0000BB">$retval</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -67,11 +67,11 @@
     to being called.
    </p>
    <p class="para">
-    <div class="example" id="example-150">
+    <div class="example" id="example-147">
      <p><strong>Example #2 Conditional functions</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$makefoo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/*&nbsp;We&nbsp;can't&nbsp;call&nbsp;foo()&nbsp;from&nbsp;here&nbsp;<br />&nbsp;&nbsp;&nbsp;since&nbsp;it&nbsp;doesn't&nbsp;exist&nbsp;yet,<br />&nbsp;&nbsp;&nbsp;but&nbsp;we&nbsp;can&nbsp;call&nbsp;bar()&nbsp;*/<br /><br /></span><span style="color: #0000BB">bar</span><span style="color: #007700">();<br /><br />if&nbsp;(</span><span style="color: #0000BB">$makefoo</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">()<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"I&nbsp;don't&nbsp;exist&nbsp;until&nbsp;program&nbsp;execution&nbsp;reaches&nbsp;me.\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;Now&nbsp;we&nbsp;can&nbsp;safely&nbsp;call&nbsp;foo()<br />&nbsp;&nbsp;&nbsp;since&nbsp;$makefoo&nbsp;evaluated&nbsp;to&nbsp;true&nbsp;*/<br /><br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$makefoo</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">();<br /><br />function&nbsp;</span><span style="color: #0000BB">bar</span><span style="color: #007700">()&nbsp;<br />{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"I&nbsp;exist&nbsp;immediately&nbsp;upon&nbsp;program&nbsp;start.\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$makefoo </span><span style="color: #007700">= </span><span style="color: #0000BB">true</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/* We can't call foo() from here <br />   since it doesn't exist yet,<br />   but we can call bar() */<br /><br /></span><span style="color: #0000BB">bar</span><span style="color: #007700">();<br /><br />if (</span><span style="color: #0000BB">$makefoo</span><span style="color: #007700">) {<br />  function </span><span style="color: #0000BB">foo</span><span style="color: #007700">()<br />  {<br />    echo </span><span style="color: #DD0000">"I don't exist until program execution reaches me.\n"</span><span style="color: #007700">;<br />  }<br />}<br /><br /></span><span style="color: #FF8000">/* Now we can safely call foo()<br />   since $makefoo evaluated to true */<br /><br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">$makefoo</span><span style="color: #007700">) </span><span style="color: #0000BB">foo</span><span style="color: #007700">();<br /><br />function </span><span style="color: #0000BB">bar</span><span style="color: #007700">() <br />{<br />  echo </span><span style="color: #DD0000">"I exist immediately upon program start.\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -79,11 +79,11 @@
     </div>
    </p>
    <p class="para">
-    <div class="example" id="example-151">
+    <div class="example" id="example-148">
      <p><strong>Example #3 Functions within functions</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">()&nbsp;<br />{<br />&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">bar</span><span style="color: #007700">()&nbsp;<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"I&nbsp;don't&nbsp;exist&nbsp;until&nbsp;foo()&nbsp;is&nbsp;called.\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;We&nbsp;can't&nbsp;call&nbsp;bar()&nbsp;yet<br />&nbsp;&nbsp;&nbsp;since&nbsp;it&nbsp;doesn't&nbsp;exist.&nbsp;*/<br /><br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Now&nbsp;we&nbsp;can&nbsp;call&nbsp;bar(),<br />&nbsp;&nbsp;&nbsp;foo()'s&nbsp;processing&nbsp;has<br />&nbsp;&nbsp;&nbsp;made&nbsp;it&nbsp;accessible.&nbsp;*/<br /><br /></span><span style="color: #0000BB">bar</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">foo</span><span style="color: #007700">() <br />{<br />  function </span><span style="color: #0000BB">bar</span><span style="color: #007700">() <br />  {<br />    echo </span><span style="color: #DD0000">"I don't exist until foo() is called.\n"</span><span style="color: #007700">;<br />  }<br />}<br /><br /></span><span style="color: #FF8000">/* We can't call bar() yet<br />   since it doesn't exist. */<br /><br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/* Now we can call bar(),<br />   foo()'s processing has<br />   made it accessible. */<br /><br /></span><span style="color: #0000BB">bar</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -116,11 +116,11 @@
    
    <p class="para">
     It is possible to call recursive functions in PHP.
-    <div class="example" id="example-152">
+    <div class="example" id="example-149">
      <p><strong>Example #4 Recursive functions</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">recursion</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$a</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">recursion</span><span style="color: #007700">(</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">recursion</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">)<br />{<br />    if (</span><span style="color: #0000BB">$a </span><span style="color: #007700">&lt; </span><span style="color: #0000BB">20</span><span style="color: #007700">) {<br />        echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$a</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />        </span><span style="color: #0000BB">recursion</span><span style="color: #007700">(</span><span style="color: #0000BB">$a </span><span style="color: #007700">+ </span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

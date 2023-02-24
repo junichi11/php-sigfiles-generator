@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="language.types.intro.html">« Introduction</a></li>
+      <li style="float: left;"><a href="language.types.null.html">« NULL</a></li>
       <li style="float: right;"><a href="language.types.integer.html">Integers »</a></li>
     </ul>
   </div>
@@ -27,8 +27,8 @@
  <h2 class="title">Booleans</h2>
  
  <p class="simpara">
-  This is the simplest type. A <span class="type">bool</span> expresses a truth value. It
-  can be either <strong><code>true</code></strong> or <strong><code>false</code></strong>. 
+  The <span class="type">bool</span> type only has two values, and is used to express
+  a truth value. It can be either <strong><code>true</code></strong> or <strong><code>false</code></strong>.
  </p>
 
  <div class="sect2" id="language.types.boolean.syntax">
@@ -41,7 +41,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">True</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;assign&nbsp;the&nbsp;value&nbsp;TRUE&nbsp;to&nbsp;$foo<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$foo </span><span style="color: #007700">= </span><span style="color: #0000BB">True</span><span style="color: #007700">; </span><span style="color: #FF8000">// assign the value TRUE to $foo<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -57,7 +57,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;==&nbsp;is&nbsp;an&nbsp;operator&nbsp;which&nbsp;tests<br />//&nbsp;equality&nbsp;and&nbsp;returns&nbsp;a&nbsp;boolean<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$action&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"show_version"</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;version&nbsp;is&nbsp;1.23"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;this&nbsp;is&nbsp;not&nbsp;necessary...<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$show_separators&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;hr&gt;\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;...because&nbsp;this&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;exactly&nbsp;the&nbsp;same&nbsp;meaning:<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$show_separators</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;hr&gt;\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// == is an operator which tests<br />// equality and returns a boolean<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">$action </span><span style="color: #007700">== </span><span style="color: #DD0000">"show_version"</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"The version is 1.23"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">// this is not necessary...<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">$show_separators </span><span style="color: #007700">== </span><span style="color: #0000BB">TRUE</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"&lt;hr&gt;\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">// ...because this can be used with exactly the same meaning:<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">$show_separators</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"&lt;hr&gt;\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -70,14 +70,10 @@
 
   <p class="simpara">
    To explicitly convert a value to <span class="type">bool</span>, use the
-   <code class="literal">(bool)</code> or <code class="literal">(boolean)</code> casts. However, in
-   most cases the cast is unnecessary, since a value will be automatically
-   converted if an operator, function or control structure requires a
-   <span class="type">bool</span> argument.
-  </p>
-
-  <p class="simpara">
-   See also <a href="language.types.type-juggling.html" class="link">Type Juggling</a>.
+   <code class="literal">(bool)</code> cast. Generally this is not necessary because when
+   a value is used in a logical context it will be automatically interpreted
+   as a value of type <span class="type">bool</span>. For more information see the
+   <a href="language.types.type-juggling.html" class="link">Type Juggling</a> page.
   </p>
    
   <p class="para">
@@ -93,18 +89,20 @@
    </li>
    <li class="listitem">
     <span class="simpara">
-     the <a href="language.types.integer.html" class="link">integer</a> 0 (zero)
+     the <a href="language.types.integer.html" class="link">integer</a>
+     <code class="literal">0</code> (zero)
     </span>
    </li>
    <li class="listitem">
     <span class="simpara">
-     the <a href="language.types.float.html" class="link">float</a>s 0.0 and -0.0 (zero)
+     the <a href="language.types.float.html" class="link">float</a>s
+     <code class="literal">0.0</code> and <code class="literal">-0.0</code> (zero)
     </span>
    </li>
    <li class="listitem">
     <span class="simpara">
-     the empty <a href="language.types.string.html" class="link">string</a>, and the
-     <a href="language.types.string.html" class="link">string</a> &quot;0&quot;
+     the empty <a href="language.types.string.html" class="link">string</a> <code class="literal">&quot;&quot;</code>,
+     and the <a href="language.types.string.html" class="link">string</a> <code class="literal">&quot;0&quot;</code>
     </span>
    </li>
    <li class="listitem">
@@ -114,21 +112,23 @@
    </li>
    <li class="listitem">
     <span class="simpara">
-     the special type <a href="language.types.null.html" class="link">NULL</a> (including
+     the unit type <a href="language.types.null.html" class="link">NULL</a> (including
      unset variables)
     </span>
    </li>
    <li class="listitem">
     <span class="simpara">
-     <a href="ref.simplexml.html" class="link">SimpleXML</a> objects created from attributeless
-     empty elements, i.e. elements which have neither children nor attributes.
+     Internal objects that overload their casting behaviour to bool.
+     For example: <a href="ref.simplexml.html" class="link">SimpleXML</a> objects
+     created from empty elements without attributes.
     </span>
    </li>
   </ul>
     
   <p class="para">
-   Every other value is considered <strong><code>true</code></strong> (including any
-   <a href="language.types.resource.html" class="link">resource</a> and <strong><code>NAN</code></strong>).
+   Every other value is considered <strong><code>true</code></strong>
+   (including <a href="language.types.resource.html" class="link">resource</a>
+   and <strong><code>NAN</code></strong>).
   </p>
   
   <div class="warning"><strong class="warning">Warning</strong>
@@ -141,7 +141,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">((bool)&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(false)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool)&nbsp;</span><span style="color: #DD0000">"0"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(false)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool)&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(true)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool)&nbsp;-</span><span style="color: #0000BB">2</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(true)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool)&nbsp;</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(true)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool)&nbsp;</span><span style="color: #0000BB">2.3e5</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(true)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool)&nbsp;array(</span><span style="color: #0000BB">12</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(true)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool)&nbsp;array());&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(false)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool)&nbsp;</span><span style="color: #DD0000">"false"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(true)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">((bool) </span><span style="color: #DD0000">""</span><span style="color: #007700">);        </span><span style="color: #FF8000">// bool(false)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool) </span><span style="color: #DD0000">"0"</span><span style="color: #007700">);       </span><span style="color: #FF8000">// bool(false)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool) </span><span style="color: #0000BB">1</span><span style="color: #007700">);         </span><span style="color: #FF8000">// bool(true)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool) -</span><span style="color: #0000BB">2</span><span style="color: #007700">);        </span><span style="color: #FF8000">// bool(true)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool) </span><span style="color: #DD0000">"foo"</span><span style="color: #007700">);     </span><span style="color: #FF8000">// bool(true)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool) </span><span style="color: #0000BB">2.3e5</span><span style="color: #007700">);     </span><span style="color: #FF8000">// bool(true)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool) array(</span><span style="color: #0000BB">12</span><span style="color: #007700">)); </span><span style="color: #FF8000">// bool(true)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool) array());   </span><span style="color: #FF8000">// bool(false)<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">((bool) </span><span style="color: #DD0000">"false"</span><span style="color: #007700">);   </span><span style="color: #FF8000">// bool(true)<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

@@ -44,12 +44,12 @@ namespace {
 	 * <p>The <b>passthru()</b> function is similar to the <code>exec()</code> function in that it executes a <code>command</code>. This function should be used in place of <code>exec()</code> or <code>system()</code> when the output from the Unix command is binary data which needs to be passed directly back to the browser. A common use for this is to execute something like the pbmplus utilities that can output an image stream directly. By setting the Content-type to <code>image/gif</code> and then calling a pbmplus program to output a gif, you can create PHP scripts that output images directly.</p>
 	 * @param string $command <p>The command that will be executed.</p>
 	 * @param int $result_code <p>If the <code>result_code</code> argument is present, the return status of the Unix command will be placed here.</p>
-	 * @return ?bool <p>No value is returned.</p>
+	 * @return ?false <p>Returns <b><code>null</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.passthru.php
 	 * @see exec(), system(), popen(), escapeshellcmd()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function passthru(string $command, int &$result_code = null): ?bool {}
+	function passthru(string $command, int &$result_code = null): ?false {}
 
 	/**
 	 * Close a process opened by proc_open() and return the exit code of that process
@@ -75,9 +75,10 @@ namespace {
 	/**
 	 * Change the priority of the current process
 	 * <p><b>proc_nice()</b> changes the priority of the current process by the amount specified in <code>priority</code>. A positive <code>priority</code> will lower the priority of the current process, whereas a negative <code>priority</code> will raise the priority.</p><p><b>proc_nice()</b> is not related to <code>proc_open()</code> and its associated functions in any way.</p>
-	 * @param int $priority <p>The new priority value, the value of this may differ on platforms.</p> <p>On Unix, a low value, such as <code>-20</code> means high priority wheras a positive value have a lower priority.</p> <p>For Windows the <code>priority</code> parameter have the following meanings:</p>    Priority class Possible values     High priority  <code>priority</code> <code>&lt; -9</code>    Above normal priority  <code>priority</code> <code>&lt; -4</code>    Normal priority  <code>priority</code> <code>&lt; 5</code> &amp; <code>priority</code> <code>&gt; -5</code>    Below normal priority  <code>priority</code> <code>&gt; 5</code>    Idle priority  <code>priority</code> <code>&gt; 9</code>
+	 * @param int $priority <p>The new priority value, the value of this may differ on platforms.</p> <p>On Unix, a low value, such as <code>-20</code> means high priority whereas positive values have a lower priority.</p> <p>For Windows the <code>priority</code> parameter has the following meaning:</p>    Priority class Possible values     High priority  <code>priority</code> <code>&lt; -9</code>    Above normal priority  <code>priority</code> <code>&lt; -4</code>    Normal priority  <code>priority</code> <code>&lt; 5</code> &amp; <code>priority</code> <code>&gt; -5</code>    Below normal priority  <code>priority</code> <code>&gt; 5</code>    Idle priority  <code>priority</code> <code>&gt; 9</code>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure. If an error occurs, like the user lacks permission to change the priority, an error of level <b><code>E_WARNING</code></b> is also generated.</p>
 	 * @link https://php.net/manual/en/function.proc-nice.php
+	 * @see pcntl_setpriority()
 	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function proc_nice(int $priority): bool {}

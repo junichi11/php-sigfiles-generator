@@ -32,7 +32,7 @@
 
  <div class="refsect1 description" id="refsect1-apcuiterator.construct-description">
   <h3 class="title">Description</h3>
-  <div class="methodsynopsis dc-description">
+  <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>APCUIterator::__construct</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$search</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$format</code><span class="initializer"> = APC_ITER_ALL</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$chunk_size</code><span class="initializer"> = 100</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$list</code><span class="initializer"> = APC_LIST_ACTIVE</span></span><br>)</div>
 
   <p class="para rdfs-comment">
@@ -103,23 +103,14 @@
  </div>
 
 
- <div class="refsect1 returnvalues" id="refsect1-apcuiterator.construct-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   An <span class="classname"><a href="class.apcuiterator.html" class="classname">APCUIterator</a></span> <span class="type">object</span> on success,
-   or <strong><code>null</code></strong> on failure.
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-apcuiterator.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-498">
+   <div class="example" id="example-514">
     <p><strong>Example #1 A <span class="function"><strong>APCUIterator::__construct()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">foreach&nbsp;(new&nbsp;</span><span style="color: #0000BB">APCUIterator</span><span style="color: #007700">(</span><span style="color: #DD0000">'/^counter\./'</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$counter</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$counter</span><span style="color: #007700">[</span><span style="color: #0000BB">key</span><span style="color: #007700">]</span><span style="color: #DD0000">:&nbsp;</span><span style="color: #0000BB">$counter</span><span style="color: #007700">[</span><span style="color: #0000BB">value</span><span style="color: #007700">]</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">apc_dec</span><span style="color: #007700">(</span><span style="color: #0000BB">$counter</span><span style="color: #007700">[</span><span style="color: #DD0000">'key'</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$counter</span><span style="color: #007700">[</span><span style="color: #DD0000">'value'</span><span style="color: #007700">]);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">foreach (new </span><span style="color: #0000BB">APCUIterator</span><span style="color: #007700">(</span><span style="color: #DD0000">'/^counter\./'</span><span style="color: #007700">) as </span><span style="color: #0000BB">$counter</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$counter</span><span style="color: #007700">[</span><span style="color: #0000BB">key</span><span style="color: #007700">]</span><span style="color: #DD0000">: </span><span style="color: #0000BB">$counter</span><span style="color: #007700">[</span><span style="color: #0000BB">value</span><span style="color: #007700">]</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />    </span><span style="color: #0000BB">apc_dec</span><span style="color: #007700">(</span><span style="color: #0000BB">$counter</span><span style="color: #007700">[</span><span style="color: #DD0000">'key'</span><span style="color: #007700">], </span><span style="color: #0000BB">$counter</span><span style="color: #007700">[</span><span style="color: #DD0000">'value'</span><span style="color: #007700">]);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -37,7 +37,7 @@
 
   <p class="para rdfs-comment">
    Fetches the next row and returns it as an object. This function is an
-   alternative to <span class="function"><a href="pdostatement.fetch.html" class="function">PDOStatement::fetch()</a></span> with
+   alternative to <span class="methodname"><a href="pdostatement.fetch.html" class="methodname">PDOStatement::fetch()</a></span> with
    <strong><code>PDO::FETCH_CLASS</code></strong> or
    <strong><code>PDO::FETCH_OBJ</code></strong> style.
   </p>
@@ -90,11 +90,24 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-pdostatement.fetchobject-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+Emits an error with level <strong><code>E_WARNING</code></strong> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong> is set
+to <strong><code>PDO::ERRMODE_WARNING</code></strong>.
+</p>
+<p class="para">
+Throws a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong>
+is set to <strong><code>PDO::ERRMODE_EXCEPTION</code></strong>.
+</p>
+ </div>
+
+
  <div class="refsect1 seealso" id="refsect1-pdostatement.fetchobject-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="pdostatement.fetch.html" class="function" rel="rdfs-seeAlso">PDOStatement::fetch()</a> - Fetches the next row from a result set</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.fetch.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::fetch()</a> - Fetches the next row from a result set</span></li>
    </ul>
   </p>
  </div>

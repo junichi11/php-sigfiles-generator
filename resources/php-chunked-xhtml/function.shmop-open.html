@@ -148,6 +148,16 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.shmop-open-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   If <code class="parameter">mode</code> is invalid, or <code class="parameter">size</code> is less than or equal to zero,
+   a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is thrown.
+   On other failures, <strong><code>E_WARNING</code></strong> is emitted.
+  </p>
+ </div>
+
+
  <div class="refsect1 changelog" id="refsect1-function.shmop-open-changelog">
   <h3 class="title">Changelog</h3>
   <table class="doctable informaltable">
@@ -169,6 +179,15 @@
       </td>
      </tr>
 
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       If <code class="parameter">mode</code> is invalid, or <code class="parameter">size</code> is less than or equal to zero,
+       a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is thrown; previously <strong><code>E_WARNING</code></strong> was emitted instead,
+       and the function returned <strong><code>false</code></strong>.
+      </td>
+     </tr>
+
     </tbody>
    
   </table>
@@ -179,11 +198,11 @@
  <div class="refsect1 examples" id="refsect1-function.shmop-open-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3408">
+   <div class="example" id="example-3444">
     <p><strong>Example #1 Create a new shared memory block</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$shm_key&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftok</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'t'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$shm_id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">shmop_open</span><span style="color: #007700">(</span><span style="color: #0000BB">$shm_key</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"c"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0644</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$shm_key </span><span style="color: #007700">= </span><span style="color: #0000BB">ftok</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">, </span><span style="color: #DD0000">'t'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$shm_id </span><span style="color: #007700">= </span><span style="color: #0000BB">shmop_open</span><span style="color: #007700">(</span><span style="color: #0000BB">$shm_key</span><span style="color: #007700">, </span><span style="color: #DD0000">"c"</span><span style="color: #007700">, </span><span style="color: #0000BB">0644</span><span style="color: #007700">, </span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

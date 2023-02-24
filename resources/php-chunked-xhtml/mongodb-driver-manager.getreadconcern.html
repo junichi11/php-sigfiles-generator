@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="mongodb-driver-manager.executewritecommand.html">« MongoDB\Driver\Manager::executeWriteCommand</a></li>
+      <li style="float: left;"><a href="mongodb-driver-manager.getencryptedfieldsmap.html">« MongoDB\Driver\Manager::getEncryptedFieldsMap</a></li>
       <li style="float: right;"><a href="mongodb-driver-manager.getreadpreference.html">MongoDB\Driver\Manager::getReadPreference »</a></li>
     </ul>
   </div>
@@ -67,11 +67,11 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb-driver-manager.getreadconcern-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1278">
+  <div class="example" id="example-1309">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\Driver\Manager::getReadConcern()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">'mongodb://localhost:27017'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$manager</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getReadConcern</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">'mongodb://localhost:27017/?readConcernLevel=local'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$manager</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getReadConcern</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$manager </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">'mongodb://localhost:27017'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$manager</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getReadConcern</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">$manager </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">'mongodb://localhost:27017/?readConcernLevel=local'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$manager</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getReadConcern</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

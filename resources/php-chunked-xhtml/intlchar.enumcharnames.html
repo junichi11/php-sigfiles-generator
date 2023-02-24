@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-intlchar.enumcharnames-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::enumCharNames</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$start</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$limit</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$nameChoice</code><span class="initializer"> = <strong><code>IntlChar::UNICODE_CHAR_NAME</code></strong></span></span><br>): <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::enumCharNames</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$start</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$end</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = IntlChar::UNICODE_CHAR_NAME</span></span><br>): <span class="type"><span class="type">?</span><span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    Enumerate all assigned Unicode characters between the start and limit code points (start inclusive, limit exclusive)
@@ -62,7 +62,7 @@
    
    
     <dt>
-<code class="parameter">limit</code></dt>
+<code class="parameter">end</code></dt>
 
     <dd>
 
@@ -82,7 +82,7 @@
       The function that is to be called for each character name.  The following three arguments will be passed into it:
       <ul class="simplelist">
        <li class="member"><span class="type">int</span> <code class="literal">$codepoint</code> - The numeric code point value</li>
-       <li class="member"><span class="type">int</span> <code class="literal">$nameChoice</code> - The same value as the <code class="parameter">nameChoice</code> parameter below</li>
+       <li class="member"><span class="type">int</span> <code class="literal">$nameChoice</code> - The same value as the <code class="parameter">type</code> parameter below</li>
        <li class="member"><span class="type">string</span> <code class="literal">$name</code> - The name of the character</li>
       </ul>
      </p>
@@ -91,7 +91,7 @@
    
    
     <dt>
-<code class="parameter">nameChoice</code></dt>
+<code class="parameter">type</code></dt>
 
     <dd>
 
@@ -116,18 +116,18 @@
  <div class="refsect1 returnvalues" id="refsect1-intlchar.enumcharnames-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   No value is returned.
+   Returns <strong><code>null</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-intlchar.enumcharnames-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2484">
+  <div class="example" id="example-2554">
    <p><strong>Example #1 Enumerating over a sample range of code points</strong></p>
    <div class="example-contents">
     <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">enumCharNames</span><span style="color: #007700">(</span><span style="color: #0000BB">0x2600</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0x2610</span><span style="color: #007700">,&nbsp;function(</span><span style="color: #0000BB">$codepoint</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$nameChoice</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"U+%04x&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$codepoint</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />});<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />IntlChar</span><span style="color: #007700">::</span><span style="color: #0000BB">enumCharNames</span><span style="color: #007700">(</span><span style="color: #0000BB">0x2600</span><span style="color: #007700">, </span><span style="color: #0000BB">0x2610</span><span style="color: #007700">, function(</span><span style="color: #0000BB">$codepoint</span><span style="color: #007700">, </span><span style="color: #0000BB">$nameChoice</span><span style="color: #007700">, </span><span style="color: #0000BB">$name</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"U+%04x %s\n"</span><span style="color: #007700">, </span><span style="color: #0000BB">$codepoint</span><span style="color: #007700">, </span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />});<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

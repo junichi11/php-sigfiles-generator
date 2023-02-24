@@ -88,11 +88,11 @@
  <div class="refsect1 examples" id="refsect1-worker.unstack-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3361">
+   <div class="example" id="example-3433">
     <p><strong>Example #1 Removing objects from the stack of Workers</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$my&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Worker</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$work&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;class&nbsp;extends&nbsp;</span><span style="color: #0000BB">Threaded&nbsp;</span><span style="color: #007700">{};<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$my</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stack</span><span style="color: #007700">(</span><span style="color: #0000BB">$work</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$my</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">unstack</span><span style="color: #007700">());</span>
+<span style="color: #0000BB">&lt;?php<br />$my </span><span style="color: #007700">= new </span><span style="color: #0000BB">Worker</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$work </span><span style="color: #007700">= new class extends </span><span style="color: #0000BB">Threaded </span><span style="color: #007700">{};<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$my</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stack</span><span style="color: #007700">(</span><span style="color: #0000BB">$work</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$my</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">unstack</span><span style="color: #007700">());</span>
 </span>
 </code></div>
     </div>

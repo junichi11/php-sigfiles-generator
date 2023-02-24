@@ -69,8 +69,13 @@
  <div class="refsect1 returnvalues" id="refsect1-datetimezone.getname-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   One of the timezone names in the
-   <a href="timezones.html" class="link">list of timezones</a>.
+   Depending on zone type, UTC offset (type 1), timezone abbreviation (type
+   2), and timezone identifiers as published in the IANA timezone database
+   (type 3), the descriptor string to create a new
+   <span class="classname"><a href="class.datetimezone.html" class="classname">DateTimeZone</a></span> object with the same offset and/or
+   rules. For example <code class="literal">02:00</code>, <code class="literal">CEST</code>, or
+   one of the timezone names in the <a href="timezones.html" class="link">list of
+   timezones</a>.
   </p>
  </div>
 

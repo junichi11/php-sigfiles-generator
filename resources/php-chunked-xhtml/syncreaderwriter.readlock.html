@@ -72,11 +72,11 @@
 
  <div class="refsect1 examples" id="refsect1-syncreaderwriter.readlock-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3424">
+  <div class="example" id="example-3460">
    <p><strong>Example #1 <span class="function"><strong>SyncReaderWriter::readlock()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$readwrite&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SyncReaderWriter</span><span style="color: #007700">(</span><span style="color: #DD0000">"FileCacheLock"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$readwrite</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">readlock</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">/*&nbsp;...&nbsp;*/<br /></span><span style="color: #0000BB">$readwrite</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">readunlock</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$readwrite </span><span style="color: #007700">= new </span><span style="color: #0000BB">SyncReaderWriter</span><span style="color: #007700">(</span><span style="color: #DD0000">"FileCacheLock"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$readwrite</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">readlock</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">/* ... */<br /></span><span style="color: #0000BB">$readwrite</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">readunlock</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

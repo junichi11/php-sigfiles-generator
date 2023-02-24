@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Check if the JSON contains the value referred to by a JSON pointer.</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.simdjson-key-count.html">« simdjson_key_count</a></li>
+      <li style="float: right;"><a href="function.simdjson-key-value.html">simdjson_key_value »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.simdjson.html">Simdjson Functions</a></li>
+    <li>Check if the JSON contains the value referred to by a JSON pointer.</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.simdjson-key-exists" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">simdjson_key_exists</h1>
+  <p class="verinfo">(PECL simdjson &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">simdjson_key_exists</span> &mdash; <span class="dc-title">Check if the JSON contains the value referred to by a JSON pointer.</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.simdjson-key-exists-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>simdjson_key_exists</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$json</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$depth</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Count the number of elements of the object/array found at the requested JSON pointer.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.simdjson-key-exists-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">json</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The <code class="parameter">json</code> <span class="type">string</span> being queried.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">key</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The JSON pointer <span class="type">string</span>.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">depth</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Maximum nesting depth of the structure being validated.
+      The value must be greater than <code class="literal">0</code>,
+      and less than or equal to <code class="literal">2147483647</code>.
+
+      Callers should use reasonably small values,
+      because larger depths require more buffer space and will
+      increase the recursion depth, unlike the current <span class="function"><a href="function.json-decode.html" class="function">json_decode()</a></span> implementation.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">throw_if_uncountable</code></dt>
+
+    <dd>
+
+     <p class="para">
+      When true, a <span class="classname"><a href="class.simdjsonexception.html" class="classname">SimdJsonException</a></span> will be thrown
+      instead of returning 0 when the value the JSON pointer points to
+      is neither an object nor an array.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.simdjson-key-exists-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> if the JSON pointer is valid and refers to a value found within a valid JSON string.
+   Returns <strong><code>false</code></strong> if the JSON is valid but does not contain the JSON pointer.
+  </p>
+ </div>
+
+
+
+</div></div></div></body></html>

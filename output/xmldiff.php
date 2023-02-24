@@ -51,16 +51,6 @@ namespace XMLDiff {
 	class DOM extends \XMLDiff\Base {
 
 		/**
-		 * Constructor
-		 * <p>Base constructor for all the worker classes in the xmldiff extension.</p>
-		 * @param string $nsname <p>Custom namespace name for the diff document. The default namespace is http://www.locus.cz/diffmark and that's enough to avoid namespace conflicts. Use this parameter if you want to change it for some reason.</p>
-		 * @return self
-		 * @link https://php.net/manual/en/xmldiff-base.construct.php
-		 * @since PECL xmldiff >= 0.8.0
-		 */
-		public function __construct(string $nsname) {}
-
-		/**
 		 * Diff two DOMDocument objects
 		 * <p>Diff two DOMDocument instances and produce the new one containing the diff information.</p>
 		 * @param \DOMDocument $from <p>Source DOMDocument object.</p>
@@ -90,16 +80,6 @@ namespace XMLDiff {
 	class File extends \XMLDiff\Base {
 
 		/**
-		 * Constructor
-		 * <p>Base constructor for all the worker classes in the xmldiff extension.</p>
-		 * @param string $nsname <p>Custom namespace name for the diff document. The default namespace is http://www.locus.cz/diffmark and that's enough to avoid namespace conflicts. Use this parameter if you want to change it for some reason.</p>
-		 * @return self
-		 * @link https://php.net/manual/en/xmldiff-base.construct.php
-		 * @since PECL xmldiff >= 0.8.0
-		 */
-		public function __construct(string $nsname) {}
-
-		/**
 		 * Diff two XML files
 		 * <p>Diff two local XML files and produce string with the diff information.</p>
 		 * @param string $from <p>Path to the source document.</p>
@@ -127,16 +107,6 @@ namespace XMLDiff {
 	 * @since PECL xmldiff >= 0.8.0
 	 */
 	class Memory extends \XMLDiff\Base {
-
-		/**
-		 * Constructor
-		 * <p>Base constructor for all the worker classes in the xmldiff extension.</p>
-		 * @param string $nsname <p>Custom namespace name for the diff document. The default namespace is http://www.locus.cz/diffmark and that's enough to avoid namespace conflicts. Use this parameter if you want to change it for some reason.</p>
-		 * @return self
-		 * @link https://php.net/manual/en/xmldiff-base.construct.php
-		 * @since PECL xmldiff >= 0.8.0
-		 */
-		public function __construct(string $nsname) {}
 
 		/**
 		 * Diff two XML documents

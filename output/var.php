@@ -120,7 +120,7 @@ namespace {
 	 * @param mixed $value <p>The variable being evaluated.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if <code>value</code> is an <code>array</code>, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.is-array.php
-	 * @see is_float(), is_int(), is_string(), is_object()
+	 * @see array_is_list(), is_float(), is_int(), is_string(), is_object()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function is_array(mixed $value): bool {}
@@ -240,7 +240,7 @@ namespace {
 	 * @param mixed $value <p>The variable being evaluated.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if <code>value</code> is a number or a numeric string, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.is-numeric.php
-	 * @see ctype_digit(), is_bool(), is_null(), is_float(), is_int(), is_string(), is_object(), is_array()
+	 * @see ctype_digit(), is_bool(), is_null(), is_float(), is_int(), is_string(), is_object(), is_array(), filter_var()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function is_numeric(mixed $value): bool {}
@@ -279,7 +279,7 @@ namespace {
 
 	/**
 	 * Finds whether a variable is a scalar
-	 * <p>Finds whether the given variable is a scalar.</p><p>Scalar variables are those containing an <code>int</code>, <code>float</code>, <code>string</code> or <code>bool</code>. Types <code>array</code>, <code>object</code> and <code>resource</code> are not scalar.</p><p><b>Note</b>:</p><p><b>is_scalar()</b> does not consider <code>resource</code> type values to be scalar as resources are abstract datatypes which are currently based on integers. This implementation detail should not be relied upon, as it may change.</p><p><b>Note</b>:</p><p><b>is_scalar()</b> does not consider NULL to be scalar.</p>
+	 * <p>Finds whether the given variable is a scalar.</p><p>Scalar variables are those containing an <code>int</code>, <code>float</code>, <code>string</code> or <code>bool</code>. Types <code>array</code>, <code>object</code>, <code>resource</code> and <code>null</code> are not scalar.</p><p><b>Note</b>:</p><p><b>is_scalar()</b> does not consider <code>resource</code> type values to be scalar as resources are abstract datatypes which are currently based on integers. This implementation detail should not be relied upon, as it may change.</p><p><b>Note</b>:</p><p><b>is_scalar()</b> does not consider NULL to be scalar.</p>
 	 * @param mixed $value <p>The variable being evaluated.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if <code>value</code> is a scalar, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.is-scalar.php
@@ -349,7 +349,7 @@ namespace {
 	 * Creates a PHP value from a stored representation
 	 * <p><b>unserialize()</b> takes a single serialized variable and converts it back into a PHP value.</p><p>Do not pass untrusted user input to <b>unserialize()</b> regardless of the <code>options</code> value of <code>allowed_classes</code>. Unserialization can result in code being loaded and executed due to object instantiation and autoloading, and a malicious user may be able to exploit this. Use a safe, standard data interchange format such as JSON (via <code>json_decode()</code> and <code>json_encode()</code>) if you need to pass serialized data to the user.</p><p>If you need to unserialize externally-stored serialized data, consider using <code>hash_hmac()</code> for data validation. Make sure data is not modified by anyone but you.</p>
 	 * @param string $data <p>The serialized string.</p> <p>If the variable being unserialized is an object, after successfully reconstructing the object PHP will automatically attempt to call the __unserialize() or __wakeup() methods (if one exists).</p> <p></p><p><b>Note</b>: <b>unserialize_callback_func directive</b><br></p><p>It's possible to set a callback-function which will be called, if an undefined class should be instantiated during unserializing. (to prevent getting an incomplete <code>object</code> "__PHP_Incomplete_Class".) Use your php.ini, <code>ini_set()</code> or .htaccess to define unserialize_callback_func. Everytime an undefined class should be instantiated, it'll be called. To disable this feature just empty this setting.</p>
-	 * @param array $options <p>Any options to be provided to <b>unserialize()</b>, as an associative array.</p>  <b>Valid options</b>   Name Type Description     <code>allowed_classes</code> <code>mixed</code>   Either an <code>array</code> of class names which should be accepted, <b><code>false</code></b> to accept no classes, or <b><code>true</code></b> to accept all classes. If this option is defined and <b>unserialize()</b> encounters an object of a class that isn't to be accepted, then the object will be instantiated as <b>__PHP_Incomplete_Class</b> instead.   Omitting this option is the same as defining it as <b><code>true</code></b>: PHP will attempt to instantiate objects of any class.
+	 * @param array $options <p>Any options to be provided to <b>unserialize()</b>, as an associative array.</p>  <b>Valid options</b>   Name Type Description     <code>allowed_classes</code> <code>mixed</code>   Either an <code>array</code> of class names which should be accepted, <b><code>false</code></b> to accept no classes, or <b><code>true</code></b> to accept all classes. If this option is defined and <b>unserialize()</b> encounters an object of a class that isn't to be accepted, then the object will be instantiated as <b>__PHP_Incomplete_Class</b> instead.   Omitting this option is the same as defining it as <b><code>true</code></b>: PHP will attempt to instantiate objects of any class.     <code>max_depth</code> <code>int</code>   The maximum depth of structures permitted during unserialization, and is intended to prevent stack overflows. The default depth limit is <code>4096</code> and can be disabled by setting <code>max_depth</code> to <code>0</code>.
 	 * @return mixed <p>The converted value is returned, and can be a <code>bool</code>, <code>int</code>, <code>float</code>, <code>string</code>, <code>array</code> or <code>object</code>.</p><p>In case the passed string is not unserializeable, <b><code>false</code></b> is returned and <b><code>E_NOTICE</code></b> is issued.</p>
 	 * @link https://php.net/manual/en/function.unserialize.php
 	 * @see json_encode(), json_decode(), hash_hmac(), serialize()

@@ -80,7 +80,7 @@ namespace {
 	 * <p>Gets or sets various internal readline variables.</p>
 	 * @param ?string $var_name <p>A variable name.</p>
 	 * @param int|string|bool|null $value <p>If provided, this will be the new value of the setting.</p>
-	 * @return mixed <p>If called with no parameters, this function returns an array of values for all the setting readline uses. The elements will be indexed by the following values: done, end, erase_empty_line, library_version, line_buffer, mark, pending_input, point, prompt, readline_name, and terminal_name.</p><p>If called with one or two parameters, the old value is returned.</p>
+	 * @return mixed <p>If called with no parameters, this function returns an array of values for all the settings readline uses. The elements will be indexed by the following values: <code>done</code>, <code>end</code>, <code>erase_empty_line</code>, <code>library_version</code>, <code>line_buffer</code>, <code>mark</code>, <code>pending_input</code>, <code>point</code>, <code>prompt</code>, <code>readline_name</code>, and <code>terminal_name</code>. The <code>array</code> will only contain those elements which are supported by the library used to built the readline extension.</p><p>If called with one or two parameters, the old value is returned.</p>
 	 * @link https://php.net/manual/en/function.readline-info.php
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */

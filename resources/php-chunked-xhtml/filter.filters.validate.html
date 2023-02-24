@@ -63,6 +63,9 @@
           returned only for &quot;0&quot;, &quot;false&quot;, &quot;off&quot;, &quot;no&quot;, and &quot;&quot;, and
           <strong><code>null</code></strong> is returned for all non-boolean values.
          </p>
+         <p class="para">
+          String values are trimmed using <span class="function"><a href="function.trim.html" class="function">trim()</a></span> before comparison.
+         </p>
         </td>
        </tr>
 
@@ -127,7 +130,14 @@
          <strong><code>FILTER_FLAG_ALLOW_THOUSAND</code></strong>,
          <strong><code>FILTER_NULL_ON_FAILURE</code></strong>
         </td>
-        <td>Validates value as float, optionally from the specified range, and converts to float on success.</td>
+        <td>
+         <p class="para">
+          Validates value as float, optionally from the specified range, and converts to float on success.
+         </p>
+         <p class="para">
+          String values are trimmed using <span class="function"><a href="function.trim.html" class="function">trim()</a></span> before comparison.
+         </p>
+        </td>
        </tr>
 
        <tr>
@@ -143,7 +153,14 @@
          <strong><code>FILTER_FLAG_ALLOW_HEX</code></strong>,
          <strong><code>FILTER_NULL_ON_FAILURE</code></strong>
         </td>
-        <td>Validates value as integer, optionally from the specified range, and converts to int on success.</td>
+        <td>
+         <p class="para">
+          Validates value as integer, optionally from the specified range, and converts to int on success.
+         </p>
+         <p class="para">
+          String values are trimmed using <span class="function"><a href="function.trim.html" class="function">trim()</a></span> before comparison.
+         </p>
+        </td>
        </tr>
 
        <tr>
@@ -157,6 +174,7 @@
          <strong><code>FILTER_FLAG_IPV6</code></strong>,
          <strong><code>FILTER_FLAG_NO_PRIV_RANGE</code></strong>,
          <strong><code>FILTER_FLAG_NO_RES_RANGE</code></strong>,
+         <strong><code>FILTER_FLAG_GLOBAL_RANGE</code></strong>,
          <strong><code>FILTER_NULL_ON_FAILURE</code></strong>
         </td>
         <td>
@@ -235,6 +253,16 @@
       </thead>
 
       <tbody class="tbody">
+       <tr>
+        <td>8.0.0</td>
+        <td>
+         The <strong><code>FILTER_FLAG_SCHEME_REQUIRED</code></strong> and
+         <strong><code>FILTER_FLAG_HOST_REQUIRED</code></strong> flags for the
+         <strong><code>FILTER_VALIDATE_URL</code></strong> filter have been removed.
+         The <code class="literal">scheme</code> and <code class="literal">host</code> are (and have been) always required.
+        </td>
+       </tr>
+
        <tr>
         <td>8.0.0</td>
         <td>

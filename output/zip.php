@@ -30,7 +30,7 @@ namespace {
 		const EXCL = 2;
 
 		/**
-		 * @var int Open archive in read only mode. Available as of PHP 7.4.3 and PECL zip 1.17.1, respectively, if built against libzip &ge; 1.0.0.
+		 * @var int Open archive in read only mode. Available as of PHP 7.4.3 and PECL zip 1.17.1, respectively, if built against libzip &#x2265; 1.0.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
 		const RDONLY = 16;
@@ -69,25 +69,25 @@ namespace {
 		 * @var int Force recompression of data. Available as of PHP 8.0.0 and PECL zip 1.18.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
-		const FL_RECOMPRESS = null;
+		const FL_RECOMPRESS = 16;
 
 		/**
 		 * @var int Read encrypted data (implies FL_COMPRESSED). Available as of PHP 8.0.0 and PECL zip 1.18.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
-		const FL_ENCRYPTED = null;
+		const FL_ENCRYPTED = 32;
 
 		/**
 		 * @var int If file with name exists, overwrite (replace) it. Available as of PHP 8.0.0 and PECL zip 1.18.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
-		const FL_OVERWRITE = null;
+		const FL_OVERWRITE = 8192;
 
 		/**
 		 * @var int In local header. Available as of PHP 8.0.0 and PECL zip 1.18.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
-		const FL_LOCAL = null;
+		const FL_LOCAL = 256;
 
 		/**
 		 * @var int In central directory. Available as of PHP 8.0.0 and PECL zip 1.18.0.
@@ -204,19 +204,19 @@ namespace {
 		const CM_LZMA = 14;
 
 		/**
-		 * @var int LZMA2 algorithm. Available as of PHP 7.4.3 and PECL zip 1.16.0, respectively, if built against libzip &ge; 1.6.0.
+		 * @var int LZMA2 algorithm. Available as of PHP 7.4.3 and PECL zip 1.16.0, respectively, if built against libzip &#x2265; 1.6.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
-		const CM_LZMA2 = null;
+		const CM_LZMA2 = 33;
 
 		/**
-		 * @var int Zstandard algorithm. Available as of PHP 8.0.0 and PECL zip 1.19.1, respectively, if built against libzip &ge; 1.8.0.
+		 * @var int Zstandard algorithm. Available as of PHP 8.0.0 and PECL zip 1.19.1, respectively, if built against libzip &#x2265; 1.8.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
 		const CM_ZSTD = null;
 
 		/**
-		 * @var int XZ algorithm. Available as of PHP 7.4.3 and PECL zip 1.16.1, respectively, if built against libzip &ge; 1.6.0.
+		 * @var int XZ algorithm. Available as of PHP 7.4.3 and PECL zip 1.16.1, respectively, if built against libzip &#x2265; 1.6.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
 		const CM_XZ = 95;
@@ -390,34 +390,34 @@ namespace {
 		const ER_WRONGPASSWD = 27;
 
 		/**
-		 * @var int Operation not supported. Available as of PHP 7.4.3 and PECL zip 1.16.1, respectively, if built against libzip &ge; 1.0.0.
+		 * @var int Operation not supported. Available as of PHP 7.4.3 and PECL zip 1.16.1, respectively, if built against libzip &#x2265; 1.0.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
 		const ZIP_ER_OPNOTSUPP = null;
 
 		/**
-		 * @var int Resource still in use. Available as of PHP 7.4.3 and PECL zip 1.16.1, respectively, if built against libzip &ge; 1.0.0.
+		 * @var int Resource still in use. Available as of PHP 7.4.3 and PECL zip 1.16.1, respectively, if built against libzip &#x2265; 1.0.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
 		const ZIP_ER_INUSE = null;
 
 		/**
-		 * @var int Tell error. Available as of PHP 7.4.3 and PECL zip 1.16.1, respectively, if built against libzip &ge; 1.0.0.
+		 * @var int Tell error. Available as of PHP 7.4.3 and PECL zip 1.16.1, respectively, if built against libzip &#x2265; 1.0.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
 		const ZIP_ER_TELL = null;
 
 		/**
-		 * @var int Compressed data invalid. Available as of PHP 7.4.3 and PECL zip 1.16.1, respectively, if built against libzip &ge; 1.6.0.
+		 * @var int Compressed data invalid. Available as of PHP 7.4.3 and PECL zip 1.16.1, respectively, if built against libzip &#x2265; 1.6.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
 		const ZIP_ER_COMPRESSED_DATA = null;
 
 		/**
-		 * @var int Operation cancelled. Available as of PHP 7.4.3 and PECL zip 1.16.1, respectively, if built against libzip &ge; 1.6.0.
+		 * @var int Operation cancelled. Available as of PHP 7.4.3 and PECL zip 1.16.1, respectively, if built against libzip &#x2265; 1.6.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
-		const ER_CANCELLED = null;
+		const ER_CANCELLED = 32;
 
 		/**
 		 * @var int No encryption. Available as of PHP 7.2.0 and PECL zip 1.14.0, respectively.
@@ -429,22 +429,22 @@ namespace {
 		 * @var int Traditional PKWARE encryption. Available as of PHP 8.0.0 and PECL zip 1.19.0, respectively.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
-		const EM_TRAD_PKWARE = null;
+		const EM_TRAD_PKWARE = 1;
 
 		/**
-		 * @var int AES 128 encryption. Available as of PHP 7.2.0 and PECL zip 1.14.0, respectively, if built against libzip &ge; 1.2.0.
+		 * @var int AES 128 encryption. Available as of PHP 7.2.0 and PECL zip 1.14.0, respectively, if built against libzip &#x2265; 1.2.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
 		const EM_AES_128 = 257;
 
 		/**
-		 * @var int AES 192 encryption. Available as of PHP 7.2.0 and PECL zip 1.14.0, respectively, if built against libzip &ge; 1.2.0.
+		 * @var int AES 192 encryption. Available as of PHP 7.2.0 and PECL zip 1.14.0, respectively, if built against libzip &#x2265; 1.2.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
 		const EM_AES_192 = 258;
 
 		/**
-		 * @var int AES 256 encryption. Available as of PHP 7.2.0 and PECL zip 1.14.0, respectively, if built against libzip &ge; 1.2.0.
+		 * @var int AES 256 encryption. Available as of PHP 7.2.0 and PECL zip 1.14.0, respectively, if built against libzip &#x2265; 1.2.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
 		const EM_AES_256 = 259;
@@ -453,13 +453,13 @@ namespace {
 		 * @var int Unknown encryption algorithm. Available as of PHP 8.0.0 and PECL zip 1.19.0, respectively.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
-		const EM_UNKNOWN = null;
+		const EM_UNKNOWN = 65535;
 
 		/**
 		 * @var string Zip library version. Available as of PHP 7.4.3 and PECL zip 1.16.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
-		const LIBZIP_VERSION = '1.5.1';
+		const LIBZIP_VERSION = '1.7.3';
 
 		/**
 		 * @var int Since PECL zip 1.12.4
@@ -695,7 +695,7 @@ namespace {
 
 		/**
 		 * Close the active archive (opened or newly created)
-		 * <p>Close opened or created archive and save changes. This method is automatically called at the end of the script.</p>
+		 * <p>Close opened or created archive and save changes. This method is automatically called at the end of the script.</p><p>If the archive contains no files, the file is completely removed (no empty archive is written).</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/ziparchive.close.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8, PECL zip >= 1.1.0
@@ -784,7 +784,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.getexternalattributesindex.php
 		 * @since PHP 5 >= 5.6.0, PHP 7, PHP 8, PECL zip >= 1.12.4
 		 */
-		public function getExternalAttributesIndex(int $index, int &$opsys, int &$attr, int $flags = null): bool {}
+		public function getExternalAttributesIndex(int $index, int &$opsys, int &$attr, int $flags = 0): bool {}
 
 		/**
 		 * Retrieve the external attributes of an entry defined by its name
@@ -913,7 +913,7 @@ namespace {
 		 * <p>Opens a new or existing zip archive for reading, writing or modifying.</p><p>Since libzip 1.6.0, a empty file is not a valid archive any longer.</p>
 		 * @param string $filename <p>The file name of the ZIP archive to open.</p>
 		 * @param int $flags <p>The mode to use to open the archive.</p><ul> <li> <p><b><code>ZipArchive::OVERWRITE</code></b></p> </li> <li> <p><b><code>ZipArchive::CREATE</code></b></p> </li> <li> <p><b><code>ZipArchive::RDONLY</code></b></p> </li> <li> <p><b><code>ZipArchive::EXCL</code></b></p> </li> <li> <p><b><code>ZipArchive::CHECKCONS</code></b></p> </li> </ul>
-		 * @return bool|int <p>Returns <b><code>true</code></b> on success, or one of the following error codes:</p>  <b><code>ZipArchive::ER_EXISTS</code></b>  File already exists.   <b><code>ZipArchive::ER_INCONS</code></b>  Zip archive inconsistent.   <b><code>ZipArchive::ER_INVAL</code></b>  Invalid argument.   <b><code>ZipArchive::ER_MEMORY</code></b>  Malloc failure.   <b><code>ZipArchive::ER_NOENT</code></b>  No such file.   <b><code>ZipArchive::ER_NOZIP</code></b>  Not a zip archive.   <b><code>ZipArchive::ER_OPEN</code></b>  Can't open file.   <b><code>ZipArchive::ER_READ</code></b>  Read error.   <b><code>ZipArchive::ER_SEEK</code></b>  Seek error.
+		 * @return bool|int <p>Returns <b><code>true</code></b> on success, <b><code>false</code></b> or one of the following error codes on error:</p>  <b><code>ZipArchive::ER_EXISTS</code></b>  File already exists.   <b><code>ZipArchive::ER_INCONS</code></b>  Zip archive inconsistent.   <b><code>ZipArchive::ER_INVAL</code></b>  Invalid argument.   <b><code>ZipArchive::ER_MEMORY</code></b>  Malloc failure.   <b><code>ZipArchive::ER_NOENT</code></b>  No such file.   <b><code>ZipArchive::ER_NOZIP</code></b>  Not a zip archive.   <b><code>ZipArchive::ER_OPEN</code></b>  Can't open file.   <b><code>ZipArchive::ER_READ</code></b>  Read error.   <b><code>ZipArchive::ER_SEEK</code></b>  Seek error.
 		 * @link https://php.net/manual/en/ziparchive.open.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8, PECL zip >= 1.1.0
 		 */
@@ -966,7 +966,7 @@ namespace {
 		 * Replace file in ZIP archive with a given path
 		 * <p>Replace file in ZIP archive with a given path.</p><p><b>Note</b>: For maximum portability, it is recommended to always use forward slashes (<code>/</code>) as directory separator in ZIP filenames.</p>
 		 * @param string $filepath <p>The path to the file to add.</p>
-		 * @param string $index <p>The index of the file to be replaced, its name is unchanged.</p>
+		 * @param int $index <p>The index of the file to be replaced, its name is unchanged.</p>
 		 * @param int $start <p>For partial copy, start position.</p>
 		 * @param int $length <p>For partial copy, length to be copied, if 0 or -1 the whole file (starting from <code>start</code>) is used.</p>
 		 * @param int $flags <p>Bitmask consisting of <b><code>ZipArchive::FL_ENC_GUESS</code></b>, <b><code>ZipArchive::FL_ENC_UTF_8</code></b>, <b><code>ZipArchive::FL_ENC_CP437</code></b>. The behaviour of these constants is described on the ZIP constants page.</p>
@@ -974,7 +974,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.replacefile.php
 		 * @since PHP >= 8.0.0, PECL zip >= 1.18.0
 		 */
-		public function replaceFile(string $filepath, string $index, int $start = 0, int $length = 0, int $flags = 0): bool {}
+		public function replaceFile(string $filepath, int $index, int $start = 0, int $length = 0, int $flags = 0): bool {}
 
 		/**
 		 * Set the comment of a ZIP archive

@@ -67,6 +67,7 @@ abstract class PhpType extends SigFileElement {
             ->parseConstants($htmlIdent, true);
         $this->allConstantsPhpDoc = (new PhpDoc($this->xpath()))
             ->parseConstants($htmlIdent, false);
+        $extensionClasses = [];
         foreach ($fieldNodes as $fieldNode) {
             $field = new PhpField();
             $modifiers = Html::queryValues($this->xpath(), './*[@class="modifier"]', $fieldNode, true);
@@ -107,6 +108,10 @@ abstract class PhpType extends SigFileElement {
                     }
                 }
                 $field->setPhpDoc($constantsPhpDoc);
+                if (!$initializer) {
+                    $initializer = $this->getConstInitializer($this->getName()->asString(), $name, $type, $extensionClasses);
+                    $field->setInitializer(Php::sanitizeInitializer($initializer, $type));
+                }
             } else {
                 $docLink = Html::querySingleNode($this->xpath(), './var[@class="varname"]/a', $fieldNode, true);
                 if ($docLink !== null) {
@@ -166,22 +171,12 @@ abstract class PhpType extends SigFileElement {
                     continue;
                 }
                 $classExists = class_exists($className, false);
-                if (!$classExists && !in_array($className, $extensionClasses)) {
-                    $extensionClasses[] = $className;
-                    Log::info("$className class does not exist. Maybe the extension is needed to get constant values.");
-                }
                 $initializer = $classExists && defined($constant) ? constant($constant) : null;
                 $constType = $constantPhpDoc->getConstantType($constant);
                 if ($constType === null && $initializer !== null) {
                     $constType = gettype($initializer);
                 }
-                if ($initializer !== null) {
-                    if ($constType !== null) {
-                        $initializer = Php::sanitizeInitializer($initializer, $constType);
-                    } else {
-                        $initializer = '= ' . $initializer;
-                    }
-                }
+                $initializer = $this->getConstInitializer($className, $constName, $constType, $extensionClasses);
                 $field = new PhpField();
                 $field->setConstant(true)
                         ->addModifier('const')
@@ -199,6 +194,27 @@ abstract class PhpType extends SigFileElement {
                 continue;
             }
         }
+    }
+
+    private function getConstInitializer(string $className, string $constName, ?string $constType, array &$extensionClasses): string {
+        $classExists = class_exists($className, false);
+        if (!$classExists && !in_array($className, $extensionClasses)) {
+            $extensionClasses[] = $className;
+            Log::info("$className class does not exist. Maybe the extension is needed to get constant values.");
+        }
+        $constant = $className . "::" . $constName;
+        $initializer = $classExists && defined($constant) ? constant($constant) : null;
+        if ($initializer !== null) {
+            if ($constType !== null) {
+                $initializer = Php::sanitizeInitializer($initializer, $constType);
+            } else {
+                $initializer = '= ' . $initializer;
+            }
+        }
+        if ($initializer === null) {
+            $initializer = '= null';
+        }
+        return $initializer;
     }
 
     private function initMethods(): void {

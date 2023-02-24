@@ -110,6 +110,16 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.hash-init-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> exception if
+   <code class="parameter">algo</code> is unknown or is a non-cryptographic hash
+   function, or if <code class="parameter">key</code> is empty.
+  </p>
+ </div>
+
+
  <div class="refsect1 changelog" id="refsect1-function.hash-init-changelog">
   <h3 class="title">Changelog</h3>
   <p class="para">
@@ -127,6 +137,17 @@
       <tr>
        <td>8.1.0</td>
        <td>The <code class="parameter">options</code> parameter has been added.</td>
+      </tr>
+
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        Now throws an <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> exception if the
+        <code class="parameter">algo</code> is unknown or is a non-cryptographic hash
+        function, or if <code class="parameter">key</code> is empty. Previously,
+        <strong><code>false</code></strong> was returned and an <strong><code>E_WARNING</code></strong> message was
+        emitted.
+       </td>
       </tr>
 
       <tr>
@@ -152,11 +173,11 @@
  <div class="refsect1 examples" id="refsect1-function.hash-init-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-889">
+   <div class="example" id="example-905">
     <p><strong>Example #1 Incremental hashing example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$ctx&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">hash_init</span><span style="color: #007700">(</span><span style="color: #DD0000">'md5'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">hash_update</span><span style="color: #007700">(</span><span style="color: #0000BB">$ctx</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'The&nbsp;quick&nbsp;brown&nbsp;fox&nbsp;'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">hash_update</span><span style="color: #007700">(</span><span style="color: #0000BB">$ctx</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'jumped&nbsp;over&nbsp;the&nbsp;lazy&nbsp;dog.'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">hash_final</span><span style="color: #007700">(</span><span style="color: #0000BB">$ctx</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$ctx </span><span style="color: #007700">= </span><span style="color: #0000BB">hash_init</span><span style="color: #007700">(</span><span style="color: #DD0000">'md5'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">hash_update</span><span style="color: #007700">(</span><span style="color: #0000BB">$ctx</span><span style="color: #007700">, </span><span style="color: #DD0000">'The quick brown fox '</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">hash_update</span><span style="color: #007700">(</span><span style="color: #0000BB">$ctx</span><span style="color: #007700">, </span><span style="color: #DD0000">'jumped over the lazy dog.'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">hash_final</span><span style="color: #007700">(</span><span style="color: #0000BB">$ctx</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

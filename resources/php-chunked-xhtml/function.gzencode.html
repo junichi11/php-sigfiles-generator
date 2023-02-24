@@ -115,11 +115,11 @@
   <p class="para">
    The resulting data contains the appropriate headers and data
    structure to make a standard .gz file, e.g.:
-   <div class="example" id="example-864">
+   <div class="example" id="example-882">
     <p><strong>Example #1 Creating a gzip file</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$data&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">"bigfile.txt"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$gzdata&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gzencode</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">9</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">file_put_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">"bigfile.txt.gz"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$gzdata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$data </span><span style="color: #007700">= </span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">"bigfile.txt"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$gzdata </span><span style="color: #007700">= </span><span style="color: #0000BB">gzencode</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">, </span><span style="color: #0000BB">9</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">file_put_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">"bigfile.txt.gz"</span><span style="color: #007700">, </span><span style="color: #0000BB">$gzdata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

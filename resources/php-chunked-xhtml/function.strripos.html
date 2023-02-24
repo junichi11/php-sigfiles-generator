@@ -151,6 +151,17 @@ function.</p></div>
     </thead>
 
     <tbody class="tbody">
+     
+ <tr>
+  <td>8.2.0</td>
+  <td>
+   Case folding no longer depends on the locale set with
+   <span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span>. Only ASCII case folding will be done.
+   Non-ASCII bytes will be compared by their byte value.
+  </td>
+ </tr>
+
+
      <tr>
       <td>8.0.0</td>
       <td>
@@ -175,11 +186,11 @@ function.</p></div>
  <div class="refsect1 examples" id="refsect1-function.strripos-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4865">
+   <div class="example" id="example-4955">
     <p><strong>Example #1 A simple <span class="function"><strong>strripos()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$haystack&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'ababcd'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$needle&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'aB'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$pos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strripos</span><span style="color: #007700">(</span><span style="color: #0000BB">$haystack</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$needle</span><span style="color: #007700">);<br /><br />if&nbsp;(</span><span style="color: #0000BB">$pos&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Sorry,&nbsp;we&nbsp;did&nbsp;not&nbsp;find&nbsp;(</span><span style="color: #0000BB">$needle</span><span style="color: #DD0000">)&nbsp;in&nbsp;(</span><span style="color: #0000BB">$haystack</span><span style="color: #DD0000">)"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Congratulations!\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"We&nbsp;found&nbsp;the&nbsp;last&nbsp;(</span><span style="color: #0000BB">$needle</span><span style="color: #DD0000">)&nbsp;in&nbsp;(</span><span style="color: #0000BB">$haystack</span><span style="color: #DD0000">)&nbsp;at&nbsp;position&nbsp;(</span><span style="color: #0000BB">$pos</span><span style="color: #DD0000">)"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$haystack </span><span style="color: #007700">= </span><span style="color: #DD0000">'ababcd'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$needle   </span><span style="color: #007700">= </span><span style="color: #DD0000">'aB'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$pos      </span><span style="color: #007700">= </span><span style="color: #0000BB">strripos</span><span style="color: #007700">(</span><span style="color: #0000BB">$haystack</span><span style="color: #007700">, </span><span style="color: #0000BB">$needle</span><span style="color: #007700">);<br /><br />if (</span><span style="color: #0000BB">$pos </span><span style="color: #007700">=== </span><span style="color: #0000BB">false</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"Sorry, we did not find (</span><span style="color: #0000BB">$needle</span><span style="color: #DD0000">) in (</span><span style="color: #0000BB">$haystack</span><span style="color: #DD0000">)"</span><span style="color: #007700">;<br />} else {<br />    echo </span><span style="color: #DD0000">"Congratulations!\n"</span><span style="color: #007700">;<br />    echo </span><span style="color: #DD0000">"We found the last (</span><span style="color: #0000BB">$needle</span><span style="color: #DD0000">) in (</span><span style="color: #0000BB">$haystack</span><span style="color: #DD0000">) at position (</span><span style="color: #0000BB">$pos</span><span style="color: #DD0000">)"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

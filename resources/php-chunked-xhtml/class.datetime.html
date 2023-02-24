@@ -34,10 +34,23 @@
   <div class="section" id="datetime.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
+    Representation of date and time.
+   </p>
+   <p class="para">
     This class behaves the same as <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span>
     except objects are modified itself when modification methods such as
     <span class="function"><a href="datetime.modify.html" class="function">DateTime::modify()</a></span> are called.
    </p>
+   <div class="warning"><strong class="warning">Warning</strong>
+    <p class="para">
+     Calling methods on objects of the class <span class="classname"><strong class="classname">DateTime</strong></span>
+     will change the information encapsulated in these objects, if you want to
+     prevent that you will have to use <code class="literal">clone</code> operator to
+     create a new object. Use <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span>
+     instead of <span class="classname"><strong class="classname">DateTime</strong></span> to obtain this recommended
+     behaviour by default.
+    </p>
+   </div>
   </div>
 
 
@@ -60,45 +73,62 @@
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited constants */</div>
     <div class="fieldsynopsis">
+     <span class="modifier">public</span>
      <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetime.constants.atom"><var class="varname">DateTimeInterface::ATOM</var></a></var><span class="initializer"> = &quot;Y-m-d\TH:i:sP&quot;</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.atom"><var class="varname">DateTimeInterface::ATOM</var></a></var><span class="initializer"> = &quot;Y-m-d\\TH:i:sP&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetime.constants.cookie"><var class="varname">DateTimeInterface::COOKIE</var></a></var><span class="initializer"> = &quot;l, d-M-Y H:i:s T&quot;</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.cookie"><var class="varname">DateTimeInterface::COOKIE</var></a></var><span class="initializer"> = &quot;l, d-M-Y H:i:s T&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetime.constants.iso8601"><var class="varname">DateTimeInterface::ISO8601</var></a></var><span class="initializer"> = &quot;Y-m-d\TH:i:sO&quot;</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.iso8601"><var class="varname">DateTimeInterface::ISO8601</var></a></var><span class="initializer"> = &quot;Y-m-d\\TH:i:sO&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetime.constants.rfc822"><var class="varname">DateTimeInterface::RFC822</var></a></var><span class="initializer"> = &quot;D, d M y H:i:s O&quot;</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.iso8601-expanded"><var class="varname">DateTimeInterface::ISO8601_EXPANDED</var></a></var><span class="initializer"> = &quot;X-m-d\\TH:i:sP&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetime.constants.rfc850"><var class="varname">DateTimeInterface::RFC850</var></a></var><span class="initializer"> = &quot;l, d-M-y H:i:s T&quot;</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.rfc822"><var class="varname">DateTimeInterface::RFC822</var></a></var><span class="initializer"> = &quot;D, d M y H:i:s O&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetime.constants.rfc1036"><var class="varname">DateTimeInterface::RFC1036</var></a></var><span class="initializer"> = &quot;D, d M y H:i:s O&quot;</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.rfc850"><var class="varname">DateTimeInterface::RFC850</var></a></var><span class="initializer"> = &quot;l, d-M-y H:i:s T&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetime.constants.rfc1123"><var class="varname">DateTimeInterface::RFC1123</var></a></var><span class="initializer"> = &quot;D, d M Y H:i:s O&quot;</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.rfc1036"><var class="varname">DateTimeInterface::RFC1036</var></a></var><span class="initializer"> = &quot;D, d M y H:i:s O&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetime.constants.rfc7231"><var class="varname">DateTimeInterface::RFC7231</var></a></var><span class="initializer"> = &quot;D, d M Y H:i:s \G\M\T&quot;</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.rfc1123"><var class="varname">DateTimeInterface::RFC1123</var></a></var><span class="initializer"> = &quot;D, d M Y H:i:s O&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetime.constants.rfc2822"><var class="varname">DateTimeInterface::RFC2822</var></a></var><span class="initializer"> = &quot;D, d M Y H:i:s O&quot;</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.rfc7231"><var class="varname">DateTimeInterface::RFC7231</var></a></var><span class="initializer"> = &quot;D, d M Y H:i:s \\G\\M\\T&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetime.constants.rfc3339"><var class="varname">DateTimeInterface::RFC3339</var></a></var><span class="initializer"> = &quot;Y-m-d\TH:i:sP&quot;</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.rfc2822"><var class="varname">DateTimeInterface::RFC2822</var></a></var><span class="initializer"> = &quot;D, d M Y H:i:s O&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetime.constants.rfc3339_extended"><var class="varname">DateTimeInterface::RFC3339_EXTENDED</var></a></var><span class="initializer"> = &quot;Y-m-d\TH:i:s.vP&quot;</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.rfc3339"><var class="varname">DateTimeInterface::RFC3339</var></a></var><span class="initializer"> = &quot;Y-m-d\\TH:i:sP&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetime.constants.rss"><var class="varname">DateTimeInterface::RSS</var></a></var><span class="initializer"> = &quot;D, d M Y H:i:s O&quot;</span>;</div>
-<div class="fieldsynopsis"><span class="modifier">const</span>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.rfc3339-extended"><var class="varname">DateTimeInterface::RFC3339_EXTENDED</var></a></var><span class="initializer"> = &quot;Y-m-d\\TH:i:s.vP&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetime.constants.w3c"><var class="varname">DateTimeInterface::W3C</var></a></var><span class="initializer"> = &quot;Y-m-d\TH:i:sP&quot;</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.rss"><var class="varname">DateTimeInterface::RSS</var></a></var><span class="initializer"> = &quot;D, d M Y H:i:s O&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.datetimeinterface.html#datetimeinterface.constants.w3c"><var class="varname">DateTimeInterface::W3C</var></a></var><span class="initializer"> = &quot;Y-m-d\\TH:i:sP&quot;</span>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
@@ -107,7 +137,7 @@
 
     <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="datetime.add.html" class="methodname">add</a></span>(<span class="methodparam"><span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span> <code class="parameter">$interval</code></span>): <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="datetime.createfromformat.html" class="methodname">createFromFormat</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span><span class="type"></span></span> <code class="parameter">$timezone</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="datetime.createfromimmutable.html" class="methodname">createFromImmutable</a></span>(<span class="methodparam"><span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span> <code class="parameter">$object</code></span>): <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="datetime.createfromimmutable.html" class="methodname">createFromImmutable</a></span>(<span class="methodparam"><span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span> <code class="parameter">$object</code></span>): <span class="type"><span class="type static">static</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="datetime.createfrominterface.html" class="methodname">createFromInterface</a></span>(<span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$object</code></span>): <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="datetime.getlasterrors.html" class="methodname">getLastErrors</a></span>(): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="datetime.modify.html" class="methodname">modify</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$modifier</code></span>): <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
@@ -150,6 +180,15 @@
        <td>
         The class constants of <span class="classname"><strong class="classname">DateTime</strong></span> are now defined
         on <span class="classname"><a href="class.datetimeinterface.html" class="classname">DateTimeInterface</a></span>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.1.0</td>
+       <td>
+        The <span class="classname"><strong class="classname">DateTime</strong></span> constructor now includes the
+        current microseconds in the constructed value. Before this, it would
+        always initialise the microseconds to <code class="literal">0</code>.
        </td>
       </tr>
 
@@ -235,22 +274,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="datetime.add.html">DateTime::add</a> — Adds an amount of days, months, years, hours, minutes and seconds to a
-   DateTime object</li><li><a href="datetime.construct.html">DateTime::__construct</a> — Returns new DateTime object</li><li><a href="datetime.createfromformat.html">DateTime::createFromFormat</a> — Parses a time string according to a specified format</li><li><a href="datetime.createfromimmutable.html">DateTime::createFromImmutable</a> — Returns new DateTime object encapsulating the given DateTimeImmutable object</li><li><a href="datetime.createfrominterface.html">DateTime::createFromInterface</a> — Returns new DateTime object encapsulating the given DateTimeInterface object</li><li><a href="datetime.getlasterrors.html">DateTime::getLastErrors</a> — Returns the warnings and errors</li><li><a href="datetime.modify.html">DateTime::modify</a> — Alters the timestamp</li><li><a href="datetime.set-state.html">DateTime::__set_state</a> — The __set_state handler</li><li><a href="datetime.setdate.html">DateTime::setDate</a> — Sets the date</li><li><a href="datetime.setisodate.html">DateTime::setISODate</a> — Sets the ISO date</li><li><a href="datetime.settime.html">DateTime::setTime</a> — Sets the time</li><li><a href="datetime.settimestamp.html">DateTime::setTimestamp</a> — Sets the date and time based on an Unix timestamp</li><li><a href="datetime.settimezone.html">DateTime::setTimezone</a> — Sets the time zone for the DateTime object</li><li><a href="datetime.sub.html">DateTime::sub</a> — Subtracts an amount of days, months, years, hours, minutes and seconds from
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="datetime.add.html">DateTime::add</a> — Modifies a DateTime object, with added amount of days, months, years, hours, minutes and seconds</li><li><a href="datetime.construct.html">DateTime::__construct</a> — Returns new DateTime object</li><li><a href="datetime.createfromformat.html">DateTime::createFromFormat</a> — Parses a time string according to a specified format</li><li><a href="datetime.createfromimmutable.html">DateTime::createFromImmutable</a> — Returns new DateTime instance encapsulating the given DateTimeImmutable object</li><li><a href="datetime.createfrominterface.html">DateTime::createFromInterface</a> — Returns new DateTime object encapsulating the given DateTimeInterface object</li><li><a href="datetime.getlasterrors.html">DateTime::getLastErrors</a> — Returns the warnings and errors</li><li><a href="datetime.modify.html">DateTime::modify</a> — Alters the timestamp</li><li><a href="datetime.set-state.html">DateTime::__set_state</a> — The __set_state handler</li><li><a href="datetime.setdate.html">DateTime::setDate</a> — Sets the date</li><li><a href="datetime.setisodate.html">DateTime::setISODate</a> — Sets the ISO date</li><li><a href="datetime.settime.html">DateTime::setTime</a> — Sets the time</li><li><a href="datetime.settimestamp.html">DateTime::setTimestamp</a> — Sets the date and time based on an Unix timestamp</li><li><a href="datetime.settimezone.html">DateTime::setTimezone</a> — Sets the time zone for the DateTime object</li><li><a href="datetime.sub.html">DateTime::sub</a> — Subtracts an amount of days, months, years, hours, minutes and seconds from
    a DateTime object</li></ul>
 </div>
 </div></div></body></html>

@@ -37,7 +37,7 @@
 
   <p class="para rdfs-comment">
    Converts an
-   <a href="https://docs.mongodb.com/manual/reference/mongodb-extended-json/" class="link external">&raquo;&nbsp;extended JSON</a>
+   <a href="https://www.mongodb.com/docs/manual/reference/mongodb-extended-json/" class="link external">&raquo;&nbsp;extended JSON</a>
    string to its BSON representation.
   </p>
  </div>
@@ -85,11 +85,11 @@
 
  <div class="refsect1 examples" id="refsect1-function.mongodb.bson-fromjson-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1345">
+  <div class="example" id="example-1376">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\BSON\fromJSON()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$json&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'{&nbsp;"_id":&nbsp;{&nbsp;"$oid":&nbsp;"563143b280d2387c91807965"&nbsp;}&nbsp;}'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$bson&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">fromJSON</span><span style="color: #007700">(</span><span style="color: #0000BB">$json</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$value&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">toPHP</span><span style="color: #007700">(</span><span style="color: #0000BB">$bson</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$json </span><span style="color: #007700">= </span><span style="color: #DD0000">'{ "_id": { "$oid": "563143b280d2387c91807965" } }'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$bson </span><span style="color: #007700">= </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">fromJSON</span><span style="color: #007700">(</span><span style="color: #0000BB">$json</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$value </span><span style="color: #007700">= </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">toPHP</span><span style="color: #007700">(</span><span style="color: #0000BB">$bson</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -115,8 +115,8 @@ object(stdClass)#2 (1) {
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
    <li class="member"><span class="function"><a href="function.mongodb.bson-tojson.html" class="function" rel="rdfs-seeAlso">MongoDB\BSON\toJSON()</a> - Returns the Legacy Extended JSON representation of a BSON value</span></li>
-   <li class="member"><a href="https://docs.mongodb.com/manual/reference/mongodb-extended-json/" class="link external">&raquo;&nbsp;MongoDB Extended JSON</a></li>
-   <li class="member"><a href="https://docs.mongodb.com/manual/reference/bson-types/" class="link external">&raquo;&nbsp;MongoDB BSON</a></li>
+   <li class="member"><a href="https://www.mongodb.com/docs/manual/reference/mongodb-extended-json/" class="link external">&raquo;&nbsp;MongoDB Extended JSON</a></li>
+   <li class="member"><a href="https://www.mongodb.com/docs/manual/reference/bson-types/" class="link external">&raquo;&nbsp;MongoDB BSON</a></li>
   </ul>
  </div>
 

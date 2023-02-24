@@ -26,9 +26,22 @@
   <div id="layout-content"><div id="intro.datetime" class="preface">
   <h1 class="title">Introduction</h1>
   <p class="para">
-   These functions allow you to get the date and time from the server
-   where your PHP scripts are running. You can use these functions to format the
-   date and time in many different ways.
+   The <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> and related classes allow you
+   represent date/time information. The objects can be created by passing in a
+   string presentation of date/time information, or from the current system&#039;s
+   time.
+  </p>
+  <p class="para">
+   A rich set of methods is supplied to modify and format this information
+   as well, including handling timezones and DST transitions.
+  </p>
+  <p class="para">
+   The date/time features in PHP implements the ISO 8601 calendar, which is a
+   <a href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar" class="link external">&raquo;&nbsp;proleptic Gregorian
+   calendar</a> which implements the current leap-day rules from before the
+   Gregorian calendar was in place, and also includes the year
+   <code class="literal">0</code> as the year number in between <code class="literal">-1
+   BCE</code> and <code class="literal">1 CE</code>. Leap seconds are not supported.
   </p>
   <p class="para">
    The date and time information is internally stored as a 64-bit number so
@@ -36,17 +49,6 @@
    range is from about 292 billion years in the past to the same in the
    future.
   </p>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <span class="simpara">
-    Please keep in mind that these functions are dependent on
-    the locale settings of your server. Make sure to take
-    daylight saving time (use e.g.
-    <code class="literal">$date = $date-&gt;modify(&#039;+7 days&#039;)</code> and not
-    <code class="literal">$date += 7*24*60*60</code>)
-    and leap years into consideration when working
-    with these functions.
-   </span>
-  </p></blockquote>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <span class="simpara">
     The timezones referenced in this section can be found in the

@@ -58,7 +58,7 @@
  <div class="refsect1 examples" id="refsect1-function.stream-get-wrappers-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3784">
+   <div class="example" id="example-3862">
     <p><strong>Example #1 <span class="function"><strong>stream_get_wrappers()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -85,11 +85,11 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3785">
+   <div class="example" id="example-3863">
     <p><strong>Example #2 Checking for the existence of a stream wrapper</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;check&nbsp;for&nbsp;the&nbsp;existence&nbsp;of&nbsp;the&nbsp;bzip2&nbsp;stream&nbsp;wrapper<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'compress.bzip2'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">stream_get_wrappers</span><span style="color: #007700">()))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'compress.bzip2://&nbsp;support&nbsp;enabled.'</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'compress.bzip2://&nbsp;support&nbsp;not&nbsp;enabled.'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// check for the existence of the bzip2 stream wrapper<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'compress.bzip2'</span><span style="color: #007700">, </span><span style="color: #0000BB">stream_get_wrappers</span><span style="color: #007700">())) {<br />    echo </span><span style="color: #DD0000">'compress.bzip2:// support enabled.'</span><span style="color: #007700">;<br />} else {<br />    echo </span><span style="color: #DD0000">'compress.bzip2:// support not enabled.'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

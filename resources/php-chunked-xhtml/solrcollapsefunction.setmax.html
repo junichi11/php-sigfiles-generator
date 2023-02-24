@@ -72,11 +72,11 @@
 
  <div class="refsect1 examples" id="refsect1-solrcollapsefunction.setmax-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4703">
+  <div class="example" id="example-4782">
    <p><strong>Example #1 <span class="function"><strong>SolrCollapseFunction::setMax()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$func&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SolrCollapseFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'field_name'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$func</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setMax</span><span style="color: #007700">(</span><span style="color: #DD0000">'sum(cscore(),field(some_field))'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SolrQuery</span><span style="color: #007700">(</span><span style="color: #DD0000">'*:*'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$query</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">collapse</span><span style="color: #007700">(</span><span style="color: #0000BB">$func</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$func </span><span style="color: #007700">= new </span><span style="color: #0000BB">SolrCollapseFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'field_name'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$func</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setMax</span><span style="color: #007700">(</span><span style="color: #DD0000">'sum(cscore(),field(some_field))'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$query </span><span style="color: #007700">= new </span><span style="color: #0000BB">SolrQuery</span><span style="color: #007700">(</span><span style="color: #DD0000">'*:*'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$query</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">collapse</span><span style="color: #007700">(</span><span style="color: #0000BB">$func</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

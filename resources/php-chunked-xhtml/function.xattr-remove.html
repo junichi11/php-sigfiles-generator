@@ -118,11 +118,11 @@ namespace  by default, but this can be changed with the
  <div class="refsect1 examples" id="refsect1-function.xattr-remove-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2229">
+   <div class="example" id="example-2294">
     <p><strong>Example #1 Removes all extended attributes of a file</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$file&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'some_file'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$attributes&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">xattr_list</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">);<br /><br />foreach&nbsp;(</span><span style="color: #0000BB">$attributes&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$attr_name</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">xattr_remove</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$attr_name</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$file </span><span style="color: #007700">= </span><span style="color: #DD0000">'some_file'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$attributes </span><span style="color: #007700">= </span><span style="color: #0000BB">xattr_list</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">);<br /><br />foreach (</span><span style="color: #0000BB">$attributes </span><span style="color: #007700">as </span><span style="color: #0000BB">$attr_name</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">xattr_remove</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">, </span><span style="color: #0000BB">$attr_name</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

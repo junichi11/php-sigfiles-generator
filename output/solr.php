@@ -639,15 +639,6 @@ namespace {
 		public function __construct(string $q = null) {}
 
 		/**
-		 * Destructor
-		 * <p>Destructor</p>
-		 * @return void <p>None.</p>
-		 * @link https://php.net/manual/en/solrquery.destruct.php
-		 * @since PECL solr >= 0.9.2
-		 */
-		public function __destruct() {}
-
-		/**
 		 * Adds a Phrase Bigram Field (pf2 parameter)
 		 * <p>Adds a Phrase Bigram Field (pf2 parameter) output format: field~slop^boost OR field^boost Slop is optional</p>
 		 * @param string $field
@@ -1364,7 +1355,7 @@ namespace {
 		/**
 		 * Returns the deviation factor from the ideal fragment size
 		 * <p>Returns the factor by which the regex fragmenter can deviate from the ideal fragment size to accommodate the regular expression</p>
-		 * @return float <p>Returns a double on success and <b><code>null</code></b> if not set.</p>
+		 * @return float <p>Returns a <code>float</code> on success and <b><code>null</code></b> if not set.</p>
 		 * @link https://php.net/manual/en/solrquery.gethighlightregexslop.php
 		 * @since PECL solr >= 0.9.2
 		 */
@@ -3093,13 +3084,12 @@ namespace {
 		public function offsetUnset(string $fieldName): void {}
 
 		/**
-		 * This is an alias to SolrDocument::clear()
+		 * Alias of SolrDocument::clear()
 		 * <p>This is an alias to SolrDocument::clear()</p>
-		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/solrdocument.reset.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		public function reset(): bool {}
+		function reset() {}
 
 		/**
 		 * Resets the internal pointer to the beginning
@@ -4091,13 +4081,12 @@ namespace {
 		public function merge(\SolrInputDocument $sourceDoc, bool $overwrite = true): bool {}
 
 		/**
-		 * This is an alias of SolrInputDocument::clear
+		 * Alias of SolrInputDocument::clear()
 		 * <p>This is an alias of SolrInputDocument::clear</p>
-		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/solrinputdocument.reset.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		public function reset(): bool {}
+		function reset() {}
 
 		/**
 		 * Sets the boost value for this document
@@ -4323,15 +4312,12 @@ namespace {
 		public function __destruct() {}
 
 		/**
-		 * This is an alias for SolrParams::addParam
+		 * Alias of SolrParams::addParam()
 		 * <p>This is an alias for SolrParams::addParam</p>
-		 * @param string $name <p>The name of the parameter</p>
-		 * @param string $value <p>The value of the parameter</p>
-		 * @return SolrParams <p>Returns a SolrParams instance on success</p>
 		 * @link https://php.net/manual/en/solrparams.add.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		final public function add(string $name, string $value): \SolrParams {}
+		function add() {}
 
 		/**
 		 * Adds a parameter to the object
@@ -4345,14 +4331,12 @@ namespace {
 		public function addParam(string $name, string $value): \SolrParams {}
 
 		/**
-		 * This is an alias for SolrParams::getParam
+		 * Alias of SolrParams::getParam()
 		 * <p>This is an alias for SolrParams::getParam</p>
-		 * @param string $param_name <p>Then name of the parameter</p>
-		 * @return mixed <p>Returns an array or string depending on the type of parameter</p>
 		 * @link https://php.net/manual/en/solrparams.get.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		final public function get(string $param_name): mixed {}
+		function get() {}
 
 		/**
 		 * Returns a parameter value
@@ -4392,15 +4376,12 @@ namespace {
 		final public function serialize(): string {}
 
 		/**
-		 * An alias of SolrParams::setParam
+		 * Alias of SolrParams::setParam()
 		 * <p>An alias of SolrParams::setParam</p>
-		 * @param string $name <p>Then name of the parameter</p>
-		 * @param string $value <p>The parameter value</p>
-		 * @return void <p>Returns an instance of the SolrParams object on success</p>
 		 * @link https://php.net/manual/en/solrparams.set.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		final public function set(string $name, string $value): void {}
+		function set() {}
 
 		/**
 		 * Sets the parameter to the specified value
@@ -4518,15 +4499,12 @@ namespace {
 	abstract class SolrParams implements \Serializable {
 
 		/**
-		 * This is an alias for SolrParams::addParam
+		 * Alias of SolrParams::addParam()
 		 * <p>This is an alias for SolrParams::addParam</p>
-		 * @param string $name <p>The name of the parameter</p>
-		 * @param string $value <p>The value of the parameter</p>
-		 * @return SolrParams <p>Returns a SolrParams instance on success</p>
 		 * @link https://php.net/manual/en/solrparams.add.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		final public function add(string $name, string $value): \SolrParams {}
+		function add() {}
 
 		/**
 		 * Adds a parameter to the object
@@ -4540,14 +4518,12 @@ namespace {
 		public function addParam(string $name, string $value): \SolrParams {}
 
 		/**
-		 * This is an alias for SolrParams::getParam
+		 * Alias of SolrParams::getParam()
 		 * <p>This is an alias for SolrParams::getParam</p>
-		 * @param string $param_name <p>Then name of the parameter</p>
-		 * @return mixed <p>Returns an array or string depending on the type of parameter</p>
 		 * @link https://php.net/manual/en/solrparams.get.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		final public function get(string $param_name): mixed {}
+		function get() {}
 
 		/**
 		 * Returns a parameter value
@@ -4587,15 +4563,12 @@ namespace {
 		final public function serialize(): string {}
 
 		/**
-		 * An alias of SolrParams::setParam
+		 * Alias of SolrParams::setParam()
 		 * <p>An alias of SolrParams::setParam</p>
-		 * @param string $name <p>Then name of the parameter</p>
-		 * @param string $value <p>The parameter value</p>
-		 * @return void <p>Returns an instance of the SolrParams object on success</p>
 		 * @link https://php.net/manual/en/solrparams.set.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		final public function set(string $name, string $value): void {}
+		function set() {}
 
 		/**
 		 * Sets the parameter to the specified value
@@ -5477,7 +5450,7 @@ namespace {
 		/**
 		 * Returns the deviation factor from the ideal fragment size
 		 * <p>Returns the factor by which the regex fragmenter can deviate from the ideal fragment size to accommodate the regular expression</p>
-		 * @return float <p>Returns a double on success and <b><code>null</code></b> if not set.</p>
+		 * @return float <p>Returns a <code>float</code> on success and <b><code>null</code></b> if not set.</p>
 		 * @link https://php.net/manual/en/solrquery.gethighlightregexslop.php
 		 * @since PECL solr >= 0.9.2
 		 */

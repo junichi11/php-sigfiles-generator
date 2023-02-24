@@ -36,8 +36,10 @@
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>DateInterval::createFromDateString</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>): <span class="type"><span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
-   Uses the normal date parsers and sets up a DateInterval from the relative
-   parts of the parsed string.
+   Uses the date/time parsers as used in the
+   <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> constructor to create a
+   <span class="classname"><a href="class.dateinterval.html" class="classname">DateInterval</a></span> from the relative parts of the parsed
+   string.
   </p>
  </div>
 
@@ -53,11 +55,14 @@
      <dd>
 
       <p class="para">
-       A date with relative parts. Specifically, the
-       <a href="datetime.formats.relative.html" class="link">relative formats</a>
-       supported by the parser used for <span class="function"><a href="function.strtotime.html" class="function">strtotime()</a></span> and
-       <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> will be used to construct the
-       DateInterval.
+       A date with relative parts. Specifically, the <a href="datetime.formats.relative.html" class="link">relative formats</a> supported
+       by the parser used for <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span>,
+       <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span>, and <span class="function"><a href="function.strtotime.html" class="function">strtotime()</a></span>
+       will be used to construct the DateInterval.
+      </p>
+      <p class="para">
+       To use an ISO-8601 format string like <code class="literal">P7D</code>, you must
+       use the constructor.
       </p>
      </dd>
 
@@ -76,18 +81,166 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-dateinterval.createfromdatestring-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.2.0</td>
+      <td>
+       Only the <code class="literal">from_string</code> and
+       <code class="literal">date_string</code> properties will be visible when a
+       <span class="classname"><a href="class.dateinterval.html" class="classname">DateInterval</a></span> is created with this method.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-dateinterval.createfromdatestring-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2059">
+   <div class="example" id="example-2110">
     <p><strong>Example #1 Parsing valid date intervals</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Each&nbsp;set&nbsp;of&nbsp;intervals&nbsp;is&nbsp;equal.<br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P1D'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'1&nbsp;day'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P2W'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'2&nbsp;weeks'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P3M'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'3&nbsp;months'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P4Y'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'4&nbsp;years'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P1Y1D'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'1&nbsp;year&nbsp;+&nbsp;1&nbsp;day'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P1DT12H'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'1&nbsp;day&nbsp;+&nbsp;12&nbsp;hours'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'PT3600S'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'3600&nbsp;seconds'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Each set of intervals is equal.<br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P1D'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'1 day'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P2W'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'2 weeks'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P3M'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'3 months'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P4Y'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'4 years'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P1Y1D'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'1 year + 1 day'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P1DT12H'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'1 day + 12 hours'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'PT3600S'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'3600 seconds'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-2111">
+    <p><strong>Example #2 Parsing combinations and negative intervals</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$i </span><span style="color: #007700">= </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'62 weeks + 1 day + 2 weeks + 2 hours + 70 minutes'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$i</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%d %h %i'</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'1 year - 10 days'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$i</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'%y %d'</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen"><br />
+449 2 70<br />
+1 -10<br />
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-2112">
+    <p><strong>Example #3 Parsing special relative date intervals</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$i </span><span style="color: #007700">= </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'last day of next month'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$i</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateString</span><span style="color: #007700">(</span><span style="color: #DD0000">'last weekday'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$i</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Output of the above example in PHP 8.2:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+object(DateInterval)#1 (2) {
+  [&quot;from_string&quot;]=&gt;
+  bool(true)
+  [&quot;date_string&quot;]=&gt;
+  string(22) &quot;last day of next month&quot;
+}
+object(DateInterval)#2 (2) {
+  [&quot;from_string&quot;]=&gt;
+  bool(true)
+  [&quot;date_string&quot;]=&gt;
+  string(12) &quot;last weekday&quot;
+}
+</pre></div>
+    </div>
+    <div class="example-contents"><p>Output of the above example in PHP 8 is similar to:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+object(DateInterval)#1 (16) {
+  [&quot;y&quot;]=&gt;
+  int(0)
+  [&quot;m&quot;]=&gt;
+  int(1)
+  [&quot;d&quot;]=&gt;
+  int(0)
+  [&quot;h&quot;]=&gt;
+  int(0)
+  [&quot;i&quot;]=&gt;
+  int(0)
+  [&quot;s&quot;]=&gt;
+  int(0)
+  [&quot;f&quot;]=&gt;
+  float(0)
+  [&quot;weekday&quot;]=&gt;
+  int(0)
+  [&quot;weekday_behavior&quot;]=&gt;
+  int(0)
+  [&quot;first_last_day_of&quot;]=&gt;
+  int(2)
+  [&quot;invert&quot;]=&gt;
+  int(0)
+  [&quot;days&quot;]=&gt;
+  bool(false)
+  [&quot;special_type&quot;]=&gt;
+  int(0)
+  [&quot;special_amount&quot;]=&gt;
+  int(0)
+  [&quot;have_weekday_relative&quot;]=&gt;
+  int(0)
+  [&quot;have_special_relative&quot;]=&gt;
+  int(0)
+}
+object(DateInterval)#2 (16) {
+  [&quot;y&quot;]=&gt;
+  int(0)
+  [&quot;m&quot;]=&gt;
+  int(0)
+  [&quot;d&quot;]=&gt;
+  int(0)
+  [&quot;h&quot;]=&gt;
+  int(0)
+  [&quot;i&quot;]=&gt;
+  int(0)
+  [&quot;s&quot;]=&gt;
+  int(0)
+  [&quot;f&quot;]=&gt;
+  float(0)
+  [&quot;weekday&quot;]=&gt;
+  int(0)
+  [&quot;weekday_behavior&quot;]=&gt;
+  int(0)
+  [&quot;first_last_day_of&quot;]=&gt;
+  int(0)
+  [&quot;invert&quot;]=&gt;
+  int(0)
+  [&quot;days&quot;]=&gt;
+  bool(false)
+  [&quot;special_type&quot;]=&gt;
+  int(1)
+  [&quot;special_amount&quot;]=&gt;
+  int(-1)
+  [&quot;have_weekday_relative&quot;]=&gt;
+  int(0)
+  [&quot;have_special_relative&quot;]=&gt;
+  int(1)
+}
+</pre></div>
+    </div>
    </div>
   </p>
  </div>

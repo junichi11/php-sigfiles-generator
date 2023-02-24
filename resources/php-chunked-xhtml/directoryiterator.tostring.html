@@ -33,8 +33,7 @@
  <div class="refsect1 description" id="refsect1-directoryiterator.tostring-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>
-   <span class="methodname"><strong>DirectoryIterator::__toString</strong></span>(): <span class="type">string</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DirectoryIterator::__toString</strong></span>(): <span class="type">string</span></div>
 
 
   <p class="para rdfs-comment">
@@ -60,14 +59,14 @@
  <div class="refsect1 examples" id="refsect1-directoryiterator.tostring-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3629">
+   <div class="example" id="example-3707">
     <p><strong>Example #1 A <span class="methodname"><strong>DirectoryIterator::__toString()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This example will list the contents of the directory containing the script.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$dir&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DirectoryIterator</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">));<br />foreach&nbsp;(</span><span style="color: #0000BB">$dir&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$fileinfo</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$fileinfo</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$dir </span><span style="color: #007700">= new </span><span style="color: #0000BB">DirectoryIterator</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">));<br />foreach (</span><span style="color: #0000BB">$dir </span><span style="color: #007700">as </span><span style="color: #0000BB">$fileinfo</span><span style="color: #007700">) {<br />    echo </span><span style="color: #0000BB">$fileinfo</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

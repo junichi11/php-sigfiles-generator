@@ -30,19 +30,19 @@
 
  <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p>
 
-
+  
   <div class="section" id="filesystemiterator.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
     The Filesystem iterator
    </p>
   </div>
-
+  
 
   <div class="section" id="filesystemiterator.synopsis">
    <h2 class="title">Class synopsis</h2>
 
-
+   
    <div class="classsynopsis">
     <div class="ooclass">
      
@@ -59,53 +59,69 @@
      </span>
      {</div>
 
-   <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
     <div class="fieldsynopsis">
+     <span class="modifier">public</span>
      <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.current-as-pathname"><var class="varname">CURRENT_AS_PATHNAME</var></a></var><span class="initializer"> = 32</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.current-mode-mask"><var class="varname">CURRENT_MODE_MASK</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.current-as-fileinfo"><var class="varname">CURRENT_AS_FILEINFO</var></a></var><span class="initializer"> = 0</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.current-as-pathname"><var class="varname">CURRENT_AS_PATHNAME</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.current-as-self"><var class="varname">CURRENT_AS_SELF</var></a></var><span class="initializer"> = 16</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.current-as-fileinfo"><var class="varname">CURRENT_AS_FILEINFO</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.current-mode-mask"><var class="varname">CURRENT_MODE_MASK</var></a></var><span class="initializer"> = 240</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.current-as-self"><var class="varname">CURRENT_AS_SELF</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.key-as-pathname"><var class="varname">KEY_AS_PATHNAME</var></a></var><span class="initializer"> = 0</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.key-mode-mask"><var class="varname">KEY_MODE_MASK</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.key-as-filename"><var class="varname">KEY_AS_FILENAME</var></a></var><span class="initializer"> = 256</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.key-as-pathname"><var class="varname">KEY_AS_PATHNAME</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.follow-symlinks"><var class="varname">FOLLOW_SYMLINKS</var></a></var><span class="initializer"> = 512</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.follow-symlinks"><var class="varname">FOLLOW_SYMLINKS</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.key-mode-mask"><var class="varname">KEY_MODE_MASK</var></a></var><span class="initializer"> = 3840</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.key-as-filename"><var class="varname">KEY_AS_FILENAME</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.new-current-and-key"><var class="varname">NEW_CURRENT_AND_KEY</var></a></var><span class="initializer"> = 256</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.new-current-and-key"><var class="varname">NEW_CURRENT_AND_KEY</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.skip-dots"><var class="varname">SKIP_DOTS</var></a></var><span class="initializer"> = 4096</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.other-mode-mask"><var class="varname">OTHER_MODE_MASK</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.unix-paths"><var class="varname">UNIX_PATHS</var></a></var><span class="initializer"> = 8192</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.skip-dots"><var class="varname">SKIP_DOTS</var></a></var>;</div>
 
-    
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.unix-paths"><var class="varname">UNIX_PATHS</var></a></var>;</div>
+
+
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="filesystemiterator.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$directory</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS</span></span>)</div>
@@ -119,7 +135,7 @@
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited methods */</div>
-    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.current.html" class="methodname">DirectoryIterator::current</a></span>(): <span class="type"><a href="class.directoryiterator.html" class="type DirectoryIterator">DirectoryIterator</a></span></div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.current.html" class="methodname">DirectoryIterator::current</a></span>(): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.getatime.html" class="methodname">DirectoryIterator::getATime</a></span>(): <span class="type">int</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.getbasename.html" class="methodname">DirectoryIterator::getBasename</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$suffix</code><span class="initializer"> = &quot;&quot;</span></span>): <span class="type">string</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.getctime.html" class="methodname">DirectoryIterator::getCTime</a></span>(): <span class="type">int</span></div>
@@ -141,12 +157,11 @@
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.islink.html" class="methodname">DirectoryIterator::isLink</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.isreadable.html" class="methodname">DirectoryIterator::isReadable</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.iswritable.html" class="methodname">DirectoryIterator::isWritable</a></span>(): <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.key.html" class="methodname">DirectoryIterator::key</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.key.html" class="methodname">DirectoryIterator::key</a></span>(): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.next.html" class="methodname">DirectoryIterator::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.rewind.html" class="methodname">DirectoryIterator::rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.seek.html" class="methodname">DirectoryIterator::seek</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>): <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span>
-   <span class="methodname"><a href="directoryiterator.tostring.html" class="methodname">DirectoryIterator::__toString</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.tostring.html" class="methodname">DirectoryIterator::__toString</a></span>(): <span class="type">string</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="directoryiterator.valid.html" class="methodname">DirectoryIterator::valid</a></span>(): <span class="type">bool</span></div>
 
     <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileinfo.getatime.html" class="methodname">SplFileInfo::getATime</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
@@ -179,10 +194,10 @@
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="splfileinfo.tostring.html" class="methodname">SplFileInfo::__toString</a></span>(): <span class="type">string</span></div>
 
    }</div>
-
+   
 
   </div>
- 
+
   
   <div class="section" id="filesystemiterator.constants">
    <h2 class="title">Predefined Constants</h2>
@@ -269,6 +284,15 @@
 
     
     
+     <dt id="filesystemiterator.constants.other-mode-mask"><strong><code>FilesystemIterator::OTHER_MODE_MASK</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Mask used for <span class="methodname"><a href="filesystemiterator.getflags.html" class="methodname">FilesystemIterator::getFlags()</a></span> and <span class="methodname"><a href="filesystemiterator.setflags.html" class="methodname">FilesystemIterator::setFlags()</a></span>.</p>
+     </dd>
+
+    
+    
      <dt id="filesystemiterator.constants.skip-dots"><strong><code>FilesystemIterator::SKIP_DOTS</code></strong></dt>
 
      <dd>
@@ -298,12 +322,6 @@
  </div>
 
  
-
-
-
-
-
-
 
 
 

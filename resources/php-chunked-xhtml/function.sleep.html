@@ -39,6 +39,13 @@
    Delays the program execution for the given number of
    <code class="parameter">seconds</code>.
   </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    In order to delay program execution for a fraction of a second, use <span class="function"><a href="function.usleep.html" class="function">usleep()</a></span>
+    as the <span class="function"><strong>sleep()</strong></span> function expects an <span class="type">int</span>. For example, <code class="code">sleep(0.25)</code> will
+    pause program execution for <code class="literal">0</code> seconds.
+   </p>
+  </p></blockquote>
  </div>
 
 
@@ -53,7 +60,7 @@
      <dd>
 
       <p class="para">
-       Halt time in seconds.
+       Halt time in seconds (must be greater than or equal to <code class="literal">0</code>).
       </p>
      </dd>
 
@@ -67,7 +74,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.sleep-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns zero on success, or <strong><code>false</code></strong> on error.
+   Returns zero on success.
   </p>
   <p class="para">
    If the call was interrupted by a signal, <span class="function"><strong>sleep()</strong></span> returns
@@ -84,19 +91,47 @@
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
    If the specified number of <code class="parameter">seconds</code> is negative,
-   this function will generate a <strong><code>E_WARNING</code></strong>.
+   this function will throw a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span>.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.sleep-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       The function throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> on negative <code class="parameter">seconds</code>;
+       previously, an <strong><code>E_WARNING</code></strong> was raised instead, and the function returned <strong><code>false</code></strong>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.sleep-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3511">
+   <div class="example" id="example-3554">
     <p><strong>Example #1 <span class="function"><strong>sleep()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;current&nbsp;time<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'h:i:s'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;sleep&nbsp;for&nbsp;10&nbsp;seconds<br /></span><span style="color: #0000BB">sleep</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;wake&nbsp;up&nbsp;!<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'h:i:s'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">// current time<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'h:i:s'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// sleep for 10 seconds<br /></span><span style="color: #0000BB">sleep</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// wake up !<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'h:i:s'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

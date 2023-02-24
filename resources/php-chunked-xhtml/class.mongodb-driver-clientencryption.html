@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="mongodb-driver-session.starttransaction.html">« MongoDB\Driver\Session::startTransaction</a></li>
-      <li style="float: right;"><a href="mongodb-driver-clientencryption.createdatakey.html">MongoDB\Driver\ClientEncryption::createDataKey »</a></li>
+      <li style="float: right;"><a href="mongodb-driver-clientencryption.addkeyaltname.html">MongoDB\Driver\ClientEncryption::addKeyAltName »</a></li>
     </ul>
   </div>
 </div>
@@ -68,12 +68,32 @@
      <span class="type">string</span>
       <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.random"><var class="varname">AEAD_AES_256_CBC_HMAC_SHA_512_RANDOM</var></a></var><span class="initializer"> = AEAD_AES_256_CBC_HMAC_SHA_512-Random</span>;</div>
 
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.algorithm-indexed"><var class="varname">ALGORITHM_INDEXED</var></a></var><span class="initializer"> = Indexed</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.algorithm-unindexed"><var class="varname">ALGORITHM_UNINDEXED</var></a></var><span class="initializer"> = Unindexed</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.query-type-equality"><var class="varname">QUERY_TYPE_EQUALITY</var></a></var><span class="initializer"> = equality</span>;</div>
+
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.createdatakey.html" class="methodname">createDataKey</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$kmsProvider</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.addkeyaltname.html" class="methodname">addKeyAltName</a></span>(<span class="methodparam"><span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span> <code class="parameter">$keyId</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$keyAltName</code></span>): <span class="type"><span class="type">?</span><span class="type">object</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>)</div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.createdatakey.html" class="methodname">createDataKey</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$kmsProvider</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.decrypt.html" class="methodname">decrypt</a></span>(<span class="methodparam"><span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span> <code class="parameter">$value</code></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.encrypt.html" class="methodname">encrypt</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.deletekey.html" class="methodname">deleteKey</a></span>(<span class="methodparam"><span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span> <code class="parameter">$keyId</code></span>): <span class="type">object</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.encrypt.html" class="methodname">encrypt</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.getkey.html" class="methodname">getKey</a></span>(<span class="methodparam"><span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span> <code class="parameter">$keyId</code></span>): <span class="type"><span class="type">?</span><span class="type">object</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.getkeybyaltname.html" class="methodname">getKeyByAltName</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$keyAltName</code></span>): <span class="type"><span class="type">?</span><span class="type">object</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.getkeys.html" class="methodname">getKeys</a></span>(): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.removekeyaltname.html" class="methodname">removeKeyAltName</a></span>(<span class="methodparam"><span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span> <code class="parameter">$keyId</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$keyAltName</code></span>): <span class="type"><span class="type">?</span><span class="type">object</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.rewrapmanydatakey.html" class="methodname">rewrapManyDataKey</a></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$filter</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">object</span></div>
 
    }</div>
    
@@ -90,7 +110,7 @@
 
      <dd>
 
-      <p class="para">Uses randomized encryption.</p>
+      <p class="para">Specifies an algorithm for <a href="https://www.mongodb.com/docs/manual/core/security-client-side-encryption/#deterministic-encryption" class="link external">&raquo;&nbsp;deterministic encryption</a>, which is suitable for querying.</p>
      </dd>
 
     
@@ -100,7 +120,47 @@
 
      <dd>
 
-      <p class="para">Uses deterministic (queryable) encryption.</p>
+      <p class="para">Specifies an algorithm for <a href="https://www.mongodb.com/docs/manual/core/security-client-side-encryption/#randomized-encryption" class="link external">&raquo;&nbsp;randomized encryption</a></p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-clientencryption.constants.algorithm-indexed"><strong><code>MongoDB\Driver\ClientEncryption::ALGORITHM_INDEXED</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Specifies an algorithm for an indexed, encrypted payload, which can be used with queryable encryption.</p>
+      <p class="para">To insert or query with an indexed, encrypted payload, the <span class="classname"><a href="class.mongodb-driver-manager.html" class="classname">MongoDB\Driver\Manager</a></span> must be configured with the <code class="literal">&quot;autoEncryption&quot;</code> driver option. The <code class="literal">&quot;bypassQueryAnalysis&quot;</code> auto encryption option may be <strong><code>true</code></strong>. The <code class="literal">&quot;bypassAutoEncryption&quot;</code> auto encryption option must be <strong><code>false</code></strong>.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-clientencryption.constants.algorithm-unindexed"><strong><code>MongoDB\Driver\ClientEncryption::ALGORITHM_UNINDEXED</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Specifies an algorithm for an unindexed, encrypted payload.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-clientencryption.constants.query-type-equality"><strong><code>MongoDB\Driver\ClientEncryption::QUERY_TYPE_EQUALITY</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Specifies an equality query type, which is used in conjunction with <strong><code>MongoDB\Driver\ClientEncryption::ALGORITHM_INDEXED</code></strong>.</p>
+      
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <span class="simpara">
+     Queryable Encryption is in public preview and available for evaluation
+     purposes. It is not yet recommended for production deployments as breaking
+     changes may be introduced. See the <a href="https://www.mongodb.com/blog/post/mongodb-releases-queryable-encryption-preview/" class="link external">&raquo;&nbsp;Queryable Encryption Preview</a> blog post for more information.
+    </span>
+   </p></blockquote>
+
      </dd>
 
     
@@ -109,6 +169,34 @@
 
   </div>
   
+
+  <div class="section">
+   <h2 class="title">Changelog</h2>
+   <p class="para">
+    <table class="doctable informaltable">
+     
+      <thead>
+       <tr>
+        <th>Version</th>
+        <th>Description</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr>
+        <td>PECL mongodb 1.14.0</td>
+        <td>
+          Added <strong><code>MongoDB\Driver\ClientEncryption::ALGORITHM_INDEXED</code></strong>, <strong><code>MongoDB\Driver\ClientEncryption::ALGORITHM_UNINDEXED</code></strong>, and <strong><code>MongoDB\Driver\ClientEncryption::QUERY_TYPE_EQUALITY</code></strong>
+        </td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </p>
+  </div>
 
   <div class="section" id="mongodb-driver-clientencryption.seealso">
    <h2 class="title">See Also</h2>
@@ -120,6 +208,13 @@
  </div>
 
  
+
+
+
+
+
+
+
  
 
 
@@ -127,6 +222,13 @@
 
 
 
+
+
+
+
+
+
+
  
 
 
@@ -134,7 +236,6 @@
 
 
 
- 
 
 
 
@@ -142,6 +243,49 @@
 
 
 
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-driver-clientencryption.createdatakey.html">MongoDB\Driver\ClientEncryption::createDataKey</a> — Create a new encryption data key</li><li><a href="mongodb-driver-clientencryption.decrypt.html">MongoDB\Driver\ClientEncryption::decrypt</a> — Decrypt a value</li><li><a href="mongodb-driver-clientencryption.encrypt.html">MongoDB\Driver\ClientEncryption::encrypt</a> — Encrypt a value</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-driver-clientencryption.addkeyaltname.html">MongoDB\Driver\ClientEncryption::addKeyAltName</a> — Adds an alternate name to a key document</li><li><a href="mongodb-driver-clientencryption.construct.html">MongoDB\Driver\ClientEncryption::__construct</a> — Create a new ClientEncryption object</li><li><a href="mongodb-driver-clientencryption.createdatakey.html">MongoDB\Driver\ClientEncryption::createDataKey</a> — Creates a key document</li><li><a href="mongodb-driver-clientencryption.decrypt.html">MongoDB\Driver\ClientEncryption::decrypt</a> — Decrypt a value</li><li><a href="mongodb-driver-clientencryption.deletekey.html">MongoDB\Driver\ClientEncryption::deleteKey</a> — Deletes a key document</li><li><a href="mongodb-driver-clientencryption.encrypt.html">MongoDB\Driver\ClientEncryption::encrypt</a> — Encrypt a value</li><li><a href="mongodb-driver-clientencryption.getkey.html">MongoDB\Driver\ClientEncryption::getKey</a> — Gets a key document</li><li><a href="mongodb-driver-clientencryption.getkeybyaltname.html">MongoDB\Driver\ClientEncryption::getKeyByAltName</a> — Gets a key document by an alternate name</li><li><a href="mongodb-driver-clientencryption.getkeys.html">MongoDB\Driver\ClientEncryption::getKeys</a> — Gets all key documents</li><li><a href="mongodb-driver-clientencryption.removekeyaltname.html">MongoDB\Driver\ClientEncryption::removeKeyAltName</a> — Removes an alternate name from a key document</li><li><a href="mongodb-driver-clientencryption.rewrapmanydatakey.html">MongoDB\Driver\ClientEncryption::rewrapManyDataKey</a> — Rewraps data keys</li></ul>
 </div>
 </div></div></body></html>

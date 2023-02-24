@@ -56,11 +56,11 @@
  <div class="refsect1 examples" id="refsect1-function.get-called-class-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5029">
+   <div class="example" id="example-5125">
     <p><strong>Example #1 Using <span class="function"><strong>get_called_class()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">foo&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">get_called_class</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">bar&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">foo&nbsp;</span><span style="color: #007700">{<br />}<br /><br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">::</span><span style="color: #0000BB">test</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">bar</span><span style="color: #007700">::</span><span style="color: #0000BB">test</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class </span><span style="color: #0000BB">foo </span><span style="color: #007700">{<br />    static public function </span><span style="color: #0000BB">test</span><span style="color: #007700">() {<br />        </span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">get_called_class</span><span style="color: #007700">());<br />    }<br />}<br /><br />class </span><span style="color: #0000BB">bar </span><span style="color: #007700">extends </span><span style="color: #0000BB">foo </span><span style="color: #007700">{<br />}<br /><br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">::</span><span style="color: #0000BB">test</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">bar</span><span style="color: #007700">::</span><span style="color: #0000BB">test</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

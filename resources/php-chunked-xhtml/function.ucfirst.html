@@ -38,12 +38,8 @@
   <p class="para rdfs-comment">
    Returns a string with the first character of
    <code class="parameter">string</code> capitalized, if that character is
-   alphabetic.
-  </p>
-  <p class="para">
-   Note that &#039;alphabetic&#039; is determined by the current locale. For
-   instance, in the default &quot;C&quot; locale characters such as umlaut-a
-   (ä) will not be converted.
+   an ASCII character in the range from <code class="literal">&quot;a&quot;</code> (0x61) to
+   <code class="literal">&quot;z&quot;</code> (0x7a).
   </p>
  </div>
 
@@ -78,14 +74,44 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.ucfirst-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     
+ <tr>
+  <td>8.2.0</td>
+  <td>
+   Case conversion no longer depends on the locale set with
+   <span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span>. Only ASCII characters will be converted.
+  </td>
+ </tr>
+
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.ucfirst-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4890">
+   <div class="example" id="example-4980">
     <p><strong>Example #1 <span class="function"><strong>ucfirst()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'hello&nbsp;world!'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ucfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Hello&nbsp;world!<br /><br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'HELLO&nbsp;WORLD!'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ucfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;HELLO&nbsp;WORLD!<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ucfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;Hello&nbsp;world!<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$foo </span><span style="color: #007700">= </span><span style="color: #DD0000">'hello world!'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$foo </span><span style="color: #007700">= </span><span style="color: #0000BB">ucfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">);             </span><span style="color: #FF8000">// Hello world!<br /><br /></span><span style="color: #0000BB">$bar </span><span style="color: #007700">= </span><span style="color: #DD0000">'HELLO WORLD!'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$bar </span><span style="color: #007700">= </span><span style="color: #0000BB">ucfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">);             </span><span style="color: #FF8000">// HELLO WORLD!<br /></span><span style="color: #0000BB">$bar </span><span style="color: #007700">= </span><span style="color: #0000BB">ucfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">)); </span><span style="color: #FF8000">// Hello world!<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -103,6 +129,7 @@
     <li class="member"><span class="function"><a href="function.strtolower.html" class="function" rel="rdfs-seeAlso">strtolower()</a> - Make a string lowercase</span></li>
     <li class="member"><span class="function"><a href="function.strtoupper.html" class="function" rel="rdfs-seeAlso">strtoupper()</a> - Make a string uppercase</span></li>
     <li class="member"><span class="function"><a href="function.ucwords.html" class="function" rel="rdfs-seeAlso">ucwords()</a> - Uppercase the first character of each word in a string</span></li>
+    <li class="member"><span class="function"><a href="function.mb-convert-case.html" class="function" rel="rdfs-seeAlso">mb_convert_case()</a> - Perform case folding on a string</span></li>
    </ul>
   </p>
  </div>

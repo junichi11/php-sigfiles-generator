@@ -398,11 +398,11 @@
  <div class="refsect1 examples" id="refsect1-function.dns-get-record-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4438">
+   <div class="example" id="example-4517">
     <p><strong>Example #1 Using <span class="function"><strong>dns_get_record()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dns_get_record</span><span style="color: #007700">(</span><span style="color: #DD0000">"php.net"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$result </span><span style="color: #007700">= </span><span style="color: #0000BB">dns_get_record</span><span style="color: #007700">(</span><span style="color: #DD0000">"php.net"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -436,7 +436,7 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-4439">
+   <div class="example" id="example-4518">
     <p><strong>Example #2 Using <span class="function"><strong>dns_get_record()</strong></span> and DNS_ANY</strong></p>
     <div class="example-contents"><p>
      Since it&#039;s very common to want the IP address of a mail server
@@ -448,7 +448,7 @@ Array
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Request&nbsp;"ANY"&nbsp;record&nbsp;for&nbsp;php.net,<br />&nbsp;&nbsp;&nbsp;and&nbsp;create&nbsp;$authns&nbsp;and&nbsp;$addtl&nbsp;arrays<br />&nbsp;&nbsp;&nbsp;containing&nbsp;list&nbsp;of&nbsp;name&nbsp;servers&nbsp;and<br />&nbsp;&nbsp;&nbsp;any&nbsp;additional&nbsp;records&nbsp;which&nbsp;go&nbsp;with<br />&nbsp;&nbsp;&nbsp;them&nbsp;*/<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dns_get_record</span><span style="color: #007700">(</span><span style="color: #DD0000">"php.net"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">DNS_ANY</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$authns</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$addtl</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Result&nbsp;=&nbsp;"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Auth&nbsp;NS&nbsp;=&nbsp;"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$authns</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Additional&nbsp;=&nbsp;"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$addtl</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Request "ANY" record for php.net,<br />   and create $authns and $addtl arrays<br />   containing list of name servers and<br />   any additional records which go with<br />   them */<br /></span><span style="color: #0000BB">$result </span><span style="color: #007700">= </span><span style="color: #0000BB">dns_get_record</span><span style="color: #007700">(</span><span style="color: #DD0000">"php.net"</span><span style="color: #007700">, </span><span style="color: #0000BB">DNS_ANY</span><span style="color: #007700">, </span><span style="color: #0000BB">$authns</span><span style="color: #007700">, </span><span style="color: #0000BB">$addtl</span><span style="color: #007700">);<br />echo </span><span style="color: #DD0000">"Result = "</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />echo </span><span style="color: #DD0000">"Auth NS = "</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$authns</span><span style="color: #007700">);<br />echo </span><span style="color: #DD0000">"Additional = "</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$addtl</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

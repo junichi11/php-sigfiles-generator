@@ -38,22 +38,22 @@
 
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>PDOStatement::bindColumn()</strong></span> arranges to have a
+   <span class="methodname"><strong>PDOStatement::bindColumn()</strong></span> arranges to have a
    particular variable bound to a given column in the result-set from a
-   query.  Each call to <span class="function"><a href="pdostatement.fetch.html" class="function">PDOStatement::fetch()</a></span> or
-   <span class="function"><a href="pdostatement.fetchall.html" class="function">PDOStatement::fetchAll()</a></span> will update all the variables
+   query.  Each call to <span class="methodname"><a href="pdostatement.fetch.html" class="methodname">PDOStatement::fetch()</a></span> or
+   <span class="methodname"><a href="pdostatement.fetchall.html" class="methodname">PDOStatement::fetchAll()</a></span> will update all the variables
    that are bound to columns.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     Since information about the columns is not always available to PDO until
     the statement is executed, portable applications should call this
-    function <em class="emphasis">after</em> <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span>.
+    function <em class="emphasis">after</em> <span class="methodname"><a href="pdostatement.execute.html" class="methodname">PDOStatement::execute()</a></span>.
    </p>
    <p class="para">
     However, to be able to bind a LOB column as a stream when using the
     <em class="emphasis">PgSQL driver</em>, applications should call this method
-    <em class="emphasis">before</em> calling <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span>,
+    <em class="emphasis">before</em> calling <span class="methodname"><a href="pdostatement.execute.html" class="methodname">PDOStatement::execute()</a></span>,
     otherwise the large object OID will be returned as an integer.
    </p>
   </p></blockquote>
@@ -141,10 +141,23 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-pdostatement.bindcolumn-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+Emits an error with level <strong><code>E_WARNING</code></strong> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong> is set
+to <strong><code>PDO::ERRMODE_WARNING</code></strong>.
+</p>
+<p class="para">
+Throws a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if the attribute <strong><code>PDO::ATTR_ERRMODE</code></strong>
+is set to <strong><code>PDO::ERRMODE_EXCEPTION</code></strong>.
+</p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-pdostatement.bindcolumn-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1029">
+   <div class="example" id="example-1060">
     <p><strong>Example #1 Binding result set output to PHP variables</strong></p>
     <div class="example-contents"><p>
      Binding columns in the result set to PHP variables is an effective
@@ -155,7 +168,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;name,&nbsp;colour,&nbsp;calories&nbsp;FROM&nbsp;fruit'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Bind&nbsp;by&nbsp;column&nbsp;number&nbsp;*/<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindColumn</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindColumn</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$colour</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Bind&nbsp;by&nbsp;column&nbsp;name&nbsp;*/<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindColumn</span><span style="color: #007700">(</span><span style="color: #DD0000">'calories'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cals</span><span style="color: #007700">);<br /><br />while&nbsp;(</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">FETCH_BOUND</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\t"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$colour&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\t"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$cals&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}</span>
+<span style="color: #0000BB">&lt;?php<br />$stmt </span><span style="color: #007700">= </span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT name, colour, calories FROM fruit'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/* Bind by column number */<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindColumn</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindColumn</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">, </span><span style="color: #0000BB">$colour</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/* Bind by column name */<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindColumn</span><span style="color: #007700">(</span><span style="color: #DD0000">'calories'</span><span style="color: #007700">, </span><span style="color: #0000BB">$cals</span><span style="color: #007700">);<br /><br />while (</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">FETCH_BOUND</span><span style="color: #007700">)) {<br />    print </span><span style="color: #0000BB">$name </span><span style="color: #007700">. </span><span style="color: #DD0000">"\t" </span><span style="color: #007700">. </span><span style="color: #0000BB">$colour </span><span style="color: #007700">. </span><span style="color: #DD0000">"\t" </span><span style="color: #007700">. </span><span style="color: #0000BB">$cals </span><span style="color: #007700">. </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}</span>
 </span>
 </code></div>
     </div>
@@ -181,10 +194,10 @@ strawberry      red     25
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="pdostatement.execute.html" class="function" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.fetch.html" class="function" rel="rdfs-seeAlso">PDOStatement::fetch()</a> - Fetches the next row from a result set</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.fetchall.html" class="function" rel="rdfs-seeAlso">PDOStatement::fetchAll()</a> - Fetches the remaining rows from a result set</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.fetchcolumn.html" class="function" rel="rdfs-seeAlso">PDOStatement::fetchColumn()</a> - Returns a single column from the next row of a result set</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.execute.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.fetch.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::fetch()</a> - Fetches the next row from a result set</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.fetchall.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::fetchAll()</a> - Fetches the remaining rows from a result set</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.fetchcolumn.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::fetchColumn()</a> - Returns a single column from the next row of a result set</span></li>
    </ul>
   </p>
  </div>

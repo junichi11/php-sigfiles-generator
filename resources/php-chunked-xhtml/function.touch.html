@@ -84,7 +84,7 @@
      <dd>
 
       <p class="para">
-       If <strong><code>null</code></strong>, the access time of the given filename is set to 
+       If not <strong><code>null</code></strong>, the access time of the given filename is set to
        the value of <code class="parameter">atime</code>. Otherwise, it is set to
        the value passed to the <code class="parameter">mtime</code> parameter.
        If both are <strong><code>null</code></strong>, the current system time is used.
@@ -137,11 +137,11 @@
  <div class="refsect1 examples" id="refsect1-function.touch-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2222">
+   <div class="example" id="example-2287">
     <p><strong>Example #1 <span class="function"><strong>touch()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">touch</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$filename&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;modification&nbsp;time&nbsp;has&nbsp;been&nbsp;changed&nbsp;to&nbsp;present&nbsp;time'</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Sorry,&nbsp;could&nbsp;not&nbsp;change&nbsp;modification&nbsp;time&nbsp;of&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$filename</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">touch</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #0000BB">$filename </span><span style="color: #007700">. </span><span style="color: #DD0000">' modification time has been changed to present time'</span><span style="color: #007700">;<br />} else {<br />    echo </span><span style="color: #DD0000">'Sorry, could not change modification time of ' </span><span style="color: #007700">. </span><span style="color: #0000BB">$filename</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -149,11 +149,11 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2223">
+   <div class="example" id="example-2288">
     <p><strong>Example #2 <span class="function"><strong>touch()</strong></span> using the <code class="parameter">mtime</code> parameter</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;is&nbsp;the&nbsp;touch&nbsp;time,&nbsp;we'll&nbsp;set&nbsp;it&nbsp;to&nbsp;one&nbsp;hour&nbsp;in&nbsp;the&nbsp;past.<br /></span><span style="color: #0000BB">$time&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">3600</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Touch&nbsp;the&nbsp;file<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">touch</span><span style="color: #007700">(</span><span style="color: #DD0000">'some_file.txt'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$time</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Whoops,&nbsp;something&nbsp;went&nbsp;wrong...'</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Touched&nbsp;file&nbsp;with&nbsp;success'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// This is the touch time, we'll set it to one hour in the past.<br /></span><span style="color: #0000BB">$time </span><span style="color: #007700">= </span><span style="color: #0000BB">time</span><span style="color: #007700">() - </span><span style="color: #0000BB">3600</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// Touch the file<br /></span><span style="color: #007700">if (!</span><span style="color: #0000BB">touch</span><span style="color: #007700">(</span><span style="color: #DD0000">'some_file.txt'</span><span style="color: #007700">, </span><span style="color: #0000BB">$time</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">'Whoops, something went wrong...'</span><span style="color: #007700">;<br />} else {<br />    echo </span><span style="color: #DD0000">'Touched file with success'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

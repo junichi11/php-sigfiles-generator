@@ -10,8 +10,8 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="language.types.resource.html">« Resources</a></li>
-      <li style="float: right;"><a href="language.types.callable.html">Callbacks / Callables »</a></li>
+      <li style="float: left;"><a href="language.types.type-system.html">« Type System</a></li>
+      <li style="float: right;"><a href="language.types.boolean.html">Booleans »</a></li>
     </ul>
   </div>
 </div>
@@ -27,31 +27,14 @@
  <h2 class="title">NULL</h2>
   
  <p class="para">
-  The special <strong><code>null</code></strong> value represents a variable with no value. <strong><code>null</code></strong> is the
-  only possible value of type <span class="type">null</span>.
+  The <span class="type">null</span> type is PHP&#039;s unit type, i.e. it has only one value:
+  <strong><code>null</code></strong>.
  </p>
 
  <p class="para">
-  A variable is considered to be <span class="type">null</span> if:
+  Undefined, and <span class="function"><a href="function.unset.html" class="function">unset()</a></span> variables will resolve to the
+  value <strong><code>null</code></strong>.
  </p>
-
- <ul class="itemizedlist">
-  <li class="listitem">
-   <p class="para">
-    it has been assigned the constant <strong><code>null</code></strong>.
-   </p>
-  </li>
-  <li class="listitem">
-   <p class="para">
-    it has not been set to any value yet.
-   </p>
-  </li>
-  <li class="listitem">
-   <p class="para">
-    it has been <span class="function"><a href="function.unset.html" class="function">unset()</a></span>.
-   </p>
-  </li>
- </ul>
   
  <div class="sect2" id="language.types.null.syntax">
   <h3 class="title">Syntax</h3>
@@ -64,18 +47,12 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$var&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$var </span><span style="color: #007700">= </span><span style="color: #0000BB">NULL</span><span style="color: #007700">;       <br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
   </div>
-
-  <p class="para">
-   See also the functions <span class="function"><a href="function.is-null.html" class="function">is_null()</a></span> and
-   <span class="function"><a href="function.unset.html" class="function">unset()</a></span>.
-  </p>
-
  </div>
  
  <div class="sect2" id="language.types.null.casting">
@@ -93,6 +70,16 @@ is highly discouraged.</p></div>
    It will only return a <strong><code>null</code></strong> value.
   </p>
 
+ </div>
+
+ <div class="sect2">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.is-null.html" class="function">is_null()</a></span></li>
+    <li class="member"><span class="function"><a href="function.unset.html" class="function">unset()</a></span></li>
+   </ul>
+  </p>
  </div>
 
 </div></div></div></body></html>

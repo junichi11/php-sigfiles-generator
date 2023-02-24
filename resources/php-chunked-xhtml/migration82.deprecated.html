@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Deprecated Features</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration82.incompatible.html">« Backward Incompatible Changes</a></li>
+      <li style="float: right;"><a href="migration82.other-changes.html">Other Changes »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration82.html">Migrating from PHP 8.1.x to PHP 8.2.x</a></li>
+    <li>Deprecated Features</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration82.deprecated" class="sect1">
+ <h2 class="title">Deprecated Features</h2>
+
+ <div class="sect2" id="migration82.deprecated.core">
+  <h3 class="title">PHP Core</h3>
+
+  <div class="sect3" id="migration82.deprecated.core.dynamic-properties">
+   <h4 class="title">Usage of dynamic properties</h4>
+
+   <p class="para">
+    The creation of dynamic properties is deprecated, unless the class opts in by
+    using the <code class="code">#[\AllowDynamicProperties]</code> attribute.
+    <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span> allows dynamic properties.
+    Usage of the <a href="language.oop5.overloading.html#object.get" class="link">__get()</a>/<a href="language.oop5.overloading.html#object.set" class="link">__set()</a> magic methods is not affected by this change.
+    A dynamic properties deprecation warning can be addressed by:
+
+    <ul class="simplelist">
+     <li class="member">Declaring the property (preferred).</li>
+     <li class="member">
+      Adding the <code class="code">#[\AllowDynamicProperties]</code> attribute to the class
+      (which also applies to all child classes).
+     </li>
+     <li class="member">
+      Using a <span class="classname"><a href="class.weakmap.html" class="classname">WeakMap</a></span> if additional data needs to be
+      associated with an object which one does not own.
+     </li>
+    </ul>
+   </p>
+  </div>
+
+  <div class="sect3" id="migration82.deprecated.core.relative-callables">
+   <h4 class="title">Relative callables</h4>
+
+   <p class="para">
+    Callables that are not accepted by the <code class="code">$callable()</code> syntax
+    (but are accepted by <span class="function"><a href="function.call-user-func.html" class="function">call_user_func()</a></span>) are deprecated.
+
+    In particular:
+    <ul class="simplelist">
+     <li class="member"><code class="code">&quot;self::method&quot;</code></li>
+     <li class="member"><code class="code">&quot;parent::method&quot;</code></li>
+     <li class="member"><code class="code">&quot;static::method&quot;</code></li>
+     <li class="member"><code class="code">[&quot;self&quot;, &quot;method&quot;]</code></li>
+     <li class="member"><code class="code">[&quot;parent&quot;, &quot;method&quot;]</code></li>
+     <li class="member"><code class="code">[&quot;static&quot;, &quot;method&quot;]</code></li>
+     <li class="member"><code class="code">[&quot;Foo&quot;, &quot;Bar::method&quot;]</code></li>
+     <li class="member"><code class="code">[new Foo, &quot;Bar::method&quot;]</code></li>
+    </ul>
+
+    This does not affect normal method callables such as
+    <code class="code">&quot;A::method&quot;</code> or <code class="code">[&quot;A&quot;, &quot;method&quot;]</code>.
+   </p>
+   
+   
+  </div>
+
+  <div class="sect3" id="migration82.deprecated.core.dollar-brace-interpolation">
+   <h4 class="title"><code class="code">&quot;${var}&quot;</code> and <code class="code">&quot;${expr}&quot;</code> style interpolation</h4>
+
+   <p class="para">
+    The <code class="code">&quot;${var}&quot;</code> and <code class="code">&quot;${expr}&quot;</code> style of string
+    interpolation is deprecated.
+    Use <code class="code">&quot;$var&quot;/&quot;{$var}&quot;</code> and <code class="code">&quot;{${expr}}&quot;</code>, respectively.
+    
+   </p>
+  </div>
+
+ </div>
+
+ <div class="sect2" id="migration82.deprecated.mbstring">
+  <h3 class="title">MBString</h3>
+
+  <p class="para">
+   Usage of the <code class="literal">QPrint</code>, <code class="literal">Base64</code>,
+   <code class="literal">Uuencode</code>, and <code class="literal">HTML-ENTITIES</code>
+   &#039;text encodings&#039; is deprecated for all MBString functions.
+
+   Unlike all the other text encodings supported by MBString,
+   these do not encode a sequence of Unicode codepoints, but rather a sequence of raw bytes.
+   It is not clear what the correct return values for most MBString functions
+   should be when one of these non-encodings is specified.
+   Moreover, PHP has separate, built-in implementations of all of them;
+   for example, UUencoded data can be handled using
+   <span class="function"><a href="function.convert-uuencode.html" class="function">convert_uuencode()</a></span>/<span class="function"><a href="function.convert-uudecode.html" class="function">convert_uudecode()</a></span>.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration82.deprecated.spl">
+  <h3 class="title">SPL</h3>
+
+  <p class="para">
+   The internal <span class="methodname"><strong>SplFileInfo::_bad_state_ex()</strong></span> method
+   has been deprecated.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration82.deprecated.standard">
+  <h3 class="title">Standard</h3>
+
+  <p class="para">
+   <span class="function"><a href="function.utf8-encode.html" class="function">utf8_encode()</a></span> and <span class="function"><a href="function.utf8-decode.html" class="function">utf8_decode()</a></span>
+   have been deprecated.
+  </p>
+ </div>
+
+</div></div></div></body></html>

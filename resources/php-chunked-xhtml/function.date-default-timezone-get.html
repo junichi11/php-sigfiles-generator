@@ -50,13 +50,6 @@
       (if set)
      </p>
     </li>
-    <li class="listitem">
-     <p class="para">
-      A warning is shown when this stage is reached. Do not rely on it to be guessed
-      correctly, and set <a href="datetime.configuration.html#ini.date.timezone" class="link">date.timezone</a> to the correct timezone
-      instead.
-     </p>
-    </li>
    </ul>
   </p>
   <p class="para">
@@ -83,11 +76,11 @@
  <div class="refsect1 examples" id="refsect1-function.date-default-timezone-get-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2070">
+   <div class="example" id="example-2126">
     <p><strong>Example #1 Getting the default timezone</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />date_default_timezone_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'Europe/London'</span><span style="color: #007700">);<br /><br />if&nbsp;(</span><span style="color: #0000BB">date_default_timezone_get</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'date_default_timezone_set:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">date_default_timezone_get</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">'&lt;br&nbsp;/&gt;'</span><span style="color: #007700">;<br />}<br /><br />if&nbsp;(</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'date.timezone'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'date.timezone:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'date.timezone'</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />date_default_timezone_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'Europe/London'</span><span style="color: #007700">);<br /><br />if (</span><span style="color: #0000BB">date_default_timezone_get</span><span style="color: #007700">()) {<br />    echo </span><span style="color: #DD0000">'date_default_timezone_set: ' </span><span style="color: #007700">. </span><span style="color: #0000BB">date_default_timezone_get</span><span style="color: #007700">() . </span><span style="color: #DD0000">'&lt;br /&gt;'</span><span style="color: #007700">;<br />}<br /><br />if (</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'date.timezone'</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">'date.timezone: ' </span><span style="color: #007700">. </span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'date.timezone'</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -103,11 +96,11 @@ date.timezone: Europe/London
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2071">
+   <div class="example" id="example-2127">
     <p><strong>Example #2 Getting the abbreviation of a timezone</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />date_default_timezone_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'America/Los_Angeles'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">date_default_timezone_get</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;=&gt;&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'e'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;=&gt;&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'T'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />date_default_timezone_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'America/Los_Angeles'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">date_default_timezone_get</span><span style="color: #007700">() . </span><span style="color: #DD0000">' =&gt; ' </span><span style="color: #007700">. </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'e'</span><span style="color: #007700">) . </span><span style="color: #DD0000">' =&gt; ' </span><span style="color: #007700">. </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'T'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

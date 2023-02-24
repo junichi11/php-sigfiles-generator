@@ -62,6 +62,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -172,7 +184,7 @@ namespace {
 		 * Load object from file
 		 * <p>Opens the specified file and initializes an object from the file contents.</p>
 		 * @param string $filename The name of the file from which to load the object.
-		 * @param int $flags The access mode to be used when opening the file. Possible values are taken from the STGM enumeration. The method can treat this value as a suggestion, adding more restrictive permissions if necessary. If <code>flags</code> is <code>0</code>, the implementation is supposed to open the file using whatever default permissions are used when a user opens the file.
+		 * @param int $flags The access mode to be used when opening the file. Possible values are taken from the &#xBB;&#xA0;STGM enumeration. The method can treat this value as a suggestion, adding more restrictive permissions if necessary. If <code>flags</code> is <code>0</code>, the implementation is supposed to open the file using whatever default permissions are used when a user opens the file.
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/compersisthelper.loadfromfile.php
 		 * @since PHP 5, PHP 7, PHP 8
@@ -256,7 +268,7 @@ namespace {
 
 	/**
 	 * Loads a Typelib
-	 * <p>Loads a type-library and registers its constants in the engine, as though they were defined using <code>define()</code>.</p><p>Note that it is much more efficient to use the  configuration setting to pre-load and register the constants, although not so flexible.</p><p>If you have turned on , then PHP will attempt to automatically register the constants associated with a COM object when you instantiate it. This depends on the interfaces provided by the COM object itself, and may not always be possible.</p>
+	 * <p>Loads a type-library and registers its constants in the engine, as though they were defined using <code>define()</code>.</p><p>Note that it is much more efficient to use the com.typelib-file php.ini setting to pre-load and register the constants, although not so flexible.</p><p>If com.autoregister-typelib is turned on, then PHP will attempt to automatically register the constants associated with a COM object when you instantiate it. This depends on the interfaces provided by the COM object itself, and may not always be possible.</p>
 	 * @param string $typelib <p><code>typelib</code> can be one of the following:</p><ul> <li> <p>The filename of a <code>.tlb</code> file or the executable module that contains the type library.</p> </li> <li> <p>The type library GUID, followed by its version number, for example <code>{00000200-0000-0010-8000-00AA006D2EA4},2,0</code>.</p> </li> <li> <p>The type library name, e.g. <code>Microsoft OLE DB ActiveX Data Objects 1.0 Library</code>.</p> </li> </ul> PHP will attempt to resolve the type library in this order, as the process gets more and more expensive as you progress down the list; searching for the type library by name is handled by physically enumerating the registry until we find a match.
 	 * @param bool $case_insensitive <p>The <code>case_insensitive</code> behaves inversely to the parameter <code>$case_insensitive</code> in the <code>define()</code> function.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>

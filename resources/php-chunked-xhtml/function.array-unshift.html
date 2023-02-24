@@ -123,11 +123,11 @@
  <div class="refsect1 examples" id="refsect1-function.array-unshift-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4974">
+   <div class="example" id="example-5067">
     <p><strong>Example #1 <span class="function"><strong>array_unshift()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$queue&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"orange"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"banana"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">array_unshift</span><span style="color: #007700">(</span><span style="color: #0000BB">$queue</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"apple"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"raspberry"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$queue</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$queue </span><span style="color: #007700">= [<br />    </span><span style="color: #DD0000">"orange"</span><span style="color: #007700">,<br />    </span><span style="color: #DD0000">"banana"<br /></span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">array_unshift</span><span style="color: #007700">(</span><span style="color: #0000BB">$queue</span><span style="color: #007700">, </span><span style="color: #DD0000">"apple"</span><span style="color: #007700">, </span><span style="color: #DD0000">"raspberry"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$queue</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -135,13 +135,77 @@
     <div class="example-contents"><p>The above example will output:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-Array
-(
-    [0] =&gt; apple
-    [1] =&gt; raspberry
-    [2] =&gt; orange
-    [3] =&gt; banana
-)
+array(4) {
+  [0] =&gt;
+  string(5) &quot;apple&quot;
+  [1] =&gt;
+  string(9) &quot;raspberry&quot;
+  [2] =&gt;
+  string(6) &quot;orange&quot;
+  [3] =&gt;
+  string(6) &quot;banana&quot;
+}
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-5068">
+    <p><strong>Example #2 Usage with associative arrays</strong></p>
+    <div class="example-contents"><p>
+     If one associative array is prepended to another associative array,
+     the prepended array is numerically indexed into the former array.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$foods </span><span style="color: #007700">= [<br />    </span><span style="color: #DD0000">'apples' </span><span style="color: #007700">=&gt; [<br />        </span><span style="color: #DD0000">'McIntosh' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'red'</span><span style="color: #007700">,<br />        </span><span style="color: #DD0000">'Granny Smith' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'green'</span><span style="color: #007700">,<br />    ],<br />    </span><span style="color: #DD0000">'oranges' </span><span style="color: #007700">=&gt; [<br />        </span><span style="color: #DD0000">'Navel' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'orange'</span><span style="color: #007700">,<br />        </span><span style="color: #DD0000">'Valencia' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'orange'</span><span style="color: #007700">,<br />    ],<br />];<br /></span><span style="color: #0000BB">$vegetables </span><span style="color: #007700">= [<br />    </span><span style="color: #DD0000">'lettuce' </span><span style="color: #007700">=&gt; [<br />        </span><span style="color: #DD0000">'Iceberg' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'green'</span><span style="color: #007700">,<br />        </span><span style="color: #DD0000">'Butterhead' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'green'</span><span style="color: #007700">,<br />    ],<br />    </span><span style="color: #DD0000">'carrots' </span><span style="color: #007700">=&gt; [<br />        </span><span style="color: #DD0000">'Deep Purple Hybrid' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'purple'</span><span style="color: #007700">,<br />        </span><span style="color: #DD0000">'Imperator' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'orange'</span><span style="color: #007700">,<br />    ],<br />    </span><span style="color: #DD0000">'cucumber' </span><span style="color: #007700">=&gt; [<br />        </span><span style="color: #DD0000">'Kirby' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'green'</span><span style="color: #007700">,<br />        </span><span style="color: #DD0000">'Gherkin' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'green'</span><span style="color: #007700">,<br />    ],<br />];<br /><br /></span><span style="color: #0000BB">array_unshift</span><span style="color: #007700">(</span><span style="color: #0000BB">$foods</span><span style="color: #007700">, </span><span style="color: #0000BB">$vegetables</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$foods</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+array(3) {
+  [0] =&gt;
+  array(3) {
+    &#039;lettuce&#039; =&gt;
+    array(2) {
+      &#039;Iceberg&#039; =&gt;
+      string(5) &quot;green&quot;
+      &#039;Butterhead&#039; =&gt;
+      string(5) &quot;green&quot;
+    }
+    &#039;carrots&#039; =&gt;
+    array(2) {
+      &#039;Deep Purple Hybrid&#039; =&gt;
+      string(6) &quot;purple&quot;
+      &#039;Imperator&#039; =&gt;
+      string(6) &quot;orange&quot;
+    }
+    &#039;cucumber&#039; =&gt;
+    array(2) {
+      &#039;Kirby&#039; =&gt;
+      string(5) &quot;green&quot;
+      &#039;Gherkin&#039; =&gt;
+      string(5) &quot;green&quot;
+    }
+  }
+  &#039;apples&#039; =&gt;
+  array(2) {
+    &#039;McIntosh&#039; =&gt;
+    string(3) &quot;red&quot;
+    &#039;Granny Smith&#039; =&gt;
+    string(5) &quot;green&quot;
+  }
+  &#039;oranges&#039; =&gt;
+  array(2) {
+    &#039;Navel&#039; =&gt;
+    string(6) &quot;orange&quot;
+    &#039;Valencia&#039; =&gt;
+    string(6) &quot;orange&quot;
+  }
+}
 </pre></div>
     </div>
    </div>
@@ -152,6 +216,7 @@ Array
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.array-merge.html" class="function" rel="rdfs-seeAlso">array_merge()</a> - Merge one or more arrays</span></li>
     <li class="member"><span class="function"><a href="function.array-shift.html" class="function" rel="rdfs-seeAlso">array_shift()</a> - Shift an element off the beginning of array</span></li>
     <li class="member"><span class="function"><a href="function.array-push.html" class="function" rel="rdfs-seeAlso">array_push()</a> - Push one or more elements onto the end of array</span></li>
     <li class="member"><span class="function"><a href="function.array-pop.html" class="function" rel="rdfs-seeAlso">array_pop()</a> - Pop the element off the end of array</span></li>

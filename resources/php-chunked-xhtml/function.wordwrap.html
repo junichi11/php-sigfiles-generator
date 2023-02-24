@@ -116,11 +116,11 @@
  <div class="refsect1 examples" id="refsect1-function.wordwrap-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4897">
+   <div class="example" id="example-4989">
     <p><strong>Example #1 <span class="function"><strong>wordwrap()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$text&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"The&nbsp;quick&nbsp;brown&nbsp;fox&nbsp;jumped&nbsp;over&nbsp;the&nbsp;lazy&nbsp;dog."</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$newtext&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">wordwrap</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">$newtext</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$text </span><span style="color: #007700">= </span><span style="color: #DD0000">"The quick brown fox jumped over the lazy dog."</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$newtext </span><span style="color: #007700">= </span><span style="color: #0000BB">wordwrap</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">, </span><span style="color: #0000BB">20</span><span style="color: #007700">, </span><span style="color: #DD0000">"&lt;br /&gt;\n"</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #0000BB">$newtext</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -134,11 +134,11 @@ dog.
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-4898">
+   <div class="example" id="example-4990">
     <p><strong>Example #2 <span class="function"><strong>wordwrap()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$text&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"A&nbsp;very&nbsp;long&nbsp;woooooooooooord."</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$newtext&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">wordwrap</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">8</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$newtext</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$text </span><span style="color: #007700">= </span><span style="color: #DD0000">"A very long woooooooooooord."</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$newtext </span><span style="color: #007700">= </span><span style="color: #0000BB">wordwrap</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">, </span><span style="color: #0000BB">8</span><span style="color: #007700">, </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">, </span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$newtext</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -153,11 +153,11 @@ ooooord.
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-4899">
+   <div class="example" id="example-4991">
     <p><strong>Example #3 <span class="function"><strong>wordwrap()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$text&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"A&nbsp;very&nbsp;long&nbsp;woooooooooooooooooord.&nbsp;and&nbsp;something"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$newtext&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">wordwrap</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">8</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$newtext</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$text </span><span style="color: #007700">= </span><span style="color: #DD0000">"A very long woooooooooooooooooord. and something"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$newtext </span><span style="color: #007700">= </span><span style="color: #0000BB">wordwrap</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">, </span><span style="color: #0000BB">8</span><span style="color: #007700">, </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">, </span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$newtext</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

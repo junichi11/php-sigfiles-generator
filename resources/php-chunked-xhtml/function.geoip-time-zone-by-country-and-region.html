@@ -102,14 +102,14 @@
  <div class="refsect1 examples" id="refsect1-function.geoip-time-zone-by-country-and-region-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3453">
+   <div class="example" id="example-3489">
     <p><strong>Example #1 A <span class="function"><strong>geoip_time_zone_by_country_and_region()</strong></span> example using region code for US/Canada</strong></p>
     <div class="example-contents"><p>
      This will print the time zone for country CA (Canada), region QC (Quebec).
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$timezone&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">geoip_time_zone_by_country_and_region</span><span style="color: #007700">(</span><span style="color: #DD0000">'CA'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'QC'</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$timezone</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Time&nbsp;zone&nbsp;for&nbsp;CA/QC&nbsp;is:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$timezone</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$timezone </span><span style="color: #007700">= </span><span style="color: #0000BB">geoip_time_zone_by_country_and_region</span><span style="color: #007700">(</span><span style="color: #DD0000">'CA'</span><span style="color: #007700">, </span><span style="color: #DD0000">'QC'</span><span style="color: #007700">);<br />if (</span><span style="color: #0000BB">$timezone</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">'Time zone for CA/QC is: ' </span><span style="color: #007700">. </span><span style="color: #0000BB">$timezone</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -121,14 +121,14 @@ Time zone for CA/QC is: America/Montreal
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-3454">
+   <div class="example" id="example-3490">
     <p><strong>Example #2 A <span class="function"><strong>geoip_time_zone_by_country_and_region()</strong></span> example using FIPS codes</strong></p>
     <div class="example-contents"><p>
      This will print the time zone for country JP (Japan), region 01 (Aichi).
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$timezone&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">geoip_time_zone_by_country_and_region</span><span style="color: #007700">(</span><span style="color: #DD0000">'JP'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'01'</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$timezone</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Time&nbsp;zone&nbsp;for&nbsp;JP/01&nbsp;is:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$timezone</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$timezone </span><span style="color: #007700">= </span><span style="color: #0000BB">geoip_time_zone_by_country_and_region</span><span style="color: #007700">(</span><span style="color: #DD0000">'JP'</span><span style="color: #007700">, </span><span style="color: #DD0000">'01'</span><span style="color: #007700">);<br />if (</span><span style="color: #0000BB">$timezone</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">'Time zone for JP/01 is: ' </span><span style="color: #007700">. </span><span style="color: #0000BB">$timezone</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -37,7 +37,7 @@
 
   <p class="para rdfs-comment">
    Serializes a PHP array or object (e.g. document) to its
-   <a href="https://docs.mongodb.com/manual/reference/bson-types/" class="link external">&raquo;&nbsp;BSON</a> representation. The
+   <a href="https://www.mongodb.com/docs/manual/reference/bson-types/" class="link external">&raquo;&nbsp;BSON</a> representation. The
    returned binary string will describe a BSON document.
   </p>
  </div>
@@ -81,7 +81,7 @@
     not limited to, encountering an unexpected
     <span class="interfacename"><a href="class.mongodb-bson-type.html" class="interfacename">MongoDB\BSON\Type</a></span> instance or
     <span class="function"><a href="mongodb-bson-serializable.bsonserialize.html" class="function">MongoDB\BSON\Serializable::bsonSerialize()</a></span> failing to
-    return an <span class="type">array</span> or <span class="classname"><strong class="classname">stdClass</strong></span>.
+    return an <span class="type">array</span> or <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span>.
    </li>
   </ul>
  </div>
@@ -89,11 +89,11 @@
 
  <div class="refsect1 examples" id="refsect1-function.mongodb.bson-fromphp-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1346">
+  <div class="example" id="example-1377">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\BSON\fromPHP()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$bson&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">fromPHP</span><span style="color: #007700">([</span><span style="color: #DD0000">'foo'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">]);<br />echo&nbsp;</span><span style="color: #0000BB">bin2hex</span><span style="color: #007700">(</span><span style="color: #0000BB">$bson</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$bson </span><span style="color: #007700">= </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">fromPHP</span><span style="color: #007700">([</span><span style="color: #DD0000">'foo' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">]);<br />echo </span><span style="color: #0000BB">bin2hex</span><span style="color: #007700">(</span><span style="color: #0000BB">$bson</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -113,7 +113,7 @@
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
    <li class="member"><span class="function"><a href="function.mongodb.bson-tophp.html" class="function" rel="rdfs-seeAlso">MongoDB\BSON\toPHP()</a> - Returns the PHP representation of a BSON value</span></li>
-   <li class="member"><a href="https://docs.mongodb.com/manual/reference/bson-types/" class="link external">&raquo;&nbsp;MongoDB BSON</a></li>
+   <li class="member"><a href="https://www.mongodb.com/docs/manual/reference/bson-types/" class="link external">&raquo;&nbsp;MongoDB BSON</a></li>
    <li class="member"><a href="mongodb.persistence.html" class="xref">Persisting Data</a></li>
   </ul>
  </div>

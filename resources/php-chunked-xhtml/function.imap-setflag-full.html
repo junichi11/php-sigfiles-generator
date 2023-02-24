@@ -130,7 +130,7 @@
  <td>8.1.0</td>
  <td>
   The <code class="parameter">imap</code> parameter expects an <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">imap</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
 
@@ -144,11 +144,11 @@
  <div class="refsect1 examples" id="refsect1-function.imap-setflag-full-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3028">
+   <div class="example" id="example-3098">
     <p><strong>Example #1 <span class="function"><strong>imap_setflag_full()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$mbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open</span><span style="color: #007700">(</span><span style="color: #DD0000">"{imap.example.org:143}"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"can't&nbsp;connect:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">imap_last_error</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_setflag_full</span><span style="color: #007700">(</span><span style="color: #0000BB">$mbox</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"2,5"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\\Seen&nbsp;\\Flagged"</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">gettype</span><span style="color: #007700">(</span><span style="color: #0000BB">$status</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$status&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">imap_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$mbox</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$mbox </span><span style="color: #007700">= </span><span style="color: #0000BB">imap_open</span><span style="color: #007700">(</span><span style="color: #DD0000">"{imap.example.org:143}"</span><span style="color: #007700">, </span><span style="color: #DD0000">"username"</span><span style="color: #007700">, </span><span style="color: #DD0000">"password"</span><span style="color: #007700">)<br />     or die(</span><span style="color: #DD0000">"can't connect: " </span><span style="color: #007700">. </span><span style="color: #0000BB">imap_last_error</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">$status </span><span style="color: #007700">= </span><span style="color: #0000BB">imap_setflag_full</span><span style="color: #007700">(</span><span style="color: #0000BB">$mbox</span><span style="color: #007700">, </span><span style="color: #DD0000">"2,5"</span><span style="color: #007700">, </span><span style="color: #DD0000">"\\Seen \\Flagged"</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #0000BB">gettype</span><span style="color: #007700">(</span><span style="color: #0000BB">$status</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">$status </span><span style="color: #007700">. </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">imap_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$mbox</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

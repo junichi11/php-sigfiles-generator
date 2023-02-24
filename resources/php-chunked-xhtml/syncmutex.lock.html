@@ -73,11 +73,11 @@
 
  <div class="refsect1 examples" id="refsect1-syncmutex.lock-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3414">
+  <div class="example" id="example-3450">
    <p><strong>Example #1 <span class="function"><strong>SyncMutex::lock()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$mutex&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SyncMutex</span><span style="color: #007700">(</span><span style="color: #DD0000">"UniqueName"</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">lock</span><span style="color: #007700">(</span><span style="color: #0000BB">3000</span><span style="color: #007700">))<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Unable&nbsp;to&nbsp;lock&nbsp;mutex."</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;exit();<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;...&nbsp;*/<br /><br /></span><span style="color: #0000BB">$mutex</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">unlock</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$mutex </span><span style="color: #007700">= new </span><span style="color: #0000BB">SyncMutex</span><span style="color: #007700">(</span><span style="color: #DD0000">"UniqueName"</span><span style="color: #007700">);<br /><br />if (!</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">lock</span><span style="color: #007700">(</span><span style="color: #0000BB">3000</span><span style="color: #007700">))<br />{<br />    echo </span><span style="color: #DD0000">"Unable to lock mutex."</span><span style="color: #007700">;<br /><br />    exit();<br />}<br /><br /></span><span style="color: #FF8000">/* ... */<br /><br /></span><span style="color: #0000BB">$mutex</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">unlock</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

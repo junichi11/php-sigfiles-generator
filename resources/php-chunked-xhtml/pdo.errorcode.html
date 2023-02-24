@@ -60,12 +60,12 @@
    class indicates that there is no subclass for that SQLSTATE.
   </p>
   <p class="para">
-   <span class="function"><strong>PDO::errorCode()</strong></span> only retrieves error codes for operations
+   <span class="methodname"><strong>PDO::errorCode()</strong></span> only retrieves error codes for operations
    performed directly on the database handle. If you create a PDOStatement
-   object through <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span> or
-   <span class="function"><a href="pdo.query.html" class="function">PDO::query()</a></span> and invoke an error on the statement
-   handle, <span class="function"><strong>PDO::errorCode()</strong></span> will not reflect that error.
-   You must call <span class="function"><a href="pdostatement.errorcode.html" class="function">PDOStatement::errorCode()</a></span> to return the error
+   object through <span class="methodname"><a href="pdo.prepare.html" class="methodname">PDO::prepare()</a></span> or
+   <span class="methodname"><a href="pdo.query.html" class="methodname">PDO::query()</a></span> and invoke an error on the statement
+   handle, <span class="methodname"><strong>PDO::errorCode()</strong></span> will not reflect that error.
+   You must call <span class="methodname"><a href="pdostatement.errorcode.html" class="methodname">PDOStatement::errorCode()</a></span> to return the error
    code for an operation performed on a particular statement handle.
   </p>
   <p class="para">
@@ -77,10 +77,10 @@
  <div class="refsect1 examples" id="refsect1-pdo.errorcode-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1016"><p><strong>Example #1 Retrieving an SQLSTATE code</strong></p>
+   <div class="example" id="example-1047"><p><strong>Example #1 Retrieving an SQLSTATE code</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Provoke&nbsp;an&nbsp;error&nbsp;--&nbsp;the&nbsp;BONES&nbsp;table&nbsp;does&nbsp;not&nbsp;exist&nbsp;*/<br /></span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;bones(skull)&nbsp;VALUES&nbsp;('lucy')"</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"\nPDO::errorCode():&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errorCode</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/* Provoke an error -- the BONES table does not exist */<br /></span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"INSERT INTO bones(skull) VALUES ('lucy')"</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #DD0000">"\nPDO::errorCode(): "</span><span style="color: #007700">, </span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errorCode</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -100,9 +100,9 @@ PDO::errorCode(): 42S02
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="pdo.errorinfo.html" class="function" rel="rdfs-seeAlso">PDO::errorInfo()</a> - Fetch extended error information associated with the last operation on the database handle</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.errorcode.html" class="function" rel="rdfs-seeAlso">PDOStatement::errorCode()</a> - Fetch the SQLSTATE associated with the last operation on the statement handle</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.errorinfo.html" class="function" rel="rdfs-seeAlso">PDOStatement::errorInfo()</a> - Fetch extended error information associated with the last operation on the statement handle</span></li>
+    <li class="member"><span class="methodname"><a href="pdo.errorinfo.html" class="methodname" rel="rdfs-seeAlso">PDO::errorInfo()</a> - Fetch extended error information associated with the last operation on the database handle</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.errorcode.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::errorCode()</a> - Fetch the SQLSTATE associated with the last operation on the statement handle</span></li>
+    <li class="member"><span class="methodname"><a href="pdostatement.errorinfo.html" class="methodname" rel="rdfs-seeAlso">PDOStatement::errorInfo()</a> - Fetch extended error information associated with the last operation on the statement handle</span></li>
    </ul>
   </p>
  </div>

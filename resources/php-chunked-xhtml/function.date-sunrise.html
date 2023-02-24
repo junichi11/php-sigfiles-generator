@@ -31,9 +31,13 @@
  </div>
 
  <div id="function.date-sunrise-refsynopsisdiv">
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function has been
-<em class="emphasis">DEPRECATED</em> as of PHP 8.1.0. Relying on this function
-is highly discouraged.</p></div>
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="para">
+    This function has been <em class="emphasis">DEPRECATED</em> as of PHP 8.1.0.
+    Relying on this function is highly discouraged. Use
+    <span class="function"><a href="function.date-sun-info.html" class="function">date_sun_info()</a></span> instead.
+   </p>
+  </div>
  </div>
 
  <div class="refsect1 description" id="refsect1-function.date-sunrise-description">
@@ -269,11 +273,11 @@ if the time zone is not valid. See also <span class="function"><a href="function
  <div class="refsect1 examples" id="refsect1-function.date-sunrise-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2079">
+   <div class="example" id="example-2142">
     <p><strong>Example #1 <span class="function"><strong>date_sunrise()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;calculate&nbsp;the&nbsp;sunrise&nbsp;time&nbsp;for&nbsp;Lisbon,&nbsp;Portugal<br />Latitude:&nbsp;38.4&nbsp;North<br />Longitude:&nbsp;9&nbsp;West<br />Zenith&nbsp;~=&nbsp;90<br />offset:&nbsp;+1&nbsp;GMT<br />*/<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"D&nbsp;M&nbsp;d&nbsp;Y"</span><span style="color: #007700">).&nbsp;</span><span style="color: #DD0000">',&nbsp;sunrise&nbsp;time&nbsp;:&nbsp;'&nbsp;</span><span style="color: #007700">.</span><span style="color: #0000BB">date_sunrise</span><span style="color: #007700">(</span><span style="color: #0000BB">time</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">SUNFUNCS_RET_STRING</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">38.4</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">9</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">90</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/* calculate the sunrise time for Lisbon, Portugal<br />Latitude: 38.4 North<br />Longitude: 9 West<br />Zenith ~= 90<br />offset: +1 GMT<br />*/<br /><br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"D M d Y"</span><span style="color: #007700">). </span><span style="color: #DD0000">', sunrise time : ' </span><span style="color: #007700">.</span><span style="color: #0000BB">date_sunrise</span><span style="color: #007700">(</span><span style="color: #0000BB">time</span><span style="color: #007700">(), </span><span style="color: #0000BB">SUNFUNCS_RET_STRING</span><span style="color: #007700">, </span><span style="color: #0000BB">38.4</span><span style="color: #007700">, -</span><span style="color: #0000BB">9</span><span style="color: #007700">, </span><span style="color: #0000BB">90</span><span style="color: #007700">, </span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -286,11 +290,11 @@ Mon Dec 20 2004, sunrise time : 08:54
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-2080">
+   <div class="example" id="example-2143">
     <p><strong>Example #2 No sunrise</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$solstice&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strtotime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2017-12-21'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">date_sunrise</span><span style="color: #007700">(</span><span style="color: #0000BB">$solstice</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SUNFUNCS_RET_STRING</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">69.245833</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">53.537222</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$solstice </span><span style="color: #007700">= </span><span style="color: #0000BB">strtotime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2017-12-21'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">date_sunrise</span><span style="color: #007700">(</span><span style="color: #0000BB">$solstice</span><span style="color: #007700">, </span><span style="color: #0000BB">SUNFUNCS_RET_STRING</span><span style="color: #007700">, </span><span style="color: #0000BB">69.245833</span><span style="color: #007700">, -</span><span style="color: #0000BB">53.537222</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -310,7 +314,6 @@ bool(false)
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.date-sunset.html" class="function" rel="rdfs-seeAlso">date_sunset()</a> - Returns time of sunset for a given day and location</span></li>
     <li class="member"><span class="function"><a href="function.date-sun-info.html" class="function" rel="rdfs-seeAlso">date_sun_info()</a> - Returns an array with information about sunset/sunrise and twilight begin/end</span></li>
    </ul>
   </p>

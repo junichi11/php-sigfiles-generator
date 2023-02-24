@@ -79,6 +79,7 @@
 
       <p class="para">
        Specify the class that will be used for iteration of the <span class="classname"><a href="class.arrayobject.html" class="classname">ArrayObject</a></span> object.
+       The class must implement <span class="interfacename"><a href="class.arrayiterator.html" class="interfacename">ArrayIterator</a></span>.
       </p>
      </dd>
 
@@ -89,49 +90,14 @@
  </div>
 
 
- <div class="refsect1 returnvalues" id="refsect1-arrayobject.construct-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   Returns an ArrayObject object on success.
-  </p>
- </div>
-
-
-
- <div class="refsect1 errors" id="refsect1-arrayobject.construct-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">
-   Throws <span class="classname"><a href="class.invalidargumentexception.html" class="classname">InvalidArgumentException</a></span> when:
-   <ul class="itemizedlist">
-    <li class="listitem">
-     <span class="simpara">
-      <code class="parameter">array</code> is not an array or object
-     </span>
-    </li>
-    <li class="listitem">
-     <span class="simpara">
-      <code class="parameter">flags</code> is not an integer
-     </span>
-    </li>
-    <li class="listitem">
-     <span class="simpara">
-      <code class="parameter">iteratorClass</code> is not an object that implements
-      <span class="classname"><a href="class.iterator.html" class="classname">Iterator</a></span>
-     </span>
-    </li>
-   </ul>
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-arrayobject.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3744">
+   <div class="example" id="example-3822">
     <p><strong>Example #1 <span class="function"><strong>ArrayObject::__construct()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$array&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'1'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'one'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'2'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'two'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'3'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'three'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$arrayobject&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ArrayObject</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$arrayobject</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$array </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'1' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'one'</span><span style="color: #007700">,<br />               </span><span style="color: #DD0000">'2' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'two'</span><span style="color: #007700">,<br />               </span><span style="color: #DD0000">'3' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'three'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$arrayobject </span><span style="color: #007700">= new </span><span style="color: #0000BB">ArrayObject</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$arrayobject</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

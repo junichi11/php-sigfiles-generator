@@ -32,7 +32,7 @@
  <div class="refsect1 description" id="refsect1-function.imap-check-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imap_check</strong></span>(<span class="methodparam"><span class="type"><a href="class.imap-connection.html" class="type IMAP\Connection">IMAP\Connection</a></span> <code class="parameter">$imap</code></span>): <span class="type"><span class="type"><span class="type stdClass">stdClass</span></span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>imap_check</strong></span>(<span class="methodparam"><span class="type"><a href="class.imap-connection.html" class="type IMAP\Connection">IMAP\Connection</a></span> <code class="parameter">$imap</code></span>): <span class="type"><span class="type"><a href="class.stdclass.html" class="type stdClass">stdClass</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Checks information about the current mailbox.
@@ -67,7 +67,7 @@
     <li class="listitem">
      <span class="simpara">
       <strong><code>Driver</code></strong> - protocol used to access this mailbox:
-      <acronym title="Post Office Protocol version 3">POP3</acronym>, <acronym title="Internet Message Access Protocol">IMAP</acronym>, <acronym title="Network News Transfer Protocol">NNTP</acronym>
+      <abbr title="Post Office Protocol version 3">POP3</abbr>, <abbr title="Internet Message Access Protocol">IMAP</abbr>, <abbr title="Network News Transfer Protocol">NNTP</abbr>
      </span>
     </li>
     <li class="listitem">
@@ -110,7 +110,7 @@
  <td>8.1.0</td>
  <td>
   The <code class="parameter">imap</code> parameter expects an <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">imap</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
 
@@ -124,11 +124,11 @@
  <div class="refsect1 examples" id="refsect1-function.imap-check-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3006">
+   <div class="example" id="example-3076">
     <p><strong>Example #1 <span class="function"><strong>imap_check()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$imap&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_check</span><span style="color: #007700">(</span><span style="color: #0000BB">$imap_stream</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$imap</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$imap </span><span style="color: #007700">= </span><span style="color: #0000BB">imap_check</span><span style="color: #007700">(</span><span style="color: #0000BB">$imap_stream</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$imap</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

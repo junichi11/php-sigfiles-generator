@@ -10,8 +10,8 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="datetime.format.html">« DateTime::format</a></li>
-      <li style="float: right;"><a href="datetime.gettimestamp.html">DateTime::getTimestamp »</a></li>
+      <li style="float: left;"><a href="datetime.format.html">« DateTimeInterface::format</a></li>
+      <li style="float: right;"><a href="datetime.gettimestamp.html">DateTimeInterface::getTimestamp »</a></li>
     </ul>
   </div>
 </div>
@@ -25,11 +25,11 @@
 <div id="layout">
   <div id="layout-content"><div id="datetime.getoffset" class="refentry">
  <div class="refnamediv">
-  <h1 class="refname">DateTime::getOffset</h1>
-  <h1 class="refname">DateTimeImmutable::getOffset</h1>
   <h1 class="refname">DateTimeInterface::getOffset</h1>
+  <h1 class="refname">DateTimeImmutable::getOffset</h1>
+  <h1 class="refname">DateTime::getOffset</h1>
   <h1 class="refname">date_offset_get</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.1, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTime::getOffset</span> -- <span class="refname">DateTimeImmutable::getOffset</span> -- <span class="refname">DateTimeInterface::getOffset</span> -- <span class="refname">date_offset_get</span> &mdash; <span class="dc-title">Returns the timezone offset</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTimeInterface::getOffset</span> -- <span class="refname">DateTimeImmutable::getOffset</span> -- <span class="refname">DateTime::getOffset</span> -- <span class="refname">date_offset_get</span> &mdash; <span class="dc-title">Returns the timezone offset</span></p>
 
  </div>
 
@@ -37,11 +37,11 @@
   <h3 class="title">Description</h3>
   <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DateTime::getOffset</strong></span>(): <span class="type">int</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DateTimeInterface::getOffset</strong></span>(): <span class="type">int</span></div>
 
   <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>DateTimeImmutable::getOffset</strong></span>(): <span class="type">int</span></div>
 
-  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>DateTimeInterface::getOffset</strong></span>(): <span class="type">int</span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>DateTime::getOffset</strong></span>(): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
   <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.date-offset-get.html" class="methodname">date_offset_get</a></span>(<span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$object</code></span>): <span class="type">int</span></div>
@@ -75,41 +75,14 @@ returned by <span class="function"><a href="function.date-create.html" class="fu
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-datetime.getoffset-changelog">
-  <h3 class="title">Changelog</h3>
-  <table class="doctable informaltable">
-   
-    <thead>
-     <tr>
-      <th>Version</th>
-      <th>Description</th>
-     </tr>
-
-    </thead>
-
-    <tbody class="tbody">
-     <tr>
-      <td>8.0.0</td>
-      <td>
-       Prior to this version, <strong><code>false</code></strong> was returned on failure.
-      </td>
-     </tr>
-
-    </tbody>
-   
-  </table>
-
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-datetime.getoffset-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2049">
+  <div class="example" id="example-2093">
    <p><strong>Example #1 <span class="function"><strong>DateTime::getOffset()</strong></span> example</strong></p>
    <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$winter&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2010-12-21'</span><span style="color: #007700">,&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">'America/New_York'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$summer&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2008-06-21'</span><span style="color: #007700">,&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">'America/New_York'</span><span style="color: #007700">));<br /><br />echo&nbsp;</span><span style="color: #0000BB">$winter</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOffset</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$summer</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOffset</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$winter </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">(</span><span style="color: #DD0000">'2010-12-21'</span><span style="color: #007700">, new </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">'America/New_York'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$summer </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">(</span><span style="color: #DD0000">'2008-06-21'</span><span style="color: #007700">, new </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">'America/New_York'</span><span style="color: #007700">));<br /><br />echo </span><span style="color: #0000BB">$winter</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOffset</span><span style="color: #007700">() . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">$summer</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOffset</span><span style="color: #007700">() . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -117,7 +90,7 @@ returned by <span class="function"><a href="function.date-create.html" class="fu
    <div class="example-contents"><p>Procedural style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$winter&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date_create</span><span style="color: #007700">(</span><span style="color: #DD0000">'2010-12-21'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">timezone_open</span><span style="color: #007700">(</span><span style="color: #DD0000">'America/New_York'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$summer&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date_create</span><span style="color: #007700">(</span><span style="color: #DD0000">'2008-06-21'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">timezone_open</span><span style="color: #007700">(</span><span style="color: #DD0000">'America/New_York'</span><span style="color: #007700">));<br /><br />echo&nbsp;</span><span style="color: #0000BB">date_offset_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$winter</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">date_offset_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$summer</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$winter </span><span style="color: #007700">= </span><span style="color: #0000BB">date_create</span><span style="color: #007700">(</span><span style="color: #DD0000">'2010-12-21'</span><span style="color: #007700">, </span><span style="color: #0000BB">timezone_open</span><span style="color: #007700">(</span><span style="color: #DD0000">'America/New_York'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$summer </span><span style="color: #007700">= </span><span style="color: #0000BB">date_create</span><span style="color: #007700">(</span><span style="color: #DD0000">'2008-06-21'</span><span style="color: #007700">, </span><span style="color: #0000BB">timezone_open</span><span style="color: #007700">(</span><span style="color: #DD0000">'America/New_York'</span><span style="color: #007700">));<br /><br />echo </span><span style="color: #0000BB">date_offset_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$winter</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">date_offset_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$summer</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

@@ -55,7 +55,7 @@
    will also implement common
    <a href="https://github.com/mongodb/specifications" class="link external">&raquo;&nbsp;specifications</a>, in the
    interest of improving API consistency across all of the
-   <a href="https://docs.mongodb.com/ecosystem/drivers/" class="link external">&raquo;&nbsp;drivers</a> maintained by
+   <a href="https://www.mongodb.com/docs/drivers/" class="link external">&raquo;&nbsp;drivers</a> maintained by
    MongoDB (and hopefully some community drivers, too).
   </p>
 
@@ -63,7 +63,7 @@
    Sitting below that library we have the lower level driver.
    This extension will effectively form the glue between PHP and our
    system libraries (<a href="https://github.com/mongodb/mongo-c-driver" class="link external">&raquo;&nbsp;libmongoc</a> and
-   <a href="https://github.com/mongodb/libbson" class="link external">&raquo;&nbsp;libbson</a>). This extension
+   <a href="https://github.com/mongodb/mongo-c-driver/tree/master/src/libbson" class="link external">&raquo;&nbsp;libbson</a>). This extension
    will expose an identical public API for the most essential and
    performance-sensitive functionality:
 
@@ -86,7 +86,7 @@
    driver directly or a higher-level PHP library.
   </p>
   <p class="para">
-   <a href="https://docs.mongodb.com/manual/core/gridfs/" class="link external">&raquo;&nbsp;GridFS</a> is a great example
+   <a href="https://www.mongodb.com/docs/manual/core/gridfs/" class="link external">&raquo;&nbsp;GridFS</a> is a great example
    of why we chose this direction.
    Although we implemented GridFS in C for our old mongo driver, it is actually
    quite a high-level specification. Its API is just an abstraction for

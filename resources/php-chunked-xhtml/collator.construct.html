@@ -52,8 +52,8 @@
 
       <p class="para">
        The locale whose collation rules should be used. Special values for
-       locales can be passed in - if <strong><code>null</code></strong> is passed for the locale, the
-       default locale&#039;s collation rules will be used. If &quot;root&quot; is passed,
+       locales can be passed in - if an empty <span class="type">string</span> is passed for the locale, the
+       default locale&#039;s collation rules will be used. If <code class="literal">&quot;root&quot;</code> is passed,
        <a href="http://www.unicode.org/reports/tr10/" class="link external">&raquo;&nbsp;UCA</a> rules will be used.
       </p>
       <p class="para">
@@ -83,14 +83,6 @@
  </div>
 
 
- <div class="refsect1 returnvalues" id="refsect1-collator.construct-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   Returns <span class="classname"><a href="class.collator.html" class="classname">Collator</a></span> instance.
-  </p>
- </div>
-
-
  <div class="refsect1 errors" id="refsect1-collator.construct-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
@@ -105,11 +97,11 @@
  <div class="refsect1 examples" id="refsect1-collator.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2275">
+   <div class="example" id="example-2340">
     <p><strong>Example #1 <span class="function"><strong>Collator::__construct()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$coll&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Collator</span><span style="color: #007700">(</span><span style="color: #DD0000">'en_CA'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$coll </span><span style="color: #007700">= new </span><span style="color: #0000BB">Collator</span><span style="color: #007700">(</span><span style="color: #DD0000">'en_CA'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

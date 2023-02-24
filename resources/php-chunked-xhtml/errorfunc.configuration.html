@@ -165,6 +165,13 @@ The behaviour of these functions is affected by settings in <var class="filename
     </tr>
 
     <tr>
+     <td><a href="errorfunc.configuration.html#ini.error-log-mode" class="link">error_log_mode</a></td>
+     <td>0o644</td>
+     <td>PHP_INI_ALL</td>
+     <td>Available as of PHP 8.2.0</td>
+    </tr>
+
+    <tr>
      <td><a href="errorfunc.configuration.html#ini.syslog.facility" class="link">syslog.facility</a></td>
      <td>&quot;LOG_USER&quot;</td>
      <td>PHP_INI_SYSTEM</td>
@@ -581,6 +588,22 @@ in <a href="faq.using.html#faq.using.shorthandbytes" class="link">this FAQ</a>, 
       For example, it is an error log in Apache or <code class="literal">stderr</code>
       in CLI.
       See also <span class="function"><a href="function.error-log.html" class="function">error_log()</a></span>.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.error-log-mode">
+     <code class="parameter">error_log_mode</code>
+     <span class="type">int</span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      File mode for the file described set in
+      <a href="errorfunc.configuration.html#ini.error-log" class="link">error_log</a>.
      </p>
     </dd>
 

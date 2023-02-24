@@ -47,8 +47,8 @@
   </p>
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="simpara">
-    This function was removed from most SAPIs in PHP 5.3.0, and was removed
-    from PHP-FPM in PHP 7.0.0.
+    This function is only available for the <abbr title="Command Line Interpreter/Interface">CLI</abbr> and embed <abbr title="Server Application Programming Interface">SAPI</abbr>s,
+    and the <abbr title="Common Gateway Interface">CGI</abbr> <abbr title="Server Application Programming Interface">SAPI</abbr> when run from the command line.
    </p>
   </div>
  </div>
@@ -92,7 +92,7 @@
         </li>
         <li class="listitem">
          <span class="simpara">
-          whether PHP has been built with (experimental) ZTS (Zend Thread Safety)
+          whether PHP has been built with ZTS (Zend Thread Safety)
           support or not
          </span>
         </li>
@@ -137,11 +137,11 @@
  <div class="refsect1 examples" id="refsect1-function.dl-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-540">
+   <div class="example" id="example-556">
     <p><strong>Example #1 <span class="function"><strong>dl()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Example&nbsp;loading&nbsp;an&nbsp;extension&nbsp;based&nbsp;on&nbsp;OS<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">extension_loaded</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">strtoupper</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_OS</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">))&nbsp;===&nbsp;</span><span style="color: #DD0000">'WIN'</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">dl</span><span style="color: #007700">(</span><span style="color: #DD0000">'php_sqlite.dll'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">dl</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite.so'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Or&nbsp;using&nbsp;PHP_SHLIB_SUFFIX&nbsp;constant<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">extension_loaded</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$prefix&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">PHP_SHLIB_SUFFIX&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #DD0000">'dll'</span><span style="color: #007700">)&nbsp;?&nbsp;</span><span style="color: #DD0000">'php_'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">dl</span><span style="color: #007700">(</span><span style="color: #0000BB">$prefix&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'sqlite.'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">PHP_SHLIB_SUFFIX</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Example loading an extension based on OS<br /></span><span style="color: #007700">if (!</span><span style="color: #0000BB">extension_loaded</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite'</span><span style="color: #007700">)) {<br />    if (</span><span style="color: #0000BB">strtoupper</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_OS</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">)) === </span><span style="color: #DD0000">'WIN'</span><span style="color: #007700">) {<br />        </span><span style="color: #0000BB">dl</span><span style="color: #007700">(</span><span style="color: #DD0000">'php_sqlite.dll'</span><span style="color: #007700">);<br />    } else {<br />        </span><span style="color: #0000BB">dl</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite.so'</span><span style="color: #007700">);<br />    }<br />}<br /><br /></span><span style="color: #FF8000">// Or using PHP_SHLIB_SUFFIX constant<br /></span><span style="color: #007700">if (!</span><span style="color: #0000BB">extension_loaded</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite'</span><span style="color: #007700">)) {<br />    </span><span style="color: #0000BB">$prefix </span><span style="color: #007700">= (</span><span style="color: #0000BB">PHP_SHLIB_SUFFIX </span><span style="color: #007700">=== </span><span style="color: #DD0000">'dll'</span><span style="color: #007700">) ? </span><span style="color: #DD0000">'php_' </span><span style="color: #007700">: </span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />    </span><span style="color: #0000BB">dl</span><span style="color: #007700">(</span><span style="color: #0000BB">$prefix </span><span style="color: #007700">. </span><span style="color: #DD0000">'sqlite.' </span><span style="color: #007700">. </span><span style="color: #0000BB">PHP_SHLIB_SUFFIX</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -153,14 +153,6 @@
 
  <div class="refsect1 notes" id="refsect1-function.dl-notes">
   <h3 class="title">Notes</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
-    <span class="function"><strong>dl()</strong></span> is <em class="emphasis">not</em> supported when
-    PHP is built with ZTS support. Use
-    the <a href="ini.core.html#ini.extension" class="link">Extension Loading
-    Directives</a> instead.
-   </p>
-  </p></blockquote>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     <span class="function"><strong>dl()</strong></span> is case sensitive on Unix platforms.

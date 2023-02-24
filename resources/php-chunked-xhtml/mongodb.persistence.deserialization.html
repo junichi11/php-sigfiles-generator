@@ -143,8 +143,8 @@ array</dt>
            <a href="#fnidmongodb.pclass" name="fnmongodb.pclass"><sup>[1]</sup></a>
             
            
-           becomes a PHP <span class="classname"><strong class="classname">stdClass</strong></span> object, with each
-           BSON document key set as a public <span class="classname"><strong class="classname">stdClass</strong></span>
+           becomes a PHP <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span> object, with each
+           BSON document key set as a public <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span>
            property.
           </p>
          </li>
@@ -167,9 +167,9 @@ array</dt>
           <p class="para">
            If the named class does not exist or does not implement the
            <span class="interfacename"><a href="class.mongodb-bson-persistable.html" class="interfacename">MongoDB\BSON\Persistable</a></span> interface,
-           <span class="classname"><strong class="classname">stdClass</strong></span> will be used and each BSON document
+           <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span> will be used and each BSON document
            key (including <span class="property">__pclass</span>) will be set as a
-           public <span class="classname"><strong class="classname">stdClass</strong></span> property.
+           public <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span> property.
           </p>
           <p class="para">
            The <span class="property">__pclass</span> functionality relies on the
@@ -210,7 +210,7 @@ array</dt>
 
        <p class="para">
         Turns a BSON array or BSON document into a
-        <span class="classname"><strong class="classname">stdClass</strong></span> object. There will be no special
+        <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span> object. There will be no special
         treatment of a <span class="property">__pclass</span> property <a href="#fnidmongodb.pclass"><sup>[1]</sup></a>, but it may
         be set as a public property in the returned object if it was present
         in the BSON document.
@@ -352,7 +352,7 @@ TheirClass</dt>
 
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">bsonUnserialize</span><span style="color: #007700">(&nbsp;array&nbsp;</span><span style="color: #0000BB">$map&nbsp;</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(&nbsp;</span><span style="color: #0000BB">$map&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$k&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$value&nbsp;</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$k&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">unserialized&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function </span><span style="color: #0000BB">bsonUnserialize</span><span style="color: #007700">( array </span><span style="color: #0000BB">$map </span><span style="color: #007700">)<br />{<br />    foreach ( </span><span style="color: #0000BB">$map </span><span style="color: #007700">as </span><span style="color: #0000BB">$k </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$value </span><span style="color: #007700">)<br />    {<br />        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$k </span><span style="color: #007700">= </span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />    }<br />    </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">unserialized </span><span style="color: #007700">= </span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}</span>
 </span>
 </code></div>
       </div>

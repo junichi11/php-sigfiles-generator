@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Select random array keys</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="random-randomizer.nextint.html">« Random\Randomizer::nextInt</a></li>
+      <li style="float: right;"><a href="random-randomizer.serialize.html">Random\Randomizer::__serialize »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.random-randomizer.html">Random\Randomizer</a></li>
+    <li>Select random array keys</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="random-randomizer.pickarraykeys" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">Random\Randomizer::pickArrayKeys</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.2.0)</p><p class="refpurpose"><span class="refname">Random\Randomizer::pickArrayKeys</span> &mdash; <span class="dc-title">Select random array keys</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-random-randomizer.pickarraykeys-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>Random\Randomizer::pickArrayKeys</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$num</code></span>): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   Uniformly selects <code class="parameter">num</code> distinct array keys of the input <code class="parameter">array</code>.
+  </p>
+  <p class="para">
+   Each key of the input <code class="parameter">array</code> is equally likely to be returned.
+  </p>
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="para">
+    The selection of the array keys depends on the internal structure of the input
+    <code class="parameter">array</code>. The returned array keys might be different for
+    two equal input arrays and two <span class="classname"><a href="class.random-engine.html" class="classname">Random\Engine</a></span>s with
+    identical state, depending on how the input arrays have been created.
+   </p>
+  </div>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-random-randomizer.pickarraykeys-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">array</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The array whose array keys are selected.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">num</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The number of array keys to return; must be between <code class="literal">1</code>
+      and the number of elements in <code class="parameter">array</code>.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-random-randomizer.pickarraykeys-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   An <span class="type">array</span> containing <code class="parameter">num</code> distinct array keys of <code class="parameter">array</code>.
+  </p>
+  <p class="para">
+   The returned <span class="type">array</span> will be a list (<span class="function"><a href="function.array-is-list.html" class="function">array_is_list()</a></span>). It will be a subset
+   of the <span class="type">array</span> returned by <span class="function"><a href="function.array-keys.html" class="function">array_keys()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-random-randomizer.pickarraykeys-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     If <code class="parameter">num</code> is less than <code class="literal">1</code> or
+     greater than the number of elements in <code class="parameter">array</code>, a
+     <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> will be thrown.
+    </span>
+   </li>
+   
+ <li class="listitem">
+  <span class="simpara">
+   Any <span class="classname"><a href="class.throwable.html" class="classname">Throwable</a></span>s thrown by the <span class="methodname"><a href="random-engine.generate.html" class="methodname">Random\Engine::generate()</a></span> method
+   of the underlying <a href="class.random-randomizer.html#random-randomizer.props.engine" class="link"><code class="literal">Random\Randomizer::$engine</code></a>.
+  </span>
+ </li>
+
+  </ul>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-random-randomizer.pickarraykeys-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-3573">
+   <p><strong>Example #1 <span class="function"><strong>Random\Randomizer::pickArrayKeys()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$r </span><span style="color: #007700">= new \</span><span style="color: #0000BB">Random</span><span style="color: #007700">\</span><span style="color: #0000BB">Randomizer</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$fruits </span><span style="color: #007700">= [ </span><span style="color: #DD0000">'red' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'🍎'</span><span style="color: #007700">, </span><span style="color: #DD0000">'green' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'🥝'</span><span style="color: #007700">, </span><span style="color: #DD0000">'yellow' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'🍌'</span><span style="color: #007700">, </span><span style="color: #DD0000">'pink' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'🍑'</span><span style="color: #007700">, </span><span style="color: #DD0000">'purple' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'🍇' </span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">// Pick 2 random array keys:<br /></span><span style="color: #007700">echo </span><span style="color: #DD0000">"Keys: "</span><span style="color: #007700">, </span><span style="color: #0000BB">join</span><span style="color: #007700">( </span><span style="color: #DD0000">', '</span><span style="color: #007700">, </span><span style="color: #0000BB">$r</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">pickArrayKeys</span><span style="color: #007700">( </span><span style="color: #0000BB">$fruits</span><span style="color: #007700">, </span><span style="color: #0000BB">2 </span><span style="color: #007700">) ), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// Pick another 3:<br /></span><span style="color: #007700">echo </span><span style="color: #DD0000">"Keys: "</span><span style="color: #007700">, </span><span style="color: #0000BB">join</span><span style="color: #007700">( </span><span style="color: #DD0000">', '</span><span style="color: #007700">, </span><span style="color: #0000BB">$r</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">pickArrayKeys</span><span style="color: #007700">( </span><span style="color: #0000BB">$fruits</span><span style="color: #007700">, </span><span style="color: #0000BB">3 </span><span style="color: #007700">) ), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Keys: yellow, purple
+Keys: red, green, yellow
+</pre></div>
+   </div>
+  </div>
+  <div class="example" id="example-3574">
+   <p><strong>Example #2 Picking random values</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$r </span><span style="color: #007700">= new \</span><span style="color: #0000BB">Random</span><span style="color: #007700">\</span><span style="color: #0000BB">Randomizer</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$fruits </span><span style="color: #007700">= [ </span><span style="color: #DD0000">'red' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'🍎'</span><span style="color: #007700">, </span><span style="color: #DD0000">'green' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'🥝'</span><span style="color: #007700">, </span><span style="color: #DD0000">'yellow' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'🍌'</span><span style="color: #007700">, </span><span style="color: #DD0000">'pink' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'🍑'</span><span style="color: #007700">, </span><span style="color: #DD0000">'purple' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'🍇' </span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">$keys </span><span style="color: #007700">= </span><span style="color: #0000BB">$r</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">pickArrayKeys</span><span style="color: #007700">(</span><span style="color: #0000BB">$fruits</span><span style="color: #007700">, </span><span style="color: #0000BB">2</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// Look up the values for the picked keys.<br /></span><span style="color: #0000BB">$selection </span><span style="color: #007700">= </span><span style="color: #0000BB">array_map</span><span style="color: #007700">(<br />    static </span><span style="color: #0000BB">fn </span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">) =&gt; </span><span style="color: #0000BB">$fruits</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">],<br />    </span><span style="color: #0000BB">$keys<br /></span><span style="color: #007700">);<br /><br />echo </span><span style="color: #DD0000">"Values: "</span><span style="color: #007700">, </span><span style="color: #0000BB">join</span><span style="color: #007700">( </span><span style="color: #DD0000">', '</span><span style="color: #007700">, </span><span style="color: #0000BB">$selection </span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Values: 🍎, 🍇
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-random-randomizer.pickarraykeys-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="function.array-keys.html" class="function" rel="rdfs-seeAlso">array_keys()</a> - Return all the keys or a subset of the keys of an array</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

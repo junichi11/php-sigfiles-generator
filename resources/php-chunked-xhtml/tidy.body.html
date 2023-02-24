@@ -80,11 +80,11 @@
  <div class="refsect1 examples" id="refsect1-tidy.body-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3805">
+   <div class="example" id="example-3883">
     <p><strong>Example #1 <span class="function"><strong>tidy::getBody()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$html&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'<br />&lt;html&gt;<br />&nbsp;&nbsp;&lt;head&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;test&lt;/title&gt;<br />&nbsp;&nbsp;&lt;/head&gt;<br />&nbsp;&nbsp;&lt;body&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;paragraph&lt;/p&gt;<br />&nbsp;&nbsp;&lt;/body&gt;<br />&lt;/html&gt;'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$tidy&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">tidy_parse_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$html</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$body&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$tidy</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Body</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">$body</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$html </span><span style="color: #007700">= </span><span style="color: #DD0000">'<br />&lt;html&gt;<br />  &lt;head&gt;<br />    &lt;title&gt;test&lt;/title&gt;<br />  &lt;/head&gt;<br />  &lt;body&gt;<br />    &lt;p&gt;paragraph&lt;/p&gt;<br />  &lt;/body&gt;<br />&lt;/html&gt;'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$tidy </span><span style="color: #007700">= </span><span style="color: #0000BB">tidy_parse_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$html</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$body </span><span style="color: #007700">= </span><span style="color: #0000BB">$tidy</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Body</span><span style="color: #007700">();<br />echo </span><span style="color: #0000BB">$body</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

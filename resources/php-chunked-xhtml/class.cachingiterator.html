@@ -62,29 +62,35 @@
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
     <div class="fieldsynopsis">
+     <span class="modifier">public</span>
      <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.cachingiterator.html#cachingiterator.constants.call-tostring"><var class="varname">CALL_TOSTRING</var></a></var><span class="initializer"> = 1</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.cachingiterator.html#cachingiterator.constants.call-tostring"><var class="varname">CALL_TOSTRING</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.cachingiterator.html#cachingiterator.constants.catch-get-child"><var class="varname">CATCH_GET_CHILD</var></a></var><span class="initializer"> = 16</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.cachingiterator.html#cachingiterator.constants.catch-get-child"><var class="varname">CATCH_GET_CHILD</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.cachingiterator.html#cachingiterator.constants.tostring-use-key"><var class="varname">TOSTRING_USE_KEY</var></a></var><span class="initializer"> = 2</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.cachingiterator.html#cachingiterator.constants.tostring-use-key"><var class="varname">TOSTRING_USE_KEY</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.cachingiterator.html#cachingiterator.constants.tostring-use-current"><var class="varname">TOSTRING_USE_CURRENT</var></a></var><span class="initializer"> = 4</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.cachingiterator.html#cachingiterator.constants.tostring-use-current"><var class="varname">TOSTRING_USE_CURRENT</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.cachingiterator.html#cachingiterator.constants.tostring-use-inner"><var class="varname">TOSTRING_USE_INNER</var></a></var><span class="initializer"> = 8</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.cachingiterator.html#cachingiterator.constants.tostring-use-inner"><var class="varname">TOSTRING_USE_INNER</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.cachingiterator.html#cachingiterator.constants.full-cache"><var class="varname">FULL_CACHE</var></a></var><span class="initializer"> = 256</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.cachingiterator.html#cachingiterator.constants.full-cache"><var class="varname">FULL_CACHE</var></a></var>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
@@ -95,7 +101,6 @@
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="cachingiterator.current.html" class="methodname">current</a></span>(): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="cachingiterator.getcache.html" class="methodname">getCache</a></span>(): <span class="type">array</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="cachingiterator.getflags.html" class="methodname">getFlags</a></span>(): <span class="type">int</span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="cachingiterator.getinneriterator.html" class="methodname">getInnerIterator</a></span>(): <span class="type"><a href="class.iterator.html" class="type Iterator">Iterator</a></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="cachingiterator.hasnext.html" class="methodname">hasNext</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="cachingiterator.key.html" class="methodname">key</a></span>(): <span class="type"><span class="type scalar">scalar</span></span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="cachingiterator.next.html" class="methodname">next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
@@ -178,7 +183,7 @@
      <dd>
 
       <p class="para">
-       Use <a href="cachingiterator.getinneriterator.html" class="link">inner</a>
+       Use <a href="iteratoriterator.getinneriterator.html" class="link">inner</a>
        for conversion to string.
       </p>
      </dd>
@@ -315,26 +320,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="cachingiterator.construct.html">CachingIterator::__construct</a> — Construct a new CachingIterator object for the iterator</li><li><a href="cachingiterator.count.html">CachingIterator::count</a> — The number of elements in the iterator</li><li><a href="cachingiterator.current.html">CachingIterator::current</a> — Return the current element</li><li><a href="cachingiterator.getcache.html">CachingIterator::getCache</a> — Retrieve the contents of the cache</li><li><a href="cachingiterator.getflags.html">CachingIterator::getFlags</a> — Get flags used</li><li><a href="cachingiterator.getinneriterator.html">CachingIterator::getInnerIterator</a> — Returns the inner iterator</li><li><a href="cachingiterator.hasnext.html">CachingIterator::hasNext</a> — Check whether the inner iterator has a valid next element</li><li><a href="cachingiterator.key.html">CachingIterator::key</a> — Return the key for the current element</li><li><a href="cachingiterator.next.html">CachingIterator::next</a> — Move the iterator forward</li><li><a href="cachingiterator.offsetexists.html">CachingIterator::offsetExists</a> — The offsetExists purpose</li><li><a href="cachingiterator.offsetget.html">CachingIterator::offsetGet</a> — The offsetGet purpose</li><li><a href="cachingiterator.offsetset.html">CachingIterator::offsetSet</a> — The offsetSet purpose</li><li><a href="cachingiterator.offsetunset.html">CachingIterator::offsetUnset</a> — The offsetUnset purpose</li><li><a href="cachingiterator.rewind.html">CachingIterator::rewind</a> — Rewind the iterator</li><li><a href="cachingiterator.setflags.html">CachingIterator::setFlags</a> — The setFlags purpose</li><li><a href="cachingiterator.tostring.html">CachingIterator::__toString</a> — Return the string representation of the current element</li><li><a href="cachingiterator.valid.html">CachingIterator::valid</a> — Check whether the current element is valid</li></ul>
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="cachingiterator.construct.html">CachingIterator::__construct</a> — Construct a new CachingIterator object for the iterator</li><li><a href="cachingiterator.count.html">CachingIterator::count</a> — The number of elements in the iterator</li><li><a href="cachingiterator.current.html">CachingIterator::current</a> — Return the current element</li><li><a href="cachingiterator.getcache.html">CachingIterator::getCache</a> — Retrieve the contents of the cache</li><li><a href="cachingiterator.getflags.html">CachingIterator::getFlags</a> — Get flags used</li><li><a href="cachingiterator.hasnext.html">CachingIterator::hasNext</a> — Check whether the inner iterator has a valid next element</li><li><a href="cachingiterator.key.html">CachingIterator::key</a> — Return the key for the current element</li><li><a href="cachingiterator.next.html">CachingIterator::next</a> — Move the iterator forward</li><li><a href="cachingiterator.offsetexists.html">CachingIterator::offsetExists</a> — The offsetExists purpose</li><li><a href="cachingiterator.offsetget.html">CachingIterator::offsetGet</a> — The offsetGet purpose</li><li><a href="cachingiterator.offsetset.html">CachingIterator::offsetSet</a> — The offsetSet purpose</li><li><a href="cachingiterator.offsetunset.html">CachingIterator::offsetUnset</a> — The offsetUnset purpose</li><li><a href="cachingiterator.rewind.html">CachingIterator::rewind</a> — Rewind the iterator</li><li><a href="cachingiterator.setflags.html">CachingIterator::setFlags</a> — The setFlags purpose</li><li><a href="cachingiterator.tostring.html">CachingIterator::__toString</a> — Return the string representation of the current element</li><li><a href="cachingiterator.valid.html">CachingIterator::valid</a> — Check whether the current element is valid</li></ul>
 </div>
 </div></div></body></html>

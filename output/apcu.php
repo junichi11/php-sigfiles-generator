@@ -18,7 +18,7 @@ namespace {
 		 * @param int $format <p>The desired format, as configured with one or more of the APC_ITER_&#42; constants.</p>
 		 * @param int $chunk_size <p>The chunk size. Must be a value greater than 0. The default value is 100.</p>
 		 * @param int $list <p>The type to list. Either pass in <b><code>APC_LIST_ACTIVE</code></b> or <b><code>APC_LIST_DELETED</code></b>.</p>
-		 * @return self <p>An <code>APCUIterator</code> <code>object</code> on success, or <b><code>null</code></b> on failure.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/apcuiterator.construct.php
 		 * @see apcu_exists(), apcu_cache_info()
 		 * @since PECL apcu >= 5.0.0
@@ -245,11 +245,11 @@ namespace {
 	 * Retrieves APCu Shared Memory Allocation information
 	 * <p>Retrieves APCu Shared Memory Allocation information.</p>
 	 * @param bool $limited <p>When set to <b><code>false</code></b> (default) <b>apcu_sma_info()</b> will return a detailed information about each segment.</p>
-	 * @return array <p>Array of Shared Memory Allocation data; <b><code>false</code></b> on failure.</p>
+	 * @return array|false <p>Array of Shared Memory Allocation data; <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.apcu-sma-info.php
 	 * @since PECL apcu >= 4.0.0
 	 */
-	function apcu_sma_info(bool $limited = false): array {}
+	function apcu_sma_info(bool $limited = false): array|false {}
 
 	/**
 	 * Cache a variable in the data store

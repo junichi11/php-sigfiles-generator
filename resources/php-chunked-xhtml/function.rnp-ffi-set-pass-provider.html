@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set password provider callback function</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.rnp-ffi-destroy.html">« rnp_ffi_destroy</a></li>
+      <li style="float: right;"><a href="function.rnp-import-keys.html">rnp_import_keys »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.rnp.html">Rnp Functions</a></li>
+    <li>Set password provider callback function</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.rnp-ffi-set-pass-provider" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">rnp_ffi_set_pass_provider</h1>
+  <p class="verinfo">(PECL rnp &gt;= 0.1.1)</p><p class="refpurpose"><span class="refname">rnp_ffi_set_pass_provider</span> &mdash; <span class="dc-title">Set password provider callback function</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.rnp-ffi-set-pass-provider-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>rnp_ffi_set_pass_provider</strong></span>(<span class="methodparam"><span class="type"><a href="class.rnpffi.html" class="type RnpFFI">RnpFFI</a></span> <code class="parameter">$ffi</code></span>, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$password_callback</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Sets password provider function. This function can ask for the password on a standard input
+   (if PHP script is executed in a command line environment), display GUI dialog or provide
+   password in any other possible ways. Requested passwords are used to encrypt or decrypt
+   secret keys or perform symmetric encryption/decryption operations.
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.rnp-ffi-set-pass-provider-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">ffi</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The FFI object returned by rnp_ffi_create.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">password_callback</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The function that is to be called for every password request.  It has the following signature:
+      <div class="methodsynopsis dc-description">
+       <span class="methodname"><span class="replaceable">password_callback</span></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$key_fp</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$pgp_context</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$password</code></span>): <span class="type">bool</span></div>
+
+      <ul class="simplelist">
+       <li class="member"><code class="literal">$key_fp</code> - The key fingerprint, if any. Can be empty.</li>
+       <li class="member"><code class="literal">$pgp_context</code> - String describing why the key is being requested.</li>
+       <li class="member"><code class="literal">$password</code> - Password string reference where provided password should be stored to.</li>
+      </ul>
+      Callback function should return <strong><code>true</code></strong> if password was successfully set or <strong><code>false</code></strong> on failure.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.rnp-ffi-set-pass-provider-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.rnp-ffi-set-pass-provider-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+      <div class="example" id="example-978">
+       <p><strong>Example #1 simple callback function example</strong></p>
+       <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">password_callback</span><span style="color: #007700">(</span><span style="color: #0000BB">string $key_fp</span><span style="color: #007700">, </span><span style="color: #0000BB">string $pgp_context</span><span style="color: #007700">, </span><span style="color: #0000BB">string </span><span style="color: #007700">&amp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">)<br />{<br />    </span><span style="color: #0000BB">$password </span><span style="color: #007700">= </span><span style="color: #DD0000">"password"</span><span style="color: #007700">;<br /><br />    return </span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$ffi </span><span style="color: #007700">= </span><span style="color: #0000BB">rnp_ffi_create</span><span style="color: #007700">(</span><span style="color: #DD0000">'GPG'</span><span style="color: #007700">, </span><span style="color: #DD0000">'GPG'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">rnp_ffi_set_pass_provider</span><span style="color: #007700">(</span><span style="color: #0000BB">$ffi</span><span style="color: #007700">, </span><span style="color: #DD0000">'password_callback'</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+       </div>
+
+      </div>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

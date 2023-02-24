@@ -100,6 +100,39 @@ namespace {
 	function odbc_connect(string $dsn, string $user, string $password, int $cursor_option = SQL_CUR_USE_DRIVER) {}
 
 	/**
+	 * Determines if an ODBC connection string value is quoted
+	 * <p>Determines if a string is properly quoted for an ODBC connection string value. ODBC connection string quoting is performed using curly braces, and ending braces within a string must be escaped through repeating them twice, similar to SQL quoting.</p>
+	 * @param string $str <p>The string to check for quoting.</p>
+	 * @return bool <p><b><code>true</code></b> if quoted properly, <b><code>false</code></b> if not.</p>
+	 * @link https://php.net/manual/en/function.odbc-connection-string-is-quoted.php
+	 * @see odbc_connection_string_quote(), odbc_connection_string_should_quote()
+	 * @since PHP 8 >= 8.2.0
+	 */
+	function odbc_connection_string_is_quoted(string $str): bool {}
+
+	/**
+	 * Quotes an ODBC connection string value
+	 * <p>Quotes a value for a connection string, according to ODBC rules. That is, it will be surrounded by quotes, and any ending curly braces will be escaped. This should be done for any connection string values that come from user input. Not doing so can lead to issues with parsing the connection string, or values being injected into the connection string.</p><p>Note that this function does not check if the string is already quoted, nor if the string needs quoting. For that, call <code>odbc_connection_string_is_quoted()</code> and <code>odbc_connection_string_should_quote()</code>.</p>
+	 * @param string $str <p>The unquoted string.</p>
+	 * @return string <p>A quoted string, surrounded by curly braces, and properly escaped.</p>
+	 * @link https://php.net/manual/en/function.odbc-connection-string-quote.php
+	 * @see odbc_connection_string_is_quoted(), odbc_connection_string_should_quote()
+	 * @since PHP 8 >= 8.2.0
+	 */
+	function odbc_connection_string_quote(string $str): string {}
+
+	/**
+	 * Determines if an ODBC connection string value should be quoted
+	 * <p>Determines if a string needs to be quoted for an ODBC connection string value; that is, if it contains special characters.</p><p>Note that this does not check if the string is already quoted; an already quoted string will contain characters that will make this function return true. You should call <code>odbc_connection_string_is_quoted()</code> to check.</p>
+	 * @param string $str <p>The string to check for.</p>
+	 * @return bool <p><b><code>true</code></b> if the string should be quoted; <b><code>false</code></b> otherwise.</p>
+	 * @link https://php.net/manual/en/function.odbc-connection-string-should-quote.php
+	 * @see odbc_connection_string_quote(), odbc_connection_string_is_quoted()
+	 * @since PHP 8 >= 8.2.0
+	 */
+	function odbc_connection_string_should_quote(string $str): bool {}
+
+	/**
 	 * Get cursorname
 	 * <p>Gets the cursorname for the given result_id.</p>
 	 * @param resource $statement <p>The result identifier.</p>
@@ -295,10 +328,10 @@ namespace {
 	 * Retrieves a list of foreign keys
 	 * <p>Retrieves a list of foreign keys in the specified table or a list of foreign keys in other tables that refer to the primary key in the specified table</p>
 	 * @param resource $odbc <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
-	 * @param ?string $pk_catalog <p>The catalog ('qualifier' in ODBC 2 parlance) of the foreign key table.</p>
+	 * @param ?string $pk_catalog <p>The catalog ('qualifier' in ODBC 2 parlance) of the primary key table.</p>
 	 * @param string $pk_schema <p>The schema ('owner' in ODBC 2 parlance) of the primary key table.</p>
 	 * @param string $pk_table <p>The primary key table.</p>
-	 * @param string $fk_catalog
+	 * @param string $fk_catalog <p>The catalog ('qualifier' in ODBC 2 parlance) of the foreign key table.</p>
 	 * @param string $fk_schema <p>The schema ('owner' in ODBC 2 parlance) of the foreign key table.</p>
 	 * @param string $fk_table <p>The foreign key table.</p>
 	 * @return resource|false <p>Returns an ODBC result identifier or <b><code>false</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>PKTABLE_CAT</code></li> <li><code>PKTABLE_SCHEM</code></li> <li><code>PKTABLE_NAME</code></li> <li><code>PKCOLUMN_NAME</code></li> <li><code>FKTABLE_CAT</code></li> <li><code>FKTABLE_SCHEM</code></li> <li><code>FKTABLE_NAME</code></li> <li><code>FKCOLUMN_NAME</code></li> <li><code>KEY_SEQ</code></li> <li><code>UPDATE_RULE</code></li> <li><code>DELETE_RULE</code></li> <li><code>FK_NAME</code></li> <li><code>PK_NAME</code></li> <li><code>DEFERRABILITY</code></li> </ul> Drivers can report additional columns. <p>If the foreign keys associated with a primary key are requested, the result set is ordered by <code>FKTABLE_CAT</code>, <code>FKTABLE_SCHEM</code>, <code>FKTABLE_NAME</code> and <code>KEY_SEQ</code>. If the primary keys associated with a foreign key are requested, the result set is ordered by <code>PKTABLE_CAT</code>, <code>PKTABLE_SCHEM</code>, <code>PKTABLE_NAME</code> and <code>KEY_SEQ</code>.</p><p>If <code>pk_table</code> contains a table name, <b>odbc_foreignkeys()</b> returns a result set containing the primary key of the specified table and all of the foreign keys that refer to it.</p><p>If <code>fk_table</code> contains a table name, <b>odbc_foreignkeys()</b> returns a result set containing all of the foreign keys in the specified table and the primary keys (in other tables) to which they refer.</p><p>If both <code>pk_table</code> and <code>fk_table</code> contain table names, <b>odbc_foreignkeys()</b> returns the foreign keys in the table specified in <code>fk_table</code> that refer to the primary key of the table specified in <code>pk_table</code>. This should be one key at most.</p>

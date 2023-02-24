@@ -41,15 +41,16 @@ namespace {
 
 	/**
 	 * Fetch data specified by key
-	 * <p><b>dba_fetch()</b> fetches the data specified by <code>key</code> from the database specified with <code>handle</code>.</p>
-	 * @param string $key <p>The key the data is specified by.</p> <p><b>Note</b>:</p><p>When working with inifiles this function accepts arrays as keys where index 0 is the group and index 1 is the value name. See: <code>dba_key_split()</code>.</p>
-	 * @param resource $handle <p>The database handler, returned by <code>dba_open()</code> or <code>dba_popen()</code>.</p>
-	 * @return string <p>Returns the associated string if the key/data pair is found, <b><code>false</code></b> otherwise.</p>
+	 * <p>Discouraged overloaded signature:</p><p><b>dba_fetch()</b> fetches the data specified by <code>key</code> from the database specified with <code>dba</code>.</p>
+	 * @param string|array $key <p>The key the data is specified by.</p> <p><b>Note</b>:</p><p>When working with inifiles this function accepts arrays as keys where index 0 is the group and index 1 is the value name. See: <code>dba_key_split()</code>.</p>
+	 * @param resource $dba <p>The database handler, returned by <code>dba_open()</code> or <code>dba_popen()</code>.</p>
+	 * @param int $skip <p>The number of key-value pairs to ignore when using cdb databases. This value is ignored for all other databases which do not support multiple keys with the same name.</p>
+	 * @return string|false <p>Returns the associated string if the key/data pair is found, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.dba-fetch.php
 	 * @see dba_exists(), dba_delete(), dba_insert(), dba_replace(), dba_key_split()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function dba_fetch(string $key, $handle): string {}
+	function dba_fetch(string|array $key, $dba, int $skip = 0): string|false {}
 
 	/**
 	 * Fetch first key
@@ -121,14 +122,16 @@ namespace {
 	 * <p><b>dba_open()</b> establishes a database instance for <code>path</code> with <code>mode</code> using <code>handler</code>.</p>
 	 * @param string $path <p>Commonly a regular path in your filesystem.</p>
 	 * @param string $mode <p>It is <code>r</code> for read access, <code>w</code> for read/write access to an already existing database, <code>c</code> for read/write access and database creation if it doesn't currently exist, and <code>n</code> for create, truncate and read/write access. The database is created in BTree mode, other modes (like Hash or Queue) are not supported.</p> <p>Additionally you can set the database lock method with the next char. Use <code>l</code> to lock the database with a .lck file or <code>d</code> to lock the databasefile itself. It is important that all of your applications do this consistently.</p> <p>If you want to test the access and do not want to wait for the lock you can add <code>t</code> as third character. When you are absolutely sure that you do not require database locking you can do so by using <code>-</code> instead of <code>l</code> or <code>d</code>. When none of <code>d</code>, <code>l</code> or <code>-</code> is used, dba will lock on the database file as it would with <code>d</code>.</p> <p><b>Note</b>:</p><p>There can only be one writer for one database file. When you use dba on a web server and more than one request requires write operations they can only be done one after another. Also read during write is not allowed. The dba extension uses locks to prevent this. See the following table:</p> <b>DBA locking</b>   already open <code>mode</code> = "rl" <code>mode</code> = "rlt" <code>mode</code> = "wl" <code>mode</code> = "wlt" <code>mode</code> = "rd" <code>mode</code> = "rdt" <code>mode</code> = "wd" <code>mode</code> = "wdt"     not open ok ok ok ok ok ok ok ok   <code>mode</code> = "rl" ok ok wait false illegal illegal illegal illegal   <code>mode</code> = "wl" wait false wait false illegal illegal illegal illegal   <code>mode</code> = "rd" illegal illegal illegal illegal ok ok wait false   <code>mode</code> = "wd" illegal illegal illegal illegal wait false wait false    <ul> <li>ok: the second call will be successful.</li> <li>wait: the second call waits until <code>dba_close()</code> is called for the first.</li> <li>false: the second call returns false.</li> <li>illegal: you must not mix <code>"l"</code> and <code>"d"</code> modifiers for <code>mode</code> parameter.</li> </ul>
-	 * @param string $handler <p>The name of the handler which shall be used for accessing <code>path</code>. It is passed all optional parameters given to <b>dba_open()</b> and can act on behalf of them.</p>
-	 * @param string $args <p>Optional <code>string</code> parameters which are passed to the driver.</p> <p>The <code>cdb</code>, <code>cdb_make</code>, <code>flatfile</code>, <code>inifile</code>, <code>qdbm</code> and <code>tcadb</code> drivers do not support additional parameters.</p> <p>The <code>db1</code>, <code>db2</code>, <code>db3</code>, <code>db4</code>, <code>dbm</code>, <code>gdbm</code>, and <code>ndbm</code> drivers supports a single additional parameter <code>$filemode</code>, which has the same meaning as the <code>$mode</code> parameter of <code>chmod()</code>, and defaults to <code>0644</code>.</p> <p>The <code>lmdb</code> driver accepts two additional parameters. The first allows to specify the <code>$filemode</code> (see description above), and the second to specify the <code>$mapsize</code>, where the value should be a multiple of the page size of the OS, or zero, to use the default mapsize. The <code>$mapsize</code> parameter is supported as of PHP 7.3.14 and 7.4.2, respectively.</p>
+	 * @param ?string $handler <p>The name of the handler which shall be used for accessing <code>path</code>. It is passed all optional parameters given to <b>dba_open()</b> and can act on behalf of them. If <code>handler</code> is <b><code>null</code></b>, then the default handler is invoked.</p>
+	 * @param int $permission <p>Optional <code>int</code> parameter which is passed to the driver. It has the same meaning as the <code>permissions</code> parameter of <code>chmod()</code>, and defaults to <code>0644</code>.</p> <p>The <code>db1</code>, <code>db2</code>, <code>db3</code>, <code>db4</code>, <code>dbm</code>, <code>gdbm</code>, <code>ndbm</code>, and <code>lmdb</code> drivers support the <code>permission</code> parameter.</p>
+	 * @param int $map_size <p>Optional <code>int</code> parameter which is passed to the driver. Its value should be a multiple of the page size of the OS, or zero, to use the default map size.</p> <p>Only the <code>lmdb</code> driver accepts the <code>map_size</code> parameter.</p>
+	 * @param ?int $flags <p>Flags to pass to the database drivers. If <b><code>null</code></b> the default flags will be provided. Currently, only the LMDB driver supports the following flags <b><code>DBA_LMDB_USE_SUB_DIR</code></b> and <b><code>DBA_LMDB_NO_SUB_DIR</code></b>.</p>
 	 * @return resource|false <p>Returns a positive handle on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.dba-open.php
 	 * @see dba_popen(), dba_close()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function dba_open(string $path, string $mode, string $handler = null, string ...$args) {}
+	function dba_open(string $path, string $mode, ?string $handler = null, int $permission = 0644, int $map_size = 0, ?int $flags = null) {}
 
 	/**
 	 * Optimize database
@@ -146,14 +149,16 @@ namespace {
 	 * <p><b>dba_popen()</b> establishes a persistent database instance for <code>path</code> with <code>mode</code> using <code>handler</code>.</p>
 	 * @param string $path <p>Commonly a regular path in your filesystem.</p>
 	 * @param string $mode <p>It is <code>r</code> for read access, <code>w</code> for read/write access to an already existing database, <code>c</code> for read/write access and database creation if it doesn't currently exist, and <code>n</code> for create, truncate and read/write access.</p>
-	 * @param string $handler <p>The name of the handler which shall be used for accessing <code>path</code>. It is passed all optional parameters given to <b>dba_popen()</b> and can act on behalf of them.</p>
-	 * @param mixed $args <p>Optional <code>string</code> parameters which are passed to the driver.</p> <p>The <code>cdb</code>, <code>cdb_make</code>, <code>flatfile</code>, <code>inifile</code>, <code>qdbm</code> and <code>tcadb</code> drivers do not support additional parameters.</p> <p>The <code>db1</code>, <code>db2</code>, <code>db3</code>, <code>db4</code>, <code>dbm</code>, <code>gdbm</code>, and <code>ndbm</code> drivers supports a single additional parameter <code>$filemode</code>, which has the same meaning as the <code>$mode</code> parameter of <code>chmod()</code>, and defaults to <code>0644</code>.</p> <p>The <code>lmdb</code> driver accepts two additional parameters. The first allows to specify the <code>$filemode</code> (see description above), and the second to specify the <code>$mapsize</code>, where the value should be a multiple of the page size of the OS, or zero, to use the default mapsize. The <code>$mapsize</code> parameter is supported as of PHP 7.3.14 and 7.4.2, respectively.</p>
+	 * @param ?string $handler <p>The name of the handler which shall be used for accessing <code>path</code>. It is passed all optional parameters given to <b>dba_popen()</b> and can act on behalf of them. If <code>handler</code> is <b><code>null</code></b>, then the default handler is invoked.</p>
+	 * @param int $permission <p>Optional <code>int</code> parameter which is passed to the driver. It has the same meaning as the <code>permissions</code> parameter of <code>chmod()</code>, and defaults to <code>0644</code>.</p> <p>The <code>db1</code>, <code>db2</code>, <code>db3</code>, <code>db4</code>, <code>dbm</code>, <code>gdbm</code>, <code>ndbm</code>, and <code>lmdb</code> drivers support the <code>permission</code> parameter.</p>
+	 * @param int $map_size <p>Optional <code>int</code> parameter which is passed to the driver. Its value should be a multiple of the page size of the OS, or zero, to use the default mapsize.</p> <p>The <code>lmdb</code> driver accepts the <code>map_size</code> parameter.</p>
+	 * @param ?int $flags <p>Allows to pass flags to the DB drivers. Currently, only LMDB with <b><code>DBA_LMDB_USE_SUB_DIR</code></b> and <b><code>DBA_LMDB_NO_SUB_DIR</code></b> are supported.</p>
 	 * @return resource|false <p>Returns a positive handle on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.dba-popen.php
 	 * @see dba_open(), dba_close()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function dba_popen(string $path, string $mode, string $handler = null, mixed ...$args) {}
+	function dba_popen(string $path, string $mode, ?string $handler = null, int $permission = 0644, int $map_size = 0, ?int $flags = null) {}
 
 	/**
 	 * Replace or insert entry
@@ -178,5 +183,15 @@ namespace {
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function dba_sync($dba): bool {}
+
+	/**
+	 * <p>LMDB Driver flag to disallow the creation of a subdirectory for the database files. Available as of PHP 8.2.0.</p>
+	 */
+	define('DBA_LMDB_NO_SUB_DIR', null);
+
+	/**
+	 * <p>LMDB Driver flag to allow the creation of a subdirectory for the database files. Available as of PHP 8.2.0.</p>
+	 */
+	define('DBA_LMDB_USE_SUB_DIR', null);
 
 }

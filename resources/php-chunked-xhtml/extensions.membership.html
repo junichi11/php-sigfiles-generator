@@ -34,7 +34,6 @@ left out of a PHP binary with compilation options.</p>
    <ul class="itemizedlist">
     <li class="listitem"><p class="para"><a href="book.array.html" class="xref">Arrays</a></p></li>
     <li class="listitem"><p class="para"><a href="book.classobj.html" class="xref">Classes/Objects</a></p></li>
-    <li class="listitem"><p class="para"><a href="book.csprng.html" class="xref">CSPRNG</a></p></li>
     <li class="listitem"><p class="para"><a href="book.datetime.html" class="xref">Date/Time</a></p></li>
     <li class="listitem"><p class="para"><a href="book.dir.html" class="xref">Directories</a></p></li>
     <li class="listitem"><p class="para"><a href="book.errorfunc.html" class="xref">Error Handling</a></p></li>
@@ -53,6 +52,7 @@ left out of a PHP binary with compilation options.</p>
     <li class="listitem"><p class="para"><a href="book.outcontrol.html" class="xref">Output Control</a></p></li>
     <li class="listitem"><p class="para"><a href="book.password.html" class="xref">Password Hashing</a></p></li>
     <li class="listitem"><p class="para"><a href="book.pcre.html" class="xref">PCRE</a></p></li>
+    <li class="listitem"><p class="para"><a href="book.random.html" class="xref">Random</a></p></li>
     <li class="listitem"><p class="para"><a href="book.reflection.html" class="xref">Reflection</a></p></li>
     <li class="listitem"><p class="para"><a href="book.spl.html" class="xref">SPL</a></p></li>
     <li class="listitem"><p class="para"><a href="book.stream.html" class="xref">Streams</a></p></li>
@@ -110,7 +110,6 @@ extensions are bundled with PHP but in order to compile them, external libraries
     <li class="listitem"><p class="para"><a href="book.enchant.html" class="xref">Enchant</a></p></li>
     <li class="listitem"><p class="para"><a href="book.gettext.html" class="xref">Gettext</a></p></li>
     <li class="listitem"><p class="para"><a href="book.gmp.html" class="xref">GMP</a></p></li>
-    <li class="listitem"><p class="para"><a href="book.igbinary.html" class="xref">Igbinary</a></p></li>
     <li class="listitem"><p class="para"><a href="book.imap.html" class="xref">IMAP</a></p></li>
     <li class="listitem"><p class="para"><a href="book.ldap.html" class="xref">LDAP</a></p></li>
     <li class="listitem"><p class="para"><a href="book.libxml.html" class="xref">libxml</a></p></li>
@@ -126,7 +125,6 @@ extensions are bundled with PHP but in order to compile them, external libraries
     <li class="listitem"><p class="para"><a href="ref.pdo-pgsql.html" class="xref">PostgreSQL (PDO)</a></p></li>
     <li class="listitem"><p class="para"><a href="ref.pdo-sqlite.html" class="xref">SQLite (PDO)</a></p></li>
     <li class="listitem"><p class="para"><a href="book.pgsql.html" class="xref">PostgreSQL</a></p></li>
-    <li class="listitem"><p class="para"><a href="book.pht.html" class="xref">pht</a></p></li>
     <li class="listitem"><p class="para"><a href="book.pspell.html" class="xref">Pspell</a></p></li>
     <li class="listitem"><p class="para"><a href="book.readline.html" class="xref">Readline</a></p></li>
     <li class="listitem"><p class="para"><a href="book.simplexml.html" class="xref">SimpleXML</a></p></li>
@@ -190,21 +188,24 @@ extensions exist but they are not documented in the PHP manual yet.</p>
     <li class="listitem"><p class="para"><a href="ref.pdo-ibm.html" class="xref">IBM (PDO)</a></p></li>
     <li class="listitem"><p class="para"><a href="ref.pdo-informix.html" class="xref">Informix (PDO)</a></p></li>
     <li class="listitem"><p class="para"><a href="ref.pdo-sqlsrv.html" class="xref">MS SQL Server (PDO)</a></p></li>
-    <li class="listitem"><p class="para"><a href="book.pht.html" class="xref">pht</a></p></li>
     <li class="listitem"><p class="para"><a href="book.ps.html" class="xref">PS</a></p></li>
     <li class="listitem"><p class="para"><a href="book.pthreads.html" class="xref">pthreads</a></p></li>
+    <li class="listitem"><p class="para"><a href="book.quickhash.html" class="xref">Quickhash</a></p></li>
     <li class="listitem"><p class="para"><a href="book.radius.html" class="xref">Radius</a></p></li>
     <li class="listitem"><p class="para"><a href="book.rar.html" class="xref">Rar</a></p></li>
     <li class="listitem"><p class="para"><a href="book.recode.html" class="xref">Recode</a></p></li>
+    <li class="listitem"><p class="para"><a href="book.rnp.html" class="xref">Rnp</a></p></li>
     <li class="listitem"><p class="para"><a href="book.rpminfo.html" class="xref">RpmInfo</a></p></li>
     <li class="listitem"><p class="para"><a href="book.rrd.html" class="xref">RRD</a></p></li>
     <li class="listitem"><p class="para"><a href="book.runkit7.html" class="xref">runkit7</a></p></li>
     <li class="listitem"><p class="para"><a href="book.scoutapm.html" class="xref">ScoutAPM</a></p></li>
     <li class="listitem"><p class="para"><a href="book.seaslog.html" class="xref">Seaslog</a></p></li>
+    <li class="listitem"><p class="para"><a href="book.simdjson.html" class="xref">Simdjson</a></p></li>
     <li class="listitem"><p class="para"><a href="book.solr.html" class="xref">Solr</a></p></li>
     <li class="listitem"><p class="para"><a href="book.sqlsrv.html" class="xref">SQLSRV</a></p></li>
     <li class="listitem"><p class="para"><a href="book.ssdeep.html" class="xref">ssdeep</a></p></li>
     <li class="listitem"><p class="para"><a href="book.ssh2.html" class="xref">SSH2</a></p></li>
+    <li class="listitem"><p class="para"><a href="book.stats.html" class="xref">Statistics</a></p></li>
     <li class="listitem"><p class="para"><a href="book.stomp.html" class="xref">Stomp</a></p></li>
     <li class="listitem"><p class="para"><a href="book.svm.html" class="xref">SVM</a></p></li>
     <li class="listitem"><p class="para"><a href="book.svn.html" class="xref">SVN</a></p></li>

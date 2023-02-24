@@ -147,11 +147,11 @@
  <div class="refsect1 examples" id="refsect1-function.pathinfo-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2202">
+   <div class="example" id="example-2267">
     <p><strong>Example #1 <span class="function"><strong>pathinfo()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$path_parts&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pathinfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/www/htdocs/inc/lib.inc.php'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'dirname'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'basename'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'extension'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'filename'</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$path_parts </span><span style="color: #007700">= </span><span style="color: #0000BB">pathinfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/www/htdocs/inc/lib.inc.php'</span><span style="color: #007700">);<br /><br />echo </span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'dirname'</span><span style="color: #007700">], </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'basename'</span><span style="color: #007700">], </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'extension'</span><span style="color: #007700">], </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'filename'</span><span style="color: #007700">], </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -168,11 +168,11 @@ lib.inc
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2203">
+   <div class="example" id="example-2268">
     <p><strong>Example #2 <span class="function"><strong>pathinfo()</strong></span> example showing difference between null and no extension</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$path_parts&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pathinfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/emptyextension.'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'extension'</span><span style="color: #007700">]);<br /><br /></span><span style="color: #0000BB">$path_parts&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pathinfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/noextension'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'extension'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$path_parts </span><span style="color: #007700">= </span><span style="color: #0000BB">pathinfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/emptyextension.'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'extension'</span><span style="color: #007700">]);<br /><br /></span><span style="color: #0000BB">$path_parts </span><span style="color: #007700">= </span><span style="color: #0000BB">pathinfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/noextension'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$path_parts</span><span style="color: #007700">[</span><span style="color: #DD0000">'extension'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -190,7 +190,7 @@ NULL
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2204">
+   <div class="example" id="example-2269">
     <p><strong>Example #3 <span class="function"><strong>pathinfo()</strong></span> example for a dot-file</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -27,15 +27,17 @@
   <h2 class="title">Installing the MongoDB PHP Driver on Windows</h2>
 
   <p class="para">
-   Precompiled binaries for each release are available from
-   <a href="https://pecl.php.net/package/mongodb" class="link external">&raquo;&nbsp;PECL</a> for a variety of
-   combinations of versions, thread safety, and VC libraries. Extract the
-   archive and put <var class="filename">php_mongodb.dll</var> in your PHP extension
-   directory (&quot;ext&quot; by default).
+   Precompiled binaries are attached to the project&#039;s
+   <a href="https://github.com/mongodb/mongo-php-driver/releases/" class="link external">&raquo;&nbsp;Github releases</a>.
+   Archives are published for various combinations of PHP version, thread safety
+   (TS or NTS), and architecture (x86 or x64). Determine the correct archive for
+   your environment and extract the <var class="filename">php_mongodb.dll</var> file to
+   the PHP extension directory (&quot;ext&quot; by default).
   </p>
 
   <p class="para">
-   Add the following line to your <var class="filename">php.ini</var> file:
+   Add the following line to the <var class="filename">php.ini</var> file for each environment in which
+   you intend to use the driver:
    <div class="example-contents">
 <div class="inicode"><pre class="inicode">extension=php_mongodb.dll</pre>
 </div>
@@ -43,13 +45,40 @@
 
   </p>
 
+  <p class="para">
+   Failure to select the correct binary will result in an error when attempting
+   to load the extension DLL at runtime:
+   <div class="example-contents">
+<div class="txtcode"><pre class="txtcode">PHP Warning:  PHP Startup: Unable to load dynamic library &#039;mongodb&#039;</pre>
+</div>
+   </div>
+
+  </p>
+
+  <p class="para">
+   Ensure that you have downloaded a DLL that corresponds to the following PHP
+   runtime properties:
+   <ul class="simplelist">
+    <li class="member">PHP version (<strong><code>PHP_VERSION</code></strong>)</li>
+    <li class="member">Thread safety (<strong><code>PHP_ZTS</code></strong>)</li>
+    <li class="member">Architecture (<strong><code>PHP_INT_SIZE</code></strong>)</li>
+   </ul>
+  </p>
+
+  <p class="para">
+   In addition to the aforementioned constants, these properties can also be
+   inferred from <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span>. If your system has multiple PHP
+   runtimes installed, double-check that you are examining the
+   <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> output for the correct environment.
+  </p>
+
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <strong>Additional DLL dependencies for Windows Users</strong><br />
    <p class="para">
     In order for this extension to work, there are
-<acronym title="Dynamic Link Library">DLL</acronym> files that must be available to the Windows
+<abbr title="Dynamic Link Library">DLL</abbr> files that must be available to the Windows
 system <var class="envar">PATH</var>. For information on how to do this, see the
-<acronym title="Frequently Asked Questions">FAQ</acronym> entitled &quot;<a href="faq.installation.html#faq.installation.addtopath" class="link">How do I add my PHP directory to the PATH
+<abbr title="Frequently Asked Questions">FAQ</abbr> entitled &quot;<a href="faq.installation.html#faq.installation.addtopath" class="link">How do I add my PHP directory to the PATH
 on Windows</a>&quot;. Although copying DLL
 files from the PHP folder into the Windows system directory also works
 (because the system directory is by default in the system&#039;s

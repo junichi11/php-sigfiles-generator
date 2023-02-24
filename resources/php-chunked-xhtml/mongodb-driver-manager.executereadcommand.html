@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-mongodb-driver-manager.executereadcommand-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Manager::executeReadCommand</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Manager::executeReadCommand</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>, <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
 
   <p class="para rdfs-comment">
    Selects a server according to the <code class="literal">&quot;readPreference&quot;</code> option
@@ -43,7 +43,7 @@
   </p>
   <p class="para">
    This method will apply logic that is specific to commands that read (e.g.
-   <a href="https://docs.mongodb.com/manual/reference/command/count/" class="link external">&raquo;&nbsp;count</a>)
+   <a href="https://www.mongodb.com/docs/manual/reference/command/count/" class="link external">&raquo;&nbsp;count</a>)
    and take the MongoDB server version into account. The
    <code class="literal">&quot;readConcern&quot;</code> option will default to the corresponding
    value from the <a href="mongodb-driver-manager.construct.html#mongodb-driver-manager.construct-uri" class="link">MongoDB

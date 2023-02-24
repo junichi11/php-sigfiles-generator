@@ -134,8 +134,8 @@ namespace {
 		 * Fetch an access token
 		 * <p>Fetch an access token, secret and any additional response parameters from the service provider.</p>
 		 * @param string $access_token_url <p>URL to the access token API.</p>
-		 * @param string $auth_session_handle <p>Authorization session handle, this parameter does not have any citation in the core OAuth 1.0 specification but may be implemented by large providers. See ScalableOAuth for more information.</p>
-		 * @param string $verifier_token <p>For service providers which support 1.0a, a <code>verifier_token</code> must be passed while exchanging the request token for the access token. If the <code>verifier_token</code> is present in <code>$_GET</code> or <code>$_POST</code> it is passed automatically and the caller does not need to specify a <code>verifier_token</code> (usually if the access token is exchanged at the oauth_callback URL). See ScalableOAuth for more information.</p>
+		 * @param string $auth_session_handle <p>Authorization session handle, this parameter does not have any citation in the core OAuth 1.0 specification but may be implemented by large providers. &#xBB;&#xA0;See ScalableOAuth for more information.</p>
+		 * @param string $verifier_token <p>For service providers which support 1.0a, a <code>verifier_token</code> must be passed while exchanging the request token for the access token. If the <code>verifier_token</code> is present in <code>$_GET</code> or <code>$_POST</code> it is passed automatically and the caller does not need to specify a <code>verifier_token</code> (usually if the access token is exchanged at the oauth_callback URL). &#xBB;&#xA0;See ScalableOAuth for more information.</p>
 		 * @param string $http_method <p>HTTP method to use, e.g. <code>GET</code> or <code>POST</code>.</p>
 		 * @return array <p>Returns an array containing the parsed OAuth response on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/oauth.getaccesstoken.php
@@ -441,7 +441,7 @@ namespace {
 
 	/**
 	 * <p>Manages an OAuth provider class.</p>
-	 * <p>See also an external in-depth tutorial titled Writing an OAuth Provider Service, which takes a hands-on approach to providing this service. There are also OAuth provider examples within the OAuth extensions sources.</p>
+	 * <p>See also an external in-depth tutorial titled &#xBB;&#xA0;Writing an OAuth Provider Service, which takes a hands-on approach to providing this service. There are also &#xBB;&#xA0;OAuth provider examples within the OAuth extensions sources.</p>
 	 * @link https://php.net/manual/en/class.oauthprovider.php
 	 * @since PECL OAuth >= 1.0.0
 	 */
@@ -624,9 +624,9 @@ namespace {
 
 	/**
 	 * Encode a URI to RFC 3986
-	 * <p>Encodes a URI to RFC 3986.</p>
+	 * <p>Encodes a URI to &#xBB;&#xA0;RFC 3986.</p>
 	 * @param string $uri <p>URI to encode.</p>
-	 * @return string <p>Returns an RFC 3986 encoded string.</p>
+	 * @return string <p>Returns an &#xBB;&#xA0;RFC 3986 encoded string.</p>
 	 * @link https://php.net/manual/en/function.oauth-urlencode.php
 	 * @since PECL OAuth >=0.99.2
 	 */

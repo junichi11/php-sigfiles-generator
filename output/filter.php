@@ -62,7 +62,7 @@ namespace {
 	 * Filters a variable with a specified filter
 	 * @param mixed $value <p>Value to filter. Note that scalar values are converted to string internally before they are filtered.</p>
 	 * @param int $filter <p>The ID of the filter to apply. The Types of filters manual page lists the available filters.</p> <p>If omitted, <b><code>FILTER_DEFAULT</code></b> will be used, which is equivalent to <b><code>FILTER_UNSAFE_RAW</code></b>. This will result in no filtering taking place by default.</p>
-	 * @param array|int $options <p>Associative array of options or bitwise disjunction of flags. If filter accepts options, flags can be provided in "flags" field of array. For the "callback" filter, <code>callable</code> type should be passed. The callback must accept one argument, the value to be filtered, and return the value after filtering/sanitizing it.</p> <p></p> <code> &lt;&#63;php<br>//&nbsp;for&nbsp;filters&nbsp;that&nbsp;accept&nbsp;options,&nbsp;use&nbsp;this&nbsp;format<br>$options&nbsp;=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;'options'&nbsp;=&gt;&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'default'&nbsp;=&gt;&nbsp;3,&nbsp;//&nbsp;value&nbsp;to&nbsp;return&nbsp;if&nbsp;the&nbsp;filter&nbsp;fails<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;other&nbsp;options&nbsp;here<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'min_range'&nbsp;=&gt;&nbsp;0<br>&nbsp;&nbsp;&nbsp;&nbsp;),<br>&nbsp;&nbsp;&nbsp;&nbsp;'flags'&nbsp;=&gt;&nbsp;FILTER_FLAG_ALLOW_OCTAL,<br>);<br>$var&nbsp;=&nbsp;filter_var('0755',&nbsp;FILTER_VALIDATE_INT,&nbsp;$options);<br><br>//&nbsp;for&nbsp;filters&nbsp;that&nbsp;only&nbsp;accept&nbsp;flags,&nbsp;you&nbsp;can&nbsp;pass&nbsp;them&nbsp;directly<br>$var&nbsp;=&nbsp;filter_var('oops',&nbsp;FILTER_VALIDATE_BOOLEAN,&nbsp;FILTER_NULL_ON_FAILURE);<br><br>//&nbsp;for&nbsp;filters&nbsp;that&nbsp;only&nbsp;accept&nbsp;flags,&nbsp;you&nbsp;can&nbsp;also&nbsp;pass&nbsp;as&nbsp;an&nbsp;array<br>$var&nbsp;=&nbsp;filter_var('oops',&nbsp;FILTER_VALIDATE_BOOLEAN,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('flags'&nbsp;=&gt;&nbsp;FILTER_NULL_ON_FAILURE));<br><br>//&nbsp;callback&nbsp;validate&nbsp;filter<br>function&nbsp;foo($value)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Expected&nbsp;format:&nbsp;Surname,&nbsp;GivenNames<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(strpos($value,&nbsp;",&nbsp;")&nbsp;===&nbsp;false)&nbsp;return&nbsp;false;<br>&nbsp;&nbsp;&nbsp;&nbsp;list($surname,&nbsp;$givennames)&nbsp;=&nbsp;explode(",&nbsp;",&nbsp;$value,&nbsp;2);<br>&nbsp;&nbsp;&nbsp;&nbsp;$empty&nbsp;=&nbsp;(empty($surname)&nbsp;||&nbsp;empty($givennames));<br>&nbsp;&nbsp;&nbsp;&nbsp;$notstrings&nbsp;=&nbsp;(!is_string($surname)&nbsp;||&nbsp;!is_string($givennames));<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;($empty&nbsp;||&nbsp;$notstrings)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;$value;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br>$var&nbsp;=&nbsp;filter_var('Doe,&nbsp;Jane&nbsp;Sue',&nbsp;FILTER_CALLBACK,&nbsp;array('options'&nbsp;=&gt;&nbsp;'foo'));<br>&#63;&gt;  </code>
+	 * @param array|int $options <p>Associative array of options or bitwise disjunction of flags. If filter accepts options, flags can be provided in "flags" field of array. For the "callback" filter, <code>callable</code> type should be passed. The callback must accept one argument, the value to be filtered, and return the value after filtering/sanitizing it.</p> <p></p> <code> &lt;&#63;php<br>// for filters that accept options, use this format<br>$options = array(<br> 'options' =&gt; array(<br> 'default' =&gt; 3, // value to return if the filter fails<br> // other options here<br> 'min_range' =&gt; 0<br> ),<br> 'flags' =&gt; FILTER_FLAG_ALLOW_OCTAL,<br>);<br>$var = filter_var('0755', FILTER_VALIDATE_INT, $options);<br><br>// for filters that only accept flags, you can pass them directly<br>$var = filter_var('oops', FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);<br><br>// for filters that only accept flags, you can also pass as an array<br>$var = filter_var('oops', FILTER_VALIDATE_BOOLEAN,<br> array('flags' =&gt; FILTER_NULL_ON_FAILURE));<br><br>// callback validate filter<br>function foo($value)<br>{<br> // Expected format: Surname, GivenNames<br> if (strpos($value, ", ") === false) return false;<br> list($surname, $givennames) = explode(", ", $value, 2);<br> $empty = (empty($surname) || empty($givennames));<br> $notstrings = (!is_string($surname) || !is_string($givennames));<br> if ($empty || $notstrings) {<br> return false;<br> } else {<br> return $value;<br> }<br>}<br>$var = filter_var('Doe, Jane Sue', FILTER_CALLBACK, array('options' =&gt; 'foo'));<br>&#63;&gt;  </code>
 	 * @return mixed <p>Returns the filtered data, or <b><code>false</code></b> if the filter fails.</p>
 	 * @link https://php.net/manual/en/function.filter-var.php
 	 * @see filter_var_array(), filter_input(), filter_input_array()
@@ -146,7 +146,7 @@ namespace {
 	/**
 	 * Require host in "validate_url" filter. (Deprecated as of PHP 7.3.0 and removed as of PHP 8.0.0, as it is implied in the filter already.)
 	 */
-	define('FILTER_FLAG_HOST_REQUIRED', 131072);
+	define('FILTER_FLAG_HOST_REQUIRED', null);
 
 	/**
 	 * Require hostnames to start with an alphanumeric character and contain only alphanumerics or hyphens. (Available as of PHP 7.0.0)
@@ -196,7 +196,7 @@ namespace {
 	/**
 	 * Require scheme in "validate_url" filter. (Deprecated as of PHP 7.3.0 and removed as of PHP 8.0.0, as it is implied in the filter already.)
 	 */
-	define('FILTER_FLAG_SCHEME_REQUIRED', 65536);
+	define('FILTER_FLAG_SCHEME_REQUIRED', null);
 
 	/**
 	 * Strips backtick characters.
@@ -251,7 +251,7 @@ namespace {
 	/**
 	 * ID of "magic_quotes" filter. (<i>DEPRECATED</i> as of PHP 7.3.0 and <i>REMOVED</i> as of PHP 8.0.0, use <b><code>FILTER_SANITIZE_ADD_SLASHES</code></b> instead.)
 	 */
-	define('FILTER_SANITIZE_MAGIC_QUOTES', 521);
+	define('FILTER_SANITIZE_MAGIC_QUOTES', null);
 
 	/**
 	 * ID of "number_float" filter.
@@ -291,7 +291,7 @@ namespace {
 	/**
 	 * Alias of <b><code>FILTER_VALIDATE_BOOLEAN</code></b>.
 	 */
-	define('FILTER_VALIDATE_BOOL', null);
+	define('FILTER_VALIDATE_BOOL', 258);
 
 	/**
 	 * ID of "boolean" filter.
@@ -361,7 +361,7 @@ namespace {
 	/**
 	 * REQUEST variables. (not implemented yet)
 	 */
-	define('INPUT_REQUEST', 99);
+	define('INPUT_REQUEST', null);
 
 	/**
 	 * SERVER variables.
@@ -371,6 +371,6 @@ namespace {
 	/**
 	 * SESSION variables. (not implemented yet)
 	 */
-	define('INPUT_SESSION', 6);
+	define('INPUT_SESSION', null);
 
 }

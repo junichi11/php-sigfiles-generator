@@ -1,0 +1,462 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="simdjson.installation.html">« Installation</a></li>
+      <li style="float: right;"><a href="ref.simdjson.html">Simdjson Functions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.simdjson.html">Simdjson</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="simdjson.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <p class="para">
+  <dl>
+   
+    <dt id="constant.simdjson-err-capacity">
+     <strong><code>SIMDJSON_ERR_CAPACITY</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      This parser can&#039;t support a document that big.
+      Thrown when parsing a JSON string that is over 4GiB long.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-tape-error">
+     <strong><code>SIMDJSON_ERR_TAPE_ERROR</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      The JSON document has an improper structure: missing or superfluous commas, braces, missing keys, etc.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-depth-error">
+     <strong><code>SIMDJSON_ERR_DEPTH_ERROR</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      The JSON document was too deep (too many nested objects and arrays)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-string-error">
+     <strong><code>SIMDJSON_ERR_STRING_ERROR</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Problem while parsing a string
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-t-atom-error">
+     <strong><code>SIMDJSON_ERR_T_ATOM_ERROR</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Problem while parsing an atom starting with the letter &#039;t&#039;
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-f-atom-error">
+     <strong><code>SIMDJSON_ERR_F_ATOM_ERROR</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Problem while parsing an atom starting with the letter &#039;f&#039;
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-n-atom-error">
+     <strong><code>SIMDJSON_ERR_N_ATOM_ERROR</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Problem while parsing an atom starting with the letter &#039;n&#039;
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-number-error">
+     <strong><code>SIMDJSON_ERR_NUMBER_ERROR</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Problem while parsing a number
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-utf8-error">
+     <strong><code>SIMDJSON_ERR_UTF8_ERROR</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      The input is not valid UTF-8
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-uninitialized">
+     <strong><code>SIMDJSON_ERR_UNINITIALIZED</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      The parser used by simdjson is uninitialized. Should not happen.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-empty">
+     <strong><code>SIMDJSON_ERR_EMPTY</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Empty: no JSON found
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-unescaped-chars">
+     <strong><code>SIMDJSON_ERR_UNESCAPED_CHARS</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Within strings, some characters must be escaped, we found unescaped characters
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-unclosed-string">
+     <strong><code>SIMDJSON_ERR_UNCLOSED_STRING</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      A string is opened, but never closed.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-unsupported-architecture">
+     <strong><code>SIMDJSON_ERR_UNSUPPORTED_ARCHITECTURE</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      simdjson does not have an implementation supported by this CPU architecture (perhaps it&#039;s a non-SIMD CPU?).
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-incorrect-type">
+     <strong><code>SIMDJSON_ERR_INCORRECT_TYPE</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Should not happen.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-number-out-of-range">
+     <strong><code>SIMDJSON_ERR_NUMBER_OUT_OF_RANGE</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      The JSON number is too large or too small to fit within the requested type.
+      Note that the C simdjson library is a fork and this error is ignored to match php&#039;s
+      handling of JSON numbers that are too large or too small.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-index-out-of-bounds">
+     <strong><code>SIMDJSON_ERR_INDEX_OUT_OF_BOUNDS</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Should not happen.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-no-such-field">
+     <strong><code>SIMDJSON_ERR_NO_SUCH_FIELD</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Should not happen.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-io-error">
+     <strong><code>SIMDJSON_ERR_IO_ERROR</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Should not happen.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-invalid-json-pointer">
+     <strong><code>SIMDJSON_ERR_INVALID_JSON_POINTER</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Invalid JSON pointer syntax in <span class="function"><a href="function.simdjson-key-value.html" class="function">simdjson_key_value()</a></span>
+      and other functions accepting a JSON pointer <var class="varname">$key</var>.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-invalid-uri-fragment">
+     <strong><code>SIMDJSON_ERR_INVALID_URI_FRAGMENT</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Invalid URI fragment syntax.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-unexpected-error">
+     <strong><code>SIMDJSON_ERR_UNEXPECTED_ERROR</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Unexpected error, consider reporting this problem as you may have found a bug in the simdjson PECL
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-parser-in-use">
+     <strong><code>SIMDJSON_ERR_PARSER_IN_USE</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Should not happen.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-out-of-order-iteration">
+     <strong><code>SIMDJSON_ERR_OUT_OF_ORDER_ITERATION</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Should not happen.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-insufficient-padding">
+     <strong><code>SIMDJSON_ERR_INSUFFICIENT_PADDING</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Should not happen.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-incomplete-array-or-object">
+     <strong><code>SIMDJSON_ERR_INCOMPLETE_ARRAY_OR_OBJECT</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">JSON document ended early in the middle of an object or array.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-scalar-document-as-value">
+     <strong><code>SIMDJSON_ERR_SCALAR_DOCUMENT_AS_VALUE</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Should not happen.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-out-of-bounds">
+     <strong><code>SIMDJSON_ERR_OUT_OF_BOUNDS</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Attempted to access location outside of document.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-trailing-content">
+     <strong><code>SIMDJSON_ERR_TRAILING_CONTENT</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-key-count-not-countable">
+     <strong><code>SIMDJSON_ERR_KEY_COUNT_NOT_COUNTABLE</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.simdjson-err-invalid-property">
+     <strong><code>SIMDJSON_ERR_INVALID_PROPERTY</code></strong>
+     (<span class="type">int</span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">Invalid property name for an <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span> when decoding a value
+     with <span class="function"><a href="function.simdjson-decode.html" class="function">simdjson_decode()</a></span> or <span class="function"><a href="function.simdjson-key-value.html" class="function">simdjson_key_value()</a></span>
+     </span>
+    </dd>
+
+   
+  </dl>
+
+ </p>
+</div>
+</div></div></body></html>

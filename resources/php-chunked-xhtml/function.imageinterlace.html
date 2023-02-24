@@ -38,8 +38,8 @@
    <span class="function"><strong>imageinterlace()</strong></span> turns the interlace bit on or off.
   </p>
   <p class="para">
-   If the interlace bit is set and the image is used as a <acronym title="Joint Photographic Experts Group">JPEG</acronym> image,
-   the image is created as a progressive <acronym title="Joint Photographic Experts Group">JPEG</acronym>.
+   If the interlace bit is set and the image is used as a <abbr title="Joint Photographic Experts Group">JPEG</abbr> image,
+   the image is created as a progressive <abbr title="Joint Photographic Experts Group">JPEG</abbr>.
   </p>
  </div>
 
@@ -106,7 +106,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <td>8.0.0</td>
  <td>
   <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
-  instance now; previously, a <span class="type">resource</span> was expected.
+  instance now; previously, a valid <code class="literal">gd</code> <span class="type">resource</span> was expected.
  </td>
 </tr>
 
@@ -128,11 +128,11 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imageinterlace-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2693">
+   <div class="example" id="example-2763">
     <p><strong>Example #1 Turn on interlacing using <span class="function"><strong>imageinterlace()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Create&nbsp;an&nbsp;image&nbsp;instance<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefromgif</span><span style="color: #007700">(</span><span style="color: #DD0000">'php.gif'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Enable&nbsp;interlancing<br /></span><span style="color: #0000BB">imageinterlace</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Save&nbsp;the&nbsp;interlaced&nbsp;image<br /></span><span style="color: #0000BB">imagegif</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'./php_interlaced.gif'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Create an image instance<br /></span><span style="color: #0000BB">$im </span><span style="color: #007700">= </span><span style="color: #0000BB">imagecreatefromgif</span><span style="color: #007700">(</span><span style="color: #DD0000">'php.gif'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Enable interlancing<br /></span><span style="color: #0000BB">imageinterlace</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">, </span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Save the interlaced image<br /></span><span style="color: #0000BB">imagegif</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">, </span><span style="color: #DD0000">'./php_interlaced.gif'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

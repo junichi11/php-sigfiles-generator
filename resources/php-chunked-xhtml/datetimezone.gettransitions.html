@@ -87,7 +87,17 @@ returned by <span class="function"><a href="function.timezone-open.html" class="
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns a numerically indexed array of
-   transition arrays on success,  or <strong><code>false</code></strong> on failure.
+   transition arrays on success,  or <strong><code>false</code></strong> on failure. DateTimeZone
+   objects wrapping type 1 (UTC offsets) and type 2 (abbreviations) do not
+   contain any transitions, and calling this method on them will return
+   <strong><code>false</code></strong>.
+  </p>
+  <p class="para">
+   If <code class="parameter">timestampBegin</code> is given, the first entry in the
+   returned array will contain a transition element at the time of
+   <code class="parameter">timestampBegin</code>.
+  </p>
+  <p class="para">
    <table class="doctable table">
     <caption><strong>Transition Array Structure</strong></caption>
     
@@ -110,7 +120,9 @@ returned by <span class="function"><a href="function.timezone-open.html" class="
       <tr>
        <td><code class="literal">time</code></td>
        <td><span class="type">string</span></td>
-       <td><strong><code>DateTimeInterface::ISO8601</code></strong> time string</td>
+       <td><strong><code>DateTimeInterface::ISO8601_EXPANDED</code></strong> (PHP
+       8.2 and later), or <strong><code>DateTimeInterface::ISO8601</code></strong> (PHP
+       8.1 and lower) time string</td>
       </tr>
 
       <tr>
@@ -142,11 +154,11 @@ returned by <span class="function"><a href="function.timezone-open.html" class="
  <div class="refsect1 examples" id="refsect1-datetimezone.gettransitions-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2055">
+   <div class="example" id="example-2101">
     <p><strong>Example #1 A <span class="function"><a href="function.timezone-transitions-get.html" class="function">timezone_transitions_get()</a></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$timezone&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">"Europe/London"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$transitions&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$timezone</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTransitions</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_slice</span><span style="color: #007700">(</span><span style="color: #0000BB">$transitions</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$timezone </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">"Europe/London"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$transitions </span><span style="color: #007700">= </span><span style="color: #0000BB">$timezone</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTransitions</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_slice</span><span style="color: #007700">(</span><span style="color: #0000BB">$transitions</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -182,6 +194,54 @@ Array
             [offset] =&gt; 0
             [isdst] =&gt; 
             [abbr] =&gt; GMT
+        )
+
+)
+</pre></div>
+    </div>
+   </div>
+
+   <div class="example" id="example-2102">
+    <p><strong>Example #2 A <span class="function"><a href="function.timezone-transitions-get.html" class="function">timezone_transitions_get()</a></span> example with
+    <code class="parameter">timestampBegin</code> set</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$timezone </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">"Europe/London"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$transitions </span><span style="color: #007700">= </span><span style="color: #0000BB">$timezone</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTransitions</span><span style="color: #007700">(</span><span style="color: #0000BB">time</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_slice</span><span style="color: #007700">(</span><span style="color: #0000BB">$transitions</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [0] =&gt; Array
+        (
+            [ts] =&gt; 1654184161
+            [time] =&gt; 2022-06-02T15:36:01+0000
+            [offset] =&gt; 3600
+            [isdst] =&gt; 1
+            [abbr] =&gt; BST
+        )
+
+    [1] =&gt; Array
+        (
+            [ts] =&gt; 1667091600
+            [time] =&gt; 2022-10-30T01:00:00+0000
+            [offset] =&gt; 0
+            [isdst] =&gt; 
+            [abbr] =&gt; GMT
+        )
+
+    [2] =&gt; Array
+        (
+            [ts] =&gt; 1679792400
+            [time] =&gt; 2023-03-26T01:00:00+0000
+            [offset] =&gt; 3600
+            [isdst] =&gt; 1
+            [abbr] =&gt; BST
         )
 
 )

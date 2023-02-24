@@ -56,19 +56,28 @@
 
      <span class="oointerface"><span class="modifier">implements</span> 
        <a href="class.reflector.html" class="interfacename">Reflector</a></span> {</div>
+
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
     <div class="fieldsynopsis">
+     <span class="modifier">public</span>
      <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.reflectionclassconstant.html#reflectionclassconstant.constants.is-public"><var class="varname">IS_PUBLIC</var></a></var><span class="initializer"> = 1</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionclassconstant.html#reflectionclassconstant.constants.is-public"><var class="varname">IS_PUBLIC</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.reflectionclassconstant.html#reflectionclassconstant.constants.is-protected"><var class="varname">IS_PROTECTED</var></a></var><span class="initializer"> = 2</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionclassconstant.html#reflectionclassconstant.constants.is-protected"><var class="varname">IS_PROTECTED</var></a></var>;</div>
 
-    <div class="fieldsynopsis"><span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
      <span class="type">int</span>
-      <var class="fieldsynopsis_varname"><a href="class.reflectionclassconstant.html#reflectionclassconstant.constants.is-private"><var class="varname">IS_PRIVATE</var></a></var><span class="initializer"> = 4</span>;</div>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionclassconstant.html#reflectionclassconstant.constants.is-private"><var class="varname">IS_PRIVATE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionclassconstant.html#reflectionclassconstant.constants.is-final"><var class="varname">IS_FINAL</var></a></var>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
@@ -92,6 +101,7 @@
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclassconstant.getmodifiers.html" class="methodname">getModifiers</a></span>(): <span class="type">int</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclassconstant.getname.html" class="methodname">getName</a></span>(): <span class="type">string</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclassconstant.getvalue.html" class="methodname">getValue</a></span>(): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclassconstant.isenumcase.html" class="methodname">isEnumCase</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclassconstant.isfinal.html" class="methodname">isFinal</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclassconstant.isprivate.html" class="methodname">isPrivate</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="reflectionclassconstant.isprotected.html" class="methodname">isProtected</a></span>(): <span class="type">bool</span></div>
@@ -186,6 +196,19 @@
 
      
 
+     
+      <dt id="reflectionclassconstant.constants.is-final"><strong><code>ReflectionClassConstant::IS_FINAL</code></strong></dt>
+
+      <dd>
+
+       <p class="para">
+        Indicates <a href="language.oop5.final.html" class="link">final</a>
+        constants. Available as of PHP 8.1.0.
+       </p>
+      </dd>
+
+     
+
     </dl>
 
     <blockquote class="note"><p><strong class="note">Note</strong>: 
@@ -199,6 +222,31 @@
   </div>
 
 
+  <div class="section">
+   <h2 class="title">Changelog</h2>
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <span class="methodname"><a href="reflectionclassconstant.export.html" class="methodname">ReflectionClassConstant::export()</a></span> was removed.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </div>
  </div>
 
  
@@ -273,17 +321,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="reflectionclassconstant.construct.html">ReflectionClassConstant::__construct</a> — Constructs a ReflectionClassConstant</li><li><a href="reflectionclassconstant.export.html">ReflectionClassConstant::export</a> — Export</li><li><a href="reflectionclassconstant.getattributes.html">ReflectionClassConstant::getAttributes</a> — Gets Attributes</li><li><a href="reflectionclassconstant.getdeclaringclass.html">ReflectionClassConstant::getDeclaringClass</a> — Gets declaring class</li><li><a href="reflectionclassconstant.getdoccomment.html">ReflectionClassConstant::getDocComment</a> — Gets doc comments</li><li><a href="reflectionclassconstant.getmodifiers.html">ReflectionClassConstant::getModifiers</a> — Gets the class constant modifiers</li><li><a href="reflectionclassconstant.getname.html">ReflectionClassConstant::getName</a> — Get name of the constant</li><li><a href="reflectionclassconstant.getvalue.html">ReflectionClassConstant::getValue</a> — Gets value</li><li><a href="reflectionclassconstant.isfinal.html">ReflectionClassConstant::isFinal</a> — Checks if class constant is final</li><li><a href="reflectionclassconstant.isprivate.html">ReflectionClassConstant::isPrivate</a> — Checks if class constant is private</li><li><a href="reflectionclassconstant.isprotected.html">ReflectionClassConstant::isProtected</a> — Checks if class constant is protected</li><li><a href="reflectionclassconstant.ispublic.html">ReflectionClassConstant::isPublic</a> — Checks if class constant is public</li><li><a href="reflectionclassconstant.tostring.html">ReflectionClassConstant::__toString</a> — Returns the string representation of the ReflectionClassConstant object</li></ul>
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="reflectionclassconstant.construct.html">ReflectionClassConstant::__construct</a> — Constructs a ReflectionClassConstant</li><li><a href="reflectionclassconstant.export.html">ReflectionClassConstant::export</a> — Export</li><li><a href="reflectionclassconstant.getattributes.html">ReflectionClassConstant::getAttributes</a> — Gets Attributes</li><li><a href="reflectionclassconstant.getdeclaringclass.html">ReflectionClassConstant::getDeclaringClass</a> — Gets declaring class</li><li><a href="reflectionclassconstant.getdoccomment.html">ReflectionClassConstant::getDocComment</a> — Gets doc comments</li><li><a href="reflectionclassconstant.getmodifiers.html">ReflectionClassConstant::getModifiers</a> — Gets the class constant modifiers</li><li><a href="reflectionclassconstant.getname.html">ReflectionClassConstant::getName</a> — Get name of the constant</li><li><a href="reflectionclassconstant.getvalue.html">ReflectionClassConstant::getValue</a> — Gets value</li><li><a href="reflectionclassconstant.isenumcase.html">ReflectionClassConstant::isEnumCase</a> — Checks if class constant is an Enum case</li><li><a href="reflectionclassconstant.isfinal.html">ReflectionClassConstant::isFinal</a> — Checks if class constant is final</li><li><a href="reflectionclassconstant.isprivate.html">ReflectionClassConstant::isPrivate</a> — Checks if class constant is private</li><li><a href="reflectionclassconstant.isprotected.html">ReflectionClassConstant::isProtected</a> — Checks if class constant is protected</li><li><a href="reflectionclassconstant.ispublic.html">ReflectionClassConstant::isPublic</a> — Checks if class constant is public</li><li><a href="reflectionclassconstant.tostring.html">ReflectionClassConstant::__toString</a> — Returns the string representation of the ReflectionClassConstant object</li></ul>
 </div>
 </div></div></body></html>

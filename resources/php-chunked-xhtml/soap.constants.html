@@ -50,7 +50,11 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>1</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of SOAP 1.1 when passed as <code class="literal">soap_version</code>
+      option to <span class="methodname"><a href="soapserver.construct.html" class="methodname">SoapServer::__construct()</a></span> or
+      <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-1-2">
@@ -59,7 +63,11 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>2</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of SOAP 1.2 when passed as <code class="literal">soap_version</code>
+      option to <span class="methodname"><a href="soapserver.construct.html" class="methodname">SoapServer::__construct()</a></span> or
+      <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-persistence-session">
@@ -95,7 +103,10 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>1</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of SOAP Encoding when passed as <code class="literal">use</code>
+      option to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-literal">
@@ -104,7 +115,10 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>2</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of service-specific encoding when passed as <code class="literal">use</code>
+      option to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-rpc">
@@ -113,7 +127,10 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>1</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of RPC-style binding when passed as <code class="literal">style</code>
+      option to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-document">
@@ -122,7 +139,10 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>2</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of document binding when passed as <code class="literal">style</code>
+      option to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-actor-next">
@@ -158,7 +178,13 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>32</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of an &quot;Accept-Encoding&quot; header
+      when passed as part of
+      <a href="soapclient.construct.html#soapclient.construct.options.compression" class="link">
+      the <code class="parameter">compression</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-compression-gzip">
@@ -167,7 +193,13 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>0</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of gzip compression
+      when passed as part of
+      <a href="soapclient.construct.html#soapclient.construct.options.compression" class="link">
+       the <code class="parameter">compression</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-compression-deflate">
@@ -176,7 +208,13 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>16</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of deflate compression
+      when passed as part of
+      <a href="soapclient.construct.html#soapclient.construct.options.compression" class="link">
+       the <code class="parameter">compression</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-authentication-basic">
@@ -185,7 +223,11 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>0</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of HTTP Basic Authentication when passed as
+      <code class="literal">authentication</code> option to
+      <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-authentication-digest">
@@ -194,7 +236,11 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>1</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of HTTP Digest Authentication when passed as
+      <code class="literal">authentication</code> option to
+      <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-ssl-method-tls">
@@ -203,7 +249,12 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>0</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Used with the deprecated
+      <a href="soapclient.construct.html#soapclient.construct.options.ssl-method" class="link">
+      <code class="parameter">ssl_method</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-ssl-method-sslv2">
@@ -212,7 +263,12 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>1</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Used with the deprecated
+      <a href="soapclient.construct.html#soapclient.construct.options.ssl-method" class="link">
+       <code class="parameter">ssl_method</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-ssl-method-sslv3">
@@ -221,7 +277,12 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>2</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Used with the deprecated
+      <a href="soapclient.construct.html#soapclient.construct.options.ssl-method" class="link">
+       <code class="parameter">ssl_method</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-ssl-method-sslv23">
@@ -230,7 +291,12 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>3</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Used with the deprecated
+      <a href="soapclient.construct.html#soapclient.construct.options.ssl-method" class="link">
+       <code class="parameter">ssl_method</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.unknown-type">
@@ -716,7 +782,12 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>1</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Used with the
+      <a href="soapclient.construct.html#soapclient.construct.options.features" class="link">
+       <code class="parameter">features</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-wait-one-way-calls">
@@ -725,7 +796,12 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>2</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Used with the
+      <a href="soapclient.construct.html#soapclient.construct.options.features" class="link">
+       <code class="parameter">features</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.soap-use-xsi-array-type">
@@ -734,7 +810,12 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>4</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Used with the
+      <a href="soapclient.construct.html#soapclient.construct.options.features" class="link">
+       <code class="parameter">features</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.wsdl-cache-none">
@@ -743,7 +824,14 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>0</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Disables the WSDL cache when used in the
+      <a href="soap.configuration.html#ini.soap.wsdl-cache" class="link">soap.wsdl_cache</a>
+      configuration option or the
+      <code class="literal">wsdl_cache</code> option
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>
+      and <span class="methodname"><a href="soapserver.construct.html" class="methodname">SoapServer::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.wsdl-cache-disk">
@@ -752,7 +840,14 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>1</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of the on-disk WSDL cache only when used in the
+      <a href="soap.configuration.html#ini.soap.wsdl-cache" class="link">soap.wsdl_cache</a>
+      configuration option or the
+      <code class="literal">wsdl_cache</code> option
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>
+      and <span class="methodname"><a href="soapserver.construct.html" class="methodname">SoapServer::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.wsdl-cache-memory">
@@ -761,7 +856,14 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>2</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of the in-memory WSDL cache only when used in the
+      <a href="soap.configuration.html#ini.soap.wsdl-cache" class="link">soap.wsdl_cache</a>
+      configuration option or the
+      <code class="literal">wsdl_cache</code> option
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>
+      and <span class="methodname"><a href="soapserver.construct.html" class="methodname">SoapServer::__construct()</a></span>.
+     </td>
     </tr>
 
     <tr id="constant.wsdl-cache-both">
@@ -770,7 +872,14 @@ been compiled into PHP or dynamically loaded at runtime.
       (<span class="type">int</span>)
      </td>
      <td>3</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+      Specifies use of both on-disk and in-memory WSDL caches when used in the
+      <a href="soap.configuration.html#ini.soap.wsdl-cache" class="link">soap.wsdl_cache</a>
+      configuration option or the
+      <code class="literal">wsdl_cache</code> option
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>
+      and <span class="methodname"><a href="soapserver.construct.html" class="methodname">SoapServer::__construct()</a></span>.
+     </td>
     </tr>
 
    </tbody>

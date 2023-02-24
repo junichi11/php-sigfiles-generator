@@ -74,29 +74,6 @@
      </dd>
 
     
-    
-     <dt>
-<code class="parameter">ber_identifier</code></dt>
-
-     <dd>
-
-      <p class="para">
-       <code class="parameter">ber_identifier</code> is the identifier to internal
-       memory location pointer. It is passed by reference. The same
-       <code class="parameter">ber_identifier</code> is passed to
-       <span class="function"><a href="function.ldap-next-attribute.html" class="function">ldap_next_attribute()</a></span> , which modifies that
-       pointer.
-      </p>
-      <blockquote class="note"><p><strong class="note">Note</strong>: 
-       <p class="para">
-        This parameter is no longer used as this is now handled automatically
-        by PHP. For backwards compatibility PHP will not throw an error if
-        this parameter is passed.
-       </p>
-      </p></blockquote>
-     </dd>
-
-    
    </dl>
 
   </p>
@@ -129,7 +106,7 @@
  <td>8.1.0</td>
  <td>
   The <code class="parameter">ldap</code> parameter expects an <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">ldap link</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
 
@@ -137,9 +114,16 @@
  <td>8.1.0</td>
  <td>
   The <code class="parameter">entry</code> parameter expects an <span class="classname"><a href="class.ldap-result-entry.html" class="classname">LDAP\ResultEntry</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">ldap result entry</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       The unused third parameter <code class="parameter">ber_identifier</code> is no longer accepted.
+      </td>
+     </tr>
 
     </tbody>
    

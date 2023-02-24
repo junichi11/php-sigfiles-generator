@@ -79,7 +79,7 @@ namespace {
 	/**
 	 * Clear bit
 	 * <p>Clears (sets to 0) bit <code>index</code> in <code>num</code>. The index starts at 0.</p>
-	 * @param \GMP $num <p>A <code>GMP</code> object, an <code>int</code> or a numeric <code>string</code>.</p>
+	 * @param \GMP $num <p>A <code>GMP</code> object.</p>
 	 * @param int $index <p>The index of the bit to clear. Index 0 represents the least significant bit.</p>
 	 * @return void <p>A <code>GMP</code> object.</p>
 	 * @link https://php.net/manual/en/function.gmp-clrbit.php
@@ -208,7 +208,7 @@ namespace {
 
 	/**
 	 * Calculate GCD and multipliers
-	 * <p>Calculates g, s, and t, such that <code>a&#42;s + b&#42;t = g = gcd(a,b)</code>, where gcd is the greatest common divisor. Returns an array with respective elements g, s and t.</p><p>This function can be used to solve linear Diophantine equations in two variables. These are equations that allow only integer solutions and have the form: <code>a&#42;x + b&#42;y = c</code>. For more information, go to the "Diophantine Equation" page at MathWorld</p>
+	 * <p>Calculates g, s, and t, such that <code>a&#42;s + b&#42;t = g = gcd(a,b)</code>, where gcd is the greatest common divisor. Returns an array with respective elements g, s and t.</p><p>This function can be used to solve linear Diophantine equations in two variables. These are equations that allow only integer solutions and have the form: <code>a&#42;x + b&#42;y = c</code>. For more information, go to the &#xBB;&#xA0;"Diophantine Equation" page at MathWorld</p>
 	 * @param \GMP|int|string $num1 <p>A <code>GMP</code> object, an <code>int</code> or a numeric <code>string</code>.</p>
 	 * @param \GMP|int|string $num2 <p>A <code>GMP</code> object, an <code>int</code> or a numeric <code>string</code>.</p>
 	 * @return array <p>An <code>array</code> of GMP numbers.</p>
@@ -276,7 +276,7 @@ namespace {
 
 	/**
 	 * Jacobi symbol
-	 * <p>Computes Jacobi symbol of <code>num1</code> and <code>num2</code>. <code>num2</code> should be odd and must be positive.</p>
+	 * <p>Computes &#xBB;&#xA0;Jacobi symbol of <code>num1</code> and <code>num2</code>. <code>num2</code> should be odd and must be positive.</p>
 	 * @param \GMP|int|string $num1 <p>A <code>GMP</code> object, an <code>int</code> or a numeric <code>string</code>.</p>
 	 * @param \GMP|int|string $num2 <p>A <code>GMP</code> object, an <code>int</code> or a numeric <code>string</code>.</p> <p>Should be odd and must be positive.</p>
 	 * @return int <p>A <code>GMP</code> object.</p>
@@ -312,7 +312,7 @@ namespace {
 
 	/**
 	 * Legendre symbol
-	 * <p>Compute the  Legendre symbol of <code>num1</code> and <code>num2</code>. <code>num2</code> should be odd and must be positive.</p>
+	 * <p>Compute the &#xBB;&#xA0; Legendre symbol of <code>num1</code> and <code>num2</code>. <code>num2</code> should be odd and must be positive.</p>
 	 * @param \GMP|int|string $num1 <p>A <code>GMP</code> object, an <code>int</code> or a numeric <code>string</code>.</p>
 	 * @param \GMP|int|string $num2 <p>A <code>GMP</code> object, an <code>int</code> or a numeric <code>string</code>.</p> <p>Should be odd and must be positive.</p>
 	 * @return int <p>A <code>GMP</code> object.</p>
@@ -475,7 +475,7 @@ namespace {
 	/**
 	 * Sets the RNG seed
 	 * @param \GMP|int|string $seed <p>The seed to be set for the <code>gmp_random()</code>, <code>gmp_random_bits()</code>, and <code>gmp_random_range()</code> functions.</p> <p>A <code>GMP</code> object, an <code>int</code> or a numeric <code>string</code>.</p>
-	 * @return void <p>Returns <b><code>null</code></b> on success or <b><code>false</code></b> on failure.</p>
+	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.gmp-random-seed.php
 	 * @see gmp_init(), gmp_random(), gmp_random_bits(), gmp_random_range()
 	 * @since PHP 7, PHP 8
@@ -529,7 +529,7 @@ namespace {
 	/**
 	 * Set bit
 	 * <p>Sets bit <code>index</code> in <code>num</code>.</p>
-	 * @param \GMP $num <p>The value to modify.</p> <p>A <code>GMP</code> object, an <code>int</code> or a numeric <code>string</code>.</p>
+	 * @param \GMP $num <p>A <code>GMP</code> object.</p>
 	 * @param int $index <p>The index of the bit to set. Index 0 represents the least significant bit.</p>
 	 * @param bool $value <p>True to set the bit (set it to 1/on); false to clear the bit (set it to 0/off).</p>
 	 * @return void <p>A <code>GMP</code> object.</p>

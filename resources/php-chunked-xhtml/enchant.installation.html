@@ -26,14 +26,9 @@
   <div id="layout-content"><div id="enchant.installation" class="section">
  <h2 class="title">Installation</h2>
  <p class="para">
-  This extension is bundled with PHP as of PHP 5.3.0. Before this time,
-  enchant was a PECL extension. Users of versions prior to 5.3.0 may use the
-  <a href="https://pecl.php.net/package/enchant" class="link external">&raquo;&nbsp;PECL extension</a>.
- </p>
- <p class="para">
   Provided the
   <a href="enchant.requirements.html" class="link">required libraries</a> are
-  installed, users of PHP 5.3.0 or later may enable enchant by adding the
+  installed, users may enable enchant by adding the
   <strong class="option configure">--with-enchant[=dir]</strong> option when compiling
   PHP.
  </p>
@@ -45,9 +40,9 @@
   <strong>Additional setup on Windows</strong><br />
   <p class="para">
    In order for this extension to work, there are
-<acronym title="Dynamic Link Library">DLL</acronym> files that must be available to the Windows
+<abbr title="Dynamic Link Library">DLL</abbr> files that must be available to the Windows
 system <var class="envar">PATH</var>. For information on how to do this, see the
-<acronym title="Frequently Asked Questions">FAQ</acronym> entitled &quot;<a href="faq.installation.html#faq.installation.addtopath" class="link">How do I add my PHP directory to the PATH
+<abbr title="Frequently Asked Questions">FAQ</abbr> entitled &quot;<a href="faq.installation.html#faq.installation.addtopath" class="link">How do I add my PHP directory to the PATH
 on Windows</a>&quot;. Although copying DLL
 files from the PHP folder into the Windows system directory also works
 (because the system directory is by default in the system&#039;s
@@ -60,8 +55,11 @@ files from the PHP folder into the Windows system directory also works
   </p>
   <p class="para">
    Furthermore, it is necessary to copy at least one of the shipped providers in
-   <var class="filename">lib/enchant/</var> to <var class="filename">C:\enchant_plugins</var>.
-   This path can be customized by creating the registry value
+   <var class="filename">lib\enchant</var> to <var class="filename">\usr\local\lib\enchant-2</var>
+   (which is an absolute path from the root of the <em class="emphasis">current drive</em>).
+   Prior to PHP 8.0.0, i.e. using Enchant v1, the providers had to be copied to
+   <var class="filename">C:\enchant_plugins</var> instead,
+   where this path could be customized by creating the registry value
    <code class="literal">HKEY_CURRENT_USER\SOFTWARE\Enchant\Config\Module_Dir</code>
    and setting it to the desired path.
   </p>

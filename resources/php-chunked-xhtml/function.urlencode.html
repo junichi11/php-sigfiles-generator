@@ -83,11 +83,11 @@
  <div class="refsect1 examples" id="refsect1-function.urlencode-examples">
   <h3 class="title">Examples</h3> 
   <p class="para">  
-   <div class="example" id="example-3864">
+   <div class="example" id="example-3942">
     <p><strong>Example #1 <span class="function"><strong>urlencode()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'&lt;a&nbsp;href="mycgi?foo='</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">urlencode</span><span style="color: #007700">(</span><span style="color: #0000BB">$userinput</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">'"&gt;'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #DD0000">'&lt;a href="mycgi?foo='</span><span style="color: #007700">, </span><span style="color: #0000BB">urlencode</span><span style="color: #007700">(</span><span style="color: #0000BB">$userinput</span><span style="color: #007700">), </span><span style="color: #DD0000">'"&gt;'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -95,11 +95,11 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3865">
+   <div class="example" id="example-3943">
     <p><strong>Example #2 <span class="function"><strong>urlencode()</strong></span> and <span class="function"><a href="function.htmlentities.html" class="function">htmlentities()</a></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$query_string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'foo='&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">urlencode</span><span style="color: #007700">(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">'&amp;bar='&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">urlencode</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">'&lt;a&nbsp;href="mycgi?'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #0000BB">$query_string</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">'"&gt;'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$query_string </span><span style="color: #007700">= </span><span style="color: #DD0000">'foo=' </span><span style="color: #007700">. </span><span style="color: #0000BB">urlencode</span><span style="color: #007700">(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">) . </span><span style="color: #DD0000">'&amp;bar=' </span><span style="color: #007700">. </span><span style="color: #0000BB">urlencode</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">);<br />echo </span><span style="color: #DD0000">'&lt;a href="mycgi?' </span><span style="color: #007700">. </span><span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #0000BB">$query_string</span><span style="color: #007700">) . </span><span style="color: #DD0000">'"&gt;'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

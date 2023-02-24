@@ -75,6 +75,30 @@
  </div>
 
 
+ <div class="refsect1 examples" id="refsect1-function.quoted-printable-encode-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-4901">
+    <p><strong>Example #1 <span class="function"><strong>quoted_printable_encode()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$encoded </span><span style="color: #007700">= </span><span style="color: #0000BB">quoted_printable_encode</span><span style="color: #007700">(</span><span style="color: #DD0000">'Möchten Sie ein paar Äpfel?'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$encoded</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">quoted_printable_decode</span><span style="color: #007700">(</span><span style="color: #0000BB">$encoded</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+string(37) &quot;M=C3=B6chten Sie ein paar =C3=84pfel?&quot;
+string(29) &quot;Möchten Sie ein paar Äpfel?&quot;
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
  <div class="refsect1 seealso" id="refsect1-function.quoted-printable-encode-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">

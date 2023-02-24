@@ -39,9 +39,12 @@
    This function returns a string or an array with all occurrences of
    <code class="parameter">search</code> in <code class="parameter">subject</code>
    (ignoring case) replaced with the given <code class="parameter">replace</code>
-   value.  If you don&#039;t need fancy replacing rules, you should generally
-   use this function instead of
-   <span class="function"><a href="function.preg-replace.html" class="function">preg_replace()</a></span> with the <code class="literal">i</code> modifier.
+   value.
+   </p>
+   <p class="para">
+    To replace text based on a pattern rather than a fixed string,
+    use <span class="function"><a href="function.preg-replace.html" class="function">preg_replace()</a></span> with the <code class="literal">i</code>
+    <a href="reference.pcre.pattern.modifiers.html" class="link">pattern modifier</a>.
   </p>
  </div>
 
@@ -137,14 +140,45 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.str-ireplace-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     
+ <tr>
+  <td>8.2.0</td>
+  <td>
+   Case folding no longer depends on the locale set with
+   <span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span>. Only ASCII case folding will be done.
+   Non-ASCII bytes will be compared by their byte value.
+  </td>
+ </tr>
+
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.str-ireplace-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4837">
+   <div class="example" id="example-4923">
     <p><strong>Example #1 <span class="function"><strong>str_ireplace()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$bodytag&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">str_ireplace</span><span style="color: #007700">(</span><span style="color: #DD0000">"%body%"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"black"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"&lt;body&nbsp;text=%BODY%&gt;"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$bodytag</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;&lt;body&nbsp;text=black&gt;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$bodytag </span><span style="color: #007700">= </span><span style="color: #0000BB">str_ireplace</span><span style="color: #007700">(</span><span style="color: #DD0000">"%body%"</span><span style="color: #007700">, </span><span style="color: #DD0000">"black"</span><span style="color: #007700">, </span><span style="color: #DD0000">"&lt;body text=%BODY%&gt;"</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$bodytag</span><span style="color: #007700">; </span><span style="color: #FF8000">// &lt;body text=black&gt;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

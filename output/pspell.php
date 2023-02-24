@@ -49,12 +49,12 @@ namespace {
 
 	/**
 	 * Create a config used to open a dictionary
-	 * <p>Create a config used to open a dictionary.</p><p><b>pspell_config_create()</b> has a very similar syntax to <code>pspell_new()</code>. In fact, using <b>pspell_config_create()</b> immediately followed by <code>pspell_new_config()</code> will produce the exact same result. However, after creating a new config, you can also use <b>pspell_config_&#42;()</b> functions before calling <code>pspell_new_config()</code> to take advantage of some advanced functionality.</p><p>For more information and examples, check out inline manual pspell website:http://aspell.net/.</p>
+	 * <p>Create a config used to open a dictionary.</p><p><b>pspell_config_create()</b> has a very similar syntax to <code>pspell_new()</code>. In fact, using <b>pspell_config_create()</b> immediately followed by <code>pspell_new_config()</code> will produce the exact same result. However, after creating a new config, you can also use <b>pspell_config_&#42;()</b> functions before calling <code>pspell_new_config()</code> to take advantage of some advanced functionality.</p><p>For more information and examples, check out inline manual pspell website:&#xBB;&#xA0;http://aspell.net/.</p>
 	 * @param string $language <p>The language parameter is the language code which consists of the two letter ISO 639 language code and an optional two letter ISO 3166 country code after a dash or underscore.</p>
 	 * @param string $spelling <p>The spelling parameter is the requested spelling for languages with more than one spelling such as English. Known values are 'american', 'british', and 'canadian'.</p>
 	 * @param string $jargon <p>The jargon parameter contains extra information to distinguish two different words lists that have the same language and spelling parameters.</p>
 	 * @param string $encoding <p>The encoding parameter is the encoding that words are expected to be in. Valid values are 'utf-8', 'iso8859-&#42;', 'koi8-r', 'viscii', 'cp1252', 'machine unsigned 16', 'machine unsigned 32'. This parameter is largely untested, so be careful when using.</p>
-	 * @return PSpell\Config <p>Returns an <code>PSpell\Config</code> instance on success, or <b><code>false</code></b> on failure.</p>
+	 * @return PSpell\Config <p>Returns an <code>PSpell\Config</code> instance.</p>
 	 * @link https://php.net/manual/en/function.pspell-config-create.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7, PHP 8
 	 */
@@ -150,7 +150,7 @@ namespace {
 
 	/**
 	 * Load a new dictionary
-	 * <p><b>pspell_new()</b> opens up a new dictionary and returns an <code>PSpell\Dictionary</code> instance for use in other pspell functions.</p><p>For more information and examples, check out inline manual pspell website:http://aspell.net/.</p>
+	 * <p><b>pspell_new()</b> opens up a new dictionary and returns an <code>PSpell\Dictionary</code> instance for use in other pspell functions.</p><p>For more information and examples, check out inline manual pspell website:&#xBB;&#xA0;http://aspell.net/.</p>
 	 * @param string $language <p>The language parameter is the language code which consists of the two letter ISO 639 language code and an optional two letter ISO 3166 country code after a dash or underscore.</p>
 	 * @param string $spelling <p>The spelling parameter is the requested spelling for languages with more than one spelling such as English. Known values are 'american', 'british', and 'canadian'.</p>
 	 * @param string $jargon <p>The jargon parameter contains extra information to distinguish two different words lists that have the same language and spelling parameters.</p>
@@ -174,7 +174,7 @@ namespace {
 
 	/**
 	 * Load a new dictionary with personal wordlist
-	 * <p><b>pspell_new_personal()</b> opens up a new dictionary with a personal wordlist. The wordlist can be modified and saved with <code>pspell_save_wordlist()</code>, if desired. However, the replacement pairs are not saved. In order to save replacement pairs, you should create a config using <code>pspell_config_create()</code>, set the personal wordlist file with <code>pspell_config_personal()</code>, set the file for replacement pairs with <code>pspell_config_repl()</code>, and open a new dictionary with <code>pspell_new_config()</code>.</p><p>For more information and examples, check out inline manual pspell website:http://aspell.net/.</p>
+	 * <p><b>pspell_new_personal()</b> opens up a new dictionary with a personal wordlist. The wordlist can be modified and saved with <code>pspell_save_wordlist()</code>, if desired. However, the replacement pairs are not saved. In order to save replacement pairs, you should create a config using <code>pspell_config_create()</code>, set the personal wordlist file with <code>pspell_config_personal()</code>, set the file for replacement pairs with <code>pspell_config_repl()</code>, and open a new dictionary with <code>pspell_new_config()</code>.</p><p>For more information and examples, check out inline manual pspell website:&#xBB;&#xA0;http://aspell.net/.</p>
 	 * @param string $filename <p>The file where words added to the personal list will be stored. It should be an absolute filename beginning with '/' because otherwise it will be relative to $HOME, which is "/root" for most systems, and is probably not what you want.</p>
 	 * @param string $language <p>The language code which consists of the two letter ISO 639 language code and an optional two letter ISO 3166 country code after a dash or underscore.</p>
 	 * @param string $spelling <p>The requested spelling for languages with more than one spelling such as English. Known values are 'american', 'british', and 'canadian'.</p>

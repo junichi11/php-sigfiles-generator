@@ -20,7 +20,7 @@ namespace {
 	 * <p>Add entries in the LDAP directory.</p>
 	 * @param \LDAP\Connection $ldap <p>An <code>LDAP\Connection</code> instance, returned by <code>ldap_connect()</code>.</p>
 	 * @param string $dn <p>The distinguished name of an LDAP entity.</p>
-	 * @param array $entry <p>An array that specifies the information about the entry. The values in the entries are indexed by individual attributes. In case of multiple values for an attribute, they are indexed using integers starting with 0.</p>  <code> &lt;&#63;php<br>$entry["attribute1"]&nbsp;=&nbsp;"value";<br>$entry["attribute2"][0]&nbsp;=&nbsp;"value1";<br>$entry["attribute2"][1]&nbsp;=&nbsp;"value2";<br>&#63;&gt;  </code>
+	 * @param array $entry <p>An array that specifies the information about the entry. The values in the entries are indexed by individual attributes. In case of multiple values for an attribute, they are indexed using integers starting with 0.</p>  <code> &lt;&#63;php<br>$entry["attribute1"] = "value";<br>$entry["attribute2"][0] = "value1";<br>$entry["attribute2"][1] = "value2";<br>&#63;&gt;  </code>
 	 * @param ?array $controls <p>Array of LDAP Controls to send with the request.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ldap-add.php
@@ -97,7 +97,7 @@ namespace {
 	/**
 	 * Connect to an LDAP server
 	 * <p>The <i>following</i> signature is still supported for backwards compatibility (except for using named parameters), but is considered deprecated and should not be used anymore!</p><p>Creates an <code>LDAP\Connection</code> connection and checks whether the given <code>uri</code> is plausible.</p><p><b>Note</b>:  This function does <i>not</i> open a connection. It checks whether the given parameters are plausible and can be used to open a connection as soon as one is needed. </p>
-	 * @param ?string $uri <p>The hostname to connect to.</p>
+	 * @param ?string $uri <p>A full LDAP URI of the form <code>ldap://hostname:port</code> or <code>ldaps://hostname:port</code> for SSL encryption.</p> <p>You can also provide multiple LDAP-URIs separated by a space as one string</p> <p>Note that <code>hostname:port</code> is not a supported LDAP URI as the schema is missing.</p>
 	 * @return LDAP\Connection|false <p>Returns an <code>LDAP\Connection</code> instance when the provided LDAP URI seems plausible. It's a syntactic check of the provided parameter but the server(s) will not be contacted! If the syntactic check fails it returns <b><code>false</code></b>. <b>ldap_connect()</b> will otherwise return a <code>LDAP\Connection</code> instance as it does not actually connect but just initializes the connecting parameters. The actual connect happens with the next calls to ldap_&#42; functions, usually with <code>ldap_bind()</code>.</p><p>If no argument is specified then the <code>LDAP\Connection</code> instance of the already opened connection will be returned.</p>
 	 * @link https://php.net/manual/en/function.ldap-connect.php
 	 * @see ldap_bind()
@@ -239,19 +239,19 @@ namespace {
 
 	/**
 	 * Performs an extended operation
-	 * <p>Performs an extended operation on the specified <code>link</code> with <code>reqoid</code> the OID of the operation and <code>reqdata</code> the data.</p>
+	 * <p>Performs an extended operation on the specified <code>ldap</code> with <code>request_oid</code> the OID of the operation and <code>request_data</code> the data.</p>
 	 * @param \LDAP\Connection $ldap <p>An <code>LDAP\Connection</code> instance, returned by <code>ldap_connect()</code>.</p>
-	 * @param string $reqoid <p>The extended operation request OID. You may use one of <b><code>LDAP_EXOP_START_TLS</code></b>, <b><code>LDAP_EXOP_MODIFY_PASSWD</code></b>, <b><code>LDAP_EXOP_REFRESH</code></b>, <b><code>LDAP_EXOP_WHO_AM_I</code></b>, <b><code>LDAP_EXOP_TURN</code></b>, or a string with the OID of the operation you want to send.</p>
-	 * @param string $reqdata <p>The extended operation request data. May be NULL for some operations like <b><code>LDAP_EXOP_WHO_AM_I</code></b>, may also need to be BER encoded.</p>
-	 * @param array $serverctrls <p>Array of LDAP Controls to send with the request.</p>
-	 * @param string $retdata <p>Will be filled with the extended operation response data if provided. If not provided you may use ldap_parse_exop on the result object later to get this data.</p>
-	 * @param string $retoid <p>Will be filled with the response OID if provided, usually equal to the request OID.</p>
-	 * @return mixed <p>When used with <code>retdata</code>, returns <b><code>true</code></b> on success or <b><code>false</code></b> on error. When used without <code>retdata</code>, returns a result identifier or <b><code>false</code></b> on error.</p>
+	 * @param string $request_oid <p>The extended operation request OID. You may use one of <b><code>LDAP_EXOP_START_TLS</code></b>, <b><code>LDAP_EXOP_MODIFY_PASSWD</code></b>, <b><code>LDAP_EXOP_REFRESH</code></b>, <b><code>LDAP_EXOP_WHO_AM_I</code></b>, <b><code>LDAP_EXOP_TURN</code></b>, or a string with the OID of the operation you want to send.</p>
+	 * @param string $request_data <p>The extended operation request data. May be NULL for some operations like <b><code>LDAP_EXOP_WHO_AM_I</code></b>, may also need to be BER encoded.</p>
+	 * @param array $controls <p>Array of LDAP Controls to send with the request.</p>
+	 * @param string $response_data <p>Will be filled with the extended operation response data if provided. If not provided you may use ldap_parse_exop on the result object later to get this data.</p>
+	 * @param string $response_oid <p>Will be filled with the response OID if provided, usually equal to the request OID.</p>
+	 * @return mixed <p>When used with <code>response_data</code>, returns <b><code>true</code></b> on success or <b><code>false</code></b> on error. When used without <code>response_data</code>, returns a result identifier or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.ldap-exop.php
 	 * @see ldap_parse_result(), ldap_parse_exop(), ldap_exop_whoami(), ldap_exop_refresh(), ldap_exop_passwd()
 	 * @since PHP 7 >= 7.2.0, PHP 8
 	 */
-	function ldap_exop(\LDAP\Connection $ldap, string $reqoid, string $reqdata = null, array $serverctrls = null, string &$retdata = null, string &$retoid = null): mixed {}
+	function ldap_exop(\LDAP\Connection $ldap, string $request_oid, string $request_data = null, array $controls = null, string &$response_data = null, string &$response_oid = null): mixed {}
 
 	/**
 	 * PASSWD extended operation helper
@@ -353,7 +353,7 @@ namespace {
 	 * <p>Reads attributes and values from an entry in the search result.</p><p>Having located a specific entry in the directory, you can find out what information is held for that entry by using this call. You would use this call for an application which "browses" directory entries and/or where you do not know the structure of the directory entries. In many applications you will be searching for a specific attribute such as an email address or a surname, and won't care what other data is held.</p>
 	 * @param \LDAP\Connection $ldap <p>An <code>LDAP\Connection</code> instance, returned by <code>ldap_connect()</code>.</p>
 	 * @param \LDAP\ResultEntry $entry <p>An <code>LDAP\ResultEntry</code> instance.</p>
-	 * @return array <p>Returns a complete entry information in a multi-dimensional array on success and <b><code>false</code></b> on error.</p>
+	 * @return array <p>Returns a complete entry information in a multi-dimensional array.</p>
 	 * @link https://php.net/manual/en/function.ldap-get-attributes.php
 	 * @see ldap_first_attribute(), ldap_next_attribute()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -387,7 +387,7 @@ namespace {
 	 * Get the current value for given option
 	 * <p>Sets <code>value</code> to the value of the specified option.</p>
 	 * @param \LDAP\Connection $ldap <p>An <code>LDAP\Connection</code> instance, returned by <code>ldap_connect()</code>.</p>
-	 * @param int $option <p>The parameter <code>option</code> can be one of:</p>   Option Type since     <b><code>LDAP_OPT_DEREF</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_SIZELIMIT</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_TIMELIMIT</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_NETWORK_TIMEOUT</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_PROTOCOL_VERSION</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_ERROR_NUMBER</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_DIAGNOSTIC_MESSAGE</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_REFERRALS</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_RESTART</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_HOST_NAME</code></b> <code>string</code> &nbsp;   <b><code>LDAP_OPT_ERROR_STRING</code></b> <code>string</code> &nbsp;   <b><code>LDAP_OPT_MATCHED_DN</code></b> <code>string</code> &nbsp;   <b><code>LDAP_OPT_SERVER_CONTROLS</code></b> <code>array</code> &nbsp;   <b><code>LDAP_OPT_CLIENT_CONTROLS</code></b> <code>array</code> &nbsp;   <b><code>LDAP_OPT_X_KEEPALIVE_IDLE</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_KEEPALIVE_PROBES</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_KEEPALIVE_INTERVAL</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_TLS_CACERTDIR</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_CACERTFILE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_CERTFILE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_CIPHER_SUITE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_CRLCHECK</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_TLS_CRL_NONE</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_TLS_CRL_PEER</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_TLS_CRL_ALL</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_TLS_CRLFILE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_DHFILE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_KEYFILE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_PACKAGE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_PROTOCOL_MIN</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_TLS_RANDOM_FILE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_REQUIRE_CERT</code></b> <code>int</code> &nbsp;
+	 * @param int $option <p>The parameter <code>option</code> can be one of:</p>   Option Type since     <b><code>LDAP_OPT_DEREF</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_SIZELIMIT</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_TIMELIMIT</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_NETWORK_TIMEOUT</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_PROTOCOL_VERSION</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_ERROR_NUMBER</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_DIAGNOSTIC_MESSAGE</code></b> <code>string</code> &#xA0;   <b><code>LDAP_OPT_REFERRALS</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_RESTART</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_HOST_NAME</code></b> <code>string</code> &#xA0;   <b><code>LDAP_OPT_ERROR_STRING</code></b> <code>string</code> &#xA0;   <b><code>LDAP_OPT_MATCHED_DN</code></b> <code>string</code> &#xA0;   <b><code>LDAP_OPT_SERVER_CONTROLS</code></b> <code>array</code> &#xA0;   <b><code>LDAP_OPT_CLIENT_CONTROLS</code></b> <code>array</code> &#xA0;   <b><code>LDAP_OPT_X_KEEPALIVE_IDLE</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_KEEPALIVE_PROBES</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_KEEPALIVE_INTERVAL</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_TLS_CACERTDIR</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_CACERTFILE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_CERTFILE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_CIPHER_SUITE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_CRLCHECK</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_TLS_CRL_NONE</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_TLS_CRL_PEER</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_TLS_CRL_ALL</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_TLS_CRLFILE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_DHFILE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_KEYFILE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_PACKAGE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_PROTOCOL_MIN</code></b> <code>int</code> 7.1   <b><code>LDAP_OPT_X_TLS_RANDOM_FILE</code></b> <code>string</code> 7.1   <b><code>LDAP_OPT_X_TLS_REQUIRE_CERT</code></b> <code>int</code> &#xA0;
 	 * @param array|string|int $value <p>This will be set to the option value.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ldap-get-option.php
@@ -424,7 +424,7 @@ namespace {
 
 	/**
 	 * Single-level search
-	 * <p>Performs the search for a specified <code>filter</code> on the directory with the scope <b><code>LDAP_SCOPE_ONELEVEL</code></b>.</p><p><b><code>LDAP_SCOPE_ONELEVEL</code></b> means that the search should only return information that is at the level immediately below the <code>base</code> given in the call. (Equivalent to typing "<b>ls</b>" and getting a list of files and folders in the current working directory.)</p>
+	 * <p>Performs the search for a specified <code>filter</code> on the directory with the scope <b><code>LDAP_SCOPE_ONELEVEL</code></b>.</p><p><b><code>LDAP_SCOPE_ONELEVEL</code></b> means that the search should only return information that is at the level immediately below the <code>base</code> given in the call. (Equivalent to typing "<b>ls</b>" and getting a list of files and folders in the current working directory.)</p><p>It is also possible to perform parallel searches. In this case, the first argument should be an array of <code>LDAP\Connection</code> instances, rather than a single one. If the searches should not all use the same base DN and filter, an array of base DNs and/or an array of filters can be passed as arguments instead. These arrays must be of the same size as the <code>LDAP\Connection</code> instances array, since the first entries of the arrays are used for one search, the second entries are used for another, and so on. When doing parallel searches an array of <code>LDAP\Result</code> instances is returned, except in case of error, when the return value will be <b><code>false</code></b>.</p>
 	 * @param \LDAP\Connection|array $ldap <p>An <code>LDAP\Connection</code> instance, returned by <code>ldap_connect()</code>.</p>
 	 * @param array|string $base <p>The base DN for the directory.</p>
 	 * @param array|string $filter
@@ -434,7 +434,7 @@ namespace {
 	 * @param int $timelimit <p>Sets the number of seconds how long is spend on the search. Setting this to 0 means no limit.</p> <p><b>Note</b>:</p><p>This parameter can NOT override server-side preset timelimit. You can set it lower though.</p>
 	 * @param int $deref <p>Specifies how aliases should be handled during the search. It can be one of the following:</p><ul> <li>  <b><code>LDAP_DEREF_NEVER</code></b> - (default) aliases are never dereferenced.  </li> <li>  <b><code>LDAP_DEREF_SEARCHING</code></b> - aliases should be dereferenced during the search but not when locating the base object of the search.  </li> <li>  <b><code>LDAP_DEREF_FINDING</code></b> - aliases should be dereferenced when locating the base object but not during the search.  </li> <li>  <b><code>LDAP_DEREF_ALWAYS</code></b> - aliases should be dereferenced always.  </li> </ul>
 	 * @param ?array $controls <p>Array of LDAP Controls to send with the request.</p>
-	 * @return LDAP\Result|array|false <p>Returns an <code>LDAP\Result</code> instance, or <b><code>false</code></b> on failure.</p>
+	 * @return LDAP\Result|array|false <p>Returns an <code>LDAP\Result</code> instance, an array of <code>LDAP\Result</code> instances, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ldap-list.php
 	 * @see ldap_search()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -630,7 +630,7 @@ namespace {
 
 	/**
 	 * Read an entry
-	 * <p>Performs the search for a specified <code>filter</code> on the directory with the scope <b><code>LDAP_SCOPE_BASE</code></b>. So it is equivalent to reading an entry from the directory.</p>
+	 * <p>Performs the search for a specified <code>filter</code> on the directory with the scope <b><code>LDAP_SCOPE_BASE</code></b>. So it is equivalent to reading an entry from the directory.</p><p>It is also possible to perform parallel searches. In this case, the first argument should be an array of <code>LDAP\Connection</code> instances, rather than a single one. If the searches should not all use the same base DN and filter, an array of base DNs and/or an array of filters can be passed as arguments instead. These arrays must be of the same size as the <code>LDAP\Connection</code> instances array, since the first entries of the arrays are used for one search, the second entries are used for another, and so on. When doing parallel searches an array of <code>LDAP\Result</code> instances is returned, except in case of error, when the return value will be <b><code>false</code></b>.</p>
 	 * @param \LDAP\Connection|array $ldap <p>An <code>LDAP\Connection</code> instance, returned by <code>ldap_connect()</code>.</p>
 	 * @param array|string $base <p>The base DN for the directory.</p>
 	 * @param array|string $filter <p>An empty filter is not allowed. If you want to retrieve absolutely all information for this entry, use a filter of <code>objectClass=&#42;</code>. If you know which entry types are used on the directory server, you might use an appropriate filter such as <code>objectClass=inetOrgPerson</code>.</p>
@@ -640,7 +640,7 @@ namespace {
 	 * @param int $timelimit <p>Sets the number of seconds how long is spend on the search. Setting this to 0 means no limit.</p> <p><b>Note</b>:</p><p>This parameter can NOT override server-side preset timelimit. You can set it lower though.</p>
 	 * @param int $deref <p>Specifies how aliases should be handled during the search. It can be one of the following:</p><ul> <li>  <b><code>LDAP_DEREF_NEVER</code></b> - (default) aliases are never dereferenced.  </li> <li>  <b><code>LDAP_DEREF_SEARCHING</code></b> - aliases should be dereferenced during the search but not when locating the base object of the search.  </li> <li>  <b><code>LDAP_DEREF_FINDING</code></b> - aliases should be dereferenced when locating the base object but not during the search.  </li> <li>  <b><code>LDAP_DEREF_ALWAYS</code></b> - aliases should be dereferenced always.  </li> </ul>
 	 * @param ?array $controls <p>Array of LDAP Controls to send with the request.</p>
-	 * @return LDAP\Result|array|false <p>Returns an <code>LDAP\Result</code> instance, or <b><code>false</code></b> on failure.</p>
+	 * @return LDAP\Result|array|false <p>Returns an <code>LDAP\Result</code> instance, an array of <code>LDAP\Result</code> instances, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ldap-read.php
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
@@ -697,17 +697,17 @@ namespace {
 
 	/**
 	 * Search LDAP tree
-	 * <p>Performs the search for a specified filter on the directory with the scope of <b><code>LDAP_SCOPE_SUBTREE</code></b>. This is equivalent to searching the entire directory.</p><p>From 4.0.5 on it's also possible to do parallel searches. To do this you use an array of link identifiers, rather than a single identifier, as the first argument. If you don't want the same base DN and the same filter for all the searches, you can also use an array of base DNs and/or an array of filters. Those arrays must be of the same size as the link identifier array since the first entries of the arrays are used for one search, the second entries are used for another, and so on. When doing parallel searches an array of search result identifiers is returned, except in case of error, then the entry corresponding to the search will be <b><code>false</code></b>. This is very much like the value normally returned, except that a result identifier is always returned when a search was made. There are some rare cases where the normal search returns <b><code>false</code></b> while the parallel search returns an identifier.</p>
+	 * <p>Performs the search for a specified filter on the directory with the scope of <b><code>LDAP_SCOPE_SUBTREE</code></b>. This is equivalent to searching the entire directory.</p><p>It is also possible to perform parallel searches. In this case, the first argument should be an array of <code>LDAP\Connection</code> instances, rather than a single one. If the searches should not all use the same base DN and filter, an array of base DNs and/or an array of filters can be passed as arguments instead. These arrays must be of the same size as the <code>LDAP\Connection</code> instances array, since the first entries of the arrays are used for one search, the second entries are used for another, and so on. When doing parallel searches an array of <code>LDAP\Result</code> instances is returned, except in case of error, when the return value will be <b><code>false</code></b>.</p>
 	 * @param \LDAP\Connection|array $ldap <p>An <code>LDAP\Connection</code> instance, returned by <code>ldap_connect()</code>.</p>
 	 * @param array|string $base <p>The base DN for the directory.</p>
-	 * @param array|string $filter <p>The search filter can be simple or advanced, using boolean operators in the format described in the LDAP documentation (see the Netscape Directory SDK or RFC4515 for full information on filters).</p>
+	 * @param array|string $filter <p>The search filter can be simple or advanced, using boolean operators in the format described in the LDAP documentation (see the &#xBB;&#xA0;Netscape Directory SDK or &#xBB;&#xA0;RFC4515 for full information on filters).</p>
 	 * @param array $attributes <p>An array of the required attributes, e.g. <code>array("mail", "sn", "cn")</code>. Note that the "dn" is always returned irrespective of which attributes types are requested.</p> <p>Using this parameter is much more efficient than the default action (which is to return all attributes and their associated values). The use of this parameter should therefore be considered good practice.</p>
 	 * @param int $attributes_only <p>Should be set to 1 if only attribute types are wanted. If set to 0 both attributes types and attribute values are fetched which is the default behaviour.</p>
 	 * @param int $sizelimit <p>Enables you to limit the count of entries fetched. Setting this to 0 means no limit.</p> <p><b>Note</b>:</p><p>This parameter can NOT override server-side preset sizelimit. You can set it lower though.</p> <p>Some directory server hosts will be configured to return no more than a preset number of entries. If this occurs, the server will indicate that it has only returned a partial results set. This also occurs if you use this parameter to limit the count of fetched entries.</p>
 	 * @param int $timelimit <p>Sets the number of seconds how long is spend on the search. Setting this to 0 means no limit.</p> <p><b>Note</b>:</p><p>This parameter can NOT override server-side preset timelimit. You can set it lower though.</p>
 	 * @param int $deref <p>Specifies how aliases should be handled during the search. It can be one of the following:</p><ul> <li>  <b><code>LDAP_DEREF_NEVER</code></b> - (default) aliases are never dereferenced.  </li> <li>  <b><code>LDAP_DEREF_SEARCHING</code></b> - aliases should be dereferenced during the search but not when locating the base object of the search.  </li> <li>  <b><code>LDAP_DEREF_FINDING</code></b> - aliases should be dereferenced when locating the base object but not during the search.  </li> <li>  <b><code>LDAP_DEREF_ALWAYS</code></b> - aliases should be dereferenced always.  </li> </ul>
 	 * @param ?array $controls <p>Array of LDAP Controls to send with the request.</p>
-	 * @return LDAP\Result|array|false <p>Returns an <code>LDAP\Result</code> instance, or <b><code>false</code></b> on failure.</p>
+	 * @return LDAP\Result|array|false <p>Returns an <code>LDAP\Result</code> instance, an array of <code>LDAP\Result</code> instances, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ldap-search.php
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
@@ -716,8 +716,8 @@ namespace {
 	/**
 	 * Set the value of the given option
 	 * <p>Sets the value of the specified option to be <code>value</code>.</p>
-	 * @param ?\LDAP\Connection $ldap <p>An <code>LDAP\Connection</code> instance, returned by <code>ldap_connect()</code>.</p>
-	 * @param int $option <p>The parameter <code>option</code> can be one of:</p>   Option Type Available since     <b><code>LDAP_OPT_DEREF</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_SIZELIMIT</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_TIMELIMIT</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_NETWORK_TIMEOUT</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_PROTOCOL_VERSION</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_ERROR_NUMBER</code></b> <code>int</code> &nbsp;   <b><code>LDAP_OPT_REFERRALS</code></b> <code>bool</code> &nbsp;   <b><code>LDAP_OPT_RESTART</code></b> <code>bool</code> &nbsp;   <b><code>LDAP_OPT_HOST_NAME</code></b> <code>string</code> &nbsp;   <b><code>LDAP_OPT_ERROR_STRING</code></b> <code>string</code> &nbsp;   <b><code>LDAP_OPT_DIAGNOSTIC_MESSAGE</code></b> <code>string</code> &nbsp;   <b><code>LDAP_OPT_MATCHED_DN</code></b> <code>string</code> &nbsp;   <b><code>LDAP_OPT_SERVER_CONTROLS</code></b> <code>array</code> &nbsp;   <b><code>LDAP_OPT_CLIENT_CONTROLS</code></b> <code>array</code> &nbsp;   <b><code>LDAP_OPT_X_KEEPALIVE_IDLE</code></b> <code>int</code> PHP 7.1.0   <b><code>LDAP_OPT_X_KEEPALIVE_PROBES</code></b> <code>int</code> PHP 7.1.0   <b><code>LDAP_OPT_X_KEEPALIVE_INTERVAL</code></b> <code>int</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_CACERTDIR</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_CACERTFILE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_CERTFILE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_CIPHER_SUITE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_CRLCHECK</code></b> <code>int</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_CRLFILE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_DHFILE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_KEYFILE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_PROTOCOL_MIN</code></b> <code>int</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_RANDOM_FILE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_REQUIRE_CERT</code></b> <code>int</code> PHP 7.0.5    <p><b><code>LDAP_OPT_SERVER_CONTROLS</code></b> and <b><code>LDAP_OPT_CLIENT_CONTROLS</code></b> require a list of controls, this means that the value must be an array of controls. A control consists of an <i>oid</i> identifying the control, an optional <i>value</i>, and an optional flag for <i>criticality</i>. In PHP a control is given by an array containing an element with the key <i>oid</i> and string value, and two optional elements. The optional elements are key <i>value</i> with string value and key <i>iscritical</i> with boolean value. <i>iscritical</i> defaults to <i><b><code>false</code></b></i> if not supplied. See draft-ietf-ldapext-ldap-c-api-xx.txt for details. See also the second example below.</p>
+	 * @param ?\LDAP\Connection $ldap <p>Either an <code>LDAP\Connection</code> instance, returned by <code>ldap_connect()</code>, to set the option for that connection, or <b><code>null</code></b> to set the option globally.</p>
+	 * @param int $option <p>The parameter <code>option</code> can be one of:</p>   Option Type Available since     <b><code>LDAP_OPT_DEREF</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_SIZELIMIT</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_TIMELIMIT</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_NETWORK_TIMEOUT</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_PROTOCOL_VERSION</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_ERROR_NUMBER</code></b> <code>int</code> &#xA0;   <b><code>LDAP_OPT_REFERRALS</code></b> <code>bool</code> &#xA0;   <b><code>LDAP_OPT_RESTART</code></b> <code>bool</code> &#xA0;   <b><code>LDAP_OPT_HOST_NAME</code></b> <code>string</code> &#xA0;   <b><code>LDAP_OPT_ERROR_STRING</code></b> <code>string</code> &#xA0;   <b><code>LDAP_OPT_DIAGNOSTIC_MESSAGE</code></b> <code>string</code> &#xA0;   <b><code>LDAP_OPT_MATCHED_DN</code></b> <code>string</code> &#xA0;   <b><code>LDAP_OPT_SERVER_CONTROLS</code></b> <code>array</code> &#xA0;   <b><code>LDAP_OPT_CLIENT_CONTROLS</code></b> <code>array</code> &#xA0;   <b><code>LDAP_OPT_X_KEEPALIVE_IDLE</code></b> <code>int</code> PHP 7.1.0   <b><code>LDAP_OPT_X_KEEPALIVE_PROBES</code></b> <code>int</code> PHP 7.1.0   <b><code>LDAP_OPT_X_KEEPALIVE_INTERVAL</code></b> <code>int</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_CACERTDIR</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_CACERTFILE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_CERTFILE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_CIPHER_SUITE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_CRLCHECK</code></b> <code>int</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_CRLFILE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_DHFILE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_KEYFILE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_PROTOCOL_MIN</code></b> <code>int</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_RANDOM_FILE</code></b> <code>string</code> PHP 7.1.0   <b><code>LDAP_OPT_X_TLS_REQUIRE_CERT</code></b> <code>int</code> PHP 7.0.5    <p><b><code>LDAP_OPT_SERVER_CONTROLS</code></b> and <b><code>LDAP_OPT_CLIENT_CONTROLS</code></b> require a list of controls, this means that the value must be an array of controls. A control consists of an <i>oid</i> identifying the control, an optional <i>value</i>, and an optional flag for <i>criticality</i>. In PHP a control is given by an array containing an element with the key <i>oid</i> and string value, and two optional elements. The optional elements are key <i>value</i> with string value and key <i>iscritical</i> with boolean value. <i>iscritical</i> defaults to <i><b><code>false</code></b></i> if not supplied. See &#xBB;&#xA0;draft-ietf-ldapext-ldap-c-api-xx.txt for details. See also the second example below.</p>
 	 * @param array|string|int|bool $value <p>The new value for the specified <code>option</code>.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ldap-set-option.php
@@ -796,32 +796,32 @@ namespace {
 	define('GSLC_SSL_TWOWAY_AUTH', null);
 
 	/**
-	 * Control Constant - Assertion (RFC 4528). Available as of PHP 7.3.0.
+	 * Control Constant - Assertion (&#xBB;&#xA0;RFC 4528). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_ASSERT', null);
 
 	/**
-	 * Control Constant - Authorization Identity Request (RFC 3829). Available as of PHP 7.3.0.
+	 * Control Constant - Authorization Identity Request (&#xBB;&#xA0;RFC 3829). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_AUTHZID_REQUEST', null);
 
 	/**
-	 * Control Constant - Authorization Identity Response (RFC 3829). Available as of PHP 7.3.0.
+	 * Control Constant - Authorization Identity Response (&#xBB;&#xA0;RFC 3829). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_AUTHZID_RESPONSE', null);
 
 	/**
-	 * Control Constant - Don't Use Copy (RFC 6171). Available as of PHP 7.3.0.
+	 * Control Constant - Don't Use Copy (&#xBB;&#xA0;RFC 6171). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_DONTUSECOPY', null);
 
 	/**
-	 * Control Constant - Manage DSA IT (RFC 3296). Available as of PHP 7.3.0.
+	 * Control Constant - Manage DSA IT (&#xBB;&#xA0;RFC 3296). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_MANAGEDSAIT', null);
 
 	/**
-	 * Control Constant - Paged results (RFC 2696). Available as of PHP 7.3.0.
+	 * Control Constant - Paged results (&#xBB;&#xA0;RFC 2696). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_PAGEDRESULTS', null);
 
@@ -836,52 +836,52 @@ namespace {
 	define('LDAP_CONTROL_PASSWORDPOLICYRESPONSE', null);
 
 	/**
-	 * Control Constant - Post read (RFC 4527). Available as of PHP 7.3.0.
+	 * Control Constant - Post read (&#xBB;&#xA0;RFC 4527). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_POST_READ', null);
 
 	/**
-	 * Control Constant - Pre read (RFC 4527). Available as of PHP 7.3.0.
+	 * Control Constant - Pre read (&#xBB;&#xA0;RFC 4527). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_PRE_READ', null);
 
 	/**
-	 * Control Constant - Proxied Authorization (RFC 4370). Available as of PHP 7.3.0.
+	 * Control Constant - Proxied Authorization (&#xBB;&#xA0;RFC 4370). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_PROXY_AUTHZ', null);
 
 	/**
-	 * Control Constant - Sort request (RFC 2891). Available as of PHP 7.3.0.
+	 * Control Constant - Sort request (&#xBB;&#xA0;RFC 2891). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_SORTREQUEST', null);
 
 	/**
-	 * Control Constant - Sort response (RFC 2891). Available as of PHP 7.3.0.
+	 * Control Constant - Sort response (&#xBB;&#xA0;RFC 2891). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_SORTRESPONSE', null);
 
 	/**
-	 * Control Constant - Subentries (RFC 3672). Available as of PHP 7.3.0.
+	 * Control Constant - Subentries (&#xBB;&#xA0;RFC 3672). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_SUBENTRIES', null);
 
 	/**
-	 * Control Constant - Content Synchronization Operation (RFC 4533). Available as of PHP 7.3.0.
+	 * Control Constant - Content Synchronization Operation (&#xBB;&#xA0;RFC 4533). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_SYNC', null);
 
 	/**
-	 * Control Constant - Content Synchronization Operation Done (RFC 4533). Available as of PHP 7.3.0.
+	 * Control Constant - Content Synchronization Operation Done (&#xBB;&#xA0;RFC 4533). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_SYNC_DONE', null);
 
 	/**
-	 * Control Constant - Content Synchronization Operation State (RFC 4533). Available as of PHP 7.3.0.
+	 * Control Constant - Content Synchronization Operation State (&#xBB;&#xA0;RFC 4533). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_SYNC_STATE', null);
 
 	/**
-	 * Control Constant - Filter returned values (RFC 3876). Available as of PHP 7.3.0.
+	 * Control Constant - Filter returned values (&#xBB;&#xA0;RFC 3876). Available as of PHP 7.3.0.
 	 */
 	define('LDAP_CONTROL_VALUESRETURNFILTER', null);
 
@@ -946,27 +946,27 @@ namespace {
 	define('LDAP_DEREF_SEARCHING', null);
 
 	/**
-	 * Extended Operation constant - Modify password (RFC 3062).
+	 * Extended Operation constant - Modify password (&#xBB;&#xA0;RFC 3062).
 	 */
 	define('LDAP_EXOP_MODIFY_PASSWD', null);
 
 	/**
-	 * Extended Operation Constant - Refresh (RFC 2589).
+	 * Extended Operation Constant - Refresh (&#xBB;&#xA0;RFC 2589).
 	 */
 	define('LDAP_EXOP_REFRESH', null);
 
 	/**
-	 * Extended Operation constant - Start TLS (RFC 4511).
+	 * Extended Operation constant - Start TLS (&#xBB;&#xA0;RFC 4511).
 	 */
 	define('LDAP_EXOP_START_TLS', null);
 
 	/**
-	 * Extended Operation Constant - Turn (RFC 4531).
+	 * Extended Operation Constant - Turn (&#xBB;&#xA0;RFC 4531).
 	 */
 	define('LDAP_EXOP_TURN', null);
 
 	/**
-	 * Extended Operation Constant - WHOAMI (RFC 4532).
+	 * Extended Operation Constant - WHOAMI (&#xBB;&#xA0;RFC 4532).
 	 */
 	define('LDAP_EXOP_WHO_AM_I', null);
 

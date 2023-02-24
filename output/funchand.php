@@ -8,7 +8,7 @@ namespace {
 	 * Call the callback given by the first parameter
 	 * <p>Calls the <code>callback</code> given by the first parameter and passes the remaining parameters as arguments.</p>
 	 * @param callable $callback <p>The <code>callable</code> to be called.</p>
-	 * @param mixed $args <p>Zero or more parameters to be passed to the callback.</p> <p><b>Note</b>:</p><p>Note that the parameters for <b>call_user_func()</b> are not passed by reference.</p> <p><b>Example #1 <b>call_user_func()</b> example and references</b></p>  <code> &lt;&#63;php<br>error_reporting(E_ALL);<br>function&nbsp;increment(&amp;$var)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;$var++;<br>}<br><br>$a&nbsp;=&nbsp;0;<br>call_user_func('increment',&nbsp;$a);<br>echo&nbsp;$a."\n";<br><br>//&nbsp;it&nbsp;is&nbsp;possible&nbsp;to&nbsp;use&nbsp;this&nbsp;instead<br>call_user_func_array('increment',&nbsp;array(&amp;$a));<br>echo&nbsp;$a."\n";<br><br>//&nbsp;it&nbsp;is&nbsp;also&nbsp;possible&nbsp;to&nbsp;use&nbsp;a&nbsp;variable&nbsp;function<br>$increment&nbsp;=&nbsp;'increment';<br>$increment($a);<br>echo&nbsp;$a."\n";<br>&#63;&gt;  </code>  <p>The above example will output:</p>  <pre> Warning: Parameter 1 to increment() expected to be a reference, value given in &hellip; 0 1 2 </pre>
+	 * @param mixed $args <p>Zero or more parameters to be passed to the callback.</p> <p><b>Note</b>:</p><p>Note that the parameters for <b>call_user_func()</b> are not passed by reference.</p> <p><b>Example #1 <b>call_user_func()</b> example and references</b></p>  <code> &lt;&#63;php<br>error_reporting(E_ALL);<br>function increment(&amp;$var)<br>{<br> $var++;<br>}<br><br>$a = 0;<br>call_user_func('increment', $a);<br>echo $a."\n";<br><br>// it is possible to use this instead<br>call_user_func_array('increment', array(&amp;$a));<br>echo $a."\n";<br><br>// it is also possible to use a variable function<br>$increment = 'increment';<br>$increment($a);<br>echo $a."\n";<br>&#63;&gt;  </code>  <p>The above example will output:</p>  <pre> Warning: Parameter 1 to increment() expected to be a reference, value given in &#x2026; 0 1 2 </pre>
 	 * @return mixed <p>Returns the return value of the callback.</p>
 	 * @link https://php.net/manual/en/function.call-user-func.php
 	 * @see call_user_func_array(), is_callable()
@@ -29,11 +29,11 @@ namespace {
 	function call_user_func_array(callable $callback, array $args): mixed {}
 
 	/**
-	 * Create an anonymous (lambda-style) function
-	 * <p>Creates an anonymous function from the parameters passed, and returns a unique name for it.</p><p>This function internally performs an <code>eval()</code> and as such has the same security issues as <code>eval()</code>. Additionally it has bad performance and memory usage characteristics.</p><p>A native anonymous function should be used instead.</p>
-	 * @param string $args <p>The function arguments.</p>
+	 * Create a function dynamically by evaluating a string of code
+	 * <p>Creates a function dynamically from the parameters passed, and returns a unique name for it.</p><p>This function internally performs an <code>eval()</code> and as such has the same security issues as <code>eval()</code>. It also has bad performance and memory usage characteristics, because the created functions are global and can not be freed.</p><p>A native anonymous function should be used instead.</p>
+	 * @param string $args <p>The function arguments, as a single comma-separated string.</p>
 	 * @param string $code <p>The function code.</p>
-	 * @return string <p>Returns a unique function name as a string, or <b><code>false</code></b> on error.</p>
+	 * @return string <p>Returns a unique function name as a string, or <b><code>false</code></b> on failure. Note that the name contains a non-printable character (<code>"\0"</code>), so care should be taken when printing the name or incorporating it in any other string.</p>
 	 * @link https://php.net/manual/en/function.create-function.php
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
@@ -118,15 +118,15 @@ namespace {
 
 	/**
 	 * Register a function for execution on shutdown
-	 * <p>Registers a <code>callback</code> to be executed after script execution finishes or <code>exit()</code> is called.</p><p>Multiple calls to <b>register_shutdown_function()</b> can be made, and each will be called in the same order as they were registered. If you call <code>exit()</code> within one registered shutdown function, processing will stop completely and no other registered shutdown functions will be called.</p>
+	 * <p>Registers a <code>callback</code> to be executed after script execution finishes or <code>exit()</code> is called.</p><p>Multiple calls to <b>register_shutdown_function()</b> can be made, and each will be called in the same order as they were registered. If you call <code>exit()</code> within one registered shutdown function, processing will stop completely and no other registered shutdown functions will be called.</p><p>Shutdown functions may also call <b>register_shutdown_function()</b> themselves to add a shutdown function to the end of the queue.</p>
 	 * @param callable $callback <p>The shutdown callback to register.</p> <p>The shutdown callbacks are executed as the part of the request, so it's possible to send output from them and access output buffers.</p>
 	 * @param mixed $args <p>It is possible to pass parameters to the shutdown function by passing additional parameters.</p>
-	 * @return ?bool <p>No value is returned.</p>
+	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.register-shutdown-function.php
-	 * @see exit()
+	 * @see exit(), fastcgi_finish_request()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function register_shutdown_function(callable $callback, mixed ...$args): ?bool {}
+	function register_shutdown_function(callable $callback, mixed ...$args): void {}
 
 	/**
 	 * Register a function for execution on each tick

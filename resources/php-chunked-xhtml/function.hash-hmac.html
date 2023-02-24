@@ -106,6 +106,16 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.hash-hmac-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> exception if
+   <code class="parameter">algo</code> is unknown or is a non-cryptographic hash
+   function.
+  </p>
+ </div>
+
+
  <div class="refsect1 changelog" id="refsect1-function.hash-hmac-changelog">
   <h3 class="title">Changelog</h3>
   <p class="para">
@@ -123,8 +133,8 @@
       <tr>
        <td>8.0.0</td>
        <td>
-        <span class="function"><strong>hash_hmac()</strong></span> now throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span>
-        exception if <code class="parameter">algo</code> is unknown or is a
+        Now throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> exception if
+        <code class="parameter">algo</code> is unknown or is a
         non-cryptographic hash function; previously, <strong><code>false</code></strong> was returned instead.
        </td>
       </tr>
@@ -145,11 +155,11 @@
  <div class="refsect1 examples" id="refsect1-function.hash-hmac-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-888">
+   <div class="example" id="example-904">
     <p><strong>Example #1 <span class="function"><strong>hash_hmac()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">hash_hmac</span><span style="color: #007700">(</span><span style="color: #DD0000">'ripemd160'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'The&nbsp;quick&nbsp;brown&nbsp;fox&nbsp;jumped&nbsp;over&nbsp;the&nbsp;lazy&nbsp;dog.'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">hash_hmac</span><span style="color: #007700">(</span><span style="color: #DD0000">'ripemd160'</span><span style="color: #007700">, </span><span style="color: #DD0000">'The quick brown fox jumped over the lazy dog.'</span><span style="color: #007700">, </span><span style="color: #DD0000">'secret'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

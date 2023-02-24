@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.snmpget" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">snmpget</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">snmpget</span> &mdash; <span class="dc-title">Fetch an <acronym title="Simple Network Management Protocol">SNMP</acronym> object</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">snmpget</span> &mdash; <span class="dc-title">Fetch an <abbr title="Simple Network Management Protocol">SNMP</abbr> object</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.snmpget-description">
@@ -37,7 +37,7 @@
 
   <p class="para rdfs-comment">
    The <span class="function"><strong>snmpget()</strong></span> function is used to read the
-   value of an <acronym title="Simple Network Management Protocol">SNMP</acronym> object specified by the
+   value of an <abbr title="Simple Network Management Protocol">SNMP</abbr> object specified by the
    <code class="parameter">object_id</code>.
   </p>
  </div>
@@ -54,7 +54,7 @@
      <dd>
 
       <p class="para">
-       The <acronym title="Simple Network Management Protocol">SNMP</acronym> agent.
+       The <abbr title="Simple Network Management Protocol">SNMP</abbr> agent.
       </p>
      </dd>
 
@@ -78,7 +78,7 @@
      <dd>
 
       <p class="para">
-       The <acronym title="Simple Network Management Protocol">SNMP</acronym> object.
+       The <abbr title="Simple Network Management Protocol">SNMP</abbr> object.
       </p>
      </dd>
 
@@ -116,7 +116,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.snmpget-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <acronym title="Simple Network Management Protocol">SNMP</acronym> object value on success or <strong><code>false</code></strong> on error.
+   Returns <abbr title="Simple Network Management Protocol">SNMP</abbr> object value on success or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -124,11 +124,11 @@
  <div class="refsect1 examples" id="refsect1-function.snmpget-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4491">
+   <div class="example" id="example-4570">
     <p><strong>Example #1 Using <span class="function"><strong>snmpget()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$syscontact&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">snmpget</span><span style="color: #007700">(</span><span style="color: #DD0000">"127.0.0.1"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"public"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"system.SysContact.0"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$syscontact </span><span style="color: #007700">= </span><span style="color: #0000BB">snmpget</span><span style="color: #007700">(</span><span style="color: #DD0000">"127.0.0.1"</span><span style="color: #007700">, </span><span style="color: #DD0000">"public"</span><span style="color: #007700">, </span><span style="color: #DD0000">"system.SysContact.0"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -30,13 +30,13 @@ namespace {
 		const FLAG_FORKCHECK = 33554432;
 
 		/**
-		 * @var int <p>When this flag is specified, <code>libev</code> won't attempt to use the <code>inotify</code> API for its ev_stat watchers. The flag can be useful to conserve inotify file descriptors, as otherwise each loop using <code>ev_stat</code> watchers consumes one <code>inotify</code> handle.</p>
+		 * @var int <p>When this flag is specified, <code>libev</code> won't attempt to use the <code>inotify</code> API for its &#xBB;&#xA0;ev_stat watchers. The flag can be useful to conserve inotify file descriptors, as otherwise each loop using <code>ev_stat</code> watchers consumes one <code>inotify</code> handle.</p>
 		 * @link https://php.net/manual/en/class.ev.php
 		 */
 		const FLAG_NOINOTIFY = 1048576;
 
 		/**
-		 * @var int <p>When this flag is specified, <code>libev</code> will attempt to use the <code>signalfd</code> API for its ev_signal (and ev_child ) watchers. This API delivers signals synchronously, which makes it both faster and might make it possible to get the queued signal data. It can also simplify signal handling with threads, as long as signals are properly blocked in threads. <code>Signalfd</code> will not be used by default.</p>
+		 * @var int <p>When this flag is specified, <code>libev</code> will attempt to use the <code>signalfd</code> API for its &#xBB;&#xA0;ev_signal (and &#xBB;&#xA0;ev_child ) watchers. This API delivers signals synchronously, which makes it both faster and might make it possible to get the queued signal data. It can also simplify signal handling with threads, as long as signals are properly blocked in threads. <code>Signalfd</code> will not be used by default.</p>
 		 * @link https://php.net/manual/en/class.ev.php
 		 */
 		const FLAG_SIGNALFD = 2097152;
@@ -162,7 +162,7 @@ namespace {
 		const CUSTOM = 16777216;
 
 		/**
-		 * @var int <p>An unspecified error has occurred, the watcher has been stopped. This might happen because the watcher could not be properly started because <code>libev</code> ran out of memory, a file descriptor was found to be closed or any other problem. <code>Libev</code> considers these application bugs. See also ANATOMY OF A WATCHER</p>
+		 * @var int <p>An unspecified error has occurred, the watcher has been stopped. This might happen because the watcher could not be properly started because <code>libev</code> ran out of memory, a file descriptor was found to be closed or any other problem. <code>Libev</code> considers these application bugs. See also &#xBB;&#xA0;ANATOMY OF A WATCHER</p>
 		 * @link https://php.net/manual/en/class.ev.php
 		 */
 		const ERROR = 2147483648;
@@ -378,7 +378,7 @@ namespace {
 	 * <p><code>EvPrepare</code> and <b>EvCheck</b> watchers are usually used in pairs. <code>EvPrepare</code> watchers get invoked before the process blocks, <b>EvCheck</b> afterwards.</p>
 	 * <p>It is not allowed to call <code>EvLoop::run()</code> or similar methods or functions that enter the current event loop from either <code>EvPrepare</code> or <b>EvCheck</b> watchers. Other loops than the current one are fine, however. The rationale behind this is that one don't need to check for recursion in those watchers, i.e. the sequence will always be: <code>EvPrepare</code> -&gt; blocking -&gt; <b>EvCheck</b> , so having a watcher of each kind they will always be called in pairs bracketing the blocking call.</p>
 	 * <p>The main purpose is to integrate other event mechanisms into <i>libev</i> and their use is somewhat advanced. They could be used, for example, to track variable changes, implement custom watchers, integrate net-snmp or a coroutine library and lots more. They are also occasionally useful to cache some data and want to flush it before blocking.</p>
-	 * <p>It is recommended to give <b>EvCheck</b> watchers highest( <b><code>Ev::MAXPRI</code></b> ) priority, to ensure that they are being run before any other watchers after the poll (this doesn&rsquo;t matter for <code>EvPrepare</code> watchers).</p>
+	 * <p>It is recommended to give <b>EvCheck</b> watchers highest( <b><code>Ev::MAXPRI</code></b> ) priority, to ensure that they are being run before any other watchers after the poll (this doesn&#x2019;t matter for <code>EvPrepare</code> watchers).</p>
 	 * <p>Also, <b>EvCheck</b> watchers should not activate/feed events. While <i>libev</i> fully supports this, they might get executed before other <b>EvCheck</b> watchers did their job.</p>
 	 * @link https://php.net/manual/en/class.evcheck.php
 	 * @since PECL ev >= 0.2.0
@@ -415,7 +415,7 @@ namespace {
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
-		 * @return self <p>Returns EvCheck object on success.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/evcheck.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -568,7 +568,7 @@ namespace {
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
-		 * @return self <p>Returns EvChild object on success.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/evchild.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -690,12 +690,12 @@ namespace {
 
 		/**
 		 * Constructs the EvEmbed object
-		 * <p>This is a rather advanced watcher type that lets to embed one event loop into another(currently only IO events are supported in the embedded loop, other types of watchers might be handled in a delayed or incorrect fashion and must not be used).</p><p>See the libev documentation for details.</p><p>This watcher is most useful on <i>BSD</i> systems without working <code>kqueue</code> to still be able to handle a large number of sockets. See example below.</p>
+		 * <p>This is a rather advanced watcher type that lets to embed one event loop into another(currently only IO events are supported in the embedded loop, other types of watchers might be handled in a delayed or incorrect fashion and must not be used).</p><p>See &#xBB;&#xA0;the libev documentation for details.</p><p>This watcher is most useful on <i>BSD</i> systems without working <code>kqueue</code> to still be able to handle a large number of sockets. See example below.</p>
 		 * @param object $other <p>Instance of <code>EvLoop</code> . The loop to embed, this loop must be embeddable(see <code>Ev::embeddableBackends()</code> ).</p>
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
-		 * @return self <p>Returns EvEmbed object on success.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/evembed.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -847,7 +847,7 @@ namespace {
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
-		 * @return self <p>Returns EvFork object on success.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/evfork.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -982,7 +982,7 @@ namespace {
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
-		 * @return self <p>Returns EvIdle object on success.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/evidle.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -1132,7 +1132,7 @@ namespace {
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
-		 * @return self <p>Returns EvIo object on success.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/evio.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -1280,13 +1280,13 @@ namespace {
 		public $pending;
 
 		/**
-		 * @var mixed <p>Higher io_interval allows <i>libev</i> to spend more time collecting <code>EvIo</code> events, so more events can be handled per iteration, at the cost of increasing latency. Timeouts (both <code>EvPeriodic</code> and <code>EvTimer</code> ) will not be affected. Setting this to a non-zero value will introduce an additional <code>sleep()</code> call into most loop iterations. The sleep time ensures that <i>libev</i> will not poll for <code>EvIo</code> events more often than once per this interval, on average. Many programs can usually benefit by setting the io_interval to a value near <b><code>0.1</code></b> , which is often enough for interactive servers(not for games). It usually doesn't make much sense to set it to a lower value than <b><code>0.01</code></b> , as this approaches the timing granularity of most systems.</p> <p>See also FUNCTIONS CONTROLLING EVENT LOOPS .</p>
+		 * @var mixed <p>Higher io_interval allows <i>libev</i> to spend more time collecting <code>EvIo</code> events, so more events can be handled per iteration, at the cost of increasing latency. Timeouts (both <code>EvPeriodic</code> and <code>EvTimer</code> ) will not be affected. Setting this to a non-zero value will introduce an additional <code>sleep()</code> call into most loop iterations. The sleep time ensures that <i>libev</i> will not poll for <code>EvIo</code> events more often than once per this interval, on average. Many programs can usually benefit by setting the io_interval to a value near <b><code>0.1</code></b> , which is often enough for interactive servers(not for games). It usually doesn't make much sense to set it to a lower value than <b><code>0.01</code></b> , as this approaches the timing granularity of most systems.</p> <p>See also &#xBB;&#xA0;FUNCTIONS CONTROLLING EVENT LOOPS .</p>
 		 * @link https://php.net/manual/en/class.evloop.php#evloop.props.io-interval
 		 */
 		public $io_interval;
 
 		/**
-		 * @var mixed <p>Higher timeout_interval allows <i>libev</i> to spend more time collecting timeouts, at the expense of increased latency/jitter/inexactness(the watcher callback will be called later). <code>EvIo</code> watchers will not be affected. Setting this to a non-null value will not introduce any overhead in <i>libev</i> . See also FUNCTIONS CONTROLLING EVENT LOOPS .</p>
+		 * @var mixed <p>Higher timeout_interval allows <i>libev</i> to spend more time collecting timeouts, at the expense of increased latency/jitter/inexactness(the watcher callback will be called later). <code>EvIo</code> watchers will not be affected. Setting this to a non-null value will not introduce any overhead in <i>libev</i> . See also &#xBB;&#xA0;FUNCTIONS CONTROLLING EVENT LOOPS .</p>
 		 * @link https://php.net/manual/en/class.evloop.php#evloop.props.timeout-interval
 		 */
 		public $timeout_interval;
@@ -1304,7 +1304,7 @@ namespace {
 		 * @param mixed $data <p>Custom data associated with the loop.</p>
 		 * @param float $io_interval <p>See io_interval</p>
 		 * @param float $timeout_interval <p>See timeout_interval</p>
-		 * @return self <p>Returns new EvLoop object.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/evloop.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -1420,7 +1420,7 @@ namespace {
 
 		/**
 		 * Must be called after a fork
-		 * <p>Must be called after a <i>fork</i> in the child, before entering or continuing the event loop. An alternative is to use <b><code>Ev::FLAG_FORKCHECK</code></b> which calls this function automatically, at some performance loss (refer to the libev documentation ).</p>
+		 * <p>Must be called after a <i>fork</i> in the child, before entering or continuing the event loop. An alternative is to use <b><code>Ev::FLAG_FORKCHECK</code></b> which calls this function automatically, at some performance loss (refer to the &#xBB;&#xA0;libev documentation ).</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/evloop.loopfork.php
 		 * @since PECL ev >= 0.2.0
@@ -1615,7 +1615,7 @@ namespace {
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
-		 * @return self <p>Returns EvPeriodic object on success.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/evperiodic.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -1746,7 +1746,7 @@ namespace {
 	 * <p><b>EvPrepare</b> and <code>EvCheck</code> watchers are usually used in pairs. <b>EvPrepare</b> watchers get invoked before the process blocks, <code>EvCheck</code> afterwards.</p>
 	 * <p>It is not allowed to call <code>EvLoop::run()</code> or similar methods or functions that enter the current event loop from either <b>EvPrepare</b> or <code>EvCheck</code> watchers. Other loops than the current one are fine, however. The rationale behind this is that one don't need to check for recursion in those watchers, i.e. the sequence will always be: <b>EvPrepare</b> -&gt; blocking -&gt; <code>EvCheck</code> , so having a watcher of each kind they will always be called in pairs bracketing the blocking call.</p>
 	 * <p>The main purpose is to integrate other event mechanisms into <i>libev</i> and their use is somewhat advanced. They could be used, for example, to track variable changes, implement custom watchers, integrate net-snmp or a coroutine library and lots more. They are also occasionally useful to cache some data and want to flush it before blocking.</p>
-	 * <p>It is recommended to give <code>EvCheck</code> watchers highest( <b><code>Ev::MAXPRI</code></b> ) priority, to ensure that they are being run before any other watchers after the poll (this doesn&rsquo;t matter for <b>EvPrepare</b> watchers).</p>
+	 * <p>It is recommended to give <code>EvCheck</code> watchers highest( <b><code>Ev::MAXPRI</code></b> ) priority, to ensure that they are being run before any other watchers after the poll (this doesn&#x2019;t matter for <b>EvPrepare</b> watchers).</p>
 	 * <p>Also, <code>EvCheck</code> watchers should not activate/feed events. While <i>libev</i> fully supports this, they might get executed before other <code>EvCheck</code> watchers did their job.</p>
 	 * @link https://php.net/manual/en/class.evprepare.php
 	 * @since PECL ev >= 0.2.0
@@ -1783,7 +1783,7 @@ namespace {
 		 * @param string $callback <p>See Watcher callbacks .</p>
 		 * @param string $data <p>Custom data associated with the watcher.</p>
 		 * @param string $priority <p>Watcher priority</p>
-		 * @return self <p>Returns EvPrepare object on success.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/evprepare.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -1924,7 +1924,7 @@ namespace {
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
-		 * @return self <p>Returns EvSignal object on success.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/evsignal.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -2034,7 +2034,7 @@ namespace {
 	 * <p><b>EvStat</b> monitors a file system path for attribute changes. It calls <i>stat()</i> on that path in regular intervals(or when the OS signals it changed) and sees if it changed compared to the last time, invoking the callback if it did.</p>
 	 * <p>The path does not need to exist: changing from "path exists" to "path does not exist" is a status change like any other. The condition "path does not exist" is signified by the <b><code>'nlink'</code></b> item being 0(returned by <code>EvStat::attr()</code> method).</p>
 	 * <p>The path must not end in a slash or contain special components such as <b><code>'.'</code></b> or <b><code>..</code></b> . The path should be absolute: if it is relative and the working directory changes, then the behaviour is undefined.</p>
-	 * <p>Since there is no portable change notification interface available, the portable implementation simply calls <i>stat()</i> regularly on the path to see if it changed somehow. For this case a recommended polling interval can be specified. If one specifies a polling interval of <b><code>0.0 </code></b> (highly recommended) then a suitable, unspecified default value will be used(which could be expected to be around 5 seconds, although this might change dynamically). <i>libev</i> will also impose a minimum interval which is currently around <b><code>0.1</code></b> , but that&rsquo;s usually overkill.</p>
+	 * <p>Since there is no portable change notification interface available, the portable implementation simply calls <i>stat()</i> regularly on the path to see if it changed somehow. For this case a recommended polling interval can be specified. If one specifies a polling interval of <b><code>0.0 </code></b> (highly recommended) then a suitable, unspecified default value will be used(which could be expected to be around 5 seconds, although this might change dynamically). <i>libev</i> will also impose a minimum interval which is currently around <b><code>0.1</code></b> , but that&#x2019;s usually overkill.</p>
 	 * <p>This watcher type is not meant for massive numbers of <b>EvStat</b> watchers, as even with OS-supported change notifications, this can be resource-intensive.</p>
 	 * @link https://php.net/manual/en/class.evstat.php
 	 * @since PECL ev >= 0.2.0
@@ -2085,7 +2085,7 @@ namespace {
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
-		 * @return self <p>Returns EvStat watcher object on succes.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/evstat.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -2274,7 +2274,7 @@ namespace {
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
-		 * @return self <p>Returns EvTimer object on success.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/evtimer.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */

@@ -39,7 +39,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">$param</span><span style="color: #007700">){}<br /></span><span style="color: #0000BB">test</span><span style="color: #007700">();</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">$param</span><span style="color: #007700">){}<br /></span><span style="color: #0000BB">test</span><span style="color: #007700">();</span>
 </span>
 </code></div>
    </div>
@@ -115,7 +115,7 @@ Fatal error: Uncaught ArgumentCountError: Too few arguments to function test(), 
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">(function&nbsp;()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$func&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'func_num_args'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$func</span><span style="color: #007700">();<br />})();</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">(function () {<br />    </span><span style="color: #0000BB">$func </span><span style="color: #007700">= </span><span style="color: #DD0000">'func_num_args'</span><span style="color: #007700">;<br />    </span><span style="color: #0000BB">$func</span><span style="color: #007700">();<br />})();</span>
 </span>
 </code></div>
    </div>
@@ -164,10 +164,10 @@ Warning: Cannot call func_num_args() dynamically in %s on line %d
   <p class="para">
    <span class="function"><a href="function.mt-rand.html" class="function">mt_rand()</a></span> will now default to using the fixed version of
    the Mersenne Twister algorithm. If deterministic output from
-   <span class="function"><a href="function.mt-srand.html" class="function">mt_srand()</a></span> was relied upon, then the
-   <strong><code>MT_RAND_PHP</code></strong> with the ability to preserve the old
-   (incorrect) implementation via an additional optional second parameter to
-   <span class="function"><a href="function.mt-srand.html" class="function">mt_srand()</a></span>.
+   <span class="function"><a href="function.mt-rand.html" class="function">mt_rand()</a></span> was relied upon, then
+   <strong><code>MT_RAND_PHP</code></strong> can be used as optional second parameter
+   to <span class="function"><a href="function.mt-srand.html" class="function">mt_srand()</a></span> to preserve the old (incorrect)
+   implementation.
   </p>
  </div>
 
@@ -261,7 +261,7 @@ Warning: Cannot call func_num_args() dynamically in %s on line %d
    <div class="informalexample">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #0000BB">10</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= </span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #0000BB">10</span><span style="color: #007700">] = </span><span style="color: #DD0000">'foo'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -331,7 +331,7 @@ string(11) &quot;          f&quot;
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$array&nbsp;</span><span style="color: #007700">=&nbsp;[];<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #DD0000">"a"</span><span style="color: #007700">]&nbsp;=&amp;&nbsp;</span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #DD0000">"b"</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #DD0000">"b"</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$array </span><span style="color: #007700">= [];<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #DD0000">"a"</span><span style="color: #007700">] =&amp; </span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #DD0000">"b"</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #DD0000">"b"</span><span style="color: #007700">] = </span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -404,7 +404,7 @@ array(2) {
    <div class="informalexample">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">()&nbsp;==&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">() == new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -555,7 +555,7 @@ array(2) {
    <div class="informalexample">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$f&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;()&nbsp;use&nbsp;(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">)&nbsp;{};<br /></span><span style="color: #0000BB">$f&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;()&nbsp;use&nbsp;(</span><span style="color: #0000BB">$this</span><span style="color: #007700">)&nbsp;{};<br /></span><span style="color: #0000BB">$f&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;(</span><span style="color: #0000BB">$param</span><span style="color: #007700">)&nbsp;use&nbsp;(</span><span style="color: #0000BB">$param</span><span style="color: #007700">)&nbsp;{};</span>
+<span style="color: #0000BB">&lt;?php<br />$f </span><span style="color: #007700">= function () use (</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">) {};<br /></span><span style="color: #0000BB">$f </span><span style="color: #007700">= function () use (</span><span style="color: #0000BB">$this</span><span style="color: #007700">) {};<br /></span><span style="color: #0000BB">$f </span><span style="color: #007700">= function (</span><span style="color: #0000BB">$param</span><span style="color: #007700">) use (</span><span style="color: #0000BB">$param</span><span style="color: #007700">) {};</span>
 </span>
 </code></div>
     </div>
@@ -576,7 +576,7 @@ array(2) {
   <h3 class="title">JSON encoding and decoding</h3>
   <p class="para">
    The <code class="parameter">serialize_precision</code> ini setting now controls the
-   serialization precision when encoding doubles.
+   serialization precision when encoding <span class="type">float</span>s.
   </p>
   <p class="para">
    Decoding an empty key now results in an empty property name, rather than 
@@ -585,7 +585,7 @@ array(2) {
    <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">json_decode</span><span style="color: #007700">(</span><span style="color: #0000BB">json_encode</span><span style="color: #007700">([</span><span style="color: #DD0000">''&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">])));</span>
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">json_decode</span><span style="color: #007700">(</span><span style="color: #0000BB">json_encode</span><span style="color: #007700">([</span><span style="color: #DD0000">'' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">])));</span>
 </span>
 </code></div>
    </div>

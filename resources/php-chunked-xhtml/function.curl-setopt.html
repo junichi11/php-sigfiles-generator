@@ -602,6 +602,19 @@
           </tr>
 
           <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SAFE_UPLOAD</code></strong></td>
+           <td style="vertical-align: top;">
+            Always <strong><code>true</code></strong>, what disables support for the <code class="literal">@</code> prefix for
+            uploading files in <strong><code>CURLOPT_POSTFIELDS</code></strong>, which
+            means that values starting with <code class="literal">@</code> can be safely
+            passed as fields. <span class="classname"><a href="class.curlfile.html" class="classname">CURLFile</a></span> may be used for
+            uploads instead.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SUPPRESS_CONNECT_HEADERS</code></strong></td>
            <td style="vertical-align: top;">
             <strong><code>true</code></strong> to suppress proxy CONNECT response headers from the user callback functions 
@@ -895,9 +908,8 @@
            <td style="vertical-align: top;"><strong><code>CURLOPT_MAXCONNECTS</code></strong></td>
            <td style="vertical-align: top;">
             The maximum amount of persistent connections that are allowed.
-            When the limit is reached,
-            <strong><code>CURLOPT_CLOSEPOLICY</code></strong> is used to determine
-            which connection to close.
+            When the limit is reached, the oldest one in the cache is closed
+            to prevent increasing the number of open connections.
            </td>
            <td style="vertical-align: top;">
            </td>
@@ -1734,7 +1746,8 @@
             The proxy authentication service name.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.34.0. Available since PHP 7.0.7.
+            Added in cURL 7.43.0 for HTTP proxies, and in cURL 7.49.0 for SOCKS5 proxies.
+            Available since PHP 7.0.7.
            </td>
           </tr>
 
@@ -1915,7 +1928,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_PROXY_TLSAUTH_USERNAME</code></strong></td>
            <td style="vertical-align: top;">
-            Tusername to use for the HTTPS proxy TLS authentication method specified with the 
+            The username to use for the HTTPS proxy TLS authentication method specified with the
             <strong><code>CURLOPT_PROXY_TLSAUTH_TYPE</code></strong> option. Requires that the
             <strong><code>CURLOPT_PROXY_TLSAUTH_PASSWORD</code></strong> option to also be set.
            </td>
@@ -2366,6 +2379,7 @@
           <tr>
            <th>Option</th>
            <th>Set <code class="parameter">value</code> to</th>
+           <th>Notes</th>
           </tr>
 
          </thead>
@@ -2380,6 +2394,7 @@
             be written by this callback. Return the number of 
             bytes written.
            </td>
+           <td class="empty">&nbsp;</td>
           </tr>
 
           <tr>
@@ -2390,6 +2405,7 @@
             string containing a password prompt, and the third is the maximum
             password length. Return the string containing the password.
            </td>
+           <td>Removed as of PHP 7.3.0.</td>
           </tr>
 
           <tr>
@@ -2415,6 +2431,7 @@
              error.
             </p>
            </td>
+           <td class="empty">&nbsp;</td>
           </tr>
 
           <tr>
@@ -2429,6 +2446,7 @@
             typically by reading it from the passed stream resource. It should
             return an empty string to signal <code class="literal">EOF</code>.
            </td>
+           <td class="empty">&nbsp;</td>
           </tr>
 
           <tr>
@@ -2439,6 +2457,19 @@
             string with the data to be written. The data must be saved by
             this callback. It must return the exact number of bytes written 
             or the transfer will be aborted with an error.
+           </td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_XFERINFOFUNCTION</code></strong></td>
+           <td style="vertical-align: top;">
+            A callback accepting two parameters.
+            Has a similar purpose as <strong><code>CURLOPT_PROGRESSFUNCTION</code></strong> but is more modern
+            and the preferred option from cURL.
+           </td>
+           <td style="vertical-align: top;">
+            Added in 7.32.0. Available as of PHP 8.2.0.
            </td>
           </tr>
 
@@ -2583,11 +2614,11 @@
  <div class="refsect1 examples" id="refsect1-function.curl-setopt-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4223">
+   <div class="example" id="example-4301">
     <p><strong>Example #1 Initializing a new cURL session and fetching a web page</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;create&nbsp;a&nbsp;new&nbsp;cURL&nbsp;resource<br /></span><span style="color: #0000BB">$ch&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">curl_init</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;set&nbsp;URL&nbsp;and&nbsp;other&nbsp;appropriate&nbsp;options<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_URL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"http://www.example.com/"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_HEADER</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;grab&nbsp;URL&nbsp;and&nbsp;pass&nbsp;it&nbsp;to&nbsp;the&nbsp;browser<br /></span><span style="color: #0000BB">curl_exec</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;close&nbsp;cURL&nbsp;resource,&nbsp;and&nbsp;free&nbsp;up&nbsp;system&nbsp;resources<br /></span><span style="color: #0000BB">curl_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// create a new cURL resource<br /></span><span style="color: #0000BB">$ch </span><span style="color: #007700">= </span><span style="color: #0000BB">curl_init</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">// set URL and other appropriate options<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">, </span><span style="color: #0000BB">CURLOPT_URL</span><span style="color: #007700">, </span><span style="color: #DD0000">"http://www.example.com/"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">, </span><span style="color: #0000BB">CURLOPT_HEADER</span><span style="color: #007700">, </span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// grab URL and pass it to the browser<br /></span><span style="color: #0000BB">curl_exec</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// close cURL resource, and free up system resources<br /></span><span style="color: #0000BB">curl_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

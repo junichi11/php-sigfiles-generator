@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.imap-reopen" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imap_reopen</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imap_reopen</span> &mdash; <span class="dc-title">Reopen <acronym title="Internet Message Access Protocol">IMAP</acronym> stream to new mailbox</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imap_reopen</span> &mdash; <span class="dc-title">Reopen <abbr title="Internet Message Access Protocol">IMAP</abbr> stream to new mailbox</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imap-reopen-description">
@@ -36,7 +36,7 @@
 
   <p class="para rdfs-comment">
    Reopens the specified stream to a new <code class="parameter">mailbox</code> on an
-   <acronym title="Internet Message Access Protocol">IMAP</acronym> or <acronym title="Network News Transfer Protocol">NNTP</acronym> server.
+   <abbr title="Internet Message Access Protocol">IMAP</abbr> or <abbr title="Network News Transfer Protocol">NNTP</abbr> server.
   </p>
  </div>
 
@@ -85,13 +85,13 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
         <li class="listitem">
          <span class="simpara">
           <strong><code>OP_ANONYMOUS</code></strong> - Don&#039;t use or update a
-          <var class="filename">.newsrc</var> for news (<acronym title="Network News Transfer Protocol">NNTP</acronym> only)
+          <var class="filename">.newsrc</var> for news (<abbr title="Network News Transfer Protocol">NNTP</abbr> only)
          </span>
         </li>
         <li class="listitem">
          <span class="simpara">
-          <strong><code>OP_HALFOPEN</code></strong> - For <acronym title="Internet Message Access Protocol">IMAP</acronym>
-          and <acronym title="Network News Transfer Protocol">NNTP</acronym> names, open a connection but
+          <strong><code>OP_HALFOPEN</code></strong> - For <abbr title="Internet Message Access Protocol">IMAP</abbr>
+          and <abbr title="Network News Transfer Protocol">NNTP</abbr> names, open a connection but
           don&#039;t open a mailbox.
          </span>
         </li>
@@ -154,7 +154,7 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
  <td>8.1.0</td>
  <td>
   The <code class="parameter">imap</code> parameter expects an <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">imap</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
 
@@ -168,11 +168,11 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
  <div class="refsect1 examples" id="refsect1-function.imap-reopen-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3023">
+   <div class="example" id="example-3093">
     <p><strong>Example #1 <span class="function"><strong>imap_reopen()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$mbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open</span><span style="color: #007700">(</span><span style="color: #DD0000">"{imap.example.org:143}INBOX"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">)&nbsp;or&nbsp;die(</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">",&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">imap_errors</span><span style="color: #007700">()));<br /></span><span style="color: #FF8000">//&nbsp;...<br /></span><span style="color: #0000BB">imap_reopen</span><span style="color: #007700">(</span><span style="color: #0000BB">$mbox</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"{imap.example.org:143}INBOX.Sent"</span><span style="color: #007700">)&nbsp;or&nbsp;die(</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">",&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">imap_errors</span><span style="color: #007700">()));<br /></span><span style="color: #FF8000">//&nbsp;..<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$mbox </span><span style="color: #007700">= </span><span style="color: #0000BB">imap_open</span><span style="color: #007700">(</span><span style="color: #DD0000">"{imap.example.org:143}INBOX"</span><span style="color: #007700">, </span><span style="color: #DD0000">"username"</span><span style="color: #007700">, </span><span style="color: #DD0000">"password"</span><span style="color: #007700">) or die(</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">", "</span><span style="color: #007700">, </span><span style="color: #0000BB">imap_errors</span><span style="color: #007700">()));<br /></span><span style="color: #FF8000">// ...<br /></span><span style="color: #0000BB">imap_reopen</span><span style="color: #007700">(</span><span style="color: #0000BB">$mbox</span><span style="color: #007700">, </span><span style="color: #DD0000">"{imap.example.org:143}INBOX.Sent"</span><span style="color: #007700">) or die(</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">", "</span><span style="color: #007700">, </span><span style="color: #0000BB">imap_errors</span><span style="color: #007700">()));<br /></span><span style="color: #FF8000">// ..<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

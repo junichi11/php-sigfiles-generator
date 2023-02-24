@@ -181,6 +181,15 @@
 
     <tbody class="tbody">
      <tr>
+      <td>8.2.0</td>
+      <td>
+       Only the <code class="literal">y</code> to <code class="literal">f</code>,
+       <code class="literal">invert</code>, and <code class="literal">days</code> will be visible,
+       including a new <code class="literal">from_string</code> boolean property.
+      </td>
+     </tr>
+
+     <tr>
       <td>8.0.0</td>
       <td>
        <code class="literal">W</code> can be combined with <code class="literal">D</code>.
@@ -197,15 +206,59 @@
  <div class="refsect1 examples" id="refsect1-dateinterval.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2058">
-    <p><strong>Example #1 <span class="classname"><a href="class.dateinterval.html" class="classname">DateInterval</a></span> example</strong></p>
+   <div class="example" id="example-2108">
+    <p><strong>Example #1 Constructing and using <span class="classname"><a href="class.dateinterval.html" class="classname">DateInterval</a></span> objects</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$interval&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P1W2D'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$interval</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Create a specific date<br /></span><span style="color: #0000BB">$someDate </span><span style="color: #007700">= \</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromFormat</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y-m-d H:i"</span><span style="color: #007700">, </span><span style="color: #DD0000">"2022-08-25 14:18"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Create interval<br /></span><span style="color: #0000BB">$interval </span><span style="color: #007700">= new \</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">"P7D"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Add interval<br /></span><span style="color: #0000BB">$someDate</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$interval</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Convert interval to string<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$interval</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">"%d"</span><span style="color: #007700">);</span>
 </span>
 </code></div>
     </div>
 
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen"><br />
+7<br />
+    </div>
+   </div>
+  </p>
+
+  <p class="para">
+   <div class="example" id="example-2109">
+    <p><strong>Example #2 <span class="classname"><a href="class.dateinterval.html" class="classname">DateInterval</a></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$interval </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P1W2D'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$interval</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Output of the above example in PHP 8.2:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+object(DateInterval)#1 (10) {
+  [&quot;y&quot;]=&gt;
+  int(0)
+  [&quot;m&quot;]=&gt;
+  int(0)
+  [&quot;d&quot;]=&gt;
+  int(9)
+  [&quot;h&quot;]=&gt;
+  int(0)
+  [&quot;i&quot;]=&gt;
+  int(0)
+  [&quot;s&quot;]=&gt;
+  int(0)
+  [&quot;f&quot;]=&gt;
+  float(0)
+  [&quot;invert&quot;]=&gt;
+  int(0)
+  [&quot;days&quot;]=&gt;
+  bool(false)
+  [&quot;from_string&quot;]=&gt;
+  bool(false)
+}
+</pre></div>
+    </div>
     <div class="example-contents"><p>Output of the above example in PHP 8:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -294,8 +347,7 @@ object(DateInterval)#1 (16) {
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="dateinterval.format.html" class="function" rel="rdfs-seeAlso">DateInterval::format()</a> - Formats the interval</span></li>
-    <li class="member"><span class="function"><a href="datetime.add.html" class="function" rel="rdfs-seeAlso">DateTime::add()</a> - Adds an amount of days, months, years, hours, minutes and seconds to a
-   DateTime object</span></li>
+    <li class="member"><span class="function"><a href="datetime.add.html" class="function" rel="rdfs-seeAlso">DateTime::add()</a> - Modifies a DateTime object, with added amount of days, months, years, hours, minutes and seconds</span></li>
     <li class="member"><span class="function"><a href="datetime.sub.html" class="function" rel="rdfs-seeAlso">DateTime::sub()</a> - Subtracts an amount of days, months, years, hours, minutes and seconds from
    a DateTime object</span></li>
     <li class="member"><span class="function"><a href="datetime.diff.html" class="function" rel="rdfs-seeAlso">DateTime::diff()</a> - Returns the difference between two DateTime objects</span></li>

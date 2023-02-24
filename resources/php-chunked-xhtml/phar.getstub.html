@@ -41,7 +41,7 @@
    include:
    <div class="example-contents">
     <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">include&nbsp;</span><span style="color: #DD0000">'myphar.phar'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">include </span><span style="color: #DD0000">'myphar.phar'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -84,11 +84,11 @@ php myphar.phar
  <div class="refsect1 examples" id="refsect1-phar.getstub-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-722">
+   <div class="example" id="example-740">
     <p><strong>Example #1 A <span class="function"><strong>Phar::getStub()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$p&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Phar</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/my.phar'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my.phar'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$p</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getStub</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #DD0000">"==NEXT==\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$p</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setStub</span><span style="color: #007700">(</span><span style="color: #DD0000">"&lt;?php<br />function&nbsp;__autoload(</span><span style="color: #0000BB">$class</span><span style="color: #DD0000">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;include&nbsp;'phar://'&nbsp;.&nbsp;str_replace('_',&nbsp;'/',&nbsp;</span><span style="color: #0000BB">$class</span><span style="color: #DD0000">);<br />}<br />Phar::mapPhar('myphar.phar');<br />include&nbsp;'phar://myphar.phar/startup.php';<br />__HALT_COMPILER();&nbsp;?&gt;"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$p</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getStub</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$p </span><span style="color: #007700">= new </span><span style="color: #0000BB">Phar</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/my.phar'</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #DD0000">'my.phar'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$p</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getStub</span><span style="color: #007700">();<br />echo </span><span style="color: #DD0000">"==NEXT==\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$p</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setStub</span><span style="color: #007700">(</span><span style="color: #DD0000">"&lt;?php<br />function __autoload(</span><span style="color: #0000BB">$class</span><span style="color: #DD0000">)<br />{<br />    include 'phar://' . str_replace('_', '/', </span><span style="color: #0000BB">$class</span><span style="color: #DD0000">);<br />}<br />Phar::mapPhar('myphar.phar');<br />include 'phar://myphar.phar/startup.php';<br />__HALT_COMPILER(); ?&gt;"</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$p</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getStub</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

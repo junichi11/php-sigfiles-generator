@@ -59,13 +59,38 @@
     <div class="fieldsynopsis">
      <span class="modifier">public</span>
      <span class="modifier">readonly</span>
-     <span class="type">bool</span>
-      <var class="varname"><a href="class.domelement.html#domelement.props.schematypeinfo">$<var class="varname">schemaTypeInfo</var></a></var>;</div>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.domelement.html#domelement.props.tagname">$<var class="varname">tagName</var></a></var>;</div>
 
     <div class="fieldsynopsis"><span class="modifier">public</span>
      <span class="modifier">readonly</span>
-     <span class="type">string</span>
-      <var class="varname"><a href="class.domelement.html#domelement.props.tagname">$<var class="varname">tagName</var></a></var>;</div>
+     <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
+      <var class="varname"><a href="class.domelement.html#domelement.props.schematypeinfo">$<var class="varname">schemaTypeInfo</var></a></var><span class="initializer"> = null</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">?</span><span class="type"><span class="type"><a href="class.domelement.html" class="type DOMElement">DOMElement</a></span><span class="type"></span></span>
+      <var class="varname"><a href="class.domelement.html#domelement.props.firstelementchild">$<var class="varname">firstElementChild</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">?</span><span class="type"><span class="type"><a href="class.domelement.html" class="type DOMElement">DOMElement</a></span><span class="type"></span></span>
+      <var class="varname"><a href="class.domelement.html#domelement.props.lastelementchild">$<var class="varname">lastElementChild</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.domelement.html#domelement.props.childelementcount">$<var class="varname">childElementCount</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">?</span><span class="type"><span class="type"><a href="class.domelement.html" class="type DOMElement">DOMElement</a></span><span class="type"></span></span>
+      <var class="varname"><a href="class.domelement.html#domelement.props.previouselementsibling">$<var class="varname">previousElementSibling</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">?</span><span class="type"><span class="type"><a href="class.domelement.html" class="type DOMElement">DOMElement</a></span><span class="type"></span></span>
+      <var class="varname"><a href="class.domelement.html#domelement.props.nextelementsibling">$<var class="varname">nextElementSibling</var></a></var>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited properties */</div>
@@ -185,6 +210,51 @@
    <h2 class="title">Properties</h2>
    <dl>
     
+     <dt id="domelement.props.childelementcount"><var class="varname">childElementCount</var></dt>
+
+     <dd>
+
+      <p class="para">The number of child elements.</p>
+     </dd>
+
+    
+    
+     <dt id="domelement.props.firstelementchild"><var class="varname">firstElementChild</var></dt>
+
+     <dd>
+
+      <p class="para">First child element or <strong><code>null</code></strong>.</p>
+     </dd>
+
+    
+    
+     <dt id="domelement.props.lastelementchild"><var class="varname">lastElementChild</var></dt>
+
+     <dd>
+
+      <p class="para">Last child element or <strong><code>null</code></strong>.</p>
+     </dd>
+
+    
+    
+     <dt id="domelement.props.nextelementsibling"><var class="varname">nextElementSibling</var></dt>
+
+     <dd>
+
+      <p class="para">The next sibling element or <strong><code>null</code></strong>.</p>
+     </dd>
+
+    
+    
+     <dt id="domelement.props.previouselementsibling"><var class="varname">previousElementSibling</var></dt>
+
+     <dd>
+
+      <p class="para">The previous sibling element or <strong><code>null</code></strong>.</p>
+     </dd>
+
+    
+    
      <dt id="domelement.props.schematypeinfo"><var class="varname">schemaTypeInfo</var></dt>
 
      <dd>
@@ -223,6 +293,15 @@
       <tr>
        <td>8.0.0</td>
        <td>
+        The <var class="varname">firstElementChild</var>, <var class="varname">lastElementChild</var>,
+        <var class="varname">childElementCount</var>, <var class="varname">previousElementSibling</var>,
+        and <var class="varname">nextElementSibling</var> properties have been added.
+       </td>
+      </tr>
+
+      <tr>
+       <td>8.0.0</td>
+       <td>
         <span class="classname"><strong class="classname">DOMElement</strong></span> implements
         <span class="interfacename"><a href="class.domparentnode.html" class="interfacename">DOMParentNode</a></span> and
         <span class="interfacename"><a href="class.domchildnode.html" class="interfacename">DOMChildNode</a></span> now.
@@ -238,7 +317,7 @@
 
   <div class="section">
    <h2 class="title">Notes</h2>
-   <blockquote class="note"><p><strong class="note">Note</strong>: <p class="para">The DOM extension uses UTF-8 encoding. Use <span class="function"><a href="function.utf8-encode.html" class="function">utf8_encode()</a></span> and <span class="function"><a href="function.utf8-decode.html" class="function">utf8_decode()</a></span> to work with texts in ISO-8859-1 encoding or <a href="ref.iconv.html" class="link">iconv</a> for other encodings.</p></p></blockquote>
+   <blockquote class="note"><p><strong class="note">Note</strong>: <p class="para">The DOM extension uses UTF-8 encoding. Use <span class="function"><a href="function.mb-convert-encoding.html" class="function">mb_convert_encoding()</a></span>, <span class="methodname"><a href="uconverter.transcode.html" class="methodname">UConverter::transcode()</a></span>, or <span class="function"><a href="function.iconv.html" class="function">iconv()</a></span> to handle other encodings.</p></p></blockquote>
   </div>
 
   
@@ -249,7 +328,6 @@
  </div>
  
  
-
 
 
 

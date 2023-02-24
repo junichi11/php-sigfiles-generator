@@ -77,7 +77,7 @@
    the form &quot;msec sec&quot;, where <code class="literal">sec</code> is the number of seconds 
    since the Unix epoch (0:00:00 January 1,1970 GMT), and <code class="literal">msec</code> 
    measures microseconds that have elapsed since <code class="literal">sec</code> 
-   and is also expressed in seconds.
+   and is also expressed in seconds as a decimal fraction.
   </p>
   <p class="para">
    If <code class="parameter">as_float</code> is set to <strong><code>true</code></strong>, then
@@ -91,21 +91,21 @@
  <div class="refsect1 examples" id="refsect1-function.microtime-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2094">
+   <div class="example" id="example-2157">
     <p><strong>Example #1 Timing script execution</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$time_start&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">microtime</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Sleep&nbsp;for&nbsp;a&nbsp;while<br /></span><span style="color: #0000BB">usleep</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$time_end&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">microtime</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$time&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$time_end&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">$time_start</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #DD0000">"Did&nbsp;nothing&nbsp;in&nbsp;</span><span style="color: #0000BB">$time</span><span style="color: #DD0000">&nbsp;seconds\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$time_start </span><span style="color: #007700">= </span><span style="color: #0000BB">microtime</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Sleep for a while<br /></span><span style="color: #0000BB">usleep</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$time_end </span><span style="color: #007700">= </span><span style="color: #0000BB">microtime</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$time </span><span style="color: #007700">= </span><span style="color: #0000BB">$time_end </span><span style="color: #007700">- </span><span style="color: #0000BB">$time_start</span><span style="color: #007700">;<br /><br />echo </span><span style="color: #DD0000">"Did nothing in </span><span style="color: #0000BB">$time</span><span style="color: #DD0000"> seconds\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-2095">
+   <div class="example" id="example-2158">
     <p><strong>Example #2 <span class="function"><strong>microtime()</strong></span> and <code class="literal">REQUEST_TIME_FLOAT</code></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Randomize&nbsp;sleeping&nbsp;time<br /></span><span style="color: #0000BB">usleep</span><span style="color: #007700">(</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10000</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;REQUEST_TIME_FLOAT&nbsp;is&nbsp;available&nbsp;in&nbsp;the&nbsp;$_SERVER&nbsp;superglobal&nbsp;array.<br />//&nbsp;It&nbsp;contains&nbsp;the&nbsp;timestamp&nbsp;of&nbsp;the&nbsp;start&nbsp;of&nbsp;the&nbsp;request&nbsp;with&nbsp;microsecond&nbsp;precision.<br /></span><span style="color: #0000BB">$time&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">microtime</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">"REQUEST_TIME_FLOAT"</span><span style="color: #007700">];<br /><br />echo&nbsp;</span><span style="color: #DD0000">"Did&nbsp;nothing&nbsp;in&nbsp;</span><span style="color: #0000BB">$time</span><span style="color: #DD0000">&nbsp;seconds\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// Randomize sleeping time<br /></span><span style="color: #0000BB">usleep</span><span style="color: #007700">(</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">, </span><span style="color: #0000BB">10000</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">// REQUEST_TIME_FLOAT is available in the $_SERVER superglobal array.<br />// It contains the timestamp of the start of the request with microsecond precision.<br /></span><span style="color: #0000BB">$time </span><span style="color: #007700">= </span><span style="color: #0000BB">microtime</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">) - </span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">"REQUEST_TIME_FLOAT"</span><span style="color: #007700">];<br /><br />echo </span><span style="color: #DD0000">"Did nothing in </span><span style="color: #0000BB">$time</span><span style="color: #DD0000"> seconds\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

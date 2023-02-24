@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Random\Engine\PcgOneseq128XslRr64 class</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="random-engine-mt19937.unserialize.html">« Random\Engine\Mt19937::__unserialize</a></li>
+      <li style="float: right;"><a href="random-engine-pcgoneseq128xslrr64.construct.html">Random\Engine\PcgOneseq128XslRr64::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.random.html">Random</a></li>
+    <li>The Random\Engine\PcgOneseq128XslRr64 class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.random-engine-pcgoneseq128xslrr64" class="reference">
+ <h1 class="title">The Random\Engine\PcgOneseq128XslRr64 class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 8 &gt;= 8.2.0)</p>
+
+
+  <div class="section" id="random-engine-pcgoneseq128xslrr64.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    Implements a <a href="https://www.pcg-random.org/" class="link external">&raquo;&nbsp;Permuted congruential generator (PCG)</a> with
+    128 bits of state, XSL and RR output transformations, and 64 bits of output.
+   </p>
+  </div>
+
+
+  <div class="section" id="random-engine-pcgoneseq128xslrr64.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">final</span>
+      <span class="modifier">class</span> <strong class="classname">Random\Engine\PcgOneseq128XslRr64</strong>
+     </span>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a href="class.random-engine.html" class="interfacename">Random\Engine</a></span> {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="random-engine-pcgoneseq128xslrr64.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$seed</code><span class="initializer"> = <strong><code>null</code></strong></span></span>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="random-engine-pcgoneseq128xslrr64.debuginfo.html" class="methodname">__debugInfo</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="random-engine-pcgoneseq128xslrr64.generate.html" class="methodname">generate</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="random-engine-pcgoneseq128xslrr64.jump.html" class="methodname">jump</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$advance</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="random-engine-pcgoneseq128xslrr64.serialize.html" class="methodname">__serialize</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="random-engine-pcgoneseq128xslrr64.unserialize.html" class="methodname">__unserialize</a></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$data</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="random-engine-pcgoneseq128xslrr64.construct.html">Random\Engine\PcgOneseq128XslRr64::__construct</a> — Constructs a new PCG Oneseq 128 XSL RR 64 engine</li><li><a href="random-engine-pcgoneseq128xslrr64.debuginfo.html">Random\Engine\PcgOneseq128XslRr64::__debugInfo</a> — Returns the internal state of the engine</li><li><a href="random-engine-pcgoneseq128xslrr64.generate.html">Random\Engine\PcgOneseq128XslRr64::generate</a> — Generate 64 bits of randomness</li><li><a href="random-engine-pcgoneseq128xslrr64.jump.html">Random\Engine\PcgOneseq128XslRr64::jump</a> — Efficiently move the engine ahead multiple steps</li><li><a href="random-engine-pcgoneseq128xslrr64.serialize.html">Random\Engine\PcgOneseq128XslRr64::__serialize</a> — Serializes the PcgOneseq128XslRr64 object</li><li><a href="random-engine-pcgoneseq128xslrr64.unserialize.html">Random\Engine\PcgOneseq128XslRr64::__unserialize</a> — Deserializes the data parameter into a PcgOneseq128XslRr64 object</li></ul>
+</div>
+</div></div></body></html>

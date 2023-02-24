@@ -38,7 +38,7 @@
    <span class="function"><strong>gzread()</strong></span> reads up to <code class="parameter">length</code> bytes
    from the given gz-file pointer. Reading stops when
    <code class="parameter">length</code> (uncompressed) bytes have been read
-   or <acronym title="End Of File">EOF</acronym> is reached, whichever comes first.
+   or <abbr title="End Of File">EOF</abbr> is reached, whichever comes first.
   </p>
  </div>
 
@@ -114,11 +114,11 @@
  <div class="refsect1 examples" id="refsect1-function.gzread-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-873">
+   <div class="example" id="example-891">
     <p><strong>Example #1 <span class="function"><strong>gzread()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;get&nbsp;contents&nbsp;of&nbsp;a&nbsp;gz-file&nbsp;into&nbsp;a&nbsp;string<br /></span><span style="color: #0000BB">$filename&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"/usr/local/something.txt.gz"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$zd&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gzopen</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"r"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$contents&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gzread</span><span style="color: #007700">(</span><span style="color: #0000BB">$zd</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10000</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">gzclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$zd</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// get contents of a gz-file into a string<br /></span><span style="color: #0000BB">$filename </span><span style="color: #007700">= </span><span style="color: #DD0000">"/usr/local/something.txt.gz"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$zd </span><span style="color: #007700">= </span><span style="color: #0000BB">gzopen</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">, </span><span style="color: #DD0000">"r"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$contents </span><span style="color: #007700">= </span><span style="color: #0000BB">gzread</span><span style="color: #007700">(</span><span style="color: #0000BB">$zd</span><span style="color: #007700">, </span><span style="color: #0000BB">10000</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">gzclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$zd</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

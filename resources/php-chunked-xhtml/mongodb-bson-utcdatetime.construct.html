@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-mongodb-bson-utcdatetime.construct-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\BSON\UTCDateTime::__construct</strong></span>(<span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">float</span>|<span class="type">string</span>|<span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span></span> <code class="parameter">$milliseconds</code><span class="initializer"> = <strong><code>null</code></strong></span></span>)</div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\BSON\UTCDateTime::__construct</strong></span>(<span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">float</span>|<span class="type">string</span>|<span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span>|<span class="type">null</span></span> <code class="parameter">$milliseconds</code><span class="initializer"> = <strong><code>null</code></strong></span></span>)</div>
 
  </div>
 
@@ -43,7 +43,7 @@
   <dl>
    
     <dt>
-<code class="parameter">milliseconds</code> (<span class="type"><span class="type">int</span>|<span class="type">float</span>|<span class="type">string</span>|<span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span></span>)</dt>
+<code class="parameter">milliseconds</code> (<span class="type"><span class="type">int</span>|<span class="type">float</span>|<span class="type">string</span>|<span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span>|<span class="type">null</span></span>)</dt>
 
     <dd>
 
@@ -56,12 +56,6 @@
      <p class="para">
       If the argument is a <span class="classname"><a href="class.datetimeinterface.html" class="classname">DateTimeInterface</a></span>, the number
       of milliseconds since the Unix epoch will be derived from that value.
-      Note that in versions of PHP versions before 7.1.0,
-      <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> and
-      <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> objects constructed from the
-      current time
-      <a href="migration71.incompatible.html#migration71.incompatible.datetime-microseconds" class="link">did not
-        incorporate sub-second precision</a>.
      </p>
      <p class="para">
       If this argument is <strong><code>null</code></strong>, the current time will be used by default.
@@ -120,11 +114,11 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb-bson-utcdatetime.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1372">
+  <div class="example" id="example-1403">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\BSON\UTCDateTime::__construct()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />var_dump</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">UTCDateTime</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">UTCDateTime</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">UTCDateTime</span><span style="color: #007700">(</span><span style="color: #0000BB">1416445411987</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />var_dump</span><span style="color: #007700">(new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">UTCDateTime</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">UTCDateTime</span><span style="color: #007700">(new </span><span style="color: #0000BB">DateTime</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">UTCDateTime</span><span style="color: #007700">(</span><span style="color: #0000BB">1416445411987</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -155,7 +149,7 @@ object(MongoDB\BSON\UTCDateTime)#1 (1) {
  <div class="refsect1 seealso" id="refsect1-mongodb-bson-utcdatetime.construct-seealso">
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
-   <li class="member"><a href="https://docs.mongodb.com/manual/reference/bson-types/#date" class="link external">&raquo;&nbsp;BSON Types: Date</a></li>
+   <li class="member"><a href="https://www.mongodb.com/docs/manual/reference/bson-types/#date" class="link external">&raquo;&nbsp;BSON Types: Date</a></li>
   </ul>
  </div>
 

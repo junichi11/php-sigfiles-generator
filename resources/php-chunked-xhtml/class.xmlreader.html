@@ -54,98 +54,118 @@
       <span class="modifier">class</span> <strong class="classname">XMLReader</strong>
      </span>
      {</div>
- 
+
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.none"><var class="varname">NONE</var></a></var>;</div>
 
-     <div class="fieldsynopsis">
-      <span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.none"><var class="varname">NONE</var></a></var><span class="initializer"> = 0</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.element"><var class="varname">ELEMENT</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.element"><var class="varname">ELEMENT</var></a></var><span class="initializer"> = 1</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.attribute"><var class="varname">ATTRIBUTE</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.attribute"><var class="varname">ATTRIBUTE</var></a></var><span class="initializer"> = 2</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.text"><var class="varname">TEXT</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.text"><var class="varname">TEXT</var></a></var><span class="initializer"> = 3</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.cdata"><var class="varname">CDATA</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.cdata"><var class="varname">CDATA</var></a></var><span class="initializer"> = 4</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.entity-ref"><var class="varname">ENTITY_REF</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.entity-ref"><var class="varname">ENTITY_REF</var></a></var><span class="initializer"> = 5</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.entity"><var class="varname">ENTITY</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.entity"><var class="varname">ENTITY</var></a></var><span class="initializer"> = 6</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.pi"><var class="varname">PI</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.pi"><var class="varname">PI</var></a></var><span class="initializer"> = 7</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.comment"><var class="varname">COMMENT</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.comment"><var class="varname">COMMENT</var></a></var><span class="initializer"> = 8</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.doc"><var class="varname">DOC</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.doc"><var class="varname">DOC</var></a></var><span class="initializer"> = 9</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.doc-type"><var class="varname">DOC_TYPE</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.doc-type"><var class="varname">DOC_TYPE</var></a></var><span class="initializer"> = 10</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.doc-fragment"><var class="varname">DOC_FRAGMENT</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.doc-fragment"><var class="varname">DOC_FRAGMENT</var></a></var><span class="initializer"> = 11</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.notation"><var class="varname">NOTATION</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.notation"><var class="varname">NOTATION</var></a></var><span class="initializer"> = 12</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.whitespace"><var class="varname">WHITESPACE</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.whitespace"><var class="varname">WHITESPACE</var></a></var><span class="initializer"> = 13</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.significant-whitespace"><var class="varname">SIGNIFICANT_WHITESPACE</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.significant-whitespace"><var class="varname">SIGNIFICANT_WHITESPACE</var></a></var><span class="initializer"> = 14</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.end-element"><var class="varname">END_ELEMENT</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.end-element"><var class="varname">END_ELEMENT</var></a></var><span class="initializer"> = 15</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.end-entity"><var class="varname">END_ENTITY</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.end-entity"><var class="varname">END_ENTITY</var></a></var><span class="initializer"> = 16</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.xml-declaration"><var class="varname">XML_DECLARATION</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.xml-declaration"><var class="varname">XML_DECLARATION</var></a></var><span class="initializer"> = 17</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.loaddtd"><var class="varname">LOADDTD</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.loaddtd"><var class="varname">LOADDTD</var></a></var><span class="initializer"> = 1</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.defaultattrs"><var class="varname">DEFAULTATTRS</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.defaultattrs"><var class="varname">DEFAULTATTRS</var></a></var><span class="initializer"> = 2</span>;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.validate"><var class="varname">VALIDATE</var></a></var>;</div>
 
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.validate"><var class="varname">VALIDATE</var></a></var><span class="initializer"> = 3</span>;</div>
-
-     <div class="fieldsynopsis"><span class="modifier">const</span>
-      <span class="type">int</span>
-       <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.subst-entities"><var class="varname">SUBST_ENTITIES</var></a></var><span class="initializer"> = 4</span>;</div>
-
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.xmlreader.html#xmlreader.constants.subst-entities"><var class="varname">SUBST_ENTITIES</var></a></var>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
@@ -216,10 +236,8 @@
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.getparserproperty.html" class="methodname">getParserProperty</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$property</code></span>): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.isvalid.html" class="methodname">isValid</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.lookupnamespace.html" class="methodname">lookupNamespace</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code></span>): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span>
-   <span class="methodname"><a href="xmlreader.movetoattribute.html" class="methodname">moveToAttribute</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span>
-   <span class="methodname"><a href="xmlreader.movetoattributeno.html" class="methodname">moveToAttributeNo</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.movetoattribute.html" class="methodname">moveToAttribute</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.movetoattributeno.html" class="methodname">moveToAttributeNo</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.movetoattributens.html" class="methodname">moveToAttributeNs</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code></span>): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.movetoelement.html" class="methodname">moveToElement</a></span>(): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.movetofirstattribute.html" class="methodname">moveToFirstAttribute</a></span>(): <span class="type">bool</span></div>
@@ -230,8 +248,7 @@
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.readinnerxml.html" class="methodname">readInnerXml</a></span>(): <span class="type">string</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.readouterxml.html" class="methodname">readOuterXml</a></span>(): <span class="type">string</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.readstring.html" class="methodname">readString</a></span>(): <span class="type">string</span></div>
-<div class="methodsynopsis dc-description"><span class="modifier">public</span>
-   <span class="methodname"><a href="xmlreader.setparserproperty.html" class="methodname">setParserProperty</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$property</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.setparserproperty.html" class="methodname">setParserProperty</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$property</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.setrelaxngschema.html" class="methodname">setRelaxNGSchema</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$filename</code></span>): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.setrelaxngschemasource.html" class="methodname">setRelaxNGSchemaSource</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$source</code></span>): <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="xmlreader.setschema.html" class="methodname">setSchema</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$filename</code></span>): <span class="type">bool</span></div>
@@ -731,26 +748,6 @@
 
 
 
-
-
-
- 
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
- 
 
 
 

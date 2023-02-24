@@ -40,7 +40,7 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />014</span><span style="color: #007700">;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Non-prefix&nbsp;octal&nbsp;literal<br /></span><span style="color: #0000BB">0o14</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;Prefixed&nbsp;octal&nbsp;literal<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />014</span><span style="color: #007700">;  </span><span style="color: #FF8000">// Non-prefix octal literal<br /></span><span style="color: #0000BB">0o14</span><span style="color: #007700">; </span><span style="color: #FF8000">// Prefixed octal literal<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -58,7 +58,7 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$arr1&nbsp;</span><span style="color: #007700">=&nbsp;[</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'a'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$arr2&nbsp;</span><span style="color: #007700">=&nbsp;[...</span><span style="color: #0000BB">$arr1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'c'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'d'</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//[1,&nbsp;'a',&nbsp;'c'&nbsp;=&gt;&nbsp;'d']<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$arr1 </span><span style="color: #007700">= [</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #DD0000">'a' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'b'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$arr2 </span><span style="color: #007700">= [...</span><span style="color: #0000BB">$arr1</span><span style="color: #007700">, </span><span style="color: #DD0000">'c' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'d'</span><span style="color: #007700">]; </span><span style="color: #FF8000">//[1, 'a' =&gt; 'b', 'c' =&gt; 'd']<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -127,12 +127,12 @@
    <h4 class="title">Intersection Types</h4>
 
    <p class="para">
-    Support for <a href="language.types.declarations.html#language.types.declarations.composite.intersection" class="link">intersection types</a> has been added.
+    Support for <a href="language.types.type-system.html#language.types.type-system.composite.intersection" class="link">intersection types</a> has been added.
     
    </p>
    <div class="caution"><strong class="caution">Caution</strong>
     <p class="simpara">
-     <a href="language.types.declarations.html#language.types.declarations.composite.intersection" class="link">
+     <a href="language.types.type-system.html#language.types.type-system.composite.intersection" class="link">
       Intersection types</a> cannot be used together with
      <a href="language.types.declarations.html#language.types.declarations.composite.union" class="link">
       union types</a>
@@ -225,7 +225,7 @@
    <div class="informalexample">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$file&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">CURLStringFile</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'filename.txt'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'text/plain'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$curl</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_POSTFIELDS</span><span style="color: #007700">,&nbsp;[</span><span style="color: #DD0000">'file'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$file </span><span style="color: #007700">= new </span><span style="color: #0000BB">CURLStringFile</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">, </span><span style="color: #DD0000">'filename.txt'</span><span style="color: #007700">, </span><span style="color: #DD0000">'text/plain'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$curl</span><span style="color: #007700">, </span><span style="color: #0000BB">CURLOPT_POSTFIELDS</span><span style="color: #007700">, [</span><span style="color: #DD0000">'file' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$file</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -297,7 +297,7 @@
     <div class="informalexample">
      <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$h&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">hash</span><span style="color: #007700">(</span><span style="color: #DD0000">"murmur3f"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">options</span><span style="color: #007700">:&nbsp;[</span><span style="color: #DD0000">"seed"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">42</span><span style="color: #007700">]);<br />echo&nbsp;</span><span style="color: #0000BB">$h</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$h </span><span style="color: #007700">= </span><span style="color: #0000BB">hash</span><span style="color: #007700">(</span><span style="color: #DD0000">"murmur3f"</span><span style="color: #007700">, </span><span style="color: #0000BB">$data</span><span style="color: #007700">, </span><span style="color: #0000BB">options</span><span style="color: #007700">: [</span><span style="color: #DD0000">"seed" </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">42</span><span style="color: #007700">]);<br />echo </span><span style="color: #0000BB">$h</span><span style="color: #007700">, </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -339,7 +339,7 @@
     <div class="informalexample">
      <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$h&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">hash</span><span style="color: #007700">(</span><span style="color: #DD0000">"xxh3"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">options</span><span style="color: #007700">:&nbsp;[</span><span style="color: #DD0000">"seed"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">42</span><span style="color: #007700">]);<br />echo&nbsp;</span><span style="color: #0000BB">$h</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$h </span><span style="color: #007700">= </span><span style="color: #0000BB">hash</span><span style="color: #007700">(</span><span style="color: #DD0000">"xxh3"</span><span style="color: #007700">, </span><span style="color: #0000BB">$data</span><span style="color: #007700">, </span><span style="color: #0000BB">options</span><span style="color: #007700">: [</span><span style="color: #DD0000">"seed" </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">42</span><span style="color: #007700">]);<br />echo </span><span style="color: #0000BB">$h</span><span style="color: #007700">, </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -352,7 +352,7 @@
     <div class="informalexample">
      <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$h&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">hash</span><span style="color: #007700">(</span><span style="color: #DD0000">"xxh3"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">options</span><span style="color: #007700">:&nbsp;[</span><span style="color: #DD0000">"secret"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"at&nbsp;least&nbsp;136&nbsp;bytes&nbsp;long&nbsp;secret&nbsp;here"</span><span style="color: #007700">]);<br />echo&nbsp;</span><span style="color: #0000BB">$h</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$h </span><span style="color: #007700">= </span><span style="color: #0000BB">hash</span><span style="color: #007700">(</span><span style="color: #DD0000">"xxh3"</span><span style="color: #007700">, </span><span style="color: #0000BB">$data</span><span style="color: #007700">, </span><span style="color: #0000BB">options</span><span style="color: #007700">: [</span><span style="color: #DD0000">"secret" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"at least 136 bytes long secret here"</span><span style="color: #007700">]);<br />echo </span><span style="color: #0000BB">$h</span><span style="color: #007700">, </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -392,7 +392,7 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'INSERT&nbsp;INTO&nbsp;users(id,&nbsp;name)&nbsp;VALUES(?,?)'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">([</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$username</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$stmt </span><span style="color: #007700">= </span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'INSERT INTO users(id, name) VALUES(?,?)'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">([</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">$username</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -413,7 +413,7 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;username&nbsp;FROM&nbsp;users&nbsp;WHERE&nbsp;id&nbsp;=&nbsp;123'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch_column</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$result </span><span style="color: #007700">= </span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT username FROM users WHERE id = 123'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch_column</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -446,7 +446,7 @@
    <div class="informalexample">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite:file:path/to/sqlite.db?mode=ro'</span><span style="color: #007700">)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">new </span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite:file:path/to/sqlite.db?mode=ro'</span><span style="color: #007700">)<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -84,14 +84,43 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.call-user-func-array-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">args</code> keys will now be interpreted as parameter names, instead of being silently ignored.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.call-user-func-array-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5073">
+   <div class="example" id="example-5169">
     <p><strong>Example #1 <span class="function"><strong>call_user_func_array()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">foobar</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$arg2</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">__FUNCTION__</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"&nbsp;got&nbsp;</span><span style="color: #0000BB">$arg</span><span style="color: #DD0000">&nbsp;and&nbsp;</span><span style="color: #0000BB">$arg2</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br />class&nbsp;</span><span style="color: #0000BB">foo&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">bar</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$arg2</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">__METHOD__</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"&nbsp;got&nbsp;</span><span style="color: #0000BB">$arg</span><span style="color: #DD0000">&nbsp;and&nbsp;</span><span style="color: #0000BB">$arg2</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;Call&nbsp;the&nbsp;foobar()&nbsp;function&nbsp;with&nbsp;2&nbsp;arguments<br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #DD0000">"foobar"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"one"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"two"</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;Call&nbsp;the&nbsp;$foo-&gt;bar()&nbsp;method&nbsp;with&nbsp;2&nbsp;arguments<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">),&nbsp;array(</span><span style="color: #DD0000">"three"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"four"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">foobar</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">, </span><span style="color: #0000BB">$arg2</span><span style="color: #007700">) {<br />    echo </span><span style="color: #0000BB">__FUNCTION__</span><span style="color: #007700">, </span><span style="color: #DD0000">" got </span><span style="color: #0000BB">$arg</span><span style="color: #DD0000"> and </span><span style="color: #0000BB">$arg2</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br />class </span><span style="color: #0000BB">foo </span><span style="color: #007700">{<br />    function </span><span style="color: #0000BB">bar</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">, </span><span style="color: #0000BB">$arg2</span><span style="color: #007700">) {<br />        echo </span><span style="color: #0000BB">__METHOD__</span><span style="color: #007700">, </span><span style="color: #DD0000">" got </span><span style="color: #0000BB">$arg</span><span style="color: #DD0000"> and </span><span style="color: #0000BB">$arg2</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />    }<br />}<br /><br /><br /></span><span style="color: #FF8000">// Call the foobar() function with 2 arguments<br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #DD0000">"foobar"</span><span style="color: #007700">, array(</span><span style="color: #DD0000">"one"</span><span style="color: #007700">, </span><span style="color: #DD0000">"two"</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">// Call the $foo-&gt;bar() method with 2 arguments<br /></span><span style="color: #0000BB">$foo </span><span style="color: #007700">= new </span><span style="color: #0000BB">foo</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">, </span><span style="color: #DD0000">"bar"</span><span style="color: #007700">), array(</span><span style="color: #DD0000">"three"</span><span style="color: #007700">, </span><span style="color: #DD0000">"four"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -105,11 +134,11 @@ foo::bar got three and four
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5074">
+   <div class="example" id="example-5170">
     <p><strong>Example #2 <span class="function"><strong>call_user_func_array()</strong></span> using namespace name</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">Foobar</span><span style="color: #007700">;<br /><br />class&nbsp;</span><span style="color: #0000BB">Foo&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"Hello&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$name</span><span style="color: #007700">}</span><span style="color: #DD0000">!\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #0000BB">__NAMESPACE__&nbsp;</span><span style="color: #007700">.</span><span style="color: #DD0000">'\Foo::test'</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">'Hannes'</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(array(</span><span style="color: #0000BB">__NAMESPACE__&nbsp;</span><span style="color: #007700">.</span><span style="color: #DD0000">'\Foo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'test'</span><span style="color: #007700">),&nbsp;array(</span><span style="color: #DD0000">'Philip'</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace </span><span style="color: #0000BB">Foobar</span><span style="color: #007700">;<br /><br />class </span><span style="color: #0000BB">Foo </span><span style="color: #007700">{<br />    static public function </span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">) {<br />        print </span><span style="color: #DD0000">"Hello </span><span style="color: #007700">{</span><span style="color: #0000BB">$name</span><span style="color: #007700">}</span><span style="color: #DD0000">!\n"</span><span style="color: #007700">;<br />    }<br />}<br /><br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #0000BB">__NAMESPACE__ </span><span style="color: #007700">.</span><span style="color: #DD0000">'\Foo::test'</span><span style="color: #007700">, array(</span><span style="color: #DD0000">'Hannes'</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(array(</span><span style="color: #0000BB">__NAMESPACE__ </span><span style="color: #007700">.</span><span style="color: #DD0000">'\Foo'</span><span style="color: #007700">, </span><span style="color: #DD0000">'test'</span><span style="color: #007700">), array(</span><span style="color: #DD0000">'Philip'</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -123,11 +152,11 @@ Hello Philip!
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5075">
+   <div class="example" id="example-5171">
     <p><strong>Example #3 Using lambda function</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$func&nbsp;</span><span style="color: #007700">=&nbsp;function(</span><span style="color: #0000BB">$arg1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$arg2</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$arg1&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">$arg2</span><span style="color: #007700">;<br />};<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$func</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">)));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$func </span><span style="color: #007700">= function(</span><span style="color: #0000BB">$arg1</span><span style="color: #007700">, </span><span style="color: #0000BB">$arg2</span><span style="color: #007700">) {<br />    return </span><span style="color: #0000BB">$arg1 </span><span style="color: #007700">* </span><span style="color: #0000BB">$arg2</span><span style="color: #007700">;<br />};<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$func</span><span style="color: #007700">, array(</span><span style="color: #0000BB">2</span><span style="color: #007700">, </span><span style="color: #0000BB">4</span><span style="color: #007700">)));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -139,11 +168,11 @@ int(8)
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5076">
+   <div class="example" id="example-5172">
     <p><strong>Example #4 Passing values by reference</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">mega</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">){<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">55</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"function&nbsp;mega&nbsp;\$a=</span><span style="color: #0000BB">$a</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">77</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'mega'</span><span style="color: #007700">,array(&amp;</span><span style="color: #0000BB">$bar</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #DD0000">"global&nbsp;\$bar=</span><span style="color: #0000BB">$bar</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function </span><span style="color: #0000BB">mega</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">){<br />    </span><span style="color: #0000BB">$a </span><span style="color: #007700">= </span><span style="color: #0000BB">55</span><span style="color: #007700">;<br />    echo </span><span style="color: #DD0000">"function mega \$a=</span><span style="color: #0000BB">$a</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">$bar </span><span style="color: #007700">= </span><span style="color: #0000BB">77</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'mega'</span><span style="color: #007700">,array(&amp;</span><span style="color: #0000BB">$bar</span><span style="color: #007700">));<br />echo </span><span style="color: #DD0000">"global \$bar=</span><span style="color: #0000BB">$bar</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

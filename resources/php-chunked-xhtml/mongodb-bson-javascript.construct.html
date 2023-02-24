@@ -33,7 +33,7 @@
  <div class="refsect1 description" id="refsect1-mongodb-bson-javascript.construct-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\BSON\Javascript::__construct</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$scope</code><span class="initializer"> = ?</span></span>)</div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\BSON\Javascript::__construct</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span>|<span class="type">null</span></span> <code class="parameter">$scope</code><span class="initializer"> = <strong><code>null</code></strong></span></span>)</div>
 
  </div>
 
@@ -114,11 +114,11 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb-bson-javascript.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1357">
+  <div class="example" id="example-1388">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\BSON\Javascript::__construct()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$code&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">Javascript</span><span style="color: #007700">(</span><span style="color: #DD0000">'function()&nbsp;{&nbsp;return&nbsp;1;&nbsp;}'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$code</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$codews&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">Javascript</span><span style="color: #007700">(</span><span style="color: #DD0000">'function()&nbsp;{&nbsp;return&nbsp;foo;&nbsp;}'</span><span style="color: #007700">,&nbsp;[</span><span style="color: #DD0000">'foo'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$codews</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$code </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">Javascript</span><span style="color: #007700">(</span><span style="color: #DD0000">'function() { return 1; }'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$code</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$codews </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">Javascript</span><span style="color: #007700">(</span><span style="color: #DD0000">'function() { return foo; }'</span><span style="color: #007700">, [</span><span style="color: #DD0000">'foo' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'bar'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$codews</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -152,7 +152,7 @@ object(MongoDB\BSON\Javascript)#2 (2) {
  <div class="refsect1 seealso" id="refsect1-mongodb-bson-javascript.construct-seealso">
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
-   <li class="member"><a href="https://docs.mongodb.com/manual/reference/bson-types/" class="link external">&raquo;&nbsp;BSON Types</a></li>
+   <li class="member"><a href="https://www.mongodb.com/docs/manual/reference/bson-types/" class="link external">&raquo;&nbsp;BSON Types</a></li>
   </ul>
  </div>
 

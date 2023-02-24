@@ -87,11 +87,11 @@ encoding value will be used.</p>
  <div class="refsect1 examples" id="refsect1-function.mb-strtolower-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2568">
+   <div class="example" id="example-2638">
     <p><strong>Example #1 <span class="function"><strong>mb_strtolower()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Mary&nbsp;Had&nbsp;A&nbsp;Little&nbsp;Lamb&nbsp;and&nbsp;She&nbsp;LOVED&nbsp;It&nbsp;So"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mb_strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;Prints&nbsp;mary&nbsp;had&nbsp;a&nbsp;little&nbsp;lamb&nbsp;and&nbsp;she&nbsp;loved&nbsp;it&nbsp;so<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$str </span><span style="color: #007700">= </span><span style="color: #DD0000">"Mary Had A Little Lamb and She LOVED It So"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str </span><span style="color: #007700">= </span><span style="color: #0000BB">mb_strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$str</span><span style="color: #007700">; </span><span style="color: #FF8000">// Prints mary had a little lamb and she loved it so<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -100,11 +100,11 @@ encoding value will be used.</p>
   </p>
 
   <p class="para">
-   <div class="example" id="example-2569">
+   <div class="example" id="example-2639">
     <p><strong>Example #2 <span class="function"><strong>mb_strtolower()</strong></span> example with non-Latin UTF-8 text</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Τάχιστη&nbsp;αλώπηξ&nbsp;βαφής&nbsp;ψημένη&nbsp;γη,&nbsp;δρασκελίζει&nbsp;υπέρ&nbsp;νωθρού&nbsp;κυνός"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mb_strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'UTF-8'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;Prints&nbsp;τάχιστη&nbsp;αλώπηξ&nbsp;βαφής&nbsp;ψημένη&nbsp;γη,&nbsp;δρασκελίζει&nbsp;υπέρ&nbsp;νωθρού&nbsp;κυνός<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$str </span><span style="color: #007700">= </span><span style="color: #DD0000">"Τάχιστη αλώπηξ βαφής ψημένη γη, δρασκελίζει υπέρ νωθρού κυνός"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str </span><span style="color: #007700">= </span><span style="color: #0000BB">mb_strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">, </span><span style="color: #DD0000">'UTF-8'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$str</span><span style="color: #007700">; </span><span style="color: #FF8000">// Prints τάχιστη αλώπηξ βαφής ψημένη γη, δρασκελίζει υπέρ νωθρού κυνός<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

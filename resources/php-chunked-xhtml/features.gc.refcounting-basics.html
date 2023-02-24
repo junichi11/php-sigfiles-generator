@@ -43,11 +43,11 @@
    <p class="para">
     A zval container is created when a new variable is created with a constant
     value, such as:
-    <div class="example" id="example-470">
+    <div class="example" id="example-486">
      <p><strong>Example #1 Creating a new zval container</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"new&nbsp;string"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= </span><span style="color: #DD0000">"new string"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -65,11 +65,11 @@
     information by calling <span class="function"><strong>xdebug_debug_zval()</strong></span>.
    </p>
    <p class="para">
-    <div class="example" id="example-471">
+    <div class="example" id="example-487">
      <p><strong>Example #2 Displaying zval information</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"new&nbsp;string"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(</span><span style="color: #DD0000">'a'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= </span><span style="color: #DD0000">"new string"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(</span><span style="color: #DD0000">'a'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -86,11 +86,11 @@ a: (refcount=1, is_ref=0)=&#039;new string&#039;
     Assigning this variable to another variable name will increase the refcount.
    </p>
    <p class="para">
-    <div class="example" id="example-472">
+    <div class="example" id="example-488">
      <p><strong>Example #3 Increasing refcount of a zval</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"new&nbsp;string"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= </span><span style="color: #DD0000">"new string"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$b </span><span style="color: #007700">= </span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">( </span><span style="color: #DD0000">'a' </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -114,11 +114,11 @@ a: (refcount=2, is_ref=0)=&#039;new string&#039;
     The following example shows this:
    </p>
    <p class="para">
-    <div class="example" id="example-473">
+    <div class="example" id="example-489">
      <p><strong>Example #4 Decreasing zval refcount</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"new&nbsp;string"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">42</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">);<br />unset(&nbsp;</span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= </span><span style="color: #DD0000">"new string"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$c </span><span style="color: #007700">= </span><span style="color: #0000BB">$b </span><span style="color: #007700">= </span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">( </span><span style="color: #DD0000">'a' </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$b </span><span style="color: #007700">= </span><span style="color: #0000BB">42</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">( </span><span style="color: #DD0000">'a' </span><span style="color: #007700">);<br />unset( </span><span style="color: #0000BB">$c </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">( </span><span style="color: #DD0000">'a' </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -149,11 +149,11 @@ a: (refcount=1, is_ref=0)=&#039;new string&#039;
      example creates three zval containers:
     </p>
     <p class="para">
-     <div class="example" id="example-474">
+     <div class="example" id="example-490">
       <p><strong>Example #5 Creating a <span class="type">array</span> zval</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;array(&nbsp;</span><span style="color: #DD0000">'meaning'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'life'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'number'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">42&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= array( </span><span style="color: #DD0000">'meaning' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'life'</span><span style="color: #007700">, </span><span style="color: #DD0000">'number' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">42 </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">( </span><span style="color: #DD0000">'a' </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -184,11 +184,11 @@ a: (refcount=1, is_ref=0)=array (
      existing element:
     </p>
     <p class="para">
-     <div class="example" id="example-475">
+     <div class="example" id="example-491">
       <p><strong>Example #6 Adding already existing element to an array</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;array(&nbsp;</span><span style="color: #DD0000">'meaning'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'life'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'number'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">42&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'life'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'meaning'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= array( </span><span style="color: #DD0000">'meaning' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'life'</span><span style="color: #007700">, </span><span style="color: #DD0000">'number' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">42 </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'life'</span><span style="color: #007700">] = </span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'meaning'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">( </span><span style="color: #DD0000">'a' </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -228,11 +228,11 @@ a: (refcount=1, is_ref=0)=array (
      container is removed from memory.  Again, an example to show this:
     </p>
     <p class="para">
-     <div class="example" id="example-476">
+     <div class="example" id="example-492">
       <p><strong>Example #7 Removing an element from an array</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;array(&nbsp;</span><span style="color: #DD0000">'meaning'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'life'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'number'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">42&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'life'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'meaning'</span><span style="color: #007700">];<br />unset(&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'meaning'</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'number'</span><span style="color: #007700">]&nbsp;);<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= array( </span><span style="color: #DD0000">'meaning' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'life'</span><span style="color: #007700">, </span><span style="color: #DD0000">'number' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">42 </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'life'</span><span style="color: #007700">] = </span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'meaning'</span><span style="color: #007700">];<br />unset( </span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'meaning'</span><span style="color: #007700">], </span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'number'</span><span style="color: #007700">] );<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">( </span><span style="color: #DD0000">'a' </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -254,11 +254,11 @@ a: (refcount=1, is_ref=0)=array (
      reference operator, since otherwise PHP would create a copy:
     </p>
     <p class="para">
-     <div class="example" id="example-477">
+     <div class="example" id="example-493">
       <p><strong>Example #8 Adding the array itself as an element of it self</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;array(&nbsp;</span><span style="color: #DD0000">'one'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">[]&nbsp;=&amp;&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a </span><span style="color: #007700">= array( </span><span style="color: #DD0000">'one' </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$a</span><span style="color: #007700">[] =&amp; </span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">( </span><span style="color: #DD0000">'a' </span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -297,7 +297,7 @@ a: (refcount=2, is_ref=1)=array (
      gets decreased by one, from &quot;2&quot; to &quot;1&quot;. This can be represented as:
     </p>
     <p class="para">
-     <div class="example" id="example-478">
+     <div class="example" id="example-494">
       <p><strong>Example #9 Unsetting <var class="varname">$a</var></strong></p>
       <div class="example-contents screen">
 <div class="cdata"><pre>

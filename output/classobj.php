@@ -117,7 +117,7 @@ namespace {
 
 	/**
 	 * Returns an array of all declared traits
-	 * @return array <p>Returns an array with names of all declared traits in values. Returns <b><code>null</code></b> in case of a failure.</p>
+	 * @return array <p>Returns an array with names of all declared traits in values.</p>
 	 * @link https://php.net/manual/en/function.get-declared-traits.php
 	 * @see class_uses(), trait_exists()
 	 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
@@ -150,12 +150,12 @@ namespace {
 	 * Retrieves the parent class name for object or class
 	 * <p>Retrieves the parent class name for object or class.</p>
 	 * @param object|string $object_or_class <p>The tested object or class name. This parameter is optional if called from the object's method.</p>
-	 * @return string <p>Returns the name of the parent class of the class of which <code>object</code> is an instance or the name.</p><p><b>Note</b>:</p><p>If the object does not have a parent or the class given does not exist <b><code>false</code></b> will be returned.</p> <p>If called without parameter outside object, this function returns <b><code>false</code></b>.</p>
+	 * @return string|false <p>Returns the name of the parent class of the class of which <code>object_or_class</code> is an instance or the name.</p><p><b>Note</b>:</p><p>If the object does not have a parent or the class given does not exist <b><code>false</code></b> will be returned.</p> <p>If called without parameter outside object, this function returns <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.get-parent-class.php
 	 * @see get_class(), is_subclass_of(), class_parents()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function get_parent_class(object|string $object_or_class = null): string {}
+	function get_parent_class(object|string $object_or_class = null): string|false {}
 
 	/**
 	 * Checks if the interface has been defined
@@ -170,10 +170,10 @@ namespace {
 	function interface_exists(string $interface, bool $autoload = true): bool {}
 
 	/**
-	 * Checks if the object is of this class or has this class as one of its parents
-	 * <p>Checks if the given <code>object_or_class</code> is of this class or has this class as one of its parents.</p>
+	 * Checks whether the object is of a given type or subtype
+	 * <p>Checks if the given <code>object_or_class</code> is of this object type or has this class as one of its parents.</p>
 	 * @param mixed $object_or_class <p>A class name or an object instance.</p>
-	 * @param string $class <p>The class name</p>
+	 * @param string $class <p>The class or interface name</p>
 	 * @param bool $allow_string <p>If this parameter set to <b><code>false</code></b>, string class name as <code>object_or_class</code> is not allowed. This also prevents from calling autoloader if the class doesn't exist.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if the object is of this class or has this class as one of its parents, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.is-a.php
@@ -223,7 +223,7 @@ namespace {
 	 * Checks if the trait exists
 	 * @param string $trait <p>Name of the trait to check</p>
 	 * @param bool $autoload <p>Whether to autoload if not already loaded.</p>
-	 * @return bool <p>Returns <b><code>true</code></b> if trait exists, <b><code>false</code></b> if not, <b><code>null</code></b> in case of an error.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if trait exists, and <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.trait-exists.php
 	 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 	 */

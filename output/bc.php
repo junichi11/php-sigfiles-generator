@@ -108,9 +108,9 @@ namespace {
 	/**
 	 * Get the square root of an arbitrary precision number
 	 * <p>Return the square root of the <code>num</code>.</p>
-	 * @param string $num <p>The operand, as a string.</p>
+	 * @param string $num <p>The operand, as a well-formed BCMath numeric string.</p>
 	 * @param ?int $scale <p>This optional parameter is used to set the number of digits after the decimal place in the result. If omitted, it will default to the scale set globally with the <code>bcscale()</code> function, or fallback to <code>0</code> if this has not been set.</p>
-	 * @return string <p>Returns the square root as a string, or <b><code>null</code></b> if <code>num</code> is negative.</p>
+	 * @return string <p>Returns the square root as a well-formed BCMath numeric string.</p>
 	 * @link https://php.net/manual/en/function.bcsqrt.php
 	 * @see bcpow()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8

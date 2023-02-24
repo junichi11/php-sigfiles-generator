@@ -166,7 +166,7 @@
  <td>8.1.0</td>
  <td>
   The <code class="parameter">ldap</code> parameter expects an <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">ldap link</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
 
@@ -174,12 +174,12 @@
  <td>8.1.0</td>
  <td>
   The <code class="parameter">result</code> parameter expects an <span class="classname"><a href="class.ldap-result.html" class="classname">LDAP\Result</a></span>
-  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+  instance now; previously, a valid <code class="literal">ldap result</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
  </td>
 </tr>
 
       <tr>
-       <td>7.3</td>
+       <td>7.3.0</td>
        <td>
         Support for <code class="parameter">controls</code> added
        </td>
@@ -196,11 +196,11 @@
  <div class="refsect1 examples" id="refsect1-function.ldap-parse-result-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4367">
+   <div class="example" id="example-4446">
     <p><strong>Example #1 <span class="function"><strong>ldap_parse_result()</strong></span> example</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_search</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"cn=userref,dc=my-domain,dc=com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"(cn=user*)"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$errcode&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$errmsg&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$refs&nbsp;</span><span style="color: #007700">=&nbsp;&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />if&nbsp;(</span><span style="color: #0000BB">ldap_parse_result</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$errcode</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$dn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$errmsg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$refs</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;do&nbsp;something&nbsp;with&nbsp;$errcode,&nbsp;$dn,&nbsp;$errmsg&nbsp;and&nbsp;$refs<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$result </span><span style="color: #007700">= </span><span style="color: #0000BB">ldap_search</span><span style="color: #007700">(</span><span style="color: #0000BB">$ldap</span><span style="color: #007700">, </span><span style="color: #DD0000">"cn=userref,dc=my-domain,dc=com"</span><span style="color: #007700">, </span><span style="color: #DD0000">"(cn=user*)"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$errcode </span><span style="color: #007700">= </span><span style="color: #0000BB">$dn </span><span style="color: #007700">= </span><span style="color: #0000BB">$errmsg </span><span style="color: #007700">= </span><span style="color: #0000BB">$refs </span><span style="color: #007700">=  </span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />if (</span><span style="color: #0000BB">ldap_parse_result</span><span style="color: #007700">(</span><span style="color: #0000BB">$ldap</span><span style="color: #007700">, </span><span style="color: #0000BB">$result</span><span style="color: #007700">, </span><span style="color: #0000BB">$errcode</span><span style="color: #007700">, </span><span style="color: #0000BB">$dn</span><span style="color: #007700">, </span><span style="color: #0000BB">$errmsg</span><span style="color: #007700">, </span><span style="color: #0000BB">$refs</span><span style="color: #007700">)) {<br />    </span><span style="color: #FF8000">// do something with $errcode, $dn, $errmsg and $refs<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

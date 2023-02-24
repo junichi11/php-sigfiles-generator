@@ -47,7 +47,7 @@ namespace {
 
 	/**
 	 * Generates a key
-	 * <p>Generates a key according to the given <code>algo</code>, using an user provided <code>password</code>.</p><p>This is the Salted S2K algorithm as specified in the OpenPGP document (RFC 2440).</p><p>Keep in mind that user supplied passwords are not really suitable to be used as keys in cryptographic algorithms, since users normally choose keys they can write on keyboard. These passwords use only 6 to 7 bits per character (or less). It is highly recommended to use some kind of transformation (like this function) to the user supplied key.</p>
+	 * <p>Generates a key according to the given <code>algo</code>, using an user provided <code>password</code>.</p><p>This is the Salted S2K algorithm as specified in the OpenPGP document (&#xBB;&#xA0;RFC 2440).</p><p>Keep in mind that user supplied passwords are not really suitable to be used as keys in cryptographic algorithms, since users normally choose keys they can write on keyboard. These passwords use only 6 to 7 bits per character (or less). It is highly recommended to use some kind of transformation (like this function) to the user supplied key.</p>
 	 * @param int $algo <p>The hash ID used to create the key. One of the <b><code>MHASH_hashname</code></b> constants.</p>
 	 * @param string $password <p>An user supplied password.</p>
 	 * @param string $salt <p>Must be different and random enough for every key you generate in order to create different keys. Because <code>salt</code> must be known when you check the keys, it is a good idea to append the key to it. Salt has a fixed length of 8 bytes and will be padded with zeros if you supply less bytes.</p>

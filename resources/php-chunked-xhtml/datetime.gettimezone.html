@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="datetime.gettimestamp.html">« DateTime::getTimestamp</a></li>
+      <li style="float: left;"><a href="datetime.gettimestamp.html">« DateTimeInterface::getTimestamp</a></li>
       <li style="float: right;"><a href="datetime.wakeup.html">DateTime::__wakeup »</a></li>
     </ul>
   </div>
@@ -25,11 +25,11 @@
 <div id="layout">
   <div id="layout-content"><div id="datetime.gettimezone" class="refentry">
  <div class="refnamediv">
-  <h1 class="refname">DateTime::getTimezone</h1>
-  <h1 class="refname">DateTimeImmutable::getTimezone</h1>
   <h1 class="refname">DateTimeInterface::getTimezone</h1>
+  <h1 class="refname">DateTimeImmutable::getTimezone</h1>
+  <h1 class="refname">DateTime::getTimezone</h1>
   <h1 class="refname">date_timezone_get</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.1, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTime::getTimezone</span> -- <span class="refname">DateTimeImmutable::getTimezone</span> -- <span class="refname">DateTimeInterface::getTimezone</span> -- <span class="refname">date_timezone_get</span> &mdash; <span class="dc-title">Return time zone relative to given DateTime</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTimeInterface::getTimezone</span> -- <span class="refname">DateTimeImmutable::getTimezone</span> -- <span class="refname">DateTime::getTimezone</span> -- <span class="refname">date_timezone_get</span> &mdash; <span class="dc-title">Return time zone relative to given DateTime</span></p>
 
  </div>
 
@@ -37,11 +37,11 @@
   <h3 class="title">Description</h3>
   <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DateTime::getTimezone</strong></span>(): <span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DateTimeInterface::getTimezone</strong></span>(): <span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>DateTimeImmutable::getTimezone</strong></span>(): <span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
-  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>DateTimeInterface::getTimezone</strong></span>(): <span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>DateTime::getTimezone</strong></span>(): <span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
   <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.date-timezone-get.html" class="methodname">date_timezone_get</a></span>(<span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$object</code></span>): <span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
@@ -78,12 +78,12 @@ returned by <span class="function"><a href="function.date-create.html" class="fu
 
  <div class="refsect1 examples" id="refsect1-datetime.gettimezone-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2051">
+  <div class="example" id="example-2096">
    <p><strong>Example #1 <span class="function"><strong>DateTime::getTimezone()</strong></span> example</strong></p>
    <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$date&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">'Europe/London'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$tz&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTimezone</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">$tz</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$date </span><span style="color: #007700">= new </span><span style="color: #0000BB">DateTimeImmutable</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">, new </span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">'Europe/London'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$tz </span><span style="color: #007700">= </span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTimezone</span><span style="color: #007700">();<br />echo </span><span style="color: #0000BB">$tz</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -91,7 +91,7 @@ returned by <span class="function"><a href="function.date-create.html" class="fu
    <div class="example-contents"><p>Procedural style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$date&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date_create</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">timezone_open</span><span style="color: #007700">(</span><span style="color: #DD0000">'Europe/London'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$tz&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date_timezone_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$date</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">timezone_name_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$tz</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$date </span><span style="color: #007700">= </span><span style="color: #0000BB">date_create</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">, </span><span style="color: #0000BB">timezone_open</span><span style="color: #007700">(</span><span style="color: #DD0000">'Europe/London'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$tz </span><span style="color: #007700">= </span><span style="color: #0000BB">date_timezone_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$date</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">timezone_name_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$tz</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

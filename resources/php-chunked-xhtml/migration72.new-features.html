@@ -38,7 +38,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">object&nbsp;$obj</span><span style="color: #007700">)&nbsp;:&nbsp;</span><span style="color: #0000BB">object<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;</span><span style="color: #0000BB">SplQueue</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #0000BB">test</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">StdClass</span><span style="color: #007700">());</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function </span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">object $obj</span><span style="color: #007700">) : </span><span style="color: #0000BB">object<br /></span><span style="color: #007700">{<br />    return new </span><span style="color: #0000BB">SplQueue</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #0000BB">test</span><span style="color: #007700">(new </span><span style="color: #0000BB">stdClass</span><span style="color: #007700">());</span>
 </span>
 </code></div>
    </div>
@@ -68,7 +68,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">abstract&nbsp;class&nbsp;</span><span style="color: #0000BB">A<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;abstract&nbsp;function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">string&nbsp;$s</span><span style="color: #007700">);<br />}<br />abstract&nbsp;class&nbsp;</span><span style="color: #0000BB">B&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">A<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;overridden&nbsp;-&nbsp;still&nbsp;maintaining&nbsp;contravariance&nbsp;for&nbsp;parameters&nbsp;and&nbsp;covariance&nbsp;for&nbsp;return<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">abstract&nbsp;function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">$s</span><span style="color: #007700">)&nbsp;:&nbsp;</span><span style="color: #0000BB">int</span><span style="color: #007700">;<br />}</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">abstract class </span><span style="color: #0000BB">A<br /></span><span style="color: #007700">{<br />    abstract function </span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">string $s</span><span style="color: #007700">);<br />}<br />abstract class </span><span style="color: #0000BB">B </span><span style="color: #007700">extends </span><span style="color: #0000BB">A<br /></span><span style="color: #007700">{<br />    </span><span style="color: #FF8000">// overridden - still maintaining contravariance for parameters and covariance for return<br />    </span><span style="color: #007700">abstract function </span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">$s</span><span style="color: #007700">) : </span><span style="color: #0000BB">int</span><span style="color: #007700">;<br />}</span>
 </span>
 </code></div>
    </div>
@@ -154,7 +154,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quote</span><span style="color: #007700">(</span><span style="color: #DD0000">'über'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_STR&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_STR_NATL</span><span style="color: #007700">);</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quote</span><span style="color: #007700">(</span><span style="color: #DD0000">'über'</span><span style="color: #007700">, </span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_STR </span><span style="color: #007700">| </span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_STR_NATL</span><span style="color: #007700">);</span>
 </span>
 </code></div>
    </div>
@@ -276,7 +276,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">interface&nbsp;</span><span style="color: #0000BB">A<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">Test</span><span style="color: #007700">(array&nbsp;</span><span style="color: #0000BB">$input</span><span style="color: #007700">);<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">B&nbsp;</span><span style="color: #007700">implements&nbsp;</span><span style="color: #0000BB">A<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">Test</span><span style="color: #007700">(</span><span style="color: #0000BB">$input</span><span style="color: #007700">){}&nbsp;</span><span style="color: #FF8000">//&nbsp;type&nbsp;omitted&nbsp;for&nbsp;$input<br /></span><span style="color: #007700">}</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">interface </span><span style="color: #0000BB">A<br /></span><span style="color: #007700">{<br />    public function </span><span style="color: #0000BB">Test</span><span style="color: #007700">(array </span><span style="color: #0000BB">$input</span><span style="color: #007700">);<br />}<br /><br />class </span><span style="color: #0000BB">B </span><span style="color: #007700">implements </span><span style="color: #0000BB">A<br /></span><span style="color: #007700">{<br />    public function </span><span style="color: #0000BB">Test</span><span style="color: #007700">(</span><span style="color: #0000BB">$input</span><span style="color: #007700">){} </span><span style="color: #FF8000">// type omitted for $input<br /></span><span style="color: #007700">}</span>
 </span>
 </code></div>
    </div>
@@ -295,7 +295,7 @@
   <div class="informalexample">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">use&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">\</span><span style="color: #0000BB">Bar</span><span style="color: #007700">\{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Bar</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Baz</span><span style="color: #007700">,<br />};</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">use </span><span style="color: #0000BB">Foo</span><span style="color: #007700">\</span><span style="color: #0000BB">Bar</span><span style="color: #007700">\{<br />    </span><span style="color: #0000BB">Foo</span><span style="color: #007700">,<br />    </span><span style="color: #0000BB">Bar</span><span style="color: #007700">,<br />    </span><span style="color: #0000BB">Baz</span><span style="color: #007700">,<br />};</span>
 </span>
 </code></div>
    </div>

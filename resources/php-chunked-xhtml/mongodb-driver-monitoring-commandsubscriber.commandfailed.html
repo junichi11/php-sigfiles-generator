@@ -36,9 +36,8 @@
    <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Monitoring\CommandSubscriber::commandFailed</strong></span>(<span class="methodparam"><span class="type"><a href="class.mongodb-driver-monitoring-commandfailedevent.html" class="type MongoDB\Driver\Monitoring\CommandFailedEvent">MongoDB\Driver\Monitoring\CommandFailedEvent</a></span> <code class="parameter">$event</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
-   If the subscriber has been registered with
-   <span class="function"><a href="function.mongodb.driver.monitoring.addsubscriber.html" class="function">MongoDB\Driver\Monitoring\addSubscriber()</a></span>, the driver will
-   call this method when a command has failed.
+   If the subscriber has been registered, the driver will call this method when
+   a command has failed.
   </p>
  </div>
 
@@ -84,6 +83,7 @@
   <ul class="simplelist">
    <li class="member"><span class="classname"><a href="class.mongodb-driver-monitoring-commandfailedevent.html" class="classname">MongoDB\Driver\Monitoring\CommandFailedEvent</a></span></li>
    <li class="member"><span class="function"><a href="function.mongodb.driver.monitoring.addsubscriber.html" class="function" rel="rdfs-seeAlso">MongoDB\Driver\Monitoring\addSubscriber()</a> - Registers a monitoring event subscriber globally</span></li>
+   <li class="member"><span class="function"><a href="mongodb-driver-manager.addsubscriber.html" class="function" rel="rdfs-seeAlso">MongoDB\Driver\Manager::addSubscriber()</a> - Registers a monitoring event subscriber with this Manager</span></li>
    <li class="member"><a href="mongodb.tutorial.apm.html" class="xref">Application Performance Monitoring (APM)</a></li>
   </ul>
  </div>

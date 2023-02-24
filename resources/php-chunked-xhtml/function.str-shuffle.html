@@ -39,10 +39,18 @@
    <span class="function"><strong>str_shuffle()</strong></span> shuffles a string.  One permutation
    of all possible is created.
   </p>
-  <div class="caution"><strong class="caution">Caution</strong><p class="para">This function does not
-generate cryptographically secure values, and should not be used for cryptographic purposes. If you need a
-cryptographically secure value, consider using <span class="function"><a href="function.random-int.html" class="function">random_int()</a></span>, <span class="function"><a href="function.random-bytes.html" class="function">random_bytes()</a></span>, or
-<span class="function"><a href="function.openssl-random-pseudo-bytes.html" class="function">openssl_random_pseudo_bytes()</a></span> instead.</p></div>
+  <div class="caution"><strong class="caution">Caution</strong>
+ <p class="para">
+  This function does not generate cryptographically secure values, and <em class="emphasis">must not</em>
+  be used for cryptographic purposes, or purposes that require returned values to be unguessable.
+ </p>
+ <p class="para">
+  If cryptographically secure randomness is required, the <span class="classname"><a href="class.random-randomizer.html" class="classname">Random\Randomizer</a></span> may be
+  used with the <span class="classname"><a href="class.random-engine-secure.html" class="classname">Random\Engine\Secure</a></span> engine. For simple use cases, the <span class="function"><a href="function.random-int.html" class="function">random_int()</a></span>
+  and <span class="function"><a href="function.random-bytes.html" class="function">random_bytes()</a></span> functions provide a convenient and secure <abbr title="Application Programming Interface">API</abbr> that is backed by
+  the operating system’s <abbr title="Cryptographically Secure PseudoRandom Number Generator">CSPRNG</abbr>.
+ </p>
+</div>
  </div>
 
 
@@ -108,11 +116,11 @@ cryptographically secure value, consider using <span class="function"><a href="f
  <div class="refsect1 examples" id="refsect1-function.str-shuffle-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4843">
+   <div class="example" id="example-4929">
     <p><strong>Example #1 <span class="function"><strong>str_shuffle()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'abcdef'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$shuffled&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">str_shuffle</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;will&nbsp;echo&nbsp;something&nbsp;like:&nbsp;bfdaec<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$shuffled</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$str </span><span style="color: #007700">= </span><span style="color: #DD0000">'abcdef'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$shuffled </span><span style="color: #007700">= </span><span style="color: #0000BB">str_shuffle</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// This will echo something like: bfdaec<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$shuffled</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -126,8 +134,8 @@ cryptographically secure value, consider using <span class="function"><a href="f
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.shuffle.html" class="function" rel="rdfs-seeAlso">shuffle()</a> - Shuffle an array</span></li>
-    <li class="member"><span class="function"><a href="function.rand.html" class="function" rel="rdfs-seeAlso">rand()</a> - Generate a random integer</span></li>
+    <li class="member"><span class="function"><a href="random-randomizer.shufflebytes.html" class="function" rel="rdfs-seeAlso">Random\Randomizer::shuffleBytes()</a> - Get a byte-wise permutation of a string</span></li>
+    <li class="member"><span class="function"><a href="random-randomizer.shufflearray.html" class="function" rel="rdfs-seeAlso">Random\Randomizer::shuffleArray()</a> - Get a permutation of an array</span></li>
    </ul>
   </p>
  </div>

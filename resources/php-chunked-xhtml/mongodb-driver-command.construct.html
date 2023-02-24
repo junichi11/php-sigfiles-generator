@@ -29,11 +29,11 @@
   <p class="verinfo">(mongodb &gt;=1.0.0)</p><p class="refpurpose"><span class="refname">MongoDB\Driver\Command::__construct</span> &mdash; <span class="dc-title">Create a new Command</span></p>
 
  </div>
- 
+
  <div class="refsect1 description" id="refsect1-mongodb-driver-command.construct-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Command::__construct</strong></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$document</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$commandOptions</code><span class="initializer"> = ?</span></span>)</div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Command::__construct</strong></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$document</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$commandOptions</code><span class="initializer"> = <strong><code>null</code></strong></span></span>)</div>
 
   <p class="para rdfs-comment">
    Constructs a new <span class="classname"><a href="class.mongodb-driver-command.html" class="classname">MongoDB\Driver\Command</a></span>, which is an
@@ -50,7 +50,7 @@
   </p>
  </div>
 
- 
+
  <div class="refsect1 parameters" id="refsect1-mongodb-driver-command.construct-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
@@ -66,7 +66,7 @@
     </dd>
 
    
-   
+
    
     <dt>
 <code class="parameter">commandOptions</code></dt>
@@ -102,7 +102,7 @@
             Positive integer denoting the time limit in milliseconds for the
             server to block a getMore operation if no data is available. This
             option should only be used in conjunction with commands that return
-            a tailable cursor (e.g. <a href="https://docs.mongodb.com/manual/changeStreams/" class="link external">&raquo;&nbsp;Change
+            a tailable cursor (e.g. <a href="https://www.mongodb.com/docs/manual/changeStreams/" class="link external">&raquo;&nbsp;Change
             Streams</a>).
            </p>
           </td>
@@ -120,7 +120,7 @@
 
  </div>
 
- 
+
  <div class="refsect1 errors" id="refsect1-mongodb-driver-command.construct-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <ul class="simplelist">
@@ -128,7 +128,7 @@
   </ul>
  </div>
 
- 
+
  <div class="refsect1 changelog" id="refsect1-mongodb-driver-command.construct-changelog">
   <h3 class="title">Changelog</h3>
   <p class="para">
@@ -160,14 +160,14 @@
   </p>
  </div>
 
- 
+
  <div class="refsect1 examples" id="refsect1-mongodb-driver-command.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1283">
+  <div class="example" id="example-1314">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\Driver\Command::__construct()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://localhost:27017"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$command&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Command</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"buildinfo"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br /><br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$manager</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">executeCommand</span><span style="color: #007700">(</span><span style="color: #DD0000">"admin"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$command</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$response&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">toArray</span><span style="color: #007700">()[</span><span style="color: #0000BB">0</span><span style="color: #007700">];<br />}&nbsp;catch(</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Exception&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">(),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />}<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$response</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$manager </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://localhost:27017"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$command </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Command</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"buildinfo" </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">));<br /><br />try {<br />    </span><span style="color: #0000BB">$cursor </span><span style="color: #007700">= </span><span style="color: #0000BB">$manager</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">executeCommand</span><span style="color: #007700">(</span><span style="color: #DD0000">"admin"</span><span style="color: #007700">, </span><span style="color: #0000BB">$command</span><span style="color: #007700">);<br />    </span><span style="color: #0000BB">$response </span><span style="color: #007700">= </span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">toArray</span><span style="color: #007700">()[</span><span style="color: #0000BB">0</span><span style="color: #007700">];<br />} catch(</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Exception $e</span><span style="color: #007700">) {<br />    echo </span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">(), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />    exit;<br />}<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$response</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -218,8 +218,8 @@ array(13) {
 </pre></div>
    </div>
   </div>
-  
-  <div class="example" id="example-1284">
+
+  <div class="example" id="example-1315">
    <p><strong>Example #2 <span class="function"><strong>MongoDB\Driver\Command::__construct()</strong></span> example</strong></p>
    <div class="example-contents"><p>
     Commands can accept options as well, as part of the normal structure that
@@ -229,7 +229,7 @@ array(13) {
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://localhost:27017"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$command&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Command</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"distinct"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"beer"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"key"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"beer_name"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"maxTimeMS"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;)<br />);<br /><br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$manager</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">executeCommand</span><span style="color: #007700">(</span><span style="color: #DD0000">"beerdb"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$command</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$response&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">toArray</span><span style="color: #007700">()[</span><span style="color: #0000BB">0</span><span style="color: #007700">];<br />}&nbsp;catch(</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Exception</span><span style="color: #007700">\</span><span style="color: #0000BB">Exception&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">(),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />}<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$response</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$manager </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://localhost:27017"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$command </span><span style="color: #007700">= new </span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Command</span><span style="color: #007700">(<br />    array(<br />        </span><span style="color: #DD0000">"distinct" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"beer"</span><span style="color: #007700">,<br />        </span><span style="color: #DD0000">"key" </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"beer_name"</span><span style="color: #007700">,<br />        </span><span style="color: #DD0000">"maxTimeMS" </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">10</span><span style="color: #007700">,<br />    )<br />);<br /><br />try {<br />    </span><span style="color: #0000BB">$cursor </span><span style="color: #007700">= </span><span style="color: #0000BB">$manager</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">executeCommand</span><span style="color: #007700">(</span><span style="color: #DD0000">"beerdb"</span><span style="color: #007700">, </span><span style="color: #0000BB">$command</span><span style="color: #007700">);<br />    </span><span style="color: #0000BB">$response </span><span style="color: #007700">= </span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">toArray</span><span style="color: #007700">()[</span><span style="color: #0000BB">0</span><span style="color: #007700">];<br />} catch(</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Exception</span><span style="color: #007700">\</span><span style="color: #0000BB">Exception $e</span><span style="color: #007700">) {<br />    echo </span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">(), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />    exit;<br />}<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$response</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -242,8 +242,8 @@ something similar to:</p></div>
   </div>
  </div>
 
- 
- 
+
+
  <div class="refsect1 seealso" id="refsect1-mongodb-driver-command.construct-seealso">
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
@@ -252,5 +252,5 @@ something similar to:</p></div>
   </ul>
  </div>
 
- 
+
 </div></div></div></body></html>

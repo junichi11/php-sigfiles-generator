@@ -40,6 +40,11 @@
    <code class="parameter">pattern</code> and replaces them with
    <code class="parameter">replacement</code>.
   </p>
+  <p class="para">
+   To match an exact string, rather than a pattern,
+   consider using <span class="function"><a href="function.str-replace.html" class="function">str_replace()</a></span> or
+   <span class="function"><a href="function.str-ireplace.html" class="function">str_ireplace()</a></span> instead of this function.
+  </p>
  </div>
 
 
@@ -134,6 +139,10 @@
        replace is performed on every entry of <code class="parameter">subject</code>,
        and the return value is an array as well.
       </p>
+      <p class="para">
+       If the <code class="parameter">subject</code> array is associative, keys
+       will be preserved in the returned value.
+      </p>
      </dd>
 
     
@@ -200,11 +209,11 @@ If the regex pattern passed does not compile to a valid regex, an <strong><code>
  <div class="refsect1 examples" id="refsect1-function.preg-replace-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4759">
+   <div class="example" id="example-4838">
     <p><strong>Example #1 Using backreferences followed by numeric literals</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'April&nbsp;15,&nbsp;2003'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$pattern&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'/(\w+)&nbsp;(\d+),&nbsp;(\d+)/i'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacement&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'${1}1,$3'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$pattern</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$replacement</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$string </span><span style="color: #007700">= </span><span style="color: #DD0000">'April 15, 2003'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$pattern </span><span style="color: #007700">= </span><span style="color: #DD0000">'/(\w+) (\d+), (\d+)/i'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacement </span><span style="color: #007700">= </span><span style="color: #DD0000">'${1}1,$3'</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$pattern</span><span style="color: #007700">, </span><span style="color: #0000BB">$replacement</span><span style="color: #007700">, </span><span style="color: #0000BB">$string</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -218,11 +227,11 @@ April1,2003
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4760">
+   <div class="example" id="example-4839">
     <p><strong>Example #2 Using indexed arrays with <span class="function"><strong>preg_replace()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'The&nbsp;quick&nbsp;brown&nbsp;fox&nbsp;jumps&nbsp;over&nbsp;the&nbsp;lazy&nbsp;dog.'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patterns&nbsp;</span><span style="color: #007700">=&nbsp;array();<br /></span><span style="color: #0000BB">$patterns</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'/quick/'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patterns</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'/brown/'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patterns</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'/fox/'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacements&nbsp;</span><span style="color: #007700">=&nbsp;array();<br /></span><span style="color: #0000BB">$replacements</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'bear'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacements</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'black'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacements</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'slow'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$patterns</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$replacements</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$string </span><span style="color: #007700">= </span><span style="color: #DD0000">'The quick brown fox jumps over the lazy dog.'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patterns </span><span style="color: #007700">= array();<br /></span><span style="color: #0000BB">$patterns</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">] = </span><span style="color: #DD0000">'/quick/'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patterns</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">] = </span><span style="color: #DD0000">'/brown/'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patterns</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">] = </span><span style="color: #DD0000">'/fox/'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacements </span><span style="color: #007700">= array();<br /></span><span style="color: #0000BB">$replacements</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">] = </span><span style="color: #DD0000">'bear'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacements</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">] = </span><span style="color: #DD0000">'black'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacements</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">] = </span><span style="color: #DD0000">'slow'</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$patterns</span><span style="color: #007700">, </span><span style="color: #0000BB">$replacements</span><span style="color: #007700">, </span><span style="color: #0000BB">$string</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -238,7 +247,7 @@ The bear black slow jumps over the lazy dog.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />ksort</span><span style="color: #007700">(</span><span style="color: #0000BB">$patterns</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ksort</span><span style="color: #007700">(</span><span style="color: #0000BB">$replacements</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$patterns</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$replacements</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />ksort</span><span style="color: #007700">(</span><span style="color: #0000BB">$patterns</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ksort</span><span style="color: #007700">(</span><span style="color: #0000BB">$replacements</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$patterns</span><span style="color: #007700">, </span><span style="color: #0000BB">$replacements</span><span style="color: #007700">, </span><span style="color: #0000BB">$string</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -252,11 +261,11 @@ The slow black bear jumps over the lazy dog.
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4761">
+   <div class="example" id="example-4840">
     <p><strong>Example #3 Replacing several values</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$patterns&nbsp;</span><span style="color: #007700">=&nbsp;array&nbsp;(</span><span style="color: #DD0000">'/(19|20)(\d{2})-(\d{1,2})-(\d{1,2})/'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/^\s*{(\w+)}\s*=/'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$replace&nbsp;</span><span style="color: #007700">=&nbsp;array&nbsp;(</span><span style="color: #DD0000">'\3/\4/\1\2'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'$\1&nbsp;='</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$patterns</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$replace</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'{startDate}&nbsp;=&nbsp;1999-5-27'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$patterns </span><span style="color: #007700">= array (</span><span style="color: #DD0000">'/(19|20)(\d{2})-(\d{1,2})-(\d{1,2})/'</span><span style="color: #007700">,<br />                   </span><span style="color: #DD0000">'/^\s*{(\w+)}\s*=/'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$replace </span><span style="color: #007700">= array (</span><span style="color: #DD0000">'\3/\4/\1\2'</span><span style="color: #007700">, </span><span style="color: #DD0000">'$\1 ='</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$patterns</span><span style="color: #007700">, </span><span style="color: #0000BB">$replace</span><span style="color: #007700">, </span><span style="color: #DD0000">'{startDate} = 1999-5-27'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -270,14 +279,14 @@ $startDate = 5/27/1999
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4762">
+   <div class="example" id="example-4841">
     <p><strong>Example #4 Strip whitespace</strong></p>
     <div class="example-contents"><p>
      This example strips excess whitespace from a string.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'foo&nbsp;&nbsp;&nbsp;o'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'/\s\s+/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;will&nbsp;be&nbsp;'foo&nbsp;o'&nbsp;now<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$str </span><span style="color: #007700">= </span><span style="color: #DD0000">'foo   o'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str </span><span style="color: #007700">= </span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'/\s\s+/'</span><span style="color: #007700">, </span><span style="color: #DD0000">' '</span><span style="color: #007700">, </span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">// This will be 'foo o' now<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">$str</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -285,11 +294,11 @@ $startDate = 5/27/1999
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4763">
+   <div class="example" id="example-4842">
     <p><strong>Example #5 Using the <code class="parameter">count</code> parameter</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$count&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'/\d/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'/\s/'</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">'*'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'xp&nbsp;4&nbsp;to'</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//3<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$count </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /><br />echo </span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'/\d/'</span><span style="color: #007700">, </span><span style="color: #DD0000">'/\s/'</span><span style="color: #007700">), </span><span style="color: #DD0000">'*'</span><span style="color: #007700">, </span><span style="color: #DD0000">'xp 4 to'</span><span style="color: #007700">, -</span><span style="color: #0000BB">1 </span><span style="color: #007700">, </span><span style="color: #0000BB">$count</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$count</span><span style="color: #007700">; </span><span style="color: #FF8000">//3<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -320,6 +329,25 @@ xp***to
     <span class="function"><strong>preg_replace()</strong></span>.
    </p>
   </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    When both <code class="parameter">pattern</code> and <code class="parameter">replacement</code> are
+    arrays, matching rules will operate sequentially.  That is, the second <code class="parameter">pattern</code>/<code class="parameter">replacement</code>
+    pair will operate on the string that results from the first <code class="parameter">pattern</code>/<code class="parameter">replacement</code>
+    pair, not the original string. If you want to simulate replacements operating in parallel,
+    such as swapping two values, replace one pattern by an intermediary placeholder, then in a
+    later pair replace that intermediary placeholder with the desired replacement.
+   </p>
+   <div class="example" id="example-4843">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$p </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'/a/'</span><span style="color: #007700">, </span><span style="color: #DD0000">'/b/'</span><span style="color: #007700">, </span><span style="color: #DD0000">'/c/'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$r </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'b'</span><span style="color: #007700">, </span><span style="color: #DD0000">'c'</span><span style="color: #007700">, </span><span style="color: #DD0000">'d'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$p</span><span style="color: #007700">, </span><span style="color: #0000BB">$r</span><span style="color: #007700">, </span><span style="color: #DD0000">'a'</span><span style="color: #007700">));<br /></span><span style="color: #FF8000">// prints d<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p></blockquote>
  </div>
 
 
@@ -334,6 +362,7 @@ xp***to
     <li class="member"><span class="function"><a href="function.preg-replace-callback.html" class="function" rel="rdfs-seeAlso">preg_replace_callback()</a> - Perform a regular expression search and replace using a callback</span></li>
     <li class="member"><span class="function"><a href="function.preg-split.html" class="function" rel="rdfs-seeAlso">preg_split()</a> - Split string by a regular expression</span></li>
     <li class="member"><span class="function"><a href="function.preg-last-error.html" class="function" rel="rdfs-seeAlso">preg_last_error()</a> - Returns the error code of the last PCRE regex execution</span></li>
+    <li class="member"><span class="function"><a href="function.str-replace.html" class="function" rel="rdfs-seeAlso">str_replace()</a> - Replace all occurrences of the search string with the replacement string</span></li>
    </ul>
   </p>
  </div>

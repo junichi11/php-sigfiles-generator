@@ -38,11 +38,6 @@
   <p class="para rdfs-comment">
    Gets the defined constant.
   </p>
-
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-currently not documented; only its argument list is available.
-</p></div>
-
  </div>
 
 
@@ -80,11 +75,11 @@ currently not documented; only its argument list is available.
  <div class="refsect1 examples" id="refsect1-reflectionclass.getconstant-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5101">
+   <div class="example" id="example-5253">
     <p><strong>Example #1 Usage of <span class="methodname"><strong>ReflectionClass::getConstant()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Example&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;</span><span style="color: #0000BB">C1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;</span><span style="color: #0000BB">C2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'I&nbsp;am&nbsp;a&nbsp;constant'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$reflection&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #DD0000">'Example'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getConstant</span><span style="color: #007700">(</span><span style="color: #DD0000">'C1'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getConstant</span><span style="color: #007700">(</span><span style="color: #DD0000">'C2'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getConstant</span><span style="color: #007700">(</span><span style="color: #DD0000">'C3'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Example </span><span style="color: #007700">{<br />    const </span><span style="color: #0000BB">C1 </span><span style="color: #007700">= </span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />    const </span><span style="color: #0000BB">C2 </span><span style="color: #007700">= </span><span style="color: #DD0000">'I am a constant'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$reflection </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #DD0000">'Example'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getConstant</span><span style="color: #007700">(</span><span style="color: #DD0000">'C1'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getConstant</span><span style="color: #007700">(</span><span style="color: #DD0000">'C2'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getConstant</span><span style="color: #007700">(</span><span style="color: #DD0000">'C3'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
