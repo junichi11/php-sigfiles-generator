@@ -151,7 +151,7 @@ namespace {
 
 		/**
 		 * Returns the SQLSTATE error from previous MySQL operation
-		 * <p>Object-oriented style</p><p>Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. <code>'00000'</code> means no error. The values are specified by ANSI SQL and ODBC. For a list of possible values, see http://dev.mysql.com/doc/mysql/en/error-handling.html.</p><p><b>Note</b>:</p><p>Note that not all MySQL errors are yet mapped to SQLSTATE's. The value <code>HY000</code> (general error) is used for unmapped errors.</p>
+		 * <p>Object-oriented style</p><p>Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. <code>'00000'</code> means no error. The values are specified by ANSI SQL and ODBC. For a list of possible values, see &#xBB;&#xA0;http://dev.mysql.com/doc/mysql/en/error-handling.html.</p><p><b>Note</b>:</p><p>Note that not all MySQL errors are yet mapped to SQLSTATE's. The value <code>HY000</code> (general error) is used for unmapped errors.</p>
 		 * @var string <p>Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. <code>'00000'</code> means no error.</p>
 		 * @link https://php.net/manual/en/mysqli.sqlstate.php
 		 * @see mysqli_errno(), mysqli_error()
@@ -218,7 +218,7 @@ namespace {
 
 		/**
 		 * Starts a transaction
-		 * <p>Object-oriented style</p><p>Begins a transaction. Requires the InnoDB engine (it is enabled by default). For additional details about how MySQL transactions work, see http://dev.mysql.com/doc/mysql/en/commit.html.</p>
+		 * <p>Object-oriented style</p><p>Begins a transaction. Requires the InnoDB engine (it is enabled by default). For additional details about how MySQL transactions work, see &#xBB;&#xA0;http://dev.mysql.com/doc/mysql/en/commit.html.</p>
 		 * @param int $flags <p>Valid flags are:</p> <ul> <li> <p><b><code>MYSQLI_TRANS_START_READ_ONLY</code></b>: Start the transaction as "START TRANSACTION READ ONLY". Requires MySQL 5.6 and above.</p> </li> <li> <p><b><code>MYSQLI_TRANS_START_READ_WRITE</code></b>: Start the transaction as "START TRANSACTION READ WRITE". Requires MySQL 5.6 and above.</p> </li> <li> <p><b><code>MYSQLI_TRANS_START_WITH_CONSISTENT_SNAPSHOT</code></b>: Start the transaction as "START TRANSACTION WITH CONSISTENT SNAPSHOT".</p> </li> </ul>
 		 * @param ?string $name <p>Savepoint name for the transaction.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -309,6 +309,18 @@ namespace {
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function dump_debug_info(): bool {}
+
+		/**
+		 * Prepares, binds parameters, and executes SQL statement
+		 * <p>Object-oriented style</p><p>Prepares the SQL query, binds parameters, and executes it. The <b>mysqli::execute_query()</b> method is a shortcut for <code>mysqli::prepare()</code>, <code>mysqli_stmt::bind_param()</code>, <code>mysqli_stmt::execute()</code>, and <code>mysqli_stmt::get_result()</code>.</p><p>The statement template can contain zero or more question mark (<code>&#63;</code>) parameter markers&#x2060;&#x2014;also called placeholders. The parameter values must be provided as an <code>array</code> using <code>params</code> parameter.</p><p>A prepared statement is created under the hood but it's never exposed outside of the function. It's impossible to access properties of the statement as one would do with the <code>mysqli_stmt</code> object. Due to this limitation, the status information is copied to the <code>mysqli</code> object and is available using its methods, e.g. <code>mysqli_affected_rows()</code> or <code>mysqli_error()</code>.</p><p><b>Note</b>:</p><p>In the case where a statement is passed to <b>mysqli_execute_query()</b> that is longer than <code>max_allowed_packet</code> of the server, the returned error codes are different depending on the operating system. The behavior is as follows:</p><p>On Linux returns an error code of 1153. The error message means got a packet bigger than <code>max_allowed_packet</code> bytes.</p><p>On Windows returns an error code 2006. This error message means server has gone away.</p>
+		 * @param string $query <p>The query, as a string. It must consist of a single SQL statement.</p> <p>The SQL statement may contain zero or more parameter markers represented by question mark (<code>&#63;</code>) characters at the appropriate positions.</p> <p><b>Note</b>:</p><p>The markers are legal only in certain places in SQL statements. For example, they are permitted in the <code>VALUES()</code> list of an <code>INSERT</code> statement (to specify column values for a row), or in a comparison with a column in a <code>WHERE</code> clause to specify a comparison value. However, they are not permitted for identifiers (such as table or column names).</p>
+		 * @param ?array $params <p>An optional list <code>array</code> with as many elements as there are bound parameters in the SQL statement being executed. Each value is treated as a <code>string</code>.</p>
+		 * @return mysqli_result|bool <p>Returns <b><code>false</code></b> on failure. For successful queries which produce a result set, such as <code>SELECT, SHOW, DESCRIBE</code> or <code>EXPLAIN</code>, returns a <code>mysqli_result</code> object. For other successful queries, returns <b><code>true</code></b>.</p>
+		 * @link https://php.net/manual/en/mysqli.execute-query.php
+		 * @see mysqli_prepare(), mysqli_stmt_execute(), mysqli_stmt_bind_param(), mysqli_stmt_get_result()
+		 * @since PHP 8 >= 8.2.0
+		 */
+		public function execute_query(string $query, ?array $params = null): \mysqli_result|bool {}
 
 		/**
 		 * Returns a character set object
@@ -448,8 +460,8 @@ namespace {
 
 		/**
 		 * Prepares an SQL statement for execution
-		 * <p>Object-oriented style</p><p>Prepares the SQL query, and returns a statement handle to be used for further operations on the statement. The query must consist of a single SQL statement.</p><p>The statement template can contain zero or more question mark (<code>&#63;</code>) parameter markers&#8288;&mdash;also called placeholders. The parameter markers must be bound to application variables using <code>mysqli_stmt_bind_param()</code> before executing the statement.</p>
-		 * @param string $query <p>The query, as a string. It must consist of a single SQL statement.</p> <p>The SQL statement may contain zero or more parameter markers represented by question mark (<code>&#63;</code>) characters at the appropriate positions.</p> <p><b>Note</b>:</p><p>The markers are legal only in certain places in SQL statements. For example, they are permitted in the <code>VALUES()</code> list of an <code>INSERT</code> statement (to specify column values for a row), or in a comparison with a column in a <code>WHERE</code> clause to specify a comparison value.</p> <p>However, they are not permitted for identifiers (such as table or column names), or to specify both operands of a binary operator such as the <code>=</code> equal sign. The latter restriction is necessary because it would be impossible to determine the parameter type. In general, parameters are legal only in Data Manipulation Language (DML) statements, and not in Data Definition Language (DDL) statements.</p>
+		 * <p>Object-oriented style</p><p>Prepares the SQL query, and returns a statement handle to be used for further operations on the statement. The query must consist of a single SQL statement.</p><p>The statement template can contain zero or more question mark (<code>&#63;</code>) parameter markers&#x2060;&#x2014;also called placeholders. The parameter markers must be bound to application variables using <code>mysqli_stmt_bind_param()</code> before executing the statement.</p>
+		 * @param string $query <p>The query, as a string. It must consist of a single SQL statement.</p> <p>The SQL statement may contain zero or more parameter markers represented by question mark (<code>&#63;</code>) characters at the appropriate positions.</p> <p><b>Note</b>:</p><p>The markers are legal only in certain places in SQL statements. For example, they are permitted in the <code>VALUES()</code> list of an <code>INSERT</code> statement (to specify column values for a row), or in a comparison with a column in a <code>WHERE</code> clause to specify a comparison value. However, they are not permitted for identifiers (such as table or column names).</p>
 		 * @return mysqli_stmt|false <p><b>mysqli_prepare()</b> returns a statement object or <b><code>false</code></b> if an error occurred.</p>
 		 * @link https://php.net/manual/en/mysqli.prepare.php
 		 * @see mysqli_stmt_execute(), mysqli_stmt_fetch(), mysqli_stmt_bind_param(), mysqli_stmt_bind_result(), mysqli_stmt_get_result(), mysqli_stmt_close()
@@ -459,7 +471,7 @@ namespace {
 
 		/**
 		 * Performs a query on the database
-		 * <p>Object-oriented style</p><p>Performs a <code>query</code> against the database.</p><p>For non-DML queries (not INSERT, UPDATE or DELETE), this function is similar to calling <code>mysqli_real_query()</code> followed by either <code>mysqli_use_result()</code> or <code>mysqli_store_result()</code>.</p><p><b>Note</b>:</p><p>In the case where you pass a statement to <b>mysqli_query()</b> that is longer than <code>max_allowed_packet</code> of the server, the returned error codes are different depending on whether you are using MySQL Native Driver (<code>mysqlnd</code>) or MySQL Client Library (<code>libmysqlclient</code>). The behavior is as follows:</p><p><code>mysqlnd</code> on Linux returns an error code of 1153. The error message means got a packet bigger than <code>max_allowed_packet</code> bytes.</p><p><code>mysqlnd</code> on Windows returns an error code 2006. This error message means server has gone away.</p><p><code>libmysqlclient</code> on all platforms returns an error code 2006. This error message means server has gone away.</p>
+		 * <p>Object-oriented style</p><p>Performs a <code>query</code> against the database.</p><p>For non-DML queries (not INSERT, UPDATE or DELETE), this function is similar to calling <code>mysqli_real_query()</code> followed by either <code>mysqli_use_result()</code> or <code>mysqli_store_result()</code>.</p><p><b>Note</b>:</p><p>In the case where a statement is passed to <b>mysqli_query()</b> that is longer than <code>max_allowed_packet</code> of the server, the returned error codes are different depending on whether you are using MySQL Native Driver (<code>mysqlnd</code>) or MySQL Client Library (<code>libmysqlclient</code>). The behavior is as follows:</p><p><code>mysqlnd</code> on Linux returns an error code of 1153. The error message means got a packet bigger than <code>max_allowed_packet</code> bytes.</p><p><code>mysqlnd</code> on Windows returns an error code 2006. This error message means server has gone away.</p><p><code>libmysqlclient</code> on all platforms returns an error code 2006. This error message means server has gone away.</p>
 		 * @param string $query <p>The query string.</p> <p><b>Warning</b></p> Security warning: SQL injection<p>If the query contains any variable input then parameterized prepared statements should be used instead. Alternatively, the data must be properly formatted and all strings must be escaped using the <code>mysqli_real_escape_string()</code> function.</p>
 		 * @param int $result_mode <p>The result mode can be one of 3 constants indicating how the result will be returned from the MySQL server.</p> <p><b><code>MYSQLI_STORE_RESULT</code></b> (default) - returns a <code>mysqli_result</code> object with buffered result set.</p> <p><b><code>MYSQLI_USE_RESULT</code></b> - returns a <code>mysqli_result</code> object with unbuffered result set. As long as there are pending records waiting to be fetched, the connection line will be busy and all subsequent calls will return error <code>Commands out of sync</code>. To avoid the error all records must be fetched from the server or the result set must be discarded by calling <code>mysqli_free_result()</code>.</p> <p><b><code>MYSQLI_ASYNC</code></b> (available with mysqlnd) - the query is performed asynchronously and no result set is immediately returned. <code>mysqli_poll()</code> is then used to get results from such queries. Used in combination with either <b><code>MYSQLI_STORE_RESULT</code></b> or <b><code>MYSQLI_USE_RESULT</code></b> constant.</p>
 		 * @return mysqli_result|bool <p>Returns <b><code>false</code></b> on failure. For successful queries which produce a result set, such as <code>SELECT, SHOW, DESCRIBE</code> or <code>EXPLAIN</code>, <b>mysqli_query()</b> will return a <code>mysqli_result</code> object. For other successful queries, <b>mysqli_query()</b> will return <b><code>true</code></b>.</p>
@@ -521,7 +533,7 @@ namespace {
 		/**
 		 * Refreshes
 		 * <p>Object-oriented style</p><p>Flushes tables or caches, or resets the replication server information.</p>
-		 * @param int $flags <p>The options to refresh, using the MYSQLI_REFRESH_&#42; constants as documented within the MySQLi constants documentation.</p> <p>See also the official MySQL Refresh documentation.</p>
+		 * @param int $flags <p>The options to refresh, using the MYSQLI_REFRESH_&#42; constants as documented within the MySQLi constants documentation.</p> <p>See also the official &#xBB;&#xA0;MySQL Refresh documentation.</p>
 		 * @return bool <p><b><code>true</code></b> if the refresh was a success, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/mysqli.refresh.php
 		 * @see mysqli_poll()
@@ -677,43 +689,10 @@ namespace {
 		public $driver_version;
 
 		/**
-		 * @var bool <p>Whether MySQLi Embedded support is enabled</p> <p><b>Warning</b></p><p>This property has been <i>removed</i> as of PHP 8.0.0.</p>
-		 * @link https://php.net/manual/en/class.mysqli-driver.php#mysqli-driver.props.embedded
-		 */
-		public $embedded;
-
-		/**
-		 * @var bool <p>Allow or prevent reconnect (see the mysqli.reconnect INI directive)</p>
-		 * @link https://php.net/manual/en/class.mysqli-driver.php#mysqli-driver.props.reconnect
-		 */
-		public $reconnect = false;
-
-		/**
 		 * @var int <p>Set to <b><code>MYSQLI_REPORT_OFF</code></b>, <b><code>MYSQLI_REPORT_ALL</code></b> or any combination of <b><code>MYSQLI_REPORT_STRICT</code></b> (throw Exceptions for errors), <b><code>MYSQLI_REPORT_ERROR</code></b> (report errors) and <b><code>MYSQLI_REPORT_INDEX</code></b> (errors regarding indexes). See also <code>mysqli_report()</code>.</p>
 		 * @link https://php.net/manual/en/class.mysqli-driver.php#mysqli-driver.props.report-mode
 		 */
 		public $report_mode;
-
-		/**
-		 * Stop embedded server
-		 * <p>Object-oriented style</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return void
-		 * @link https://php.net/manual/en/mysqli-driver.embedded-server-end.php
-		 * @since PHP 5 >= 5.1.0, PHP 7 < 7.4.0
-		 */
-		public function embedded_server_end(): void {}
-
-		/**
-		 * Initialize and start embedded server
-		 * <p>Object-oriented style</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param int $start
-		 * @param array $arguments
-		 * @param array $groups
-		 * @return bool
-		 * @link https://php.net/manual/en/mysqli-driver.embedded-server-start.php
-		 * @since PHP 5 >= 5.1.0, PHP 7 < 7.4.0
-		 */
-		public function embedded_server_start(int $start, array $arguments, array $groups): bool {}
 	}
 
 	/**
@@ -793,7 +772,7 @@ namespace {
 		/**
 		 * Adjusts the result pointer to an arbitrary row in the result
 		 * <p>Object-oriented style</p><p>The <b>mysqli_data_seek()</b> function seeks to an arbitrary result pointer specified by the <code>offset</code> in the result set.</p>
-		 * @param int $offset <p>The field offset. Must be between zero and the total number of rows minus one (0..<code>mysqli_num_rows()</code> - 1).</p>
+		 * @param int $offset <p>The row offset. Must be between zero and the total number of rows minus one (0..<code>mysqli_num_rows()</code> - 1).</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/mysqli-result.data-seek.php
 		 * @see mysqli_store_result(), mysqli_fetch_row(), mysqli_fetch_array(), mysqli_fetch_assoc(), mysqli_fetch_object(), mysqli_query(), mysqli_num_rows()
@@ -878,7 +857,7 @@ namespace {
 		/**
 		 * Fetch the next row of a result set as an object
 		 * <p>Object-oriented style</p><p>Fetches one row of data from the result set and returns it as an object, where each property represents the name of the result set's column. Each subsequent call to this function will return the next row within the result set, or <b><code>null</code></b> if there are no more rows.</p><p>If two or more columns of the result have the same name, the last column will take precedence and overwrite any previous data. To access multiple columns with the same name, <code>mysqli_fetch_row()</code> may be used to fetch the numerically indexed array, or aliases may be used in the SQL query select list to give columns different names.</p><p><b>Note</b>:  This function sets the properties of the object before calling the object constructor. </p><p><b>Note</b>: Field names returned by this function are <i>case-sensitive</i>.</p><p><b>Note</b>: This function sets NULL fields to the PHP <b><code>null</code></b> value.</p>
-		 * @param string $class <p>The name of the class to instantiate, set the properties of and return. If not specified, a <b>stdClass</b> object is returned.</p>
+		 * @param string $class <p>The name of the class to instantiate, set the properties of and return. If not specified, a <code>stdClass</code> object is returned.</p>
 		 * @param array $constructor_args <p>An optional <code>array</code> of parameters to pass to the constructor for <code>class</code> objects.</p>
 		 * @return object|null|false <p>Returns an object representing the fetched row, where each property represents the name of the result set's column, <b><code>null</code></b> if there are no more rows in the result set, or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/mysqli-result.fetch-object.php
@@ -1003,6 +982,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -1058,7 +1049,7 @@ namespace {
 
 		/**
 		 * Returns the SQLSTATE error code
-		 * <p>Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. The values are specified by ANSI SQL and ODBC. For a list of possible values, see http://dev.mysql.com/doc/mysql/en/error-handling.html.</p><p><b>Note</b>:</p><p>Note that not all MySQL errors are yet mapped to SQLSTATE's. The value <code>HY000</code> (general error) is used for unmapped errors.</p>
+		 * <p>Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. The values are specified by ANSI SQL and ODBC. For a list of possible values, see &#xBB;&#xA0;http://dev.mysql.com/doc/mysql/en/error-handling.html.</p><p><b>Note</b>:</p><p>Note that not all MySQL errors are yet mapped to SQLSTATE's. The value <code>HY000</code> (general error) is used for unmapped errors.</p>
 		 * @return string <p>Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters.</p>
 		 * @link https://php.net/manual/en/mysqli-sql-exception.getsqlstate.php
 		 * @since PHP 8 >= 8.1.2
@@ -1172,7 +1163,7 @@ namespace {
 
 		/**
 		 * Returns SQLSTATE error from previous statement operation
-		 * <p>Object-oriented style</p><p>Returns a string containing the SQLSTATE error code for the most recently invoked prepared statement function that can succeed or fail. The error code consists of five characters. <code>'00000'</code> means no error. The values are specified by ANSI SQL and ODBC. For a list of possible values, see http://dev.mysql.com/doc/mysql/en/error-handling.html.</p>
+		 * <p>Object-oriented style</p><p>Returns a string containing the SQLSTATE error code for the most recently invoked prepared statement function that can succeed or fail. The error code consists of five characters. <code>'00000'</code> means no error. The values are specified by ANSI SQL and ODBC. For a list of possible values, see &#xBB;&#xA0;http://dev.mysql.com/doc/mysql/en/error-handling.html.</p>
 		 * @var string <p>Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. <code>'00000'</code> means no error.</p>
 		 * @link https://php.net/manual/en/mysqli-stmt.sqlstate.php
 		 * @see mysqli_stmt_errno(), mysqli_stmt_error()
@@ -1222,7 +1213,7 @@ namespace {
 		/**
 		 * Binds variables to a prepared statement as parameters
 		 * <p>Object-oriented style</p><p>Bind variables for the parameter markers in the SQL statement prepared by <code>mysqli_prepare()</code> or <code>mysqli_stmt_prepare()</code>.</p><p><b>Note</b>:</p><p>If data size of a variable exceeds max. allowed packet size (max_allowed_packet), you have to specify <code>b</code> in <code>types</code> and use <code>mysqli_stmt_send_long_data()</code> to send the data in packets.</p><p><b>Note</b>:</p><p>Care must be taken when using <b>mysqli_stmt_bind_param()</b> in conjunction with <code>call_user_func_array()</code>. Note that <b>mysqli_stmt_bind_param()</b> requires parameters to be passed by reference, whereas <code>call_user_func_array()</code> can accept as a parameter a list of variables that can represent references or values.</p>
-		 * @param string $types <p>A string that contains one or more characters which specify the types for the corresponding bind variables:</p> <b>Type specification chars</b>   Character Description     i corresponding variable has type integer   d corresponding variable has type double   s corresponding variable has type string   b corresponding variable is a blob and will be sent in packets
+		 * @param string $types <p>A string that contains one or more characters which specify the types for the corresponding bind variables:</p> <b>Type specification chars</b>   Character Description     i corresponding variable has type <code>int</code>   d corresponding variable has type <code>float</code>   s corresponding variable has type <code>string</code>   b corresponding variable is a blob and will be sent in packets
 		 * @param mixed $var
 		 * @param mixed $vars <p>The number of variables and length of string <code>types</code> must match the parameters in the statement.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -1255,12 +1246,12 @@ namespace {
 		public function close(): bool {}
 
 		/**
-		 * Seeks to an arbitrary row in statement result set
-		 * <p>Object-oriented style</p><p>Seeks to an arbitrary result pointer in the statement result set.</p><p><code>mysqli_stmt_store_result()</code> must be called prior to <b>mysqli_stmt_data_seek()</b>.</p>
+		 * Adjusts the result pointer to an arbitrary row in the buffered result
+		 * <p>Object-oriented style</p><p>This function moves the result set pointer of the buffered result set to an arbitrary row specified by the <code>offset</code> parameter.</p><p>This function works only on the buffered internal result set. <code>mysqli_stmt_store_result()</code> must be called prior to <b>mysqli_stmt_data_seek()</b>.</p>
 		 * @param int $offset <p>Must be between zero and the total number of rows minus one (0.. <code>mysqli_stmt_num_rows()</code> - 1).</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/mysqli-stmt.data-seek.php
-		 * @see mysqli_prepare()
+		 * @see mysqli_prepare(), mysqli_stmt_store_result(), mysqli_stmt_num_rows(), mysqli_data_seek()
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function data_seek(int $offset): void {}
@@ -1345,8 +1336,8 @@ namespace {
 
 		/**
 		 * Prepares an SQL statement for execution
-		 * <p>Object-oriented style</p><p>Prepares a statement for execution. The query must consist of a single SQL statement.</p><p>The statement template can contain zero or more question mark (<code>&#63;</code>) parameter markers&#8288;&mdash;also called placeholders. The parameter markers must be bound to application variables using <code>mysqli_stmt_bind_param()</code> before executing the statement.</p><p><b>Note</b>:</p><p>In the case where you pass a statement to <b>mysqli_stmt_prepare()</b> that is longer than <code>max_allowed_packet</code> of the server, the returned error codes are different depending on whether you are using MySQL Native Driver (<code>mysqlnd</code>) or MySQL Client Library (<code>libmysqlclient</code>). The behavior is as follows:</p><p><code>mysqlnd</code> on Linux returns an error code of 1153. The error message means got a packet bigger than <code>max_allowed_packet</code> bytes.</p><p><code>mysqlnd</code> on Windows returns an error code 2006. This error message means server has gone away.</p><p><code>libmysqlclient</code> on all platforms returns an error code 2006. This error message means server has gone away.</p>
-		 * @param string $query <p>The query, as a string. It must consist of a single SQL statement.</p> <p>The SQL statement may contain zero or more parameter markers represented by question mark (<code>&#63;</code>) characters at the appropriate positions.</p> <p><b>Note</b>:</p><p>The markers are legal only in certain places in SQL statements. For example, they are permitted in the <code>VALUES()</code> list of an <code>INSERT</code> statement (to specify column values for a row), or in a comparison with a column in a <code>WHERE</code> clause to specify a comparison value.</p> <p>However, they are not permitted for identifiers (such as table or column names), or to specify both operands of a binary operator such as the <code>=</code> equal sign. The latter restriction is necessary because it would be impossible to determine the parameter type. In general, parameters are legal only in Data Manipulation Language (DML) statements, and not in Data Definition Language (DDL) statements.</p>
+		 * <p>Object-oriented style</p><p>Prepares a statement for execution. The query must consist of a single SQL statement.</p><p>The statement template can contain zero or more question mark (<code>&#63;</code>) parameter markers&#x2060;&#x2014;also called placeholders. The parameter markers must be bound to application variables using <code>mysqli_stmt_bind_param()</code> before executing the statement.</p><p><b>Note</b>:</p><p>In the case where a statement is passed to <b>mysqli_stmt_prepare()</b> that is longer than <code>max_allowed_packet</code> of the server, the returned error codes are different depending on whether you are using MySQL Native Driver (<code>mysqlnd</code>) or MySQL Client Library (<code>libmysqlclient</code>). The behavior is as follows:</p><p><code>mysqlnd</code> on Linux returns an error code of 1153. The error message means got a packet bigger than <code>max_allowed_packet</code> bytes.</p><p><code>mysqlnd</code> on Windows returns an error code 2006. This error message means server has gone away.</p><p><code>libmysqlclient</code> on all platforms returns an error code 2006. This error message means server has gone away.</p>
+		 * @param string $query <p>The query, as a string. It must consist of a single SQL statement.</p> <p>The SQL statement may contain zero or more parameter markers represented by question mark (<code>&#63;</code>) characters at the appropriate positions.</p> <p><b>Note</b>:</p><p>The markers are legal only in certain places in SQL statements. For example, they are permitted in the <code>VALUES()</code> list of an <code>INSERT</code> statement (to specify column values for a row), or in a comparison with a column in a <code>WHERE</code> clause to specify a comparison value. However, they are not permitted for identifiers (such as table or column names).</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/mysqli-stmt.prepare.php
 		 * @see mysqli_stmt_init(), mysqli_stmt_execute(), mysqli_stmt_fetch(), mysqli_stmt_bind_param(), mysqli_stmt_bind_result(), mysqli_stmt_get_result(), mysqli_stmt_close()
@@ -1465,7 +1456,7 @@ namespace {
 
 	/**
 	 * Starts a transaction
-	 * <p>Object-oriented style</p><p>Begins a transaction. Requires the InnoDB engine (it is enabled by default). For additional details about how MySQL transactions work, see http://dev.mysql.com/doc/mysql/en/commit.html.</p>
+	 * <p>Object-oriented style</p><p>Begins a transaction. Requires the InnoDB engine (it is enabled by default). For additional details about how MySQL transactions work, see &#xBB;&#xA0;http://dev.mysql.com/doc/mysql/en/commit.html.</p>
 	 * @param \mysqli $mysql <p>A <code>mysqli</code> object returned by <code>mysqli_connect()</code> or <code>mysqli_init()</code></p>
 	 * @param int $flags <p>Valid flags are:</p> <ul> <li> <p><b><code>MYSQLI_TRANS_START_READ_ONLY</code></b>: Start the transaction as "START TRANSACTION READ ONLY". Requires MySQL 5.6 and above.</p> </li> <li> <p><b><code>MYSQLI_TRANS_START_READ_WRITE</code></b>: Start the transaction as "START TRANSACTION READ WRITE". Requires MySQL 5.6 and above.</p> </li> <li> <p><b><code>MYSQLI_TRANS_START_WITH_CONSISTENT_SNAPSHOT</code></b>: Start the transaction as "START TRANSACTION WITH CONSISTENT SNAPSHOT".</p> </li> </ul>
 	 * @param ?string $name <p>Savepoint name for the transaction.</p>
@@ -1565,7 +1556,7 @@ namespace {
 	 * Adjusts the result pointer to an arbitrary row in the result
 	 * <p>Object-oriented style</p><p>The <b>mysqli_data_seek()</b> function seeks to an arbitrary result pointer specified by the <code>offset</code> in the result set.</p>
 	 * @param \mysqli_result $result <p>A <code>mysqli_result</code> object returned by <code>mysqli_query()</code>, <code>mysqli_store_result()</code>, <code>mysqli_use_result()</code> or <code>mysqli_stmt_get_result()</code>.</p>
-	 * @param int $offset <p>The field offset. Must be between zero and the total number of rows minus one (0..<code>mysqli_num_rows()</code> - 1).</p>
+	 * @param int $offset <p>The row offset. Must be between zero and the total number of rows minus one (0..<code>mysqli_num_rows()</code> - 1).</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/mysqli-result.data-seek.php
 	 * @see mysqli_store_result(), mysqli_fetch_row(), mysqli_fetch_array(), mysqli_fetch_assoc(), mysqli_fetch_object(), mysqli_query(), mysqli_num_rows()
@@ -1594,27 +1585,6 @@ namespace {
 	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function mysqli_dump_debug_info(\mysqli $mysql): bool {}
-
-	/**
-	 * Stop embedded server
-	 * <p>Object-oriented style</p><p>This function is currently not documented; only its argument list is available.</p>
-	 * @return void
-	 * @link https://php.net/manual/en/mysqli-driver.embedded-server-end.php
-	 * @since PHP 5 >= 5.1.0, PHP 7 < 7.4.0
-	 */
-	function mysqli_embedded_server_end(): void {}
-
-	/**
-	 * Initialize and start embedded server
-	 * <p>Object-oriented style</p><p>This function is currently not documented; only its argument list is available.</p>
-	 * @param int $start
-	 * @param array $arguments
-	 * @param array $groups
-	 * @return bool
-	 * @link https://php.net/manual/en/mysqli-driver.embedded-server-start.php
-	 * @since PHP 5 >= 5.1.0, PHP 7 < 7.4.0
-	 */
-	function mysqli_embedded_server_start(int $start, array $arguments, array $groups): bool {}
 
 	/**
 	 * Returns the error code for the most recent function call
@@ -1661,7 +1631,7 @@ namespace {
 	function mysqli_escape_string(\mysqli $mysql, string $string): string {}
 
 	/**
-	 * Alias for mysqli_stmt_execute()
+	 * Alias of mysqli_stmt_execute()
 	 * <p>This function is an alias of: <code>mysqli_stmt_execute()</code>.</p>
 	 * @param \mysqli_stmt $statement <p>A <code>mysqli_stmt</code> object returned by <code>mysqli_stmt_init()</code>.</p>
 	 * @param ?array $params <p>An optional list <code>array</code> with as many elements as there are bound parameters in the SQL statement being executed. Each value is treated as a <code>string</code>.</p>
@@ -1670,6 +1640,19 @@ namespace {
 	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function mysqli_execute(\mysqli_stmt $statement, ?array $params = null): bool {}
+
+	/**
+	 * Prepares, binds parameters, and executes SQL statement
+	 * <p>Object-oriented style</p><p>Prepares the SQL query, binds parameters, and executes it. The <b>mysqli::execute_query()</b> method is a shortcut for <code>mysqli::prepare()</code>, <code>mysqli_stmt::bind_param()</code>, <code>mysqli_stmt::execute()</code>, and <code>mysqli_stmt::get_result()</code>.</p><p>The statement template can contain zero or more question mark (<code>&#63;</code>) parameter markers&#x2060;&#x2014;also called placeholders. The parameter values must be provided as an <code>array</code> using <code>params</code> parameter.</p><p>A prepared statement is created under the hood but it's never exposed outside of the function. It's impossible to access properties of the statement as one would do with the <code>mysqli_stmt</code> object. Due to this limitation, the status information is copied to the <code>mysqli</code> object and is available using its methods, e.g. <code>mysqli_affected_rows()</code> or <code>mysqli_error()</code>.</p><p><b>Note</b>:</p><p>In the case where a statement is passed to <b>mysqli_execute_query()</b> that is longer than <code>max_allowed_packet</code> of the server, the returned error codes are different depending on the operating system. The behavior is as follows:</p><p>On Linux returns an error code of 1153. The error message means got a packet bigger than <code>max_allowed_packet</code> bytes.</p><p>On Windows returns an error code 2006. This error message means server has gone away.</p>
+	 * @param \mysqli $mysql <p>A <code>mysqli</code> object returned by <code>mysqli_connect()</code> or <code>mysqli_init()</code></p>
+	 * @param string $query <p>The query, as a string. It must consist of a single SQL statement.</p> <p>The SQL statement may contain zero or more parameter markers represented by question mark (<code>&#63;</code>) characters at the appropriate positions.</p> <p><b>Note</b>:</p><p>The markers are legal only in certain places in SQL statements. For example, they are permitted in the <code>VALUES()</code> list of an <code>INSERT</code> statement (to specify column values for a row), or in a comparison with a column in a <code>WHERE</code> clause to specify a comparison value. However, they are not permitted for identifiers (such as table or column names).</p>
+	 * @param ?array $params <p>An optional list <code>array</code> with as many elements as there are bound parameters in the SQL statement being executed. Each value is treated as a <code>string</code>.</p>
+	 * @return mysqli_result|bool <p>Returns <b><code>false</code></b> on failure. For successful queries which produce a result set, such as <code>SELECT, SHOW, DESCRIBE</code> or <code>EXPLAIN</code>, returns a <code>mysqli_result</code> object. For other successful queries, returns <b><code>true</code></b>.</p>
+	 * @link https://php.net/manual/en/mysqli.execute-query.php
+	 * @see mysqli_prepare(), mysqli_stmt_execute(), mysqli_stmt_bind_param(), mysqli_stmt_get_result()
+	 * @since PHP 8 >= 8.2.0
+	 */
+	function mysqli_execute_query(\mysqli $mysql, string $query, ?array $params = null): \mysqli_result|bool {}
 
 	/**
 	 * Fetch all result rows as an associative array, a numeric array, or both
@@ -1766,7 +1749,7 @@ namespace {
 	 * Fetch the next row of a result set as an object
 	 * <p>Object-oriented style</p><p>Fetches one row of data from the result set and returns it as an object, where each property represents the name of the result set's column. Each subsequent call to this function will return the next row within the result set, or <b><code>null</code></b> if there are no more rows.</p><p>If two or more columns of the result have the same name, the last column will take precedence and overwrite any previous data. To access multiple columns with the same name, <code>mysqli_fetch_row()</code> may be used to fetch the numerically indexed array, or aliases may be used in the SQL query select list to give columns different names.</p><p><b>Note</b>:  This function sets the properties of the object before calling the object constructor. </p><p><b>Note</b>: Field names returned by this function are <i>case-sensitive</i>.</p><p><b>Note</b>: This function sets NULL fields to the PHP <b><code>null</code></b> value.</p>
 	 * @param \mysqli_result $result <p>A <code>mysqli_result</code> object returned by <code>mysqli_query()</code>, <code>mysqli_store_result()</code>, <code>mysqli_use_result()</code> or <code>mysqli_stmt_get_result()</code>.</p>
-	 * @param string $class <p>The name of the class to instantiate, set the properties of and return. If not specified, a <b>stdClass</b> object is returned.</p>
+	 * @param string $class <p>The name of the class to instantiate, set the properties of and return. If not specified, a <code>stdClass</code> object is returned.</p>
 	 * @param array $constructor_args <p>An optional <code>array</code> of parameters to pass to the constructor for <code>class</code> objects.</p>
 	 * @return object|null|false <p>Returns an object representing the fetched row, where each property represents the name of the result set's column, <b><code>null</code></b> if there are no more rows in the result set, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/mysqli-result.fetch-object.php
@@ -2083,9 +2066,9 @@ namespace {
 
 	/**
 	 * Prepares an SQL statement for execution
-	 * <p>Object-oriented style</p><p>Prepares the SQL query, and returns a statement handle to be used for further operations on the statement. The query must consist of a single SQL statement.</p><p>The statement template can contain zero or more question mark (<code>&#63;</code>) parameter markers&#8288;&mdash;also called placeholders. The parameter markers must be bound to application variables using <code>mysqli_stmt_bind_param()</code> before executing the statement.</p>
+	 * <p>Object-oriented style</p><p>Prepares the SQL query, and returns a statement handle to be used for further operations on the statement. The query must consist of a single SQL statement.</p><p>The statement template can contain zero or more question mark (<code>&#63;</code>) parameter markers&#x2060;&#x2014;also called placeholders. The parameter markers must be bound to application variables using <code>mysqli_stmt_bind_param()</code> before executing the statement.</p>
 	 * @param \mysqli $mysql <p>A <code>mysqli</code> object returned by <code>mysqli_connect()</code> or <code>mysqli_init()</code></p>
-	 * @param string $query <p>The query, as a string. It must consist of a single SQL statement.</p> <p>The SQL statement may contain zero or more parameter markers represented by question mark (<code>&#63;</code>) characters at the appropriate positions.</p> <p><b>Note</b>:</p><p>The markers are legal only in certain places in SQL statements. For example, they are permitted in the <code>VALUES()</code> list of an <code>INSERT</code> statement (to specify column values for a row), or in a comparison with a column in a <code>WHERE</code> clause to specify a comparison value.</p> <p>However, they are not permitted for identifiers (such as table or column names), or to specify both operands of a binary operator such as the <code>=</code> equal sign. The latter restriction is necessary because it would be impossible to determine the parameter type. In general, parameters are legal only in Data Manipulation Language (DML) statements, and not in Data Definition Language (DDL) statements.</p>
+	 * @param string $query <p>The query, as a string. It must consist of a single SQL statement.</p> <p>The SQL statement may contain zero or more parameter markers represented by question mark (<code>&#63;</code>) characters at the appropriate positions.</p> <p><b>Note</b>:</p><p>The markers are legal only in certain places in SQL statements. For example, they are permitted in the <code>VALUES()</code> list of an <code>INSERT</code> statement (to specify column values for a row), or in a comparison with a column in a <code>WHERE</code> clause to specify a comparison value. However, they are not permitted for identifiers (such as table or column names).</p>
 	 * @return mysqli_stmt|false <p><b>mysqli_prepare()</b> returns a statement object or <b><code>false</code></b> if an error occurred.</p>
 	 * @link https://php.net/manual/en/mysqli.prepare.php
 	 * @see mysqli_stmt_execute(), mysqli_stmt_fetch(), mysqli_stmt_bind_param(), mysqli_stmt_bind_result(), mysqli_stmt_get_result(), mysqli_stmt_close()
@@ -2095,7 +2078,7 @@ namespace {
 
 	/**
 	 * Performs a query on the database
-	 * <p>Object-oriented style</p><p>Performs a <code>query</code> against the database.</p><p>For non-DML queries (not INSERT, UPDATE or DELETE), this function is similar to calling <code>mysqli_real_query()</code> followed by either <code>mysqli_use_result()</code> or <code>mysqli_store_result()</code>.</p><p><b>Note</b>:</p><p>In the case where you pass a statement to <b>mysqli_query()</b> that is longer than <code>max_allowed_packet</code> of the server, the returned error codes are different depending on whether you are using MySQL Native Driver (<code>mysqlnd</code>) or MySQL Client Library (<code>libmysqlclient</code>). The behavior is as follows:</p><p><code>mysqlnd</code> on Linux returns an error code of 1153. The error message means got a packet bigger than <code>max_allowed_packet</code> bytes.</p><p><code>mysqlnd</code> on Windows returns an error code 2006. This error message means server has gone away.</p><p><code>libmysqlclient</code> on all platforms returns an error code 2006. This error message means server has gone away.</p>
+	 * <p>Object-oriented style</p><p>Performs a <code>query</code> against the database.</p><p>For non-DML queries (not INSERT, UPDATE or DELETE), this function is similar to calling <code>mysqli_real_query()</code> followed by either <code>mysqli_use_result()</code> or <code>mysqli_store_result()</code>.</p><p><b>Note</b>:</p><p>In the case where a statement is passed to <b>mysqli_query()</b> that is longer than <code>max_allowed_packet</code> of the server, the returned error codes are different depending on whether you are using MySQL Native Driver (<code>mysqlnd</code>) or MySQL Client Library (<code>libmysqlclient</code>). The behavior is as follows:</p><p><code>mysqlnd</code> on Linux returns an error code of 1153. The error message means got a packet bigger than <code>max_allowed_packet</code> bytes.</p><p><code>mysqlnd</code> on Windows returns an error code 2006. This error message means server has gone away.</p><p><code>libmysqlclient</code> on all platforms returns an error code 2006. This error message means server has gone away.</p>
 	 * @param \mysqli $mysql <p>A <code>mysqli</code> object returned by <code>mysqli_connect()</code> or <code>mysqli_init()</code></p>
 	 * @param string $query <p>The query string.</p> <p><b>Warning</b></p> Security warning: SQL injection<p>If the query contains any variable input then parameterized prepared statements should be used instead. Alternatively, the data must be properly formatted and all strings must be escaped using the <code>mysqli_real_escape_string()</code> function.</p>
 	 * @param int $result_mode <p>The result mode can be one of 3 constants indicating how the result will be returned from the MySQL server.</p> <p><b><code>MYSQLI_STORE_RESULT</code></b> (default) - returns a <code>mysqli_result</code> object with buffered result set.</p> <p><b><code>MYSQLI_USE_RESULT</code></b> - returns a <code>mysqli_result</code> object with unbuffered result set. As long as there are pending records waiting to be fetched, the connection line will be busy and all subsequent calls will return error <code>Commands out of sync</code>. To avoid the error all records must be fetched from the server or the result set must be discarded by calling <code>mysqli_free_result()</code>.</p> <p><b><code>MYSQLI_ASYNC</code></b> (available with mysqlnd) - the query is performed asynchronously and no result set is immediately returned. <code>mysqli_poll()</code> is then used to get results from such queries. Used in combination with either <b><code>MYSQLI_STORE_RESULT</code></b> or <b><code>MYSQLI_USE_RESULT</code></b> constant.</p>
@@ -2163,7 +2146,7 @@ namespace {
 	 * Refreshes
 	 * <p>Object-oriented style</p><p>Flushes tables or caches, or resets the replication server information.</p>
 	 * @param \mysqli $mysql <p>A <code>mysqli</code> object returned by <code>mysqli_connect()</code> or <code>mysqli_init()</code></p>
-	 * @param int $flags <p>The options to refresh, using the MYSQLI_REFRESH_&#42; constants as documented within the MySQLi constants documentation.</p> <p>See also the official MySQL Refresh documentation.</p>
+	 * @param int $flags <p>The options to refresh, using the MYSQLI_REFRESH_&#42; constants as documented within the MySQLi constants documentation.</p> <p>See also the official &#xBB;&#xA0;MySQL Refresh documentation.</p>
 	 * @return bool <p><b><code>true</code></b> if the refresh was a success, otherwise <b><code>false</code></b></p>
 	 * @link https://php.net/manual/en/mysqli.refresh.php
 	 * @see mysqli_poll()
@@ -2254,7 +2237,7 @@ namespace {
 
 	/**
 	 * Returns the SQLSTATE error from previous MySQL operation
-	 * <p>Object-oriented style</p><p>Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. <code>'00000'</code> means no error. The values are specified by ANSI SQL and ODBC. For a list of possible values, see http://dev.mysql.com/doc/mysql/en/error-handling.html.</p><p><b>Note</b>:</p><p>Note that not all MySQL errors are yet mapped to SQLSTATE's. The value <code>HY000</code> (general error) is used for unmapped errors.</p>
+	 * <p>Object-oriented style</p><p>Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. <code>'00000'</code> means no error. The values are specified by ANSI SQL and ODBC. For a list of possible values, see &#xBB;&#xA0;http://dev.mysql.com/doc/mysql/en/error-handling.html.</p><p><b>Note</b>:</p><p>Note that not all MySQL errors are yet mapped to SQLSTATE's. The value <code>HY000</code> (general error) is used for unmapped errors.</p>
 	 * @param \mysqli $mysql <p>A <code>mysqli</code> object returned by <code>mysqli_connect()</code> or <code>mysqli_init()</code></p>
 	 * @return string <p>Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. <code>'00000'</code> means no error.</p>
 	 * @link https://php.net/manual/en/mysqli.sqlstate.php
@@ -2328,7 +2311,7 @@ namespace {
 	 * Binds variables to a prepared statement as parameters
 	 * <p>Object-oriented style</p><p>Bind variables for the parameter markers in the SQL statement prepared by <code>mysqli_prepare()</code> or <code>mysqli_stmt_prepare()</code>.</p><p><b>Note</b>:</p><p>If data size of a variable exceeds max. allowed packet size (max_allowed_packet), you have to specify <code>b</code> in <code>types</code> and use <code>mysqli_stmt_send_long_data()</code> to send the data in packets.</p><p><b>Note</b>:</p><p>Care must be taken when using <b>mysqli_stmt_bind_param()</b> in conjunction with <code>call_user_func_array()</code>. Note that <b>mysqli_stmt_bind_param()</b> requires parameters to be passed by reference, whereas <code>call_user_func_array()</code> can accept as a parameter a list of variables that can represent references or values.</p>
 	 * @param \mysqli_stmt $statement <p>A <code>mysqli_stmt</code> object returned by <code>mysqli_stmt_init()</code>.</p>
-	 * @param string $types <p>A string that contains one or more characters which specify the types for the corresponding bind variables:</p> <b>Type specification chars</b>   Character Description     i corresponding variable has type integer   d corresponding variable has type double   s corresponding variable has type string   b corresponding variable is a blob and will be sent in packets
+	 * @param string $types <p>A string that contains one or more characters which specify the types for the corresponding bind variables:</p> <b>Type specification chars</b>   Character Description     i corresponding variable has type <code>int</code>   d corresponding variable has type <code>float</code>   s corresponding variable has type <code>string</code>   b corresponding variable is a blob and will be sent in packets
 	 * @param mixed $var
 	 * @param mixed $vars <p>The number of variables and length of string <code>types</code> must match the parameters in the statement.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -2363,13 +2346,13 @@ namespace {
 	function mysqli_stmt_close(\mysqli_stmt $statement): bool {}
 
 	/**
-	 * Seeks to an arbitrary row in statement result set
-	 * <p>Object-oriented style</p><p>Seeks to an arbitrary result pointer in the statement result set.</p><p><code>mysqli_stmt_store_result()</code> must be called prior to <b>mysqli_stmt_data_seek()</b>.</p>
+	 * Adjusts the result pointer to an arbitrary row in the buffered result
+	 * <p>Object-oriented style</p><p>This function moves the result set pointer of the buffered result set to an arbitrary row specified by the <code>offset</code> parameter.</p><p>This function works only on the buffered internal result set. <code>mysqli_stmt_store_result()</code> must be called prior to <b>mysqli_stmt_data_seek()</b>.</p>
 	 * @param \mysqli_stmt $statement <p>A <code>mysqli_stmt</code> object returned by <code>mysqli_stmt_init()</code>.</p>
 	 * @param int $offset <p>Must be between zero and the total number of rows minus one (0.. <code>mysqli_stmt_num_rows()</code> - 1).</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/mysqli-stmt.data-seek.php
-	 * @see mysqli_prepare()
+	 * @see mysqli_prepare(), mysqli_stmt_store_result(), mysqli_stmt_num_rows(), mysqli_data_seek()
 	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function mysqli_stmt_data_seek(\mysqli_stmt $statement, int $offset): void {}
@@ -2538,9 +2521,9 @@ namespace {
 
 	/**
 	 * Prepares an SQL statement for execution
-	 * <p>Object-oriented style</p><p>Prepares a statement for execution. The query must consist of a single SQL statement.</p><p>The statement template can contain zero or more question mark (<code>&#63;</code>) parameter markers&#8288;&mdash;also called placeholders. The parameter markers must be bound to application variables using <code>mysqli_stmt_bind_param()</code> before executing the statement.</p><p><b>Note</b>:</p><p>In the case where you pass a statement to <b>mysqli_stmt_prepare()</b> that is longer than <code>max_allowed_packet</code> of the server, the returned error codes are different depending on whether you are using MySQL Native Driver (<code>mysqlnd</code>) or MySQL Client Library (<code>libmysqlclient</code>). The behavior is as follows:</p><p><code>mysqlnd</code> on Linux returns an error code of 1153. The error message means got a packet bigger than <code>max_allowed_packet</code> bytes.</p><p><code>mysqlnd</code> on Windows returns an error code 2006. This error message means server has gone away.</p><p><code>libmysqlclient</code> on all platforms returns an error code 2006. This error message means server has gone away.</p>
+	 * <p>Object-oriented style</p><p>Prepares a statement for execution. The query must consist of a single SQL statement.</p><p>The statement template can contain zero or more question mark (<code>&#63;</code>) parameter markers&#x2060;&#x2014;also called placeholders. The parameter markers must be bound to application variables using <code>mysqli_stmt_bind_param()</code> before executing the statement.</p><p><b>Note</b>:</p><p>In the case where a statement is passed to <b>mysqli_stmt_prepare()</b> that is longer than <code>max_allowed_packet</code> of the server, the returned error codes are different depending on whether you are using MySQL Native Driver (<code>mysqlnd</code>) or MySQL Client Library (<code>libmysqlclient</code>). The behavior is as follows:</p><p><code>mysqlnd</code> on Linux returns an error code of 1153. The error message means got a packet bigger than <code>max_allowed_packet</code> bytes.</p><p><code>mysqlnd</code> on Windows returns an error code 2006. This error message means server has gone away.</p><p><code>libmysqlclient</code> on all platforms returns an error code 2006. This error message means server has gone away.</p>
 	 * @param \mysqli_stmt $statement <p>A <code>mysqli_stmt</code> object returned by <code>mysqli_stmt_init()</code>.</p>
-	 * @param string $query <p>The query, as a string. It must consist of a single SQL statement.</p> <p>The SQL statement may contain zero or more parameter markers represented by question mark (<code>&#63;</code>) characters at the appropriate positions.</p> <p><b>Note</b>:</p><p>The markers are legal only in certain places in SQL statements. For example, they are permitted in the <code>VALUES()</code> list of an <code>INSERT</code> statement (to specify column values for a row), or in a comparison with a column in a <code>WHERE</code> clause to specify a comparison value.</p> <p>However, they are not permitted for identifiers (such as table or column names), or to specify both operands of a binary operator such as the <code>=</code> equal sign. The latter restriction is necessary because it would be impossible to determine the parameter type. In general, parameters are legal only in Data Manipulation Language (DML) statements, and not in Data Definition Language (DDL) statements.</p>
+	 * @param string $query <p>The query, as a string. It must consist of a single SQL statement.</p> <p>The SQL statement may contain zero or more parameter markers represented by question mark (<code>&#63;</code>) characters at the appropriate positions.</p> <p><b>Note</b>:</p><p>The markers are legal only in certain places in SQL statements. For example, they are permitted in the <code>VALUES()</code> list of an <code>INSERT</code> statement (to specify column values for a row), or in a comparison with a column in a <code>WHERE</code> clause to specify a comparison value. However, they are not permitted for identifiers (such as table or column names).</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/mysqli-stmt.prepare.php
 	 * @see mysqli_stmt_init(), mysqli_stmt_execute(), mysqli_stmt_fetch(), mysqli_stmt_bind_param(), mysqli_stmt_bind_result(), mysqli_stmt_get_result(), mysqli_stmt_close()
@@ -2585,7 +2568,7 @@ namespace {
 
 	/**
 	 * Returns SQLSTATE error from previous statement operation
-	 * <p>Object-oriented style</p><p>Returns a string containing the SQLSTATE error code for the most recently invoked prepared statement function that can succeed or fail. The error code consists of five characters. <code>'00000'</code> means no error. The values are specified by ANSI SQL and ODBC. For a list of possible values, see http://dev.mysql.com/doc/mysql/en/error-handling.html.</p>
+	 * <p>Object-oriented style</p><p>Returns a string containing the SQLSTATE error code for the most recently invoked prepared statement function that can succeed or fail. The error code consists of five characters. <code>'00000'</code> means no error. The values are specified by ANSI SQL and ODBC. For a list of possible values, see &#xBB;&#xA0;http://dev.mysql.com/doc/mysql/en/error-handling.html.</p>
 	 * @param \mysqli_stmt $statement <p>A <code>mysqli_stmt</code> object returned by <code>mysqli_stmt_init()</code>.</p>
 	 * @return string <p>Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. <code>'00000'</code> means no error.</p>
 	 * @link https://php.net/manual/en/mysqli-stmt.sqlstate.php
@@ -2755,7 +2738,7 @@ namespace {
 	/**
 	 * <p>Whether the mysqli extension has been built against a MariaDB client library. Available as of PHP 8.1.2.</p>
 	 */
-	define('MYSQLI_IS_MARIADB', null);
+	define('MYSQLI_IS_MARIADB', false);
 
 	/**
 	 * <p>Field is part of an index.</p>
@@ -2865,7 +2848,7 @@ namespace {
 	/**
 	 * <p>Alias of <b><code>MYSQLI_REFRESH_SLAVE</code></b> constant. Available as of PHP 8.1.0.</p>
 	 */
-	define('MYSQLI_REFRESH_REPLICA', null);
+	define('MYSQLI_REFRESH_REPLICA', 64);
 
 	/**
 	 * <p>On a slave replication server: resets the master server information, and restarts the slave. Like executing the <code>RESET SLAVE</code> SQL statement.</p>

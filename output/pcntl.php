@@ -50,7 +50,7 @@ namespace {
 	 * <p>The <b>pcntl_fork()</b> function creates a child process that differs from the parent process only in its PID and PPID. Please see your system's fork(2) man page for specific details as to how fork works on your system.</p>
 	 * @return int <p>On success, the PID of the child process is returned in the parent's thread of execution, and a 0 is returned in the child's thread of execution. On failure, a -1 will be returned in the parent's context, no child process will be created, and a PHP error is raised.</p>
 	 * @link https://php.net/manual/en/function.pcntl-fork.php
-	 * @see pcntl_waitpid(), pcntl_signal(), cli_set_process_title()
+	 * @see pcntl_rfork(), pcntl_waitpid(), pcntl_signal(), cli_set_process_title()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function pcntl_fork(): int {}
@@ -69,7 +69,7 @@ namespace {
 	 * Get the priority of any process
 	 * <p><b>pcntl_getpriority()</b> gets the priority of <code>process_id</code>. Because priority levels can differ between system types and kernel versions, please see your system's getpriority(2) man page for specific details.</p>
 	 * @param ?int $process_id <p>If <b><code>null</code></b>, the process id of the current process is used.</p>
-	 * @param int $mode <p>One of <b><code>PRIO_PGRP</code></b>, <b><code>PRIO_USER</code></b> or <b><code>PRIO_PROCESS</code></b>.</p>
+	 * @param int $mode <p>One of <b><code>PRIO_PGRP</code></b>, <b><code>PRIO_USER</code></b>, <b><code>PRIO_PROCESS</code></b>, <b><code>PRIO_DARWIN_BG</code></b> or <b><code>PRIO_DARWIN_THREAD</code></b>.</p>
 	 * @return int|false <p><b>pcntl_getpriority()</b> returns the priority of the process or <b><code>false</code></b> on error. A lower numerical value causes more favorable scheduling.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.pcntl-getpriority.php
 	 * @see pcntl_setpriority()
@@ -78,11 +78,23 @@ namespace {
 	function pcntl_getpriority(?int $process_id = null, int $mode = PRIO_PROCESS): int|false {}
 
 	/**
+	 * Manipulates process resources
+	 * <p>Manipulates process resources.</p>
+	 * @param int $flags <p>The <code>flags</code> parameter determines which resources of the invoking process (parent) are shared by the new process (child) or initialized to their default values.</p> <p><code>flags</code> is the logical OR of some subset of:</p><ul> <li> <b><code>RFPROC</code></b>: If set a new process is created; otherwise changes affect the current process. </li> <li> <b><code>RFNOWAIT</code></b>: If set, the child process will be dissociated from the parent. Upon exit the child will not leave a status for the parent to collect. </li> <li> <b><code>RFFDG</code></b>: If set, the invoker's file descriptor table is copied; otherwise the two processes share a single table. </li> <li> <b><code>RFCFDG</code></b>: If set, the new process starts with a clean file descriptor table. Is mutually exclusive with <code>RFFDG</code>. </li> <li> <b><code>RFLINUXTHPN</code></b>: If set, the kernel will return SIGUSR1 instead of SIGCHILD upon thread exit for the child. This is intended to do Linux clone exit parent notification. </li> </ul>
+	 * @param int $signal <p>The signal number.</p>
+	 * @return int <p>On success, the PID of the child process is returned in the parent's thread of execution, and a <code>0</code> is returned in the child's thread of execution. On failure, a <code>-1</code> will be returned in the parent's context, no child process will be created, and a PHP error is raised.</p>
+	 * @link https://php.net/manual/en/function.pcntl-rfork.php
+	 * @see pcntl_fork(), pcntl_waitpid(), pcntl_signal(), cli_set_process_title()
+	 * @since PHP 8 >= 8.1.0
+	 */
+	function pcntl_rfork(int $flags, int $signal = 0): int {}
+
+	/**
 	 * Change the priority of any process
 	 * <p><b>pcntl_setpriority()</b> sets the priority of <code>process_id</code>.</p>
 	 * @param int $priority <p><code>priority</code> is generally a value in the range <code>-20</code> to <code>20</code>. The default priority is <code>0</code> while a lower numerical value causes more favorable scheduling. Because priority levels can differ between system types and kernel versions, please see your system's setpriority(2) man page for specific details.</p>
 	 * @param ?int $process_id <p>If <b><code>null</code></b>, the process id of the current process is used.</p>
-	 * @param int $mode <p>One of <b><code>PRIO_PGRP</code></b>, <b><code>PRIO_USER</code></b> or <b><code>PRIO_PROCESS</code></b>.</p>
+	 * @param int $mode <p>One of <b><code>PRIO_PGRP</code></b>, <b><code>PRIO_USER</code></b>, <b><code>PRIO_PROCESS</code></b>, <b><code>PRIO_DARWIN_BG</code></b> or <b><code>PRIO_DARWIN_THREAD</code></b>.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.pcntl-setpriority.php
 	 * @see pcntl_getpriority()
@@ -173,6 +185,17 @@ namespace {
 	 * @since PHP 5 >= 5.3.4, PHP 7, PHP 8
 	 */
 	function pcntl_strerror(int $error_code): string {}
+
+	/**
+	 * Dissociates parts of the process execution context
+	 * <p><b>pcntl_unshare()</b> allows a process to disassociate parts of its execution context that are currently being shared with other processes. The main use of <b>pcntl_unshare()</b> is to allow a process to control its shared execution context without creating a new process.</p>
+	 * @param int $flags <p>The <code>flags</code> parameter is a bitmask that specifies which parts of the execution context should be unshared. This parameter is specified by ORing together zero or more of the <code>CLONE_&#42;</code> constants:</p><ul> <li><b><code>CLONE_NEWNS</code></b></li> <li><b><code>CLONE_NEWIPC</code></b></li> <li><b><code>CLONE_NEWUTS</code></b></li> <li><b><code>CLONE_NEWNET</code></b></li> <li><b><code>CLONE_NEWPID</code></b></li> <li><b><code>CLONE_NEWUSER</code></b></li> <li><b><code>CLONE_NEWCGROUP</code></b></li> </ul>
+	 * @return bool <p>Returns <code>0</code> on success, <code>-1</code> otherwise. On failure it sets an error code, that can be retrieved with <code>pcntl_get_last_error()</code>.</p>
+	 * @link https://php.net/manual/en/function.pcntl-unshare.php
+	 * @see pcntl_get_last_error()
+	 * @since PHP 7 >= 7.4.0, PHP 8
+	 */
+	function pcntl_unshare(int $flags): bool {}
 
 	/**
 	 * Waits on or returns the status of a forked child
@@ -285,6 +308,41 @@ namespace {
 
 	define('CLD_TRAPPED', 4);
 
+	/**
+	 * Available as of PHP 7.4.0
+	 */
+	define('CLONE_NEWCGROUP', 33554432);
+
+	/**
+	 * Available as of PHP 7.4.0
+	 */
+	define('CLONE_NEWIPC', 134217728);
+
+	/**
+	 * Available as of PHP 7.4.0
+	 */
+	define('CLONE_NEWNET', 1073741824);
+
+	/**
+	 * Available as of PHP 7.4.0
+	 */
+	define('CLONE_NEWNS', 131072);
+
+	/**
+	 * Available as of PHP 7.4.0
+	 */
+	define('CLONE_NEWPID', 536870912);
+
+	/**
+	 * Available as of PHP 7.4.0
+	 */
+	define('CLONE_NEWUSER', 268435456);
+
+	/**
+	 * Available as of PHP 7.4.0
+	 */
+	define('CLONE_NEWUTS', 67108864);
+
 	define('FPE_FLTDIV', 3);
 
 	define('FPE_FLTINV', 7);
@@ -295,7 +353,7 @@ namespace {
 
 	define('FPE_FLTSUB', 8);
 
-	define('FPE_FLTUND', 7);
+	define('FPE_FLTUND', 5);
 
 	define('FPE_INTDIV', 1);
 
@@ -328,6 +386,22 @@ namespace {
 	define('POLL_OUT', 2);
 
 	define('POLL_PRI', 5);
+
+	/**
+	 * Available as of PHP 8.1.0.
+	 */
+	define('PRIO_DARWIN_BG', null);
+
+	/**
+	 * Available as of PHP 8.1.0.
+	 */
+	define('PRIO_DARWIN_THREAD', null);
+
+	define('PRIO_PGRP', 1);
+
+	define('PRIO_PROCESS', 0);
+
+	define('PRIO_USER', 2);
 
 	define('SEGV_ACCERR', 2);
 

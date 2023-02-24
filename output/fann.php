@@ -32,8 +32,8 @@ namespace {
 		/**
 		 * The connection constructor
 		 * <p>Create new connection and initialize its params. After creating the connection, only weight can be changed.</p>
-		 * @param int $from_neuron <p>The postion number of starting neuron.</p>
-		 * @param int $to_neuron <p>The postion number of terminating neuron.</p>
+		 * @param int $from_neuron <p>The position number of starting neuron.</p>
+		 * @param int $to_neuron <p>The position number of terminating neuron.</p>
 		 * @param float $weight <p>The connection weight value.</p>
 		 * @return self
 		 * @link https://php.net/manual/en/fannconnection.construct.php
@@ -81,7 +81,7 @@ namespace {
 
 	/**
 	 * Trains on an entire dataset, for a period of time using the Cascade2 training algorithm
-	 * <p>The cascade output change fraction is a number between 0 and 1 determining how large a fraction the <code>fann_get_MSE()</code> value should change within <code>fann_get_cascade_output_stagnation_epochs()</code> during training of the output connections, in order for the training not to stagnate. If the training stagnates, the training of the output connections will be ended and new candidates will be prepared.</p><p>This training uses the parameters set using the fann_set_cascade_..., but it also uses another training algorithm as it&rsquo;s internal training algorithm. This algorithm can be set to either <b><code>FANN_TRAIN_RPROP</code></b> or <b><code>FANN_TRAIN_QUICKPROP</code></b> by <code>fann_set_training_algorithm()</code>, and the parameters set for these training algorithms will also affect the cascade training.</p>
+	 * <p>The cascade output change fraction is a number between 0 and 1 determining how large a fraction the <code>fann_get_MSE()</code> value should change within <code>fann_get_cascade_output_stagnation_epochs()</code> during training of the output connections, in order for the training not to stagnate. If the training stagnates, the training of the output connections will be ended and new candidates will be prepared.</p><p>This training uses the parameters set using the fann_set_cascade_..., but it also uses another training algorithm as it&#x2019;s internal training algorithm. This algorithm can be set to either <b><code>FANN_TRAIN_RPROP</code></b> or <b><code>FANN_TRAIN_QUICKPROP</code></b> by <code>fann_set_training_algorithm()</code>, and the parameters set for these training algorithms will also affect the cascade training.</p>
 	 * @param resource $ann <p>Neural network <code>resource</code>.</p>
 	 * @param resource $data <p>Neural network training data <code>resource</code>.</p>
 	 * @param int $max_neurons <p>The maximum number of neurons to be added to neural network.</p>
@@ -849,7 +849,7 @@ namespace {
 
 	/**
 	 * Initialize the weights using Widrow + Nguyen’s algorithm
-	 * <p>Initialize the weights using Widrow + Nguyen&rsquo;s algorithm.</p><p>This function behaves similarly to <code>fann_randomize_weights()</code>. It will use the algorithm developed by Derrick Nguyen and Bernard Widrow to set the weights in such a way as to speed up training. This technique is not always successful, and in some cases can be less efficient than a purely random initialization.</p><p>The algorithm requires access to the range of the input data (for example largest and smallest input), and therefore accepts a second argument, data, which is the training data that will be used to train the network.</p>
+	 * <p>Initialize the weights using Widrow + Nguyen&#x2019;s algorithm.</p><p>This function behaves similarly to <code>fann_randomize_weights()</code>. It will use the algorithm developed by Derrick Nguyen and Bernard Widrow to set the weights in such a way as to speed up training. This technique is not always successful, and in some cases can be less efficient than a purely random initialization.</p><p>The algorithm requires access to the range of the input data (for example largest and smallest input), and therefore accepts a second argument, data, which is the training data that will be used to train the network.</p>
 	 * @param resource $ann <p>Neural network <code>resource</code>.</p>
 	 * @param resource $train_data <p>Neural network training data <code>resource</code>.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success, or <b><code>false</code></b> otherwise.</p>

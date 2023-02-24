@@ -95,7 +95,7 @@ namespace {
 
 	/**
 	 * Convert a number between arbitrary bases
-	 * <p>Returns a string containing <code>num</code> represented in base <code>to_base</code>. The base in which <code>num</code> is given is specified in <code>from_base</code>. Both <code>from_base</code> and <code>to_base</code> have to be between 2 and 36, inclusive. Digits in numbers with a base higher than 10 will be represented with the letters a-z, with a meaning 10, b meaning 11 and z meaning 35. The case of the letters doesn't matter, i.e. <code>num</code> is interpreted case-insensitively.</p><p><b>base_convert()</b> may lose precision on large numbers due to properties related to the internal "double" or "float" type used. Please see the Floating point numbers section in the manual for more specific information and limitations.</p>
+	 * <p>Returns a string containing <code>num</code> represented in base <code>to_base</code>. The base in which <code>num</code> is given is specified in <code>from_base</code>. Both <code>from_base</code> and <code>to_base</code> have to be between 2 and 36, inclusive. Digits in numbers with a base higher than 10 will be represented with the letters a-z, with a meaning 10, b meaning 11 and z meaning 35. The case of the letters doesn't matter, i.e. <code>num</code> is interpreted case-insensitively.</p><p><b>base_convert()</b> may lose precision on large numbers due to properties related to the internal <code>float</code> type used. Please see the Floating point numbers section in the manual for more specific information and limitations.</p>
 	 * @param string $num <p>The number to convert. Any invalid characters in <code>num</code> are silently ignored. As of PHP 7.4.0 supplying any invalid characters is deprecated.</p>
 	 * @param int $from_base <p>The base <code>num</code> is in</p>
 	 * @param int $to_base <p>The base to convert <code>num</code> to</p>
@@ -141,7 +141,7 @@ namespace {
 
 	/**
 	 * Hyperbolic cosine
-	 * <p>Returns the hyperbolic cosine of <code>num</code>, defined as <code>(exp(arg) + exp(-arg))/2</code>.</p>
+	 * <p>Returns the hyperbolic cosine of <code>num</code>, defined as <code>(exp($num) + exp(-$num))/2</code>.</p>
 	 * @param float $num <p>The argument to process</p>
 	 * @return float <p>The hyperbolic cosine of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.cosh.php
@@ -153,7 +153,7 @@ namespace {
 	/**
 	 * Decimal to binary
 	 * <p>Returns a string containing a binary representation of the given <code>num</code> argument.</p>
-	 * @param int $num <p>Decimal value to convert</p>  <b>Range of inputs on 32-bit machines</b>      positive <code>num</code> negative <code>num</code> return value     0 &nbsp; 0   1 &nbsp; 1   2 &nbsp; 10   ... normal progression ...   2147483646 &nbsp; 1111111111111111111111111111110   2147483647 (largest signed integer) &nbsp; 1111111111111111111111111111111 (31 1's)   2147483648 -2147483648 10000000000000000000000000000000   ... normal progression ...   4294967294 -2 11111111111111111111111111111110   4294967295 (largest unsigned integer) -1 11111111111111111111111111111111 (32 1's)     <b>Range of inputs on 64-bit machines</b>      positive <code>num</code> negative <code>num</code> return value     0 &nbsp; 0   1 &nbsp; 1   2 &nbsp; 10   ... normal progression ...   9223372036854775806 &nbsp; 111111111111111111111111111111111111111111111111111111111111110   9223372036854775807 (largest signed integer) &nbsp; 111111111111111111111111111111111111111111111111111111111111111 (63 1's)   &nbsp; -9223372036854775808 1000000000000000000000000000000000000000000000000000000000000000   ... normal progression ...   &nbsp; -2 1111111111111111111111111111111111111111111111111111111111111110   &nbsp; -1 1111111111111111111111111111111111111111111111111111111111111111 (64 1's)
+	 * @param int $num <p>Decimal value to convert</p>  <b>Range of inputs on 32-bit machines</b>      positive <code>num</code> negative <code>num</code> return value     0 &#xA0; 0   1 &#xA0; 1   2 &#xA0; 10   ... normal progression ...   2147483646 &#xA0; 1111111111111111111111111111110   2147483647 (largest signed integer) &#xA0; 1111111111111111111111111111111 (31 1's)   2147483648 -2147483648 10000000000000000000000000000000   ... normal progression ...   4294967294 -2 11111111111111111111111111111110   4294967295 (largest unsigned integer) -1 11111111111111111111111111111111 (32 1's)     <b>Range of inputs on 64-bit machines</b>      positive <code>num</code> negative <code>num</code> return value     0 &#xA0; 0   1 &#xA0; 1   2 &#xA0; 10   ... normal progression ...   9223372036854775806 &#xA0; 111111111111111111111111111111111111111111111111111111111111110   9223372036854775807 (largest signed integer) &#xA0; 111111111111111111111111111111111111111111111111111111111111111 (63 1's)   &#xA0; -9223372036854775808 1000000000000000000000000000000000000000000000000000000000000000   ... normal progression ...   &#xA0; -2 1111111111111111111111111111111111111111111111111111111111111110   &#xA0; -1 1111111111111111111111111111111111111111111111111111111111111111 (64 1's)
 	 * @return string <p>Binary string representation of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.decbin.php
 	 * @see bindec(), decoct(), dechex(), base_convert(), printf(), sprintf()
@@ -232,7 +232,7 @@ namespace {
 	 * Round fractions down
 	 * <p>Returns the next lowest integer value (as float) by rounding down <code>num</code> if necessary.</p>
 	 * @param int|float $num <p>The numeric value to round</p>
-	 * @return float <p><code>num</code> rounded to the next lowest integer. The return value of <b>floor()</b> is still of type <code>float</code> because the value range of <code>float</code> is usually bigger than that of <code>int</code>. This function returns <b><code>false</code></b> in case of an error (e.g. passing an array).</p>
+	 * @return float <p><code>num</code> rounded to the next lowest integer. The return value of <b>floor()</b> is still of type <code>float</code>. This function returns <b><code>false</code></b> in case of an error (e.g. passing an array).</p>
 	 * @link https://php.net/manual/en/function.floor.php
 	 * @see ceil(), round()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -250,16 +250,6 @@ namespace {
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function fmod(float $num1, float $num2): float {}
-
-	/**
-	 * Show largest possible random value
-	 * <p>Returns the maximum value that can be returned by a call to <code>rand()</code>.</p>
-	 * @return int <p>The largest possible random value returned by <code>rand()</code></p>
-	 * @link https://php.net/manual/en/function.getrandmax.php
-	 * @see rand(), srand(), mt_getrandmax()
-	 * @since PHP 4, PHP 5, PHP 7, PHP 8
-	 */
-	function getrandmax(): int {}
 
 	/**
 	 * Hexadecimal to decimal
@@ -329,16 +319,6 @@ namespace {
 	function is_nan(float $num): bool {}
 
 	/**
-	 * Combined linear congruential generator
-	 * <p><b>lcg_value()</b> returns a pseudo random number in the range of (0, 1). The function combines two CGs with periods of 2^31 - 85 and 2^31 - 249. The period of this function is equal to the product of both primes.</p><p>This function does not generate cryptographically secure values, and should not be used for cryptographic purposes. If you need a cryptographically secure value, consider using <code>random_int()</code>, <code>random_bytes()</code>, or <code>openssl_random_pseudo_bytes()</code> instead.</p>
-	 * @return float <p>A pseudo random float value between 0.0 and 1.0, inclusive.</p>
-	 * @link https://php.net/manual/en/function.lcg-value.php
-	 * @see rand(), mt_rand()
-	 * @since PHP 4, PHP 5, PHP 7, PHP 8
-	 */
-	function lcg_value(): float {}
-
-	/**
 	 * Natural logarithm
 	 * <p>If the optional <code>base</code> parameter is specified, <b>log()</b> returns logbase <code>num</code>, otherwise <b>log()</b> returns the natural logarithm of <code>num</code>.</p>
 	 * @param float $num <p>The value to calculate the logarithm for</p>
@@ -377,7 +357,7 @@ namespace {
 	 * <p>Alternative signature (not supported with named arguments):</p><p>If the first and only parameter is an array, <b>max()</b> returns the highest value in that array. If at least two parameters are provided, <b>max()</b> returns the biggest of these values.</p><p><b>Note</b>:</p><p>Values of different types will be compared using the  standard comparison rules. For instance, a non-numeric <code>string</code> will be compared to an <code>int</code> as though it were <code>0</code>, but multiple non-numeric <code>string</code> values will be compared alphanumerically. The actual value returned will be of the original type with no conversion applied.</p><p>Be careful when passing arguments of different types because <b>max()</b> can produce unpredictable results.</p>
 	 * @param mixed $value <p>Any comparable value.</p>
 	 * @param mixed $values <p>Any comparable values.</p>
-	 * @return mixed <p><b>max()</b> returns the parameter value considered "highest" according to standard comparisons. If multiple values of different types evaluate as equal (e.g. <code>0</code> and <code>'abc'</code>) the first provided to the function will be returned.</p><p>If an empty array is passed, then <b><code>false</code></b> will be returned and an <b><code>E_WARNING</code></b> error will be emitted.</p>
+	 * @return mixed <p><b>max()</b> returns the parameter value considered "highest" according to standard comparisons. If multiple values of different types evaluate as equal (e.g. <code>0</code> and <code>'abc'</code>) the first provided to the function will be returned.</p>
 	 * @link https://php.net/manual/en/function.max.php
 	 * @see min(), count()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -389,44 +369,12 @@ namespace {
 	 * <p>Alternative signature (not supported with named arguments):</p><p>If the first and only parameter is an array, <b>min()</b> returns the lowest value in that array. If at least two parameters are provided, <b>min()</b> returns the smallest of these values.</p><p><b>Note</b>:</p><p>Values of different types will be compared using the  standard comparison rules. For instance, a non-numeric <code>string</code> will be compared to an <code>int</code> as though it were <code>0</code>, but multiple non-numeric <code>string</code> values will be compared alphanumerically. The actual value returned will be of the original type with no conversion applied.</p><p>Be careful when passing arguments of different types because <b>min()</b> can produce unpredictable results.</p>
 	 * @param mixed $value <p>Any comparable value.</p>
 	 * @param mixed $values <p>Any comparable values.</p>
-	 * @return mixed <p><b>min()</b> returns the parameter value considered "lowest" according to standard comparisons. If multiple values of different types evaluate as equal (e.g. <code>0</code> and <code>'abc'</code>) the first provided to the function will be returned.</p><p>If an empty array is passed, then <b><code>false</code></b> will be returned and an <b><code>E_WARNING</code></b> error will be emitted.</p>
+	 * @return mixed <p><b>min()</b> returns the parameter value considered "lowest" according to standard comparisons. If multiple values of different types evaluate as equal (e.g. <code>0</code> and <code>'abc'</code>) the first provided to the function will be returned.</p>
 	 * @link https://php.net/manual/en/function.min.php
 	 * @see max(), count()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function min(mixed $value, mixed ...$values): mixed {}
-
-	/**
-	 * Show largest possible random value
-	 * <p>Returns the maximum value that can be returned by a call to <code>mt_rand()</code>.</p>
-	 * @return int <p>Returns the maximum random value returned by a call to <code>mt_rand()</code> without arguments, which is the maximum value that can be used for its <code>max</code> parameter without the result being scaled up (and therefore less random).</p>
-	 * @link https://php.net/manual/en/function.mt-getrandmax.php
-	 * @see mt_rand(), mt_srand(), getrandmax()
-	 * @since PHP 4, PHP 5, PHP 7, PHP 8
-	 */
-	function mt_getrandmax(): int {}
-
-	/**
-	 * Generate a random value via the Mersenne Twister Random Number Generator
-	 * <p>This function does not generate cryptographically secure values, and should not be used for cryptographic purposes. If you need a cryptographically secure value, consider using <code>random_int()</code>, <code>random_bytes()</code>, or <code>openssl_random_pseudo_bytes()</code> instead.</p><p>Many random number generators of older libcs have dubious or unknown characteristics and are slow. The <b>mt_rand()</b> function is a drop-in replacement for the older <code>rand()</code>. It uses a random number generator with known characteristics using the Mersenne Twister, which will produce random numbers four times faster than what the average libc rand() provides.</p><p>If called without the optional <code>min</code>, <code>max</code> arguments <b>mt_rand()</b> returns a pseudo-random value between 0 and <code>mt_getrandmax()</code>. If you want a random number between 5 and 15 (inclusive), for example, use <code>mt_rand(5, 15)</code>.</p>
-	 * @return int <p>A random integer value between <code>min</code> (or 0) and <code>max</code> (or <code>mt_getrandmax()</code>, inclusive), or <b><code>false</code></b> if <code>max</code> is less than <code>min</code>.</p>
-	 * @link https://php.net/manual/en/function.mt-rand.php
-	 * @see mt_srand(), mt_getrandmax(), random_int(), random_bytes(), openssl_random_pseudo_bytes(), rand()
-	 * @since PHP 4, PHP 5, PHP 7, PHP 8
-	 */
-	function mt_rand(): int {}
-
-	/**
-	 * Seeds the Mersenne Twister Random Number Generator
-	 * <p>Seeds the random number generator with <code>seed</code> or with a random value if no <code>seed</code> is given.</p><p><b>Note</b>: There is no need to seed the random number generator with <code>srand()</code> or <b>mt_srand()</b> as this is done automatically. </p>
-	 * @param int $seed <p>An arbitrary <code>int</code> seed value.</p>
-	 * @param int $mode <p>Use one of the following constants to specify the implementation of the algorithm to use.</p>   Constant Description     <b><code>MT_RAND_MT19937</code></b>  Uses the fixed, correct, Mersenne Twister implementation, available as of PHP 7.1.0.    <b><code>MT_RAND_PHP</code></b>  Uses an incorrect Mersenne Twister implementation which was used as the default up till PHP 7.1.0. This mode is available for backward compatibility.
-	 * @return void <p>No value is returned.</p>
-	 * @link https://php.net/manual/en/function.mt-srand.php
-	 * @see mt_rand(), mt_getrandmax(), srand()
-	 * @since PHP 4, PHP 5, PHP 7, PHP 8
-	 */
-	function mt_srand(int $seed = 0, int $mode = MT_RAND_MT19937): void {}
 
 	/**
 	 * Octal to decimal
@@ -472,16 +420,6 @@ namespace {
 	function rad2deg(float $num): float {}
 
 	/**
-	 * Generate a random integer
-	 * <p>If called without the optional <code>min</code>, <code>max</code> arguments <b>rand()</b> returns a pseudo-random integer between 0 and <code>getrandmax()</code>. If you want a random number between 5 and 15 (inclusive), for example, use <code>rand(5, 15)</code>.</p><p>This function does not generate cryptographically secure values, and should not be used for cryptographic purposes. If you need a cryptographically secure value, consider using <code>random_int()</code>, <code>random_bytes()</code>, or <code>openssl_random_pseudo_bytes()</code> instead.</p><p><b>Note</b>:  On some platforms (such as Windows), <code>getrandmax()</code> is only 32767. If you require a range larger than 32767, specifying <code>min</code> and <code>max</code> will allow you to create a range larger than this, or consider using <code>mt_rand()</code> instead. </p><p><b>Note</b>: As of PHP 7.1.0, <b>rand()</b> uses the same random number generator as <code>mt_rand()</code>. To preserve backwards compatibility <b>rand()</b> allows <code>max</code> to be smaller than <code>min</code> as opposed to returning <b><code>false</code></b> as <code>mt_rand()</code>.</p>
-	 * @return int <p>A pseudo random value between <code>min</code> (or 0) and <code>max</code> (or <code>getrandmax()</code>, inclusive).</p>
-	 * @link https://php.net/manual/en/function.rand.php
-	 * @see srand(), getrandmax(), mt_rand(), random_int(), random_bytes(), openssl_random_pseudo_bytes()
-	 * @since PHP 4, PHP 5, PHP 7, PHP 8
-	 */
-	function rand(): int {}
-
-	/**
 	 * Rounds a float
 	 * <p>Returns the rounded value of <code>num</code> to specified <code>precision</code> (number of digits after the decimal point). <code>precision</code> can also be negative or zero (default).</p>
 	 * @param int|float $num <p>The value to round.</p>
@@ -507,7 +445,7 @@ namespace {
 
 	/**
 	 * Hyperbolic sine
-	 * <p>Returns the hyperbolic sine of <code>num</code>, defined as <code>(exp(num) - exp(-num))/2</code>.</p>
+	 * <p>Returns the hyperbolic sine of <code>num</code>, defined as <code>(exp($num) - exp(-$num))/2</code>.</p>
 	 * @param float $num <p>The argument to process</p>
 	 * @return float <p>The hyperbolic sine of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.sinh.php
@@ -528,18 +466,6 @@ namespace {
 	function sqrt(float $num): float {}
 
 	/**
-	 * Seed the random number generator
-	 * <p>Seeds the random number generator with <code>seed</code> or with a random value if <code>seed</code> is <code>0</code>.</p><p><b>Note</b>: There is no need to seed the random number generator with <b>srand()</b> or <code>mt_srand()</code> as this is done automatically. </p><p><b>Note</b>: As of PHP 7.1.0, <b>srand()</b> has been made an alias of <code>mt_srand()</code>.</p>
-	 * @param int $seed <p>An arbitrary <code>int</code> seed value.</p>
-	 * @param int $mode
-	 * @return void <p>No value is returned.</p>
-	 * @link https://php.net/manual/en/function.srand.php
-	 * @see rand(), getrandmax(), mt_srand()
-	 * @since PHP 4, PHP 5, PHP 7, PHP 8
-	 */
-	function srand(int $seed = 0, int $mode = MT_RAND_MT19937): void {}
-
-	/**
 	 * Tangent
 	 * <p><b>tan()</b> returns the tangent of the <code>num</code> parameter. The <code>num</code> parameter is in radians.</p>
 	 * @param float $num <p>The argument to process in radians</p>
@@ -552,7 +478,7 @@ namespace {
 
 	/**
 	 * Hyperbolic tangent
-	 * <p>Returns the hyperbolic tangent of <code>num</code>, defined as <code>sinh(num)/cosh(num)</code>.</p>
+	 * <p>Returns the hyperbolic tangent of <code>num</code>, defined as <code>sinh($num)/cosh($num)</code>.</p>
 	 * @param float $num <p>The argument to process</p>
 	 * @return float <p>The hyperbolic tangent of <code>num</code></p>
 	 * @link https://php.net/manual/en/function.tanh.php

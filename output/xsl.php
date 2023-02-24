@@ -33,7 +33,7 @@ namespace {
 
 		/**
 		 * Determine if PHP has EXSLT support
-		 * <p>This method determines if PHP was built with the EXSLT library.</p>
+		 * <p>This method determines if PHP was built with the &#xBB;&#xA0;EXSLT library.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/xsltprocessor.hasexsltsupport.php
 		 * @since PHP 5 >= 5.0.4, PHP 7, PHP 8

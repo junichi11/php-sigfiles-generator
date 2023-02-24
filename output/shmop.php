@@ -51,8 +51,8 @@ namespace {
 	 * Read data from shared memory block
 	 * <p><b>shmop_read()</b> will read a string from shared memory block.</p>
 	 * @param \Shmop $shmop <p>The shared memory block identifier created by <code>shmop_open()</code></p>
-	 * @param int $offset <p>Offset from which to start reading</p>
-	 * @param int $size <p>The number of bytes to read. <code>0</code> reads <code>shmop_size($shmid) - $start</code> bytes.</p>
+	 * @param int $offset <p>Offset from which to start reading; must be greater than or equal to zero and less than or equal to the actual size of the shared memory segment.</p>
+	 * @param int $size <p>The number of bytes to read; must be greater than or equal to zero, and the sum of <code>offset</code> and <code>size </code> must be less than or equal to the actual size of the shared memory segment. <code>0</code> reads <code>shmop_size($shmid) - $start</code> bytes.</p>
 	 * @return string <p>Returns the data or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.shmop-read.php
 	 * @see shmop_write()
@@ -75,7 +75,7 @@ namespace {
 	 * <p><b>shmop_write()</b> will write a string into shared memory block.</p>
 	 * @param \Shmop $shmop <p>The shared memory block identifier created by <code>shmop_open()</code></p>
 	 * @param string $data <p>A string to write into shared memory block</p>
-	 * @param int $offset <p>Specifies where to start writing data inside the shared memory segment.</p>
+	 * @param int $offset <p>Specifies where to start writing data inside the shared memory segment. The offset must be greater than or equal to zero and less than or equal to the actual size of the shared memory segment.</p>
 	 * @return int <p>The size of the written <code>data</code>.</p>
 	 * @link https://php.net/manual/en/function.shmop-write.php
 	 * @see shmop_read()

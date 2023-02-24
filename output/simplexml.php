@@ -19,7 +19,7 @@ namespace {
 		 * @param bool $dataIsURL <p>By default, <code>dataIsURL</code> is <b><code>false</code></b>. Use <b><code>true</code></b> to specify that <code>data</code> is a path or URL to an XML document instead of <code>string</code> data.</p>
 		 * @param string $namespaceOrPrefix <p>Namespace prefix or URI.</p>
 		 * @param bool $isPrefix <p><b><code>true</code></b> if <code>namespaceOrPrefix</code> is a prefix, <b><code>false</code></b> if it's a URI; defaults to <b><code>false</code></b>.</p>
-		 * @return self <p>Returns a <code>SimpleXMLElement</code> object representing <code>data</code>.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/simplexmlelement.construct.php
 		 * @see simplexml_load_string(), simplexml_load_file(), libxml_use_internal_errors(), libxml_set_streams_context()
 		 * @since PHP 5, PHP 7, PHP 8
@@ -159,6 +159,21 @@ namespace {
 	 * @since PHP 5 >= 5.1.3, PHP 7, PHP 8
 	 */
 	class SimpleXMLIterator extends \SimpleXMLElement {
+
+		/**
+		 * Creates a new SimpleXMLElement object
+		 * <p>Creates a new <code>SimpleXMLElement</code> object.</p>
+		 * @param string $data <p>A well-formed XML string or the path or URL to an XML document if <code>dataIsURL</code> is <b><code>true</code></b>.</p>
+		 * @param int $options <p>Optionally used to specify additional Libxml parameters, which affect reading of XML documents. Options which affect the output of XML documents (e.g. <b><code>LIBXML_NOEMPTYTAG</code></b>) are silently ignored.</p> <p><b>Note</b>:</p><p>It may be necessary to pass <b><code>LIBXML_PARSEHUGE</code></b> to be able to process deeply nested XML or very large text nodes.</p>
+		 * @param bool $dataIsURL <p>By default, <code>dataIsURL</code> is <b><code>false</code></b>. Use <b><code>true</code></b> to specify that <code>data</code> is a path or URL to an XML document instead of <code>string</code> data.</p>
+		 * @param string $namespaceOrPrefix <p>Namespace prefix or URI.</p>
+		 * @param bool $isPrefix <p><b><code>true</code></b> if <code>namespaceOrPrefix</code> is a prefix, <b><code>false</code></b> if it's a URI; defaults to <b><code>false</code></b>.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/simplexmlelement.construct.php
+		 * @see simplexml_load_string(), simplexml_load_file(), libxml_use_internal_errors(), libxml_set_streams_context()
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $data, int $options = 0, bool $dataIsURL = false, string $namespaceOrPrefix = "", bool $isPrefix = false) {}
 
 		/**
 		 * Returns the string content

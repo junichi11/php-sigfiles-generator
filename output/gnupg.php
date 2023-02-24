@@ -87,6 +87,17 @@ namespace {
 	function gnupg_decryptverify($identifier, string $text, string &$plaintext): array {}
 
 	/**
+	 * Delete a key from the keyring
+	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
+	 * @param string $key <p>The key to delete.</p>
+	 * @param bool $allow_secret <p>It specifies whether to delete secret keys as well.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
+	 * @link https://php.net/manual/en/function.gnupg-deletekey.php
+	 * @since PECL gnupg >= 0.5
+	 */
+	function gnupg_deletekey($identifier, string $key, bool $allow_secret): bool {}
+
+	/**
 	 * Encrypts a given text
 	 * <p>Encrypts the given <code>plaintext</code> with the keys, which were set with gnupg_addencryptkey before and returns the encrypted text.</p>
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
@@ -156,6 +167,16 @@ namespace {
 	function gnupg_getprotocol($identifier): int {}
 
 	/**
+	 * Search the trust items
+	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
+	 * @param string $pattern <p>Expression to limit the list of trust items to only the ones matching the pattern.</p>
+	 * @return array <p>On success, this function returns an array of trust items. On failure, this function returns <b><code>null</code></b>.</p>
+	 * @link https://php.net/manual/en/function.gnupg-gettrustlist.php
+	 * @since PECL gnupg >= 0.5
+	 */
+	function gnupg_gettrustlist($identifier, string $pattern): array {}
+
+	/**
 	 * Imports a key
 	 * <p>Imports the key <code>keydata</code> and returns an array with information about the importprocess.</p>
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
@@ -184,6 +205,16 @@ namespace {
 	 * @since PECL gnupg >= 0.1
 	 */
 	function gnupg_keyinfo($identifier, string $pattern): array {}
+
+	/**
+	 * List key signatures
+	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
+	 * @param string $keyid <p>The key ID to list signatures for.</p>
+	 * @return array <p>On success, this function returns an array of key signatures. On failure, this function returns <b><code>null</code></b>.</p>
+	 * @link https://php.net/manual/en/function.gnupg-listsignatures.php
+	 * @since PECL gnupg >= 0.5
+	 */
+	function gnupg_listsignatures($identifier, string $keyid): array {}
 
 	/**
 	 * Toggle armored output

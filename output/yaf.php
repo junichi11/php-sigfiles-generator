@@ -19,15 +19,6 @@ namespace {
 		protected $_controller;
 
 		/**
-		 * Yaf_Controller_Abstract constructor
-		 * <p><b>Yaf_Controller_Abstract::__construct()</b> is final, which means it can not be overridden. You may want to see <code>Yaf_Controller_Abstract::init()</code> instead.</p>
-		 * @return self
-		 * @link https://php.net/manual/en/yaf-controller-abstract.construct.php
-		 * @since Yaf >=1.0.0
-		 */
-		final private function __construct() {}
-
-		/**
 		 * The display purpose
 		 * @param string $tpl
 		 * @param array $parameters
@@ -444,7 +435,7 @@ namespace {
 	/**
 	 * <p>Yaf_Config_Ini enables developers to store configuration data in a familiar INI format and read them in the application by using nested object property syntax. The INI format is specialized to provide both the ability to have a hierarchy of configuration data keys and inheritance between configuration data sections. Configuration data hierarchies are supported by separating the keys with the dot or period character ("."). A section may extend or inherit from another section by following the section name with a colon character (":") and the name of the section from which data are to be inherited.</p>
 	 * <p><b>Note</b>:</p>
-	 * <p>Yaf_Config_Ini utilizes the &raquo; parse_ini_file() PHP function. Please review this documentation to be aware of its specific behaviors, which propagate to Yaf_Config_Ini, such as how the special values of "<b><code>true</code></b>", "<b><code>false</code></b>", "yes", "no", and "<b><code>null</code></b>" are handled.</p>
+	 * <p>Yaf_Config_Ini utilizes the &#xBB; parse_ini_file() PHP function. Please review this documentation to be aware of its specific behaviors, which propagate to Yaf_Config_Ini, such as how the special values of "<b><code>true</code></b>", "<b><code>false</code></b>", "yes", "no", and "<b><code>null</code></b>" are handled.</p>
 	 * @link https://php.net/manual/en/class.yaf-config-ini.php
 	 * @since Yaf >=1.0.0
 	 */
@@ -828,7 +819,7 @@ namespace {
 	abstract class Yaf_Controller_Abstract {
 
 		/**
-		 * @var mixed <p>You can also define a action method in a separate PHP script by using this property and <code>Yaf_Action_Abstract</code>.</p> <p><b>Example #1 define action in a separate file</b></p>  <code> &lt;&#63;php<br>class&nbsp;IndexController&nbsp;extends&nbsp;Yaf_Controller_Abstract&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;$actions&nbsp;=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&#42;&#42;&nbsp;now&nbsp;dummyAction&nbsp;is&nbsp;defined&nbsp;in&nbsp;a&nbsp;separate&nbsp;file&nbsp;&#42;/<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"dummy"&nbsp;=&gt;&nbsp;"actions/Dummy_action.php",<br>&nbsp;&nbsp;&nbsp;&nbsp;);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;/&#42;&nbsp;action&nbsp;method&nbsp;may&nbsp;have&nbsp;arguments&nbsp;&#42;/<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;indexAction($name,&nbsp;$id)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&#42;&nbsp;$name&nbsp;and&nbsp;$id&nbsp;are&nbsp;unsafe&nbsp;raw&nbsp;data&nbsp;&#42;/<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert($name&nbsp;==&nbsp;$this-&gt;getRequest()-&gt;getParam("name"));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert($id&nbsp;&nbsp;&nbsp;==&nbsp;$this-&gt;_request-&gt;getParam("id"));<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br>&#63;&gt;  </code>    <p><b>Example #2 Dummy_action.php</b></p>  <code> &lt;&#63;php<br>class&nbsp;DummyAction&nbsp;extends&nbsp;Yaf_Action_Abstract&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;/&#42;&nbsp;a&nbsp;action&nbsp;class&nbsp;shall&nbsp;define&nbsp;this&nbsp;method&nbsp;&nbsp;as&nbsp;the&nbsp;entry&nbsp;point&nbsp;&#42;/<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;execute()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br>&#63;&gt;  </code>
+		 * @var mixed <p>You can also define an action method in a separate PHP script by using this property and <code>Yaf_Action_Abstract</code>.</p> <p><b>Example #1 define action in a separate file</b></p>  <code> &lt;&#63;php<br>class IndexController extends Yaf_Controller_Abstract {<br> protected $actions = array(<br> /&#42;&#42; now dummyAction is defined in a separate file &#42;/<br> "dummy" =&gt; "actions/Dummy_action.php",<br> );<br><br> /&#42; action method may have arguments &#42;/<br> public function indexAction($name, $id) {<br> /&#42; $name and $id are unsafe raw data &#42;/<br> assert($name == $this-&gt;getRequest()-&gt;getParam("name"));<br> assert($id == $this-&gt;_request-&gt;getParam("id"));<br> }<br>}<br>&#63;&gt;  </code>    <p><b>Example #2 Dummy_action.php</b></p>  <code> &lt;&#63;php<br>class DummyAction extends Yaf_Action_Abstract {<br> /&#42; an action class shall define this method as the entry point &#42;/<br> public function execute() {<br> }<br>}<br>&#63;&gt;  </code>
 		 * @link https://php.net/manual/en/class.yaf-controller-abstract.php#yaf-controller-abstract.props.actions
 		 */
 		public $actions;
@@ -1458,15 +1449,6 @@ namespace {
 	class Yaf_Exception_DispatchFailed extends \Yaf_Exception {
 
 		/**
-		 * The __construct purpose
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return self
-		 * @link https://php.net/manual/en/yaf-exception.construct.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function __construct() {}
-
-		/**
 		 * The getPrevious purpose
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return void
@@ -1481,15 +1463,6 @@ namespace {
 	 * @since Yaf >=1.0.0
 	 */
 	class Yaf_Exception_LoadFailed extends \Yaf_Exception {
-
-		/**
-		 * The __construct purpose
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return self
-		 * @link https://php.net/manual/en/yaf-exception.construct.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function __construct() {}
 
 		/**
 		 * The getPrevious purpose
@@ -1508,15 +1481,6 @@ namespace {
 	class Yaf_Exception_LoadFailed_Action extends \Yaf_Exception_LoadFailed {
 
 		/**
-		 * The __construct purpose
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return self
-		 * @link https://php.net/manual/en/yaf-exception.construct.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function __construct() {}
-
-		/**
 		 * The getPrevious purpose
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return void
@@ -1531,15 +1495,6 @@ namespace {
 	 * @since Yaf >=1.0.0
 	 */
 	class Yaf_Exception_LoadFailed_Controller extends \Yaf_Exception_LoadFailed {
-
-		/**
-		 * The __construct purpose
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return self
-		 * @link https://php.net/manual/en/yaf-exception.construct.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function __construct() {}
 
 		/**
 		 * The getPrevious purpose
@@ -1558,15 +1513,6 @@ namespace {
 	class Yaf_Exception_LoadFailed_Module extends \Yaf_Exception_LoadFailed {
 
 		/**
-		 * The __construct purpose
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return self
-		 * @link https://php.net/manual/en/yaf-exception.construct.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function __construct() {}
-
-		/**
 		 * The getPrevious purpose
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return void
@@ -1581,15 +1527,6 @@ namespace {
 	 * @since Yaf >=1.0.0
 	 */
 	class Yaf_Exception_LoadFailed_View extends \Yaf_Exception_LoadFailed {
-
-		/**
-		 * The __construct purpose
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return self
-		 * @link https://php.net/manual/en/yaf-exception.construct.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function __construct() {}
 
 		/**
 		 * The getPrevious purpose
@@ -1608,15 +1545,6 @@ namespace {
 	class Yaf_Exception_RouterFailed extends \Yaf_Exception {
 
 		/**
-		 * The __construct purpose
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return self
-		 * @link https://php.net/manual/en/yaf-exception.construct.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function __construct() {}
-
-		/**
 		 * The getPrevious purpose
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return void
@@ -1633,15 +1561,6 @@ namespace {
 	class Yaf_Exception_StartupError extends \Yaf_Exception {
 
 		/**
-		 * The __construct purpose
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return self
-		 * @link https://php.net/manual/en/yaf-exception.construct.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function __construct() {}
-
-		/**
 		 * The getPrevious purpose
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return void
@@ -1656,15 +1575,6 @@ namespace {
 	 * @since Yaf >=1.0.0
 	 */
 	class Yaf_Exception_TypeError extends \Yaf_Exception {
-
-		/**
-		 * The __construct purpose
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return self
-		 * @link https://php.net/manual/en/yaf-exception.construct.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function __construct() {}
 
 		/**
 		 * The getPrevious purpose

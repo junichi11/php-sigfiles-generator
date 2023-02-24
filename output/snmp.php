@@ -12,6 +12,78 @@ namespace {
 	class SNMP {
 
 		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.snmp.php
+		 */
+		public const VERSION_1 = null;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.snmp.php
+		 */
+		public const VERSION_2c = null;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.snmp.php
+		 */
+		public const VERSION_2C = null;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.snmp.php
+		 */
+		public const VERSION_3 = null;
+
+		/**
+		 * @var int <p>No SNMP-specific error occurred.</p>
+		 * @link https://php.net/manual/en/class.snmp.php
+		 */
+		public const ERRNO_NOERROR = null;
+
+		/**
+		 * @var int <p>All SNMP::ERRNO_&#42; codes bitwise OR'ed.</p>
+		 * @link https://php.net/manual/en/class.snmp.php
+		 */
+		public const ERRNO_ANY = null;
+
+		/**
+		 * @var int <p>A generic SNMP error occurred.</p>
+		 * @link https://php.net/manual/en/class.snmp.php
+		 */
+		public const ERRNO_GENERIC = null;
+
+		/**
+		 * @var int <p>Request to SNMP agent timed out.</p>
+		 * @link https://php.net/manual/en/class.snmp.php
+		 */
+		public const ERRNO_TIMEOUT = null;
+
+		/**
+		 * @var int <p>SNMP agent returned an error in reply.</p>
+		 * @link https://php.net/manual/en/class.snmp.php
+		 */
+		public const ERRNO_ERROR_IN_REPLY = null;
+
+		/**
+		 * @var int <p>SNMP agent faced OID cycling reporning non-increasing OID while executing (BULK)WALK command. This indicates bogus remote SNMP agent.</p>
+		 * @link https://php.net/manual/en/class.snmp.php
+		 */
+		public const ERRNO_OID_NOT_INCREASING = null;
+
+		/**
+		 * @var int <p>Library failed while parsing OID (and/or type for SET command). No queries has been made.</p>
+		 * @link https://php.net/manual/en/class.snmp.php
+		 */
+		public const ERRNO_OID_PARSING_ERROR = null;
+
+		/**
+		 * @var int <p>Library will use multiple queries for SET operation requested. That means that operation will be performed in a non-transaction manner and second or subsequent chunks may fail if a type or value failure will be faced.</p>
+		 * @link https://php.net/manual/en/class.snmp.php
+		 */
+		public const ERRNO_MULTIPLE_SET_QUERIES = null;
+
+		/**
 		 * @var array <p>Read-only property with remote agent configuration: hostname, port, default timeout, default retries count</p>
 		 * @link https://php.net/manual/en/class.snmp.php#snmp.props.info
 		 */
@@ -60,78 +132,6 @@ namespace {
 		public $exceptions_enabled;
 
 		/**
-		 * @var int <p>No SNMP-specific error occurred.</p>
-		 * @link https://php.net/manual/en/class.snmp.php
-		 */
-		const ERRNO_NOERROR = 0;
-
-		/**
-		 * @var int <p>A generic SNMP error occurred.</p>
-		 * @link https://php.net/manual/en/class.snmp.php
-		 */
-		const ERRNO_GENERIC = 2;
-
-		/**
-		 * @var int <p>Request to SNMP agent timed out.</p>
-		 * @link https://php.net/manual/en/class.snmp.php
-		 */
-		const ERRNO_TIMEOUT = 4;
-
-		/**
-		 * @var int <p>SNMP agent returned an error in reply.</p>
-		 * @link https://php.net/manual/en/class.snmp.php
-		 */
-		const ERRNO_ERROR_IN_REPLY = 8;
-
-		/**
-		 * @var int <p>SNMP agent faced OID cycling reporning non-increasing OID while executing (BULK)WALK command. This indicates bogus remote SNMP agent.</p>
-		 * @link https://php.net/manual/en/class.snmp.php
-		 */
-		const ERRNO_OID_NOT_INCREASING = 16;
-
-		/**
-		 * @var int <p>Library failed while parsing OID (and/or type for SET command). No queries has been made.</p>
-		 * @link https://php.net/manual/en/class.snmp.php
-		 */
-		const ERRNO_OID_PARSING_ERROR = 32;
-
-		/**
-		 * @var int <p>Library will use multiple queries for SET operation requested. That means that operation will be performed in a non-transaction manner and second or subsequent chunks may fail if a type or value failure will be faced.</p>
-		 * @link https://php.net/manual/en/class.snmp.php
-		 */
-		const ERRNO_MULTIPLE_SET_QUERIES = 64;
-
-		/**
-		 * @var int <p>All SNMP::ERRNO_&#42; codes bitwise OR'ed.</p>
-		 * @link https://php.net/manual/en/class.snmp.php
-		 */
-		const ERRNO_ANY = 126;
-
-		/**
-		 * @var int
-		 * @link https://php.net/manual/en/class.snmp.php
-		 */
-		const VERSION_1 = 0;
-
-		/**
-		 * @var int
-		 * @link https://php.net/manual/en/class.snmp.php
-		 */
-		const VERSION_2C = 1;
-
-		/**
-		 * @var int
-		 * @link https://php.net/manual/en/class.snmp.php
-		 */
-		const VERSION_2c = 1;
-
-		/**
-		 * @var int
-		 * @link https://php.net/manual/en/class.snmp.php
-		 */
-		const VERSION_3 = 3;
-
-		/**
 		 * Creates SNMP instance representing session to remote SNMP agent
 		 * <p>The function description goes here.</p>
 		 * @param int $version <p>SNMP protocol version: <b><code>SNMP::VERSION_1</code></b>, <b><code>SNMP::VERSION_2C</code></b>, <b><code>SNMP::VERSION_3</code></b>.</p>
@@ -139,7 +139,7 @@ namespace {
 		 * @param string $community <p>The purpuse of <code>community</code> is SNMP version specific:</p>   SNMP::VERSION_1SNMP community SNMP::VERSION_2CSNMP community SNMP::VERSION_3SNMPv3 securityName
 		 * @param int $timeout <p>The number of microseconds until the first timeout.</p>
 		 * @param int $retries <p>The number of retries in case timeout occurs.</p>
-		 * @return self <p>Returns SNMP object representing remote SNMP agent.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/snmp.construct.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 		 */
@@ -292,6 +292,18 @@ namespace {
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -449,7 +461,7 @@ namespace {
 	 * @param string $hostname <p>The hostname of the SNMP agent (server).</p>
 	 * @param string $security_name <p>the security name, usually some kind of username</p>
 	 * @param string $security_level <p>the security level (noAuthNoPriv|authNoPriv|authPriv)</p>
-	 * @param string $auth_protocol <p>the authentication protocol (MD5 or SHA)</p>
+	 * @param string $auth_protocol <p>the authentication protocol (<code>"MD5"</code>, <code>"SHA"</code>, <code>"SHA256"</code>, or <code>"SHA512"</code>)</p>
 	 * @param string $auth_passphrase <p>the authentication pass phrase</p>
 	 * @param string $privacy_protocol <p>the privacy protocol (DES or AES)</p>
 	 * @param string $privacy_passphrase <p>the privacy pass phrase</p>
@@ -469,7 +481,7 @@ namespace {
 	 * @param string $hostname <p>The hostname of the SNMP agent (server).</p>
 	 * @param string $security_name <p>the security name, usually some kind of username</p>
 	 * @param string $security_level <p>the security level (noAuthNoPriv|authNoPriv|authPriv)</p>
-	 * @param string $auth_protocol <p>the authentication protocol (MD5 or SHA)</p>
+	 * @param string $auth_protocol <p>the authentication protocol (<code>"MD5"</code>, <code>"SHA"</code>, <code>"SHA256"</code>, or <code>"SHA512"</code>)</p>
 	 * @param string $auth_passphrase <p>the authentication pass phrase</p>
 	 * @param string $privacy_protocol <p>the privacy protocol (DES or AES)</p>
 	 * @param string $privacy_passphrase <p>the privacy pass phrase</p>
@@ -491,7 +503,7 @@ namespace {
 	 * @param string $security_level <p>the security level (noAuthNoPriv|authNoPriv|authPriv)</p>
 	 * @param string $auth_protocol <p>the authentication protocol (MD5 or SHA)</p>
 	 * @param string $auth_passphrase <p>the authentication pass phrase</p>
-	 * @param string $privacy_protocol <p>the privacy protocol (DES or AES)</p>
+	 * @param string $privacy_protocol <p>the authentication protocol (<code>"MD5"</code>, <code>"SHA"</code>, <code>"SHA256"</code>, or <code>"SHA512"</code>)</p>
 	 * @param string $privacy_passphrase <p>the privacy pass phrase</p>
 	 * @param array|string $object_id <p>The SNMP object id.</p>
 	 * @param int $timeout <p>The number of microseconds until the first timeout.</p>
@@ -530,7 +542,7 @@ namespace {
 	 * @param string $hostname <p>The hostname of the SNMP agent (server).</p>
 	 * @param string $security_name <p>the security name, usually some kind of username</p>
 	 * @param string $security_level <p>the security level (noAuthNoPriv|authNoPriv|authPriv)</p>
-	 * @param string $auth_protocol <p>the authentication protocol (MD5 or SHA)</p>
+	 * @param string $auth_protocol <p>the authentication protocol (<code>"MD5"</code>, <code>"SHA"</code>, <code>"SHA256"</code>, or <code>"SHA512"</code>)</p>
 	 * @param string $auth_passphrase <p>the authentication pass phrase</p>
 	 * @param string $privacy_protocol <p>the privacy protocol (DES or AES)</p>
 	 * @param string $privacy_passphrase <p>the privacy pass phrase</p>
@@ -577,52 +589,52 @@ namespace {
 	 * Return all values that are enums with their enum value instead of the raw integer
 	 * <p>This function toggles if snmpwalk/snmpget etc. should automatically lookup enum values in the MIB and return them together with their human readable string.</p>
 	 * @param bool $enable <p>As the value is interpreted as boolean by the Net-SNMP library, it can only be "0" or "1".</p>
-	 * @return bool
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.snmp-set-enum-print.php
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
-	function snmp_set_enum_print(bool $enable): bool {}
+	function snmp_set_enum_print(bool $enable): true {}
 
 	/**
-	 * Set the OID output format
+	 * Alias of snmp_set_oid_output_format()
 	 * <p>This function is an alias of: <code>snmp_set_oid_output_format()</code>.</p>
 	 * @param int $format <b>OID .1.3.6.1.2.1.1.3.0 representation for various <code>format</code> values</b>  <b><code>SNMP_OID_OUTPUT_FULL</code></b>.iso.org.dod.internet.mgmt.mib-2.system.sysUpTime.sysUpTimeInstance <b><code>SNMP_OID_OUTPUT_NUMERIC</code></b>.1.3.6.1.2.1.1.3.0  <b><code>SNMP_OID_OUTPUT_MODULE</code></b>DISMAN-EVENT-MIB::sysUpTimeInstance <b><code>SNMP_OID_OUTPUT_SUFFIX</code></b>sysUpTimeInstance <b><code>SNMP_OID_OUTPUT_UCD</code></b>system.sysUpTime.sysUpTimeInstance <b><code>SNMP_OID_OUTPUT_NONE</code></b>Undefined
-	 * @return bool
+	 * @return true
 	 * @link https://php.net/manual/en/function.snmp-set-oid-numeric-print.php
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
-	function snmp_set_oid_numeric_print(int $format): bool {}
+	function snmp_set_oid_numeric_print(int $format): true {}
 
 	/**
 	 * Set the OID output format
 	 * <p><b>snmp_set_oid_output_format()</b> sets the output format to be full or numeric.</p>
 	 * @param int $format <b>OID .1.3.6.1.2.1.1.3.0 representation for various <code>format</code> values</b>  <b><code>SNMP_OID_OUTPUT_FULL</code></b>.iso.org.dod.internet.mgmt.mib-2.system.sysUpTime.sysUpTimeInstance <b><code>SNMP_OID_OUTPUT_NUMERIC</code></b>.1.3.6.1.2.1.1.3.0  <b><code>SNMP_OID_OUTPUT_MODULE</code></b>DISMAN-EVENT-MIB::sysUpTimeInstance <b><code>SNMP_OID_OUTPUT_SUFFIX</code></b>sysUpTimeInstance <b><code>SNMP_OID_OUTPUT_UCD</code></b>system.sysUpTime.sysUpTimeInstance <b><code>SNMP_OID_OUTPUT_NONE</code></b>Undefined
-	 * @return bool <p>No value is returned.</p>
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.snmp-set-oid-output-format.php
 	 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 	 */
-	function snmp_set_oid_output_format(int $format): bool {}
+	function snmp_set_oid_output_format(int $format): true {}
 
 	/**
 	 * Set the value of enable within the NET-SNMP library
 	 * <p>Sets the value of <code>enable</code> within the NET-SNMP library. When this is set (1), the SNMP library will return 'quick printed' values. This means that just the value will be printed. When <code>enable</code> is not enabled (default) the NET-SNMP library prints extra information including the type of the value (i.e. IpAddress or OID). Additionally, if quick_print is not enabled, the library prints additional hex values for all strings of three characters or less.</p><p>By default the NET-SNMP library returns verbose values, quick_print is used to return only the value.</p><p>Currently strings are still returned with extra quotes, this will be corrected in a later release.</p>
 	 * @param bool $enable
-	 * @return bool <p>No value is returned.</p>
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.snmp-set-quick-print.php
 	 * @see snmp_get_quick_print()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function snmp_set_quick_print(bool $enable): bool {}
+	function snmp_set_quick_print(bool $enable): true {}
 
 	/**
 	 * Specify the method how the SNMP values will be returned
 	 * @param int $method <b>types</b>   SNMP_VALUE_LIBRARY The return values will be as returned by the Net-SNMP library.   SNMP_VALUE_PLAIN The return values will be the plain value without the SNMP type information.   SNMP_VALUE_OBJECT  The return values will be objects with the properties <code>value</code> and <code>type</code>, where the latter is one of the <b><code>SNMP_OCTET_STR</code></b>, <b><code>SNMP_COUNTER</code></b> etc. constants. The way <code>value</code> is returned is based on which one of constants <b><code>SNMP_VALUE_LIBRARY</code></b>, <b><code>SNMP_VALUE_PLAIN</code></b> is set.
-	 * @return bool
+	 * @return true <p>Always returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.snmp-set-valueretrieval.php
 	 * @see snmp_get_valueretrieval()
 	 * @since PHP 4 >= 4.3.3, PHP 5, PHP 7, PHP 8
 	 */
-	function snmp_set_valueretrieval(int $method): bool {}
+	function snmp_set_valueretrieval(int $method): true {}
 
 	/**
 	 * Fetch an SNMP object

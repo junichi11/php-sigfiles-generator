@@ -14,7 +14,7 @@ namespace {
 		/**
 		 * Constructs an AppendIterator
 		 * <p>Constructs an AppendIterator.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/appenditerator.construct.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
@@ -49,13 +49,13 @@ namespace {
 		public function getArrayIterator(): \ArrayIterator {}
 
 		/**
-		 * Gets the inner iterator
-		 * <p>This method returns the current inner iterator.</p>
-		 * @return Iterator <p>The current inner iterator, or <b><code>null</code></b> if there is not one.</p>
-		 * @link https://php.net/manual/en/appenditerator.getinneriterator.php
+		 * Get the inner iterator
+		 * <p>Get the inner iterator.</p>
+		 * @return ?Iterator <p>The inner iterator as passed to <code>IteratorIterator::__construct()</code>, or <b><code>null</code></b> when there is no inner iterator.</p>
+		 * @link https://php.net/manual/en/iteratoriterator.getinneriterator.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getInnerIterator(): \Iterator {}
+		public function getInnerIterator(): ?\Iterator {}
 
 		/**
 		 * Gets an index of iterators
@@ -115,20 +115,20 @@ namespace {
 		 * @var int <p>Properties of the object have their normal functionality when accessed as list (var_dump, foreach, etc.).</p>
 		 * @link https://php.net/manual/en/class.arrayiterator.php
 		 */
-		const STD_PROP_LIST = 1;
+		public const STD_PROP_LIST = 1;
 
 		/**
 		 * @var int <p>Entries can be accessed as properties (read and write).</p>
 		 * @link https://php.net/manual/en/class.arrayiterator.php
 		 */
-		const ARRAY_AS_PROPS = 2;
+		public const ARRAY_AS_PROPS = 2;
 
 		/**
 		 * Construct an ArrayIterator
 		 * <p>Constructs an <code>ArrayIterator</code> <code>object</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param array|object $array <p>The array or object to be iterated on.</p>
 		 * @param int $flags <p>Flags to control the behaviour of the <code>ArrayIterator</code> object. See <code>ArrayIterator::setFlags()</code>.</p>
-		 * @return self <p>An <code>ArrayIterator</code> <code>object</code>.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/arrayiterator.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -148,12 +148,12 @@ namespace {
 		 * Sort entries by values
 		 * <p>Sorts entries by their values.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
 		 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayiterator.asort.php
 		 * @see asort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function asort(int $flags = SORT_REGULAR): bool {}
+		public function asort(int $flags = SORT_REGULAR): true {}
 
 		/**
 		 * Count elements
@@ -204,32 +204,32 @@ namespace {
 		 * Sort entries by keys
 		 * <p>Sorts entries by their keys.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
 		 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayiterator.ksort.php
 		 * @see ksort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function ksort(int $flags = SORT_REGULAR): bool {}
+		public function ksort(int $flags = SORT_REGULAR): true {}
 
 		/**
 		 * Sort entries naturally, case insensitive
 		 * <p>Sort the entries by values using a case insensitive "natural order" algorithm.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayiterator.natcasesort.php
 		 * @see natcasesort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function natcasesort(): bool {}
+		public function natcasesort(): true {}
 
 		/**
 		 * Sort entries naturally
 		 * <p>Sort the entries by values using a "natural order" algorithm.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayiterator.natsort.php
 		 * @see natsort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function natsort(): bool {}
+		public function natsort(): true {}
 
 		/**
 		 * Move to next entry
@@ -323,23 +323,23 @@ namespace {
 		 * Sort with a user-defined comparison function and maintain index association
 		 * <p>This method sorts the elements such that indices maintain their correlation with the values they are associated with, using a user-defined comparison function.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
 		 * @param callable $callback <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayiterator.uasort.php
 		 * @see uasort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function uasort(callable $callback): bool {}
+		public function uasort(callable $callback): true {}
 
 		/**
 		 * Sort by keys using a user-defined comparison function
 		 * <p>This method sorts the elements by keys using a user-supplied comparison function.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
 		 * @param callable $callback <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayiterator.uksort.php
 		 * @see uksort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function uksort(callable $callback): bool {}
+		public function uksort(callable $callback): true {}
 
 		/**
 		 * Unserialize
@@ -385,8 +385,8 @@ namespace {
 		 * <p>This constructs a new array <code>object</code>.</p>
 		 * @param array|object $array <p>The <code>array</code> parameter accepts an <code>array</code> or an <code>Object</code>.</p>
 		 * @param int $flags <p>Flags to control the behaviour of the <code>ArrayObject</code> object. See <code>ArrayObject::setFlags()</code>.</p>
-		 * @param string $iteratorClass <p>Specify the class that will be used for iteration of the <code>ArrayObject</code> object.</p>
-		 * @return self <p>Returns an ArrayObject object on success.</p>
+		 * @param string $iteratorClass <p>Specify the class that will be used for iteration of the <code>ArrayObject</code> object. The class must implement <code>ArrayIterator</code>.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/arrayobject.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -406,12 +406,12 @@ namespace {
 		 * Sort the entries by value
 		 * <p>Sorts the entries in ascending order, such that its keys maintain their correlation with the values they are associated with.</p><p>This is used mainly when sorting associative arrays where the actual element order is significant.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
 		 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayobject.asort.php
 		 * @see asort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function asort(int $flags = SORT_REGULAR): bool {}
+		public function asort(int $flags = SORT_REGULAR): true {}
 
 		/**
 		 * Get the number of public properties in the ArrayObject
@@ -472,32 +472,32 @@ namespace {
 		 * Sort the entries by key
 		 * <p>Sorts the entries by key, maintaining key to entry correlations. This is useful mainly for associative arrays.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
 		 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayobject.ksort.php
 		 * @see ksort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function ksort(int $flags = SORT_REGULAR): bool {}
+		public function ksort(int $flags = SORT_REGULAR): true {}
 
 		/**
 		 * Sort an array using a case insensitive "natural order" algorithm
 		 * <p>This method is a case insensitive version of ArrayObject::natsort.</p><p>This method implements a sort algorithm that orders alphanumeric strings in the way a human being would while maintaining key/value associations. This is described as a "natural ordering".</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return true <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/arrayobject.natcasesort.php
 		 * @see natcasesort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function natcasesort(): bool {}
+		public function natcasesort(): true {}
 
 		/**
 		 * Sort entries using a "natural order" algorithm
 		 * <p>This method implements a sort algorithm that orders alphanumeric strings in the way a human being would while maintaining key/value associations. This is described as a "natural ordering". An example of the difference between this algorithm and the regular computer string sorting algorithms (used in ArrayObject::asort) method can be seen in the example below.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return true <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/arrayobject.natsort.php
 		 * @see natsort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function natsort(): bool {}
+		public function natsort(): true {}
 
 		/**
 		 * Returns whether the requested index exists
@@ -572,23 +572,23 @@ namespace {
 		 * Sort the entries with a user-defined comparison function and maintain key association
 		 * <p>This function sorts the entries such that keys maintain their correlation with the entry that they are associated with, using a user-defined comparison function.</p><p>This is used mainly when sorting associative arrays where the actual element order is significant.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
 		 * @param callable $callback <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayobject.uasort.php
 		 * @see uasort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function uasort(callable $callback): bool {}
+		public function uasort(callable $callback): true {}
 
 		/**
 		 * Sort the entries by keys using a user-defined comparison function
 		 * <p>This function sorts the keys of the entries using a user-supplied comparison function. The key to entry correlations will be maintained.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
 		 * @param callable $callback <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayobject.uksort.php
 		 * @see uksort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function uksort(callable $callback): bool {}
+		public function uksort(callable $callback): true {}
 
 		/**
 		 * Unserialize an ArrayObject
@@ -659,6 +659,18 @@ namespace {
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -792,6 +804,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -875,37 +899,37 @@ namespace {
 		 * @var int <p>Convert every element to string.</p>
 		 * @link https://php.net/manual/en/class.cachingiterator.php
 		 */
-		const CALL_TOSTRING = 1;
+		public const CALL_TOSTRING = 1;
 
 		/**
 		 * @var int <p>Don't throw exception in accessing children.</p>
 		 * @link https://php.net/manual/en/class.cachingiterator.php
 		 */
-		const CATCH_GET_CHILD = 16;
+		public const CATCH_GET_CHILD = 16;
 
 		/**
 		 * @var int <p>Use key for conversion to string.</p>
 		 * @link https://php.net/manual/en/class.cachingiterator.php
 		 */
-		const TOSTRING_USE_KEY = 2;
+		public const TOSTRING_USE_KEY = 2;
 
 		/**
 		 * @var int <p>Use current for conversion to string.</p>
 		 * @link https://php.net/manual/en/class.cachingiterator.php
 		 */
-		const TOSTRING_USE_CURRENT = 4;
+		public const TOSTRING_USE_CURRENT = 4;
 
 		/**
 		 * @var int <p>Use inner for conversion to string.</p>
 		 * @link https://php.net/manual/en/class.cachingiterator.php
 		 */
-		const TOSTRING_USE_INNER = 8;
+		public const TOSTRING_USE_INNER = 8;
 
 		/**
 		 * @var int <p>Cache all read data.</p>
 		 * @link https://php.net/manual/en/class.cachingiterator.php
 		 */
-		const FULL_CACHE = 256;
+		public const FULL_CACHE = 256;
 
 		/**
 		 * Construct a new CachingIterator object for the iterator
@@ -964,13 +988,13 @@ namespace {
 		public function getFlags(): int {}
 
 		/**
-		 * Returns the inner iterator
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the iterator sent to the constructor.</p>
-		 * @return Iterator <p>Returns an object implementing the Iterator interface.</p>
-		 * @link https://php.net/manual/en/cachingiterator.getinneriterator.php
-		 * @since PHP 5, PHP 7, PHP 8
+		 * Get the inner iterator
+		 * <p>Get the inner iterator.</p>
+		 * @return ?Iterator <p>The inner iterator as passed to <code>IteratorIterator::__construct()</code>, or <b><code>null</code></b> when there is no inner iterator.</p>
+		 * @link https://php.net/manual/en/iteratoriterator.getinneriterator.php
+		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getInnerIterator(): \Iterator {}
+		public function getInnerIterator(): ?\Iterator {}
 
 		/**
 		 * Check whether the inner iterator has a valid next element
@@ -1080,7 +1104,7 @@ namespace {
 		 * <p>Creates a filtered iterator using the <code>callback</code> to determine which items are accepted or rejected.</p>
 		 * @param \Iterator $iterator <p>The iterator to be filtered.</p>
 		 * @param callable $callback <p>The callback, which should return <b><code>true</code></b> to accept the current item or <b><code>false</code></b> otherwise. See Examples.</p> <p>May be any valid <code>callable</code> value.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/callbackfilteriterator.construct.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 		 */
@@ -1107,12 +1131,12 @@ namespace {
 
 		/**
 		 * Get the inner iterator
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Get the inner iterator.</p>
-		 * @return Iterator <p>The inner iterator.</p>
-		 * @link https://php.net/manual/en/filteriterator.getinneriterator.php
+		 * <p>Get the inner iterator.</p>
+		 * @return ?Iterator <p>The inner iterator as passed to <code>IteratorIterator::__construct()</code>, or <b><code>null</code></b> when there is no inner iterator.</p>
+		 * @link https://php.net/manual/en/iteratoriterator.getinneriterator.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getInnerIterator(): \Iterator {}
+		public function getInnerIterator(): ?\Iterator {}
 
 		/**
 		 * Get the current key
@@ -1200,11 +1224,11 @@ namespace {
 		/**
 		 * Return the current DirectoryIterator item
 		 * <p>Get the current <code>DirectoryIterator</code> item.</p>
-		 * @return DirectoryIterator <p>The current <code>DirectoryIterator</code> item.</p>
+		 * @return mixed <p>The current <code>DirectoryIterator</code> item.</p>
 		 * @link https://php.net/manual/en/directoryiterator.current.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function current(): \DirectoryIterator {}
+		public function current(): mixed {}
 
 		/**
 		 * Get last access time of the current DirectoryIterator item
@@ -1449,11 +1473,11 @@ namespace {
 		/**
 		 * Return the key for the current DirectoryIterator item
 		 * <p>Get the key for the current <code>DirectoryIterator</code> item.</p>
-		 * @return int|false <p>The key for the current <code>DirectoryIterator</code> item on success, or <b><code>false</code></b> on failure.</p>
+		 * @return mixed <p>The key for the current <code>DirectoryIterator</code> item as an <code>int</code>.</p>
 		 * @link https://php.net/manual/en/directoryiterator.key.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function key(): int|false {}
+		public function key(): mixed {}
 
 		/**
 		 * Move forward to next DirectoryIterator item
@@ -1585,6 +1609,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -1703,7 +1739,7 @@ namespace {
 		/**
 		 * The valid() method
 		 * <p>The EmptyIterator valid() method.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return bool <p><b><code>false</code></b></p>
+		 * @return false <p><b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/emptyiterator.valid.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
@@ -1718,77 +1754,83 @@ namespace {
 	class FilesystemIterator extends \DirectoryIterator {
 
 		/**
+		 * @var int <p>Masks <code>FilesystemIterator::current()</code></p>
+		 * @link https://php.net/manual/en/class.filesystemiterator.php
+		 */
+		public const CURRENT_MODE_MASK = 240;
+
+		/**
 		 * @var int <p>Makes <code>FilesystemIterator::current()</code> return the pathname.</p>
 		 * @link https://php.net/manual/en/class.filesystemiterator.php
 		 */
-		const CURRENT_AS_PATHNAME = 32;
+		public const CURRENT_AS_PATHNAME = 32;
 
 		/**
 		 * @var int <p>Makes <code>FilesystemIterator::current()</code> return an <code>SplFileInfo</code> instance.</p>
 		 * @link https://php.net/manual/en/class.filesystemiterator.php
 		 */
-		const CURRENT_AS_FILEINFO = 0;
+		public const CURRENT_AS_FILEINFO = 0;
 
 		/**
 		 * @var int <p>Makes <code>FilesystemIterator::current()</code> return $this (the FilesystemIterator).</p>
 		 * @link https://php.net/manual/en/class.filesystemiterator.php
 		 */
-		const CURRENT_AS_SELF = 16;
-
-		/**
-		 * @var int <p>Masks <code>FilesystemIterator::current()</code></p>
-		 * @link https://php.net/manual/en/class.filesystemiterator.php
-		 */
-		const CURRENT_MODE_MASK = 240;
-
-		/**
-		 * @var int <p>Makes <code>FilesystemIterator::key()</code> return the pathname.</p>
-		 * @link https://php.net/manual/en/class.filesystemiterator.php
-		 */
-		const KEY_AS_PATHNAME = 0;
-
-		/**
-		 * @var int <p>Makes <code>FilesystemIterator::key()</code> return the filename.</p>
-		 * @link https://php.net/manual/en/class.filesystemiterator.php
-		 */
-		const KEY_AS_FILENAME = 256;
-
-		/**
-		 * @var int <p>Makes <code>RecursiveDirectoryIterator::hasChildren()</code> follow symlinks.</p>
-		 * @link https://php.net/manual/en/class.filesystemiterator.php
-		 */
-		const FOLLOW_SYMLINKS = 512;
+		public const CURRENT_AS_SELF = 16;
 
 		/**
 		 * @var int <p>Masks <code>FilesystemIterator::key()</code></p>
 		 * @link https://php.net/manual/en/class.filesystemiterator.php
 		 */
-		const KEY_MODE_MASK = 3840;
+		public const KEY_MODE_MASK = 3840;
+
+		/**
+		 * @var int <p>Makes <code>FilesystemIterator::key()</code> return the pathname.</p>
+		 * @link https://php.net/manual/en/class.filesystemiterator.php
+		 */
+		public const KEY_AS_PATHNAME = 0;
+
+		/**
+		 * @var int <p>Makes <code>RecursiveDirectoryIterator::hasChildren()</code> follow symlinks.</p>
+		 * @link https://php.net/manual/en/class.filesystemiterator.php
+		 */
+		public const FOLLOW_SYMLINKS = 16384;
+
+		/**
+		 * @var int <p>Makes <code>FilesystemIterator::key()</code> return the filename.</p>
+		 * @link https://php.net/manual/en/class.filesystemiterator.php
+		 */
+		public const KEY_AS_FILENAME = 256;
 
 		/**
 		 * @var int <p>Same as <code>FilesystemIterator::KEY_AS_FILENAME | FilesystemIterator::CURRENT_AS_FILEINFO</code>.</p>
 		 * @link https://php.net/manual/en/class.filesystemiterator.php
 		 */
-		const NEW_CURRENT_AND_KEY = 256;
+		public const NEW_CURRENT_AND_KEY = 256;
+
+		/**
+		 * @var int <p>Mask used for <code>FilesystemIterator::getFlags()</code> and <code>FilesystemIterator::setFlags()</code>.</p>
+		 * @link https://php.net/manual/en/class.filesystemiterator.php
+		 */
+		public const OTHER_MODE_MASK = 28672;
 
 		/**
 		 * @var int <p>Skips dot files (<code>.</code> and <code>..</code>).</p>
 		 * @link https://php.net/manual/en/class.filesystemiterator.php
 		 */
-		const SKIP_DOTS = 4096;
+		public const SKIP_DOTS = 4096;
 
 		/**
 		 * @var int <p>Makes paths use Unix-style forward slash irrespective of system default. Note that the <code>path</code> that is passed to the constructor is not modified.</p>
 		 * @link https://php.net/manual/en/class.filesystemiterator.php
 		 */
-		const UNIX_PATHS = 8192;
+		public const UNIX_PATHS = 8192;
 
 		/**
 		 * Constructs a new filesystem iterator
 		 * <p>Constructs a new filesystem iterator from the <code>directory</code>.</p>
 		 * @param string $directory <p>The path of the filesystem item to be iterated over.</p>
-		 * @param int $flags <p>Flags may be provided which will affect the behavior of some methods. A list of the flags can found under FilesystemIterator predefined constants. They can also be set later with <code>FilesystemIterator::setFlags()</code></p> <p><b>Note</b>:</p><p><b><code>FilesystemIterator::SKIP_DOTS</code></b> is always set, and cannot be removed.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @param int $flags <p>Flags may be provided which will affect the behavior of some methods. A list of the flags can found under FilesystemIterator predefined constants. They can also be set later with <code>FilesystemIterator::setFlags()</code></p>
+		 * @return self
 		 * @link https://php.net/manual/en/filesystemiterator.construct.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -2161,7 +2203,7 @@ namespace {
 		 * Construct a filterIterator
 		 * <p>Constructs a new <code>FilterIterator</code>, which consists of a passed in <code>iterator</code> with filters applied to it.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \Iterator $iterator <p>The iterator that is being filtered.</p>
-		 * @return self <p>The <code>FilterIterator</code>.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/filteriterator.construct.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
@@ -2188,12 +2230,12 @@ namespace {
 
 		/**
 		 * Get the inner iterator
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Get the inner iterator.</p>
-		 * @return Iterator <p>The inner iterator.</p>
-		 * @link https://php.net/manual/en/filteriterator.getinneriterator.php
+		 * <p>Get the inner iterator.</p>
+		 * @return ?Iterator <p>The inner iterator as passed to <code>IteratorIterator::__construct()</code>, or <b><code>null</code></b> when there is no inner iterator.</p>
+		 * @link https://php.net/manual/en/iteratoriterator.getinneriterator.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getInnerIterator(): \Iterator {}
+		public function getInnerIterator(): ?\Iterator {}
 
 		/**
 		 * Get the current key
@@ -2631,7 +2673,7 @@ namespace {
 		 * Constructs an InfiniteIterator
 		 * <p>Constructs an <code>InfiniteIterator</code> from an <code>Iterator</code>.</p>
 		 * @param \Iterator $iterator <p>The iterator to infinitely iterate over.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/infiniteiterator.construct.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
@@ -2752,6 +2794,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -2836,7 +2890,7 @@ namespace {
 		 * <p>Creates an iterator from anything that is traversable.</p>
 		 * @param \Traversable $iterator <p>The traversable iterator.</p>
 		 * @param ?string $class
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/iteratoriterator.construct.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
@@ -2957,6 +3011,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -3042,7 +3108,7 @@ namespace {
 		 * @param \Iterator $iterator <p>The <code>Iterator</code> to limit.</p>
 		 * @param int $offset <p>Optional offset of the limit.</p>
 		 * @param int $limit <p>Optional count of the limit.</p>
-		 * @return self <p>The new <code>LimitIterator</code>.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/limititerator.construct.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
@@ -3058,13 +3124,13 @@ namespace {
 		public function current(): mixed {}
 
 		/**
-		 * Get inner iterator
-		 * <p>Gets the inner <code>Iterator</code>.</p>
-		 * @return Iterator <p>The inner iterator passed to <code>LimitIterator::__construct()</code>.</p>
-		 * @link https://php.net/manual/en/limititerator.getinneriterator.php
+		 * Get the inner iterator
+		 * <p>Get the inner iterator.</p>
+		 * @return ?Iterator <p>The inner iterator as passed to <code>IteratorIterator::__construct()</code>, or <b><code>null</code></b> when there is no inner iterator.</p>
+		 * @link https://php.net/manual/en/iteratoriterator.getinneriterator.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getInnerIterator(): \Iterator {}
+		public function getInnerIterator(): ?\Iterator {}
 
 		/**
 		 * Return the current position
@@ -3181,6 +3247,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -3264,31 +3342,31 @@ namespace {
 		 * @var int <p>Do not require all sub iterators to be valid in iteration.</p>
 		 * @link https://php.net/manual/en/class.multipleiterator.php
 		 */
-		const MIT_NEED_ANY = 0;
+		public const MIT_NEED_ANY = 0;
 
 		/**
 		 * @var int <p>Require all sub iterators to be valid in iteration.</p>
 		 * @link https://php.net/manual/en/class.multipleiterator.php
 		 */
-		const MIT_NEED_ALL = 1;
+		public const MIT_NEED_ALL = 1;
 
 		/**
 		 * @var int <p>Keys are created from the sub iterators position.</p>
 		 * @link https://php.net/manual/en/class.multipleiterator.php
 		 */
-		const MIT_KEYS_NUMERIC = 0;
+		public const MIT_KEYS_NUMERIC = 0;
 
 		/**
 		 * @var int <p>Keys are created from sub iterators associated information.</p>
 		 * @link https://php.net/manual/en/class.multipleiterator.php
 		 */
-		const MIT_KEYS_ASSOC = 2;
+		public const MIT_KEYS_ASSOC = 2;
 
 		/**
 		 * Constructs a new MultipleIterator
 		 * <p>Construct a new MultipleIterator.</p>
 		 * @param int $flags <p>The flags to set, according to the Flag Constants.</p><ul> <li> <b><code>MultipleIterator::MIT_NEED_ALL</code></b> or <b><code>MultipleIterator::MIT_NEED_ANY</code></b> </li> <li> <b><code>MultipleIterator::MIT_KEYS_NUMERIC</code></b> or <b><code>MultipleIterator::MIT_KEYS_ASSOC</code></b> </li> </ul> <p>Defaults to <b><code>MultipleIterator::MIT_NEED_ALL</code></b>|<b><code>MultipleIterator::MIT_KEYS_NUMERIC</code></b>.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/multipleiterator.construct.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -3410,7 +3488,7 @@ namespace {
 		 * Construct a NoRewindIterator
 		 * <p>Constructs a NoRewindIterator.</p>
 		 * @param \Iterator $iterator <p>The iterator being used.</p>
-		 * @return self <p>A <b>NoRewindIterator()</b> based on the passed in <code>iterator</code>.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/norewinditerator.construct.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
@@ -3427,12 +3505,12 @@ namespace {
 
 		/**
 		 * Get the inner iterator
-		 * <p>Gets the inner iterator, that was passed in to <code>NoRewindIterator</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return iterator <p>The inner iterator, as passed to <code>NoRewindIterator::__construct()</code>.</p>
-		 * @link https://php.net/manual/en/norewinditerator.getinneriterator.php
+		 * <p>Get the inner iterator.</p>
+		 * @return ?Iterator <p>The inner iterator as passed to <code>IteratorIterator::__construct()</code>, or <b><code>null</code></b> when there is no inner iterator.</p>
+		 * @link https://php.net/manual/en/iteratoriterator.getinneriterator.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getInnerIterator(): \iterator {}
+		public function getInnerIterator(): ?\Iterator {}
 
 		/**
 		 * Get the current key
@@ -3592,6 +3670,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -3721,6 +3811,18 @@ namespace {
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -3854,6 +3956,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -3937,7 +4051,7 @@ namespace {
 		 * Constructs a ParentIterator
 		 * <p>Constructs a <code>ParentIterator</code> on an iterator.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \RecursiveIterator $iterator <p>The iterator being constructed upon.</p>
-		 * @return self <p>The <code>ParentIterator</code>.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/parentiterator.construct.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
@@ -3973,12 +4087,12 @@ namespace {
 
 		/**
 		 * Get the inner iterator
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Get the inner iterator.</p>
-		 * @return Iterator <p>The inner iterator.</p>
-		 * @link https://php.net/manual/en/filteriterator.getinneriterator.php
+		 * <p>Get the inner iterator.</p>
+		 * @return ?Iterator <p>The inner iterator as passed to <code>IteratorIterator::__construct()</code>, or <b><code>null</code></b> when there is no inner iterator.</p>
+		 * @link https://php.net/manual/en/iteratoriterator.getinneriterator.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getInnerIterator(): \Iterator {}
+		public function getInnerIterator(): ?\Iterator {}
 
 		/**
 		 * Check whether the inner iterator's current element has children
@@ -4086,6 +4200,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -4169,7 +4295,18 @@ namespace {
 		 * @var int <p>Treat only arrays (not objects) as having children for recursive iteration.</p>
 		 * @link https://php.net/manual/en/class.recursivearrayiterator.php
 		 */
-		const CHILD_ARRAYS_ONLY = 4;
+		public const CHILD_ARRAYS_ONLY = 4;
+
+		/**
+		 * Construct an ArrayIterator
+		 * <p>Constructs an <code>ArrayIterator</code> <code>object</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * @param array|object $array <p>The array or object to be iterated on.</p>
+		 * @param int $flags <p>Flags to control the behaviour of the <code>ArrayIterator</code> object. See <code>ArrayIterator::setFlags()</code>.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/arrayiterator.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(array|object $array = [], int $flags = 0) {}
 
 		/**
 		 * Append an element
@@ -4185,12 +4322,12 @@ namespace {
 		 * Sort entries by values
 		 * <p>Sorts entries by their values.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
 		 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayiterator.asort.php
 		 * @see asort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function asort(int $flags = SORT_REGULAR): bool {}
+		public function asort(int $flags = SORT_REGULAR): true {}
 
 		/**
 		 * Count elements
@@ -4261,32 +4398,32 @@ namespace {
 		 * Sort entries by keys
 		 * <p>Sorts entries by their keys.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
 		 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayiterator.ksort.php
 		 * @see ksort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function ksort(int $flags = SORT_REGULAR): bool {}
+		public function ksort(int $flags = SORT_REGULAR): true {}
 
 		/**
 		 * Sort entries naturally, case insensitive
 		 * <p>Sort the entries by values using a case insensitive "natural order" algorithm.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayiterator.natcasesort.php
 		 * @see natcasesort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function natcasesort(): bool {}
+		public function natcasesort(): true {}
 
 		/**
 		 * Sort entries naturally
 		 * <p>Sort the entries by values using a "natural order" algorithm.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayiterator.natsort.php
 		 * @see natsort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function natsort(): bool {}
+		public function natsort(): true {}
 
 		/**
 		 * Move to next entry
@@ -4380,23 +4517,23 @@ namespace {
 		 * Sort with a user-defined comparison function and maintain index association
 		 * <p>This method sorts the elements such that indices maintain their correlation with the values they are associated with, using a user-defined comparison function.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
 		 * @param callable $callback <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayiterator.uasort.php
 		 * @see uasort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function uasort(callable $callback): bool {}
+		public function uasort(callable $callback): true {}
 
 		/**
 		 * Sort by keys using a user-defined comparison function
 		 * <p>This method sorts the elements by keys using a user-supplied comparison function.</p><p><b>Note</b>:</p><p>If two members compare as equal, they retain their original order. Prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
 		 * @param callable $callback <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback(<code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code>): <code>int</code>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayiterator.uksort.php
 		 * @see uksort()
 		 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 		 */
-		public function uksort(callable $callback): bool {}
+		public function uksort(callable $callback): true {}
 
 		/**
 		 * Unserialize
@@ -4430,7 +4567,7 @@ namespace {
 		 * <p>Constructs a new <code>RecursiveCachingIterator</code>, which consists of a passed in <code>iterator</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \Iterator $iterator <p>The iterator being used.</p>
 		 * @param int $flags <p>The flags. Use <b><code>CALL_TOSTRING</code></b> to call <b>RecursiveCachingIterator::__toString()</b> for every element (the default), and/or <b><code>CATCH_GET_CHILD</code></b> to catch exceptions when trying to get children.</p>
-		 * @return self <p>The <code>RecursiveCachingIterator</code>.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/recursivecachingiterator.construct.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
@@ -4491,13 +4628,13 @@ namespace {
 		public function getFlags(): int {}
 
 		/**
-		 * Returns the inner iterator
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the iterator sent to the constructor.</p>
-		 * @return Iterator <p>Returns an object implementing the Iterator interface.</p>
-		 * @link https://php.net/manual/en/cachingiterator.getinneriterator.php
-		 * @since PHP 5, PHP 7, PHP 8
+		 * Get the inner iterator
+		 * <p>Get the inner iterator.</p>
+		 * @return ?Iterator <p>The inner iterator as passed to <code>IteratorIterator::__construct()</code>, or <b><code>null</code></b> when there is no inner iterator.</p>
+		 * @link https://php.net/manual/en/iteratoriterator.getinneriterator.php
+		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getInnerIterator(): \Iterator {}
+		public function getInnerIterator(): ?\Iterator {}
 
 		/**
 		 * Check whether the current element of the inner iterator has children
@@ -4616,7 +4753,7 @@ namespace {
 		 * <p>Creates a filtered iterator from a <code>RecursiveIterator</code> using the <code>callback</code> to determine which items are accepted or rejected.</p>
 		 * @param \RecursiveIterator $iterator <p>The recursive iterator to be filtered.</p>
 		 * @param callable $callback <p>The callback, which should return <b><code>true</code></b> to accept the current item or <b><code>false</code></b> otherwise. See Examples.</p> <p>May be any valid <code>callable</code> value.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/recursivecallbackfilteriterator.construct.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 		 */
@@ -4652,12 +4789,12 @@ namespace {
 
 		/**
 		 * Get the inner iterator
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Get the inner iterator.</p>
-		 * @return Iterator <p>The inner iterator.</p>
-		 * @link https://php.net/manual/en/filteriterator.getinneriterator.php
+		 * <p>Get the inner iterator.</p>
+		 * @return ?Iterator <p>The inner iterator as passed to <code>IteratorIterator::__construct()</code>, or <b><code>null</code></b> when there is no inner iterator.</p>
+		 * @link https://php.net/manual/en/iteratoriterator.getinneriterator.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getInnerIterator(): \Iterator {}
+		public function getInnerIterator(): ?\Iterator {}
 
 		/**
 		 * Check whether the inner iterator's current element has children
@@ -4720,7 +4857,7 @@ namespace {
 		 * <p>Constructs a <b>RecursiveDirectoryIterator()</b> for the provided <code>directory</code>.</p>
 		 * @param string $directory <p>The path of the directory to be iterated over.</p>
 		 * @param int $flags <p>Flags may be provided which will affect the behavior of some methods. A list of the flags can found under FilesystemIterator predefined constants. They can also be set later with <code>FilesystemIterator::setFlags()</code>.</p>
-		 * @return self <p>Returns the newly created <code>RecursiveDirectoryIterator</code>.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/recursivedirectoryiterator.construct.php
 		 * @since PHP 5 >= 5.1.2, PHP 7, PHP 8
 		 */
@@ -5131,7 +5268,7 @@ namespace {
 		 * Create a RecursiveFilterIterator from a RecursiveIterator
 		 * <p>Create a <code>RecursiveFilterIterator</code> from a <code>RecursiveIterator</code>.</p>
 		 * @param \RecursiveIterator $iterator <p>The <code>RecursiveIterator</code> to be filtered.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/recursivefilteriterator.construct.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
@@ -5167,12 +5304,12 @@ namespace {
 
 		/**
 		 * Get the inner iterator
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Get the inner iterator.</p>
-		 * @return Iterator <p>The inner iterator.</p>
-		 * @link https://php.net/manual/en/filteriterator.getinneriterator.php
+		 * <p>Get the inner iterator.</p>
+		 * @return ?Iterator <p>The inner iterator as passed to <code>IteratorIterator::__construct()</code>, or <b><code>null</code></b> when there is no inner iterator.</p>
+		 * @link https://php.net/manual/en/iteratoriterator.getinneriterator.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getInnerIterator(): \Iterator {}
+		public function getInnerIterator(): ?\Iterator {}
 
 		/**
 		 * Check whether the inner iterator's current element has children
@@ -5307,25 +5444,25 @@ namespace {
 		 * @var int
 		 * @link https://php.net/manual/en/class.recursiveiteratoriterator.php
 		 */
-		const LEAVES_ONLY = 0;
+		public const LEAVES_ONLY = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.recursiveiteratoriterator.php
 		 */
-		const SELF_FIRST = 1;
+		public const SELF_FIRST = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.recursiveiteratoriterator.php
 		 */
-		const CHILD_FIRST = 2;
+		public const CHILD_FIRST = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.recursiveiteratoriterator.php
 		 */
-		const CATCH_GET_CHILD = 16;
+		public const CATCH_GET_CHILD = 16;
 
 		/**
 		 * Construct a RecursiveIteratorIterator
@@ -5333,7 +5470,7 @@ namespace {
 		 * @param \Traversable $iterator <p>The iterator being constructed from. Either a <code>RecursiveIterator</code> or <code>IteratorAggregate</code>.</p>
 		 * @param int $mode <p>Optional mode. Possible values are</p><ul> <li> <b><code>RecursiveIteratorIterator::LEAVES_ONLY</code></b> - The default. Lists only leaves in iteration. </li> <li> <b><code>RecursiveIteratorIterator::SELF_FIRST</code></b> - Lists leaves and parents in iteration with parents coming first. </li> <li> <b><code>RecursiveIteratorIterator::CHILD_FIRST</code></b> - Lists leaves and parents in iteration with leaves coming first. </li> </ul>
 		 * @param int $flags <p>Optional flag. Possible values are <b><code>RecursiveIteratorIterator::CATCH_GET_CHILD</code></b> which will then ignore exceptions thrown in calls to <b>RecursiveIteratorIterator::getChildren()</b>.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/recursiveiteratoriterator.construct.php
 		 * @since PHP 5 >= 5.1.3, PHP 7, PHP 8
 		 */
@@ -5563,12 +5700,12 @@ namespace {
 
 		/**
 		 * Get the inner iterator
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Get the inner iterator.</p>
-		 * @return Iterator <p>The inner iterator.</p>
-		 * @link https://php.net/manual/en/filteriterator.getinneriterator.php
+		 * <p>Get the inner iterator.</p>
+		 * @return ?Iterator <p>The inner iterator as passed to <code>IteratorIterator::__construct()</code>, or <b><code>null</code></b> when there is no inner iterator.</p>
+		 * @link https://php.net/manual/en/iteratoriterator.getinneriterator.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getInnerIterator(): \Iterator {}
+		public function getInnerIterator(): ?\Iterator {}
 
 		/**
 		 * Returns operation mode
@@ -5688,49 +5825,49 @@ namespace {
 		 * @var int
 		 * @link https://php.net/manual/en/class.recursivetreeiterator.php
 		 */
-		const BYPASS_CURRENT = 4;
+		public const BYPASS_CURRENT = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.recursivetreeiterator.php
 		 */
-		const BYPASS_KEY = 8;
+		public const BYPASS_KEY = 8;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.recursivetreeiterator.php
 		 */
-		const PREFIX_LEFT = 0;
+		public const PREFIX_LEFT = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.recursivetreeiterator.php
 		 */
-		const PREFIX_MID_HAS_NEXT = 1;
+		public const PREFIX_MID_HAS_NEXT = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.recursivetreeiterator.php
 		 */
-		const PREFIX_MID_LAST = 2;
+		public const PREFIX_MID_LAST = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.recursivetreeiterator.php
 		 */
-		const PREFIX_END_HAS_NEXT = 3;
+		public const PREFIX_END_HAS_NEXT = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.recursivetreeiterator.php
 		 */
-		const PREFIX_END_LAST = 4;
+		public const PREFIX_END_LAST = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.recursivetreeiterator.php
 		 */
-		const PREFIX_RIGHT = 5;
+		public const PREFIX_RIGHT = 5;
 
 		/**
 		 * Construct a RecursiveTreeIterator
@@ -5739,7 +5876,7 @@ namespace {
 		 * @param int $flags <p>Flags may be provided which will affect the behavior of some methods. A list of the flags can found under RecursiveTreeIterator predefined constants.</p>
 		 * @param int $cachingIteratorFlags
 		 * @param int $mode <p>Flags to affect the behavior of the <code>RecursiveIteratorIterator</code> used internally.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/recursivetreeiterator.construct.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -5957,40 +6094,46 @@ namespace {
 	class RegexIterator extends \FilterIterator {
 
 		/**
+		 * @var int <p>Special flag: Match the entry key instead of the entry value.</p>
+		 * @link https://php.net/manual/en/class.regexiterator.php
+		 */
+		public const USE_KEY = 1;
+
+		/**
+		 * @var int <p>Inverts the return value of <code>RegexIterator::accept()</code>.</p>
+		 * @link https://php.net/manual/en/class.regexiterator.php
+		 */
+		public const INVERT_MATCH = 2;
+
+		/**
 		 * @var int <p>Only execute match (filter) for the current entry (see <code>preg_match()</code>).</p>
 		 * @link https://php.net/manual/en/class.regexiterator.php
 		 */
-		const MATCH = 0;
+		public const MATCH = 0;
 
 		/**
 		 * @var int <p>Return the first match for the current entry (see <code>preg_match()</code>).</p>
 		 * @link https://php.net/manual/en/class.regexiterator.php
 		 */
-		const GET_MATCH = 1;
+		public const GET_MATCH = 1;
 
 		/**
 		 * @var int <p>Return all matches for the current entry (see <code>preg_match_all()</code>).</p>
 		 * @link https://php.net/manual/en/class.regexiterator.php
 		 */
-		const ALL_MATCHES = 2;
+		public const ALL_MATCHES = 2;
 
 		/**
 		 * @var int <p>Returns the split values for the current entry (see <code>preg_split()</code>).</p>
 		 * @link https://php.net/manual/en/class.regexiterator.php
 		 */
-		const SPLIT = 3;
+		public const SPLIT = 3;
 
 		/**
 		 * @var int <p>Replace the current entry (see <code>preg_replace()</code>; Not fully implemented yet)</p>
 		 * @link https://php.net/manual/en/class.regexiterator.php
 		 */
-		const REPLACE = 4;
-
-		/**
-		 * @var int <p>Special flag: Match the entry key instead of the entry value.</p>
-		 * @link https://php.net/manual/en/class.regexiterator.php
-		 */
-		const USE_KEY = 1;
+		public const REPLACE = 4;
 
 		/**
 		 * @var ?string
@@ -6043,12 +6186,12 @@ namespace {
 
 		/**
 		 * Get the inner iterator
-		 * <p>This function is currently not documented; only its argument list is available.</p><p>Get the inner iterator.</p>
-		 * @return Iterator <p>The inner iterator.</p>
-		 * @link https://php.net/manual/en/filteriterator.getinneriterator.php
+		 * <p>Get the inner iterator.</p>
+		 * @return ?Iterator <p>The inner iterator as passed to <code>IteratorIterator::__construct()</code>, or <b><code>null</code></b> when there is no inner iterator.</p>
+		 * @link https://php.net/manual/en/iteratoriterator.getinneriterator.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getInnerIterator(): \Iterator {}
+		public function getInnerIterator(): ?\Iterator {}
 
 		/**
 		 * Returns operation mode
@@ -6206,6 +6349,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -6352,25 +6507,25 @@ namespace {
 		 * @var int <p>The list will be iterated in a last in, first out order, like a stack.</p>
 		 * @link https://php.net/manual/en/class.spldoublylinkedlist.php
 		 */
-		const IT_MODE_LIFO = 2;
+		public const IT_MODE_LIFO = 2;
 
 		/**
 		 * @var int <p>The list will be iterated in a first in, first out order, like a queue.</p>
 		 * @link https://php.net/manual/en/class.spldoublylinkedlist.php
 		 */
-		const IT_MODE_FIFO = 0;
+		public const IT_MODE_FIFO = 0;
 
 		/**
 		 * @var int <p>Iteration will remove the iterated elements.</p>
 		 * @link https://php.net/manual/en/class.spldoublylinkedlist.php
 		 */
-		const IT_MODE_DELETE = 1;
+		public const IT_MODE_DELETE = 1;
 
 		/**
 		 * @var int <p>Iteration will not remove the iterated elements.</p>
 		 * @link https://php.net/manual/en/class.spldoublylinkedlist.php
 		 */
-		const IT_MODE_KEEP = 0;
+		public const IT_MODE_KEEP = 0;
 
 		/**
 		 * Add/insert a new value at the specified index
@@ -6528,7 +6683,7 @@ namespace {
 
 		/**
 		 * Sets the mode of iteration
-		 * @param int $mode <p>There are two orthogonal sets of modes that can be set:</p> <ul> <li> The direction of the iteration (either one or the other): <ul> <li><b><code>SplDoublyLinkedList::IT_MODE_LIFO</code></b> (Stack style)</li> <li><b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b> (Queue style)</li> </ul> </li> <li> The behavior of the iterator (either one or the other): <ul> <li><b><code>SplDoublyLinkedList::IT_MODE_DELETE</code></b> (Elements are deleted by the iterator)</li> <li><b><code>SplDoublyLinkedList::IT_MODE_KEEP</code></b> (Elements are traversed by the iterator)</li> </ul> </li> </ul> <p>The default mode is: <b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b> | <b><code>SplDoublyLinkedList::IT_MODE_KEEP</code></b></p>
+		 * @param int $mode <p>There are two orthogonal sets of modes that can be set:</p> <ul> <li> The direction of the iteration (either one or the other): <ul> <li><b><code>SplDoublyLinkedList::IT_MODE_LIFO</code></b> (Stack style)</li> <li><b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b> (Queue style)</li> </ul> </li> <li> The behavior of the iterator (either one or the other): <ul> <li><b><code>SplDoublyLinkedList::IT_MODE_DELETE</code></b> (Elements are deleted by the iterator)</li> <li><b><code>SplDoublyLinkedList::IT_MODE_KEEP</code></b> (Elements are traversed by the iterator)</li> </ul> </li> </ul> <p>The default mode is: <b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b> | <b><code>SplDoublyLinkedList::IT_MODE_KEEP</code></b></p> <p><b>Warning</b></p> <p>The direction of iteration can not be changed for <code>SplStack</code> and <code>SplQueue</code> classes, it is always <b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b>. Trying to modify it will result in a <code>RuntimeException</code> being thrown.</p>
 		 * @return int <p>Returns the different modes and flags that affect the iteration.</p>
 		 * @link https://php.net/manual/en/spldoublylinkedlist.setiteratormode.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -6879,25 +7034,25 @@ namespace {
 		 * @var int <p>Drop newlines at the end of a line.</p>
 		 * @link https://php.net/manual/en/class.splfileobject.php
 		 */
-		const DROP_NEW_LINE = 1;
+		public const DROP_NEW_LINE = 1;
 
 		/**
 		 * @var int <p>Read on rewind/next.</p>
 		 * @link https://php.net/manual/en/class.splfileobject.php
 		 */
-		const READ_AHEAD = 2;
+		public const READ_AHEAD = 2;
 
 		/**
 		 * @var int <p>Skips empty lines in the file. This requires the <b><code>READ_AHEAD</code></b> flag be enabled, to work as expected.</p>
 		 * @link https://php.net/manual/en/class.splfileobject.php
 		 */
-		const SKIP_EMPTY = 4;
+		public const SKIP_EMPTY = 4;
 
 		/**
 		 * @var int <p>Read lines as CSV rows.</p>
 		 * @link https://php.net/manual/en/class.splfileobject.php
 		 */
-		const READ_CSV = 8;
+		public const READ_CSV = 8;
 
 		/**
 		 * Construct a new file object
@@ -6906,7 +7061,7 @@ namespace {
 		 * @param string $mode <p>The mode in which to open the file. See <code>fopen()</code> for a list of allowed modes.</p>
 		 * @param bool $useIncludePath <p>Whether to search in the include_path for <code>filename</code>.</p>
 		 * @param ?resource $context <p>A valid context resource created with <code>stream_context_create()</code>.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/splfileobject.construct.php
 		 * @see fopen()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
@@ -6974,7 +7129,7 @@ namespace {
 		/**
 		 * Gets line from file
 		 * <p>Gets a line from the file.</p>
-		 * @return string <p>Returns a string containing the next line from the file, or <b><code>false</code></b> on error.</p>
+		 * @return string <p>Returns a string containing the next line from the file.</p>
 		 * @link https://php.net/manual/en/splfileobject.fgets.php
 		 * @see fgets()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
@@ -7042,8 +7197,8 @@ namespace {
 
 		/**
 		 * Parses input from file according to a format
-		 * <p>Reads a line from the file and interprets it according to the specified <code>format</code>, which is described in the documentation for <code>sprintf()</code>.</p><p>Any whitespace in the <code>format</code> string matches any whitespace in the line from the file. This means that even a tab <code>\t</code> in the format string can match a single space character in the input stream.</p>
-		 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code>, <code>G</code>, <code>h</code> and <code>H</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware).    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>int</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>float</code>  <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>, <code>g</code>, <code>G</code>, <code>h</code>, <code>H</code>
+		 * <p>Reads a line from the file and interprets it according to the specified <code>format</code>.</p><p>Any whitespace in the <code>format</code> string matches any whitespace in the line from the file. This means that even a tab (<code>\t</code>) in the format string can match a single space character in the input stream.</p>
+		 * @param string $format <p>The interpreted format for <code>string</code>, which is described in the documentation for <code>sprintf()</code> with following differences:</p><ul> <li> Function is not locale-aware. </li> <li> <code>F</code>, <code>g</code>, <code>G</code> and <code>b</code> are not supported. </li> <li> <code>D</code> stands for decimal number. </li> <li> <code>i</code> stands for integer with base detection. </li> <li> <code>n</code> stands for number of characters processed so far. </li> <li> <code>s</code> stops reading at any whitespace character. </li> <li> <code>&#42;</code> instead of <code>argnum$</code> suppresses the assignment of this conversion specification. </li> </ul>
 		 * @param mixed $vars <p>The optional assigned values.</p>
 		 * @return array|int|null <p>If only one parameter is passed to this method, the values parsed will be returned as an array. Otherwise, if optional parameters are passed, the function will return the number of assigned values. The optional parameters must be passed by reference.</p>
 		 * @link https://php.net/manual/en/splfileobject.fscanf.php
@@ -7140,11 +7295,11 @@ namespace {
 		/**
 		 * No purpose
 		 * <p>An <code>SplFileObject</code> does not have children so this method returns <b><code>null</code></b>.</p>
-		 * @return ?RecursiveIterator <p>Returns <b><code>null</code></b>.</p>
+		 * @return null <p>Returns <b><code>null</code></b>.</p>
 		 * @link https://php.net/manual/en/splfileobject.getchildren.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getChildren(): ?\RecursiveIterator {}
+		public function getChildren(): null {}
 
 		/**
 		 * Get the delimiter, enclosure and escape character for CSV
@@ -7319,7 +7474,7 @@ namespace {
 		/**
 		 * SplFileObject does not have children
 		 * <p>An <code>SplFileObject</code> does not have children so this method always return <b><code>false</code></b>.</p>
-		 * @return bool <p>Returns <b><code>false</code></b></p>
+		 * @return false <p>Returns <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/splfileobject.haschildren.php
 		 * @since PHP 5 >= 5.1.2, PHP 7, PHP 8
 		 */
@@ -7502,7 +7657,7 @@ namespace {
 		 * Constructs a new fixed array
 		 * <p>Initializes a fixed array with a number of <b><code>null</code></b> values equal to <code>size</code>.</p>
 		 * @param int $size <p>The size of the fixed array. This expects a number between <code>0</code> and <b><code>PHP_INT_MAX</code></b>.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/splfixedarray.construct.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -7658,15 +7813,6 @@ namespace {
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 	 */
 	abstract class SplHeap implements \Iterator, \Countable {
-
-		/**
-		 * Constructs a new empty heap
-		 * <p>This constructs a new empty heap.</p>
-		 * @return self <p>No value is returned.</p>
-		 * @link https://php.net/manual/en/splheap.construct.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
-		 */
-		public function __construct() {}
 
 		/**
 		 * Compare elements in order to place them correctly in the heap while sifting up
@@ -8177,7 +8323,7 @@ namespace {
 		 * Removes objects contained in another storage from the current storage
 		 * <p>Removes objects contained in another storage from the current storage.</p>
 		 * @param \SplObjectStorage $storage <p>The storage containing the elements to remove.</p>
-		 * @return int <p>Returns the number of removed objects.</p>
+		 * @return int <p>Returns the number of remaining objects.</p>
 		 * @link https://php.net/manual/en/splobjectstorage.removeall.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -8187,7 +8333,7 @@ namespace {
 		 * Removes all objects except for those contained in another storage from the current storage
 		 * <p>Removes all objects except for those contained in another storage from the current storage.</p>
 		 * @param \SplObjectStorage $storage <p>The storage containing the elements to retain in the current storage.</p>
-		 * @return int <p>Returns the number of removed objects.</p>
+		 * @return int <p>Returns the number of remaining objects.</p>
 		 * @link https://php.net/manual/en/splobjectstorage.removeallexcept.php
 		 * @since PHP 5 >= 5.3.6, PHP 7, PHP 8
 		 */
@@ -8268,13 +8414,22 @@ namespace {
 	class SplPriorityQueue implements \Iterator, \Countable {
 
 		/**
-		 * Constructs a new empty queue
-		 * <p>This constructs a new empty queue.</p>
-		 * @return self <p>No value is returned.</p>
-		 * @link https://php.net/manual/en/splpriorityqueue.construct.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @var int
+		 * @link https://php.net/manual/en/class.splpriorityqueue.php
 		 */
-		public function __construct() {}
+		public const EXTR_BOTH = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.splpriorityqueue.php
+		 */
+		public const EXTR_PRIORITY = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.splpriorityqueue.php
+		 */
+		public const EXTR_DATA = 1;
 
 		/**
 		 * Compare priorities in order to place elements correctly in the heap while sifting up
@@ -8411,20 +8566,11 @@ namespace {
 	}
 
 	/**
-	 * <p>The SplQueue class provides the main functionalities of a queue implemented using a doubly linked list.</p>
+	 * <p>The SplQueue class provides the main functionalities of a queue implemented using a doubly linked list by setting the iterator mode to <b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b>.</p>
 	 * @link https://php.net/manual/en/class.splqueue.php
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 	 */
 	class SplQueue extends \SplDoublyLinkedList {
-
-		/**
-		 * Constructs a new stack implemented using a doubly linked list
-		 * <p>This constructs a new empty stack.</p><p><b>Note</b>:</p><p>This method automatically sets the iterator mode to SplDoublyLinkedList::IT_MODE_LIFO.</p>
-		 * @return self <p>No value is returned.</p>
-		 * @link https://php.net/manual/en/splstack.construct.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
-		 */
-		public function __construct() {}
 
 		/**
 		 * Add/insert a new value at the specified index
@@ -8601,12 +8747,12 @@ namespace {
 
 		/**
 		 * Sets the mode of iteration
-		 * @param int $mode <p>There is only one iteration parameter you can modify.</p> <ul> <li> The behavior of the iterator (either one or the other): <ul> <li><b><code>SplDoublyLinkedList::IT_MODE_DELETE</code></b> (Elements are deleted by the iterator)</li> <li><b><code>SplDoublyLinkedList::IT_MODE_KEEP</code></b> (Elements are traversed by the iterator)</li> </ul> </li> </ul> <p>The default mode is: <b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b> | <b><code>SplDoublyLinkedList::IT_MODE_KEEP</code></b></p> <p><b>Warning</b></p> <p>The direction of iteration can not be changed for SplQueues, it is always <b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b>.</p>
-		 * @return void <p>No value is returned.</p>
-		 * @link https://php.net/manual/en/splqueue.setiteratormode.php
+		 * @param int $mode <p>There are two orthogonal sets of modes that can be set:</p> <ul> <li> The direction of the iteration (either one or the other): <ul> <li><b><code>SplDoublyLinkedList::IT_MODE_LIFO</code></b> (Stack style)</li> <li><b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b> (Queue style)</li> </ul> </li> <li> The behavior of the iterator (either one or the other): <ul> <li><b><code>SplDoublyLinkedList::IT_MODE_DELETE</code></b> (Elements are deleted by the iterator)</li> <li><b><code>SplDoublyLinkedList::IT_MODE_KEEP</code></b> (Elements are traversed by the iterator)</li> </ul> </li> </ul> <p>The default mode is: <b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b> | <b><code>SplDoublyLinkedList::IT_MODE_KEEP</code></b></p> <p><b>Warning</b></p> <p>The direction of iteration can not be changed for <code>SplStack</code> and <code>SplQueue</code> classes, it is always <b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b>. Trying to modify it will result in a <code>RuntimeException</code> being thrown.</p>
+		 * @return int <p>Returns the different modes and flags that affect the iteration.</p>
+		 * @link https://php.net/manual/en/spldoublylinkedlist.setiteratormode.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		public function setIteratorMode(int $mode): void {}
+		public function setIteratorMode(int $mode): int {}
 
 		/**
 		 * Shifts a node from the beginning of the doubly linked list
@@ -8655,20 +8801,11 @@ namespace {
 	}
 
 	/**
-	 * <p>The SplStack class provides the main functionalities of a stack implemented using a doubly linked list.</p>
+	 * <p>The SplStack class provides the main functionalities of a stack implemented using a doubly linked list by setting the iterator mode to <b><code>SplDoublyLinkedList::IT_MODE_LIFO</code></b>.</p>
 	 * @link https://php.net/manual/en/class.splstack.php
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 	 */
 	class SplStack extends \SplDoublyLinkedList {
-
-		/**
-		 * Constructs a new stack implemented using a doubly linked list
-		 * <p>This constructs a new empty stack.</p><p><b>Note</b>:</p><p>This method automatically sets the iterator mode to SplDoublyLinkedList::IT_MODE_LIFO.</p>
-		 * @return self <p>No value is returned.</p>
-		 * @link https://php.net/manual/en/splstack.construct.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
-		 */
-		public function __construct() {}
 
 		/**
 		 * Add/insert a new value at the specified index
@@ -8826,12 +8963,12 @@ namespace {
 
 		/**
 		 * Sets the mode of iteration
-		 * @param int $mode <p>There is only one iteration parameter you can modify.</p> <ul> <li> The behavior of the iterator (either one or the other): <ul> <li>SplDoublyLinkedList::IT_MODE_DELETE (Elements are deleted by the iterator)</li> <li>SplDoublyLinkedList::IT_MODE_KEEP (Elements are traversed by the iterator)</li> </ul> </li> </ul> <p>The default mode is 0x2 : SplDoublyLinkedList::IT_MODE_LIFO | SplDoublyLinkedList::IT_MODE_KEEP</p> <p><b>Warning</b></p> <p>The direction of iteration can no longer be changed for SplStacks. Trying to do so will result in a <code>RuntimeException</code> being thrown.</p>
-		 * @return void <p>No value is returned.</p>
-		 * @link https://php.net/manual/en/splstack.setiteratormode.php
+		 * @param int $mode <p>There are two orthogonal sets of modes that can be set:</p> <ul> <li> The direction of the iteration (either one or the other): <ul> <li><b><code>SplDoublyLinkedList::IT_MODE_LIFO</code></b> (Stack style)</li> <li><b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b> (Queue style)</li> </ul> </li> <li> The behavior of the iterator (either one or the other): <ul> <li><b><code>SplDoublyLinkedList::IT_MODE_DELETE</code></b> (Elements are deleted by the iterator)</li> <li><b><code>SplDoublyLinkedList::IT_MODE_KEEP</code></b> (Elements are traversed by the iterator)</li> </ul> </li> </ul> <p>The default mode is: <b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b> | <b><code>SplDoublyLinkedList::IT_MODE_KEEP</code></b></p> <p><b>Warning</b></p> <p>The direction of iteration can not be changed for <code>SplStack</code> and <code>SplQueue</code> classes, it is always <b><code>SplDoublyLinkedList::IT_MODE_FIFO</code></b>. Trying to modify it will result in a <code>RuntimeException</code> being thrown.</p>
+		 * @return int <p>Returns the different modes and flags that affect the iteration.</p>
+		 * @link https://php.net/manual/en/spldoublylinkedlist.setiteratormode.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		public function setIteratorMode(int $mode): void {}
+		public function setIteratorMode(int $mode): int {}
 
 		/**
 		 * Shifts a node from the beginning of the doubly linked list
@@ -8927,7 +9064,7 @@ namespace {
 		 * Construct a new temporary file object
 		 * <p>Construct a new temporary file object.</p>
 		 * @param int $maxMemory <p>The maximum amount of memory (in bytes, default is 2 MB) for the temporary file to use. If the temporary file exceeds this size, it will be moved to a file in the system's temp directory.</p> <p>If <code>maxMemory</code> is negative, only memory will be used. If <code>maxMemory</code> is zero, no memory will be used.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/spltempfileobject.construct.php
 		 * @since PHP 5 >= 5.1.2, PHP 7, PHP 8
 		 */
@@ -8994,7 +9131,7 @@ namespace {
 		/**
 		 * Gets line from file
 		 * <p>Gets a line from the file.</p>
-		 * @return string <p>Returns a string containing the next line from the file, or <b><code>false</code></b> on error.</p>
+		 * @return string <p>Returns a string containing the next line from the file.</p>
 		 * @link https://php.net/manual/en/splfileobject.fgets.php
 		 * @see fgets()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
@@ -9062,8 +9199,8 @@ namespace {
 
 		/**
 		 * Parses input from file according to a format
-		 * <p>Reads a line from the file and interprets it according to the specified <code>format</code>, which is described in the documentation for <code>sprintf()</code>.</p><p>Any whitespace in the <code>format</code> string matches any whitespace in the line from the file. This means that even a tab <code>\t</code> in the format string can match a single space character in the input stream.</p>
-		 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code>, <code>G</code>, <code>h</code> and <code>H</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware).    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>int</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>float</code>  <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>, <code>g</code>, <code>G</code>, <code>h</code>, <code>H</code>
+		 * <p>Reads a line from the file and interprets it according to the specified <code>format</code>.</p><p>Any whitespace in the <code>format</code> string matches any whitespace in the line from the file. This means that even a tab (<code>\t</code>) in the format string can match a single space character in the input stream.</p>
+		 * @param string $format <p>The interpreted format for <code>string</code>, which is described in the documentation for <code>sprintf()</code> with following differences:</p><ul> <li> Function is not locale-aware. </li> <li> <code>F</code>, <code>g</code>, <code>G</code> and <code>b</code> are not supported. </li> <li> <code>D</code> stands for decimal number. </li> <li> <code>i</code> stands for integer with base detection. </li> <li> <code>n</code> stands for number of characters processed so far. </li> <li> <code>s</code> stops reading at any whitespace character. </li> <li> <code>&#42;</code> instead of <code>argnum$</code> suppresses the assignment of this conversion specification. </li> </ul>
 		 * @param mixed $vars <p>The optional assigned values.</p>
 		 * @return array|int|null <p>If only one parameter is passed to this method, the values parsed will be returned as an array. Otherwise, if optional parameters are passed, the function will return the number of assigned values. The optional parameters must be passed by reference.</p>
 		 * @link https://php.net/manual/en/splfileobject.fscanf.php
@@ -9160,11 +9297,11 @@ namespace {
 		/**
 		 * No purpose
 		 * <p>An <code>SplFileObject</code> does not have children so this method returns <b><code>null</code></b>.</p>
-		 * @return ?RecursiveIterator <p>Returns <b><code>null</code></b>.</p>
+		 * @return null <p>Returns <b><code>null</code></b>.</p>
 		 * @link https://php.net/manual/en/splfileobject.getchildren.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */
-		public function getChildren(): ?\RecursiveIterator {}
+		public function getChildren(): null {}
 
 		/**
 		 * Get the delimiter, enclosure and escape character for CSV
@@ -9339,7 +9476,7 @@ namespace {
 		/**
 		 * SplFileObject does not have children
 		 * <p>An <code>SplFileObject</code> does not have children so this method always return <b><code>false</code></b>.</p>
-		 * @return bool <p>Returns <b><code>false</code></b></p>
+		 * @return false <p>Returns <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/splfileobject.haschildren.php
 		 * @since PHP 5 >= 5.1.2, PHP 7, PHP 8
 		 */
@@ -9570,6 +9707,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -9701,6 +9850,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -9825,23 +9986,23 @@ namespace {
 	/**
 	 * Count the elements in an iterator
 	 * <p>Count the elements in an iterator. <b>iterator_count()</b> is not guaranteed to retain the current position of the <code>iterator</code>.</p>
-	 * @param \Traversable $iterator <p>The iterator being counted.</p>
+	 * @param \Traversable|array $iterator <p>The iterator being counted.</p>
 	 * @return int <p>The number of elements in <code>iterator</code>.</p>
 	 * @link https://php.net/manual/en/function.iterator-count.php
 	 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 	 */
-	function iterator_count(\Traversable $iterator): int {}
+	function iterator_count(\Traversable|array $iterator): int {}
 
 	/**
 	 * Copy the iterator into an array
 	 * <p>Copy the elements of an iterator into an array.</p>
-	 * @param \Traversable $iterator <p>The iterator being copied.</p>
+	 * @param \Traversable|array $iterator <p>The iterator being copied.</p>
 	 * @param bool $preserve_keys <p>Whether to use the iterator element keys as index.</p> <p>If a key is an <code>array</code> or <code>object</code>, a warning will be generated. <b><code>null</code></b> keys will be converted to an empty string, <code>float</code> keys will be truncated to their <code>int</code> counterpart, <code>resource</code> keys will generate a warning and be converted to their resource ID, and <code>bool</code> keys will be converted to integers.</p> <p><b>Note</b>:</p><p>If this parameter is not set or set to <b><code>true</code></b>, duplicate keys will be overwritten. The last value with a given key will be in the returned <code>array</code>. Set this parameter to <b><code>false</code></b> to get all the values in any case.</p>
 	 * @return array <p>An <code>array</code> containing the elements of the <code>iterator</code>.</p>
 	 * @link https://php.net/manual/en/function.iterator-to-array.php
 	 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 	 */
-	function iterator_to_array(\Traversable $iterator, bool $preserve_keys = true): array {}
+	function iterator_to_array(\Traversable|array $iterator, bool $preserve_keys = true): array {}
 
 	/**
 	 * Default implementation for __autoload()
@@ -9877,7 +10038,7 @@ namespace {
 	/**
 	 * Return all registered __autoload() functions
 	 * <p>Get all registered __autoload() functions.</p>
-	 * @return array <p>An <code>array</code> of all registered __autoload functions. If the autoload queue is not activated then the return value is <b><code>false</code></b>. If no function is registered the return value will be an empty array.</p>
+	 * @return array <p>An <code>array</code> of all registered __autoload functions. If no function is registered, or the autoload queue is not activated, then the return value will be an empty array.</p>
 	 * @link https://php.net/manual/en/function.spl-autoload-functions.php
 	 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 	 */

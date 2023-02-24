@@ -197,7 +197,7 @@ namespace {
 	 * Fetch a result row as an object
 	 * <p>Returns an object with properties that correspond to the fetched row and moves the internal data pointer ahead.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
-	 * @param string $class_name <p>The name of the class to instantiate, set the properties of and return. If not specified, a <b>stdClass</b> object is returned.</p>
+	 * @param string $class_name <p>The name of the class to instantiate, set the properties of and return. If not specified, a <code>stdClass</code> object is returned.</p>
 	 * @param array $params <p>An optional <code>array</code> of parameters to pass to the constructor for <code>class_name</code> objects.</p>
 	 * @return object <p>Returns an <code>object</code> with string properties that correspond to the fetched row, or <b><code>false</code></b> if there are no more rows.</p>
 	 * @link https://php.net/manual/en/function.mysql-fetch-object.php
@@ -282,7 +282,7 @@ namespace {
 	 * <p><b>mysql_field_type()</b> is similar to the <code>mysql_field_name()</code> function. The arguments are identical, but the field type is returned instead.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
 	 * @param int $field_offset <p>The numerical field offset. The <code>field_offset</code> starts at <code>0</code>. If <code>field_offset</code> does not exist, an error of level <b><code>E_WARNING</code></b> is also issued.</p>
-	 * @return string <p>The returned field type will be one of <code>"int"</code>, <code>"real"</code>, <code>"string"</code>, <code>"blob"</code>, and others as detailed in the MySQL documentation.</p>
+	 * @return string <p>The returned field type will be one of <code>"int"</code>, <code>"real"</code>, <code>"string"</code>, <code>"blob"</code>, and others as detailed in the &#xBB;&#xA0;MySQL documentation.</p>
 	 * @link https://php.net/manual/en/function.mysql-field-type.php
 	 * @see mysql_field_name(), mysql_field_len()
 	 * @since PHP 4, PHP 5

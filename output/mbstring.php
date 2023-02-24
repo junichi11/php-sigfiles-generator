@@ -7,7 +7,7 @@ namespace {
 	/**
 	 * Check if strings are valid for the specified encoding
 	 * <p>Checks if the specified byte stream is valid for the specified encoding. If <code>value</code> is of type <code>array</code>, all keys and values are validated recursively. It is useful to prevent so-called "Invalid Encoding Attack".</p><p></p>
-	 * @param array|string|null $value <p>The byte stream or <code>array</code> to check. If it is omitted, this function checks all the input from the beginning of the request.</p>
+	 * @param array|string|null $value <p>The byte stream or <code>array</code> to check. If it is omitted, this function checks all the input from the beginning of the request.</p> <p><b>Warning</b></p> <p>As of PHP 8.1.0, omitting this parameter or passing <b><code>null</code></b> is deprecated.</p>
 	 * @param ?string $encoding <p>The expected encoding.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.mb-check-encoding.php
@@ -41,14 +41,14 @@ namespace {
 	function mb_convert_case(string $string, int $mode, ?string $encoding = null): string {}
 
 	/**
-	 * Convert character encoding
-	 * <p>Converts the character encoding of <code>string</code> to <code>to_encoding</code> from optionally <code>from_encoding</code>. If <code>string</code> is an <code>array</code>, all its <code>string</code> values will be converted recursively.</p>
-	 * @param array|string $string <p>The <code>string</code> or <code>array</code> being encoded.</p>
-	 * @param string $to_encoding <p>The type of encoding that <code>string</code> is being converted to.</p>
-	 * @param array|string|null $from_encoding <p>Is specified by character code names before conversion. It is either an <code>array</code>, or a comma separated enumerated list. If <code>from_encoding</code> is not specified, the internal encoding will be used.</p> <p>See supported encodings.</p>
+	 * Convert a string from one character encoding to another
+	 * <p>Converts <code>string</code> from <code>from_encoding</code>, or the current internal encoding, to <code>to_encoding</code>. If <code>string</code> is an <code>array</code>, all its <code>string</code> values will be converted recursively.</p>
+	 * @param array|string $string <p>The <code>string</code> or <code>array</code> to be converted.</p>
+	 * @param string $to_encoding <p>The desired encoding of the result.</p>
+	 * @param array|string|null $from_encoding <p>The current encoding used to interpret <code>string</code>. Multiple encodings may be specified as an <code>array</code> or comma separated list, in which case the correct encoding will be guessed using the same algorithm as <code>mb_detect_encoding()</code>.</p> <p>If <code>from_encoding</code> is <b><code>null</code></b> or not specified, the mbstring.internal_encoding setting will be used if set, otherwise the default_charset setting.</p> <p>See supported encodings for valid values of <code>to_encoding</code> and <code>from_encoding</code>.</p>
 	 * @return array|string|false <p>The encoded <code>string</code> or <code>array</code> on success, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.mb-convert-encoding.php
-	 * @see mb_detect_order()
+	 * @see mb_detect_order(), iconv()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7, PHP 8
 	 */
 	function mb_convert_encoding(array|string $string, string $to_encoding, array|string|null $from_encoding = null): array|string|false {}
@@ -132,7 +132,7 @@ namespace {
 	 * @param string $string <p>The <code>string</code> being encoded. Its encoding should be same as <code>mb_internal_encoding()</code>.</p>
 	 * @param ?string $charset <p><code>charset</code> specifies the name of the character set in which <code>string</code> is represented in. The default value is determined by the current NLS setting (<code>mbstring.language</code>).</p>
 	 * @param ?string $transfer_encoding <p><code>transfer_encoding</code> specifies the scheme of MIME encoding. It should be either <code>"B"</code> (Base64) or <code>"Q"</code> (Quoted-Printable). Falls back to <code>"B"</code> if not given.</p>
-	 * @param string $newline <p><code>newline</code> specifies the EOL (end-of-line) marker with which <b>mb_encode_mimeheader()</b> performs line-folding (a RFC term, the act of breaking a line longer than a certain length into multiple lines. The length is currently hard-coded to 74 characters). Falls back to <code>"\r\n"</code> (CRLF) if not given.</p>
+	 * @param string $newline <p><code>newline</code> specifies the EOL (end-of-line) marker with which <b>mb_encode_mimeheader()</b> performs line-folding (a &#xBB;&#xA0;RFC term, the act of breaking a line longer than a certain length into multiple lines. The length is currently hard-coded to 74 characters). Falls back to <code>"\r\n"</code> (CRLF) if not given.</p>
 	 * @param int $indent <p>Indentation of the first line (number of characters in the header before <code>string</code>).</p>
 	 * @return string <p>A converted version of the <code>string</code> represented in ASCII.</p>
 	 * @link https://php.net/manual/en/function.mb-encode-mimeheader.php
@@ -159,7 +159,7 @@ namespace {
 	 * Get aliases of a known encoding type
 	 * <p>Returns an array of aliases for a known <code>encoding</code> type.</p>
 	 * @param string $encoding <p>The encoding type being checked, for aliases.</p>
-	 * @return array <p>Returns a numerically indexed array of encoding aliases on success, or <b><code>false</code></b> on failure</p>
+	 * @return array <p>Returns a numerically indexed array of encoding aliases.</p>
 	 * @link https://php.net/manual/en/function.mb-encoding-aliases.php
 	 * @see mb_list_encodings()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
@@ -374,7 +374,7 @@ namespace {
 	/**
 	 * Set/Get current language
 	 * <p>Set/Get the current language.</p>
-	 * @param ?string $language <p>Used for encoding e-mail messages. The valid languages are listed in the following table. <code>mb_send_mail()</code> uses this setting to encode e-mail.</p>    Language Charset Encoding Alias     German/de ISO-8859-15 Quoted-Printable Deutsch   English/en ISO-8859-1 Quoted-Printable &nbsp;   Armenian/hy ArmSCII-8 Quoted-Printable &nbsp;   Japanese/ja ISO-2022-JP BASE64 &nbsp;   Korean/ko ISO-2022-KR BASE64 &nbsp;   neutral UTF-8 BASE64 &nbsp;   Russian/ru KOI8-R Quoted-Printable &nbsp;   Turkish/tr ISO-8859-9 Quoted-Printable &nbsp;   Ukrainian/ua KOI8-U Quoted-Printable &nbsp;   uni UTF-8 BASE64 universal   Simplified Chinese/zh-cn HZ BASE64 &nbsp;   Traditional Chinese/zh-tw BIG-5 BASE64 &nbsp;
+	 * @param ?string $language <p>Used for encoding e-mail messages. The valid languages are listed in the following table. <code>mb_send_mail()</code> uses this setting to encode e-mail.</p>    Language Charset Encoding Alias     German/de ISO-8859-15 Quoted-Printable Deutsch   English/en ISO-8859-1 Quoted-Printable &#xA0;   Armenian/hy ArmSCII-8 Quoted-Printable &#xA0;   Japanese/ja ISO-2022-JP BASE64 &#xA0;   Korean/ko ISO-2022-KR BASE64 &#xA0;   neutral UTF-8 BASE64 &#xA0;   Russian/ru KOI8-R Quoted-Printable &#xA0;   Turkish/tr ISO-8859-9 Quoted-Printable &#xA0;   Ukrainian/ua KOI8-U Quoted-Printable &#xA0;   uni UTF-8 BASE64 universal   Simplified Chinese/zh-cn HZ BASE64 &#xA0;   Traditional Chinese/zh-tw BIG-5 BASE64 &#xA0;
 	 * @return string|bool <p>If <code>language</code> is set and <code>language</code> is valid, it returns <b><code>true</code></b>. Otherwise, it returns <b><code>false</code></b>. When <code>language</code> is omitted or <b><code>null</code></b>, it returns the language name as a <code>string</code>.</p>
 	 * @link https://php.net/manual/en/function.mb-language.php
 	 * @see mb_send_mail()
@@ -387,6 +387,7 @@ namespace {
 	 * <p>Returns an array containing all supported encodings.</p>
 	 * @return array <p>Returns a numerically indexed array.</p>
 	 * @link https://php.net/manual/en/function.mb-list-encodings.php
+	 * @see mb_encoding_aliases()
 	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function mb_list_encodings(): array {}
@@ -476,7 +477,7 @@ namespace {
 	 * @param string $to <p>The mail addresses being sent to. Multiple recipients may be specified by putting a comma between each address in <code>to</code>. This parameter is not automatically encoded.</p>
 	 * @param string $subject <p>The subject of the mail.</p>
 	 * @param string $message <p>The message of the mail.</p>
-	 * @param array|string $additional_headers <p><code>String</code> or <code>array</code> to be inserted at the end of the email header.</p> <p>This is typically used to add extra headers (From, Cc, and Bcc). Multiple extra headers should be separated with a CRLF (\r\n). Validate parameter not to be injected unwanted headers by attackers.</p> <p>If an <code>array</code> is passed, its keys are the header names and its values are the respective header values.</p> <p><b>Note</b>:</p><p>When sending mail, the mail <i>must</i> contain a <code>From</code> header. This can be set with the <code>additional_headers</code> parameter, or a default can be set in php.ini.</p> <p>Failing to do this will result in an error message similar to <code>Warning: mail(): "sendmail_from" not set in php.ini or custom "From:" header missing</code>. The <code>From</code> header sets also <code>Return-Path</code> under Windows.</p>  <p><b>Note</b>:</p><p>If messages are not received, try using a LF (\n) only. Some Unix mail transfer agents (most notably qmail) replace LF by CRLF automatically (which leads to doubling CR if CRLF is used). This should be a last resort, as it does not comply with RFC 2822.</p>
+	 * @param array|string $additional_headers <p><code>String</code> or <code>array</code> to be inserted at the end of the email header.</p> <p>This is typically used to add extra headers (From, Cc, and Bcc). Multiple extra headers should be separated with a CRLF (\r\n). Validate parameter not to be injected unwanted headers by attackers.</p> <p>If an <code>array</code> is passed, its keys are the header names and its values are the respective header values.</p> <p><b>Note</b>:</p><p>When sending mail, the mail <i>must</i> contain a <code>From</code> header. This can be set with the <code>additional_headers</code> parameter, or a default can be set in php.ini.</p> <p>Failing to do this will result in an error message similar to <code>Warning: mail(): "sendmail_from" not set in php.ini or custom "From:" header missing</code>. The <code>From</code> header sets also <code>Return-Path</code> under Windows.</p>  <p><b>Note</b>:</p><p>If messages are not received, try using a LF (\n) only. Some Unix mail transfer agents (most notably &#xBB;&#xA0;qmail) replace LF by CRLF automatically (which leads to doubling CR if CRLF is used). This should be a last resort, as it does not comply with &#xBB;&#xA0;RFC 2822.</p>
 	 * @param ?string $additional_params <p><code>additional_params</code> is a MTA command line parameter. It is useful when setting the correct Return-Path header when using sendmail.</p> <p>This parameter is escaped by <code>escapeshellcmd()</code> internally to prevent command execution. <code>escapeshellcmd()</code> prevents command execution, but allows to add additional parameters. For security reason, this parameter should be validated.</p> <p>Since <code>escapeshellcmd()</code> is applied automatically, some characters that are allowed as email addresses by internet RFCs cannot be used. Programs that are required to use these characters <code>mail()</code> cannot be used.</p> <p>The user that the webserver runs as should be added as a trusted user to the sendmail configuration to prevent a 'X-Warning' header from being added to the message when the envelope sender (-f) is set using this method. For sendmail users, this file is /etc/mail/trusted-users.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.mb-send-mail.php
@@ -527,7 +528,7 @@ namespace {
 
 	/**
 	 * Get truncated string with specified width
-	 * <p>Truncates <code>string</code> <code>string</code> to specified <code>width</code>, where halfwidth characters count as <code>1</code>, and fullwidth characters count as <code>2</code>. See http://www.unicode.org/reports/tr11/ for details regarding East Asian character widths.</p>
+	 * <p>Truncates <code>string</code> <code>string</code> to specified <code>width</code>, where halfwidth characters count as <code>1</code>, and fullwidth characters count as <code>2</code>. See &#xBB;&#xA0;http://www.unicode.org/reports/tr11/ for details regarding East Asian character widths.</p>
 	 * @param string $string <p>The <code>string</code> being decoded.</p>
 	 * @param int $start <p>The start position offset. Number of characters from the beginning of string (first character is 0), or if start is negative, number of characters from the end of the string.</p>
 	 * @param int $width <p>The width of the desired trim. Negative widths count from the end of the string.</p>
@@ -690,7 +691,7 @@ namespace {
 
 	/**
 	 * Return width of string
-	 * <p>Returns the width of <code>string</code> <code>string</code>, where halfwidth characters count as <code>1</code>, and fullwidth characters count as <code>2</code>. See http://www.unicode.org/reports/tr11/ for details regarding East Asian character widths.</p><p>The fullwidth characters are: <code>U+1100</code>-<code>U+115F</code>, <code>U+11A3</code>-<code>U+11A7</code>, <code>U+11FA</code>-<code>U+11FF</code>, <code>U+2329</code>-<code>U+232A</code>, <code>U+2E80</code>-<code>U+2E99</code>, <code>U+2E9B</code>-<code>U+2EF3</code>, <code>U+2F00</code>-<code>U+2FD5</code>, <code>U+2FF0</code>-<code>U+2FFB</code>, <code>U+3000</code>-<code>U+303E</code>, <code>U+3041</code>-<code>U+3096</code>, <code>U+3099</code>-<code>U+30FF</code>, <code>U+3105</code>-<code>U+312D</code>, <code>U+3131</code>-<code>U+318E</code>, <code>U+3190</code>-<code>U+31BA</code>, <code>U+31C0</code>-<code>U+31E3</code>, <code>U+31F0</code>-<code>U+321E</code>, <code>U+3220</code>-<code>U+3247</code>, <code>U+3250</code>-<code>U+32FE</code>, <code>U+3300</code>-<code>U+4DBF</code>, <code>U+4E00</code>-<code>U+A48C</code>, <code>U+A490</code>-<code>U+A4C6</code>, <code>U+A960</code>-<code>U+A97C</code>, <code>U+AC00</code>-<code>U+D7A3</code>, <code>U+D7B0</code>-<code>U+D7C6</code>, <code>U+D7CB</code>-<code>U+D7FB</code>, <code>U+F900</code>-<code>U+FAFF</code>, <code>U+FE10</code>-<code>U+FE19</code>, <code>U+FE30</code>-<code>U+FE52</code>, <code>U+FE54</code>-<code>U+FE66</code>, <code>U+FE68</code>-<code>U+FE6B</code>, <code>U+FF01</code>-<code>U+FF60</code>, <code>U+FFE0</code>-<code>U+FFE6</code>, <code>U+1B000</code>-<code>U+1B001</code>, <code>U+1F200</code>-<code>U+1F202</code>, <code>U+1F210</code>-<code>U+1F23A</code>, <code>U+1F240</code>-<code>U+1F248</code>, <code>U+1F250</code>-<code>U+1F251</code>, <code>U+20000</code>-<code>U+2FFFD</code>, <code>U+30000</code>-<code>U+3FFFD</code>. All other characters are halfwidth characters.</p>
+	 * <p>Returns the width of <code>string</code> <code>string</code>, where halfwidth characters count as <code>1</code>, and fullwidth characters count as <code>2</code>. See &#xBB;&#xA0;http://www.unicode.org/reports/tr11/ for details regarding East Asian character widths.</p><p>The fullwidth characters are: <code>U+1100</code>-<code>U+115F</code>, <code>U+11A3</code>-<code>U+11A7</code>, <code>U+11FA</code>-<code>U+11FF</code>, <code>U+2329</code>-<code>U+232A</code>, <code>U+2E80</code>-<code>U+2E99</code>, <code>U+2E9B</code>-<code>U+2EF3</code>, <code>U+2F00</code>-<code>U+2FD5</code>, <code>U+2FF0</code>-<code>U+2FFB</code>, <code>U+3000</code>-<code>U+303E</code>, <code>U+3041</code>-<code>U+3096</code>, <code>U+3099</code>-<code>U+30FF</code>, <code>U+3105</code>-<code>U+312D</code>, <code>U+3131</code>-<code>U+318E</code>, <code>U+3190</code>-<code>U+31BA</code>, <code>U+31C0</code>-<code>U+31E3</code>, <code>U+31F0</code>-<code>U+321E</code>, <code>U+3220</code>-<code>U+3247</code>, <code>U+3250</code>-<code>U+32FE</code>, <code>U+3300</code>-<code>U+4DBF</code>, <code>U+4E00</code>-<code>U+A48C</code>, <code>U+A490</code>-<code>U+A4C6</code>, <code>U+A960</code>-<code>U+A97C</code>, <code>U+AC00</code>-<code>U+D7A3</code>, <code>U+D7B0</code>-<code>U+D7C6</code>, <code>U+D7CB</code>-<code>U+D7FB</code>, <code>U+F900</code>-<code>U+FAFF</code>, <code>U+FE10</code>-<code>U+FE19</code>, <code>U+FE30</code>-<code>U+FE52</code>, <code>U+FE54</code>-<code>U+FE66</code>, <code>U+FE68</code>-<code>U+FE6B</code>, <code>U+FF01</code>-<code>U+FF60</code>, <code>U+FFE0</code>-<code>U+FFE6</code>, <code>U+1B000</code>-<code>U+1B001</code>, <code>U+1F200</code>-<code>U+1F202</code>, <code>U+1F210</code>-<code>U+1F23A</code>, <code>U+1F240</code>-<code>U+1F248</code>, <code>U+1F250</code>-<code>U+1F251</code>, <code>U+20000</code>-<code>U+2FFFD</code>, <code>U+30000</code>-<code>U+3FFFD</code>. All other characters are halfwidth characters.</p>
 	 * @param string $string <p>The <code>string</code> being decoded.</p>
 	 * @param ?string $encoding <p>The <code>encoding</code> parameter is the character encoding. If it is omitted or <b><code>null</code></b>, the internal character encoding value will be used.</p>
 	 * @return int <p>The width of <code>string</code> <code>string</code>.</p>
@@ -780,21 +781,21 @@ namespace {
 	/**
 	 * The Oniguruma version, e.g. <code>6.9.4</code>. Available as of PHP 7.4.
 	 */
-	define('MB_ONIGURUMA_VERSION', '6.9.4');
+	define('MB_ONIGURUMA_VERSION', '6.9.7');
 
 	/**
 	 * Removed as of PHP 8.0.0.
 	 */
-	define('MB_OVERLOAD_MAIL', 1);
+	define('MB_OVERLOAD_MAIL', null);
 
 	/**
 	 * Removed as of PHP 8.0.0.
 	 */
-	define('MB_OVERLOAD_REGEX', 4);
+	define('MB_OVERLOAD_REGEX', null);
 
 	/**
 	 * Removed as of PHP 8.0.0.
 	 */
-	define('MB_OVERLOAD_STRING', 2);
+	define('MB_OVERLOAD_STRING', null);
 
 }

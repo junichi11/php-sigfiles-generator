@@ -408,12 +408,12 @@ namespace {
 	 * Returns the number of fields contained in a result set
 	 * <p>Returns the number of fields contained in a result set. This is most useful for handling the result sets returned by dynamically generated queries, or for result sets returned by stored procedures, where your application cannot otherwise know how to retrieve and use the results.</p>
 	 * @param resource $stmt <p>A valid statement resource containing a result set.</p>
-	 * @return int <p>Returns an integer value representing the number of fields in the result set associated with the specified statement resource. Returns <b><code>false</code></b> if the statement resource is not a valid input value.</p>
+	 * @return int|false <p>Returns an integer value representing the number of fields in the result set associated with the specified statement resource. Returns <b><code>false</code></b> if the statement resource is not a valid input value.</p>
 	 * @link https://php.net/manual/en/function.db2-num-fields.php
 	 * @see db2_execute(), db2_field_display_size(), db2_field_name(), db2_field_num(), db2_field_precision(), db2_field_scale(), db2_field_type(), db2_field_width()
 	 * @since PECL ibm_db2 >= 1.0.0
 	 */
-	function db2_num_fields($stmt): int {}
+	function db2_num_fields($stmt): int|false {}
 
 	/**
 	 * Returns the number of rows affected by an SQL statement

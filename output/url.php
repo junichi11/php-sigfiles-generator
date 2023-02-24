@@ -43,7 +43,7 @@ namespace {
 	/**
 	 * Extracts all meta tag content attributes from a file and returns an array
 	 * <p>Opens <code>filename</code> and parses it line by line for &lt;meta&gt; tags in the file. The parsing stops at <code>&lt;/head&gt;</code>.</p>
-	 * @param string $filename <p>The path to the HTML file, as a string. This can be a local file or an URL.</p> <p></p> <p><b>Example #1 What <b>get_meta_tags()</b> parses</b></p>  <pre>&lt;meta name="author" content="name"&gt; &lt;meta name="keywords" content="php documentation"&gt; &lt;meta name="DESCRIPTION" content="a php manual"&gt; &lt;meta name="geo.position" content="49.33;-86.59"&gt; &lt;/head&gt; &lt;!-- parsing stops here --&gt;</pre>    (pay attention to line endings - PHP uses a native function to parse the input, so a Mac file won't work on Unix).
+	 * @param string $filename <p>The path to the HTML file, as a string. This can be a local file or an URL.</p> <p></p> <p><b>Example #1 What <b>get_meta_tags()</b> parses</b></p>  <pre>&lt;meta name="author" content="name"&gt; &lt;meta name="keywords" content="php documentation"&gt; &lt;meta name="DESCRIPTION" content="a php manual"&gt; &lt;meta name="geo.position" content="49.33;-86.59"&gt; &lt;/head&gt; &lt;!-- parsing stops here --&gt;</pre>
 	 * @param bool $use_include_path <p>Setting <code>use_include_path</code> to <b><code>true</code></b> will result in PHP trying to open the file along the standard include path as per the include_path directive. This is used for local files, not URLs.</p>
 	 * @return array|false <p>Returns an array with all the parsed meta tags.</p><p>The value of the name property becomes the key, the value of the content property becomes the value of the returned array, so you can easily use standard array functions to traverse it or access single values. Special characters in the value of the name property are substituted with '_', the rest is converted to lower case. If two meta tags have the same name, only the last one is returned.</p><p>Returns <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.get-meta-tags.php
@@ -57,8 +57,8 @@ namespace {
 	 * <p>Generates a URL-encoded query string from the associative (or indexed) array provided.</p>
 	 * @param array|object $data <p>May be an array or object containing properties.</p> <p>If <code>data</code> is an array, it may be a simple one-dimensional structure, or an array of arrays (which in turn may contain other arrays).</p> <p>If <code>data</code> is an object, then only public properties will be incorporated into the result.</p>
 	 * @param string $numeric_prefix <p>If numeric indices are used in the base array and this parameter is provided, it will be prepended to the numeric index for elements in the base array only.</p> <p>This is meant to allow for legal variable names when the data is decoded by PHP or another CGI application later on.</p>
-	 * @param ?string $arg_separator <p>arg_separator.output is used to separate arguments but may be overridden by specifying this parameter.</p>
-	 * @param int $encoding_type <p>By default, <b><code>PHP_QUERY_RFC1738</code></b>.</p> <p>If <code>encoding_type</code> is <b><code>PHP_QUERY_RFC1738</code></b>, then encoding is performed per RFC 1738 and the <code>application/x-www-form-urlencoded</code> media type, which implies that spaces are encoded as plus (<code>+</code>) signs.</p> <p>If <code>encoding_type</code> is <b><code>PHP_QUERY_RFC3986</code></b>, then encoding is performed according to RFC 3986, and spaces will be percent encoded (<code>%20</code>).</p>
+	 * @param ?string $arg_separator <p>The argument separator. If not set or <b><code>null</code></b>, arg_separator.output is used to separate arguments.</p>
+	 * @param int $encoding_type <p>By default, <b><code>PHP_QUERY_RFC1738</code></b>.</p> <p>If <code>encoding_type</code> is <b><code>PHP_QUERY_RFC1738</code></b>, then encoding is performed per &#xBB;&#xA0;RFC 1738 and the <code>application/x-www-form-urlencoded</code> media type, which implies that spaces are encoded as plus (<code>+</code>) signs.</p> <p>If <code>encoding_type</code> is <b><code>PHP_QUERY_RFC3986</code></b>, then encoding is performed according to &#xBB;&#xA0;RFC 3986, and spaces will be percent encoded (<code>%20</code>).</p>
 	 * @return string <p>Returns a URL-encoded string.</p>
 	 * @link https://php.net/manual/en/function.http-build-query.php
 	 * @see parse_str(), parse_url(), urlencode(), array_walk()
@@ -68,10 +68,10 @@ namespace {
 
 	/**
 	 * Parse a URL and return its components
-	 * <p>This function parses a URL and returns an associative array containing any of the various components of the URL that are present. The values of the array elements are <i>not</i> URL decoded.</p><p>This function is <i>not</i> meant to validate the given URL, it only breaks it up into the above listed parts. Partial and invalid URLs are also accepted, <b>parse_url()</b> tries its best to parse them correctly.</p>
+	 * <p>This function parses a URL and returns an associative array containing any of the various components of the URL that are present. The values of the array elements are <i>not</i> URL decoded.</p><p>This function is <i>not</i> meant to validate the given URL, it only breaks it up into the parts listed below. Partial and invalid URLs are also accepted, <b>parse_url()</b> tries its best to parse them correctly.</p>
 	 * @param string $url <p>The URL to parse.</p>
 	 * @param int $component
-	 * @return int|string|array|null|false <p>On seriously malformed URLs, <b>parse_url()</b> may return <b><code>false</code></b>.</p><p>If the <code>component</code> parameter is omitted, an associative <code>array</code> is returned. At least one element will be present within the array. Potential keys within this array are:</p><ul> <li>  scheme - e.g. http  </li> <li>  host  </li> <li>  port  </li> <li>  user  </li> <li>  pass  </li> <li>  path  </li> <li>  query - after the question mark <code>&#63;</code>  </li> <li>  fragment - after the hashmark <code>#</code>  </li> </ul><p>If the <code>component</code> parameter is specified, <b>parse_url()</b> returns a <code>string</code> (or an <code>int</code>, in the case of <b><code>PHP_URL_PORT</code></b>) instead of an <code>array</code>. If the requested component doesn't exist within the given URL, <b><code>null</code></b> will be returned. As of PHP 8.0.0, <b>parse_url()</b> distinguishes absent and empty queries and fragments:</p>  <pre> http://example.com/foo &rarr; query = null, fragment = null http://example.com/foo&#63; &rarr; query = "", fragment = null http://example.com/foo# &rarr; query = null, fragment = "" http://example.com/foo&#63;# &rarr; query = "", fragment = "" </pre>  <p>Previously all cases resulted in query and fragment being <b><code>null</code></b>.</p><p>Note that control characters (cf. <code>ctype_cntrl()</code>) in the components are replaced with underscores (<code>_</code>).</p>
+	 * @return int|string|array|null|false <p>On seriously malformed URLs, <b>parse_url()</b> may return <b><code>false</code></b>.</p><p>If the <code>component</code> parameter is omitted, an associative <code>array</code> is returned. At least one element will be present within the array. Potential keys within this array are:</p><ul> <li>  scheme - e.g. http  </li> <li>  host  </li> <li>  port  </li> <li>  user  </li> <li>  pass  </li> <li>  path  </li> <li>  query - after the question mark <code>&#63;</code>  </li> <li>  fragment - after the hashmark <code>#</code>  </li> </ul><p>If the <code>component</code> parameter is specified, <b>parse_url()</b> returns a <code>string</code> (or an <code>int</code>, in the case of <b><code>PHP_URL_PORT</code></b>) instead of an <code>array</code>. If the requested component doesn't exist within the given URL, <b><code>null</code></b> will be returned. As of PHP 8.0.0, <b>parse_url()</b> distinguishes absent and empty queries and fragments:</p>  <pre> http://example.com/foo &#x2192; query = null, fragment = null http://example.com/foo&#63; &#x2192; query = "", fragment = null http://example.com/foo# &#x2192; query = null, fragment = "" http://example.com/foo&#63;# &#x2192; query = "", fragment = "" </pre>  <p>Previously all cases resulted in query and fragment being <b><code>null</code></b>.</p><p>Note that control characters (cf. <code>ctype_cntrl()</code>) in the components are replaced with underscores (<code>_</code>).</p>
 	 * @link https://php.net/manual/en/function.parse-url.php
 	 * @see pathinfo(), parse_str(), http_build_query(), dirname(), basename()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -91,9 +91,9 @@ namespace {
 
 	/**
 	 * URL-encode according to RFC 3986
-	 * <p>Encodes the given string according to RFC 3986.</p>
+	 * <p>Encodes the given string according to &#xBB;&#xA0;RFC 3986.</p>
 	 * @param string $string <p>The URL to be encoded.</p>
-	 * @return string <p>Returns a string in which all non-alphanumeric characters except <code>-_.~</code> have been replaced with a percent (<code>%</code>) sign followed by two hex digits. This is the encoding described in RFC 3986 for protecting literal characters from being interpreted as special URL delimiters, and for protecting URLs from being mangled by transmission media with character conversions (like some email systems).</p>
+	 * @return string <p>Returns a string in which all non-alphanumeric characters except <code>-_.~</code> have been replaced with a percent (<code>%</code>) sign followed by two hex digits. This is the encoding described in &#xBB;&#xA0;RFC 3986 for protecting literal characters from being interpreted as special URL delimiters, and for protecting URLs from being mangled by transmission media with character conversions (like some email systems).</p>
 	 * @link https://php.net/manual/en/function.rawurlencode.php
 	 * @see rawurldecode(), urldecode(), urlencode()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -115,7 +115,7 @@ namespace {
 	 * URL-encodes string
 	 * <p>This function is convenient when encoding a string to be used in a query part of a URL, as a convenient way to pass variables to the next page.</p>
 	 * @param string $string <p>The string to be encoded.</p>
-	 * @return string <p>Returns a string in which all non-alphanumeric characters except <code>-_.</code> have been replaced with a percent (<code>%</code>) sign followed by two hex digits and spaces encoded as plus (<code>+</code>) signs. It is encoded the same way that the posted data from a WWW form is encoded, that is the same way as in <code>application/x-www-form-urlencoded</code> media type. This differs from the RFC 3986 encoding (see <code>rawurlencode()</code>) in that for historical reasons, spaces are encoded as plus (+) signs.</p>
+	 * @return string <p>Returns a string in which all non-alphanumeric characters except <code>-_.</code> have been replaced with a percent (<code>%</code>) sign followed by two hex digits and spaces encoded as plus (<code>+</code>) signs. It is encoded the same way that the posted data from a WWW form is encoded, that is the same way as in <code>application/x-www-form-urlencoded</code> media type. This differs from the &#xBB;&#xA0;RFC 3986 encoding (see <code>rawurlencode()</code>) in that for historical reasons, spaces are encoded as plus (+) signs.</p>
 	 * @link https://php.net/manual/en/function.urlencode.php
 	 * @see urldecode(), htmlentities(), rawurlencode(), rawurldecode()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -123,12 +123,12 @@ namespace {
 	function urlencode(string $string): string {}
 
 	/**
-	 * Encoding is performed per RFC 1738 and the <code>application/x-www-form-urlencoded</code> media type, which implies that spaces are encoded as plus (<code>+</code>) signs.
+	 * Encoding is performed per &#xBB;&#xA0;RFC 1738 and the <code>application/x-www-form-urlencoded</code> media type, which implies that spaces are encoded as plus (<code>+</code>) signs.
 	 */
 	define('PHP_QUERY_RFC1738', 1);
 
 	/**
-	 * Encoding is performed according to RFC 3986, and spaces will be percent encoded (<code>%20</code>).
+	 * Encoding is performed according to &#xBB;&#xA0;RFC 3986, and spaces will be percent encoded (<code>%20</code>).
 	 */
 	define('PHP_QUERY_RFC3986', 2);
 

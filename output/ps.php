@@ -6,7 +6,7 @@ namespace {
 
 	/**
 	 * Add bookmark to current page
-	 * <p>Adds a bookmark for the current page. Bookmarks usually appear in PDF-Viewers left of the page in a hierarchical tree. Clicking on a bookmark will jump to the given page.</p><p>The note will not be visible if the document is printed or viewed but it will show up if the document is converted to pdf by either Acrobat Distiller&trade; or Ghostview.</p>
+	 * <p>Adds a bookmark for the current page. Bookmarks usually appear in PDF-Viewers left of the page in a hierarchical tree. Clicking on a bookmark will jump to the given page.</p><p>The note will not be visible if the document is printed or viewed but it will show up if the document is converted to pdf by either Acrobat Distiller&#x2122; or Ghostview.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param string $text <p>The text used for displaying the bookmark.</p>
 	 * @param int $parent <p>A bookmark previously created by this function which is used as the parent of the new bookmark.</p>
@@ -20,7 +20,7 @@ namespace {
 
 	/**
 	 * Adds link which launches file
-	 * <p>Places a hyperlink at the given position pointing to a file program which is being started when clicked on. The hyperlink's source position is a rectangle with its lower left corner at (llx, lly) and its upper right corner at (urx, ury). The rectangle has by default a thin blue border.</p><p>The note will not be visible if the document is printed or viewed but it will show up if the document is converted to pdf by either Acrobat Distiller&trade; or Ghostview.</p>
+	 * <p>Places a hyperlink at the given position pointing to a file program which is being started when clicked on. The hyperlink's source position is a rectangle with its lower left corner at (llx, lly) and its upper right corner at (urx, ury). The rectangle has by default a thin blue border.</p><p>The note will not be visible if the document is printed or viewed but it will show up if the document is converted to pdf by either Acrobat Distiller&#x2122; or Ghostview.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param float $llx <p>The x-coordinate of the lower left corner.</p>
 	 * @param float $lly <p>The y-coordinate of the lower left corner.</p>
@@ -36,7 +36,7 @@ namespace {
 
 	/**
 	 * Adds link to a page in the same document
-	 * <p>Places a hyperlink at the given position pointing to a page in the same document. Clicking on the link will jump to the given page. The first page in a document has number 1.</p><p>The hyperlink's source position is a rectangle with its lower left corner at (<code>llx</code>, <code>lly</code>) and its upper right corner at (<code>urx</code>, <code>ury</code>). The rectangle has by default a thin blue border.</p><p>The note will not be visible if the document is printed or viewed but it will show up if the document is converted to pdf by either Acrobat Distiller&trade; or Ghostview.</p>
+	 * <p>Places a hyperlink at the given position pointing to a page in the same document. Clicking on the link will jump to the given page. The first page in a document has number 1.</p><p>The hyperlink's source position is a rectangle with its lower left corner at (<code>llx</code>, <code>lly</code>) and its upper right corner at (<code>urx</code>, <code>ury</code>). The rectangle has by default a thin blue border.</p><p>The note will not be visible if the document is printed or viewed but it will show up if the document is converted to pdf by either Acrobat Distiller&#x2122; or Ghostview.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param float $llx <p>The x-coordinate of the lower left corner.</p>
 	 * @param float $lly <p>The y-coordinate of the lower left corner.</p>
@@ -53,7 +53,7 @@ namespace {
 
 	/**
 	 * Adds note to current page
-	 * <p>Adds a note at a certain position on the page. Notes are like little rectangular sheets with text on it, which can be placed anywhere on a page. They are shown either folded or unfolded. If folded, the specified icon is used as a placeholder.</p><p>The note will not be visible if the document is printed or viewed but it will show up if the document is converted to pdf by either Acrobat Distiller&trade; or Ghostview.</p>
+	 * <p>Adds a note at a certain position on the page. Notes are like little rectangular sheets with text on it, which can be placed anywhere on a page. They are shown either folded or unfolded. If folded, the specified icon is used as a placeholder.</p><p>The note will not be visible if the document is printed or viewed but it will show up if the document is converted to pdf by either Acrobat Distiller&#x2122; or Ghostview.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param float $llx <p>The x-coordinate of the lower left corner.</p>
 	 * @param float $lly <p>The y-coordinate of the lower left corner.</p>
@@ -72,7 +72,7 @@ namespace {
 
 	/**
 	 * Adds link to a page in a second pdf document
-	 * <p>Places a hyperlink at the given position pointing to a second pdf document. Clicking on the link will branch to the document at the given page. The first page in a document has number 1.</p><p>The hyperlink's source position is a rectangle with its lower left corner at (<code>llx</code>, <code>lly</code>) and its upper right corner at (<code>urx</code>, <code>ury</code>). The rectangle has by default a thin blue border.</p><p>The note will not be visible if the document is printed or viewed but it will show up if the document is converted to pdf by either Acrobat Distiller&trade; or Ghostview.</p>
+	 * <p>Places a hyperlink at the given position pointing to a second pdf document. Clicking on the link will branch to the document at the given page. The first page in a document has number 1.</p><p>The hyperlink's source position is a rectangle with its lower left corner at (<code>llx</code>, <code>lly</code>) and its upper right corner at (<code>urx</code>, <code>ury</code>). The rectangle has by default a thin blue border.</p><p>The note will not be visible if the document is printed or viewed but it will show up if the document is converted to pdf by either Acrobat Distiller&#x2122; or Ghostview.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param float $llx <p>The x-coordinate of the lower left corner.</p>
 	 * @param float $lly <p>The y-coordinate of the lower left corner.</p>
@@ -90,7 +90,7 @@ namespace {
 
 	/**
 	 * Adds link to a web location
-	 * <p>Places a hyperlink at the given position pointing to a web page. The hyperlink's source position is a rectangle with its lower left corner at (<code>llx</code>, <code>lly</code>) and its upper right corner at (<code>urx</code>, <code>ury</code>). The rectangle has by default a thin blue border.</p><p>The note will not be visible if the document is printed or viewed but it will show up if the document is converted to pdf by either Acrobat Distiller&trade; or Ghostview.</p>
+	 * <p>Places a hyperlink at the given position pointing to a web page. The hyperlink's source position is a rectangle with its lower left corner at (<code>llx</code>, <code>lly</code>) and its upper right corner at (<code>urx</code>, <code>ury</code>). The rectangle has by default a thin blue border.</p><p>The note will not be visible if the document is printed or viewed but it will show up if the document is converted to pdf by either Acrobat Distiller&#x2122; or Ghostview.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param float $llx <p>The x-coordinate of the lower left corner.</p>
 	 * @param float $lly <p>The y-coordinate of the lower left corner.</p>
@@ -262,7 +262,7 @@ namespace {
 
 	/**
 	 * Draws a curve
-	 * <p>Add a section of a cubic B&eacute;zier curve described by the three given control points to the current path.</p>
+	 * <p>Add a section of a cubic B&#xE9;zier curve described by the three given control points to the current path.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param float $x1 <p>x-coordinate of first control point.</p>
 	 * @param float $y1 <p>y-coordinate of first control point.</p>

@@ -12,10 +12,154 @@ namespace {
 	class Collator {
 
 		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const DEFAULT_VALUE = -1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const PRIMARY = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const SECONDARY = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const TERTIARY = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const DEFAULT_STRENGTH = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const QUATERNARY = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const IDENTICAL = 15;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const OFF = 16;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const ON = 17;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const SHIFTED = 20;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const NON_IGNORABLE = 21;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const LOWER_FIRST = 24;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const UPPER_FIRST = 25;
+
+		/**
+		 * @var int <p>Sort strings with different accents from the back of the string. This attribute is automatically set to <i>On</i> for the French locales and a few others. Users normally would not need to explicitly set this attribute. There is a string comparison performance cost when it is set <i>On</i>, but sort key length is unaffected. Possible values are:</p><ul> <li><b><code>Collator::ON</code></b></li> <li><b><code>Collator::OFF</code></b>(default)</li> <li><b><code>Collator::DEFAULT_VALUE</code></b></li> </ul> <p></p> <p><b>Example #1 FRENCH_COLLATION rules</b></p> <p></p><ul> <li>F=OFF cote &lt; cot&#xE9; &lt; c&#xF4;te &lt; c&#xF4;t&#xE9; </li> <li>F=ON cote &lt; c&#xF4;te &lt; cot&#xE9; &lt; c&#xF4;t&#xE9;</li> </ul>
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const FRENCH_COLLATION = 0;
+
+		/**
+		 * @var int <p>The Alternate attribute is used to control the handling of the so called variable characters in the UCA: whitespace, punctuation and symbols. If Alternate is set to <i>NonIgnorable</i> (N), then differences among these characters are of the same importance as differences among letters. If Alternate is set to <i>Shifted</i> (S), then these characters are of only minor importance. The <i>Shifted</i> value is often used in combination with <i>Strength</i> set to Quaternary. In such a case, whitespace, punctuation, and symbols are considered when comparing strings, but only if all other aspects of the strings (base letters, accents, and case) are identical. If Alternate is not set to Shifted, then there is no difference between a Strength of 3 and a Strength of 4. For more information and examples, see Variable_Weighting in the &#xBB;&#xA0;UCA. The reason the Alternate values are not simply <i>On</i> and <i>Off</i> is that additional Alternate values may be added in the future. The UCA option Blanked is expressed with Strength set to 3, and Alternate set to Shifted. The default for most locales is NonIgnorable. If Shifted is selected, it may be slower if there are many strings that are the same except for punctuation; sort key length will not be affected unless the strength level is also increased.</p> <p>Possible values are:</p><ul> <li><b><code>Collator::NON_IGNORABLE</code></b>(default)</li> <li><b><code>Collator::SHIFTED</code></b></li> <li><b><code>Collator::DEFAULT_VALUE</code></b></li> </ul> <p></p> <p><b>Example #2 ALTERNATE_HANDLING rules</b></p> <p></p><ul> <li> S=3, A=N di Silva &lt; Di Silva &lt; diSilva &lt; U.S.A. &lt; USA </li> <li> S=3, A=S di Silva = diSilva &lt; Di Silva &lt; U.S.A. = USA </li> <li> S=4, A=S di Silva &lt; diSilva &lt; Di Silva &lt; U.S.A. &lt; USA </li> </ul>
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const ALTERNATE_HANDLING = 1;
+
+		/**
+		 * @var int <p>The Case_First attribute is used to control whether uppercase letters come before lowercase letters or vice versa, in the absence of other differences in the strings. The possible values are <i>Uppercase_First</i> (U) and <i>Lowercase_First</i> (L), plus the standard <i>Default</i> and <i>Off</i>. There is almost no difference between the Off and Lowercase_First options in terms of results, so typically users will not use Lowercase_First: only Off or Uppercase_First. (People interested in the detailed differences between X and L should consult the <code>Collation Customization</code>). Specifying either L or U won't affect string comparison performance, but will affect the sort key length.</p> <p>Possible values are:</p><ul> <li><b><code>Collator::OFF</code></b>(default)</li> <li><b><code>Collator::LOWER_FIRST</code></b></li> <li><b><code>Collator::UPPER_FIRST</code></b></li> <li><b><code>Collator:DEFAULT</code></b></li> </ul> <p></p> <p><b>Example #3 CASE_FIRST rules</b></p> <p></p><ul> <li>C=X or C=L "china" &lt; "China" &lt; "denmark" &lt; "Denmark"</li> <li>C=U "China" &lt; "china" &lt; "Denmark" &lt; "denmark"</li> </ul>
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const CASE_FIRST = 2;
+
+		/**
+		 * @var int <p>The Case_Level attribute is used when ignoring accents but not case. In such a situation, set Strength to be <i>Primary</i>, and Case_Level to be <i>On</i>. In most locales, this setting is Off by default. There is a small string comparison performance and sort key impact if this attribute is set to be <i>On</i>.</p> <p>Possible values are:</p><ul> <li><b><code>Collator::OFF</code></b>(default)</li> <li><b><code>Collator::ON</code></b></li> <li><b><code>Collator::DEFAULT_VALUE</code></b></li> </ul> <p></p> <p><b>Example #4 CASE_LEVEL rules</b></p> <p></p><ul> <li>S=1, E=X role = Role = r&#xF4;le</li> <li>S=1, E=O role = r&#xF4;le &lt; Role</li> </ul>
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const CASE_LEVEL = 3;
+
+		/**
+		 * @var int <p>The Normalization setting determines whether text is thoroughly normalized or not in comparison. Even if the setting is off (which is the default for many locales), text as represented in common usage will compare correctly (for details, see UTN #5). Only if the accent marks are in noncanonical order will there be a problem. If the setting is <i>On</i>, then the best results are guaranteed for all possible text input. There is a medium string comparison performance cost if this attribute is <i>On</i>, depending on the frequency of sequences that require normalization. There is no significant effect on sort key length. If the input text is known to be in NFD or NFKD normalization forms, there is no need to enable this Normalization option.</p> <p>Possible values are:</p><ul> <li><b><code>Collator::OFF</code></b>(default)</li> <li><b><code>Collator::ON</code></b></li> <li><b><code>Collator::DEFAULT_VALUE</code></b></li> </ul>
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const NORMALIZATION_MODE = 4;
+
+		/**
+		 * @var int <p>The ICU Collation Service supports many levels of comparison (named "Levels", but also known as "Strengths"). Having these categories enables ICU to sort strings precisely according to local conventions. However, by allowing the levels to be selectively employed, searching for a string in text can be performed with various matching conditions. For more detailed information, see <code>collator_set_strength()</code> chapter.</p> <p>Possible values are:</p><ul> <li><b><code>Collator::PRIMARY</code></b></li> <li><b><code>Collator::SECONDARY</code></b></li> <li><b><code>Collator::TERTIARY</code></b>(default)</li> <li><b><code>Collator::QUATERNARY</code></b></li> <li><b><code>Collator::IDENTICAL</code></b></li> <li><b><code>Collator::DEFAULT_VALUE</code></b></li> </ul>
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const STRENGTH = 5;
+
+		/**
+		 * @var int <p>Compatibility with JIS x 4061 requires the introduction of an additional level to distinguish Hiragana and Katakana characters. If compatibility with that standard is required, then this attribute should be set <i>On</i>, and the strength set to Quaternary. This will affect sort key length and string comparison string comparison performance.</p> <p>Possible values are:</p><ul> <li><b><code>Collator::OFF</code></b>(default)</li> <li><b><code>Collator::ON</code></b></li> <li><b><code>Collator::DEFAULT_VALUE</code></b></li> </ul>
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const HIRAGANA_QUATERNARY_MODE = 6;
+
+		/**
+		 * @var int <p>When turned on, this attribute generates a collation key for the numeric value of substrings of digits. This is a way to get '100' to sort AFTER '2'.</p> <p>Possible values are:</p><ul> <li><b><code>Collator::OFF</code></b>(default)</li> <li><b><code>Collator::ON</code></b></li> <li><b><code>Collator::DEFAULT_VALUE</code></b></li> </ul>
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const NUMERIC_COLLATION = 7;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const SORT_REGULAR = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const SORT_STRING = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.collator.php
+		 */
+		const SORT_NUMERIC = 2;
+
+		/**
 		 * Create a collator
 		 * <p>Creates a new instance of <code>Collator</code>.</p>
-		 * @param string $locale <p>The locale whose collation rules should be used. Special values for locales can be passed in - if <b><code>null</code></b> is passed for the locale, the default locale's collation rules will be used. If "root" is passed, UCA rules will be used.</p> <p>The <code>locale</code> attribute is typically the most important attribute for correct sorting and matching, according to the user expectations in different countries and regions. The default UCA ordering will only sort a few languages such as Dutch and Portuguese correctly ("correctly" meaning according to the normal expectations for users of the languages). Otherwise, you need to supply the locale to UCA in order to properly collate text for a given language. Thus a locale needs to be supplied so as to choose a collator that is correctly tailored for that locale. The choice of a locale will automatically preset the values for all of the attributes to something that is reasonable for that locale. Thus most of the time the other attributes do not need to be explicitly set. In some cases, the choice of locale will make a difference in string comparison performance and/or sort key length.</p>
-		 * @return self <p>Returns <code>Collator</code> instance.</p>
+		 * @param string $locale <p>The locale whose collation rules should be used. Special values for locales can be passed in - if an empty <code>string</code> is passed for the locale, the default locale's collation rules will be used. If <code>"root"</code> is passed, &#xBB;&#xA0;UCA rules will be used.</p> <p>The <code>locale</code> attribute is typically the most important attribute for correct sorting and matching, according to the user expectations in different countries and regions. The default &#xBB;&#xA0;UCA ordering will only sort a few languages such as Dutch and Portuguese correctly ("correctly" meaning according to the normal expectations for users of the languages). Otherwise, you need to supply the locale to UCA in order to properly collate text for a given language. Thus a locale needs to be supplied so as to choose a collator that is correctly tailored for that locale. The choice of a locale will automatically preset the values for all of the attributes to something that is reasonable for that locale. Thus most of the time the other attributes do not need to be explicitly set. In some cases, the choice of locale will make a difference in string comparison performance and/or sort key length.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/collator.construct.php
 		 * @see Collator::create(), collator_create()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
@@ -49,7 +193,7 @@ namespace {
 		/**
 		 * Create a collator
 		 * <p>Object-oriented style</p><p>The strings will be compared using the options already specified.</p>
-		 * @param string $locale <p>The locale containing the required collation rules. Special values for locales can be passed in - if <b><code>null</code></b> is passed for the locale, the default locale collation rules will be used. If empty string ("") or "root" are passed, UCA rules will be used.</p>
+		 * @param string $locale <p>The locale containing the required collation rules. Special values for locales can be passed in - if an empty <code>string</code> is passed for the locale, the default locale collation rules will be used. If <code>"root"</code> is passed, &#xBB;&#xA0;UCA rules will be used.</p>
 		 * @return ?Collator <p>Return new instance of <code>Collator</code> object, or <b><code>null</code></b> on error.</p>
 		 * @link https://php.net/manual/en/collator.create.php
 		 * @see Collator::__construct()
@@ -134,7 +278,7 @@ namespace {
 
 		/**
 		 * Set collation strength
-		 * <p>Object-oriented style</p><p>The ICU Collation Service supports many levels of comparison (named "Levels", but also known as "Strengths"). Having these categories enables ICU to sort strings precisely according to local conventions. However, by allowing the levels to be selectively employed, searching for a string in text can be performed with various matching conditions.</p><p></p><p><i>Primary Level</i>: Typically, this is used to denote differences between base characters (for example, "a" &lt; "b"). It is the strongest difference. For example, dictionaries are divided into different sections by base character. This is also called the <code>level 1</code> strength.</p><p><i>Secondary Level</i>: Accents in the characters are considered secondary differences (for example, "as" &lt; "&agrave;s" &lt; "at"). Other differences between letters can also be considered secondary differences, depending on the language. A secondary difference is ignored when there is a primary difference anywhere in the strings. This is also called the <code>level 2</code> strength.</p><p><b>Note</b>:</p><p>Note: In some languages (such as Danish), certain accented letters are considered to be separate base characters. In most languages, however, an accented letter only has a secondary difference from the unaccented version of that letter.</p><p><i>Tertiary Level</i>: Upper and lower case differences in characters are distinguished at the tertiary level (for example, "ao" &lt; "Ao" &lt; "a&ograve;"). In addition, a variant of a letter differs from the base form on the tertiary level (such as "A" and " "). Another example is the difference between large and small Kana. A tertiary difference is ignored when there is a primary or secondary difference anywhere in the strings. This is also called the <code>level 3</code> strength.</p><p><i>Quaternary Level</i>: When punctuation is ignored (see Ignoring Punctuations ) at levels 1-3, an additional level can be used to distinguish words with and without punctuation (for example, "ab" &lt; "a-b" &lt; "aB"). This difference is ignored when there is a primary, secondary or tertiary difference. This is also known as the <code>level 4</code> strength. The quaternary level should only be used if ignoring punctuation is required or when processing Japanese text (see Hiragana processing).</p><p><i>Identical Level</i>: When all other levels are equal, the identical level is used as a tiebreaker. The Unicode code point values of the NFD form of each string are compared at this level, just in case there is no difference at levels 1-4. For example, Hebrew cantillation marks are only distinguished at this level. This level should be used sparingly, as only code point values differences between two strings is an extremely rare occurrence. Using this level substantially decreases the performance for both incremental comparison and sort key generation (as well as increasing the sort key length). It is also known as <code>level 5</code> strength.</p><p>For example, people may choose to ignore accents or ignore accents and case when searching for text. Almost all characters are distinguished by the first three levels, and in most locales the default value is thus Tertiary. However, if Alternate is set to be Shifted, then the Quaternary strength can be used to break ties among whitespace, punctuation, and symbols that would otherwise be ignored. If very fine distinctions among characters are required, then the Identical strength can be used (for example, Identical Strength distinguishes between the Mathematical Bold Small A and the Mathematical Italic Small A.). However, using levels higher than Tertiary the Identical strength result in significantly longer sort keys, and slower string comparison performance for equal strings.</p>
+		 * <p>Object-oriented style</p><p>The &#xBB;&#xA0;ICU Collation Service supports many levels of comparison (named "Levels", but also known as "Strengths"). Having these categories enables ICU to sort strings precisely according to local conventions. However, by allowing the levels to be selectively employed, searching for a string in text can be performed with various matching conditions.</p><p></p><p><i>Primary Level</i>: Typically, this is used to denote differences between base characters (for example, "a" &lt; "b"). It is the strongest difference. For example, dictionaries are divided into different sections by base character. This is also called the <code>level 1</code> strength.</p><p><i>Secondary Level</i>: Accents in the characters are considered secondary differences (for example, "as" &lt; "&#xE0;s" &lt; "at"). Other differences between letters can also be considered secondary differences, depending on the language. A secondary difference is ignored when there is a primary difference anywhere in the strings. This is also called the <code>level 2</code> strength.</p><p><b>Note</b>:</p><p>Note: In some languages (such as Danish), certain accented letters are considered to be separate base characters. In most languages, however, an accented letter only has a secondary difference from the unaccented version of that letter.</p><p><i>Tertiary Level</i>: Upper and lower case differences in characters are distinguished at the tertiary level (for example, "ao" &lt; "Ao" &lt; "a&#xF2;"). In addition, a variant of a letter differs from the base form on the tertiary level (such as "A" and " "). Another example is the difference between large and small Kana. A tertiary difference is ignored when there is a primary or secondary difference anywhere in the strings. This is also called the <code>level 3</code> strength.</p><p><i>Quaternary Level</i>: When punctuation is ignored (see Ignoring Punctuations ) at levels 1-3, an additional level can be used to distinguish words with and without punctuation (for example, "ab" &lt; "a-b" &lt; "aB"). This difference is ignored when there is a primary, secondary or tertiary difference. This is also known as the <code>level 4</code> strength. The quaternary level should only be used if ignoring punctuation is required or when processing Japanese text (see Hiragana processing).</p><p><i>Identical Level</i>: When all other levels are equal, the identical level is used as a tiebreaker. The Unicode code point values of the NFD form of each string are compared at this level, just in case there is no difference at levels 1-4. For example, Hebrew cantillation marks are only distinguished at this level. This level should be used sparingly, as only code point values differences between two strings is an extremely rare occurrence. Using this level substantially decreases the performance for both incremental comparison and sort key generation (as well as increasing the sort key length). It is also known as <code>level 5</code> strength.</p><p>For example, people may choose to ignore accents or ignore accents and case when searching for text. Almost all characters are distinguished by the first three levels, and in most locales the default value is thus Tertiary. However, if Alternate is set to be Shifted, then the Quaternary strength can be used to break ties among whitespace, punctuation, and symbols that would otherwise be ignored. If very fine distinctions among characters are required, then the Identical strength can be used (for example, Identical Strength distinguishes between the Mathematical Bold Small A and the Mathematical Italic Small A.). However, using levels higher than Tertiary the Identical strength result in significantly longer sort keys, and slower string comparison performance for equal strings.</p>
 		 * @param int $strength <p>Strength to set.</p> <p>Possible values are:</p><ul> <li> <p><b><code>Collator::PRIMARY</code></b></p> </li> <li> <p><b><code>Collator::SECONDARY</code></b></p> </li> <li> <p><b><code>Collator::TERTIARY</code></b></p> </li> <li> <p><b><code>Collator::QUATERNARY</code></b></p> </li> <li> <p><b><code>Collator::IDENTICAL</code></b></p> </li> <li> <p><b><code>Collator::DEFAULT_STRENGTH</code></b></p> </li> </ul>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/collator.setstrength.php
@@ -168,8 +312,8 @@ namespace {
 	}
 
 	/**
-	 * <p>A &ldquo;break iterator&rdquo; is an ICU object that exposes methods for locating boundaries in text (e.g. word or sentence boundaries). The PHP <b>IntlBreakIterator</b> serves as the base class for all types of ICU break iterators. Where extra functionality is available, the intl extension may expose the ICU break iterator with suitable subclasses, such as <code>IntlRuleBasedBreakIterator</code> or <code>IntlCodePointBreakIterator</code>.</p>
-	 * <p>This class implements <code>IteratorAggregate</code>. Traversing an <b>IntlBreakIterator</b> yields non-negative integer values representing the successive locations of the text boundaries, expressed as UTF-8 code units (byte) counts, taken from the beginning of the text (which has the location <code>0</code>). The keys yielded by the iterator simply form the sequence of natural numbers <code>{0, 1, 2, &hellip;}</code>.</p>
+	 * <p>A &#x201C;break iterator&#x201D; is an ICU object that exposes methods for locating boundaries in text (e.g. word or sentence boundaries). The PHP <b>IntlBreakIterator</b> serves as the base class for all types of ICU break iterators. Where extra functionality is available, the intl extension may expose the ICU break iterator with suitable subclasses, such as <code>IntlRuleBasedBreakIterator</code> or <code>IntlCodePointBreakIterator</code>.</p>
+	 * <p>This class implements <code>IteratorAggregate</code>. Traversing an <b>IntlBreakIterator</b> yields non-negative integer values representing the successive locations of the text boundaries, expressed as UTF-8 code units (byte) counts, taken from the beginning of the text (which has the location <code>0</code>). The keys yielded by the iterator simply form the sequence of natural numbers <code>{0, 1, 2, &#x2026;}</code>.</p>
 	 * @link https://php.net/manual/en/class.intlbreakiterator.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 	 */
@@ -179,115 +323,115 @@ namespace {
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const DONE = -1;
+		public const DONE = -1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const WORD_NONE = 0;
+		public const WORD_NONE = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const WORD_NONE_LIMIT = 100;
+		public const WORD_NONE_LIMIT = 100;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const WORD_NUMBER = 100;
+		public const WORD_NUMBER = 100;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const WORD_NUMBER_LIMIT = 200;
+		public const WORD_NUMBER_LIMIT = 200;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const WORD_LETTER = 200;
+		public const WORD_LETTER = 200;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const WORD_LETTER_LIMIT = 300;
+		public const WORD_LETTER_LIMIT = 300;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const WORD_KANA = 300;
+		public const WORD_KANA = 300;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const WORD_KANA_LIMIT = 400;
+		public const WORD_KANA_LIMIT = 400;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const WORD_IDEO = 400;
+		public const WORD_IDEO = 400;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const WORD_IDEO_LIMIT = 500;
+		public const WORD_IDEO_LIMIT = 500;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const LINE_SOFT = 0;
+		public const LINE_SOFT = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const LINE_SOFT_LIMIT = 100;
+		public const LINE_SOFT_LIMIT = 100;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const LINE_HARD = 100;
+		public const LINE_HARD = 100;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const LINE_HARD_LIMIT = 200;
+		public const LINE_HARD_LIMIT = 200;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const SENTENCE_TERM = 0;
+		public const SENTENCE_TERM = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const SENTENCE_TERM_LIMIT = 100;
+		public const SENTENCE_TERM_LIMIT = 100;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const SENTENCE_SEP = 100;
+		public const SENTENCE_SEP = 100;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlbreakiterator.php
 		 */
-		const SENTENCE_SEP_LIMIT = 200;
+		public const SENTENCE_SEP_LIMIT = 200;
 
 		/**
 		 * Private constructor for disallowing instantiation
@@ -397,21 +541,21 @@ namespace {
 		/**
 		 * Get last error message on the object
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return string|false
+		 * @return string
 		 * @link https://php.net/manual/en/intlbreakiterator.geterrormessage.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 		 */
-		public function getErrorMessage(): string|false {}
+		public function getErrorMessage(): string {}
 
 		/**
 		 * Get the locale associated with the object
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param int $type
-		 * @return string
+		 * @return string|false
 		 * @link https://php.net/manual/en/intlbreakiterator.getlocale.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 		 */
-		public function getLocale(int $type): string {}
+		public function getLocale(int $type): string|false {}
 
 		/**
 		 * Create iterator for navigating fragments between boundaries
@@ -498,243 +642,243 @@ namespace {
 	class IntlCalendar {
 
 		/**
-		 * @var int <p>Calendar field numerically representing an era, for instance <code>1</code> for AD and <code>0</code> for BC in the Gregorian/Julian calendars and <code>235</code> for the Heisei (&#24179;&#25104;) era in the Japanese calendar. Not all calendars have more than one era.</p>
+		 * @var int <p>Calendar field numerically representing an era, for instance <code>1</code> for AD and <code>0</code> for BC in the Gregorian/Julian calendars and <code>235</code> for the Heisei (&#x5E73;&#x6210;) era in the Japanese calendar. Not all calendars have more than one era.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_ERA = 0;
+		public const FIELD_ERA = 0;
 
 		/**
 		 * @var int <p>Calendar field for the year. This is not unique across eras. If the calendar type has more than one era, generally the minimum value for this field will be <code>1</code>.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_YEAR = 1;
+		public const FIELD_YEAR = 1;
 
 		/**
-		 * @var int <p>Calendar field for the month. The month sequence is zero-based, so January (here used to signify the first month of the calendar; this may be called another name, such as Muharram in the Islamic calendar) is represented by <code>0</code>, February by <code>1</code>, &hellip;, December by <code>11</code> and, for calendars that have it, the 13th or leap month by <code>12</code>.</p>
+		 * @var int <p>Calendar field for the month. The month sequence is zero-based, so January (here used to signify the first month of the calendar; this may be called another name, such as Muharram in the Islamic calendar) is represented by <code>0</code>, February by <code>1</code>, &#x2026;, December by <code>11</code> and, for calendars that have it, the 13th or leap month by <code>12</code>.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_MONTH = 2;
+		public const FIELD_MONTH = 2;
 
 		/**
 		 * @var int <p>Calendar field for the number of the week of the year. This depends on which day of the week is deemed to start the week and the minimal number of days in a week.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_WEEK_OF_YEAR = 3;
+		public const FIELD_WEEK_OF_YEAR = 3;
 
 		/**
 		 * @var int <p>Calendar field for the number of the week of the month. This depends on which day of the week is deemed to start the week and the minimal number of days in a week.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_WEEK_OF_MONTH = 4;
+		public const FIELD_WEEK_OF_MONTH = 4;
 
 		/**
 		 * @var int <p>Calendar field for the day of the month. The same as <b><code>IntlCalendar::FIELD_DAY_OF_MONTH</code></b>, which has a clearer name.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_DATE = 5;
+		public const FIELD_DATE = 5;
 
 		/**
 		 * @var int <p>Calendar field for the day of the year. For the Gregorian calendar, starts with <b><code>1</code></b> and ends with <b><code>365</code></b> or <b><code>366</code></b>.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_DAY_OF_YEAR = 6;
+		public const FIELD_DAY_OF_YEAR = 6;
 
 		/**
 		 * @var int <p>Calendar field for the day of the week. Its values start with <code>1</code> (Sunday, see <b><code>IntlCalendar::DOW_SUNDAY</code></b> and subsequent constants) and the last valid value is 7 (Saturday).</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_DAY_OF_WEEK = 7;
+		public const FIELD_DAY_OF_WEEK = 7;
 
 		/**
-		 * @var int <p>Given a day of the week (Sunday, Monday, &hellip;), this calendar field assigns an ordinal to such a day of the week in a specific month. Thus, if the value of this field is <code>1</code> and the value of the day of the week is <code>2</code> (Monday), then the set day of the month is the 1st Monday of the month; the maximum value is <code>5</code>.</p> <p>Additionally, the value <code>0</code> and negative values are also allowed. The value <code>0</code> encompasses the seven days that occur immediately before the first seven days of a month (which therefore have a &lsquo;day of week in month&rsquo; with value <code>1</code>). Negative values starts counting from the end of the month &ndash; <code>-1</code> points to the last occurrence of a day of the week in a month, <code>-2</code> to the second last, and so on.</p> <p>Unlike <b><code>IntlCalendar::FIELD_WEEK_OF_MONTH</code></b> and <b><code>IntlCalendar::FIELD_WEEK_OF_YEAR</code></b>, this value does not depend on <code>IntlCalendar::getFirstDayOfWeek()</code> or on <code>IntlCalendar::getMinimalDaysInFirstWeek()</code>. The first Monday is the first Monday, even if it occurs in a week that belongs to the previous month.</p>
+		 * @var int <p>Given a day of the week (Sunday, Monday, &#x2026;), this calendar field assigns an ordinal to such a day of the week in a specific month. Thus, if the value of this field is <code>1</code> and the value of the day of the week is <code>2</code> (Monday), then the set day of the month is the 1st Monday of the month; the maximum value is <code>5</code>.</p> <p>Additionally, the value <code>0</code> and negative values are also allowed. The value <code>0</code> encompasses the seven days that occur immediately before the first seven days of a month (which therefore have a &#x2018;day of week in month&#x2019; with value <code>1</code>). Negative values starts counting from the end of the month &#x2013; <code>-1</code> points to the last occurrence of a day of the week in a month, <code>-2</code> to the second last, and so on.</p> <p>Unlike <b><code>IntlCalendar::FIELD_WEEK_OF_MONTH</code></b> and <b><code>IntlCalendar::FIELD_WEEK_OF_YEAR</code></b>, this value does not depend on <code>IntlCalendar::getFirstDayOfWeek()</code> or on <code>IntlCalendar::getMinimalDaysInFirstWeek()</code>. The first Monday is the first Monday, even if it occurs in a week that belongs to the previous month.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_DAY_OF_WEEK_IN_MONTH = 8;
+		public const FIELD_DAY_OF_WEEK_IN_MONTH = 8;
 
 		/**
 		 * @var int <p>Calendar field indicating whether a time is before noon (value <code>0</code>, AM) or after (<code>1</code>). Midnight is AM, noon is PM.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_AM_PM = 9;
+		public const FIELD_AM_PM = 9;
 
 		/**
-		 * @var int <p>Calendar field for the hour, without specifying whether it&#700;s in the morning or in the afternoon. Valid values are <code>0</code> to <code>11</code>.</p>
+		 * @var int <p>Calendar field for the hour, without specifying whether it&#x2BC;s in the morning or in the afternoon. Valid values are <code>0</code> to <code>11</code>.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_HOUR = 10;
+		public const FIELD_HOUR = 10;
 
 		/**
 		 * @var int <p>Calendar field for the full (24h) hour of the day. Valid values are <code>0</code> to <code>23</code>.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_HOUR_OF_DAY = 11;
+		public const FIELD_HOUR_OF_DAY = 11;
 
 		/**
 		 * @var int <p>Calendar field for the minutes component of the time.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_MINUTE = 12;
+		public const FIELD_MINUTE = 12;
 
 		/**
 		 * @var int <p>Calendar field for the seconds component of the time.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_SECOND = 13;
+		public const FIELD_SECOND = 13;
 
 		/**
 		 * @var int <p>Calendar field the milliseconds component of the time.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_MILLISECOND = 14;
+		public const FIELD_MILLISECOND = 14;
 
 		/**
 		 * @var int <p>Calendar field indicating the raw offset of the timezone, in milliseconds. The raw offset is the timezone offset, excluding any offset due to daylight saving time.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_ZONE_OFFSET = 15;
+		public const FIELD_ZONE_OFFSET = 15;
 
 		/**
-		 * @var int <p>Calendar field for the daylight saving time offset of the calendar&#700;s timezone, in milliseconds, if active for calendar&#700;s time.</p>
+		 * @var int <p>Calendar field for the daylight saving time offset of the calendar&#x2BC;s timezone, in milliseconds, if active for calendar&#x2BC;s time.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_DST_OFFSET = 16;
+		public const FIELD_DST_OFFSET = 16;
 
 		/**
 		 * @var int <p>Calendar field representing the year for week of year purposes.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_YEAR_WOY = 17;
+		public const FIELD_YEAR_WOY = 17;
 
 		/**
 		 * @var int <p>Calendar field for the localized day of the week. This is a value between <code>1</code> and <code>7</code>, <code>1</code> being used for the day of the week that matches the value returned by <code>IntlCalendar::getFirstDayOfWeek()</code>.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_DOW_LOCAL = 18;
+		public const FIELD_DOW_LOCAL = 18;
 
 		/**
 		 * @var int <p>Calendar field for a year number representation that is continuous across eras. For the Gregorian calendar, the value of this field matches that of <b><code>IntlCalendar::FIELD_YEAR</code></b> for AD years; a BC year <code>y</code> is represented by <code>-y + 1</code>.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_EXTENDED_YEAR = 19;
+		public const FIELD_EXTENDED_YEAR = 19;
 
 		/**
 		 * @var int <p>Calendar field for a modified Julian day number. It is different from a conventional Julian day number in that its transitions occur at local zone midnight rather than at noon UTC. It uniquely identifies a date.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_JULIAN_DAY = 20;
+		public const FIELD_JULIAN_DAY = 20;
 
 		/**
 		 * @var int <p>Calendar field encompassing the information in <b><code>IntlCalendar::FIELD_HOUR_OF_DAY</code></b>, <b><code>IntlCalendar::FIELD_MINUTE</code></b>, <b><code>IntlCalendar::FIELD_SECOND</code></b> and <b><code>IntlCalendar::FIELD_MILLISECOND</code></b>. Range is from the <code>0</code> to <code>24 &#42; 3600 &#42; 1000 - 1</code>. It is not the amount of milliseconds elapsed in the day since on DST transitions it will have discontinuities analog to those of the wall time.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_MILLISECONDS_IN_DAY = 21;
+		public const FIELD_MILLISECONDS_IN_DAY = 21;
 
 		/**
 		 * @var int <p>Calendar field whose value is <code>1</code> for indicating a leap month and <code>0</code> otherwise.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_IS_LEAP_MONTH = 22;
+		public const FIELD_IS_LEAP_MONTH = 22;
 
 		/**
 		 * @var int <p>The total number of fields.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_FIELD_COUNT = 23;
+		public const FIELD_FIELD_COUNT = 23;
 
 		/**
 		 * @var int <p>Alias for <b><code>IntlCalendar::FIELD_DATE</code></b>.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const FIELD_DAY_OF_MONTH = 5;
+		public const FIELD_DAY_OF_MONTH = 5;
 
 		/**
 		 * @var int <p>Sunday.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const DOW_SUNDAY = 1;
+		public const DOW_SUNDAY = 1;
 
 		/**
 		 * @var int <p>Monday.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const DOW_MONDAY = 2;
+		public const DOW_MONDAY = 2;
 
 		/**
 		 * @var int <p>Tuesday.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const DOW_TUESDAY = 3;
+		public const DOW_TUESDAY = 3;
 
 		/**
 		 * @var int <p>Wednesday.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const DOW_WEDNESDAY = 4;
+		public const DOW_WEDNESDAY = 4;
 
 		/**
 		 * @var int <p>Thursday.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const DOW_THURSDAY = 5;
+		public const DOW_THURSDAY = 5;
 
 		/**
 		 * @var int <p>Friday.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const DOW_FRIDAY = 6;
+		public const DOW_FRIDAY = 6;
 
 		/**
 		 * @var int <p>Saturday.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const DOW_SATURDAY = 7;
+		public const DOW_SATURDAY = 7;
 
 		/**
 		 * @var int <p>Output of <code>IntlCalendar::getDayOfWeekType()</code> indicating a day of week is a weekday.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const DOW_TYPE_WEEKDAY = 0;
+		public const DOW_TYPE_WEEKDAY = 0;
 
 		/**
 		 * @var int <p>Output of <code>IntlCalendar::getDayOfWeekType()</code> indicating a day of week belongs to the weekend.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const DOW_TYPE_WEEKEND = 1;
+		public const DOW_TYPE_WEEKEND = 1;
 
 		/**
 		 * @var int <p>Output of <code>IntlCalendar::getDayOfWeekType()</code> indicating the weekend begins during the given day of week.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const DOW_TYPE_WEEKEND_OFFSET = 2;
+		public const DOW_TYPE_WEEKEND_OFFSET = 2;
 
 		/**
 		 * @var int <p>Output of <code>IntlCalendar::getDayOfWeekType()</code> indicating the weekend ends during the given day of week.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const DOW_TYPE_WEEKEND_CEASE = 3;
+		public const DOW_TYPE_WEEKEND_CEASE = 3;
 
 		/**
 		 * @var int <p>Output of <code>IntlCalendar::getSkippedWallTimeOption()</code> indicating that wall times in the skipped range should refer to the same instant as wall times with one hour less and of <code>IntlCalendar::getRepeatedWallTimeOption()</code> indicating the wall times in the repeated range should refer to the instant of the first occurrence of such wall time.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const WALLTIME_FIRST = 1;
+		public const WALLTIME_FIRST = 1;
 
 		/**
 		 * @var int <p>Output of <code>IntlCalendar::getSkippedWallTimeOption()</code> indicating that wall times in the skipped range should refer to the same instant as wall times with one hour after and of <code>IntlCalendar::getRepeatedWallTimeOption()</code> indicating the wall times in the repeated range should refer to the instant of the second occurrence of such wall time.</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const WALLTIME_LAST = 0;
+		public const WALLTIME_LAST = 0;
 
 		/**
 		 * @var int <p>Output of <code>IntlCalendar::getSkippedWallTimeOption()</code> indicating that wall times in the skipped range should refer to the instant when the daylight saving time transition occurs (begins).</p>
 		 * @link https://php.net/manual/en/class.intlcalendar.php
 		 */
-		const WALLTIME_NEXT_VALID = 2;
+		public const WALLTIME_NEXT_VALID = 2;
 
 		/**
 		 * Private constructor for disallowing instantiation
 		 * <p>A private constructor for disallowing instantiation with the new operator.</p><p>Call <code>IntlCalendar::createInstance()</code> instead.</p>
-		 * @return self <p>No value is returned.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/intlcalendar.construct.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -742,7 +886,7 @@ namespace {
 
 		/**
 		 * Add a (signed) amount of time to a field
-		 * <p>Object-oriented style</p><p>Add a signed amount to a field. Adding a positive amount allows advances in time, even if the numeric value of the field decreases (e.g. when working with years in BC dates).</p><p>Other fields may need to adjusted &ndash; for instance, adding a month to the 31st of January will result in the 28th (or 29th) of February. Contrary to <code>IntlCalendar::roll()</code>, when a value wraps around, more significant fields may change. For instance, adding a day to the 31st of January will result in the 1st of February, not the 1st of January.</p>
+		 * <p>Object-oriented style</p><p>Add a signed amount to a field. Adding a positive amount allows advances in time, even if the numeric value of the field decreases (e.g. when working with years in BC dates).</p><p>Other fields may need to adjusted &#x2013; for instance, adding a month to the 31st of January will result in the 28th (or 29th) of February. Contrary to <code>IntlCalendar::roll()</code>, when a value wraps around, more significant fields may change. For instance, adding a day to the 31st of January will result in the 1st of February, not the 1st of January.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
 		 * @param int $value <p>The signed amount to add to the current field. If the amount is positive, the instant will be moved forward; if it is negative, the instant will be moved into the past. The unit is implicit to the field type. For instance, hours for <b><code>IntlCalendar::FIELD_HOUR_OF_DAY</code></b>.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -753,9 +897,9 @@ namespace {
 
 		/**
 		 * Whether this objectʼs time is after that of the passed object
-		 * <p>Object-oriented style</p><p>Returns whether this object&#700;s time succeeds the argument&#700;s time.</p>
-		 * @param \IntlCalendar $other <p>The calendar whose time will be checked against the primary object&#700;s time.</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if this object&#700;s current time is after that of the <code>calendar</code> argument&#700;s time. Returns <b><code>false</code></b> otherwise.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
+		 * <p>Object-oriented style</p><p>Returns whether this object&#x2BC;s time succeeds the argument&#x2BC;s time.</p>
+		 * @param \IntlCalendar $other <p>The calendar whose time will be checked against the primary object&#x2BC;s time.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if this object&#x2BC;s current time is after that of the <code>calendar</code> argument&#x2BC;s time. Returns <b><code>false</code></b> otherwise.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
 		 * @link https://php.net/manual/en/intlcalendar.after.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -763,9 +907,9 @@ namespace {
 
 		/**
 		 * Whether this objectʼs time is before that of the passed object
-		 * <p>Object-oriented style</p><p>Returns whether this object&#700;s time precedes the argument&#700;s time.</p>
-		 * @param \IntlCalendar $other <p>The calendar whose time will be checked against the primary object&#700;s time.</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if this object&#700;s current time is before that of the <code>calendar</code> argument&#700;s time. Returns <b><code>false</code></b> otherwise.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
+		 * <p>Object-oriented style</p><p>Returns whether this object&#x2BC;s time precedes the argument&#x2BC;s time.</p>
+		 * @param \IntlCalendar $other <p>The calendar whose time will be checked against the primary object&#x2BC;s time.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if this object&#x2BC;s current time is before that of the <code>calendar</code> argument&#x2BC;s time. Returns <b><code>false</code></b> otherwise.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
 		 * @link https://php.net/manual/en/intlcalendar.before.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -773,18 +917,18 @@ namespace {
 
 		/**
 		 * Clear a field or all fields
-		 * <p>Object-oriented style</p><p>Clears either all of the fields or a specific field. A cleared field is marked as unset, giving it the lowest priority against overlapping fields or even default values when calculating the time. Additionally, its value is set to <code>0</code>, though given the field&#700;s low priority, its value may have been internally set to another value by the time the field has finished been queried.</p>
+		 * <p>Object-oriented style</p><p>Clears either all of the fields or a specific field. A cleared field is marked as unset, giving it the lowest priority against overlapping fields or even default values when calculating the time. Additionally, its value is set to <code>0</code>, though given the field&#x2BC;s low priority, its value may have been internally set to another value by the time the field has finished been queried.</p>
 		 * @param ?int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/intlcalendar.clear.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function clear(?int $field = null): bool {}
+		public function clear(?int $field = null): true {}
 
 		/**
 		 * Create a new IntlCalendar
 		 * <p>Object-oriented style</p><p>Given a timezone and locale, this method creates an <code>IntlCalendar</code> object. This factory method may return a subclass of <code>IntlCalendar</code>.</p><p>The calendar created will represent the time instance at which it was created, based on the system time. The fields can all be cleared by calling <b>IntCalendar::clear()</b> with no arguments. See also <code>IntlGregorianCalendar::__construct()</code>.</p>
-		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>The timezone to use.</p> <ul> <li> <p><b><code>null</code></b>, in which case the default timezone will be used, as specified in the ini setting date.timezone or through the function <code>date_default_timezone_set()</code> and as returned by <code>date_default_timezone_get()</code>.</p> </li> <li> <p>An <code>IntlTimeZone</code>, which will be used directly.</p> </li> <li> <p>A <code>DateTimeZone</code>. Its identifier will be extracted and an ICU timezone object will be created; the timezone will be backed by ICU&#700;s database, not PHP&#700;s.</p> </li> <li> <p>A <code>string</code>, which should be a valid ICU timezone identifier. See <code>IntlTimeZone::createTimeZoneIDEnumeration()</code>. Raw offsets such as <code>"GMT+08:30"</code> are also accepted.</p> </li> </ul>
+		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>The timezone to use.</p> <ul> <li> <p><b><code>null</code></b>, in which case the default timezone will be used, as specified in the ini setting date.timezone or through the function <code>date_default_timezone_set()</code> and as returned by <code>date_default_timezone_get()</code>.</p> </li> <li> <p>An <code>IntlTimeZone</code>, which will be used directly.</p> </li> <li> <p>A <code>DateTimeZone</code>. Its identifier will be extracted and an ICU timezone object will be created; the timezone will be backed by ICU&#x2BC;s database, not PHP&#x2BC;s.</p> </li> <li> <p>A <code>string</code>, which should be a valid ICU timezone identifier. See <code>IntlTimeZone::createTimeZoneIDEnumeration()</code>. Raw offsets such as <code>"GMT+08:30"</code> are also accepted.</p> </li> </ul>
 		 * @param ?string $locale <p>A locale to use or <b><code>null</code></b> to use the default locale.</p>
 		 * @return ?IntlCalendar <p>The created <code>IntlCalendar</code> instance or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.createinstance.php
@@ -804,7 +948,7 @@ namespace {
 
 		/**
 		 * Calculate difference between given time and this objectʼs time
-		 * <p>Object-oriented style</p><p>Return the difference between the given time and the time this object is set to, with respect to the quantity specified the <code>field</code> parameter.</p><p>This method is meant to be called successively, first with the most significant field of interest down to the least significant field. To this end, as a side effect, this calendar&#700;s value for the field specified is advanced by the amount returned.</p>
+		 * <p>Object-oriented style</p><p>Return the difference between the given time and the time this object is set to, with respect to the quantity specified the <code>field</code> parameter.</p><p>This method is meant to be called successively, first with the most significant field of interest down to the least significant field. To this end, as a side effect, this calendar&#x2BC;s value for the field specified is advanced by the amount returned.</p>
 		 * @param float $timestamp <p>The time against which to compare the quantity represented by the <code>field</code>. For the result to be positive, the time given for this parameter must be ahead of the time of the object the method is being invoked on.</p>
 		 * @param int $field <p>The field that represents the quantity being compared.</p> <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
 		 * @return int|false <p>Returns a (signed) difference of time in the unit associated with the specified field or <b><code>false</code></b> on failure.</p>
@@ -836,7 +980,7 @@ namespace {
 
 		/**
 		 * The maximum value for a field, considering the objectʼs current time
-		 * <p>Object-oriented style</p><p>Returns a field&#700;s relative maximum value around the current time. The exact semantics vary by field, but in the general case this is the value that would be obtained if one would set the field value into the smallest relative maximum for the field and would increment it until reaching the global maximum or the field value wraps around, in which the value returned would be the global maximum or the value before the wrapping, respectively.</p><p>For instance, in the gregorian calendar, the actual maximum value for the day of month would vary between <code>28</code> and <code>31</code>, depending on the month and year of the current time.</p>
+		 * <p>Object-oriented style</p><p>Returns a field&#x2BC;s relative maximum value around the current time. The exact semantics vary by field, but in the general case this is the value that would be obtained if one would set the field value into the smallest relative maximum for the field and would increment it until reaching the global maximum or the field value wraps around, in which the value returned would be the global maximum or the value before the wrapping, respectively.</p><p>For instance, in the gregorian calendar, the actual maximum value for the day of month would vary between <code>28</code> and <code>31</code>, depending on the month and year of the current time.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
 		 * @return int|false <p>An <code>int</code> representing the maximum value in the units associated with the given <code>field</code> or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getactualmaximum.php
@@ -846,9 +990,9 @@ namespace {
 
 		/**
 		 * The minimum value for a field, considering the objectʼs current time
-		 * <p>Object-oriented style</p><p>Returns a field&#700;s relative minimum value around the current time. The exact semantics vary by field, but in the general case this is the value that would be obtained if one would set the field value into the greatest relative minimum for the field and would decrement it until reaching the global minimum or the field value wraps around, in which the value returned would be the global minimum or the value before the wrapping, respectively.</p><p>For the Gregorian calendar, this is always the same as <code>IntlCalendar::getMinimum()</code>.</p>
+		 * <p>Object-oriented style</p><p>Returns a field&#x2BC;s relative minimum value around the current time. The exact semantics vary by field, but in the general case this is the value that would be obtained if one would set the field value into the greatest relative minimum for the field and would decrement it until reaching the global minimum or the field value wraps around, in which the value returned would be the global minimum or the value before the wrapping, respectively.</p><p>For the Gregorian calendar, this is always the same as <code>IntlCalendar::getMinimum()</code>.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
-		 * @return int|false <p>An <code>int</code> representing the minimum value in the field&#700;s unit or <b><code>false</code></b> on failure.</p>
+		 * @return int|false <p>An <code>int</code> representing the minimum value in the field&#x2BC;s unit or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getactualminimum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -866,7 +1010,7 @@ namespace {
 		/**
 		 * Tell whether a day is a weekday, weekend or a day that has a transition between the two
 		 * <p>Object-oriented style</p><p>Returns whether the passed day is a weekday (<b><code>IntlCalendar::DOW_TYPE_WEEKDAY</code></b>), a weekend day (<b><code>IntlCalendar::DOW_TYPE_WEEKEND</code></b>), a day during which a transition occurs into the weekend (<b><code>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</code></b>) or a day during which the weekend ceases (<b><code>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</code></b>).</p><p>If the return is either <b><code>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</code></b> or <b><code>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</code></b>, then <code>IntlCalendar::getWeekendTransition()</code> can be called to obtain the time of the transition.</p><p>This function requires ICU 4.4 or later.</p>
-		 * @param int $dayOfWeek <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &hellip;, <b><code>IntlCalendar::DOW_SATURDAY</code></b>.</p>
+		 * @param int $dayOfWeek <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &#x2026;, <b><code>IntlCalendar::DOW_SATURDAY</code></b>.</p>
 		 * @return int|false <p>Returns one of the constants <b><code>IntlCalendar::DOW_TYPE_WEEKDAY</code></b>, <b><code>IntlCalendar::DOW_TYPE_WEEKEND</code></b>, <b><code>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</code></b> or <b><code>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</code></b> or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getdayofweektype.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -875,7 +1019,7 @@ namespace {
 
 		/**
 		 * Get last error code on the object
-		 * <p>Object-oriented style (method):</p><p>Returns the numeric ICU error code for the last call on this object (including cloning) or the <code>IntlCalendar</code> given for the <code>calendar</code> parameter (in the procedural&#8210;style version). This may indicate only a warning (negative error code) or no error at all (<b><code>U_ZERO_ERROR</code></b>). The actual presence of an error can be tested with <code>intl_is_failure()</code>.</p><p>Invalid arguments detected on the PHP side (before invoking functions of the ICU library) are not recorded for the purposes of this function.</p><p>The last error that occurred in any call to a function of the intl extension, including early argument errors, can be obtained with <code>intl_get_error_code()</code>. This function resets the global error code, but not the object&#700;s error code.</p>
+		 * <p>Object-oriented style (method):</p><p>Returns the numeric ICU error code for the last call on this object (including cloning) or the <code>IntlCalendar</code> given for the <code>calendar</code> parameter (in the procedural&#x2012;style version). This may indicate only a warning (negative error code) or no error at all (<b><code>U_ZERO_ERROR</code></b>). The actual presence of an error can be tested with <code>intl_is_failure()</code>.</p><p>Invalid arguments detected on the PHP side (before invoking functions of the ICU library) are not recorded for the purposes of this function.</p><p>The last error that occurred in any call to a function of the intl extension, including early argument errors, can be obtained with <code>intl_get_error_code()</code>. This function resets the global error code, but not the object&#x2BC;s error code.</p>
 		 * @return int|false <p>An ICU error code indicating either success, failure or a warning. Returns <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.geterrorcode.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -894,7 +1038,7 @@ namespace {
 		/**
 		 * Get the first day of the week for the calendarʼs locale
 		 * <p>Object-oriented style</p><p>The week day deemed to start a week, either the default value for this locale or the value set with <code>IntlCalendar::setFirstDayOfWeek()</code>.</p>
-		 * @return int|false <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &hellip;, <b><code>IntlCalendar::DOW_SATURDAY</code></b> or <b><code>false</code></b> on failure.</p>
+		 * @return int|false <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &#x2026;, <b><code>IntlCalendar::DOW_SATURDAY</code></b> or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getfirstdayofweek.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -904,7 +1048,7 @@ namespace {
 		 * Get the largest local minimum value for a field
 		 * <p>Object-oriented style</p><p>Returns the largest local minimum for a field. This should be a value larger or equal to that returned by <code>IntlCalendar::getActualMinimum()</code>, which is in its turn larger or equal to that returned by <code>IntlCalendar::getMinimum()</code>. All these three functions return the same value for the Gregorian calendar.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
-		 * @return int|false <p>An <code>int</code> representing a field value, in the field&#700;s unit, or <b><code>false</code></b> on failure.</p>
+		 * @return int|false <p>An <code>int</code> representing a field value, in the field&#x2BC;s unit, or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getgreatestminimum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -926,7 +1070,7 @@ namespace {
 		 * Get the smallest local maximum for a field
 		 * <p>Object-oriented style</p><p>Returns the smallest local maximumw for a field. This should be a value smaller or equal to that returned by <b>IntlCalendar::getActualMaxmimum()</b>, which is in its turn smaller or equal to that returned by <code>IntlCalendar::getMaximum()</code>.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
-		 * @return int|false <p>An <code>int</code> representing a field value in the field&#700;s unit or <b><code>false</code></b> on failure.</p>
+		 * @return int|false <p>An <code>int</code> representing a field value in the field&#x2BC;s unit or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getleastmaximum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -935,7 +1079,7 @@ namespace {
 		/**
 		 * Get the locale associated with the object
 		 * <p>Object-oriented style</p><p>Returns the locale used by this calendar object.</p>
-		 * @param int $type <p>Whether to fetch the actual locale (the locale from which the calendar data originates, with <b><code>Locale::ACTUAL_LOCALE</code></b>) or the valid locale, i.e., the most specific locale supported by ICU relatively to the requested locale &ndash; see <b><code>Locale::VALID_LOCALE</code></b>. From the most general to the most specific, the locales are ordered in this fashion &ndash; actual locale, valid locale, requested locale.</p>
+		 * @param int $type <p>Whether to fetch the actual locale (the locale from which the calendar data originates, with <b><code>Locale::ACTUAL_LOCALE</code></b>) or the valid locale, i.e., the most specific locale supported by ICU relatively to the requested locale &#x2013; see <b><code>Locale::VALID_LOCALE</code></b>. From the most general to the most specific, the locales are ordered in this fashion &#x2013; actual locale, valid locale, requested locale.</p>
 		 * @return string|false <p>A locale string or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getlocale.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -946,7 +1090,7 @@ namespace {
 		 * Get the global maximum value for a field
 		 * <p>Object-oriented style</p><p>Gets the global maximum for a field, in this specific calendar. This value is larger or equal to that returned by <code>IntlCalendar::getActualMaximum()</code>, which is in its turn larger or equal to that returned by <code>IntlCalendar::getLeastMaximum()</code>.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
-		 * @return int|false <p>An <code>int</code> representing a field value in the field&#700;s unit or <b><code>false</code></b> on failure.</p>
+		 * @return int|false <p>An <code>int</code> representing a field value in the field&#x2BC;s unit or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getmaximum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -954,7 +1098,7 @@ namespace {
 
 		/**
 		 * Get minimal number of days the first week in a year or month can have
-		 * <p>Object-oriented style</p><p>Returns the smallest number of days the first week of a year or month must have in the new year or month. For instance, in the Gregorian calendar, if this value is 1, then the first week of the year will necessarily include January 1st, while if this value is 7, then the week with January 1st will be the first week of the year only if the day of the week for January 1st matches the day of the week returned by <code>IntlCalendar::getFirstDayOfWeek()</code>; otherwise it will be the previous year&#700;s last week.</p>
+		 * <p>Object-oriented style</p><p>Returns the smallest number of days the first week of a year or month must have in the new year or month. For instance, in the Gregorian calendar, if this value is 1, then the first week of the year will necessarily include January 1st, while if this value is 7, then the week with January 1st will be the first week of the year only if the day of the week for January 1st matches the day of the week returned by <code>IntlCalendar::getFirstDayOfWeek()</code>; otherwise it will be the previous year&#x2BC;s last week.</p>
 		 * @return int|false <p>An <code>int</code> representing a number of days or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getminimaldaysinfirstweek.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -965,7 +1109,7 @@ namespace {
 		 * Get the global minimum value for a field
 		 * <p>Object-oriented style</p><p>Gets the global minimum for a field, in this specific calendar. This value is smaller or equal to that returned by <code>IntlCalendar::getActualMinimum()</code>, which is in its turn smaller or equal to that returned by <code>IntlCalendar::getGreatestMinimum()</code>. For the Gregorian calendar, these three functions always return the same value (for each field).</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
-		 * @return int|false <p>An <code>int</code> representing a value for the given field in the field&#700;s unit or <b><code>false</code></b> on failure.</p>
+		 * @return int|false <p>An <code>int</code> representing a value for the given field in the field&#x2BC;s unit or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getminimum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -1028,7 +1172,7 @@ namespace {
 		/**
 		 * Get time of the day at which weekend begins or ends
 		 * <p>Object-oriented style</p><p>Returns the number of milliseconds after midnight at which the weekend begins or ends.</p><p>This is only applicable for days of the week for which <code>IntlCalendar::getDayOfWeekType()</code> returns either <b><code>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</code></b> or <b><code>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</code></b>. Calling this function for other days of the week is an error condition.</p><p>This function requires ICU 4.4 or later.</p>
-		 * @param int $dayOfWeek <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &hellip;, <b><code>IntlCalendar::DOW_SATURDAY</code></b>.</p>
+		 * @param int $dayOfWeek <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &#x2026;, <b><code>IntlCalendar::DOW_SATURDAY</code></b>.</p>
 		 * @return int|false <p>The number of milliseconds into the day at which the weekend begins or ends or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getweekendtransition.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -1037,7 +1181,7 @@ namespace {
 
 		/**
 		 * Whether the objectʼs time is in Daylight Savings Time
-		 * <p>Object-oriented style</p><p>Whether, for the instant represented by this object and for this object&#700;s timezone, daylight saving time is in place.</p>
+		 * <p>Object-oriented style</p><p>Whether, for the instant represented by this object and for this object&#x2BC;s timezone, daylight saving time is in place.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> if the date is in Daylight Savings Time, <b><code>false</code></b> otherwise.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
 		 * @link https://php.net/manual/en/intlcalendar.indaylighttime.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -1075,9 +1219,9 @@ namespace {
 
 		/**
 		 * Whether a certain date/time is in the weekend
-		 * <p>Object-oriented style</p><p>Returns whether either the obejct&#700;s current time or the provided timestamp occur during a weekend in this object&#700;s calendar system.</p><p>This function requires ICU 4.4 or later.</p>
-		 * @param ?float $timestamp <p>An optional timestamp representing the number of milliseconds since the epoch, excluding leap seconds. If <b><code>null</code></b>, this object&#700;s current time is used instead.</p>
-		 * @return bool <p>A <code>bool</code> indicating whether the given or this object&#700;s time occurs in a weekend.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
+		 * <p>Object-oriented style</p><p>Returns whether either the obejct&#x2BC;s current time or the provided timestamp occur during a weekend in this object&#x2BC;s calendar system.</p><p>This function requires ICU 4.4 or later.</p>
+		 * @param ?float $timestamp <p>An optional timestamp representing the number of milliseconds since the epoch, excluding leap seconds. If <b><code>null</code></b>, this object&#x2BC;s current time is used instead.</p>
+		 * @return bool <p>A <code>bool</code> indicating whether the given or this object&#x2BC;s time occurs in a weekend.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
 		 * @link https://php.net/manual/en/intlcalendar.isweekend.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -1099,35 +1243,35 @@ namespace {
 		 * <p>Object-oriented style</p><p>Sets either a specific field to the given value, or sets at once several common fields. The range of values that are accepted depend on whether the calendar is using the lenient mode.</p><p>For fields that conflict, the fields that are set later have priority.</p><p>This method cannot be called with exactly four arguments.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
 		 * @param int $value <p>The new value of the given field.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/intlcalendar.set.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function set(int $field, int $value): bool {}
+		public function set(int $field, int $value): true {}
 
 		/**
 		 * Set the day on which the week is deemed to start
 		 * <p>Object-oriented style</p><p>Defines the day of week deemed to start the week. This affects the behavior of fields that depend on the concept of week start and end such as <b><code>IntlCalendar::FIELD_WEEK_OF_YEAR</code></b> and <b><code>IntlCalendar::FIELD_YEAR_WOY</code></b>.</p>
-		 * @param int $dayOfWeek <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &hellip;, <b><code>IntlCalendar::DOW_SATURDAY</code></b>.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @param int $dayOfWeek <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &#x2026;, <b><code>IntlCalendar::DOW_SATURDAY</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/intlcalendar.setfirstdayofweek.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function setFirstDayOfWeek(int $dayOfWeek): bool {}
+		public function setFirstDayOfWeek(int $dayOfWeek): true {}
 
 		/**
 		 * Set whether date/time interpretation is to be lenient
-		 * <p>Object-oriented style</p><p>Defines whether the calendar is &lsquo;lenient mode&rsquo;. In such a mode, some of out-of-bounds values for some fields are accepted, the behavior being similar to that of <code>IntlCalendar::add()</code> (i.e., the value wraps around, carrying into more significant fields each time). If the lenient mode is off, then such values will generate an error.</p>
+		 * <p>Object-oriented style</p><p>Defines whether the calendar is &#x2018;lenient mode&#x2019;. In such a mode, some of out-of-bounds values for some fields are accepted, the behavior being similar to that of <code>IntlCalendar::add()</code> (i.e., the value wraps around, carrying into more significant fields each time). If the lenient mode is off, then such values will generate an error.</p>
 		 * @param bool $lenient <p>Use <b><code>true</code></b> to activate the lenient mode; <b><code>false</code></b> otherwise.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/intlcalendar.setlenient.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function setLenient(bool $lenient): bool {}
+		public function setLenient(bool $lenient): true {}
 
 		/**
 		 * Set minimal number of days the first week in a year or month can have
-		 * <p>Object-oriented style</p><p>Sets the smallest number of days the first week of a year or month must have in the new year or month. For instance, in the Gregorian calendar, if this value is 1, then the first week of the year will necessarily include January 1st, while if this value is 7, then the week with January 1st will be the first week of the year only if the day of the week for January 1st matches the day of the week returned by <code>IntlCalendar::getFirstDayOfWeek()</code>; otherwise it will be the previous year&#700;s last week.</p>
+		 * <p>Object-oriented style</p><p>Sets the smallest number of days the first week of a year or month must have in the new year or month. For instance, in the Gregorian calendar, if this value is 1, then the first week of the year will necessarily include January 1st, while if this value is 7, then the week with January 1st will be the first week of the year only if the day of the week for January 1st matches the day of the week returned by <code>IntlCalendar::getFirstDayOfWeek()</code>; otherwise it will be the previous year&#x2BC;s last week.</p>
 		 * @param int $days <p>The number of minimal days to set.</p>
 		 * @return bool <p><b><code>true</code></b> on success, <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.setminimaldaysinfirstweek.php
@@ -1139,21 +1283,21 @@ namespace {
 		 * Set behavior for handling repeating wall times at negative timezone offset transitions
 		 * <p>Object-oriented style</p><p>Sets the current strategy for dealing with wall times that are repeated whenever the clock is set back during dailight saving time end transitions. The default value is <b><code>IntlCalendar::WALLTIME_LAST</code></b> (take the post-DST instant). The other possible value is <b><code>IntlCalendar::WALLTIME_FIRST</code></b> (take the instant that occurs during DST).</p><p>This function requires ICU 4.9 or later.</p>
 		 * @param int $option <p>One of the constants <b><code>IntlCalendar::WALLTIME_FIRST</code></b> or <b><code>IntlCalendar::WALLTIME_LAST</code></b>.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/intlcalendar.setrepeatedwalltimeoption.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function setRepeatedWallTimeOption(int $option): bool {}
+		public function setRepeatedWallTimeOption(int $option): true {}
 
 		/**
 		 * Set behavior for handling skipped wall times at positive timezone offset transitions
 		 * <p>Object-oriented style</p><p>Sets the current strategy for dealing with wall times that are skipped whenever the clock is forwarded during dailight saving time start transitions. The default value is <b><code>IntlCalendar::WALLTIME_LAST</code></b> (take it as being the same instant as the one when the wall time is one hour more). Alternative values are <b><code>IntlCalendar::WALLTIME_FIRST</code></b> (same instant as the one with a wall time of one hour less) and <b><code>IntlCalendar::WALLTIME_NEXT_VALID</code></b> (same instant as when DST begins).</p><p>This affects only the instant represented by the calendar (as reported by <code>IntlCalendar::getTime()</code>), the field values will not be rewritten accordingly.</p><p>The calendar must be lenient for this option to have any effect, otherwise attempting to set a non-existing time will cause an error.</p><p>This function requires ICU 4.9 or later.</p>
 		 * @param int $option <p>One of the constants <b><code>IntlCalendar::WALLTIME_FIRST</code></b>, <b><code>IntlCalendar::WALLTIME_LAST</code></b> or <b><code>IntlCalendar::WALLTIME_NEXT_VALID</code></b>.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/intlcalendar.setskippedwalltimeoption.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function setSkippedWallTimeOption(int $option): bool {}
+		public function setSkippedWallTimeOption(int $option): true {}
 
 		/**
 		 * Set the calendar time in milliseconds since the epoch
@@ -1168,7 +1312,7 @@ namespace {
 		/**
 		 * Set the timezone used by this calendar
 		 * <p>Object-oriented style</p><p>Defines a new timezone for this calendar. The time represented by the object is preserved to the detriment of the field values.</p>
-		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>The new timezone to be used by this calendar. It can be specified in the following ways:</p><ul> <li> <p><b><code>null</code></b>, in which case the default timezone will be used, as specified in the ini setting date.timezone or through the function <code>date_default_timezone_set()</code> and as returned by <code>date_default_timezone_get()</code>.</p> </li> <li> <p>An <code>IntlTimeZone</code>, which will be used directly.</p> </li> <li> <p>A <code>DateTimeZone</code>. Its identifier will be extracted and an ICU timezone object will be created; the timezone will be backed by ICU&#700;s database, not PHP&#700;s.</p> </li> <li> <p>A <code>string</code>, which should be a valid ICU timezone identifier. See <code>IntlTimeZone::createTimeZoneIDEnumeration()</code>. Raw offsets such as <code>"GMT+08:30"</code> are also accepted.</p> </li> </ul>
+		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>The new timezone to be used by this calendar. It can be specified in the following ways:</p><ul> <li> <p><b><code>null</code></b>, in which case the default timezone will be used, as specified in the ini setting date.timezone or through the function <code>date_default_timezone_set()</code> and as returned by <code>date_default_timezone_get()</code>.</p> </li> <li> <p>An <code>IntlTimeZone</code>, which will be used directly.</p> </li> <li> <p>A <code>DateTimeZone</code>. Its identifier will be extracted and an ICU timezone object will be created; the timezone will be backed by ICU&#x2BC;s database, not PHP&#x2BC;s.</p> </li> <li> <p>A <code>string</code>, which should be a valid ICU timezone identifier. See <code>IntlTimeZone::createTimeZoneIDEnumeration()</code>. Raw offsets such as <code>"GMT+08:30"</code> are also accepted.</p> </li> </ul>
 		 * @return bool <p>Returns <b><code>true</code></b> on success and <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.settimezone.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -1177,8 +1321,8 @@ namespace {
 
 		/**
 		 * Convert an IntlCalendar into a DateTime object
-		 * <p>Object-oriented style</p><p>Create a <code>DateTime</code> object that represents the same instant (up to second precision, with a rounding error of less than 1 second) and has an analog timezone to this object (the difference being <code>DateTime</code>&#700;s timezone will be backed by PHP&#700;s timezone while <code>IntlCalendar</code>&#700;s timezone is backed by ICU&#700;s).</p>
-		 * @return DateTime|false <p>A <code>DateTime</code> object with the same timezone as this object (though using PHP&#700;s database instead of ICU&#700;s) and the same time, except for the smaller precision (second precision instead of millisecond). Returns <b><code>false</code></b> on failure.</p>
+		 * <p>Object-oriented style</p><p>Create a <code>DateTime</code> object that represents the same instant (up to second precision, with a rounding error of less than 1 second) and has an analog timezone to this object (the difference being <code>DateTime</code>&#x2BC;s timezone will be backed by PHP&#x2BC;s timezone while <code>IntlCalendar</code>&#x2BC;s timezone is backed by ICU&#x2BC;s).</p>
+		 * @return DateTime|false <p>A <code>DateTime</code> object with the same timezone as this object (though using PHP&#x2BC;s database instead of ICU&#x2BC;s) and the same time, except for the smaller precision (second precision instead of millisecond). Returns <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.todatetime.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a2
 		 */
@@ -1197,3674 +1341,4046 @@ namespace {
 		 * @var string
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const UNICODE_VERSION = '6.3';
+		public const UNICODE_VERSION = '14.0';
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CODEPOINT_MIN = 0;
+		public const CODEPOINT_MIN = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CODEPOINT_MAX = 1114111;
+		public const CODEPOINT_MAX = 1114111;
 
 		/**
 		 * @var float <p>Special value that is returned by <code>IntlChar::getNumericValue()</code> when no numeric value is defined for a code point.</p>
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const NO_NUMERIC_VALUE = -123456789;
+		public const NO_NUMERIC_VALUE = -123456789;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_ALPHABETIC = 0;
+		public const PROPERTY_ALPHABETIC = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_BINARY_START = 0;
+		public const PROPERTY_BINARY_START = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_ASCII_HEX_DIGIT = 1;
+		public const PROPERTY_ASCII_HEX_DIGIT = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_BIDI_CONTROL = 2;
+		public const PROPERTY_BIDI_CONTROL = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_BIDI_MIRRORED = 3;
+		public const PROPERTY_BIDI_MIRRORED = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_DASH = 4;
+		public const PROPERTY_DASH = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_DEFAULT_IGNORABLE_CODE_POINT = 5;
+		public const PROPERTY_DEFAULT_IGNORABLE_CODE_POINT = 5;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_DEPRECATED = 6;
+		public const PROPERTY_DEPRECATED = 6;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_DIACRITIC = 7;
+		public const PROPERTY_DIACRITIC = 7;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_EXTENDER = 8;
+		public const PROPERTY_EXTENDER = 8;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_FULL_COMPOSITION_EXCLUSION = 9;
+		public const PROPERTY_FULL_COMPOSITION_EXCLUSION = 9;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_GRAPHEME_BASE = 10;
+		public const PROPERTY_GRAPHEME_BASE = 10;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_GRAPHEME_EXTEND = 11;
+		public const PROPERTY_GRAPHEME_EXTEND = 11;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_GRAPHEME_LINK = 12;
+		public const PROPERTY_GRAPHEME_LINK = 12;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_HEX_DIGIT = 13;
+		public const PROPERTY_HEX_DIGIT = 13;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_HYPHEN = 14;
+		public const PROPERTY_HYPHEN = 14;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_ID_CONTINUE = 15;
+		public const PROPERTY_ID_CONTINUE = 15;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_ID_START = 16;
+		public const PROPERTY_ID_START = 16;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_IDEOGRAPHIC = 17;
+		public const PROPERTY_IDEOGRAPHIC = 17;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_IDS_BINARY_OPERATOR = 18;
+		public const PROPERTY_IDS_BINARY_OPERATOR = 18;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_IDS_TRINARY_OPERATOR = 19;
+		public const PROPERTY_IDS_TRINARY_OPERATOR = 19;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_JOIN_CONTROL = 20;
+		public const PROPERTY_JOIN_CONTROL = 20;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_LOGICAL_ORDER_EXCEPTION = 21;
+		public const PROPERTY_LOGICAL_ORDER_EXCEPTION = 21;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_LOWERCASE = 22;
+		public const PROPERTY_LOWERCASE = 22;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_MATH = 23;
+		public const PROPERTY_MATH = 23;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_NONCHARACTER_CODE_POINT = 24;
+		public const PROPERTY_NONCHARACTER_CODE_POINT = 24;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_QUOTATION_MARK = 25;
+		public const PROPERTY_QUOTATION_MARK = 25;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_RADICAL = 26;
+		public const PROPERTY_RADICAL = 26;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_SOFT_DOTTED = 27;
+		public const PROPERTY_SOFT_DOTTED = 27;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_TERMINAL_PUNCTUATION = 28;
+		public const PROPERTY_TERMINAL_PUNCTUATION = 28;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_UNIFIED_IDEOGRAPH = 29;
+		public const PROPERTY_UNIFIED_IDEOGRAPH = 29;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_UPPERCASE = 30;
+		public const PROPERTY_UPPERCASE = 30;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_WHITE_SPACE = 31;
+		public const PROPERTY_WHITE_SPACE = 31;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_XID_CONTINUE = 32;
+		public const PROPERTY_XID_CONTINUE = 32;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_XID_START = 33;
+		public const PROPERTY_XID_START = 33;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_CASE_SENSITIVE = 34;
+		public const PROPERTY_CASE_SENSITIVE = 34;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_S_TERM = 35;
+		public const PROPERTY_S_TERM = 35;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_VARIATION_SELECTOR = 36;
+		public const PROPERTY_VARIATION_SELECTOR = 36;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_NFD_INERT = 37;
+		public const PROPERTY_NFD_INERT = 37;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_NFKD_INERT = 38;
+		public const PROPERTY_NFKD_INERT = 38;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_NFC_INERT = 39;
+		public const PROPERTY_NFC_INERT = 39;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_NFKC_INERT = 40;
+		public const PROPERTY_NFKC_INERT = 40;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_SEGMENT_STARTER = 41;
+		public const PROPERTY_SEGMENT_STARTER = 41;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_PATTERN_SYNTAX = 42;
+		public const PROPERTY_PATTERN_SYNTAX = 42;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_PATTERN_WHITE_SPACE = 43;
+		public const PROPERTY_PATTERN_WHITE_SPACE = 43;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_POSIX_ALNUM = 44;
+		public const PROPERTY_POSIX_ALNUM = 44;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_POSIX_BLANK = 45;
+		public const PROPERTY_POSIX_BLANK = 45;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_POSIX_GRAPH = 46;
+		public const PROPERTY_POSIX_GRAPH = 46;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_POSIX_PRINT = 47;
+		public const PROPERTY_POSIX_PRINT = 47;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_POSIX_XDIGIT = 48;
+		public const PROPERTY_POSIX_XDIGIT = 48;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_CASED = 49;
+		public const PROPERTY_CASED = 49;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_CASE_IGNORABLE = 50;
+		public const PROPERTY_CASE_IGNORABLE = 50;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_CHANGES_WHEN_LOWERCASED = 51;
+		public const PROPERTY_CHANGES_WHEN_LOWERCASED = 51;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_CHANGES_WHEN_UPPERCASED = 52;
+		public const PROPERTY_CHANGES_WHEN_UPPERCASED = 52;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_CHANGES_WHEN_TITLECASED = 53;
+		public const PROPERTY_CHANGES_WHEN_TITLECASED = 53;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_CHANGES_WHEN_CASEFOLDED = 54;
+		public const PROPERTY_CHANGES_WHEN_CASEFOLDED = 54;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_CHANGES_WHEN_CASEMAPPED = 55;
+		public const PROPERTY_CHANGES_WHEN_CASEMAPPED = 55;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_CHANGES_WHEN_NFKC_CASEFOLDED = 56;
+		public const PROPERTY_CHANGES_WHEN_NFKC_CASEFOLDED = 56;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_BINARY_LIMIT = 57;
+		public const PROPERTY_BINARY_LIMIT = 72;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_BIDI_CLASS = 4096;
+		public const PROPERTY_BIDI_CLASS = 4096;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_INT_START = 4096;
+		public const PROPERTY_INT_START = 4096;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_BLOCK = 4097;
+		public const PROPERTY_BLOCK = 4097;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_CANONICAL_COMBINING_CLASS = 4098;
+		public const PROPERTY_CANONICAL_COMBINING_CLASS = 4098;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_DECOMPOSITION_TYPE = 4099;
+		public const PROPERTY_DECOMPOSITION_TYPE = 4099;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_EAST_ASIAN_WIDTH = 4100;
+		public const PROPERTY_EAST_ASIAN_WIDTH = 4100;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_GENERAL_CATEGORY = 4101;
+		public const PROPERTY_GENERAL_CATEGORY = 4101;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_JOINING_GROUP = 4102;
+		public const PROPERTY_JOINING_GROUP = 4102;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_JOINING_TYPE = 4103;
+		public const PROPERTY_JOINING_TYPE = 4103;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_LINE_BREAK = 4104;
+		public const PROPERTY_LINE_BREAK = 4104;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_NUMERIC_TYPE = 4105;
+		public const PROPERTY_NUMERIC_TYPE = 4105;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_SCRIPT = 4106;
+		public const PROPERTY_SCRIPT = 4106;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_HANGUL_SYLLABLE_TYPE = 4107;
+		public const PROPERTY_HANGUL_SYLLABLE_TYPE = 4107;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_NFD_QUICK_CHECK = 4108;
+		public const PROPERTY_NFD_QUICK_CHECK = 4108;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_NFKD_QUICK_CHECK = 4109;
+		public const PROPERTY_NFKD_QUICK_CHECK = 4109;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_NFC_QUICK_CHECK = 4110;
+		public const PROPERTY_NFC_QUICK_CHECK = 4110;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_NFKC_QUICK_CHECK = 4111;
+		public const PROPERTY_NFKC_QUICK_CHECK = 4111;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_LEAD_CANONICAL_COMBINING_CLASS = 4112;
+		public const PROPERTY_LEAD_CANONICAL_COMBINING_CLASS = 4112;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_TRAIL_CANONICAL_COMBINING_CLASS = 4113;
+		public const PROPERTY_TRAIL_CANONICAL_COMBINING_CLASS = 4113;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_GRAPHEME_CLUSTER_BREAK = 4114;
+		public const PROPERTY_GRAPHEME_CLUSTER_BREAK = 4114;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_SENTENCE_BREAK = 4115;
+		public const PROPERTY_SENTENCE_BREAK = 4115;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_WORD_BREAK = 4116;
+		public const PROPERTY_WORD_BREAK = 4116;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_BIDI_PAIRED_BRACKET_TYPE = 4117;
+		public const PROPERTY_BIDI_PAIRED_BRACKET_TYPE = 4117;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_INT_LIMIT = 4118;
+		public const PROPERTY_INT_LIMIT = 4121;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_GENERAL_CATEGORY_MASK = 8192;
+		public const PROPERTY_GENERAL_CATEGORY_MASK = 8192;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_MASK_START = 8192;
+		public const PROPERTY_MASK_START = 8192;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_MASK_LIMIT = 8193;
+		public const PROPERTY_MASK_LIMIT = 8193;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_NUMERIC_VALUE = 12288;
+		public const PROPERTY_NUMERIC_VALUE = 12288;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_DOUBLE_START = 12288;
+		public const PROPERTY_DOUBLE_START = 12288;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_DOUBLE_LIMIT = 12289;
+		public const PROPERTY_DOUBLE_LIMIT = 12289;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_AGE = 16384;
+		public const PROPERTY_AGE = 16384;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_STRING_START = 16384;
+		public const PROPERTY_STRING_START = 16384;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_BIDI_MIRRORING_GLYPH = 16385;
+		public const PROPERTY_BIDI_MIRRORING_GLYPH = 16385;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_CASE_FOLDING = 16386;
+		public const PROPERTY_CASE_FOLDING = 16386;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_ISO_COMMENT = 16387;
+		public const PROPERTY_ISO_COMMENT = 16387;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_LOWERCASE_MAPPING = 16388;
+		public const PROPERTY_LOWERCASE_MAPPING = 16388;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_NAME = 16389;
+		public const PROPERTY_NAME = 16389;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_SIMPLE_CASE_FOLDING = 16390;
+		public const PROPERTY_SIMPLE_CASE_FOLDING = 16390;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_SIMPLE_LOWERCASE_MAPPING = 16391;
+		public const PROPERTY_SIMPLE_LOWERCASE_MAPPING = 16391;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_SIMPLE_TITLECASE_MAPPING = 16392;
+		public const PROPERTY_SIMPLE_TITLECASE_MAPPING = 16392;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_SIMPLE_UPPERCASE_MAPPING = 16393;
+		public const PROPERTY_SIMPLE_UPPERCASE_MAPPING = 16393;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_TITLECASE_MAPPING = 16394;
+		public const PROPERTY_TITLECASE_MAPPING = 16394;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_UNICODE_1_NAME = 16395;
+		public const PROPERTY_UNICODE_1_NAME = 16395;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_UPPERCASE_MAPPING = 16396;
+		public const PROPERTY_UPPERCASE_MAPPING = 16396;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_BIDI_PAIRED_BRACKET = 16397;
+		public const PROPERTY_BIDI_PAIRED_BRACKET = 16397;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_STRING_LIMIT = 16398;
+		public const PROPERTY_STRING_LIMIT = 16398;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_SCRIPT_EXTENSIONS = 28672;
+		public const PROPERTY_SCRIPT_EXTENSIONS = 28672;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_OTHER_PROPERTY_START = 28672;
+		public const PROPERTY_OTHER_PROPERTY_START = 28672;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_OTHER_PROPERTY_LIMIT = 28673;
+		public const PROPERTY_OTHER_PROPERTY_LIMIT = 28673;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_INVALID_CODE = -1;
+		public const PROPERTY_INVALID_CODE = -1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_UNASSIGNED = 0;
+		public const CHAR_CATEGORY_UNASSIGNED = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_GENERAL_OTHER_TYPES = 0;
+		public const CHAR_CATEGORY_GENERAL_OTHER_TYPES = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_UPPERCASE_LETTER = 1;
+		public const CHAR_CATEGORY_UPPERCASE_LETTER = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_LOWERCASE_LETTER = 2;
+		public const CHAR_CATEGORY_LOWERCASE_LETTER = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_TITLECASE_LETTER = 3;
+		public const CHAR_CATEGORY_TITLECASE_LETTER = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_MODIFIER_LETTER = 4;
+		public const CHAR_CATEGORY_MODIFIER_LETTER = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_OTHER_LETTER = 5;
+		public const CHAR_CATEGORY_OTHER_LETTER = 5;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_NON_SPACING_MARK = 6;
+		public const CHAR_CATEGORY_NON_SPACING_MARK = 6;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_ENCLOSING_MARK = 7;
+		public const CHAR_CATEGORY_ENCLOSING_MARK = 7;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_COMBINING_SPACING_MARK = 8;
+		public const CHAR_CATEGORY_COMBINING_SPACING_MARK = 8;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_DECIMAL_DIGIT_NUMBER = 9;
+		public const CHAR_CATEGORY_DECIMAL_DIGIT_NUMBER = 9;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_LETTER_NUMBER = 10;
+		public const CHAR_CATEGORY_LETTER_NUMBER = 10;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_OTHER_NUMBER = 11;
+		public const CHAR_CATEGORY_OTHER_NUMBER = 11;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_SPACE_SEPARATOR = 12;
+		public const CHAR_CATEGORY_SPACE_SEPARATOR = 12;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_LINE_SEPARATOR = 13;
+		public const CHAR_CATEGORY_LINE_SEPARATOR = 13;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_PARAGRAPH_SEPARATOR = 14;
+		public const CHAR_CATEGORY_PARAGRAPH_SEPARATOR = 14;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_CONTROL_CHAR = 15;
+		public const CHAR_CATEGORY_CONTROL_CHAR = 15;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_FORMAT_CHAR = 16;
+		public const CHAR_CATEGORY_FORMAT_CHAR = 16;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_PRIVATE_USE_CHAR = 17;
+		public const CHAR_CATEGORY_PRIVATE_USE_CHAR = 17;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_SURROGATE = 18;
+		public const CHAR_CATEGORY_SURROGATE = 18;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_DASH_PUNCTUATION = 19;
+		public const CHAR_CATEGORY_DASH_PUNCTUATION = 19;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_START_PUNCTUATION = 20;
+		public const CHAR_CATEGORY_START_PUNCTUATION = 20;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_END_PUNCTUATION = 21;
+		public const CHAR_CATEGORY_END_PUNCTUATION = 21;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_CONNECTOR_PUNCTUATION = 22;
+		public const CHAR_CATEGORY_CONNECTOR_PUNCTUATION = 22;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_OTHER_PUNCTUATION = 23;
+		public const CHAR_CATEGORY_OTHER_PUNCTUATION = 23;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_MATH_SYMBOL = 24;
+		public const CHAR_CATEGORY_MATH_SYMBOL = 24;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_CURRENCY_SYMBOL = 25;
+		public const CHAR_CATEGORY_CURRENCY_SYMBOL = 25;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_MODIFIER_SYMBOL = 26;
+		public const CHAR_CATEGORY_MODIFIER_SYMBOL = 26;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_OTHER_SYMBOL = 27;
+		public const CHAR_CATEGORY_OTHER_SYMBOL = 27;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_INITIAL_PUNCTUATION = 28;
+		public const CHAR_CATEGORY_INITIAL_PUNCTUATION = 28;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_FINAL_PUNCTUATION = 29;
+		public const CHAR_CATEGORY_FINAL_PUNCTUATION = 29;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_CATEGORY_CHAR_CATEGORY_COUNT = 30;
+		public const CHAR_CATEGORY_CHAR_CATEGORY_COUNT = 30;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_LEFT_TO_RIGHT = 0;
+		public const CHAR_DIRECTION_LEFT_TO_RIGHT = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_RIGHT_TO_LEFT = 1;
+		public const CHAR_DIRECTION_RIGHT_TO_LEFT = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_EUROPEAN_NUMBER = 2;
+		public const CHAR_DIRECTION_EUROPEAN_NUMBER = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_EUROPEAN_NUMBER_SEPARATOR = 3;
+		public const CHAR_DIRECTION_EUROPEAN_NUMBER_SEPARATOR = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_EUROPEAN_NUMBER_TERMINATOR = 4;
+		public const CHAR_DIRECTION_EUROPEAN_NUMBER_TERMINATOR = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_ARABIC_NUMBER = 5;
+		public const CHAR_DIRECTION_ARABIC_NUMBER = 5;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_COMMON_NUMBER_SEPARATOR = 6;
+		public const CHAR_DIRECTION_COMMON_NUMBER_SEPARATOR = 6;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_BLOCK_SEPARATOR = 7;
+		public const CHAR_DIRECTION_BLOCK_SEPARATOR = 7;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_SEGMENT_SEPARATOR = 8;
+		public const CHAR_DIRECTION_SEGMENT_SEPARATOR = 8;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_WHITE_SPACE_NEUTRAL = 9;
+		public const CHAR_DIRECTION_WHITE_SPACE_NEUTRAL = 9;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_OTHER_NEUTRAL = 10;
+		public const CHAR_DIRECTION_OTHER_NEUTRAL = 10;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_LEFT_TO_RIGHT_EMBEDDING = 11;
+		public const CHAR_DIRECTION_LEFT_TO_RIGHT_EMBEDDING = 11;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_LEFT_TO_RIGHT_OVERRIDE = 12;
+		public const CHAR_DIRECTION_LEFT_TO_RIGHT_OVERRIDE = 12;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_RIGHT_TO_LEFT_ARABIC = 13;
+		public const CHAR_DIRECTION_RIGHT_TO_LEFT_ARABIC = 13;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_RIGHT_TO_LEFT_EMBEDDING = 14;
+		public const CHAR_DIRECTION_RIGHT_TO_LEFT_EMBEDDING = 14;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_RIGHT_TO_LEFT_OVERRIDE = 15;
+		public const CHAR_DIRECTION_RIGHT_TO_LEFT_OVERRIDE = 15;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_POP_DIRECTIONAL_FORMAT = 16;
+		public const CHAR_DIRECTION_POP_DIRECTIONAL_FORMAT = 16;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_DIR_NON_SPACING_MARK = 17;
+		public const CHAR_DIRECTION_DIR_NON_SPACING_MARK = 17;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_BOUNDARY_NEUTRAL = 18;
+		public const CHAR_DIRECTION_BOUNDARY_NEUTRAL = 18;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_FIRST_STRONG_ISOLATE = 19;
+		public const CHAR_DIRECTION_FIRST_STRONG_ISOLATE = 19;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_LEFT_TO_RIGHT_ISOLATE = 20;
+		public const CHAR_DIRECTION_LEFT_TO_RIGHT_ISOLATE = 20;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_RIGHT_TO_LEFT_ISOLATE = 21;
+		public const CHAR_DIRECTION_RIGHT_TO_LEFT_ISOLATE = 21;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_POP_DIRECTIONAL_ISOLATE = 22;
+		public const CHAR_DIRECTION_POP_DIRECTIONAL_ISOLATE = 22;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_DIRECTION_CHAR_DIRECTION_COUNT = 23;
+		public const CHAR_DIRECTION_CHAR_DIRECTION_COUNT = 23;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_NO_BLOCK = 0;
+		public const BLOCK_CODE_NO_BLOCK = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BASIC_LATIN = 1;
+		public const BLOCK_CODE_BASIC_LATIN = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LATIN_1_SUPPLEMENT = 2;
+		public const BLOCK_CODE_LATIN_1_SUPPLEMENT = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LATIN_EXTENDED_A = 3;
+		public const BLOCK_CODE_LATIN_EXTENDED_A = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LATIN_EXTENDED_B = 4;
+		public const BLOCK_CODE_LATIN_EXTENDED_B = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_IPA_EXTENSIONS = 5;
+		public const BLOCK_CODE_IPA_EXTENSIONS = 5;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SPACING_MODIFIER_LETTERS = 6;
+		public const BLOCK_CODE_SPACING_MODIFIER_LETTERS = 6;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_COMBINING_DIACRITICAL_MARKS = 7;
+		public const BLOCK_CODE_COMBINING_DIACRITICAL_MARKS = 7;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_GREEK = 8;
+		public const BLOCK_CODE_GREEK = 8;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CYRILLIC = 9;
+		public const BLOCK_CODE_CYRILLIC = 9;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ARMENIAN = 10;
+		public const BLOCK_CODE_ARMENIAN = 10;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_HEBREW = 11;
+		public const BLOCK_CODE_HEBREW = 11;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ARABIC = 12;
+		public const BLOCK_CODE_ARABIC = 12;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SYRIAC = 13;
+		public const BLOCK_CODE_SYRIAC = 13;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_THAANA = 14;
+		public const BLOCK_CODE_THAANA = 14;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_DEVANAGARI = 15;
+		public const BLOCK_CODE_DEVANAGARI = 15;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BENGALI = 16;
+		public const BLOCK_CODE_BENGALI = 16;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_GURMUKHI = 17;
+		public const BLOCK_CODE_GURMUKHI = 17;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_GUJARATI = 18;
+		public const BLOCK_CODE_GUJARATI = 18;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ORIYA = 19;
+		public const BLOCK_CODE_ORIYA = 19;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_TAMIL = 20;
+		public const BLOCK_CODE_TAMIL = 20;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_TELUGU = 21;
+		public const BLOCK_CODE_TELUGU = 21;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_KANNADA = 22;
+		public const BLOCK_CODE_KANNADA = 22;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MALAYALAM = 23;
+		public const BLOCK_CODE_MALAYALAM = 23;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SINHALA = 24;
+		public const BLOCK_CODE_SINHALA = 24;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_THAI = 25;
+		public const BLOCK_CODE_THAI = 25;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LAO = 26;
+		public const BLOCK_CODE_LAO = 26;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_TIBETAN = 27;
+		public const BLOCK_CODE_TIBETAN = 27;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MYANMAR = 28;
+		public const BLOCK_CODE_MYANMAR = 28;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_GEORGIAN = 29;
+		public const BLOCK_CODE_GEORGIAN = 29;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_HANGUL_JAMO = 30;
+		public const BLOCK_CODE_HANGUL_JAMO = 30;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ETHIOPIC = 31;
+		public const BLOCK_CODE_ETHIOPIC = 31;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CHEROKEE = 32;
+		public const BLOCK_CODE_CHEROKEE = 32;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS = 33;
+		public const BLOCK_CODE_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS = 33;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_OGHAM = 34;
+		public const BLOCK_CODE_OGHAM = 34;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_RUNIC = 35;
+		public const BLOCK_CODE_RUNIC = 35;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_KHMER = 36;
+		public const BLOCK_CODE_KHMER = 36;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MONGOLIAN = 37;
+		public const BLOCK_CODE_MONGOLIAN = 37;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LATIN_EXTENDED_ADDITIONAL = 38;
+		public const BLOCK_CODE_LATIN_EXTENDED_ADDITIONAL = 38;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_GREEK_EXTENDED = 39;
+		public const BLOCK_CODE_GREEK_EXTENDED = 39;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_GENERAL_PUNCTUATION = 40;
+		public const BLOCK_CODE_GENERAL_PUNCTUATION = 40;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SUPERSCRIPTS_AND_SUBSCRIPTS = 41;
+		public const BLOCK_CODE_SUPERSCRIPTS_AND_SUBSCRIPTS = 41;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CURRENCY_SYMBOLS = 42;
+		public const BLOCK_CODE_CURRENCY_SYMBOLS = 42;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_COMBINING_MARKS_FOR_SYMBOLS = 43;
+		public const BLOCK_CODE_COMBINING_MARKS_FOR_SYMBOLS = 43;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LETTERLIKE_SYMBOLS = 44;
+		public const BLOCK_CODE_LETTERLIKE_SYMBOLS = 44;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_NUMBER_FORMS = 45;
+		public const BLOCK_CODE_NUMBER_FORMS = 45;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ARROWS = 46;
+		public const BLOCK_CODE_ARROWS = 46;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MATHEMATICAL_OPERATORS = 47;
+		public const BLOCK_CODE_MATHEMATICAL_OPERATORS = 47;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MISCELLANEOUS_TECHNICAL = 48;
+		public const BLOCK_CODE_MISCELLANEOUS_TECHNICAL = 48;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CONTROL_PICTURES = 49;
+		public const BLOCK_CODE_CONTROL_PICTURES = 49;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_OPTICAL_CHARACTER_RECOGNITION = 50;
+		public const BLOCK_CODE_OPTICAL_CHARACTER_RECOGNITION = 50;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ENCLOSED_ALPHANUMERICS = 51;
+		public const BLOCK_CODE_ENCLOSED_ALPHANUMERICS = 51;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BOX_DRAWING = 52;
+		public const BLOCK_CODE_BOX_DRAWING = 52;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BLOCK_ELEMENTS = 53;
+		public const BLOCK_CODE_BLOCK_ELEMENTS = 53;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_GEOMETRIC_SHAPES = 54;
+		public const BLOCK_CODE_GEOMETRIC_SHAPES = 54;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MISCELLANEOUS_SYMBOLS = 55;
+		public const BLOCK_CODE_MISCELLANEOUS_SYMBOLS = 55;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_DINGBATS = 56;
+		public const BLOCK_CODE_DINGBATS = 56;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BRAILLE_PATTERNS = 57;
+		public const BLOCK_CODE_BRAILLE_PATTERNS = 57;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CJK_RADICALS_SUPPLEMENT = 58;
+		public const BLOCK_CODE_CJK_RADICALS_SUPPLEMENT = 58;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_KANGXI_RADICALS = 59;
+		public const BLOCK_CODE_KANGXI_RADICALS = 59;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_IDEOGRAPHIC_DESCRIPTION_CHARACTERS = 60;
+		public const BLOCK_CODE_IDEOGRAPHIC_DESCRIPTION_CHARACTERS = 60;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CJK_SYMBOLS_AND_PUNCTUATION = 61;
+		public const BLOCK_CODE_CJK_SYMBOLS_AND_PUNCTUATION = 61;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_HIRAGANA = 62;
+		public const BLOCK_CODE_HIRAGANA = 62;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_KATAKANA = 63;
+		public const BLOCK_CODE_KATAKANA = 63;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BOPOMOFO = 64;
+		public const BLOCK_CODE_BOPOMOFO = 64;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_HANGUL_COMPATIBILITY_JAMO = 65;
+		public const BLOCK_CODE_HANGUL_COMPATIBILITY_JAMO = 65;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_KANBUN = 66;
+		public const BLOCK_CODE_KANBUN = 66;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BOPOMOFO_EXTENDED = 67;
+		public const BLOCK_CODE_BOPOMOFO_EXTENDED = 67;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ENCLOSED_CJK_LETTERS_AND_MONTHS = 68;
+		public const BLOCK_CODE_ENCLOSED_CJK_LETTERS_AND_MONTHS = 68;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CJK_COMPATIBILITY = 69;
+		public const BLOCK_CODE_CJK_COMPATIBILITY = 69;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A = 70;
+		public const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A = 70;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS = 71;
+		public const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS = 71;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_YI_SYLLABLES = 72;
+		public const BLOCK_CODE_YI_SYLLABLES = 72;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_YI_RADICALS = 73;
+		public const BLOCK_CODE_YI_RADICALS = 73;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_HANGUL_SYLLABLES = 74;
+		public const BLOCK_CODE_HANGUL_SYLLABLES = 74;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_HIGH_SURROGATES = 75;
+		public const BLOCK_CODE_HIGH_SURROGATES = 75;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_HIGH_PRIVATE_USE_SURROGATES = 76;
+		public const BLOCK_CODE_HIGH_PRIVATE_USE_SURROGATES = 76;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LOW_SURROGATES = 77;
+		public const BLOCK_CODE_LOW_SURROGATES = 77;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_PRIVATE_USE_AREA = 78;
+		public const BLOCK_CODE_PRIVATE_USE_AREA = 78;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_PRIVATE_USE = 78;
+		public const BLOCK_CODE_PRIVATE_USE = 78;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CJK_COMPATIBILITY_IDEOGRAPHS = 79;
+		public const BLOCK_CODE_CJK_COMPATIBILITY_IDEOGRAPHS = 79;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ALPHABETIC_PRESENTATION_FORMS = 80;
+		public const BLOCK_CODE_ALPHABETIC_PRESENTATION_FORMS = 80;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ARABIC_PRESENTATION_FORMS_A = 81;
+		public const BLOCK_CODE_ARABIC_PRESENTATION_FORMS_A = 81;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_COMBINING_HALF_MARKS = 82;
+		public const BLOCK_CODE_COMBINING_HALF_MARKS = 82;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CJK_COMPATIBILITY_FORMS = 83;
+		public const BLOCK_CODE_CJK_COMPATIBILITY_FORMS = 83;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SMALL_FORM_VARIANTS = 84;
+		public const BLOCK_CODE_SMALL_FORM_VARIANTS = 84;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ARABIC_PRESENTATION_FORMS_B = 85;
+		public const BLOCK_CODE_ARABIC_PRESENTATION_FORMS_B = 85;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SPECIALS = 86;
+		public const BLOCK_CODE_SPECIALS = 86;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_HALFWIDTH_AND_FULLWIDTH_FORMS = 87;
+		public const BLOCK_CODE_HALFWIDTH_AND_FULLWIDTH_FORMS = 87;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_OLD_ITALIC = 88;
+		public const BLOCK_CODE_OLD_ITALIC = 88;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_GOTHIC = 89;
+		public const BLOCK_CODE_GOTHIC = 89;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_DESERET = 90;
+		public const BLOCK_CODE_DESERET = 90;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BYZANTINE_MUSICAL_SYMBOLS = 91;
+		public const BLOCK_CODE_BYZANTINE_MUSICAL_SYMBOLS = 91;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MUSICAL_SYMBOLS = 92;
+		public const BLOCK_CODE_MUSICAL_SYMBOLS = 92;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MATHEMATICAL_ALPHANUMERIC_SYMBOLS = 93;
+		public const BLOCK_CODE_MATHEMATICAL_ALPHANUMERIC_SYMBOLS = 93;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B = 94;
+		public const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B = 94;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT = 95;
+		public const BLOCK_CODE_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT = 95;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_TAGS = 96;
+		public const BLOCK_CODE_TAGS = 96;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CYRILLIC_SUPPLEMENT = 97;
+		public const BLOCK_CODE_CYRILLIC_SUPPLEMENT = 97;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CYRILLIC_SUPPLEMENTARY = 97;
+		public const BLOCK_CODE_CYRILLIC_SUPPLEMENTARY = 97;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_TAGALOG = 98;
+		public const BLOCK_CODE_TAGALOG = 98;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_HANUNOO = 99;
+		public const BLOCK_CODE_HANUNOO = 99;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BUHID = 100;
+		public const BLOCK_CODE_BUHID = 100;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_TAGBANWA = 101;
+		public const BLOCK_CODE_TAGBANWA = 101;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A = 102;
+		public const BLOCK_CODE_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A = 102;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SUPPLEMENTAL_ARROWS_A = 103;
+		public const BLOCK_CODE_SUPPLEMENTAL_ARROWS_A = 103;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SUPPLEMENTAL_ARROWS_B = 104;
+		public const BLOCK_CODE_SUPPLEMENTAL_ARROWS_B = 104;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B = 105;
+		public const BLOCK_CODE_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B = 105;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SUPPLEMENTAL_MATHEMATICAL_OPERATORS = 106;
+		public const BLOCK_CODE_SUPPLEMENTAL_MATHEMATICAL_OPERATORS = 106;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_KATAKANA_PHONETIC_EXTENSIONS = 107;
+		public const BLOCK_CODE_KATAKANA_PHONETIC_EXTENSIONS = 107;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_VARIATION_SELECTORS = 108;
+		public const BLOCK_CODE_VARIATION_SELECTORS = 108;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SUPPLEMENTARY_PRIVATE_USE_AREA_A = 109;
+		public const BLOCK_CODE_SUPPLEMENTARY_PRIVATE_USE_AREA_A = 109;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SUPPLEMENTARY_PRIVATE_USE_AREA_B = 110;
+		public const BLOCK_CODE_SUPPLEMENTARY_PRIVATE_USE_AREA_B = 110;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LIMBU = 111;
+		public const BLOCK_CODE_LIMBU = 111;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_TAI_LE = 112;
+		public const BLOCK_CODE_TAI_LE = 112;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_KHMER_SYMBOLS = 113;
+		public const BLOCK_CODE_KHMER_SYMBOLS = 113;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_PHONETIC_EXTENSIONS = 114;
+		public const BLOCK_CODE_PHONETIC_EXTENSIONS = 114;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MISCELLANEOUS_SYMBOLS_AND_ARROWS = 115;
+		public const BLOCK_CODE_MISCELLANEOUS_SYMBOLS_AND_ARROWS = 115;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_YIJING_HEXAGRAM_SYMBOLS = 116;
+		public const BLOCK_CODE_YIJING_HEXAGRAM_SYMBOLS = 116;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LINEAR_B_SYLLABARY = 117;
+		public const BLOCK_CODE_LINEAR_B_SYLLABARY = 117;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LINEAR_B_IDEOGRAMS = 118;
+		public const BLOCK_CODE_LINEAR_B_IDEOGRAMS = 118;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_AEGEAN_NUMBERS = 119;
+		public const BLOCK_CODE_AEGEAN_NUMBERS = 119;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_UGARITIC = 120;
+		public const BLOCK_CODE_UGARITIC = 120;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SHAVIAN = 121;
+		public const BLOCK_CODE_SHAVIAN = 121;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_OSMANYA = 122;
+		public const BLOCK_CODE_OSMANYA = 122;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CYPRIOT_SYLLABARY = 123;
+		public const BLOCK_CODE_CYPRIOT_SYLLABARY = 123;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_TAI_XUAN_JING_SYMBOLS = 124;
+		public const BLOCK_CODE_TAI_XUAN_JING_SYMBOLS = 124;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_VARIATION_SELECTORS_SUPPLEMENT = 125;
+		public const BLOCK_CODE_VARIATION_SELECTORS_SUPPLEMENT = 125;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ANCIENT_GREEK_MUSICAL_NOTATION = 126;
+		public const BLOCK_CODE_ANCIENT_GREEK_MUSICAL_NOTATION = 126;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ANCIENT_GREEK_NUMBERS = 127;
+		public const BLOCK_CODE_ANCIENT_GREEK_NUMBERS = 127;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ARABIC_SUPPLEMENT = 128;
+		public const BLOCK_CODE_ARABIC_SUPPLEMENT = 128;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BUGINESE = 129;
+		public const BLOCK_CODE_BUGINESE = 129;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CJK_STROKES = 130;
+		public const BLOCK_CODE_CJK_STROKES = 130;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT = 131;
+		public const BLOCK_CODE_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT = 131;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_COPTIC = 132;
+		public const BLOCK_CODE_COPTIC = 132;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ETHIOPIC_EXTENDED = 133;
+		public const BLOCK_CODE_ETHIOPIC_EXTENDED = 133;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ETHIOPIC_SUPPLEMENT = 134;
+		public const BLOCK_CODE_ETHIOPIC_SUPPLEMENT = 134;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_GEORGIAN_SUPPLEMENT = 135;
+		public const BLOCK_CODE_GEORGIAN_SUPPLEMENT = 135;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_GLAGOLITIC = 136;
+		public const BLOCK_CODE_GLAGOLITIC = 136;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_KHAROSHTHI = 137;
+		public const BLOCK_CODE_KHAROSHTHI = 137;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MODIFIER_TONE_LETTERS = 138;
+		public const BLOCK_CODE_MODIFIER_TONE_LETTERS = 138;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_NEW_TAI_LUE = 139;
+		public const BLOCK_CODE_NEW_TAI_LUE = 139;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_OLD_PERSIAN = 140;
+		public const BLOCK_CODE_OLD_PERSIAN = 140;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_PHONETIC_EXTENSIONS_SUPPLEMENT = 141;
+		public const BLOCK_CODE_PHONETIC_EXTENSIONS_SUPPLEMENT = 141;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SUPPLEMENTAL_PUNCTUATION = 142;
+		public const BLOCK_CODE_SUPPLEMENTAL_PUNCTUATION = 142;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SYLOTI_NAGRI = 143;
+		public const BLOCK_CODE_SYLOTI_NAGRI = 143;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_TIFINAGH = 144;
+		public const BLOCK_CODE_TIFINAGH = 144;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_VERTICAL_FORMS = 145;
+		public const BLOCK_CODE_VERTICAL_FORMS = 145;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_NKO = 146;
+		public const BLOCK_CODE_NKO = 146;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BALINESE = 147;
+		public const BLOCK_CODE_BALINESE = 147;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LATIN_EXTENDED_C = 148;
+		public const BLOCK_CODE_LATIN_EXTENDED_C = 148;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LATIN_EXTENDED_D = 149;
+		public const BLOCK_CODE_LATIN_EXTENDED_D = 149;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_PHAGS_PA = 150;
+		public const BLOCK_CODE_PHAGS_PA = 150;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_PHOENICIAN = 151;
+		public const BLOCK_CODE_PHOENICIAN = 151;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CUNEIFORM = 152;
+		public const BLOCK_CODE_CUNEIFORM = 152;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CUNEIFORM_NUMBERS_AND_PUNCTUATION = 153;
+		public const BLOCK_CODE_CUNEIFORM_NUMBERS_AND_PUNCTUATION = 153;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_COUNTING_ROD_NUMERALS = 154;
+		public const BLOCK_CODE_COUNTING_ROD_NUMERALS = 154;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SUNDANESE = 155;
+		public const BLOCK_CODE_SUNDANESE = 155;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LEPCHA = 156;
+		public const BLOCK_CODE_LEPCHA = 156;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_OL_CHIKI = 157;
+		public const BLOCK_CODE_OL_CHIKI = 157;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CYRILLIC_EXTENDED_A = 158;
+		public const BLOCK_CODE_CYRILLIC_EXTENDED_A = 158;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_VAI = 159;
+		public const BLOCK_CODE_VAI = 159;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CYRILLIC_EXTENDED_B = 160;
+		public const BLOCK_CODE_CYRILLIC_EXTENDED_B = 160;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SAURASHTRA = 161;
+		public const BLOCK_CODE_SAURASHTRA = 161;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_KAYAH_LI = 162;
+		public const BLOCK_CODE_KAYAH_LI = 162;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_REJANG = 163;
+		public const BLOCK_CODE_REJANG = 163;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CHAM = 164;
+		public const BLOCK_CODE_CHAM = 164;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ANCIENT_SYMBOLS = 165;
+		public const BLOCK_CODE_ANCIENT_SYMBOLS = 165;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_PHAISTOS_DISC = 166;
+		public const BLOCK_CODE_PHAISTOS_DISC = 166;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LYCIAN = 167;
+		public const BLOCK_CODE_LYCIAN = 167;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CARIAN = 168;
+		public const BLOCK_CODE_CARIAN = 168;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LYDIAN = 169;
+		public const BLOCK_CODE_LYDIAN = 169;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MAHJONG_TILES = 170;
+		public const BLOCK_CODE_MAHJONG_TILES = 170;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_DOMINO_TILES = 171;
+		public const BLOCK_CODE_DOMINO_TILES = 171;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SAMARITAN = 172;
+		public const BLOCK_CODE_SAMARITAN = 172;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED = 173;
+		public const BLOCK_CODE_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED = 173;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_TAI_THAM = 174;
+		public const BLOCK_CODE_TAI_THAM = 174;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_VEDIC_EXTENSIONS = 175;
+		public const BLOCK_CODE_VEDIC_EXTENSIONS = 175;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_LISU = 176;
+		public const BLOCK_CODE_LISU = 176;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BAMUM = 177;
+		public const BLOCK_CODE_BAMUM = 177;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_COMMON_INDIC_NUMBER_FORMS = 178;
+		public const BLOCK_CODE_COMMON_INDIC_NUMBER_FORMS = 178;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_DEVANAGARI_EXTENDED = 179;
+		public const BLOCK_CODE_DEVANAGARI_EXTENDED = 179;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_HANGUL_JAMO_EXTENDED_A = 180;
+		public const BLOCK_CODE_HANGUL_JAMO_EXTENDED_A = 180;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_JAVANESE = 181;
+		public const BLOCK_CODE_JAVANESE = 181;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MYANMAR_EXTENDED_A = 182;
+		public const BLOCK_CODE_MYANMAR_EXTENDED_A = 182;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_TAI_VIET = 183;
+		public const BLOCK_CODE_TAI_VIET = 183;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MEETEI_MAYEK = 184;
+		public const BLOCK_CODE_MEETEI_MAYEK = 184;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_HANGUL_JAMO_EXTENDED_B = 185;
+		public const BLOCK_CODE_HANGUL_JAMO_EXTENDED_B = 185;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_IMPERIAL_ARAMAIC = 186;
+		public const BLOCK_CODE_IMPERIAL_ARAMAIC = 186;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_OLD_SOUTH_ARABIAN = 187;
+		public const BLOCK_CODE_OLD_SOUTH_ARABIAN = 187;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_AVESTAN = 188;
+		public const BLOCK_CODE_AVESTAN = 188;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_INSCRIPTIONAL_PARTHIAN = 189;
+		public const BLOCK_CODE_INSCRIPTIONAL_PARTHIAN = 189;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_INSCRIPTIONAL_PAHLAVI = 190;
+		public const BLOCK_CODE_INSCRIPTIONAL_PAHLAVI = 190;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_OLD_TURKIC = 191;
+		public const BLOCK_CODE_OLD_TURKIC = 191;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_RUMI_NUMERAL_SYMBOLS = 192;
+		public const BLOCK_CODE_RUMI_NUMERAL_SYMBOLS = 192;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_KAITHI = 193;
+		public const BLOCK_CODE_KAITHI = 193;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_EGYPTIAN_HIEROGLYPHS = 194;
+		public const BLOCK_CODE_EGYPTIAN_HIEROGLYPHS = 194;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ENCLOSED_ALPHANUMERIC_SUPPLEMENT = 195;
+		public const BLOCK_CODE_ENCLOSED_ALPHANUMERIC_SUPPLEMENT = 195;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT = 196;
+		public const BLOCK_CODE_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT = 196;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C = 197;
+		public const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C = 197;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MANDAIC = 198;
+		public const BLOCK_CODE_MANDAIC = 198;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BATAK = 199;
+		public const BLOCK_CODE_BATAK = 199;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ETHIOPIC_EXTENDED_A = 200;
+		public const BLOCK_CODE_ETHIOPIC_EXTENDED_A = 200;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BRAHMI = 201;
+		public const BLOCK_CODE_BRAHMI = 201;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_BAMUM_SUPPLEMENT = 202;
+		public const BLOCK_CODE_BAMUM_SUPPLEMENT = 202;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_KANA_SUPPLEMENT = 203;
+		public const BLOCK_CODE_KANA_SUPPLEMENT = 203;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_PLAYING_CARDS = 204;
+		public const BLOCK_CODE_PLAYING_CARDS = 204;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS = 205;
+		public const BLOCK_CODE_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS = 205;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_EMOTICONS = 206;
+		public const BLOCK_CODE_EMOTICONS = 206;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_TRANSPORT_AND_MAP_SYMBOLS = 207;
+		public const BLOCK_CODE_TRANSPORT_AND_MAP_SYMBOLS = 207;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ALCHEMICAL_SYMBOLS = 208;
+		public const BLOCK_CODE_ALCHEMICAL_SYMBOLS = 208;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D = 209;
+		public const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D = 209;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ARABIC_EXTENDED_A = 210;
+		public const BLOCK_CODE_ARABIC_EXTENDED_A = 210;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS = 211;
+		public const BLOCK_CODE_ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS = 211;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_CHAKMA = 212;
+		public const BLOCK_CODE_CHAKMA = 212;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MEETEI_MAYEK_EXTENSIONS = 213;
+		public const BLOCK_CODE_MEETEI_MAYEK_EXTENSIONS = 213;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MEROITIC_CURSIVE = 214;
+		public const BLOCK_CODE_MEROITIC_CURSIVE = 214;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MEROITIC_HIEROGLYPHS = 215;
+		public const BLOCK_CODE_MEROITIC_HIEROGLYPHS = 215;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_MIAO = 216;
+		public const BLOCK_CODE_MIAO = 216;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SHARADA = 217;
+		public const BLOCK_CODE_SHARADA = 217;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SORA_SOMPENG = 218;
+		public const BLOCK_CODE_SORA_SOMPENG = 218;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_SUNDANESE_SUPPLEMENT = 219;
+		public const BLOCK_CODE_SUNDANESE_SUPPLEMENT = 219;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_TAKRI = 220;
+		public const BLOCK_CODE_TAKRI = 220;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_COUNT = 221;
+		public const BLOCK_CODE_BASSA_VAH = 221;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BLOCK_CODE_INVALID_CODE = -1;
+		public const BLOCK_CODE_CAUCASIAN_ALBANIAN = 222;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BPT_NONE = 0;
+		public const BLOCK_CODE_COPTIC_EPACT_NUMBERS = 223;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BPT_OPEN = 1;
+		public const BLOCK_CODE_COMBINING_DIACRITICAL_MARKS_EXTENDED = 224;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BPT_CLOSE = 2;
+		public const BLOCK_CODE_DUPLOYAN = 225;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const BPT_COUNT = 3;
+		public const BLOCK_CODE_ELBASAN = 226;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const EA_NEUTRAL = 0;
+		public const BLOCK_CODE_GEOMETRIC_SHAPES_EXTENDED = 227;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const EA_AMBIGUOUS = 1;
+		public const BLOCK_CODE_GRANTHA = 228;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const EA_HALFWIDTH = 2;
+		public const BLOCK_CODE_KHOJKI = 229;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const EA_FULLWIDTH = 3;
+		public const BLOCK_CODE_KHUDAWADI = 230;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const EA_NARROW = 4;
+		public const BLOCK_CODE_LATIN_EXTENDED_E = 231;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const EA_WIDE = 5;
+		public const BLOCK_CODE_LINEAR_A = 232;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const EA_COUNT = 6;
+		public const BLOCK_CODE_MAHAJANI = 233;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const UNICODE_CHAR_NAME = 0;
+		public const BLOCK_CODE_MANICHAEAN = 234;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const UNICODE_10_CHAR_NAME = 1;
+		public const BLOCK_CODE_MENDE_KIKAKUI = 235;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const EXTENDED_CHAR_NAME = 2;
+		public const BLOCK_CODE_MODI = 236;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_NAME_ALIAS = 3;
+		public const BLOCK_CODE_MRO = 237;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const CHAR_NAME_CHOICE_COUNT = 4;
+		public const BLOCK_CODE_MYANMAR_EXTENDED_B = 238;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SHORT_PROPERTY_NAME = 0;
+		public const BLOCK_CODE_NABATAEAN = 239;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LONG_PROPERTY_NAME = 1;
+		public const BLOCK_CODE_OLD_NORTH_ARABIAN = 240;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const PROPERTY_NAME_CHOICE_COUNT = 2;
+		public const BLOCK_CODE_OLD_PERMIC = 241;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_NONE = 0;
+		public const BLOCK_CODE_ORNAMENTAL_DINGBATS = 242;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_CANONICAL = 1;
+		public const BLOCK_CODE_PAHAWH_HMONG = 243;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_COMPAT = 2;
+		public const BLOCK_CODE_PALMYRENE = 244;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_CIRCLE = 3;
+		public const BLOCK_CODE_PAU_CIN_HAU = 245;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_FINAL = 4;
+		public const BLOCK_CODE_PSALTER_PAHLAVI = 246;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_FONT = 5;
+		public const BLOCK_CODE_SHORTHAND_FORMAT_CONTROLS = 247;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_FRACTION = 6;
+		public const BLOCK_CODE_SIDDHAM = 248;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_INITIAL = 7;
+		public const BLOCK_CODE_SINHALA_ARCHAIC_NUMBERS = 249;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_ISOLATED = 8;
+		public const BLOCK_CODE_SUPPLEMENTAL_ARROWS_C = 250;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_MEDIAL = 9;
+		public const BLOCK_CODE_TIRHUTA = 251;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_NARROW = 10;
+		public const BLOCK_CODE_WARANG_CITI = 252;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_NOBREAK = 11;
+		public const BLOCK_CODE_COUNT = 321;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_SMALL = 12;
+		public const BLOCK_CODE_INVALID_CODE = -1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_SQUARE = 13;
+		public const BPT_NONE = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_SUB = 14;
+		public const BPT_OPEN = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_SUPER = 15;
+		public const BPT_CLOSE = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_VERTICAL = 16;
+		public const BPT_COUNT = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_WIDE = 17;
+		public const EA_NEUTRAL = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const DT_COUNT = 18;
+		public const EA_AMBIGUOUS = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JT_NON_JOINING = 0;
+		public const EA_HALFWIDTH = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JT_JOIN_CAUSING = 1;
+		public const EA_FULLWIDTH = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JT_DUAL_JOINING = 2;
+		public const EA_NARROW = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JT_LEFT_JOINING = 3;
+		public const EA_WIDE = 5;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JT_RIGHT_JOINING = 4;
+		public const EA_COUNT = 6;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JT_TRANSPARENT = 5;
+		public const UNICODE_CHAR_NAME = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JT_COUNT = 6;
+		public const UNICODE_10_CHAR_NAME = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_NO_JOINING_GROUP = 0;
+		public const EXTENDED_CHAR_NAME = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_AIN = 1;
+		public const CHAR_NAME_ALIAS = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_ALAPH = 2;
+		public const CHAR_NAME_CHOICE_COUNT = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_ALEF = 3;
+		public const SHORT_PROPERTY_NAME = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_BEH = 4;
+		public const LONG_PROPERTY_NAME = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_BETH = 5;
+		public const PROPERTY_NAME_CHOICE_COUNT = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_DAL = 6;
+		public const DT_NONE = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_DALATH_RISH = 7;
+		public const DT_CANONICAL = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_E = 8;
+		public const DT_COMPAT = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_FEH = 9;
+		public const DT_CIRCLE = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_FINAL_SEMKATH = 10;
+		public const DT_FINAL = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_GAF = 11;
+		public const DT_FONT = 5;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_GAMAL = 12;
+		public const DT_FRACTION = 6;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_HAH = 13;
+		public const DT_INITIAL = 7;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_TEH_MARBUTA_GOAL = 14;
+		public const DT_ISOLATED = 8;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_HAMZA_ON_HEH_GOAL = 14;
+		public const DT_MEDIAL = 9;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_HE = 15;
+		public const DT_NARROW = 10;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_HEH = 16;
+		public const DT_NOBREAK = 11;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_HEH_GOAL = 17;
+		public const DT_SMALL = 12;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_HETH = 18;
+		public const DT_SQUARE = 13;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_KAF = 19;
+		public const DT_SUB = 14;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_KAPH = 20;
+		public const DT_SUPER = 15;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_KNOTTED_HEH = 21;
+		public const DT_VERTICAL = 16;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_LAM = 22;
+		public const DT_WIDE = 17;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_LAMADH = 23;
+		public const DT_COUNT = 18;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_MEEM = 24;
+		public const JT_NON_JOINING = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_MIM = 25;
+		public const JT_JOIN_CAUSING = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_NOON = 26;
+		public const JT_DUAL_JOINING = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_NUN = 27;
+		public const JT_LEFT_JOINING = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_PE = 28;
+		public const JT_RIGHT_JOINING = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_QAF = 29;
+		public const JT_TRANSPARENT = 5;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_QAPH = 30;
+		public const JT_COUNT = 6;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_REH = 31;
+		public const JG_NO_JOINING_GROUP = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_REVERSED_PE = 32;
+		public const JG_AIN = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_SAD = 33;
+		public const JG_ALAPH = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_SADHE = 34;
+		public const JG_ALEF = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_SEEN = 35;
+		public const JG_BEH = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_SEMKATH = 36;
+		public const JG_BETH = 5;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_SHIN = 37;
+		public const JG_DAL = 6;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_SWASH_KAF = 38;
+		public const JG_DALATH_RISH = 7;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_SYRIAC_WAW = 39;
+		public const JG_E = 8;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_TAH = 40;
+		public const JG_FEH = 9;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_TAW = 41;
+		public const JG_FINAL_SEMKATH = 10;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_TEH_MARBUTA = 42;
+		public const JG_GAF = 11;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_TETH = 43;
+		public const JG_GAMAL = 12;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_WAW = 44;
+		public const JG_HAH = 13;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_YEH = 45;
+		public const JG_TEH_MARBUTA_GOAL = 14;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_YEH_BARREE = 46;
+		public const JG_HAMZA_ON_HEH_GOAL = 14;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_YEH_WITH_TAIL = 47;
+		public const JG_HE = 15;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_YUDH = 48;
+		public const JG_HEH = 16;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_YUDH_HE = 49;
+		public const JG_HEH_GOAL = 17;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_ZAIN = 50;
+		public const JG_HETH = 18;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_FE = 51;
+		public const JG_KAF = 19;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_KHAPH = 52;
+		public const JG_KAPH = 20;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_ZHAIN = 53;
+		public const JG_KNOTTED_HEH = 21;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_BURUSHASKI_YEH_BARREE = 54;
+		public const JG_LAM = 22;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_FARSI_YEH = 55;
+		public const JG_LAMADH = 23;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_NYA = 56;
+		public const JG_MEEM = 24;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_ROHINGYA_YEH = 57;
+		public const JG_MIM = 25;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const JG_COUNT = 58;
+		public const JG_NOON = 26;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_OTHER = 0;
+		public const JG_NUN = 27;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_CONTROL = 1;
+		public const JG_PE = 28;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_CR = 2;
+		public const JG_QAF = 29;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_EXTEND = 3;
+		public const JG_QAPH = 30;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_L = 4;
+		public const JG_REH = 31;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_LF = 5;
+		public const JG_REVERSED_PE = 32;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_LV = 6;
+		public const JG_SAD = 33;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_LVT = 7;
+		public const JG_SADHE = 34;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_T = 8;
+		public const JG_SEEN = 35;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_V = 9;
+		public const JG_SEMKATH = 36;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_SPACING_MARK = 10;
+		public const JG_SHIN = 37;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_PREPEND = 11;
+		public const JG_SWASH_KAF = 38;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_REGIONAL_INDICATOR = 12;
+		public const JG_SYRIAC_WAW = 39;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const GCB_COUNT = 13;
+		public const JG_TAH = 40;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_OTHER = 0;
+		public const JG_TAW = 41;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_ALETTER = 1;
+		public const JG_TEH_MARBUTA = 42;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_FORMAT = 2;
+		public const JG_TETH = 43;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_KATAKANA = 3;
+		public const JG_WAW = 44;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_MIDLETTER = 4;
+		public const JG_YEH = 45;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_MIDNUM = 5;
+		public const JG_YEH_BARREE = 46;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_NUMERIC = 6;
+		public const JG_YEH_WITH_TAIL = 47;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_EXTENDNUMLET = 7;
+		public const JG_YUDH = 48;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_CR = 8;
+		public const JG_YUDH_HE = 49;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_EXTEND = 9;
+		public const JG_ZAIN = 50;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_LF = 10;
+		public const JG_FE = 51;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_MIDNUMLET = 11;
+		public const JG_KHAPH = 52;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_NEWLINE = 12;
+		public const JG_ZHAIN = 53;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_REGIONAL_INDICATOR = 13;
+		public const JG_BURUSHASKI_YEH_BARREE = 54;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_HEBREW_LETTER = 14;
+		public const JG_FARSI_YEH = 55;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_SINGLE_QUOTE = 15;
+		public const JG_NYA = 56;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_DOUBLE_QUOTE = 16;
+		public const JG_ROHINGYA_YEH = 57;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const WB_COUNT = 17;
+		public const JG_MANICHAEAN_ALEPH = 58;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_OTHER = 0;
+		public const JG_MANICHAEAN_AYIN = 59;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_ATERM = 1;
+		public const JG_MANICHAEAN_BETH = 60;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_CLOSE = 2;
+		public const JG_MANICHAEAN_DALETH = 61;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_FORMAT = 3;
+		public const JG_MANICHAEAN_DHAMEDH = 62;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_LOWER = 4;
+		public const JG_MANICHAEAN_FIVE = 63;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_NUMERIC = 5;
+		public const JG_MANICHAEAN_GIMEL = 64;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_OLETTER = 6;
+		public const JG_MANICHAEAN_HETH = 65;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_SEP = 7;
+		public const JG_MANICHAEAN_HUNDRED = 66;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_SP = 8;
+		public const JG_MANICHAEAN_KAPH = 67;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_STERM = 9;
+		public const JG_MANICHAEAN_LAMEDH = 68;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_UPPER = 10;
+		public const JG_MANICHAEAN_MEM = 69;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_CR = 11;
+		public const JG_MANICHAEAN_NUN = 70;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_EXTEND = 12;
+		public const JG_MANICHAEAN_ONE = 71;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_LF = 13;
+		public const JG_MANICHAEAN_PE = 72;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_SCONTINUE = 14;
+		public const JG_MANICHAEAN_QOPH = 73;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const SB_COUNT = 15;
+		public const JG_MANICHAEAN_RESH = 74;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_UNKNOWN = 0;
+		public const JG_MANICHAEAN_SADHE = 75;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_AMBIGUOUS = 1;
+		public const JG_MANICHAEAN_SAMEKH = 76;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_ALPHABETIC = 2;
+		public const JG_MANICHAEAN_TAW = 77;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_BREAK_BOTH = 3;
+		public const JG_MANICHAEAN_TEN = 78;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_BREAK_AFTER = 4;
+		public const JG_MANICHAEAN_TETH = 79;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_BREAK_BEFORE = 5;
+		public const JG_MANICHAEAN_THAMEDH = 80;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_MANDATORY_BREAK = 6;
+		public const JG_MANICHAEAN_TWENTY = 81;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_CONTINGENT_BREAK = 7;
+		public const JG_MANICHAEAN_WAW = 82;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_CLOSE_PUNCTUATION = 8;
+		public const JG_MANICHAEAN_YODH = 83;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_COMBINING_MARK = 9;
+		public const JG_MANICHAEAN_ZAYIN = 84;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_CARRIAGE_RETURN = 10;
+		public const JG_STRAIGHT_WAW = 85;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_EXCLAMATION = 11;
+		public const JG_COUNT = 104;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_GLUE = 12;
+		public const GCB_OTHER = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_HYPHEN = 13;
+		public const GCB_CONTROL = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_IDEOGRAPHIC = 14;
+		public const GCB_CR = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_INSEPARABLE = 15;
+		public const GCB_EXTEND = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_INSEPERABLE = 15;
+		public const GCB_L = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_INFIX_NUMERIC = 16;
+		public const GCB_LF = 5;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_LINE_FEED = 17;
+		public const GCB_LV = 6;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_NONSTARTER = 18;
+		public const GCB_LVT = 7;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_NUMERIC = 19;
+		public const GCB_T = 8;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_OPEN_PUNCTUATION = 20;
+		public const GCB_V = 9;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_POSTFIX_NUMERIC = 21;
+		public const GCB_SPACING_MARK = 10;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_PREFIX_NUMERIC = 22;
+		public const GCB_PREPEND = 11;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_QUOTATION = 23;
+		public const GCB_REGIONAL_INDICATOR = 12;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_COMPLEX_CONTEXT = 24;
+		public const GCB_COUNT = 18;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_SURROGATE = 25;
+		public const WB_OTHER = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_SPACE = 26;
+		public const WB_ALETTER = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_BREAK_SYMBOLS = 27;
+		public const WB_FORMAT = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_ZWSPACE = 28;
+		public const WB_KATAKANA = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_NEXT_LINE = 29;
+		public const WB_MIDLETTER = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_WORD_JOINER = 30;
+		public const WB_MIDNUM = 5;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_H2 = 31;
+		public const WB_NUMERIC = 6;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_H3 = 32;
+		public const WB_EXTENDNUMLET = 7;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_JL = 33;
+		public const WB_CR = 8;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_JT = 34;
+		public const WB_EXTEND = 9;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_JV = 35;
+		public const WB_LF = 10;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_CLOSE_PARENTHESIS = 36;
+		public const WB_MIDNUMLET = 11;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_CONDITIONAL_JAPANESE_STARTER = 37;
+		public const WB_NEWLINE = 12;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_HEBREW_LETTER = 38;
+		public const WB_REGIONAL_INDICATOR = 13;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_REGIONAL_INDICATOR = 39;
+		public const WB_HEBREW_LETTER = 14;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const LB_COUNT = 40;
+		public const WB_SINGLE_QUOTE = 15;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const NT_NONE = 0;
+		public const WB_DOUBLE_QUOTE = 16;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const NT_DECIMAL = 1;
+		public const WB_COUNT = 23;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const NT_DIGIT = 2;
+		public const SB_OTHER = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const NT_NUMERIC = 3;
+		public const SB_ATERM = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const NT_COUNT = 4;
+		public const SB_CLOSE = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const HST_NOT_APPLICABLE = 0;
+		public const SB_FORMAT = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const HST_LEADING_JAMO = 1;
+		public const SB_LOWER = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const HST_VOWEL_JAMO = 2;
+		public const SB_NUMERIC = 5;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const HST_TRAILING_JAMO = 3;
+		public const SB_OLETTER = 6;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const HST_LV_SYLLABLE = 4;
+		public const SB_SEP = 7;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const HST_LVT_SYLLABLE = 5;
+		public const SB_SP = 8;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlchar.php
 		 */
-		const HST_COUNT = 6;
+		public const SB_STERM = 9;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const SB_UPPER = 10;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const SB_CR = 11;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const SB_EXTEND = 12;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const SB_LF = 13;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const SB_SCONTINUE = 14;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const SB_COUNT = 15;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_UNKNOWN = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_AMBIGUOUS = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_ALPHABETIC = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_BREAK_BOTH = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_BREAK_AFTER = 4;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_BREAK_BEFORE = 5;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_MANDATORY_BREAK = 6;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_CONTINGENT_BREAK = 7;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_CLOSE_PUNCTUATION = 8;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_COMBINING_MARK = 9;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_CARRIAGE_RETURN = 10;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_EXCLAMATION = 11;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_GLUE = 12;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_HYPHEN = 13;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_IDEOGRAPHIC = 14;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_INSEPARABLE = 15;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_INSEPERABLE = 15;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_INFIX_NUMERIC = 16;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_LINE_FEED = 17;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_NONSTARTER = 18;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_NUMERIC = 19;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_OPEN_PUNCTUATION = 20;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_POSTFIX_NUMERIC = 21;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_PREFIX_NUMERIC = 22;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_QUOTATION = 23;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_COMPLEX_CONTEXT = 24;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_SURROGATE = 25;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_SPACE = 26;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_BREAK_SYMBOLS = 27;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_ZWSPACE = 28;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_NEXT_LINE = 29;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_WORD_JOINER = 30;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_H2 = 31;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_H3 = 32;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_JL = 33;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_JT = 34;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_JV = 35;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_CLOSE_PARENTHESIS = 36;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_CONDITIONAL_JAPANESE_STARTER = 37;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_HEBREW_LETTER = 38;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_REGIONAL_INDICATOR = 39;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const LB_COUNT = 43;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const NT_NONE = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const NT_DECIMAL = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const NT_DIGIT = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const NT_NUMERIC = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const NT_COUNT = 4;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const HST_NOT_APPLICABLE = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const HST_LEADING_JAMO = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const HST_VOWEL_JAMO = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const HST_TRAILING_JAMO = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const HST_LV_SYLLABLE = 4;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const HST_LVT_SYLLABLE = 5;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const HST_COUNT = 6;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const FOLD_CASE_DEFAULT = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intlchar.php
+		 */
+		public const FOLD_CASE_EXCLUDE_SPECIAL_I = 1;
 
 		/**
 		 * Get the "age" of the code point
 		 * <p>Gets the "age" of the code point.</p><p>The "age" is the Unicode version when the code point was first designated (as a non-character or for Private Use) or assigned a character. This can be useful to avoid emitting code points to receiving processes that do not accept newer characters.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return array <p>The Unicode version number, as an <code>array</code>. For example, version <i>1.3.31.2</i> would be represented as <code>[1, 3, 31, 2]</code>.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?array <p>The Unicode version number, as an <code>array</code>. For example, version <i>1.3.31.2</i> would be represented as <code>[1, 3, 31, 2]</code>. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.charage.php
 		 * @see IntlChar::getUnicodeVersion(), IntlChar::getIntPropertyMinValue(), IntlChar::getIntPropertyValue()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function charAge(mixed $codepoint): array {}
+		public static function charAge(int|string $codepoint): ?array {}
 
 		/**
 		 * Get the decimal digit value of a decimal digit character
 		 * <p>Returns the decimal digit value of a decimal digit character.</p><p>Such characters have the general category "Nd" (decimal digit numbers) and a Numeric_Type of Decimal.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return int <p>The decimal digit value of <code>codepoint</code>, or <code>-1</code> if it is not a decimal digit character.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?int <p>The decimal digit value of <code>codepoint</code>, or <code>-1</code> if it is not a decimal digit character. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.chardigitvalue.php
 		 * @see IntlChar::getNumericValue()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function charDigitValue(mixed $codepoint): int {}
+		public static function charDigitValue(int|string $codepoint): ?int {}
 
 		/**
 		 * Get bidirectional category value for a code point
-		 * <p>Returns the bidirectional category value for the code point, which is used in the Unicode bidirectional algorithm (UAX #9).</p><p><b>Note</b>:</p><p>Some unassigned code points have bidi values of R or AL because they are in blocks that are reserved for Right-To-Left scripts.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return int <p>The bidirectional category value; one of the following constants:</p><ul> <li><b><code>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_EUROPEAN_NUMBER</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_EUROPEAN_NUMBER_SEPARATOR</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_EUROPEAN_NUMBER_TERMINATOR</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_ARABIC_NUMBER</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_COMMON_NUMBER_SEPARATOR</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_BLOCK_SEPARATOR</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_SEGMENT_SEPARATOR</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_WHITE_SPACE_NEUTRAL</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_OTHER_NEUTRAL</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT_EMBEDDING</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT_OVERRIDE</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_ARABIC</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_EMBEDDING</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_OVERRIDE</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_POP_DIRECTIONAL_FORMAT</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_DIR_NON_SPACING_MARK</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_BOUNDARY_NEUTRAL</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_FIRST_STRONG_ISOLATE</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT_ISOLATE</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_ISOLATE</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_POP_DIRECTIONAL_ISOLATE</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_CHAR_DIRECTION_COUNT</code></b></li> </ul>
+		 * <p>Returns the bidirectional category value for the code point, which is used in the &#xBB;&#xA0;Unicode bidirectional algorithm (UAX #9).</p><p><b>Note</b>:</p><p>Some unassigned code points have bidi values of R or AL because they are in blocks that are reserved for Right-To-Left scripts.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?int <p>The bidirectional category value; one of the following constants:</p><ul> <li><b><code>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_EUROPEAN_NUMBER</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_EUROPEAN_NUMBER_SEPARATOR</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_EUROPEAN_NUMBER_TERMINATOR</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_ARABIC_NUMBER</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_COMMON_NUMBER_SEPARATOR</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_BLOCK_SEPARATOR</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_SEGMENT_SEPARATOR</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_WHITE_SPACE_NEUTRAL</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_OTHER_NEUTRAL</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT_EMBEDDING</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT_OVERRIDE</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_ARABIC</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_EMBEDDING</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_OVERRIDE</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_POP_DIRECTIONAL_FORMAT</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_DIR_NON_SPACING_MARK</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_BOUNDARY_NEUTRAL</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_FIRST_STRONG_ISOLATE</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT_ISOLATE</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_ISOLATE</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_POP_DIRECTIONAL_ISOLATE</code></b></li> <li><b><code>IntlChar::CHAR_DIRECTION_CHAR_DIRECTION_COUNT</code></b></li> </ul> Returns <b><code>null</code></b> on failure.
 		 * @link https://php.net/manual/en/intlchar.chardirection.php
 		 * @since PHP 7, PHP 8
 		 */
-		public static function charDirection(mixed $codepoint): int {}
+		public static function charDirection(int|string $codepoint): ?int {}
 
 		/**
 		 * Find Unicode character by name and return its code point value
 		 * <p>Finds a Unicode character by its name and returns its code point value.</p><p>The name is matched exactly and completely. If the name does not correspond to a code point, <b><code>null</code></b> is returned.</p><p>A Unicode 1.0 name is matched only if it differs from the modern name. Unicode names are all uppercase. Extended names are lowercase followed by an uppercase hexadecimal number, and within angle brackets.</p>
-		 * @param string $characterName <p>Full name of the Unicode character.</p>
-		 * @param int $nameChoice <p>Which set of names to use for the lookup. Can be any of these constants:</p><ul> <li><b><code>IntlChar::UNICODE_CHAR_NAME</code></b> (default)</li> <li><b><code>IntlChar::UNICODE_10_CHAR_NAME</code></b></li> <li><b><code>IntlChar::EXTENDED_CHAR_NAME</code></b></li> <li><b><code>IntlChar::CHAR_NAME_ALIAS</code></b></li> <li><b><code>IntlChar::CHAR_NAME_CHOICE_COUNT</code></b></li> </ul>
-		 * @return int <p>The Unicode value of the code point with the given name (as an <code>int</code>), or <b><code>null</code></b> if there is no such code point.</p>
+		 * @param string $name <p>Full name of the Unicode character.</p>
+		 * @param int $type <p>Which set of names to use for the lookup. Can be any of these constants:</p><ul> <li><b><code>IntlChar::UNICODE_CHAR_NAME</code></b> (default)</li> <li><b><code>IntlChar::UNICODE_10_CHAR_NAME</code></b></li> <li><b><code>IntlChar::EXTENDED_CHAR_NAME</code></b></li> <li><b><code>IntlChar::CHAR_NAME_ALIAS</code></b></li> <li><b><code>IntlChar::CHAR_NAME_CHOICE_COUNT</code></b></li> </ul>
+		 * @return ?int <p>The Unicode value of the code point with the given name (as an <code>int</code>), or <b><code>null</code></b> if there is no such code point.</p>
 		 * @link https://php.net/manual/en/intlchar.charfromname.php
 		 * @see IntlChar::charName(), IntlChar::enumCharNames()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function charFromName(string $characterName, int $nameChoice = IntlChar::UNICODE_CHAR_NAME): int {}
+		public static function charFromName(string $name, int $type = IntlChar::UNICODE_CHAR_NAME): ?int {}
 
 		/**
 		 * Get the "mirror-image" character for a code point
 		 * <p>Maps the specified character to a "mirror-image" character.</p><p>For characters with the <i>Bidi_Mirrored</i> property, implementations sometimes need a "poor man's" mapping to another Unicode character (code point) such that the default glyph may serve as the mirror-image of the default glyph of the specified character. This is useful for text conversion to and from codepages with visual order, and for displays without glyph selection capabilities.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return mixed <p>Returns another Unicode code point that may serve as a mirror-image substitute, or <code>codepoint</code> itself if there is no such mapping or <code>codepoint</code> does not have the <i>Bidi_Mirrored</i> property.</p><p>The return type will be <code>int</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> will be returned.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return int|string|null <p>Returns another Unicode code point that may serve as a mirror-image substitute, or <code>codepoint</code> itself if there is no such mapping or <code>codepoint</code> does not have the <i>Bidi_Mirrored</i> property.</p><p>The return type is <code>int</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> is returned. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.charmirror.php
 		 * @see IntlChar::isMirrored()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function charMirror(mixed $codepoint): mixed {}
+		public static function charMirror(int|string $codepoint): int|string|null {}
 
 		/**
 		 * Retrieve the name of a Unicode character
-		 * <p>Retrieves the name of a Unicode character.</p><p>Depending on <code>nameChoice</code>, the resulting character name is the "modern" name or the name that was defined in Unicode version 1.0. The name contains only "invariant" characters like A-Z, 0-9, space, and '-'. Unicode 1.0 names are only retrieved if they are different from the modern names and if ICU contains the data for them.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @param int $nameChoice <p>Which set of names to use for the lookup. Can be any of these constants:</p><ul> <li><b><code>IntlChar::UNICODE_CHAR_NAME</code></b> (default)</li> <li><b><code>IntlChar::UNICODE_10_CHAR_NAME</code></b></li> <li><b><code>IntlChar::EXTENDED_CHAR_NAME</code></b></li> <li><b><code>IntlChar::CHAR_NAME_ALIAS</code></b></li> <li><b><code>IntlChar::CHAR_NAME_CHOICE_COUNT</code></b></li> </ul>
-		 * @return string <p>The corresponding name, or an empty string if there is no name for this character, or <b><code>null</code></b> if there is no such code point.</p>
+		 * <p>Retrieves the name of a Unicode character.</p><p>Depending on <code>type</code>, the resulting character name is the "modern" name or the name that was defined in Unicode version 1.0. The name contains only "invariant" characters like A-Z, 0-9, space, and '-'. Unicode 1.0 names are only retrieved if they are different from the modern names and if ICU contains the data for them.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @param int $type <p>Which set of names to use for the lookup. Can be any of these constants:</p><ul> <li><b><code>IntlChar::UNICODE_CHAR_NAME</code></b> (default)</li> <li><b><code>IntlChar::UNICODE_10_CHAR_NAME</code></b></li> <li><b><code>IntlChar::EXTENDED_CHAR_NAME</code></b></li> <li><b><code>IntlChar::CHAR_NAME_ALIAS</code></b></li> <li><b><code>IntlChar::CHAR_NAME_CHOICE_COUNT</code></b></li> </ul>
+		 * @return ?string <p>The corresponding name, or an empty string if there is no name for this character, or <b><code>null</code></b> if there is no such code point.</p>
 		 * @link https://php.net/manual/en/intlchar.charname.php
 		 * @see IntlChar::charFromName(), IntlChar::enumCharNames()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function charName(mixed $codepoint, int $nameChoice = IntlChar::UNICODE_CHAR_NAME): string {}
+		public static function charName(int|string $codepoint, int $type = IntlChar::UNICODE_CHAR_NAME): ?string {}
 
 		/**
 		 * Get the general category value for a code point
@@ -4879,39 +5395,39 @@ namespace {
 		/**
 		 * Return Unicode character by code point value
 		 * <p>Returns a string containing the character specified by the Unicode code point value.</p><p>This function complements <code>IntlChar::ord()</code>.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return string <p>A string containing the single character specified by the Unicode code point value.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?string <p>A string containing the single character specified by the Unicode code point value, or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.chr.php
 		 * @see IntlChar::ord(), mb_chr(), chr()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function chr(mixed $codepoint): string {}
+		public static function chr(int|string $codepoint): ?string {}
 
 		/**
 		 * Get the decimal digit value of a code point for a given radix
 		 * <p>Returns the decimal digit value of the code point in the specified radix.</p><p>If the radix is not in the range <code>2&lt;=radix&lt;=36</code> or if the value of <code>codepoint</code> is not a valid digit in the specified radix, <b><code>false</code></b> is returned. A character is a valid digit if at least one of the following is true:</p>
-		 * @param string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @param int $radix <p>The radix (defaults to <code>10</code>).</p>
-		 * @return int <p>Returns the numeric value represented by the character in the specified radix, or <b><code>false</code></b> if there is no value or if the value exceeds the radix.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @param int $base <p>The radix (defaults to <code>10</code>).</p>
+		 * @return int|false|null <p>Returns the numeric value represented by the character in the specified radix, or <b><code>false</code></b> if there is no value or if the value exceeds the radix. Returns <b><code>null</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 		 * @link https://php.net/manual/en/intlchar.digit.php
 		 * @see IntlChar::forDigit(), IntlChar::charDigitValue(), IntlChar::isdigit()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function digit(string $codepoint, int $radix = 10): int {}
+		public static function digit(int|string $codepoint, int $base = 10): int|false|null {}
 
 		/**
 		 * Enumerate all assigned Unicode characters within a range
 		 * <p>Enumerate all assigned Unicode characters between the start and limit code points (start inclusive, limit exclusive) and call a function for each, passing the code point value and the character name.</p><p>For Unicode 1.0 names, only those are enumerated that differ from the modern names.</p>
-		 * @param mixed $start <p>The first code point in the enumeration range.</p>
-		 * @param mixed $limit <p>One more than the last code point in the enumeration range (the first one after the range).</p>
-		 * @param callable $callback <p>The function that is to be called for each character name. The following three arguments will be passed into it:</p><ul> <li><code>int</code> <code>$codepoint</code> - The numeric code point value</li> <li><code>int</code> <code>$nameChoice</code> - The same value as the <code>nameChoice</code> parameter below</li> <li><code>string</code> <code>$name</code> - The name of the character</li> </ul>
-		 * @param int $nameChoice <p>Selector for which kind of names to enumerate. Can be any of these constants:</p><ul> <li><b><code>IntlChar::UNICODE_CHAR_NAME</code></b> (default)</li> <li><b><code>IntlChar::UNICODE_10_CHAR_NAME</code></b></li> <li><b><code>IntlChar::EXTENDED_CHAR_NAME</code></b></li> <li><b><code>IntlChar::CHAR_NAME_ALIAS</code></b></li> <li><b><code>IntlChar::CHAR_NAME_CHOICE_COUNT</code></b></li> </ul>
-		 * @return void <p>No value is returned.</p>
+		 * @param int|string $start <p>The first code point in the enumeration range.</p>
+		 * @param int|string $end <p>One more than the last code point in the enumeration range (the first one after the range).</p>
+		 * @param callable $callback <p>The function that is to be called for each character name. The following three arguments will be passed into it:</p><ul> <li><code>int</code> <code>$codepoint</code> - The numeric code point value</li> <li><code>int</code> <code>$nameChoice</code> - The same value as the <code>type</code> parameter below</li> <li><code>string</code> <code>$name</code> - The name of the character</li> </ul>
+		 * @param int $type <p>Selector for which kind of names to enumerate. Can be any of these constants:</p><ul> <li><b><code>IntlChar::UNICODE_CHAR_NAME</code></b> (default)</li> <li><b><code>IntlChar::UNICODE_10_CHAR_NAME</code></b></li> <li><b><code>IntlChar::EXTENDED_CHAR_NAME</code></b></li> <li><b><code>IntlChar::CHAR_NAME_ALIAS</code></b></li> <li><b><code>IntlChar::CHAR_NAME_CHOICE_COUNT</code></b></li> </ul>
+		 * @return ?bool <p>Returns <b><code>null</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.enumcharnames.php
 		 * @see IntlChar::charName(), IntlChar::charFromName()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function enumCharNames(mixed $start, mixed $limit, callable $callback, int $nameChoice = IntlChar::UNICODE_CHAR_NAME): void {}
+		public static function enumCharNames(int|string $start, int|string $end, callable $callback, int $type = IntlChar::UNICODE_CHAR_NAME): ?bool {}
 
 		/**
 		 * Enumerate all code points with their Unicode general categories
@@ -4926,66 +5442,66 @@ namespace {
 		/**
 		 * Perform case folding on a code point
 		 * <p>The given character is mapped to its case folding equivalent; if the character has no case folding equivalent, the character itself is returned.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
 		 * @param int $options <p>Either <b><code>IntlChar::FOLD_CASE_DEFAULT</code></b> (default) or <b><code>IntlChar::FOLD_CASE_EXCLUDE_SPECIAL_I</code></b>.</p>
-		 * @return mixed <p>Returns the <i>Simple_Case_Folding</i> of the code point, if any; otherwise the code point itself.</p>
+		 * @return int|string|null <p>Returns the <i>Simple_Case_Folding</i> of the code point, if any; otherwise the code point itself on success, or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.foldcase.php
 		 * @since PHP 7, PHP 8
 		 */
-		public static function foldCase(mixed $codepoint, int $options = IntlChar::FOLD_CASE_DEFAULT): mixed {}
+		public static function foldCase(int|string $codepoint, int $options = IntlChar::FOLD_CASE_DEFAULT): int|string|null {}
 
 		/**
 		 * Get character representation for a given digit and radix
 		 * <p>Determines the character representation for a specific digit in the specified radix.</p><p>If the value of radix is not a valid radix, or the value of digit is not a valid digit in the specified radix, the null character (<code>U+0000</code>) is returned.</p><p>The radix argument is valid if it is greater than or equal to <code>2</code> and less than or equal to <code>36</code>. The digit argument is valid if <code>0 &lt;= digit &lt; radix</code>.</p><p>If the digit is less than <code>10</code>, then '0' + digit is returned. Otherwise, the value 'a' + digit - 10 is returned.</p>
 		 * @param int $digit <p>The number to convert to a character.</p>
-		 * @param int $radix <p>The radix (defaults to <code>10</code>).</p>
+		 * @param int $base <p>The radix (defaults to <code>10</code>).</p>
 		 * @return int <p>The character representation (as a <code>string</code>) of the specified digit in the specified radix.</p>
 		 * @link https://php.net/manual/en/intlchar.fordigit.php
 		 * @see IntlChar::digit(), IntlChar::charDigitValue(), IntlChar::isdigit()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function forDigit(int $digit, int $radix = 10): int {}
+		public static function forDigit(int $digit, int $base = 10): int {}
 
 		/**
 		 * Get the paired bracket character for a code point
 		 * <p>Maps the specified character to its paired bracket character.</p><p>For <code>Bidi_Paired_Bracket_Type!=None</code>, this is the same as <code>IntlChar::charMirror()</code>. Otherwise <code>codepoint</code> itself is returned.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return mixed <p>Returns the paired bracket code point, or <code>codepoint</code> itself if there is no such mapping.</p><p>The return type will be <code>int</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> will be returned.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return int|string|null <p>Returns the paired bracket code point, or <code>codepoint</code> itself if there is no such mapping. Returns <b><code>null</code></b> on failure.</p><p>The return type is <code>int</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> is returned. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.getbidipairedbracket.php
 		 * @see IntlChar::charMirror()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function getBidiPairedBracket(mixed $codepoint): mixed {}
+		public static function getBidiPairedBracket(int|string $codepoint): int|string|null {}
 
 		/**
 		 * Get the Unicode allocation block containing a code point
 		 * <p>Returns the Unicode allocation block that contains the character.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return int <p>Returns the block value for <code>codepoint</code>. See the <code>IntlChar::BLOCK_CODE_&#42;</code> constants for possible return values.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?int <p>Returns the block value for <code>codepoint</code>. See the <code>IntlChar::BLOCK_CODE_&#42;</code> constants for possible return values. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.getblockcode.php
 		 * @since PHP 7, PHP 8
 		 */
-		public static function getBlockCode(mixed $codepoint): int {}
+		public static function getBlockCode(int|string $codepoint): ?int {}
 
 		/**
 		 * Get the combining class of a code point
 		 * <p>Returns the combining class of the code point.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return int <p>Returns the combining class of the character.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?int <p>Returns the combining class of the character. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.getcombiningclass.php
 		 * @since PHP 7, PHP 8
 		 */
-		public static function getCombiningClass(mixed $codepoint): int {}
+		public static function getCombiningClass(int|string $codepoint): ?int {}
 
 		/**
 		 * Get the FC_NFKC_Closure property for a code point
 		 * <p>Gets the FC_NFKC_Closure property string for a character.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return string <p>Returns the FC_NFKC_Closure property string for the <code>codepoint</code>, or an empty string if there is none.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return string|false|null <p>Returns the FC_NFKC_Closure property string for the <code>codepoint</code>, or an empty string if there is none. Returns <b><code>null</code></b> or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.getfc-nfkc-closure.php
 		 * @since PHP 7, PHP 8
 		 */
-		public static function getFC_NFKC_Closure(mixed $codepoint): string {}
+		public static function getFC_NFKC_Closure(int|string $codepoint): string|false|null {}
 
 		/**
 		 * Get the max value for a Unicode property
@@ -5012,24 +5528,24 @@ namespace {
 		/**
 		 * Get the value for a Unicode property for a code point
 		 * <p>Gets the property value for an enumerated or integer Unicode property for a code point. Also returns binary and mask property values.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
 		 * @param int $property <p>The Unicode property to lookup (see the <code>IntlChar::PROPERTY_&#42;</code> constants).</p>
-		 * @return int <p>Returns the numeric value that is directly the property value or, for enumerated properties, corresponds to the numeric value of the enumerated constant of the respective property value enumeration type.</p><p>Returns <code>0</code> or <code>1</code> (for <b><code>false</code></b>/<b><code>true</code></b>) for binary Unicode properties.</p><p>Returns a bit-mask for mask properties.</p><p>Returns <code>0</code> if <code>property</code> is out of bounds or if the Unicode version does not have data for the property at all, or not for this code point.</p>
+		 * @return ?int <p>Returns the numeric value that is directly the property value or, for enumerated properties, corresponds to the numeric value of the enumerated constant of the respective property value enumeration type. Returns <b><code>null</code></b> on failure.</p><p>Returns <code>0</code> or <code>1</code> (for <b><code>false</code></b>/<b><code>true</code></b>) for binary Unicode properties.</p><p>Returns a bit-mask for mask properties.</p><p>Returns <code>0</code> if <code>property</code> is out of bounds or if the Unicode version does not have data for the property at all, or not for this code point.</p>
 		 * @link https://php.net/manual/en/intlchar.getintpropertyvalue.php
 		 * @see IntlChar::hasBinaryProperty(), IntlChar::getIntPropertyMinValue(), IntlChar::getIntPropertyMaxValue(), IntlChar::getUnicodeVersion()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function getIntPropertyValue(mixed $codepoint, int $property): int {}
+		public static function getIntPropertyValue(int|string $codepoint, int $property): ?int {}
 
 		/**
 		 * Get the numeric value for a Unicode code point
 		 * <p>Gets the numeric value for a Unicode code point as defined in the Unicode Character Database.</p><p>For characters without any numeric values in the Unicode Character Database, this function will return <b><code>IntlChar::NO_NUMERIC_VALUE</code></b>.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return float <p>Numeric value of <code>codepoint</code>, or <b><code>IntlChar::NO_NUMERIC_VALUE</code></b> if none is defined. This constant was added in PHP 7.0.6, prior to this version the literal value (<code>float</code>)<code>-123456789</code> may be used instead.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?float <p>Numeric value of <code>codepoint</code>, or <b><code>IntlChar::NO_NUMERIC_VALUE</code></b> if none is defined. This constant was added in PHP 7.0.6, prior to this version the literal value (<code>float</code>)<code>-123456789</code> may be used instead. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.getnumericvalue.php
 		 * @since PHP 7, PHP 8
 		 */
-		public static function getNumericValue(mixed $codepoint): float {}
+		public static function getNumericValue(int|string $codepoint): ?float {}
 
 		/**
 		 * Get the property constant value for a given property name
@@ -5046,13 +5562,13 @@ namespace {
 		 * Get the Unicode name for a property
 		 * <p>Returns the Unicode name for a given property, as given in the Unicode database file PropertyAliases.txt.</p><p>In addition, this function maps the property <b><code>IntlChar::PROPERTY_GENERAL_CATEGORY_MASK</code></b> to the synthetic names "gcm" / "General_Category_Mask". These names are not in PropertyAliases.txt.</p><p>This function complements <code>IntlChar::getPropertyEnum()</code>.</p>
 		 * @param int $property <p>The Unicode property to lookup (see the <code>IntlChar::PROPERTY_&#42;</code> constants).</p> <p><b><code>IntlChar::PROPERTY_INVALID_CODE</code></b> should not be used. Also, if <code>property</code> is out of range, <b><code>false</code></b> is returned.</p>
-		 * @param int $nameChoice <p>Selector for which name to get. If out of range, <b><code>false</code></b> is returned.</p> <p>All properties have a long name. Most have a short name, but some do not. Unicode allows for additional names; if present these will be returned by adding 1, 2, etc. to <b><code>IntlChar::LONG_PROPERTY_NAME</code></b>.</p>
-		 * @return string <p>Returns the name, or <b><code>false</code></b> if either the <code>property</code> or the <code>nameChoice</code> is out of range.</p><p>If a given <code>nameChoice</code> returns <b><code>false</code></b>, then all larger values of <code>nameChoice</code> will return <b><code>false</code></b>, with one exception: if <b><code>false</code></b> is returned for <b><code>IntlChar::SHORT_PROPERTY_NAME</code></b>, then <b><code>IntlChar::LONG_PROPERTY_NAME</code></b> (and higher) may still return a non-<b><code>false</code></b> value.</p>
+		 * @param int $type <p>Selector for which name to get. If out of range, <b><code>false</code></b> is returned.</p> <p>All properties have a long name. Most have a short name, but some do not. Unicode allows for additional names; if present these will be returned by adding 1, 2, etc. to <b><code>IntlChar::LONG_PROPERTY_NAME</code></b>.</p>
+		 * @return string|false <p>Returns the name, or <b><code>false</code></b> if either the <code>property</code> or the <code>type</code> is out of range.</p><p>If a given <code>type</code> returns <b><code>false</code></b>, then all larger values of <code>type</code> will return <b><code>false</code></b>, with one exception: if <b><code>false</code></b> is returned for <b><code>IntlChar::SHORT_PROPERTY_NAME</code></b>, then <b><code>IntlChar::LONG_PROPERTY_NAME</code></b> (and higher) may still return a non-<b><code>false</code></b> value.</p>
 		 * @link https://php.net/manual/en/intlchar.getpropertyname.php
 		 * @see IntlChar::getPropertyEnum()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function getPropertyName(int $property, int $nameChoice = IntlChar::LONG_PROPERTY_NAME): string {}
+		public static function getPropertyName(int $property, int $type = IntlChar::LONG_PROPERTY_NAME): string|false {}
 
 		/**
 		 * Get the property value for a given value name
@@ -5070,12 +5586,12 @@ namespace {
 		 * <p>Returns the Unicode name for a given property value, as given in the Unicode database file PropertyValueAliases.txt.</p><p><b>Note</b>:</p><p>Some of the names in PropertyValueAliases.txt can only be retrieved using <b><code>IntlChar::PROPERTY_GENERAL_CATEGORY_MASK</code></b>, not <b><code>IntlChar::PROPERTY_GENERAL_CATEGORY</code></b>. These include:</p>
 		 * @param int $property <p>The Unicode property to lookup (see the <code>IntlChar::PROPERTY_&#42;</code> constants).</p> <p>If out of range, or this method doesn't work with the given value, <b><code>false</code></b> is returned.</p>
 		 * @param int $value <p>Selector for a value for the given property. If out of range, <b><code>false</code></b> is returned.</p> <p>In general, valid values range from <code>0</code> up to some maximum. There are a couple exceptions:</p><ul> <li> <b><code>IntlChar::PROPERTY_BLOCK</code></b> values begin at the non-zero value <b><code>IntlChar::BLOCK_CODE_BASIC_LATIN</code></b> </li> <li> <b><code>IntlChar::PROPERTY_CANONICAL_COMBINING_CLASS</code></b> values are not contiguous and range from 0..240. </li> </ul>
-		 * @param int $nameChoice <p>Selector for which name to get. If out of range, <b><code>false</code></b> is returned.</p> <p>All values have a long name. Most have a short name, but some do not. Unicode allows for additional names; if present these will be returned by adding 1, 2, etc. to <b><code>IntlChar::LONG_PROPERTY_NAME</code></b>.</p>
-		 * @return string <p>Returns the name, or <b><code>false</code></b> if either the <code>property</code> or the <code>nameChoice</code> is out of range.</p><p>If a given <code>nameChoice</code> returns <b><code>false</code></b>, then all larger values of <code>nameChoice</code> will return <b><code>false</code></b>, with one exception: if <b><code>false</code></b> is returned for <b><code>IntlChar::SHORT_PROPERTY_NAME</code></b>, then <b><code>IntlChar::LONG_PROPERTY_NAME</code></b> (and higher) may still return a non-<b><code>false</code></b> value.</p>
+		 * @param int $type <p>Selector for which name to get. If out of range, <b><code>false</code></b> is returned.</p> <p>All values have a long name. Most have a short name, but some do not. Unicode allows for additional names; if present these will be returned by adding 1, 2, etc. to <b><code>IntlChar::LONG_PROPERTY_NAME</code></b>.</p>
+		 * @return string|false <p>Returns the name, or <b><code>false</code></b> if either the <code>property</code> or the <code>type</code> is out of range. Returns <b><code>null</code></b> on failure.</p><p>If a given <code>type</code> returns <b><code>false</code></b>, then all larger values of <code>type</code> will return <b><code>false</code></b>, with one exception: if <b><code>false</code></b> is returned for <b><code>IntlChar::SHORT_PROPERTY_NAME</code></b>, then <b><code>IntlChar::LONG_PROPERTY_NAME</code></b> (and higher) may still return a non-<b><code>false</code></b> value.</p>
 		 * @link https://php.net/manual/en/intlchar.getpropertyvaluename.php
 		 * @since PHP 7, PHP 8
 		 */
-		public static function getPropertyValueName(int $property, int $value, int $nameChoice = IntlChar::LONG_PROPERTY_NAME): string {}
+		public static function getPropertyValueName(int $property, int $value, int $type = IntlChar::LONG_PROPERTY_NAME): string|false {}
 
 		/**
 		 * Get the Unicode version
@@ -5089,365 +5605,365 @@ namespace {
 
 		/**
 		 * Check a binary Unicode property for a code point
-		 * <p>Checks a binary Unicode property for a code point.</p><p>Unicode, especially in version 3.2, defines many more properties than the original set in UnicodeData.txt.</p><p>The properties APIs are intended to reflect Unicode properties as defined in the Unicode Character Database (UCD) and Unicode Technical Reports (UTR). For details about the properties see http://www.unicode.org/ucd/. For names of Unicode properties see the UCD file PropertyAliases.txt.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * <p>Checks a binary Unicode property for a code point.</p><p>Unicode, especially in version 3.2, defines many more properties than the original set in UnicodeData.txt.</p><p>The properties APIs are intended to reflect Unicode properties as defined in the Unicode Character Database (UCD) and Unicode Technical Reports (UTR). For details about the properties see &#xBB;&#xA0;http://www.unicode.org/ucd/. For names of Unicode properties see the UCD file PropertyAliases.txt.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
 		 * @param int $property <p>The Unicode property to lookup (see the <code>IntlChar::PROPERTY_&#42;</code> constants).</p>
-		 * @return bool <p>Returns <b><code>true</code></b> or <b><code>false</code></b> according to the binary Unicode property value for <code>codepoint</code>. Also <b><code>false</code></b> if <code>property</code> is out of bounds or if the Unicode version does not have data for the property at all, or not for this code point.</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> or <b><code>false</code></b> according to the binary Unicode property value for <code>codepoint</code>. Also <b><code>false</code></b> if <code>property</code> is out of bounds or if the Unicode version does not have data for the property at all, or not for this code point. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.hasbinaryproperty.php
 		 * @see IntlChar::getIntPropertyValue(), IntlChar::getUnicodeVersion()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function hasBinaryProperty(mixed $codepoint, int $property): bool {}
+		public static function hasBinaryProperty(int|string $codepoint, int $property): ?bool {}
 
 		/**
 		 * Check if code point is an ignorable character
 		 * <p>Determines if the specified character should be regarded as an ignorable character in an identifier.</p><p><b><code>true</code></b> for characters with general category "Cf" (format controls) as well as non-whitespace ISO controls (U+0000..U+0008, U+000E..U+001B, U+007F..U+009F).</p><p><b>Note</b>:</p><p>Note that Unicode just recommends to ignore Cf (format controls).</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is ignorable in identifiers, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is ignorable in identifiers, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isidignorable.php
 		 * @see IntlChar::isIDStart(), IntlChar::isIDPart()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isIDIgnorable(mixed $codepoint): bool {}
+		public static function isIDIgnorable(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is permissible in an identifier
 		 * <p>Determines if the specified character is permissible in an identifier.</p><p><b><code>true</code></b> for characters with general categories "L" (letters), "Nl" (letter numbers), "Nd" (decimal digits), "Mc" and "Mn" (combining marks), "Pc" (connecting punctuation), and u_isIDIgnorable(c).</p><p><b>Note</b>:</p><p>This is almost the same as Unicode's ID_Continue (<b><code>IntlChar::PROPERTY_ID_CONTINUE</code></b>) except that Unicode recommends to ignore Cf which is less than <code>IntlChar::isIDIgnorable()</code>.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is the code point may occur in an identifier, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is the code point may occur in an identifier, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isidpart.php
 		 * @see IntlChar::isIDIgnorable(), IntlChar::isIDStart()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isIDPart(mixed $codepoint): bool {}
+		public static function isIDPart(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is permissible as the first character in an identifier
 		 * <p>Determines if the specified character is permissible as the first character in an identifier according to Unicode (The Unicode Standard, Version 3.0, chapter 5.16 Identifiers).</p><p><b><code>true</code></b> for characters with general categories "L" (letters) and "Nl" (letter numbers).</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> may start an identifier, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> may start an identifier, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isidstart.php
 		 * @see IntlChar::isalpha(), IntlChar::isIDPart()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isIDStart(mixed $codepoint): bool {}
+		public static function isIDStart(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is an ISO control code
 		 * <p>Determines whether the specified code point is an ISO control code.</p><p><b><code>true</code></b> for U+0000..U+001f and U+007f..U+009f (general category "Cc").</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is an ISO control code, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is an ISO control code, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isisocontrol.php
 		 * @see IntlChar::iscntrl()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isISOControl(mixed $codepoint): bool {}
+		public static function isISOControl(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is permissible in a Java identifier
 		 * <p>Determines if the specified character is permissible in a Java identifier.</p><p>In addition to <code>IntlChar::isIDPart()</code>, <b><code>true</code></b> for characters with general category "Sc" (currency symbols).</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> may occur in a Java identifier, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> may occur in a Java identifier, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isjavaidpart.php
 		 * @see IntlChar::isIDIgnorable(), IntlChar::isIDPart(), IntlChar::isJavaIDStart(), IntlChar::isalpha(), IntlChar::isdigit()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isJavaIDPart(mixed $codepoint): bool {}
+		public static function isJavaIDPart(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is permissible as the first character in a Java identifier
 		 * <p>Determines if the specified character is permissible as the start of a Java identifier.</p><p>In addition to <code>IntlChar::isIDStart()</code>, <b><code>true</code></b> for characters with general categories "Sc" (currency symbols) and "Pc" (connecting punctuation).</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> may start a Java identifier, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> may start a Java identifier, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isjavaidstart.php
 		 * @see IntlChar::isIDStart(), IntlChar::isJavaIDPart(), IntlChar::isalpha()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isJavaIDStart(mixed $codepoint): bool {}
+		public static function isJavaIDStart(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is a space character according to Java
 		 * <p>Determine if the specified code point is a space character according to Java.</p><p><b><code>true</code></b> for characters with general categories "Z" (separators), which does not include control codes (e.g., TAB or Line Feed).</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a space character according to Java, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a space character according to Java, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isjavaspacechar.php
 		 * @see IntlChar::isspace(), IntlChar::isWhitespace(), IntlChar::isUWhiteSpace()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isJavaSpaceChar(mixed $codepoint): bool {}
+		public static function isJavaSpaceChar(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point has the Bidi_Mirrored property
 		 * <p>Determines whether the code point has the Bidi_Mirrored property.</p><p>This property is set for characters that are commonly used in Right-To-Left contexts and need to be displayed with a "mirrored" glyph.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> has the Bidi_Mirrored property, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> has the Bidi_Mirrored property, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.ismirrored.php
 		 * @see IntlChar::charMirror()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isMirrored(mixed $codepoint): bool {}
+		public static function isMirrored(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point has the Alphabetic Unicode property
 		 * <p>Check if a code point has the Alphabetic Unicode property.</p><p>This is the same as <code>IntlChar::hasBinaryProperty($codepoint, IntlChar::PROPERTY_ALPHABETIC)</code></p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> has the Alphabetic Unicode property, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> has the Alphabetic Unicode property, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isualphabetic.php
 		 * @see IntlChar::isalpha(), IntlChar::hasBinaryProperty()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isUAlphabetic(mixed $codepoint): bool {}
+		public static function isUAlphabetic(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point has the Lowercase Unicode property
 		 * <p>Check if a code point has the Lowercase Unicode property.</p><p>This is the same as <code>IntlChar::hasBinaryProperty($codepoint, IntlChar::PROPERTY_LOWERCASE)</code></p><p><b>Note</b>:</p><p>This is different than <code>IntlChar::islower()</code> and will return <b><code>true</code></b> for more characters.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> has the Lowercase Unicode property, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> has the Lowercase Unicode property, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isulowercase.php
 		 * @see IntlChar::islower(), IntlChar::hasBinaryProperty()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isULowercase(mixed $codepoint): bool {}
+		public static function isULowercase(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point has the Uppercase Unicode property
 		 * <p>Check if a code point has the Uppercase Unicode property.</p><p>This is the same as <code>IntlChar::hasBinaryProperty($codepoint, IntlChar::PROPERTY_UPPERCASE)</code></p><p><b>Note</b>:</p><p>This is different than <code>IntlChar::isupper()</code> and will return <b><code>true</code></b> for more characters.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> has the Uppercase Unicode property, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> has the Uppercase Unicode property, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isuuppercase.php
 		 * @see IntlChar::isupper(), IntlChar::hasBinaryProperty()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isUUppercase(mixed $codepoint): bool {}
+		public static function isUUppercase(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point has the White_Space Unicode property
 		 * <p>Check if a code point has the White_Space Unicode property.</p><p>This is the same as <code>IntlChar::hasBinaryProperty($codepoint, IntlChar::PROPERTY_WHITE_SPACE)</code></p><p><b>Note</b>:</p><p>This is different from both <code>IntlChar::isspace()</code> and <code>IntlChar::isWhitespace()</code>.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> has the White_Space Unicode property, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> has the White_Space Unicode property, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isuwhitespace.php
 		 * @see IntlChar::isspace(), IntlChar::isWhitespace(), IntlChar::isJavaSpaceChar(), IntlChar::hasBinaryProperty()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isUWhiteSpace(mixed $codepoint): bool {}
+		public static function isUWhiteSpace(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is a whitespace character according to ICU
 		 * <p>Determines if the specified code point is a whitespace character according to ICU.</p><p>A character is considered to be a ICU whitespace character if and only if it satisfies one of the following criteria:</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a whitespace character according to ICU, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a whitespace character according to ICU, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.iswhitespace.php
 		 * @see IntlChar::isspace(), IntlChar::isJavaSpaceChar(), IntlChar::isUWhiteSpace()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isWhitespace(mixed $codepoint): bool {}
+		public static function isWhitespace(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is an alphanumeric character
 		 * <p>Determines whether the specified code point is an alphanumeric character (letter or digit). <b><code>true</code></b> for characters with general categories "L" (letters) and "Nd" (decimal digit numbers).</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is an alphanumeric character, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is an alphanumeric character, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isalnum.php
 		 * @see IntlChar::isalpha(), IntlChar::isdigit()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isalnum(mixed $codepoint): bool {}
+		public static function isalnum(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is a letter character
 		 * <p>Determines whether the specified code point is a letter character. <b><code>true</code></b> for general categories "L" (letters).</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a letter character, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a letter character, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isalpha.php
 		 * @see IntlChar::isalnum(), IntlChar::isdigit()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isalpha(mixed $codepoint): bool {}
+		public static function isalpha(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is a base character
 		 * <p>Determines whether the specified code point is a base character. <b><code>true</code></b> for general categories "L" (letters), "N" (numbers), "Mc" (spacing combining marks), and "Me" (enclosing marks).</p><p><b>Note</b>:</p><p>This is different from the Unicode definition in chapter 3.5, conformance clause D13, which defines base characters to be all characters (not Cn) that do not graphically combine with preceding characters (M) and that are neither control (Cc) or format (Cf) characters.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a base character, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a base character, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isbase.php
 		 * @see IntlChar::isalpha(), IntlChar::isdigit()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isbase(mixed $codepoint): bool {}
+		public static function isbase(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is a "blank" or "horizontal space" character
 		 * <p>Determines whether the specified code point is a "blank" or "horizontal space", a character that visibly separates words on a line.</p><p>The following are equivalent definitions:</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is either a "blank" or "horizontal space" character, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is either a "blank" or "horizontal space" character, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isblank.php
 		 * @see IntlChar::isspace(), IntlChar::isJavaSpaceChar(), IntlChar::isUWhiteSpace(), IntlChar::isWhitespace()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isblank(mixed $codepoint): bool {}
+		public static function isblank(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is a control character
 		 * <p>Determines whether the specified code point is a control character.</p><p>A control character is one of the following:</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a control character, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a control character, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.iscntrl.php
 		 * @see IntlChar::isprint()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function iscntrl(mixed $codepoint): bool {}
+		public static function iscntrl(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check whether the code point is defined
 		 * <p>Determines whether the specified code point is "defined", which usually means that it is assigned a character.</p><p><b><code>true</code></b> for general categories other than "Cn" (other, not assigned).</p><p><b>Note</b>:</p><p>Note that non-character code points (e.g., U+FDD0) are not "defined" (they are Cn), but surrogate code points are "defined" (Cs).</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a defined character, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a defined character, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isdefined.php
 		 * @see IntlChar::isdigit(), IntlChar::isalpha(), IntlChar::isalnum(), IntlChar::isupper(), IntlChar::islower(), IntlChar::istitle()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isdefined(mixed $codepoint): bool {}
+		public static function isdefined(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is a digit character
 		 * <p>Determines whether the specified code point is a digit character.</p><p><b><code>true</code></b> for characters with general category "Nd" (decimal digit numbers). Beginning with Unicode 4, this is the same as testing for the Numeric_Type of Decimal.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a digit character, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a digit character, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isdigit.php
 		 * @see IntlChar::isalpha(), IntlChar::isalnum(), IntlChar::isxdigit()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isdigit(mixed $codepoint): bool {}
+		public static function isdigit(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is a graphic character
 		 * <p>Determines whether the specified code point is a "graphic" character (printable, excluding spaces).</p><p><b><code>true</code></b> for all characters except those with general categories "Cc" (control codes), "Cf" (format controls), "Cs" (surrogates), "Cn" (unassigned), and "Z" (separators).</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a "graphic" character, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a "graphic" character, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isgraph.php
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isgraph(mixed $codepoint): bool {}
+		public static function isgraph(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is a lowercase letter
 		 * <p>Determines whether the specified code point has the general category "Ll" (lowercase letter).</p><p><b>Note</b>:</p><p>This misses some characters that are also lowercase but have a different general category value. In order to include those, use <code>IntlChar::isULowercase()</code>.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is an Ll lowercase letter, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is an Ll lowercase letter, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.islower.php
 		 * @see IntlChar::isupper(), IntlChar::istitle(), IntlChar::tolower(), IntlChar::toupper()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function islower(mixed $codepoint): bool {}
+		public static function islower(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is a printable character
 		 * <p>Determines whether the specified code point is a printable character.</p><p><b><code>true</code></b> for general categories other than "C" (controls).</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a printable character, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a printable character, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isprint.php
 		 * @see IntlChar::iscntrl()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isprint(mixed $codepoint): bool {}
+		public static function isprint(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is punctuation character
 		 * <p>Determines whether the specified code point is a punctuation character.</p><p><b><code>true</code></b> for characters with general categories "P" (punctuation).</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a punctuation character, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a punctuation character, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.ispunct.php
 		 * @since PHP 7, PHP 8
 		 */
-		public static function ispunct(mixed $codepoint): bool {}
+		public static function ispunct(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is a space character
 		 * <p>Determines if the specified character is a space character or not.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a space character, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a space character, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isspace.php
 		 * @see IntlChar::isJavaSpaceChar(), IntlChar::isWhitespace(), IntlChar::isUWhiteSpace()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isspace(mixed $codepoint): bool {}
+		public static function isspace(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is a titlecase letter
 		 * <p>Determines whether the specified code point is a titlecase letter.</p><p><b><code>true</code></b> for general category "Lt" (titlecase letter).</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a titlecase letter, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a titlecase letter, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.istitle.php
 		 * @see IntlChar::isupper(), IntlChar::islower(), IntlChar::totitle()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function istitle(mixed $codepoint): bool {}
+		public static function istitle(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point has the general category "Lu" (uppercase letter)
 		 * <p>Determines whether the specified code point has the general category "Lu" (uppercase letter).</p><p><b>Note</b>:</p><p>This misses some characters that are also uppercase but have a different general category value. In order to include those, use <code>IntlChar::isUUppercase()</code>.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is an Lu uppercase letter, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is an Lu uppercase letter, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isupper.php
 		 * @see IntlChar::islower(), IntlChar::istitle(), IntlChar::tolower(), IntlChar::toupper()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isupper(mixed $codepoint): bool {}
+		public static function isupper(int|string $codepoint): ?bool {}
 
 		/**
 		 * Check if code point is a hexadecimal digit
 		 * <p>Determines whether the specified code point is a hexadecimal digit.</p><p><b><code>true</code></b> for characters with general category "Nd" (decimal digit numbers) as well as Latin letters a-f and A-F in both ASCII and Fullwidth ASCII. (That is, for letters with code points 0041..0046, 0061..0066, FF21..FF26, FF41..FF46.)</p><p>This is equivalent to <code>IntlChar::digit($codepoint, 16) &gt;= 0</code>.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a hexadecimal character, <b><code>false</code></b> if not.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?bool <p>Returns <b><code>true</code></b> if <code>codepoint</code> is a hexadecimal character, <b><code>false</code></b> if not. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.isxdigit.php
 		 * @see IntlChar::isdigit()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function isxdigit(mixed $codepoint): bool {}
+		public static function isxdigit(int|string $codepoint): ?bool {}
 
 		/**
 		 * Return Unicode code point value of character
 		 * <p>Returns the Unicode code point value of the given character.</p><p>This function complements <code>IntlChar::chr()</code>.</p>
-		 * @param mixed $character <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return int <p>Returns the Unicode code point value as an integer.</p>
+		 * @param int|string $character <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return ?int <p>Returns the Unicode code point value as an integer.</p>
 		 * @link https://php.net/manual/en/intlchar.ord.php
 		 * @see IntlChar::chr(), mb_ord(), ord()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function ord(mixed $character): int {}
+		public static function ord(int|string $character): ?int {}
 
 		/**
 		 * Make Unicode character lowercase
 		 * <p>The given character is mapped to its lowercase equivalent. If the character has no lowercase equivalent, the original character itself is returned.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return mixed <p>Returns the Simple_Lowercase_Mapping of the code point, if any; otherwise the code point itself.</p><p>The return type will be <code>int</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> will be returned.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return int|string|null <p>Returns the Simple_Lowercase_Mapping of the code point, if any; otherwise the code point itself. Returns <b><code>null</code></b> on failure.</p><p>The return type is <code>int</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> is returned. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.tolower.php
 		 * @see IntlChar::totitle(), IntlChar::toupper(), mb_strtolower()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function tolower(mixed $codepoint): mixed {}
+		public static function tolower(int|string $codepoint): int|string|null {}
 
 		/**
 		 * Make Unicode character titlecase
 		 * <p>The given character is mapped to its titlecase equivalent. If the character has no titlecase equivalent, the original character itself is returned.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return mixed <p>Returns the Simple_Titlecase_Mapping of the code point, if any; otherwise the code point itself.</p><p>The return type will be <code>int</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> will be returned.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return int|string|null <p>Returns the Simple_Titlecase_Mapping of the code point, if any; otherwise the code point itself. Returns <b><code>null</code></b> on failure.</p><p>The return type is <code>int</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> is returned. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.totitle.php
 		 * @see IntlChar::tolower(), IntlChar::toupper(), mb_convert_case()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function totitle(mixed $codepoint): mixed {}
+		public static function totitle(int|string $codepoint): int|string|null {}
 
 		/**
 		 * Make Unicode character uppercase
 		 * <p>The given character is mapped to its uppercase equivalent. If the character has no uppercase equivalent, the character itself is returned.</p>
-		 * @param mixed $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
-		 * @return mixed <p>Returns the Simple_Uppercase_Mapping of the code point, if any; otherwise the code point itself.</p><p>The return type will be <code>int</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> will be returned.</p>
+		 * @param int|string $codepoint <p>The <code>int</code> codepoint value (e.g. <code>0x2603</code> for <i>U+2603 SNOWMAN</i>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)</p>
+		 * @return int|string|null <p>Returns the Simple_Uppercase_Mapping of the code point, if any; otherwise the code point itself.</p><p>The return type is <code>int</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> is returned. Returns <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlchar.toupper.php
 		 * @see IntlChar::tolower(), IntlChar::totitle(), mb_strtoupper()
 		 * @since PHP 7, PHP 8
 		 */
-		public static function toupper(mixed $codepoint): mixed {}
+		public static function toupper(int|string $codepoint): int|string|null {}
 	}
 
 	/**
@@ -5556,11 +6072,11 @@ namespace {
 		/**
 		 * Get last error message on the object
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return string|false
+		 * @return string
 		 * @link https://php.net/manual/en/intlbreakiterator.geterrormessage.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 		 */
-		public function getErrorMessage(): string|false {}
+		public function getErrorMessage(): string {}
 
 		/**
 		 * Get last code point passed over after advancing or receding the iterator
@@ -5575,11 +6091,11 @@ namespace {
 		 * Get the locale associated with the object
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param int $type
-		 * @return string
+		 * @return string|false
 		 * @link https://php.net/manual/en/intlbreakiterator.getlocale.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 		 */
-		public function getLocale(int $type): string {}
+		public function getLocale(int $type): string|false {}
 
 		/**
 		 * Create iterator for navigating fragments between boundaries
@@ -5668,20 +6184,70 @@ namespace {
 	class IntlDateFormatter {
 
 		/**
-		 * Create a date formatter
-		 * <p>Object-oriented style</p><p>Object-oriented style (constructor)</p><p>Create a date formatter.</p>
-		 * @param ?string $locale <p>Locale to use when formatting or parsing or <b><code>null</code></b> to use the value specified in the ini setting intl.default_locale.</p>
-		 * @param int $dateType <p>Date type to use (<b><code>none</code></b>, <b><code>short</code></b>, <b><code>medium</code></b>, <b><code>long</code></b>, <b><code>full</code></b>). This is one of the IntlDateFormatter constants.</p>
-		 * @param int $timeType <p>Time type to use (<b><code>none</code></b>, <b><code>short</code></b>, <b><code>medium</code></b>, <b><code>long</code></b>, <b><code>full</code></b>). This is one of the IntlDateFormatter constants.</p>
-		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>Time zone ID. The default (and the one used if <b><code>null</code></b> is given) is the one returned by <code>date_default_timezone_get()</code> or, if applicable, that of the <code>IntlCalendar</code> object passed for the <code>calendar</code> parameter. This ID must be a valid identifier on ICU&#700;s database or an ID representing an explicit offset, such as <code>GMT-05:30</code>.</p> <p>This can also be an <code>IntlTimeZone</code> or a <code>DateTimeZone</code> object.</p>
-		 * @param \IntlCalendar|int|null $calendar <p>Calendar to use for formatting or parsing. The default value is <b><code>null</code></b>, which corresponds to <b><code>IntlDateFormatter::GREGORIAN</code></b>. This can either be one of the IntlDateFormatter calendar constants or an <code>IntlCalendar</code>. Any <code>IntlCalendar</code> object passed will be clone; it will not be changed by the <code>IntlDateFormatter</code>. This will determine the calendar type used (gregorian, islamic, persian, etc.) and, if <b><code>null</code></b> is given for the <code>timezone</code> parameter, also the timezone used.</p>
-		 * @param string $pattern <p>Optional pattern to use when formatting or parsing. Possible patterns are documented at https://unicode-org.github.io/icu/userguide/format_parse/datetime/.</p>
-		 * @return ?IntlDateFormatter <p>The created <code>IntlDateFormatter</code> or <b><code>null</code></b> in case of failure.</p>
-		 * @link https://php.net/manual/en/intldateformatter.create.php
-		 * @see datefmt_format(), datefmt_parse(), datefmt_get_error_code(), datefmt_get_error_message()
-		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
+		 * @var int Completely specified style (Tuesday, April 12, 1952 AD or 3:30:42pm PST)
+		 * @link https://php.net/manual/en/class.intldateformatter.php
 		 */
-		public function __construct(?string $locale, int $dateType, int $timeType, \IntlTimeZone|\DateTimeZone|string|null $timezone = null, \IntlCalendar|int|null $calendar = null, string $pattern = "") {}
+		public const FULL = 0;
+
+		/**
+		 * @var int Long style (January 12, 1952 or 3:30:32pm)
+		 * @link https://php.net/manual/en/class.intldateformatter.php
+		 */
+		public const LONG = 1;
+
+		/**
+		 * @var int Medium style (Jan 12, 1952)
+		 * @link https://php.net/manual/en/class.intldateformatter.php
+		 */
+		public const MEDIUM = 2;
+
+		/**
+		 * @var int Most abbreviated style, only essential data (12/13/52 or 3:30pm)
+		 * @link https://php.net/manual/en/class.intldateformatter.php
+		 */
+		public const SHORT = 3;
+
+		/**
+		 * @var int Do not include this element
+		 * @link https://php.net/manual/en/class.intldateformatter.php
+		 */
+		public const NONE = -1;
+
+		/**
+		 * @var int The same as <b><code>IntlDateFormatter::FULL</code></b>, but yesterday, today, and tomorrow show as <code>yesterday</code>, <code>today</code>, and <code>tomorrow</code>, respectively. Available as of PHP 8.0.0, for <code>dateType</code> only.
+		 * @link https://php.net/manual/en/class.intldateformatter.php
+		 */
+		public const RELATIVE_FULL = 128;
+
+		/**
+		 * @var int The same as <b><code>IntlDateFormatter::LONG</code></b>, but yesterday, today, and tomorrow show as <code>yesterday</code>, <code>today</code>, and <code>tomorrow</code>, respectively. Available as of PHP 8.0.0, for <code>dateType</code> only.
+		 * @link https://php.net/manual/en/class.intldateformatter.php
+		 */
+		public const RELATIVE_LONG = 129;
+
+		/**
+		 * @var int The same as <b><code>IntlDateFormatter::MEDIUM</code></b>, but yesterday, today, and tomorrow show as <code>yesterday</code>, <code>today</code>, and <code>tomorrow</code>, respectively. Available as of PHP 8.0.0, for <code>dateType</code> only.
+		 * @link https://php.net/manual/en/class.intldateformatter.php
+		 */
+		public const RELATIVE_MEDIUM = 130;
+
+		/**
+		 * @var int The same as <b><code>IntlDateFormatter::SHORT</code></b>, but yesterday, today, and tomorrow show as <code>yesterday</code>, <code>today</code>, and <code>tomorrow</code>, respectively. Available as of PHP 8.0.0, for <code>dateType</code> only.
+		 * @link https://php.net/manual/en/class.intldateformatter.php
+		 */
+		public const RELATIVE_SHORT = 131;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intldateformatter.php
+		 */
+		public const GREGORIAN = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intldateformatter.php
+		 */
+		public const TRADITIONAL = 0;
 
 		/**
 		 * Create a date formatter
@@ -5689,20 +6255,36 @@ namespace {
 		 * @param ?string $locale <p>Locale to use when formatting or parsing or <b><code>null</code></b> to use the value specified in the ini setting intl.default_locale.</p>
 		 * @param int $dateType <p>Date type to use (<b><code>none</code></b>, <b><code>short</code></b>, <b><code>medium</code></b>, <b><code>long</code></b>, <b><code>full</code></b>). This is one of the IntlDateFormatter constants.</p>
 		 * @param int $timeType <p>Time type to use (<b><code>none</code></b>, <b><code>short</code></b>, <b><code>medium</code></b>, <b><code>long</code></b>, <b><code>full</code></b>). This is one of the IntlDateFormatter constants.</p>
-		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>Time zone ID. The default (and the one used if <b><code>null</code></b> is given) is the one returned by <code>date_default_timezone_get()</code> or, if applicable, that of the <code>IntlCalendar</code> object passed for the <code>calendar</code> parameter. This ID must be a valid identifier on ICU&#700;s database or an ID representing an explicit offset, such as <code>GMT-05:30</code>.</p> <p>This can also be an <code>IntlTimeZone</code> or a <code>DateTimeZone</code> object.</p>
+		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>Time zone ID. The default (and the one used if <b><code>null</code></b> is given) is the one returned by <code>date_default_timezone_get()</code> or, if applicable, that of the <code>IntlCalendar</code> object passed for the <code>calendar</code> parameter. This ID must be a valid identifier on ICU&#x2BC;s database or an ID representing an explicit offset, such as <code>GMT-05:30</code>.</p> <p>This can also be an <code>IntlTimeZone</code> or a <code>DateTimeZone</code> object.</p>
 		 * @param \IntlCalendar|int|null $calendar <p>Calendar to use for formatting or parsing. The default value is <b><code>null</code></b>, which corresponds to <b><code>IntlDateFormatter::GREGORIAN</code></b>. This can either be one of the IntlDateFormatter calendar constants or an <code>IntlCalendar</code>. Any <code>IntlCalendar</code> object passed will be clone; it will not be changed by the <code>IntlDateFormatter</code>. This will determine the calendar type used (gregorian, islamic, persian, etc.) and, if <b><code>null</code></b> is given for the <code>timezone</code> parameter, also the timezone used.</p>
-		 * @param string $pattern <p>Optional pattern to use when formatting or parsing. Possible patterns are documented at https://unicode-org.github.io/icu/userguide/format_parse/datetime/.</p>
+		 * @param ?string $pattern <p>Optional pattern to use when formatting or parsing. Possible patterns are documented at &#xBB;&#xA0;https://unicode-org.github.io/icu/userguide/format_parse/datetime/.</p>
 		 * @return ?IntlDateFormatter <p>The created <code>IntlDateFormatter</code> or <b><code>null</code></b> in case of failure.</p>
 		 * @link https://php.net/manual/en/intldateformatter.create.php
 		 * @see datefmt_format(), datefmt_parse(), datefmt_get_error_code(), datefmt_get_error_message()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
 		 */
-		public static function create(?string $locale, int $dateType, int $timeType, \IntlTimeZone|\DateTimeZone|string|null $timezone = null, \IntlCalendar|int|null $calendar = null, string $pattern = ""): ?\IntlDateFormatter {}
+		public function __construct(?string $locale, int $dateType = IntlDateFormatter::FULL, int $timeType = IntlDateFormatter::FULL, \IntlTimeZone|\DateTimeZone|string|null $timezone = null, \IntlCalendar|int|null $calendar = null, ?string $pattern = null) {}
+
+		/**
+		 * Create a date formatter
+		 * <p>Object-oriented style</p><p>Object-oriented style (constructor)</p><p>Create a date formatter.</p>
+		 * @param ?string $locale <p>Locale to use when formatting or parsing or <b><code>null</code></b> to use the value specified in the ini setting intl.default_locale.</p>
+		 * @param int $dateType <p>Date type to use (<b><code>none</code></b>, <b><code>short</code></b>, <b><code>medium</code></b>, <b><code>long</code></b>, <b><code>full</code></b>). This is one of the IntlDateFormatter constants.</p>
+		 * @param int $timeType <p>Time type to use (<b><code>none</code></b>, <b><code>short</code></b>, <b><code>medium</code></b>, <b><code>long</code></b>, <b><code>full</code></b>). This is one of the IntlDateFormatter constants.</p>
+		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>Time zone ID. The default (and the one used if <b><code>null</code></b> is given) is the one returned by <code>date_default_timezone_get()</code> or, if applicable, that of the <code>IntlCalendar</code> object passed for the <code>calendar</code> parameter. This ID must be a valid identifier on ICU&#x2BC;s database or an ID representing an explicit offset, such as <code>GMT-05:30</code>.</p> <p>This can also be an <code>IntlTimeZone</code> or a <code>DateTimeZone</code> object.</p>
+		 * @param \IntlCalendar|int|null $calendar <p>Calendar to use for formatting or parsing. The default value is <b><code>null</code></b>, which corresponds to <b><code>IntlDateFormatter::GREGORIAN</code></b>. This can either be one of the IntlDateFormatter calendar constants or an <code>IntlCalendar</code>. Any <code>IntlCalendar</code> object passed will be clone; it will not be changed by the <code>IntlDateFormatter</code>. This will determine the calendar type used (gregorian, islamic, persian, etc.) and, if <b><code>null</code></b> is given for the <code>timezone</code> parameter, also the timezone used.</p>
+		 * @param ?string $pattern <p>Optional pattern to use when formatting or parsing. Possible patterns are documented at &#xBB;&#xA0;https://unicode-org.github.io/icu/userguide/format_parse/datetime/.</p>
+		 * @return ?IntlDateFormatter <p>The created <code>IntlDateFormatter</code> or <b><code>null</code></b> in case of failure.</p>
+		 * @link https://php.net/manual/en/intldateformatter.create.php
+		 * @see datefmt_format(), datefmt_parse(), datefmt_get_error_code(), datefmt_get_error_message()
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
+		 */
+		public static function create(?string $locale, int $dateType = IntlDateFormatter::FULL, int $timeType = IntlDateFormatter::FULL, \IntlTimeZone|\DateTimeZone|string|null $timezone = null, \IntlCalendar|int|null $calendar = null, ?string $pattern = null): ?\IntlDateFormatter {}
 
 		/**
 		 * Format the date/time value as a string
 		 * <p>Object-oriented style</p><p>Formats the time value as a string.</p>
-		 * @param \IntlCalendar|\DateTimeInterface|array|string|int|float $datetime <p>Value to format. This may be a <code>DateTimeInterface</code> object, an <code>IntlCalendar</code> object, a numeric type representing a (possibly fractional) number of seconds since epoch or an <code>array</code> in the format output by <code>localtime()</code>.</p> <p>If a <code>DateTime</code> or an <code>IntlCalendar</code> object is passed, its timezone is not considered. The object will be formatted using the formater&#700;s configured timezone. If one wants to use the timezone of the object to be formatted, <code>IntlDateFormatter::setTimeZone()</code> must be called before with the object&#700;s timezone. Alternatively, the static function <code>IntlDateFormatter::formatObject()</code> may be used instead.</p>
+		 * @param \IntlCalendar|\DateTimeInterface|array|string|int|float $datetime <p>Value to format. This may be a <code>DateTimeInterface</code> object, an <code>IntlCalendar</code> object, a numeric type representing a (possibly fractional) number of seconds since epoch or an <code>array</code> in the format output by <code>localtime()</code>.</p> <p>If a <code>DateTime</code> or an <code>IntlCalendar</code> object is passed, its timezone is not considered. The object will be formatted using the formater&#x2BC;s configured timezone. If one wants to use the timezone of the object to be formatted, <code>IntlDateFormatter::setTimeZone()</code> must be called before with the object&#x2BC;s timezone. Alternatively, the static function <code>IntlDateFormatter::formatObject()</code> may be used instead.</p>
 		 * @return string|false <p>The formatted string or, if an error occurred, <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/intldateformatter.format.php
 		 * @see datefmt_create(), datefmt_parse(), datefmt_get_error_code(), datefmt_get_error_message(), datefmt_format_object()
@@ -5712,15 +6294,15 @@ namespace {
 
 		/**
 		 * Formats an object
-		 * <p>Object-oriented style</p><p>This function allows formatting an <code>IntlCalendar</code> or <code>DateTime</code> object without first explicitly creating a <code>IntlDateFormatter</code> object.</p><p>The temporary <code>IntlDateFormatter</code> that will be created will take the timezone from the passed in object. The timezone database bundled with PHP will not be used &ndash; ICU's will be used instead. The timezone identifier used in <code>DateTime</code> objects must therefore also exist in ICU's database.</p>
-		 * @param \IntlCalendar|\DateTime $datetime <p>An object of type <code>IntlCalendar</code> or <code>DateTime</code>. The timezone information in the object will be used.</p>
-		 * @param array|int|string|null $format <p>How to format the date/time. This can either be an <code>array</code> with two elements (first the date style, then the time style, these being one of the constants <b><code>IntlDateFormatter::NONE</code></b>, <b><code>IntlDateFormatter::SHORT</code></b>, <b><code>IntlDateFormatter::MEDIUM</code></b>, <b><code>IntlDateFormatter::LONG</code></b>, <b><code>IntlDateFormatter::FULL</code></b>), an <code>int</code> with the value of one of these constants (in which case it will be used both for the time and the date) or a <code>string</code> with the format described in the ICU documentation. If <b><code>null</code></b>, the default style will be used.</p>
+		 * <p>Object-oriented style</p><p>This function allows formatting an <code>IntlCalendar</code> or <code>DateTime</code> object without first explicitly creating a <code>IntlDateFormatter</code> object.</p><p>The temporary <code>IntlDateFormatter</code> that will be created will take the timezone from the passed in object. The timezone database bundled with PHP will not be used &#x2013; ICU's will be used instead. The timezone identifier used in <code>DateTime</code> objects must therefore also exist in ICU's database.</p>
+		 * @param \IntlCalendar|\DateTimeInterface $datetime <p>An object of type <code>IntlCalendar</code> or <code>DateTime</code>. The timezone information in the object will be used.</p>
+		 * @param array|int|string|null $format <p>How to format the date/time. This can either be an <code>array</code> with two elements (first the date style, then the time style, these being one of the constants <b><code>IntlDateFormatter::NONE</code></b>, <b><code>IntlDateFormatter::SHORT</code></b>, <b><code>IntlDateFormatter::MEDIUM</code></b>, <b><code>IntlDateFormatter::LONG</code></b>, <b><code>IntlDateFormatter::FULL</code></b>), an <code>int</code> with the value of one of these constants (in which case it will be used both for the time and the date) or a <code>string</code> with the format described in &#xBB;&#xA0;the ICU documentation. If <b><code>null</code></b>, the default style will be used.</p>
 		 * @param ?string $locale <p>The locale to use, or <b><code>null</code></b> to use the default one.</p>
 		 * @return string|false <p>A string with result or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intldateformatter.formatobject.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL intl >= 3.0.0
 		 */
-		public static function formatObject(\IntlCalendar|\DateTime $datetime, array|int|string|null $format = null, ?string $locale = null): string|false {}
+		public static function formatObject(\IntlCalendar|\DateTimeInterface $datetime, array|int|string|null $format = null, ?string $locale = null): string|false {}
 
 		/**
 		 * Get the calendar type used for the IntlDateFormatter
@@ -5882,7 +6464,7 @@ namespace {
 		/**
 		 * Set the pattern used for the IntlDateFormatter
 		 * <p>Object-oriented style</p><p>Set the pattern used for the IntlDateFormatter.</p>
-		 * @param string $pattern <p>New pattern string to use. Possible patterns are documented at https://unicode-org.github.io/icu/userguide/format_parse/datetime/.</p>
+		 * @param string $pattern <p>New pattern string to use. Possible patterns are documented at &#xBB;&#xA0;https://unicode-org.github.io/icu/userguide/format_parse/datetime/.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure. Bad formatstrings are usually the cause of the failure.</p>
 		 * @link https://php.net/manual/en/intldateformatter.setpattern.php
 		 * @see datefmt_get_pattern(), datefmt_create()
@@ -5893,13 +6475,51 @@ namespace {
 		/**
 		 * Sets formatterʼs timezone
 		 * <p>Object-oriented style</p><p>Sets the timezone used for the IntlDateFormatter. object.</p>
-		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>The timezone to use for this formatter. This can be specified in the following forms:</p> <ul> <li> <p><b><code>null</code></b>, in which case the default timezone will be used, as specified in the ini setting date.timezone or through the function <code>date_default_timezone_set()</code> and as returned by <code>date_default_timezone_get()</code>.</p> </li> <li> <p>An <code>IntlTimeZone</code>, which will be used directly.</p> </li> <li> <p>A <code>DateTimeZone</code>. Its identifier will be extracted and an ICU timezone object will be created; the timezone will be backed by ICU&#700;s database, not PHP&#700;s.</p> </li> <li> <p>A <code>string</code>, which should be a valid ICU timezone identifier. See <code>IntlTimeZone::createTimeZoneIDEnumeration()</code>. Raw offsets such as <code>"GMT+08:30"</code> are also accepted.</p> </li> </ul>
+		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>The timezone to use for this formatter. This can be specified in the following forms:</p> <ul> <li> <p><b><code>null</code></b>, in which case the default timezone will be used, as specified in the ini setting date.timezone or through the function <code>date_default_timezone_set()</code> and as returned by <code>date_default_timezone_get()</code>.</p> </li> <li> <p>An <code>IntlTimeZone</code>, which will be used directly.</p> </li> <li> <p>A <code>DateTimeZone</code>. Its identifier will be extracted and an ICU timezone object will be created; the timezone will be backed by ICU&#x2BC;s database, not PHP&#x2BC;s.</p> </li> <li> <p>A <code>string</code>, which should be a valid ICU timezone identifier. See <code>IntlTimeZone::createTimeZoneIDEnumeration()</code>. Raw offsets such as <code>"GMT+08:30"</code> are also accepted.</p> </li> </ul>
 		 * @return ?bool <p>Returns <b><code>null</code></b> on success and <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intldateformatter.settimezone.php
 		 * @see IntlDateFormatter::getTimeZone()
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL intl >= 3.0.0
 		 */
 		public function setTimeZone(\IntlTimeZone|\DateTimeZone|string|null $timezone): ?bool {}
+	}
+
+	/**
+	 * <p>Generates localized date and/or time format pattern strings suitable for use in <code>IntlDateFormatter</code>.</p>
+	 * @link https://php.net/manual/en/class.intldatepatterngenerator.php
+	 * @since PHP 8 >= 8.1.0
+	 */
+	class IntlDatePatternGenerator {
+
+		/**
+		 * Creates a new IntlDatePatternGenerator instance
+		 * <p>Creates a new <code>IntlDatePatternGenerator</code> instance.</p>
+		 * @param ?string $locale <p>The locale. If <b><code>null</code></b> is passed, uses the ini setting intl.default_locale.</p>
+		 * @return ?IntlDatePatternGenerator <p>Returns an <code>IntlDatePatternGenerator</code> instance on success, or <b><code>null</code></b> on failure.</p>
+		 * @link https://php.net/manual/en/intldatepatterngenerator.create.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function __construct(?string $locale = null) {}
+
+		/**
+		 * Creates a new IntlDatePatternGenerator instance
+		 * <p>Creates a new <code>IntlDatePatternGenerator</code> instance.</p>
+		 * @param ?string $locale <p>The locale. If <b><code>null</code></b> is passed, uses the ini setting intl.default_locale.</p>
+		 * @return ?IntlDatePatternGenerator <p>Returns an <code>IntlDatePatternGenerator</code> instance on success, or <b><code>null</code></b> on failure.</p>
+		 * @link https://php.net/manual/en/intldatepatterngenerator.create.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public static function create(?string $locale = null): ?\IntlDatePatternGenerator {}
+
+		/**
+		 * Determines the most suitable date/time format
+		 * <p>Determines which date/time format is most suitable for a particular locale.</p>
+		 * @param string $skeleton <p>The skeleton.</p>
+		 * @return string|false <p>Returns a format, accepted by <code>DateTimeInterface::format()</code> on success, or <b><code>false</code></b> on failure.</p>
+		 * @link https://php.net/manual/en/intldatepatterngenerator.getbestpattern.php
+		 * @since PHP 8 >= 8.1.0
+		 */
+		public function getBestPattern(string $skeleton): string|false {}
 	}
 
 	/**
@@ -5959,6 +6579,18 @@ namespace {
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -6052,7 +6684,7 @@ namespace {
 
 		/**
 		 * Add a (signed) amount of time to a field
-		 * <p>Object-oriented style</p><p>Add a signed amount to a field. Adding a positive amount allows advances in time, even if the numeric value of the field decreases (e.g. when working with years in BC dates).</p><p>Other fields may need to adjusted &ndash; for instance, adding a month to the 31st of January will result in the 28th (or 29th) of February. Contrary to <code>IntlCalendar::roll()</code>, when a value wraps around, more significant fields may change. For instance, adding a day to the 31st of January will result in the 1st of February, not the 1st of January.</p>
+		 * <p>Object-oriented style</p><p>Add a signed amount to a field. Adding a positive amount allows advances in time, even if the numeric value of the field decreases (e.g. when working with years in BC dates).</p><p>Other fields may need to adjusted &#x2013; for instance, adding a month to the 31st of January will result in the 28th (or 29th) of February. Contrary to <code>IntlCalendar::roll()</code>, when a value wraps around, more significant fields may change. For instance, adding a day to the 31st of January will result in the 1st of February, not the 1st of January.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
 		 * @param int $value <p>The signed amount to add to the current field. If the amount is positive, the instant will be moved forward; if it is negative, the instant will be moved into the past. The unit is implicit to the field type. For instance, hours for <b><code>IntlCalendar::FIELD_HOUR_OF_DAY</code></b>.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -6063,9 +6695,9 @@ namespace {
 
 		/**
 		 * Whether this objectʼs time is after that of the passed object
-		 * <p>Object-oriented style</p><p>Returns whether this object&#700;s time succeeds the argument&#700;s time.</p>
-		 * @param \IntlCalendar $other <p>The calendar whose time will be checked against the primary object&#700;s time.</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if this object&#700;s current time is after that of the <code>calendar</code> argument&#700;s time. Returns <b><code>false</code></b> otherwise.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
+		 * <p>Object-oriented style</p><p>Returns whether this object&#x2BC;s time succeeds the argument&#x2BC;s time.</p>
+		 * @param \IntlCalendar $other <p>The calendar whose time will be checked against the primary object&#x2BC;s time.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if this object&#x2BC;s current time is after that of the <code>calendar</code> argument&#x2BC;s time. Returns <b><code>false</code></b> otherwise.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
 		 * @link https://php.net/manual/en/intlcalendar.after.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -6073,9 +6705,9 @@ namespace {
 
 		/**
 		 * Whether this objectʼs time is before that of the passed object
-		 * <p>Object-oriented style</p><p>Returns whether this object&#700;s time precedes the argument&#700;s time.</p>
-		 * @param \IntlCalendar $other <p>The calendar whose time will be checked against the primary object&#700;s time.</p>
-		 * @return bool <p>Returns <b><code>true</code></b> if this object&#700;s current time is before that of the <code>calendar</code> argument&#700;s time. Returns <b><code>false</code></b> otherwise.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
+		 * <p>Object-oriented style</p><p>Returns whether this object&#x2BC;s time precedes the argument&#x2BC;s time.</p>
+		 * @param \IntlCalendar $other <p>The calendar whose time will be checked against the primary object&#x2BC;s time.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if this object&#x2BC;s current time is before that of the <code>calendar</code> argument&#x2BC;s time. Returns <b><code>false</code></b> otherwise.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
 		 * @link https://php.net/manual/en/intlcalendar.before.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -6083,18 +6715,18 @@ namespace {
 
 		/**
 		 * Clear a field or all fields
-		 * <p>Object-oriented style</p><p>Clears either all of the fields or a specific field. A cleared field is marked as unset, giving it the lowest priority against overlapping fields or even default values when calculating the time. Additionally, its value is set to <code>0</code>, though given the field&#700;s low priority, its value may have been internally set to another value by the time the field has finished been queried.</p>
+		 * <p>Object-oriented style</p><p>Clears either all of the fields or a specific field. A cleared field is marked as unset, giving it the lowest priority against overlapping fields or even default values when calculating the time. Additionally, its value is set to <code>0</code>, though given the field&#x2BC;s low priority, its value may have been internally set to another value by the time the field has finished been queried.</p>
 		 * @param ?int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/intlcalendar.clear.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function clear(?int $field = null): bool {}
+		public function clear(?int $field = null): true {}
 
 		/**
 		 * Create a new IntlCalendar
 		 * <p>Object-oriented style</p><p>Given a timezone and locale, this method creates an <code>IntlCalendar</code> object. This factory method may return a subclass of <code>IntlCalendar</code>.</p><p>The calendar created will represent the time instance at which it was created, based on the system time. The fields can all be cleared by calling <b>IntCalendar::clear()</b> with no arguments. See also <code>IntlGregorianCalendar::__construct()</code>.</p>
-		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>The timezone to use.</p> <ul> <li> <p><b><code>null</code></b>, in which case the default timezone will be used, as specified in the ini setting date.timezone or through the function <code>date_default_timezone_set()</code> and as returned by <code>date_default_timezone_get()</code>.</p> </li> <li> <p>An <code>IntlTimeZone</code>, which will be used directly.</p> </li> <li> <p>A <code>DateTimeZone</code>. Its identifier will be extracted and an ICU timezone object will be created; the timezone will be backed by ICU&#700;s database, not PHP&#700;s.</p> </li> <li> <p>A <code>string</code>, which should be a valid ICU timezone identifier. See <code>IntlTimeZone::createTimeZoneIDEnumeration()</code>. Raw offsets such as <code>"GMT+08:30"</code> are also accepted.</p> </li> </ul>
+		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>The timezone to use.</p> <ul> <li> <p><b><code>null</code></b>, in which case the default timezone will be used, as specified in the ini setting date.timezone or through the function <code>date_default_timezone_set()</code> and as returned by <code>date_default_timezone_get()</code>.</p> </li> <li> <p>An <code>IntlTimeZone</code>, which will be used directly.</p> </li> <li> <p>A <code>DateTimeZone</code>. Its identifier will be extracted and an ICU timezone object will be created; the timezone will be backed by ICU&#x2BC;s database, not PHP&#x2BC;s.</p> </li> <li> <p>A <code>string</code>, which should be a valid ICU timezone identifier. See <code>IntlTimeZone::createTimeZoneIDEnumeration()</code>. Raw offsets such as <code>"GMT+08:30"</code> are also accepted.</p> </li> </ul>
 		 * @param ?string $locale <p>A locale to use or <b><code>null</code></b> to use the default locale.</p>
 		 * @return ?IntlCalendar <p>The created <code>IntlCalendar</code> instance or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.createinstance.php
@@ -6114,7 +6746,7 @@ namespace {
 
 		/**
 		 * Calculate difference between given time and this objectʼs time
-		 * <p>Object-oriented style</p><p>Return the difference between the given time and the time this object is set to, with respect to the quantity specified the <code>field</code> parameter.</p><p>This method is meant to be called successively, first with the most significant field of interest down to the least significant field. To this end, as a side effect, this calendar&#700;s value for the field specified is advanced by the amount returned.</p>
+		 * <p>Object-oriented style</p><p>Return the difference between the given time and the time this object is set to, with respect to the quantity specified the <code>field</code> parameter.</p><p>This method is meant to be called successively, first with the most significant field of interest down to the least significant field. To this end, as a side effect, this calendar&#x2BC;s value for the field specified is advanced by the amount returned.</p>
 		 * @param float $timestamp <p>The time against which to compare the quantity represented by the <code>field</code>. For the result to be positive, the time given for this parameter must be ahead of the time of the object the method is being invoked on.</p>
 		 * @param int $field <p>The field that represents the quantity being compared.</p> <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
 		 * @return int|false <p>Returns a (signed) difference of time in the unit associated with the specified field or <b><code>false</code></b> on failure.</p>
@@ -6146,7 +6778,7 @@ namespace {
 
 		/**
 		 * The maximum value for a field, considering the objectʼs current time
-		 * <p>Object-oriented style</p><p>Returns a field&#700;s relative maximum value around the current time. The exact semantics vary by field, but in the general case this is the value that would be obtained if one would set the field value into the smallest relative maximum for the field and would increment it until reaching the global maximum or the field value wraps around, in which the value returned would be the global maximum or the value before the wrapping, respectively.</p><p>For instance, in the gregorian calendar, the actual maximum value for the day of month would vary between <code>28</code> and <code>31</code>, depending on the month and year of the current time.</p>
+		 * <p>Object-oriented style</p><p>Returns a field&#x2BC;s relative maximum value around the current time. The exact semantics vary by field, but in the general case this is the value that would be obtained if one would set the field value into the smallest relative maximum for the field and would increment it until reaching the global maximum or the field value wraps around, in which the value returned would be the global maximum or the value before the wrapping, respectively.</p><p>For instance, in the gregorian calendar, the actual maximum value for the day of month would vary between <code>28</code> and <code>31</code>, depending on the month and year of the current time.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
 		 * @return int|false <p>An <code>int</code> representing the maximum value in the units associated with the given <code>field</code> or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getactualmaximum.php
@@ -6156,9 +6788,9 @@ namespace {
 
 		/**
 		 * The minimum value for a field, considering the objectʼs current time
-		 * <p>Object-oriented style</p><p>Returns a field&#700;s relative minimum value around the current time. The exact semantics vary by field, but in the general case this is the value that would be obtained if one would set the field value into the greatest relative minimum for the field and would decrement it until reaching the global minimum or the field value wraps around, in which the value returned would be the global minimum or the value before the wrapping, respectively.</p><p>For the Gregorian calendar, this is always the same as <code>IntlCalendar::getMinimum()</code>.</p>
+		 * <p>Object-oriented style</p><p>Returns a field&#x2BC;s relative minimum value around the current time. The exact semantics vary by field, but in the general case this is the value that would be obtained if one would set the field value into the greatest relative minimum for the field and would decrement it until reaching the global minimum or the field value wraps around, in which the value returned would be the global minimum or the value before the wrapping, respectively.</p><p>For the Gregorian calendar, this is always the same as <code>IntlCalendar::getMinimum()</code>.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
-		 * @return int|false <p>An <code>int</code> representing the minimum value in the field&#700;s unit or <b><code>false</code></b> on failure.</p>
+		 * @return int|false <p>An <code>int</code> representing the minimum value in the field&#x2BC;s unit or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getactualminimum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -6176,7 +6808,7 @@ namespace {
 		/**
 		 * Tell whether a day is a weekday, weekend or a day that has a transition between the two
 		 * <p>Object-oriented style</p><p>Returns whether the passed day is a weekday (<b><code>IntlCalendar::DOW_TYPE_WEEKDAY</code></b>), a weekend day (<b><code>IntlCalendar::DOW_TYPE_WEEKEND</code></b>), a day during which a transition occurs into the weekend (<b><code>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</code></b>) or a day during which the weekend ceases (<b><code>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</code></b>).</p><p>If the return is either <b><code>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</code></b> or <b><code>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</code></b>, then <code>IntlCalendar::getWeekendTransition()</code> can be called to obtain the time of the transition.</p><p>This function requires ICU 4.4 or later.</p>
-		 * @param int $dayOfWeek <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &hellip;, <b><code>IntlCalendar::DOW_SATURDAY</code></b>.</p>
+		 * @param int $dayOfWeek <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &#x2026;, <b><code>IntlCalendar::DOW_SATURDAY</code></b>.</p>
 		 * @return int|false <p>Returns one of the constants <b><code>IntlCalendar::DOW_TYPE_WEEKDAY</code></b>, <b><code>IntlCalendar::DOW_TYPE_WEEKEND</code></b>, <b><code>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</code></b> or <b><code>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</code></b> or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getdayofweektype.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -6185,7 +6817,7 @@ namespace {
 
 		/**
 		 * Get last error code on the object
-		 * <p>Object-oriented style (method):</p><p>Returns the numeric ICU error code for the last call on this object (including cloning) or the <code>IntlCalendar</code> given for the <code>calendar</code> parameter (in the procedural&#8210;style version). This may indicate only a warning (negative error code) or no error at all (<b><code>U_ZERO_ERROR</code></b>). The actual presence of an error can be tested with <code>intl_is_failure()</code>.</p><p>Invalid arguments detected on the PHP side (before invoking functions of the ICU library) are not recorded for the purposes of this function.</p><p>The last error that occurred in any call to a function of the intl extension, including early argument errors, can be obtained with <code>intl_get_error_code()</code>. This function resets the global error code, but not the object&#700;s error code.</p>
+		 * <p>Object-oriented style (method):</p><p>Returns the numeric ICU error code for the last call on this object (including cloning) or the <code>IntlCalendar</code> given for the <code>calendar</code> parameter (in the procedural&#x2012;style version). This may indicate only a warning (negative error code) or no error at all (<b><code>U_ZERO_ERROR</code></b>). The actual presence of an error can be tested with <code>intl_is_failure()</code>.</p><p>Invalid arguments detected on the PHP side (before invoking functions of the ICU library) are not recorded for the purposes of this function.</p><p>The last error that occurred in any call to a function of the intl extension, including early argument errors, can be obtained with <code>intl_get_error_code()</code>. This function resets the global error code, but not the object&#x2BC;s error code.</p>
 		 * @return int|false <p>An ICU error code indicating either success, failure or a warning. Returns <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.geterrorcode.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -6204,7 +6836,7 @@ namespace {
 		/**
 		 * Get the first day of the week for the calendarʼs locale
 		 * <p>Object-oriented style</p><p>The week day deemed to start a week, either the default value for this locale or the value set with <code>IntlCalendar::setFirstDayOfWeek()</code>.</p>
-		 * @return int|false <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &hellip;, <b><code>IntlCalendar::DOW_SATURDAY</code></b> or <b><code>false</code></b> on failure.</p>
+		 * @return int|false <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &#x2026;, <b><code>IntlCalendar::DOW_SATURDAY</code></b> or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getfirstdayofweek.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -6214,7 +6846,7 @@ namespace {
 		 * Get the largest local minimum value for a field
 		 * <p>Object-oriented style</p><p>Returns the largest local minimum for a field. This should be a value larger or equal to that returned by <code>IntlCalendar::getActualMinimum()</code>, which is in its turn larger or equal to that returned by <code>IntlCalendar::getMinimum()</code>. All these three functions return the same value for the Gregorian calendar.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
-		 * @return int|false <p>An <code>int</code> representing a field value, in the field&#700;s unit, or <b><code>false</code></b> on failure.</p>
+		 * @return int|false <p>An <code>int</code> representing a field value, in the field&#x2BC;s unit, or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getgreatestminimum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -6245,7 +6877,7 @@ namespace {
 		 * Get the smallest local maximum for a field
 		 * <p>Object-oriented style</p><p>Returns the smallest local maximumw for a field. This should be a value smaller or equal to that returned by <b>IntlCalendar::getActualMaxmimum()</b>, which is in its turn smaller or equal to that returned by <code>IntlCalendar::getMaximum()</code>.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
-		 * @return int|false <p>An <code>int</code> representing a field value in the field&#700;s unit or <b><code>false</code></b> on failure.</p>
+		 * @return int|false <p>An <code>int</code> representing a field value in the field&#x2BC;s unit or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getleastmaximum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -6254,7 +6886,7 @@ namespace {
 		/**
 		 * Get the locale associated with the object
 		 * <p>Object-oriented style</p><p>Returns the locale used by this calendar object.</p>
-		 * @param int $type <p>Whether to fetch the actual locale (the locale from which the calendar data originates, with <b><code>Locale::ACTUAL_LOCALE</code></b>) or the valid locale, i.e., the most specific locale supported by ICU relatively to the requested locale &ndash; see <b><code>Locale::VALID_LOCALE</code></b>. From the most general to the most specific, the locales are ordered in this fashion &ndash; actual locale, valid locale, requested locale.</p>
+		 * @param int $type <p>Whether to fetch the actual locale (the locale from which the calendar data originates, with <b><code>Locale::ACTUAL_LOCALE</code></b>) or the valid locale, i.e., the most specific locale supported by ICU relatively to the requested locale &#x2013; see <b><code>Locale::VALID_LOCALE</code></b>. From the most general to the most specific, the locales are ordered in this fashion &#x2013; actual locale, valid locale, requested locale.</p>
 		 * @return string|false <p>A locale string or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getlocale.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -6265,7 +6897,7 @@ namespace {
 		 * Get the global maximum value for a field
 		 * <p>Object-oriented style</p><p>Gets the global maximum for a field, in this specific calendar. This value is larger or equal to that returned by <code>IntlCalendar::getActualMaximum()</code>, which is in its turn larger or equal to that returned by <code>IntlCalendar::getLeastMaximum()</code>.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
-		 * @return int|false <p>An <code>int</code> representing a field value in the field&#700;s unit or <b><code>false</code></b> on failure.</p>
+		 * @return int|false <p>An <code>int</code> representing a field value in the field&#x2BC;s unit or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getmaximum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -6273,7 +6905,7 @@ namespace {
 
 		/**
 		 * Get minimal number of days the first week in a year or month can have
-		 * <p>Object-oriented style</p><p>Returns the smallest number of days the first week of a year or month must have in the new year or month. For instance, in the Gregorian calendar, if this value is 1, then the first week of the year will necessarily include January 1st, while if this value is 7, then the week with January 1st will be the first week of the year only if the day of the week for January 1st matches the day of the week returned by <code>IntlCalendar::getFirstDayOfWeek()</code>; otherwise it will be the previous year&#700;s last week.</p>
+		 * <p>Object-oriented style</p><p>Returns the smallest number of days the first week of a year or month must have in the new year or month. For instance, in the Gregorian calendar, if this value is 1, then the first week of the year will necessarily include January 1st, while if this value is 7, then the week with January 1st will be the first week of the year only if the day of the week for January 1st matches the day of the week returned by <code>IntlCalendar::getFirstDayOfWeek()</code>; otherwise it will be the previous year&#x2BC;s last week.</p>
 		 * @return int|false <p>An <code>int</code> representing a number of days or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getminimaldaysinfirstweek.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -6284,7 +6916,7 @@ namespace {
 		 * Get the global minimum value for a field
 		 * <p>Object-oriented style</p><p>Gets the global minimum for a field, in this specific calendar. This value is smaller or equal to that returned by <code>IntlCalendar::getActualMinimum()</code>, which is in its turn smaller or equal to that returned by <code>IntlCalendar::getGreatestMinimum()</code>. For the Gregorian calendar, these three functions always return the same value (for each field).</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
-		 * @return int|false <p>An <code>int</code> representing a value for the given field in the field&#700;s unit or <b><code>false</code></b> on failure.</p>
+		 * @return int|false <p>An <code>int</code> representing a value for the given field in the field&#x2BC;s unit or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getminimum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -6347,7 +6979,7 @@ namespace {
 		/**
 		 * Get time of the day at which weekend begins or ends
 		 * <p>Object-oriented style</p><p>Returns the number of milliseconds after midnight at which the weekend begins or ends.</p><p>This is only applicable for days of the week for which <code>IntlCalendar::getDayOfWeekType()</code> returns either <b><code>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</code></b> or <b><code>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</code></b>. Calling this function for other days of the week is an error condition.</p><p>This function requires ICU 4.4 or later.</p>
-		 * @param int $dayOfWeek <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &hellip;, <b><code>IntlCalendar::DOW_SATURDAY</code></b>.</p>
+		 * @param int $dayOfWeek <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &#x2026;, <b><code>IntlCalendar::DOW_SATURDAY</code></b>.</p>
 		 * @return int|false <p>The number of milliseconds into the day at which the weekend begins or ends or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.getweekendtransition.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -6356,7 +6988,7 @@ namespace {
 
 		/**
 		 * Whether the objectʼs time is in Daylight Savings Time
-		 * <p>Object-oriented style</p><p>Whether, for the instant represented by this object and for this object&#700;s timezone, daylight saving time is in place.</p>
+		 * <p>Object-oriented style</p><p>Whether, for the instant represented by this object and for this object&#x2BC;s timezone, daylight saving time is in place.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> if the date is in Daylight Savings Time, <b><code>false</code></b> otherwise.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
 		 * @link https://php.net/manual/en/intlcalendar.indaylighttime.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -6404,9 +7036,9 @@ namespace {
 
 		/**
 		 * Whether a certain date/time is in the weekend
-		 * <p>Object-oriented style</p><p>Returns whether either the obejct&#700;s current time or the provided timestamp occur during a weekend in this object&#700;s calendar system.</p><p>This function requires ICU 4.4 or later.</p>
-		 * @param ?float $timestamp <p>An optional timestamp representing the number of milliseconds since the epoch, excluding leap seconds. If <b><code>null</code></b>, this object&#700;s current time is used instead.</p>
-		 * @return bool <p>A <code>bool</code> indicating whether the given or this object&#700;s time occurs in a weekend.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
+		 * <p>Object-oriented style</p><p>Returns whether either the obejct&#x2BC;s current time or the provided timestamp occur during a weekend in this object&#x2BC;s calendar system.</p><p>This function requires ICU 4.4 or later.</p>
+		 * @param ?float $timestamp <p>An optional timestamp representing the number of milliseconds since the epoch, excluding leap seconds. If <b><code>null</code></b>, this object&#x2BC;s current time is used instead.</p>
+		 * @return bool <p>A <code>bool</code> indicating whether the given or this object&#x2BC;s time occurs in a weekend.</p><p>On failure <b><code>false</code></b> is also returned. To detect error conditions use <code>intl_get_error_code()</code>, or set up Intl to throw exceptions.</p>
 		 * @link https://php.net/manual/en/intlcalendar.isweekend.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
@@ -6428,21 +7060,21 @@ namespace {
 		 * <p>Object-oriented style</p><p>Sets either a specific field to the given value, or sets at once several common fields. The range of values that are accepted depend on whether the calendar is using the lenient mode.</p><p>For fields that conflict, the fields that are set later have priority.</p><p>This method cannot be called with exactly four arguments.</p>
 		 * @param int $field <p>One of the <code>IntlCalendar</code> date/time field constants. These are integer values between <code>0</code> and <b><code>IntlCalendar::FIELD_COUNT</code></b>.</p>
 		 * @param int $value <p>The new value of the given field.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/intlcalendar.set.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function set(int $field, int $value): bool {}
+		public function set(int $field, int $value): true {}
 
 		/**
 		 * Set the day on which the week is deemed to start
 		 * <p>Object-oriented style</p><p>Defines the day of week deemed to start the week. This affects the behavior of fields that depend on the concept of week start and end such as <b><code>IntlCalendar::FIELD_WEEK_OF_YEAR</code></b> and <b><code>IntlCalendar::FIELD_YEAR_WOY</code></b>.</p>
-		 * @param int $dayOfWeek <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &hellip;, <b><code>IntlCalendar::DOW_SATURDAY</code></b>.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @param int $dayOfWeek <p>One of the constants <b><code>IntlCalendar::DOW_SUNDAY</code></b>, <b><code>IntlCalendar::DOW_MONDAY</code></b>, &#x2026;, <b><code>IntlCalendar::DOW_SATURDAY</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/intlcalendar.setfirstdayofweek.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function setFirstDayOfWeek(int $dayOfWeek): bool {}
+		public function setFirstDayOfWeek(int $dayOfWeek): true {}
 
 		/**
 		 * Set the Gregorian Calendar the change date
@@ -6456,17 +7088,17 @@ namespace {
 
 		/**
 		 * Set whether date/time interpretation is to be lenient
-		 * <p>Object-oriented style</p><p>Defines whether the calendar is &lsquo;lenient mode&rsquo;. In such a mode, some of out-of-bounds values for some fields are accepted, the behavior being similar to that of <code>IntlCalendar::add()</code> (i.e., the value wraps around, carrying into more significant fields each time). If the lenient mode is off, then such values will generate an error.</p>
+		 * <p>Object-oriented style</p><p>Defines whether the calendar is &#x2018;lenient mode&#x2019;. In such a mode, some of out-of-bounds values for some fields are accepted, the behavior being similar to that of <code>IntlCalendar::add()</code> (i.e., the value wraps around, carrying into more significant fields each time). If the lenient mode is off, then such values will generate an error.</p>
 		 * @param bool $lenient <p>Use <b><code>true</code></b> to activate the lenient mode; <b><code>false</code></b> otherwise.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/intlcalendar.setlenient.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function setLenient(bool $lenient): bool {}
+		public function setLenient(bool $lenient): true {}
 
 		/**
 		 * Set minimal number of days the first week in a year or month can have
-		 * <p>Object-oriented style</p><p>Sets the smallest number of days the first week of a year or month must have in the new year or month. For instance, in the Gregorian calendar, if this value is 1, then the first week of the year will necessarily include January 1st, while if this value is 7, then the week with January 1st will be the first week of the year only if the day of the week for January 1st matches the day of the week returned by <code>IntlCalendar::getFirstDayOfWeek()</code>; otherwise it will be the previous year&#700;s last week.</p>
+		 * <p>Object-oriented style</p><p>Sets the smallest number of days the first week of a year or month must have in the new year or month. For instance, in the Gregorian calendar, if this value is 1, then the first week of the year will necessarily include January 1st, while if this value is 7, then the week with January 1st will be the first week of the year only if the day of the week for January 1st matches the day of the week returned by <code>IntlCalendar::getFirstDayOfWeek()</code>; otherwise it will be the previous year&#x2BC;s last week.</p>
 		 * @param int $days <p>The number of minimal days to set.</p>
 		 * @return bool <p><b><code>true</code></b> on success, <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.setminimaldaysinfirstweek.php
@@ -6478,21 +7110,21 @@ namespace {
 		 * Set behavior for handling repeating wall times at negative timezone offset transitions
 		 * <p>Object-oriented style</p><p>Sets the current strategy for dealing with wall times that are repeated whenever the clock is set back during dailight saving time end transitions. The default value is <b><code>IntlCalendar::WALLTIME_LAST</code></b> (take the post-DST instant). The other possible value is <b><code>IntlCalendar::WALLTIME_FIRST</code></b> (take the instant that occurs during DST).</p><p>This function requires ICU 4.9 or later.</p>
 		 * @param int $option <p>One of the constants <b><code>IntlCalendar::WALLTIME_FIRST</code></b> or <b><code>IntlCalendar::WALLTIME_LAST</code></b>.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/intlcalendar.setrepeatedwalltimeoption.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function setRepeatedWallTimeOption(int $option): bool {}
+		public function setRepeatedWallTimeOption(int $option): true {}
 
 		/**
 		 * Set behavior for handling skipped wall times at positive timezone offset transitions
 		 * <p>Object-oriented style</p><p>Sets the current strategy for dealing with wall times that are skipped whenever the clock is forwarded during dailight saving time start transitions. The default value is <b><code>IntlCalendar::WALLTIME_LAST</code></b> (take it as being the same instant as the one when the wall time is one hour more). Alternative values are <b><code>IntlCalendar::WALLTIME_FIRST</code></b> (same instant as the one with a wall time of one hour less) and <b><code>IntlCalendar::WALLTIME_NEXT_VALID</code></b> (same instant as when DST begins).</p><p>This affects only the instant represented by the calendar (as reported by <code>IntlCalendar::getTime()</code>), the field values will not be rewritten accordingly.</p><p>The calendar must be lenient for this option to have any effect, otherwise attempting to set a non-existing time will cause an error.</p><p>This function requires ICU 4.9 or later.</p>
 		 * @param int $option <p>One of the constants <b><code>IntlCalendar::WALLTIME_FIRST</code></b>, <b><code>IntlCalendar::WALLTIME_LAST</code></b> or <b><code>IntlCalendar::WALLTIME_NEXT_VALID</code></b>.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/intlcalendar.setskippedwalltimeoption.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function setSkippedWallTimeOption(int $option): bool {}
+		public function setSkippedWallTimeOption(int $option): true {}
 
 		/**
 		 * Set the calendar time in milliseconds since the epoch
@@ -6507,7 +7139,7 @@ namespace {
 		/**
 		 * Set the timezone used by this calendar
 		 * <p>Object-oriented style</p><p>Defines a new timezone for this calendar. The time represented by the object is preserved to the detriment of the field values.</p>
-		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>The new timezone to be used by this calendar. It can be specified in the following ways:</p><ul> <li> <p><b><code>null</code></b>, in which case the default timezone will be used, as specified in the ini setting date.timezone or through the function <code>date_default_timezone_set()</code> and as returned by <code>date_default_timezone_get()</code>.</p> </li> <li> <p>An <code>IntlTimeZone</code>, which will be used directly.</p> </li> <li> <p>A <code>DateTimeZone</code>. Its identifier will be extracted and an ICU timezone object will be created; the timezone will be backed by ICU&#700;s database, not PHP&#700;s.</p> </li> <li> <p>A <code>string</code>, which should be a valid ICU timezone identifier. See <code>IntlTimeZone::createTimeZoneIDEnumeration()</code>. Raw offsets such as <code>"GMT+08:30"</code> are also accepted.</p> </li> </ul>
+		 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>The new timezone to be used by this calendar. It can be specified in the following ways:</p><ul> <li> <p><b><code>null</code></b>, in which case the default timezone will be used, as specified in the ini setting date.timezone or through the function <code>date_default_timezone_set()</code> and as returned by <code>date_default_timezone_get()</code>.</p> </li> <li> <p>An <code>IntlTimeZone</code>, which will be used directly.</p> </li> <li> <p>A <code>DateTimeZone</code>. Its identifier will be extracted and an ICU timezone object will be created; the timezone will be backed by ICU&#x2BC;s database, not PHP&#x2BC;s.</p> </li> <li> <p>A <code>string</code>, which should be a valid ICU timezone identifier. See <code>IntlTimeZone::createTimeZoneIDEnumeration()</code>. Raw offsets such as <code>"GMT+08:30"</code> are also accepted.</p> </li> </ul>
 		 * @return bool <p>Returns <b><code>true</code></b> on success and <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.settimezone.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
@@ -6516,8 +7148,8 @@ namespace {
 
 		/**
 		 * Convert an IntlCalendar into a DateTime object
-		 * <p>Object-oriented style</p><p>Create a <code>DateTime</code> object that represents the same instant (up to second precision, with a rounding error of less than 1 second) and has an analog timezone to this object (the difference being <code>DateTime</code>&#700;s timezone will be backed by PHP&#700;s timezone while <code>IntlCalendar</code>&#700;s timezone is backed by ICU&#700;s).</p>
-		 * @return DateTime|false <p>A <code>DateTime</code> object with the same timezone as this object (though using PHP&#700;s database instead of ICU&#700;s) and the same time, except for the smaller precision (second precision instead of millisecond). Returns <b><code>false</code></b> on failure.</p>
+		 * <p>Object-oriented style</p><p>Create a <code>DateTime</code> object that represents the same instant (up to second precision, with a rounding error of less than 1 second) and has an analog timezone to this object (the difference being <code>DateTime</code>&#x2BC;s timezone will be backed by PHP&#x2BC;s timezone while <code>IntlCalendar</code>&#x2BC;s timezone is backed by ICU&#x2BC;s).</p>
+		 * @return DateTime|false <p>A <code>DateTime</code> object with the same timezone as this object (though using PHP&#x2BC;s database instead of ICU&#x2BC;s) and the same time, except for the smaller precision (second precision instead of millisecond). Returns <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intlcalendar.todatetime.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a2
 		 */
@@ -6590,19 +7222,19 @@ namespace {
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlpartsiterator.php
 		 */
-		const KEY_SEQUENTIAL = 0;
+		public const KEY_SEQUENTIAL = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlpartsiterator.php
 		 */
-		const KEY_LEFT = 1;
+		public const KEY_LEFT = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intlpartsiterator.php
 		 */
-		const KEY_RIGHT = 2;
+		public const KEY_RIGHT = 2;
 
 		/**
 		 * Get the current element
@@ -6661,7 +7293,7 @@ namespace {
 
 	/**
 	 * <p>A subclass of <code>IntlBreakIterator</code> that encapsulates ICU break iterators whose behavior is specified using a set of rules. This is the most common kind of break iterators.</p>
-	 * <p>These rules are described in the ICU Boundary Analysis User Guide.</p>
+	 * <p>These rules are described in the &#xBB;&#xA0;ICU Boundary Analysis User Guide.</p>
 	 * @link https://php.net/manual/en/class.intlrulebasedbreakiterator.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 	 */
@@ -6786,21 +7418,21 @@ namespace {
 		/**
 		 * Get last error message on the object
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return string|false
+		 * @return string
 		 * @link https://php.net/manual/en/intlbreakiterator.geterrormessage.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 		 */
-		public function getErrorMessage(): string|false {}
+		public function getErrorMessage(): string {}
 
 		/**
 		 * Get the locale associated with the object
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param int $type
-		 * @return string
+		 * @return string|false
 		 * @link https://php.net/manual/en/intlbreakiterator.getlocale.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 		 */
-		public function getLocale(int $type): string {}
+		public function getLocale(int $type): string|false {}
 
 		/**
 		 * Create iterator for navigating fragments between boundaries
@@ -6917,13 +7549,67 @@ namespace {
 		 * @var int
 		 * @link https://php.net/manual/en/class.intltimezone.php
 		 */
-		const DISPLAY_SHORT = 1;
+		public const DISPLAY_SHORT = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.intltimezone.php
 		 */
-		const DISPLAY_LONG = 2;
+		public const DISPLAY_LONG = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intltimezone.php
+		 */
+		public const DISPLAY_SHORT_GENERIC = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intltimezone.php
+		 */
+		public const DISPLAY_LONG_GENERIC = 4;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intltimezone.php
+		 */
+		public const DISPLAY_SHORT_GMT = 5;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intltimezone.php
+		 */
+		public const DISPLAY_LONG_GMT = 6;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intltimezone.php
+		 */
+		public const DISPLAY_SHORT_COMMONLY_USED = 7;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intltimezone.php
+		 */
+		public const DISPLAY_GENERIC_LOCATION = 8;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intltimezone.php
+		 */
+		public const TYPE_ANY = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intltimezone.php
+		 */
+		public const TYPE_CANONICAL = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.intltimezone.php
+		 */
+		public const TYPE_CANONICAL_LOCATION = 2;
 
 		/**
 		 * Private constructor to disallow direct instantiation
@@ -6936,12 +7622,12 @@ namespace {
 		/**
 		 * Get the number of IDs in the equivalency group that includes the given ID
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $zoneId
-		 * @return int
+		 * @param string $timezoneId
+		 * @return int|false
 		 * @link https://php.net/manual/en/intltimezone.countequivalentids.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public static function countEquivalentIDs(string $zoneId): int {}
+		public static function countEquivalentIDs(string $timezoneId): int|false {}
 
 		/**
 		 * Create a new copy of the default timezone for this host
@@ -6955,55 +7641,55 @@ namespace {
 		/**
 		 * Get an enumeration over time zone IDs associated with the given country or offset
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param mixed $countryOrRawOffset
-		 * @return IntlIterator
+		 * @param \IntlTimeZone|string|int|float|null $countryOrRawOffset
+		 * @return IntlIterator|false
 		 * @link https://php.net/manual/en/intltimezone.createenumeration.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public static function createEnumeration(mixed $countryOrRawOffset = null): \IntlIterator {}
+		public static function createEnumeration(\IntlTimeZone|string|int|float|null $countryOrRawOffset = null): \IntlIterator|false {}
 
 		/**
 		 * Create a timezone object for the given ID
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $zoneId
-		 * @return IntlTimeZone
+		 * @param string $timezoneId
+		 * @return ?IntlTimeZone
 		 * @link https://php.net/manual/en/intltimezone.createtimezone.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public static function createTimeZone(string $zoneId): \IntlTimeZone {}
+		public static function createTimeZone(string $timezoneId): ?\IntlTimeZone {}
 
 		/**
 		 * Get an enumeration over system time zone IDs with the given filter conditions
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param int $zoneType
-		 * @param string $region
-		 * @param int $rawOffset
+		 * @param int $type
+		 * @param ?string $region
+		 * @param ?int $rawOffset
 		 * @return IntlIterator|false <p>Returns <code>IntlIterator</code> or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intltimezone.createtimezoneidenumeration.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 		 */
-		public static function createTimeZoneIDEnumeration(int $zoneType, string $region = null, int $rawOffset = null): \IntlIterator|false {}
+		public static function createTimeZoneIDEnumeration(int $type, ?string $region = null, ?int $rawOffset = null): \IntlIterator|false {}
 
 		/**
 		 * Create a timezone object from DateTimeZone
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param \DateTimeZone $zoneId
-		 * @return IntlTimeZone
+		 * @param \DateTimeZone $timezone
+		 * @return ?IntlTimeZone
 		 * @link https://php.net/manual/en/intltimezone.fromdatetimezone.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public static function fromDateTimeZone(\DateTimeZone $zoneId): \IntlTimeZone {}
+		public static function fromDateTimeZone(\DateTimeZone $timezone): ?\IntlTimeZone {}
 
 		/**
 		 * Get the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $zoneId
-		 * @param bool $isSystemID
-		 * @return string
+		 * @param string $timezoneId
+		 * @param bool $isSystemId
+		 * @return string|false
 		 * @link https://php.net/manual/en/intltimezone.getcanonicalid.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public static function getCanonicalID(string $zoneId, bool &$isSystemID = null): string {}
+		public static function getCanonicalID(string $timezoneId, bool &$isSystemId = null): string|false {}
 
 		/**
 		 * Get the amount of time to be added to local standard time to get local wall clock time
@@ -7017,43 +7703,43 @@ namespace {
 		/**
 		 * Get a name of this time zone suitable for presentation to the user
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param bool $isDaylight
+		 * @param bool $dst
 		 * @param int $style
-		 * @param string $locale
-		 * @return string
+		 * @param ?string $locale
+		 * @return string|false
 		 * @link https://php.net/manual/en/intltimezone.getdisplayname.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function getDisplayName(bool $isDaylight = null, int $style = null, string $locale = null): string {}
+		public function getDisplayName(bool $dst = false, int $style = IntlTimeZone::DISPLAY_LONG, ?string $locale = null): string|false {}
 
 		/**
 		 * Get an ID in the equivalency group that includes the given ID
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $zoneId
-		 * @param int $index
-		 * @return string
+		 * @param string $timezoneId
+		 * @param int $offset
+		 * @return string|false
 		 * @link https://php.net/manual/en/intltimezone.getequivalentid.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public static function getEquivalentID(string $zoneId, int $index): string {}
+		public static function getEquivalentID(string $timezoneId, int $offset): string|false {}
 
 		/**
 		 * Get last error code on the object
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return int
+		 * @return int|false
 		 * @link https://php.net/manual/en/intltimezone.geterrorcode.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function getErrorCode(): int {}
+		public function getErrorCode(): int|false {}
 
 		/**
 		 * Get last error message on the object
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return string
+		 * @return string|false
 		 * @link https://php.net/manual/en/intltimezone.geterrormessage.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function getErrorMessage(): string {}
+		public function getErrorMessage(): string|false {}
 
 		/**
 		 * Create GMT (UTC) timezone
@@ -7067,27 +7753,27 @@ namespace {
 		/**
 		 * Get timezone ID
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return string
+		 * @return string|false
 		 * @link https://php.net/manual/en/intltimezone.getid.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function getID(): string {}
+		public function getID(): string|false {}
 
 		/**
 		 * Translate a Windows timezone into a system timezone
-		 * <p>Object-oriented style (method):</p><p>Translates a Windows timezone (e.g. "Pacific Standard Time") into a system timezone (e.g. "America/Los_Angeles").</p><p><b>Note</b>:  This function requires ICU version &ge; 52. </p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $timezone
-		 * @param string $region
+		 * <p>Object-oriented style (method):</p><p>Translates a Windows timezone (e.g. "Pacific Standard Time") into a system timezone (e.g. "America/Los_Angeles").</p><p><b>Note</b>:  This function requires ICU version &#x2265; 52. </p><p>This function is currently not documented; only its argument list is available.</p>
+		 * @param string $timezoneId
+		 * @param ?string $region
 		 * @return string|false <p>Returns the system timezone or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intltimezone.getidforwindowsid.php
 		 * @since PHP 7 >= 7.1.0, PHP 8
 		 */
-		public static function getIDForWindowsID(string $timezone, string $region = null): string|false {}
+		public static function getIDForWindowsID(string $timezoneId, ?string $region = null): string|false {}
 
 		/**
 		 * Get the time zone raw and GMT offset for the given moment in time
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param float $date
+		 * @param float $timestamp
 		 * @param bool $local
 		 * @param int $rawOffset
 		 * @param int $dstOffset
@@ -7095,7 +7781,7 @@ namespace {
 		 * @link https://php.net/manual/en/intltimezone.getoffset.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function getOffset(float $date, bool $local, int &$rawOffset, int &$dstOffset): bool {}
+		public function getOffset(float $timestamp, bool $local, int &$rawOffset, int &$dstOffset): bool {}
 
 		/**
 		 * Get the raw GMT offset (before taking daylight savings time into account
@@ -7109,21 +7795,21 @@ namespace {
 		/**
 		 * Get the region code associated with the given system time zone ID
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $zoneId
+		 * @param string $timezoneId
 		 * @return string|false <p>Return region or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intltimezone.getregion.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 		 */
-		public static function getRegion(string $zoneId): string|false {}
+		public static function getRegion(string $timezoneId): string|false {}
 
 		/**
 		 * Get the timezone data version currently used by ICU
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return string
+		 * @return string|false
 		 * @link https://php.net/manual/en/intltimezone.gettzdataversion.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public static function getTZDataVersion(): string {}
+		public static function getTZDataVersion(): string|false {}
 
 		/**
 		 * Get the "unknown" time zone
@@ -7136,32 +7822,32 @@ namespace {
 
 		/**
 		 * Translate a system timezone into a Windows timezone
-		 * <p>Object-oriented style (method):</p><p>Translates a system timezone (e.g. "America/Los_Angeles") into a Windows timezone (e.g. "Pacific Standard Time").</p><p><b>Note</b>:  This function requires ICU version &ge; 52. </p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $timezone
+		 * <p>Object-oriented style (method):</p><p>Translates a system timezone (e.g. "America/Los_Angeles") into a Windows timezone (e.g. "Pacific Standard Time").</p><p><b>Note</b>:  This function requires ICU version &#x2265; 52. </p><p>This function is currently not documented; only its argument list is available.</p>
+		 * @param string $timezoneId
 		 * @return string|false <p>Returns the Windows timezone or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/intltimezone.getwindowsid.php
 		 * @since PHP 7 >= 7.1.0, PHP 8
 		 */
-		public static function getWindowsID(string $timezone): string|false {}
+		public static function getWindowsID(string $timezoneId): string|false {}
 
 		/**
 		 * Check if this zone has the same rules and offset as another zone
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param \IntlTimeZone $otherTimeZone
+		 * @param \IntlTimeZone $other
 		 * @return bool
 		 * @link https://php.net/manual/en/intltimezone.hassamerules.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function hasSameRules(\IntlTimeZone $otherTimeZone): bool {}
+		public function hasSameRules(\IntlTimeZone $other): bool {}
 
 		/**
 		 * Convert to DateTimeZone object
 		 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return DateTimeZone
+		 * @return DateTimeZone|false
 		 * @link https://php.net/manual/en/intltimezone.todatetimezone.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
-		public function toDateTimeZone(): \DateTimeZone {}
+		public function toDateTimeZone(): \DateTimeZone|false {}
 
 		/**
 		 * Check if this time zone uses daylight savings time
@@ -7183,6 +7869,66 @@ namespace {
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
 	 */
 	class Locale {
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.locale.php
+		 */
+		public const ACTUAL_LOCALE = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.locale.php
+		 */
+		public const VALID_LOCALE = 1;
+
+		/**
+		 * @var null Used as locale parameter with the methods of the various locale affected classes, such as NumberFormatter. This constant would make the methods to use default locale.
+		 * @link https://php.net/manual/en/class.locale.php
+		 */
+		public const DEFAULT_LOCALE = null;
+
+		/**
+		 * @var string
+		 * @link https://php.net/manual/en/class.locale.php
+		 */
+		public const LANG_TAG = 'language';
+
+		/**
+		 * @var string
+		 * @link https://php.net/manual/en/class.locale.php
+		 */
+		public const EXTLANG_TAG = 'extlang';
+
+		/**
+		 * @var string
+		 * @link https://php.net/manual/en/class.locale.php
+		 */
+		public const SCRIPT_TAG = 'script';
+
+		/**
+		 * @var string
+		 * @link https://php.net/manual/en/class.locale.php
+		 */
+		public const REGION_TAG = 'region';
+
+		/**
+		 * @var string
+		 * @link https://php.net/manual/en/class.locale.php
+		 */
+		public const VARIANT_TAG = 'variant';
+
+		/**
+		 * @var string
+		 * @link https://php.net/manual/en/class.locale.php
+		 */
+		public const GRANDFATHERED_LANG_TAG = 'grandfathered';
+
+		/**
+		 * @var string
+		 * @link https://php.net/manual/en/class.locale.php
+		 */
+		public const PRIVATE_TAG = 'private';
 
 		/**
 		 * Tries to find out best available locale based on HTTP "Accept-Language" header
@@ -7208,7 +7954,7 @@ namespace {
 		/**
 		 * Returns a correctly ordered and delimited locale ID
 		 * <p>Object-oriented style</p><p>Returns a correctly ordered and delimited locale ID the keys identify the particular locale ID subtags, and the values are the associated subtag values.</p>
-		 * @param array $subtags <p>An <code>array</code> containing a list of key-value pairs, where the keys identify the particular locale ID subtags, and the values are the associated subtag values.</p><p><b>Note</b>:</p><p>The <code>'variant'</code> and <code>'private'</code> subtags can take maximum 15 values whereas <code>'extlang'</code> can take maximum 3 values. For instance, variants are allowed with the suffix ranging from 0-14. Hence the keys for the input array can be <code>variant0</code>, <code>variant1</code>, &hellip;,<code>variant14</code>. In the returned locale id, the subtag is ordered by suffix resulting in <code>variant0</code> followed by <code>variant1</code> followed by <code>variant2</code> and so on.</p> <p>Alternatively, the <code>'variant'</code>, <code>'private'</code> and <code>'extlang'</code> values can be specified as array under specific key (e.g. <code>'variant'</code>). In this case no limits on the number of recognized subtags apply.</p>
+		 * @param array $subtags <p>An <code>array</code> containing a list of key-value pairs, where the keys identify the particular locale ID subtags, and the values are the associated subtag values.</p><p><b>Note</b>:</p><p>The <code>'variant'</code> and <code>'private'</code> subtags can take maximum 15 values whereas <code>'extlang'</code> can take maximum 3 values. For instance, variants are allowed with the suffix ranging from 0-14. Hence the keys for the input array can be <code>variant0</code>, <code>variant1</code>, &#x2026;,<code>variant14</code>. In the returned locale id, the subtag is ordered by suffix resulting in <code>variant0</code> followed by <code>variant1</code> followed by <code>variant2</code> and so on.</p> <p>Alternatively, the <code>'variant'</code>, <code>'private'</code> and <code>'extlang'</code> values can be specified as array under specific key (e.g. <code>'variant'</code>). In this case no limits on the number of recognized subtags apply.</p>
 		 * @return string|false <p>The corresponding locale identifier, or <b><code>false</code></b> when <code>subtags</code> is empty.</p>
 		 * @link https://php.net/manual/en/locale.composelocale.php
 		 * @see locale_parse()
@@ -7405,7 +8151,7 @@ namespace {
 		 * Constructs a new Message Formatter
 		 * <p>Object-oriented style (method)</p><p>Object-oriented style (constructor):</p><p>Constructs a new Message Formatter</p>
 		 * @param string $locale <p>The locale to use when formatting arguments</p>
-		 * @param string $pattern <p>The pattern string to stick arguments into. The pattern uses an 'apostrophe-friendly' syntax; it is run through umsg_autoQuoteApostrophe before being interpreted.</p>
+		 * @param string $pattern <p>The pattern string to stick arguments into. The pattern uses an 'apostrophe-friendly' syntax; see &#xBB;&#xA0;Quoting/Escaping for details.</p>
 		 * @return ?MessageFormatter <p>The formatter <code>object</code>, or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/messageformatter.create.php
 		 * @see msgfmt_format(), msgfmt_parse(), msgfmt_get_error_code(), msgfmt_get_error_message()
@@ -7417,7 +8163,7 @@ namespace {
 		 * Constructs a new Message Formatter
 		 * <p>Object-oriented style (method)</p><p>Object-oriented style (constructor):</p><p>Constructs a new Message Formatter</p>
 		 * @param string $locale <p>The locale to use when formatting arguments</p>
-		 * @param string $pattern <p>The pattern string to stick arguments into. The pattern uses an 'apostrophe-friendly' syntax; it is run through umsg_autoQuoteApostrophe before being interpreted.</p>
+		 * @param string $pattern <p>The pattern string to stick arguments into. The pattern uses an 'apostrophe-friendly' syntax; see &#xBB;&#xA0;Quoting/Escaping for details.</p>
 		 * @return ?MessageFormatter <p>The formatter <code>object</code>, or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/messageformatter.create.php
 		 * @see msgfmt_format(), msgfmt_parse(), msgfmt_get_error_code(), msgfmt_get_error_message()
@@ -7438,9 +8184,9 @@ namespace {
 
 		/**
 		 * Quick format message
-		 * <p>Object-oriented style</p><p>Quick formatting function that formats the string without having to explicitly create the formatter object. Use this function when the format operation is done only once and does not need and parameters or state to be kept.</p>
+		 * <p>Object-oriented style</p><p>Quick formatting function that formats the string without having to explicitly create the formatter object. Use this function when the format operation is done only once and does not need any parameters or state to be kept or when wanting to customize the output by providing additional context to ICU directly.</p>
 		 * @param string $locale <p>The locale to use for formatting locale-dependent parts</p>
-		 * @param string $pattern <p>The pattern <code>string</code> to insert things into. The pattern uses an 'apostrophe-friendly' syntax; it is run through umsg_autoQuoteApostrophe before being interpreted.</p>
+		 * @param string $pattern <p>The pattern <code>string</code> to insert things into. The pattern uses an 'apostrophe-friendly' syntax; see &#xBB;&#xA0;Quoting/Escaping for details.</p>
 		 * @param array $values <p>The <code>array</code> of values to insert into the format <code>string</code></p>
 		 * @return string|false <p>The formatted pattern string or <b><code>false</code></b> if an error occurred</p>
 		 * @link https://php.net/manual/en/messageformatter.formatmessage.php
@@ -7502,7 +8248,7 @@ namespace {
 
 		/**
 		 * Quick parse input string
-		 * <p>Object-oriented style</p><p>Parses input string without explicitly creating the formatter object. Use this function when the format operation is done only once and does not need and parameters or state to be kept.</p>
+		 * <p>Object-oriented style</p><p>Parses input string without explicitly creating the formatter object. Use this function when the format operation is done only once and does not need any parameters or state to be kept.</p>
 		 * @param string $locale <p>The locale to use for parsing locale-dependent parts</p>
 		 * @param string $pattern <p>The pattern with which to parse the <code>message</code>.</p>
 		 * @param string $message <p>The <code>string</code> to parse, conforming to the <code>pattern</code>.</p>
@@ -7516,7 +8262,7 @@ namespace {
 		/**
 		 * Set the pattern used by the formatter
 		 * <p>Object-oriented style</p><p>Set the pattern used by the formatter</p>
-		 * @param string $pattern <p>The pattern <code>string</code> to use in this message formatter. The pattern uses an 'apostrophe-friendly' syntax; it is run through umsg_autoQuoteApostrophe before being interpreted.</p>
+		 * @param string $pattern <p>The pattern <code>string</code> to use in this message formatter. The pattern uses an 'apostrophe-friendly' syntax; see &#xBB;&#xA0;Quoting/Escaping for details.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/messageformatter.setpattern.php
 		 * @see msgfmt_create(), msgfmt_get_pattern()
@@ -7532,6 +8278,66 @@ namespace {
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
 	 */
 	class Normalizer {
+
+		/**
+		 * @var int Normalization Form D (NFD) - Canonical Decomposition
+		 * @link https://php.net/manual/en/class.normalizer.php
+		 */
+		public const FORM_D = 4;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.normalizer.php
+		 */
+		public const NFD = 4;
+
+		/**
+		 * @var int Normalization Form KD (NFKD) - Compatibility Decomposition
+		 * @link https://php.net/manual/en/class.normalizer.php
+		 */
+		public const FORM_KD = 8;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.normalizer.php
+		 */
+		public const NFKD = 8;
+
+		/**
+		 * @var int Normalization Form C (NFC) - Canonical Decomposition followed by Canonical Composition
+		 * @link https://php.net/manual/en/class.normalizer.php
+		 */
+		public const FORM_C = 16;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.normalizer.php
+		 */
+		public const NFC = 16;
+
+		/**
+		 * @var int Normalization Form KC (NFKC) - Compatibility Decomposition, followed by Canonical Composition
+		 * @link https://php.net/manual/en/class.normalizer.php
+		 */
+		public const FORM_KC = 32;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.normalizer.php
+		 */
+		public const NFKC = 32;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.normalizer.php
+		 */
+		public const FORM_KC_CF = 48;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.normalizer.php
+		 */
+		public const NFKC_CF = 48;
 
 		/**
 		 * Gets the Decomposition_Mapping property for the given UTF-8 encoded code point
@@ -7581,10 +8387,454 @@ namespace {
 	class NumberFormatter {
 
 		/**
+		 * @var int Decimal format defined by pattern
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PATTERN_DECIMAL = 0;
+
+		/**
+		 * @var int Decimal format
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const DECIMAL = 1;
+
+		/**
+		 * @var int Currency format
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const CURRENCY = 2;
+
+		/**
+		 * @var int Percent format
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PERCENT = 3;
+
+		/**
+		 * @var int Scientific format
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const SCIENTIFIC = 4;
+
+		/**
+		 * @var int Spellout rule-based format
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const SPELLOUT = 5;
+
+		/**
+		 * @var int Ordinal rule-based format
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const ORDINAL = 6;
+
+		/**
+		 * @var int Duration rule-based format
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const DURATION = 7;
+
+		/**
+		 * @var int Rule-based format defined by pattern
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PATTERN_RULEBASED = 9;
+
+		/**
+		 * @var int Alias for PATTERN_DECIMAL
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const IGNORE = 0;
+
+		/**
+		 * @var int Currency format for accounting, e.g., <code>($3.00)</code> for negative currency amount instead of <code>-$3.00</code>. Available as of PHP 7.4.1 and ICU 53.
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const CURRENCY_ACCOUNTING = 12;
+
+		/**
+		 * @var int Default format for the locale
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const DEFAULT_STYLE = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const ROUND_CEILING = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const ROUND_FLOOR = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const ROUND_DOWN = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const ROUND_UP = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const ROUND_HALFEVEN = 4;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const ROUND_HALFDOWN = 5;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const ROUND_HALFUP = 6;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PAD_BEFORE_PREFIX = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PAD_AFTER_PREFIX = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PAD_BEFORE_SUFFIX = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PAD_AFTER_SUFFIX = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PARSE_INT_ONLY = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const GROUPING_USED = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const DECIMAL_ALWAYS_SHOWN = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const MAX_INTEGER_DIGITS = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const MIN_INTEGER_DIGITS = 4;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const INTEGER_DIGITS = 5;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const MAX_FRACTION_DIGITS = 6;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const MIN_FRACTION_DIGITS = 7;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const FRACTION_DIGITS = 8;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const MULTIPLIER = 9;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const GROUPING_SIZE = 10;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const ROUNDING_MODE = 11;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const ROUNDING_INCREMENT = 12;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const FORMAT_WIDTH = 13;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PADDING_POSITION = 14;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const SECONDARY_GROUPING_SIZE = 15;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const SIGNIFICANT_DIGITS_USED = 16;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const MIN_SIGNIFICANT_DIGITS = 17;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const MAX_SIGNIFICANT_DIGITS = 18;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const LENIENT_PARSE = 19;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const POSITIVE_PREFIX = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const POSITIVE_SUFFIX = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const NEGATIVE_PREFIX = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const NEGATIVE_SUFFIX = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PADDING_CHARACTER = 4;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const CURRENCY_CODE = 5;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const DEFAULT_RULESET = 6;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PUBLIC_RULESETS = 7;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const DECIMAL_SEPARATOR_SYMBOL = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const GROUPING_SEPARATOR_SYMBOL = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PATTERN_SEPARATOR_SYMBOL = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PERCENT_SYMBOL = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const ZERO_DIGIT_SYMBOL = 4;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const DIGIT_SYMBOL = 5;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const MINUS_SIGN_SYMBOL = 6;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PLUS_SIGN_SYMBOL = 7;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const CURRENCY_SYMBOL = 8;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const INTL_CURRENCY_SYMBOL = 9;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const MONETARY_SEPARATOR_SYMBOL = 10;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const EXPONENTIAL_SYMBOL = 11;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PERMILL_SYMBOL = 12;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const PAD_ESCAPE_SYMBOL = 13;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const INFINITY_SYMBOL = 14;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const NAN_SYMBOL = 15;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const SIGNIFICANT_DIGIT_SYMBOL = 16;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const MONETARY_GROUPING_SEPARATOR_SYMBOL = 17;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const TYPE_DEFAULT = 0;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const TYPE_INT32 = 1;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const TYPE_INT64 = 2;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const TYPE_DOUBLE = 3;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.numberformatter.php
+		 */
+		public const TYPE_CURRENCY = 4;
+
+		/**
 		 * Create a number formatter
 		 * <p>Object-oriented style (method)</p><p>Object-oriented style (constructor):</p><p>Creates a number formatter.</p>
 		 * @param string $locale <p>Locale in which the number would be formatted (locale name, e.g. en_CA).</p>
-		 * @param int $style <p>Style of the formatting, one of the  format style constants. If <b><code>NumberFormatter::PATTERN_DECIMAL</code></b> or <b><code>NumberFormatter::PATTERN_RULEBASED</code></b> is passed then the number format is opened using the given pattern, which must conform to the syntax described in ICU DecimalFormat documentation or ICU RuleBasedNumberFormat documentation, respectively.</p>
+		 * @param int $style <p>Style of the formatting, one of the  format style constants. If <b><code>NumberFormatter::PATTERN_DECIMAL</code></b> or <b><code>NumberFormatter::PATTERN_RULEBASED</code></b> is passed then the number format is opened using the given pattern, which must conform to the syntax described in &#xBB;&#xA0;ICU DecimalFormat documentation or &#xBB;&#xA0;ICU RuleBasedNumberFormat documentation, respectively.</p>
 		 * @param ?string $pattern <p>Pattern string if the chosen style requires a pattern.</p>
 		 * @return ?NumberFormatter <p>Returns <code>NumberFormatter</code> object or <b><code>null</code></b> on error.</p>
 		 * @link https://php.net/manual/en/numberformatter.create.php
@@ -7597,7 +8847,7 @@ namespace {
 		 * Create a number formatter
 		 * <p>Object-oriented style (method)</p><p>Object-oriented style (constructor):</p><p>Creates a number formatter.</p>
 		 * @param string $locale <p>Locale in which the number would be formatted (locale name, e.g. en_CA).</p>
-		 * @param int $style <p>Style of the formatting, one of the  format style constants. If <b><code>NumberFormatter::PATTERN_DECIMAL</code></b> or <b><code>NumberFormatter::PATTERN_RULEBASED</code></b> is passed then the number format is opened using the given pattern, which must conform to the syntax described in ICU DecimalFormat documentation or ICU RuleBasedNumberFormat documentation, respectively.</p>
+		 * @param int $style <p>Style of the formatting, one of the  format style constants. If <b><code>NumberFormatter::PATTERN_DECIMAL</code></b> or <b><code>NumberFormatter::PATTERN_RULEBASED</code></b> is passed then the number format is opened using the given pattern, which must conform to the syntax described in &#xBB;&#xA0;ICU DecimalFormat documentation or &#xBB;&#xA0;ICU RuleBasedNumberFormat documentation, respectively.</p>
 		 * @param ?string $pattern <p>Pattern string if the chosen style requires a pattern.</p>
 		 * @return ?NumberFormatter <p>Returns <code>NumberFormatter</code> object or <b><code>null</code></b> on error.</p>
 		 * @link https://php.net/manual/en/numberformatter.create.php
@@ -7610,10 +8860,10 @@ namespace {
 		 * Format a number
 		 * <p>Object-oriented style</p><p>Format a numeric value according to the formatter rules.</p>
 		 * @param int|float $num <p>The value to format. Can be <code>int</code> or <code>float</code>, other values will be converted to a numeric value.</p>
-		 * @param int $type <p>The  formatting type to use.</p>
+		 * @param int $type <p>The  formatting type to use. Note that <b><code>NumberFormatter::TYPE_CURRENCY</code></b> is not supported; use <code>NumberFormatter::formatCurrency()</code> instead.</p>
 		 * @return string|false <p>Returns the string containing formatted value, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/numberformatter.format.php
-		 * @see numfmt_get_error_code(), numfmt_format_currency(), numfmt_parse()
+		 * @see numfmt_get_error_code(), numfmt_format_currency(), numfmt_parse(), msgfmt_format_message()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
 		 */
 		public function format(int|float $num, int $type = NumberFormatter::TYPE_DEFAULT): string|false {}
@@ -7625,7 +8875,7 @@ namespace {
 		 * @param string $currency <p>The 3-letter ISO 4217 currency code indicating the currency to use.</p>
 		 * @return string|false <p>String representing the formatted currency value, or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/numberformatter.formatcurrency.php
-		 * @see numfmt_get_error_code(), numfmt_format(), numfmt_parse_currency()
+		 * @see numfmt_get_error_code(), numfmt_format(), numfmt_parse_currency(), msgfmt_format_message()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
 		 */
 		public function formatCurrency(float $amount, string $currency): string|false {}
@@ -7708,7 +8958,7 @@ namespace {
 		 * Parse a number
 		 * <p>Object-oriented style</p><p>Parse a string into a number using the current formatter rules.</p>
 		 * @param string $string <p>The string to parse for the number.</p>
-		 * @param int $type <p>The  formatting type to use. By default, <b><code>NumberFormatter::TYPE_DOUBLE</code></b> is used.</p>
+		 * @param int $type <p>The  formatting type to use. By default, <b><code>NumberFormatter::TYPE_DOUBLE</code></b> is used. Note that <b><code>NumberFormatter::TYPE_CURRENCY</code></b> is not supported; use <code>NumberFormatter::parseCurrency()</code> instead.</p>
 		 * @param int $offset <p>Offset in the string at which to begin parsing. On return, this value will hold the offset at which parsing ended.</p>
 		 * @return int|float|false <p>The value of the parsed number or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/numberformatter.parse.php
@@ -7719,7 +8969,7 @@ namespace {
 
 		/**
 		 * Parse a currency number
-		 * <p>Object-oriented style</p><p>Parse a string into a double and a currency using the current formatter.</p>
+		 * <p>Object-oriented style</p><p>Parse a string into a float and a currency using the current formatter.</p>
 		 * @param string $string
 		 * @param string $currency <p>Parameter to receive the currency name (3-letter ISO 4217 currency code).</p>
 		 * @param int $offset <p>Offset in the string at which to begin parsing. On return, this value will hold the offset at which parsing ended.</p>
@@ -7745,7 +8995,7 @@ namespace {
 		/**
 		 * Set formatter pattern
 		 * <p>Object-oriented style</p><p>Set the pattern used by the formatter. Can not be used on a rule-based formatter.</p>
-		 * @param string $pattern <p>Pattern in syntax described in ICU DecimalFormat documentation.</p>
+		 * @param string $pattern <p>Pattern in syntax described in &#xBB;&#xA0;ICU DecimalFormat documentation.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/numberformatter.setpattern.php
 		 * @see numfmt_get_error_code(), numfmt_create(), numfmt_get_pattern()
@@ -7870,94 +9120,94 @@ namespace {
 
 	/**
 	 * <p>This class is provided because Unicode contains large number of characters and incorporates the varied writing systems of the world and their incorrect usage can expose programs or systems to possible security attacks using characters similarity.</p>
-	 * <p>Provided methods allow to check whether an individual string is likely an attempt at confusing the reader (<code>spoof detection</code>), such as "p&#1072;yp&#1072;l" spelled with Cyrillic '&#1072;' characters.</p>
+	 * <p>Provided methods allow to check whether an individual string is likely an attempt at confusing the reader (<code>spoof detection</code>), such as "p&#x430;yp&#x430;l" spelled with Cyrillic '&#x430;' characters.</p>
 	 * @link https://php.net/manual/en/class.spoofchecker.php
 	 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8, PECL intl >= 2.0.0
 	 */
 	class Spoofchecker {
 
 		/**
-		 * @var int|float
+		 * @var int
 		 * @link https://php.net/manual/en/class.spoofchecker.php
 		 */
-		const ASCII = 0x10000000;
-
-		/**
-		 * @var int|float
-		 * @link https://php.net/manual/en/class.spoofchecker.php
-		 */
-		const HIGHLY_RESTRICTIVE = 0x30000000;
-
-		/**
-		 * @var int|float
-		 * @link https://php.net/manual/en/class.spoofchecker.php
-		 */
-		const MODERATELY_RESTRICTIVE = 0x40000000;
-
-		/**
-		 * @var int|float
-		 * @link https://php.net/manual/en/class.spoofchecker.php
-		 */
-		const MINIMALLY_RESTRICTIVE = 0x50000000;
-
-		/**
-		 * @var int|float
-		 * @link https://php.net/manual/en/class.spoofchecker.php
-		 */
-		const UNRESTRICTIVE = 0x60000000;
-
-		/**
-		 * @var int|float
-		 * @link https://php.net/manual/en/class.spoofchecker.php
-		 */
-		const SINGLE_SCRIPT_RESTRICTIVE = 0x20000000;
+		public const SINGLE_SCRIPT_CONFUSABLE = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.spoofchecker.php
 		 */
-		const SINGLE_SCRIPT_CONFUSABLE = 1;
+		public const MIXED_SCRIPT_CONFUSABLE = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.spoofchecker.php
 		 */
-		const MIXED_SCRIPT_CONFUSABLE = 2;
+		public const WHOLE_SCRIPT_CONFUSABLE = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.spoofchecker.php
 		 */
-		const WHOLE_SCRIPT_CONFUSABLE = 4;
+		public const ANY_CASE = 8;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.spoofchecker.php
 		 */
-		const ANY_CASE = 8;
+		public const SINGLE_SCRIPT = 16;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.spoofchecker.php
 		 */
-		const SINGLE_SCRIPT = 16;
+		public const INVISIBLE = 32;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.spoofchecker.php
 		 */
-		const INVISIBLE = 32;
+		public const CHAR_LIMIT = 64;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.spoofchecker.php
 		 */
-		const CHAR_LIMIT = 64;
+		public const ASCII = 268435456;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.spoofchecker.php
+		 */
+		public const HIGHLY_RESTRICTIVE = 805306368;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.spoofchecker.php
+		 */
+		public const MODERATELY_RESTRICTIVE = 1073741824;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.spoofchecker.php
+		 */
+		public const MINIMALLY_RESTRICTIVE = 1342177280;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.spoofchecker.php
+		 */
+		public const UNRESTRICTIVE = 1610612736;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/class.spoofchecker.php
+		 */
+		public const SINGLE_SCRIPT_RESTRICTIVE = 536870912;
 
 		/**
 		 * Constructor
 		 * <p>Creates new instance of Spoofchecker.</p>
-		 * @return self <p>Returns Spoofchecker instance.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/spoofchecker.construct.php
 		 * @since No version information available, might only be in Git
 		 */
@@ -7998,9 +9248,9 @@ namespace {
 
 		/**
 		 * Set the checks to run
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param int $checks
-		 * @return void
+		 * <p>Sets the checks that will be performed by <code>SpoofChecker::isSuspicious()</code>.</p>
+		 * @param int $checks <p>The checks that will be performed by <code>SpoofChecker::isSuspicious()</code>. A bitmask of <b><code>Spoofchecker::SINGLE_SCRIPT_CONFUSABLE</code></b>, <b><code>Spoofchecker::MIXED_SCRIPT_CONFUSABLE</code></b>, <b><code>Spoofchecker::WHOLE_SCRIPT_CONFUSABLE</code></b>, <b><code>Spoofchecker::ANY_CASE</code></b>, <b><code>Spoofchecker::SINGLE_SCRIPT</code></b>, <b><code>Spoofchecker::INVISIBLE</code></b>, or <b><code>Spoofchecker::CHAR_LIMIT</code></b>. Defaults to all checks as of ICU 58; prior to that version, <b><code>Spoofchecker::SINGLE_SCRIPT</code></b> was excluded.</p>
+		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/spoofchecker.setchecks.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8, PECL intl >= 2.0.0
 		 */
@@ -8018,13 +9268,13 @@ namespace {
 		 * @var int
 		 * @link https://php.net/manual/en/class.transliterator.php
 		 */
-		const FORWARD = 0;
+		public const FORWARD = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.transliterator.php
 		 */
-		const REVERSE = 1;
+		public const REVERSE = 1;
 
 		/**
 		 * @var string
@@ -8035,7 +9285,7 @@ namespace {
 		/**
 		 * Private constructor to deny instantiation
 		 * <p>This method should not be called. Its only purpose is to deny instantiation with the new operator.</p><p>Use the factory methods <code>Transliterator::create()</code> or <code>Transliterator::createFromRules()</code> instead.</p>
-		 * @return self <p>This method should not be executed. If it is (e.g. through reflection), then its return value is unspecified.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/transliterator.construct.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8, PECL intl >= 2.0.0
 		 */
@@ -8122,247 +9372,247 @@ namespace {
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const REASON_UNASSIGNED = 0;
+		public const REASON_UNASSIGNED = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const REASON_ILLEGAL = 1;
+		public const REASON_ILLEGAL = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const REASON_IRREGULAR = 2;
+		public const REASON_IRREGULAR = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const REASON_RESET = 3;
+		public const REASON_RESET = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const REASON_CLOSE = 4;
+		public const REASON_CLOSE = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const REASON_CLONE = 5;
+		public const REASON_CLONE = 5;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const UNSUPPORTED_CONVERTER = -1;
+		public const UNSUPPORTED_CONVERTER = -1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const SBCS = 0;
+		public const SBCS = 0;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const DBCS = 1;
+		public const DBCS = 1;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const MBCS = 2;
+		public const MBCS = 2;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LATIN_1 = 3;
+		public const LATIN_1 = 3;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const UTF8 = 4;
+		public const UTF8 = 4;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const UTF16_BigEndian = 5;
+		public const UTF16_BigEndian = 5;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const UTF16_LittleEndian = 6;
+		public const UTF16_LittleEndian = 6;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const UTF32_BigEndian = 7;
+		public const UTF32_BigEndian = 7;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const UTF32_LittleEndian = 8;
+		public const UTF32_LittleEndian = 8;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const EBCDIC_STATEFUL = 9;
+		public const EBCDIC_STATEFUL = 9;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const ISO_2022 = 10;
+		public const ISO_2022 = 10;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LMBCS_1 = 11;
+		public const LMBCS_1 = 11;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LMBCS_2 = 12;
+		public const LMBCS_2 = 12;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LMBCS_3 = 13;
+		public const LMBCS_3 = 13;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LMBCS_4 = 14;
+		public const LMBCS_4 = 14;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LMBCS_5 = 15;
+		public const LMBCS_5 = 15;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LMBCS_6 = 16;
+		public const LMBCS_6 = 16;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LMBCS_8 = 17;
+		public const LMBCS_8 = 17;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LMBCS_11 = 18;
+		public const LMBCS_11 = 18;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LMBCS_16 = 19;
+		public const LMBCS_16 = 19;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LMBCS_17 = 20;
+		public const LMBCS_17 = 20;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LMBCS_18 = 21;
+		public const LMBCS_18 = 21;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LMBCS_19 = 22;
+		public const LMBCS_19 = 22;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const LMBCS_LAST = 22;
+		public const LMBCS_LAST = 22;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const HZ = 23;
+		public const HZ = 23;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const SCSU = 24;
+		public const SCSU = 24;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const ISCII = 25;
+		public const ISCII = 25;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const US_ASCII = 26;
+		public const US_ASCII = 26;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const UTF7 = 27;
+		public const UTF7 = 27;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const BOCU1 = 28;
+		public const BOCU1 = 28;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const UTF16 = 29;
+		public const UTF16 = 29;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const UTF32 = 30;
+		public const UTF32 = 30;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const CESU8 = 31;
+		public const CESU8 = 31;
 
 		/**
 		 * @var int
 		 * @link https://php.net/manual/en/class.uconverter.php
 		 */
-		const IMAP_MAILBOX = 32;
+		public const IMAP_MAILBOX = 32;
 
 		/**
 		 * Create UConverter object
@@ -8544,14 +9794,15 @@ namespace {
 		public function toUCallback(int $reason, string $source, string $codeUnits, int &$error): string|int|array|null {}
 
 		/**
-		 * Convert string from one charset to another
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $str
-		 * @param string $toEncoding
-		 * @param string $fromEncoding
-		 * @param ?array $options
-		 * @return string|false
+		 * Convert a string from one character encoding to another
+		 * <p>Converts <code>str</code> from <code>fromEncoding</code> to <code>toEncoding</code>.</p>
+		 * @param string $str <p>The <code>string</code> to be converted.</p>
+		 * @param string $toEncoding <p>The desired encoding of the result.</p>
+		 * @param string $fromEncoding <p>The current encoding used to interpret <code>str</code>.</p>
+		 * @param ?array $options <p>An optional <code>array</code>, which may contain the following keys:</p><ul> <li> <code>'to_subst'</code> - the substitution character to use in place of any character of <code>str</code> which cannot be encoded in <code>toEncoding</code>. If specified, it must represent a single character in the target encoding. </li> </ul>
+		 * @return string|false <p>Returns the converted string or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/uconverter.transcode.php
+		 * @see mb_convert_encoding(), iconv()
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 		 */
 		public static function transcode(string $str, string $toEncoding, string $fromEncoding, ?array $options = null): string|false {}
@@ -8586,7 +9837,7 @@ namespace {
 	/**
 	 * Create a collator
 	 * <p>Object-oriented style</p><p>The strings will be compared using the options already specified.</p>
-	 * @param string $locale <p>The locale containing the required collation rules. Special values for locales can be passed in - if <b><code>null</code></b> is passed for the locale, the default locale collation rules will be used. If empty string ("") or "root" are passed, UCA rules will be used.</p>
+	 * @param string $locale <p>The locale containing the required collation rules. Special values for locales can be passed in - if an empty <code>string</code> is passed for the locale, the default locale collation rules will be used. If <code>"root"</code> is passed, &#xBB;&#xA0;UCA rules will be used.</p>
 	 * @return ?Collator <p>Return new instance of <code>Collator</code> object, or <b><code>null</code></b> on error.</p>
 	 * @link https://php.net/manual/en/collator.create.php
 	 * @see Collator::__construct()
@@ -8678,7 +9929,7 @@ namespace {
 
 	/**
 	 * Set collation strength
-	 * <p>Object-oriented style</p><p>The ICU Collation Service supports many levels of comparison (named "Levels", but also known as "Strengths"). Having these categories enables ICU to sort strings precisely according to local conventions. However, by allowing the levels to be selectively employed, searching for a string in text can be performed with various matching conditions.</p><p></p><p><i>Primary Level</i>: Typically, this is used to denote differences between base characters (for example, "a" &lt; "b"). It is the strongest difference. For example, dictionaries are divided into different sections by base character. This is also called the <code>level 1</code> strength.</p><p><i>Secondary Level</i>: Accents in the characters are considered secondary differences (for example, "as" &lt; "&agrave;s" &lt; "at"). Other differences between letters can also be considered secondary differences, depending on the language. A secondary difference is ignored when there is a primary difference anywhere in the strings. This is also called the <code>level 2</code> strength.</p><p><b>Note</b>:</p><p>Note: In some languages (such as Danish), certain accented letters are considered to be separate base characters. In most languages, however, an accented letter only has a secondary difference from the unaccented version of that letter.</p><p><i>Tertiary Level</i>: Upper and lower case differences in characters are distinguished at the tertiary level (for example, "ao" &lt; "Ao" &lt; "a&ograve;"). In addition, a variant of a letter differs from the base form on the tertiary level (such as "A" and " "). Another example is the difference between large and small Kana. A tertiary difference is ignored when there is a primary or secondary difference anywhere in the strings. This is also called the <code>level 3</code> strength.</p><p><i>Quaternary Level</i>: When punctuation is ignored (see Ignoring Punctuations ) at levels 1-3, an additional level can be used to distinguish words with and without punctuation (for example, "ab" &lt; "a-b" &lt; "aB"). This difference is ignored when there is a primary, secondary or tertiary difference. This is also known as the <code>level 4</code> strength. The quaternary level should only be used if ignoring punctuation is required or when processing Japanese text (see Hiragana processing).</p><p><i>Identical Level</i>: When all other levels are equal, the identical level is used as a tiebreaker. The Unicode code point values of the NFD form of each string are compared at this level, just in case there is no difference at levels 1-4. For example, Hebrew cantillation marks are only distinguished at this level. This level should be used sparingly, as only code point values differences between two strings is an extremely rare occurrence. Using this level substantially decreases the performance for both incremental comparison and sort key generation (as well as increasing the sort key length). It is also known as <code>level 5</code> strength.</p><p>For example, people may choose to ignore accents or ignore accents and case when searching for text. Almost all characters are distinguished by the first three levels, and in most locales the default value is thus Tertiary. However, if Alternate is set to be Shifted, then the Quaternary strength can be used to break ties among whitespace, punctuation, and symbols that would otherwise be ignored. If very fine distinctions among characters are required, then the Identical strength can be used (for example, Identical Strength distinguishes between the Mathematical Bold Small A and the Mathematical Italic Small A.). However, using levels higher than Tertiary the Identical strength result in significantly longer sort keys, and slower string comparison performance for equal strings.</p>
+	 * <p>Object-oriented style</p><p>The &#xBB;&#xA0;ICU Collation Service supports many levels of comparison (named "Levels", but also known as "Strengths"). Having these categories enables ICU to sort strings precisely according to local conventions. However, by allowing the levels to be selectively employed, searching for a string in text can be performed with various matching conditions.</p><p></p><p><i>Primary Level</i>: Typically, this is used to denote differences between base characters (for example, "a" &lt; "b"). It is the strongest difference. For example, dictionaries are divided into different sections by base character. This is also called the <code>level 1</code> strength.</p><p><i>Secondary Level</i>: Accents in the characters are considered secondary differences (for example, "as" &lt; "&#xE0;s" &lt; "at"). Other differences between letters can also be considered secondary differences, depending on the language. A secondary difference is ignored when there is a primary difference anywhere in the strings. This is also called the <code>level 2</code> strength.</p><p><b>Note</b>:</p><p>Note: In some languages (such as Danish), certain accented letters are considered to be separate base characters. In most languages, however, an accented letter only has a secondary difference from the unaccented version of that letter.</p><p><i>Tertiary Level</i>: Upper and lower case differences in characters are distinguished at the tertiary level (for example, "ao" &lt; "Ao" &lt; "a&#xF2;"). In addition, a variant of a letter differs from the base form on the tertiary level (such as "A" and " "). Another example is the difference between large and small Kana. A tertiary difference is ignored when there is a primary or secondary difference anywhere in the strings. This is also called the <code>level 3</code> strength.</p><p><i>Quaternary Level</i>: When punctuation is ignored (see Ignoring Punctuations ) at levels 1-3, an additional level can be used to distinguish words with and without punctuation (for example, "ab" &lt; "a-b" &lt; "aB"). This difference is ignored when there is a primary, secondary or tertiary difference. This is also known as the <code>level 4</code> strength. The quaternary level should only be used if ignoring punctuation is required or when processing Japanese text (see Hiragana processing).</p><p><i>Identical Level</i>: When all other levels are equal, the identical level is used as a tiebreaker. The Unicode code point values of the NFD form of each string are compared at this level, just in case there is no difference at levels 1-4. For example, Hebrew cantillation marks are only distinguished at this level. This level should be used sparingly, as only code point values differences between two strings is an extremely rare occurrence. Using this level substantially decreases the performance for both incremental comparison and sort key generation (as well as increasing the sort key length). It is also known as <code>level 5</code> strength.</p><p>For example, people may choose to ignore accents or ignore accents and case when searching for text. Almost all characters are distinguished by the first three levels, and in most locales the default value is thus Tertiary. However, if Alternate is set to be Shifted, then the Quaternary strength can be used to break ties among whitespace, punctuation, and symbols that would otherwise be ignored. If very fine distinctions among characters are required, then the Identical strength can be used (for example, Identical Strength distinguishes between the Mathematical Bold Small A and the Mathematical Italic Small A.). However, using levels higher than Tertiary the Identical strength result in significantly longer sort keys, and slower string comparison performance for equal strings.</p>
 	 * @param \Collator $object <p><code>Collator</code> object.</p>
 	 * @param int $strength <p>Strength to set.</p> <p>Possible values are:</p><ul> <li> <p><b><code>Collator::PRIMARY</code></b></p> </li> <li> <p><b><code>Collator::SECONDARY</code></b></p> </li> <li> <p><b><code>Collator::TERTIARY</code></b></p> </li> <li> <p><b><code>Collator::QUATERNARY</code></b></p> </li> <li> <p><b><code>Collator::IDENTICAL</code></b></p> </li> <li> <p><b><code>Collator::DEFAULT_STRENGTH</code></b></p> </li> </ul>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -8719,21 +9970,21 @@ namespace {
 	 * @param ?string $locale <p>Locale to use when formatting or parsing or <b><code>null</code></b> to use the value specified in the ini setting intl.default_locale.</p>
 	 * @param int $dateType <p>Date type to use (<b><code>none</code></b>, <b><code>short</code></b>, <b><code>medium</code></b>, <b><code>long</code></b>, <b><code>full</code></b>). This is one of the IntlDateFormatter constants.</p>
 	 * @param int $timeType <p>Time type to use (<b><code>none</code></b>, <b><code>short</code></b>, <b><code>medium</code></b>, <b><code>long</code></b>, <b><code>full</code></b>). This is one of the IntlDateFormatter constants.</p>
-	 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>Time zone ID. The default (and the one used if <b><code>null</code></b> is given) is the one returned by <code>date_default_timezone_get()</code> or, if applicable, that of the <code>IntlCalendar</code> object passed for the <code>calendar</code> parameter. This ID must be a valid identifier on ICU&#700;s database or an ID representing an explicit offset, such as <code>GMT-05:30</code>.</p> <p>This can also be an <code>IntlTimeZone</code> or a <code>DateTimeZone</code> object.</p>
+	 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>Time zone ID. The default (and the one used if <b><code>null</code></b> is given) is the one returned by <code>date_default_timezone_get()</code> or, if applicable, that of the <code>IntlCalendar</code> object passed for the <code>calendar</code> parameter. This ID must be a valid identifier on ICU&#x2BC;s database or an ID representing an explicit offset, such as <code>GMT-05:30</code>.</p> <p>This can also be an <code>IntlTimeZone</code> or a <code>DateTimeZone</code> object.</p>
 	 * @param \IntlCalendar|int|null $calendar <p>Calendar to use for formatting or parsing. The default value is <b><code>null</code></b>, which corresponds to <b><code>IntlDateFormatter::GREGORIAN</code></b>. This can either be one of the IntlDateFormatter calendar constants or an <code>IntlCalendar</code>. Any <code>IntlCalendar</code> object passed will be clone; it will not be changed by the <code>IntlDateFormatter</code>. This will determine the calendar type used (gregorian, islamic, persian, etc.) and, if <b><code>null</code></b> is given for the <code>timezone</code> parameter, also the timezone used.</p>
-	 * @param string $pattern <p>Optional pattern to use when formatting or parsing. Possible patterns are documented at https://unicode-org.github.io/icu/userguide/format_parse/datetime/.</p>
+	 * @param ?string $pattern <p>Optional pattern to use when formatting or parsing. Possible patterns are documented at &#xBB;&#xA0;https://unicode-org.github.io/icu/userguide/format_parse/datetime/.</p>
 	 * @return ?IntlDateFormatter <p>The created <code>IntlDateFormatter</code> or <b><code>null</code></b> in case of failure.</p>
 	 * @link https://php.net/manual/en/intldateformatter.create.php
 	 * @see datefmt_format(), datefmt_parse(), datefmt_get_error_code(), datefmt_get_error_message()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
 	 */
-	function datefmt_create(?string $locale, int $dateType, int $timeType, \IntlTimeZone|\DateTimeZone|string|null $timezone = null, \IntlCalendar|int|null $calendar = null, string $pattern = ""): ?\IntlDateFormatter {}
+	function datefmt_create(?string $locale, int $dateType = IntlDateFormatter::FULL, int $timeType = IntlDateFormatter::FULL, \IntlTimeZone|\DateTimeZone|string|null $timezone = null, \IntlCalendar|int|null $calendar = null, ?string $pattern = null): ?\IntlDateFormatter {}
 
 	/**
 	 * Format the date/time value as a string
 	 * <p>Object-oriented style</p><p>Formats the time value as a string.</p>
 	 * @param \IntlDateFormatter $formatter <p>The date formatter resource.</p>
-	 * @param \IntlCalendar|\DateTimeInterface|array|string|int|float $datetime <p>Value to format. This may be a <code>DateTimeInterface</code> object, an <code>IntlCalendar</code> object, a numeric type representing a (possibly fractional) number of seconds since epoch or an <code>array</code> in the format output by <code>localtime()</code>.</p> <p>If a <code>DateTime</code> or an <code>IntlCalendar</code> object is passed, its timezone is not considered. The object will be formatted using the formater&#700;s configured timezone. If one wants to use the timezone of the object to be formatted, <code>IntlDateFormatter::setTimeZone()</code> must be called before with the object&#700;s timezone. Alternatively, the static function <code>IntlDateFormatter::formatObject()</code> may be used instead.</p>
+	 * @param \IntlCalendar|\DateTimeInterface|array|string|int|float $datetime <p>Value to format. This may be a <code>DateTimeInterface</code> object, an <code>IntlCalendar</code> object, a numeric type representing a (possibly fractional) number of seconds since epoch or an <code>array</code> in the format output by <code>localtime()</code>.</p> <p>If a <code>DateTime</code> or an <code>IntlCalendar</code> object is passed, its timezone is not considered. The object will be formatted using the formater&#x2BC;s configured timezone. If one wants to use the timezone of the object to be formatted, <code>IntlDateFormatter::setTimeZone()</code> must be called before with the object&#x2BC;s timezone. Alternatively, the static function <code>IntlDateFormatter::formatObject()</code> may be used instead.</p>
 	 * @return string|false <p>The formatted string or, if an error occurred, <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/intldateformatter.format.php
 	 * @see datefmt_create(), datefmt_parse(), datefmt_get_error_code(), datefmt_get_error_message(), datefmt_format_object()
@@ -8743,9 +9994,9 @@ namespace {
 
 	/**
 	 * Formats an object
-	 * <p>Object-oriented style</p><p>This function allows formatting an <code>IntlCalendar</code> or <code>DateTime</code> object without first explicitly creating a <code>IntlDateFormatter</code> object.</p><p>The temporary <code>IntlDateFormatter</code> that will be created will take the timezone from the passed in object. The timezone database bundled with PHP will not be used &ndash; ICU's will be used instead. The timezone identifier used in <code>DateTime</code> objects must therefore also exist in ICU's database.</p>
+	 * <p>Object-oriented style</p><p>This function allows formatting an <code>IntlCalendar</code> or <code>DateTime</code> object without first explicitly creating a <code>IntlDateFormatter</code> object.</p><p>The temporary <code>IntlDateFormatter</code> that will be created will take the timezone from the passed in object. The timezone database bundled with PHP will not be used &#x2013; ICU's will be used instead. The timezone identifier used in <code>DateTime</code> objects must therefore also exist in ICU's database.</p>
 	 * @param \IntlCalendar|\DateTimeInterface $datetime <p>An object of type <code>IntlCalendar</code> or <code>DateTime</code>. The timezone information in the object will be used.</p>
-	 * @param array|int|string|null $format <p>How to format the date/time. This can either be an <code>array</code> with two elements (first the date style, then the time style, these being one of the constants <b><code>IntlDateFormatter::NONE</code></b>, <b><code>IntlDateFormatter::SHORT</code></b>, <b><code>IntlDateFormatter::MEDIUM</code></b>, <b><code>IntlDateFormatter::LONG</code></b>, <b><code>IntlDateFormatter::FULL</code></b>), an <code>int</code> with the value of one of these constants (in which case it will be used both for the time and the date) or a <code>string</code> with the format described in the ICU documentation. If <b><code>null</code></b>, the default style will be used.</p>
+	 * @param array|int|string|null $format <p>How to format the date/time. This can either be an <code>array</code> with two elements (first the date style, then the time style, these being one of the constants <b><code>IntlDateFormatter::NONE</code></b>, <b><code>IntlDateFormatter::SHORT</code></b>, <b><code>IntlDateFormatter::MEDIUM</code></b>, <b><code>IntlDateFormatter::LONG</code></b>, <b><code>IntlDateFormatter::FULL</code></b>), an <code>int</code> with the value of one of these constants (in which case it will be used both for the time and the date) or a <code>string</code> with the format described in &#xBB;&#xA0;the ICU documentation. If <b><code>null</code></b>, the default style will be used.</p>
 	 * @param ?string $locale <p>The locale to use, or <b><code>null</code></b> to use the default one.</p>
 	 * @return string|false <p>A string with result or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/intldateformatter.formatobject.php
@@ -8929,7 +10180,7 @@ namespace {
 	 * Set the pattern used for the IntlDateFormatter
 	 * <p>Object-oriented style</p><p>Set the pattern used for the IntlDateFormatter.</p>
 	 * @param \IntlDateFormatter $formatter <p>The formatter resource.</p>
-	 * @param string $pattern <p>New pattern string to use. Possible patterns are documented at https://unicode-org.github.io/icu/userguide/format_parse/datetime/.</p>
+	 * @param string $pattern <p>New pattern string to use. Possible patterns are documented at &#xBB;&#xA0;https://unicode-org.github.io/icu/userguide/format_parse/datetime/.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure. Bad formatstrings are usually the cause of the failure.</p>
 	 * @link https://php.net/manual/en/intldateformatter.setpattern.php
 	 * @see datefmt_get_pattern(), datefmt_create()
@@ -8941,7 +10192,7 @@ namespace {
 	 * Sets formatterʼs timezone
 	 * <p>Object-oriented style</p><p>Sets the timezone used for the IntlDateFormatter. object.</p>
 	 * @param \IntlDateFormatter $formatter <p>The formatter resource.</p>
-	 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>The timezone to use for this formatter. This can be specified in the following forms:</p> <ul> <li> <p><b><code>null</code></b>, in which case the default timezone will be used, as specified in the ini setting date.timezone or through the function <code>date_default_timezone_set()</code> and as returned by <code>date_default_timezone_get()</code>.</p> </li> <li> <p>An <code>IntlTimeZone</code>, which will be used directly.</p> </li> <li> <p>A <code>DateTimeZone</code>. Its identifier will be extracted and an ICU timezone object will be created; the timezone will be backed by ICU&#700;s database, not PHP&#700;s.</p> </li> <li> <p>A <code>string</code>, which should be a valid ICU timezone identifier. See <code>IntlTimeZone::createTimeZoneIDEnumeration()</code>. Raw offsets such as <code>"GMT+08:30"</code> are also accepted.</p> </li> </ul>
+	 * @param \IntlTimeZone|\DateTimeZone|string|null $timezone <p>The timezone to use for this formatter. This can be specified in the following forms:</p> <ul> <li> <p><b><code>null</code></b>, in which case the default timezone will be used, as specified in the ini setting date.timezone or through the function <code>date_default_timezone_set()</code> and as returned by <code>date_default_timezone_get()</code>.</p> </li> <li> <p>An <code>IntlTimeZone</code>, which will be used directly.</p> </li> <li> <p>A <code>DateTimeZone</code>. Its identifier will be extracted and an ICU timezone object will be created; the timezone will be backed by ICU&#x2BC;s database, not PHP&#x2BC;s.</p> </li> <li> <p>A <code>string</code>, which should be a valid ICU timezone identifier. See <code>IntlTimeZone::createTimeZoneIDEnumeration()</code>. Raw offsets such as <code>"GMT+08:30"</code> are also accepted.</p> </li> </ul>
 	 * @return ?bool <p>Returns <b><code>null</code></b> on success and <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/intldateformatter.settimezone.php
 	 * @see IntlDateFormatter::getTimeZone()
@@ -8953,11 +10204,11 @@ namespace {
 	 * Function to extract a sequence of default grapheme clusters from a text buffer, which must be encoded in UTF-8
 	 * <p>Function to extract a sequence of default grapheme clusters from a text buffer, which must be encoded in UTF-8.</p>
 	 * @param string $haystack <p>String to search.</p>
-	 * @param int $size <p>Maximum number items - based on the $extract_type - to return.</p>
-	 * @param int $type <p>Defines the type of units referred to by the $size parameter:</p> <p></p><ul> <li>GRAPHEME_EXTR_COUNT (default) - $size is the number of default grapheme clusters to extract.</li> <li>GRAPHEME_EXTR_MAXBYTES - $size is the maximum number of bytes returned.</li> <li>GRAPHEME_EXTR_MAXCHARS - $size is the maximum number of UTF-8 characters returned.</li> </ul>
-	 * @param int $offset <p>Starting position in $haystack in bytes - if given, it must be zero or a positive value that is less than or equal to the length of $haystack in bytes, or a negative value that counts from the end of $haystack. If $start does not point to the first byte of a UTF-8 character, the start position is moved to the next character boundary.</p>
+	 * @param int $size <p>Maximum number items - based on the <code>type</code> - to return.</p>
+	 * @param int $type <p>Defines the type of units referred to by the <code>size</code> parameter:</p> <p></p><ul> <li>GRAPHEME_EXTR_COUNT (default) -<code>size</code> is the number of default grapheme clusters to extract.</li> <li>GRAPHEME_EXTR_MAXBYTES -<code>size</code> is the maximum number of bytes returned.</li> <li>GRAPHEME_EXTR_MAXCHARS - <code>size</code> is the maximum number of UTF-8 characters returned.</li> </ul>
+	 * @param int $offset <p>Starting position in <code>haystack</code> in bytes - if given, it must be zero or a positive value that is less than or equal to the length of <code>haystack</code> in bytes, or a negative value that counts from the end of <code>haystack</code>. If <code>offset</code> does not point to the first byte of a UTF-8 character, the start position is moved to the next character boundary.</p>
 	 * @param int $next <p>Reference to a value that will be set to the next starting position. When the call returns, this may point to the first byte position past the end of the string.</p>
-	 * @return string|false <p>A string starting at offset $start and ending on a default grapheme cluster boundary that conforms to the $size and $extract_type specified, or <b><code>false</code></b> on failure.</p>
+	 * @return string|false <p>A string starting at offset <code>offset</code> and ending on a default grapheme cluster boundary that conforms to the <code>size</code> and <code>type</code> specified, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.grapheme-extract.php
 	 * @see grapheme_substr()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
@@ -8969,8 +10220,8 @@ namespace {
 	 * <p>Find position (in grapheme units) of first occurrence of a case-insensitive string</p>
 	 * @param string $haystack <p>The string to look in. Must be valid UTF-8.</p>
 	 * @param string $needle <p>The string to look for. Must be valid UTF-8.</p>
-	 * @param int $offset <p>The optional $offset parameter allows you to specify where in haystack to start searching as an offset in grapheme units (not bytes or characters). If the offset is negative, it is treated relative to the end of the string. The position returned is still relative to the beginning of haystack regardless of the value of $offset.</p>
-	 * @return int|false <p>Returns the position as an integer. If needle is not found, grapheme_stripos() will return <b><code>false</code></b>.</p>
+	 * @param int $offset <p>The optional <code>offset</code> parameter allows you to specify where in <code>haystack</code> to start searching as an offset in grapheme units (not bytes or characters). If the offset is negative, it is treated relative to the end of the string. The position returned is still relative to the beginning of <code>haystack</code> regardless of the value of <code>offset</code>.</p>
+	 * @return int|false <p>Returns the position as an integer. If <code>needle</code> is not found, <b>grapheme_stripos()</b> will return <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.grapheme-stripos.php
 	 * @see grapheme_stristr(), grapheme_strpos(), grapheme_strripos(), grapheme_strrpos(), grapheme_strstr()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
@@ -8979,11 +10230,11 @@ namespace {
 
 	/**
 	 * Returns part of haystack string from the first occurrence of case-insensitive needle to the end of haystack
-	 * <p>Returns part of haystack string starting from and including the first occurrence of case-insensitive needle to the end of haystack.</p>
+	 * <p>Returns part of <code>haystack</code> string starting from and including the first occurrence of case-insensitive needle to the end of <code>haystack</code>.</p>
 	 * @param string $haystack <p>The input string. Must be valid UTF-8.</p>
 	 * @param string $needle <p>The string to look for. Must be valid UTF-8.</p>
-	 * @param bool $beforeNeedle <p>If <b><code>true</code></b>, grapheme_strstr() returns the part of the haystack before the first occurrence of the needle (excluding needle).</p>
-	 * @return string|false <p>Returns the portion of $haystack, or <b><code>false</code></b> if $needle is not found.</p>
+	 * @param bool $beforeNeedle <p>If <b><code>true</code></b>, <code>grapheme_strstr()</code> returns the part of the <code>haystack</code> before the first occurrence of the needle (excluding <code>needle</code>).</p>
+	 * @return string|false <p>Returns the portion of <code>haystack</code>, or <b><code>false</code></b> if <code>needle</code> is not found.</p>
 	 * @link https://php.net/manual/en/function.grapheme-stristr.php
 	 * @see grapheme_stripos(), grapheme_strpos(), grapheme_strripos(), grapheme_strrpos(), grapheme_strstr()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
@@ -9006,8 +10257,8 @@ namespace {
 	 * <p>Find position (in grapheme units) of first occurrence of a string</p>
 	 * @param string $haystack <p>The string to look in. Must be valid UTF-8.</p>
 	 * @param string $needle <p>The string to look for. Must be valid UTF-8.</p>
-	 * @param int $offset <p>The optional $offset parameter allows you to specify where in $haystack to start searching as an offset in grapheme units (not bytes or characters). If the offset is negative, it is treated relative to the end of the string. The position returned is still relative to the beginning of haystack regardless of the value of $offset.</p>
-	 * @return int|false <p>Returns the position as an integer. If needle is not found, grapheme_strpos() will return <b><code>false</code></b>.</p>
+	 * @param int $offset <p>The optional <code>offset</code> parameter allows you to specify where in <code>haystack</code> to start searching as an offset in grapheme units (not bytes or characters). If the offset is negative, it is treated relative to the end of the string. The position returned is still relative to the beginning of <code>haystack</code> regardless of the value of <code>offset</code>.</p>
+	 * @return int|false <p>Returns the position as an integer. If <code>needle</code> is not found, <b>grapheme_strpos()</b> will return <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.grapheme-strpos.php
 	 * @see grapheme_stripos(), grapheme_stristr(), grapheme_strripos(), grapheme_strrpos(), grapheme_strstr()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
@@ -9019,8 +10270,8 @@ namespace {
 	 * <p>Find position (in grapheme units) of last occurrence of a case-insensitive string</p>
 	 * @param string $haystack <p>The string to look in. Must be valid UTF-8.</p>
 	 * @param string $needle <p>The string to look for. Must be valid UTF-8.</p>
-	 * @param int $offset <p>The optional $offset parameter allows you to specify where in $haystack to start searching as an offset in grapheme units (not bytes or characters). The position returned is still relative to the beginning of haystack regardless of the value of $offset.</p>
-	 * @return int|false <p>Returns the position as an integer. If needle is not found, grapheme_strripos() will return <b><code>false</code></b>.</p>
+	 * @param int $offset <p>The optional <code>offset</code> parameter allows you to specify where in <code>haystack</code> to start searching as an offset in grapheme units (not bytes or characters). The position returned is still relative to the beginning of <code>haystack</code> regardless of the value of <code>offset</code>.</p>
+	 * @return int|false <p>Returns the position as an integer. If <code>needle</code> is not found, <b>grapheme_strripos()</b> will return <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.grapheme-strripos.php
 	 * @see grapheme_stripos(), grapheme_stristr(), grapheme_strpos(), grapheme_strrpos(), grapheme_strstr()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
@@ -9032,8 +10283,8 @@ namespace {
 	 * <p>Find position (in grapheme units) of last occurrence of a string</p>
 	 * @param string $haystack <p>The string to look in. Must be valid UTF-8.</p>
 	 * @param string $needle <p>The string to look for. Must be valid UTF-8.</p>
-	 * @param int $offset <p>The optional $offset parameter allows you to specify where in $haystack to start searching as an offset in grapheme units (not bytes or characters). The position returned is still relative to the beginning of haystack regardless of the value of $offset.</p>
-	 * @return int|false <p>Returns the position as an integer. If needle is not found, grapheme_strrpos() will return <b><code>false</code></b>.</p>
+	 * @param int $offset <p>The optional <code>offset</code> parameter allows you to specify where in <code>haystack</code> to start searching as an offset in grapheme units (not bytes or characters). The position returned is still relative to the beginning of <code>haystack</code> regardless of the value of <code>offset</code>.</p>
+	 * @return int|false <p>Returns the position as an integer. If <code>needle</code> is not found, <b>grapheme_strrpos()</b> will return <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.grapheme-strrpos.php
 	 * @see grapheme_stripos(), grapheme_stristr(), grapheme_strpos(), grapheme_strripos(), grapheme_strstr()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
@@ -9045,8 +10296,8 @@ namespace {
 	 * <p>Returns part of haystack string from the first occurrence of needle to the end of haystack (including the needle).</p>
 	 * @param string $haystack <p>The input string. Must be valid UTF-8.</p>
 	 * @param string $needle <p>The string to look for. Must be valid UTF-8.</p>
-	 * @param bool $beforeNeedle <p>If <b><code>true</code></b>, grapheme_strstr() returns the part of the haystack before the first occurrence of the needle (excluding the needle).</p>
-	 * @return string|false <p>Returns the portion of string, or <b><code>false</code></b> if needle is not found.</p>
+	 * @param bool $beforeNeedle <p>If <b><code>true</code></b>, <b>grapheme_strstr()</b> returns the part of the <code>haystack</code> before the first occurrence of the <code>needle</code> (excluding the <code>needle</code>).</p>
+	 * @return string|false <p>Returns the portion of <code>haystack</code>, or <b><code>false</code></b> if <code>needle</code> is not found.</p>
 	 * @link https://php.net/manual/en/function.grapheme-strstr.php
 	 * @see grapheme_stristr(), grapheme_stripos(), grapheme_strpos(), grapheme_strripos(), grapheme_strrpos()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
@@ -9057,8 +10308,8 @@ namespace {
 	 * Return part of a string
 	 * <p>Return part of a string</p>
 	 * @param string $string <p>The input string. Must be valid UTF-8.</p>
-	 * @param int $offset <p>Start position in default grapheme units. If $start is non-negative, the returned string will start at the $start'th position in $string, counting from zero. If $start is negative, the returned string will start at the $start'th grapheme unit from the end of string.</p>
-	 * @param ?int $length <p>Length in grapheme units. If $length is given and is positive, the string returned will contain at most $length grapheme units beginning from $start (depending on the length of string). If $length is given and is negative, then that many grapheme units will be omitted from the end of string (after the start position has been calculated when a start is negative). If $start denotes a position beyond this truncation, <b><code>false</code></b> will be returned.</p>
+	 * @param int $offset <p>Start position in default grapheme units. If <code>offset</code> is non-negative, the returned string will start at the <code>offset</code>'th position in <code>string</code>, counting from zero. If <code>offset</code> is negative, the returned string will start at the <code>offset</code>'th grapheme unit from the end of string.</p>
+	 * @param ?int $length <p>Length in grapheme units. If <code>length</code> is given and is positive, the string returned will contain at most <code>length</code> grapheme units beginning from <code>offset</code> (depending on the length of string). If <code>length</code> is given and is negative, then that many grapheme units will be omitted from the end of string (after the start position has been calculated when <code>offset</code> is negative). If <code>offset</code> denotes a position beyond this truncation, an empty string will be returned.</p>
 	 * @return string|false <p>Returns the extracted part of <code>string</code>, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.grapheme-substr.php
 	 * @see grapheme_extract()
@@ -9092,7 +10343,7 @@ namespace {
 	 * @see idn_to_ascii()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.2, PECL idn >= 0.1
 	 */
-	function idn_to_utf8(string $domain, int $flags = 0, int $variant = INTL_IDNA_VARIANT_UTS46, array &$idna_info = null): string|false {}
+	function idn_to_utf8(string $domain, int $flags = IDNA_DEFAULT, int $variant = INTL_IDNA_VARIANT_UTS46, array &$idna_info = null): string|false {}
 
 	/**
 	 * Get symbolic name for a given error code
@@ -9135,7 +10386,7 @@ namespace {
 
 	/**
 	 * Get last error code on the object
-	 * <p>Object-oriented style (method):</p><p>Returns the numeric ICU error code for the last call on this object (including cloning) or the <code>IntlCalendar</code> given for the <code>calendar</code> parameter (in the procedural&#8210;style version). This may indicate only a warning (negative error code) or no error at all (<b><code>U_ZERO_ERROR</code></b>). The actual presence of an error can be tested with <code>intl_is_failure()</code>.</p><p>Invalid arguments detected on the PHP side (before invoking functions of the ICU library) are not recorded for the purposes of this function.</p><p>The last error that occurred in any call to a function of the intl extension, including early argument errors, can be obtained with <code>intl_get_error_code()</code>. This function resets the global error code, but not the object&#700;s error code.</p>
+	 * <p>Object-oriented style (method):</p><p>Returns the numeric ICU error code for the last call on this object (including cloning) or the <code>IntlCalendar</code> given for the <code>calendar</code> parameter (in the procedural&#x2012;style version). This may indicate only a warning (negative error code) or no error at all (<b><code>U_ZERO_ERROR</code></b>). The actual presence of an error can be tested with <code>intl_is_failure()</code>.</p><p>Invalid arguments detected on the PHP side (before invoking functions of the ICU library) are not recorded for the purposes of this function.</p><p>The last error that occurred in any call to a function of the intl extension, including early argument errors, can be obtained with <code>intl_get_error_code()</code>. This function resets the global error code, but not the object&#x2BC;s error code.</p>
 	 * @param \IntlCalendar $calendar <p>The calendar object, on the procedural style interface.</p>
 	 * @return int|false <p>An ICU error code indicating either success, failure or a warning. Returns <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/intlcalendar.geterrorcode.php
@@ -9156,12 +10407,12 @@ namespace {
 	/**
 	 * Get the number of IDs in the equivalency group that includes the given ID
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-	 * @param string $zoneId
-	 * @return int
+	 * @param string $timezoneId
+	 * @return int|false
 	 * @link https://php.net/manual/en/intltimezone.countequivalentids.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_count_equivalent_ids(string $zoneId): int {}
+	function intltz_count_equivalent_ids(string $timezoneId): int|false {}
 
 	/**
 	 * Create a new copy of the default timezone for this host
@@ -9175,68 +10426,68 @@ namespace {
 	/**
 	 * Get an enumeration over time zone IDs associated with the given country or offset
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-	 * @param mixed $countryOrRawOffset
-	 * @return IntlIterator
+	 * @param \IntlTimeZone|string|int|float|null $countryOrRawOffset
+	 * @return IntlIterator|false
 	 * @link https://php.net/manual/en/intltimezone.createenumeration.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_create_enumeration(mixed $countryOrRawOffset = null): \IntlIterator {}
+	function intltz_create_enumeration(\IntlTimeZone|string|int|float|null $countryOrRawOffset = null): \IntlIterator|false {}
 
 	/**
 	 * Create a timezone object for the given ID
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-	 * @param string $zoneId
-	 * @return IntlTimeZone
+	 * @param string $timezoneId
+	 * @return ?IntlTimeZone
 	 * @link https://php.net/manual/en/intltimezone.createtimezone.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_create_time_zone(string $zoneId): \IntlTimeZone {}
+	function intltz_create_time_zone(string $timezoneId): ?\IntlTimeZone {}
 
 	/**
 	 * Get an enumeration over system time zone IDs with the given filter conditions
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-	 * @param int $zoneType
-	 * @param string $region
-	 * @param int $rawOffset
+	 * @param int $type
+	 * @param ?string $region
+	 * @param ?int $rawOffset
 	 * @return IntlIterator|false <p>Returns <code>IntlIterator</code> or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/intltimezone.createtimezoneidenumeration.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 	 */
-	function intltz_create_time_zone_id_enumeration(int $zoneType, string $region = null, int $rawOffset = null): \IntlIterator|false {}
+	function intltz_create_time_zone_id_enumeration(int $type, ?string $region = null, ?int $rawOffset = null): \IntlIterator|false {}
 
 	/**
 	 * Create a timezone object from DateTimeZone
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-	 * @param \DateTimeZone $zoneId
-	 * @return IntlTimeZone
+	 * @param \DateTimeZone $timezone
+	 * @return ?IntlTimeZone
 	 * @link https://php.net/manual/en/intltimezone.fromdatetimezone.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_from_date_time_zone(\DateTimeZone $zoneId): \IntlTimeZone {}
+	function intltz_from_date_time_zone(\DateTimeZone $timezone): ?\IntlTimeZone {}
 
 	/**
 	 * Get the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-	 * @param string $zoneId
-	 * @param bool $isSystemID
-	 * @return string
+	 * @param string $timezoneId
+	 * @param bool $isSystemId
+	 * @return string|false
 	 * @link https://php.net/manual/en/intltimezone.getcanonicalid.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_get_canonical_id(string $zoneId, bool &$isSystemID = null): string {}
+	function intltz_get_canonical_id(string $timezoneId, bool &$isSystemId = null): string|false {}
 
 	/**
 	 * Get a name of this time zone suitable for presentation to the user
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param \IntlTimeZone $timezone
-	 * @param bool $isDaylight
+	 * @param bool $dst
 	 * @param int $style
-	 * @param string $locale
-	 * @return string
+	 * @param ?string $locale
+	 * @return string|false
 	 * @link https://php.net/manual/en/intltimezone.getdisplayname.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_get_display_name(\IntlTimeZone $timezone, bool $isDaylight = null, int $style = null, string $locale = null): string {}
+	function intltz_get_display_name(\IntlTimeZone $timezone, bool $dst = false, int $style = IntlTimeZone::DISPLAY_LONG, ?string $locale = null): string|false {}
 
 	/**
 	 * Get the amount of time to be added to local standard time to get local wall clock time
@@ -9251,33 +10502,33 @@ namespace {
 	/**
 	 * Get an ID in the equivalency group that includes the given ID
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-	 * @param string $zoneId
-	 * @param int $index
-	 * @return string
+	 * @param string $timezoneId
+	 * @param int $offset
+	 * @return string|false
 	 * @link https://php.net/manual/en/intltimezone.getequivalentid.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_get_equivalent_id(string $zoneId, int $index): string {}
+	function intltz_get_equivalent_id(string $timezoneId, int $offset): string|false {}
 
 	/**
 	 * Get last error code on the object
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param \IntlTimeZone $timezone
-	 * @return int
+	 * @return int|false
 	 * @link https://php.net/manual/en/intltimezone.geterrorcode.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_get_error_code(\IntlTimeZone $timezone): int {}
+	function intltz_get_error_code(\IntlTimeZone $timezone): int|false {}
 
 	/**
 	 * Get last error message on the object
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param \IntlTimeZone $timezone
-	 * @return string
+	 * @return string|false
 	 * @link https://php.net/manual/en/intltimezone.geterrormessage.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_get_error_message(\IntlTimeZone $timezone): string {}
+	function intltz_get_error_message(\IntlTimeZone $timezone): string|false {}
 
 	/**
 	 * Create GMT (UTC) timezone
@@ -9292,28 +10543,28 @@ namespace {
 	 * Get timezone ID
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param \IntlTimeZone $timezone
-	 * @return string
+	 * @return string|false
 	 * @link https://php.net/manual/en/intltimezone.getid.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_get_id(\IntlTimeZone $timezone): string {}
+	function intltz_get_id(\IntlTimeZone $timezone): string|false {}
 
 	/**
 	 * Translate a Windows timezone into a system timezone
-	 * <p>Object-oriented style (method):</p><p>Translates a Windows timezone (e.g. "Pacific Standard Time") into a system timezone (e.g. "America/Los_Angeles").</p><p><b>Note</b>:  This function requires ICU version &ge; 52. </p><p>This function is currently not documented; only its argument list is available.</p>
-	 * @param string $timezone
-	 * @param string $region
+	 * <p>Object-oriented style (method):</p><p>Translates a Windows timezone (e.g. "Pacific Standard Time") into a system timezone (e.g. "America/Los_Angeles").</p><p><b>Note</b>:  This function requires ICU version &#x2265; 52. </p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $timezoneId
+	 * @param ?string $region
 	 * @return string|false <p>Returns the system timezone or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/intltimezone.getidforwindowsid.php
 	 * @since PHP 7 >= 7.1.0, PHP 8
 	 */
-	function intltz_get_id_for_windows_id(string $timezone, string $region = null): string|false {}
+	function intltz_get_id_for_windows_id(string $timezoneId, ?string $region = null): string|false {}
 
 	/**
 	 * Get the time zone raw and GMT offset for the given moment in time
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param \IntlTimeZone $timezone
-	 * @param float $date
+	 * @param float $timestamp
 	 * @param bool $local
 	 * @param int $rawOffset
 	 * @param int $dstOffset
@@ -9321,7 +10572,7 @@ namespace {
 	 * @link https://php.net/manual/en/intltimezone.getoffset.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_get_offset(\IntlTimeZone $timezone, float $date, bool $local, int &$rawOffset, int &$dstOffset): bool {}
+	function intltz_get_offset(\IntlTimeZone $timezone, float $timestamp, bool $local, int &$rawOffset, int &$dstOffset): bool {}
 
 	/**
 	 * Get the raw GMT offset (before taking daylight savings time into account
@@ -9336,21 +10587,21 @@ namespace {
 	/**
 	 * Get the region code associated with the given system time zone ID
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-	 * @param string $zoneId
+	 * @param string $timezoneId
 	 * @return string|false <p>Return region or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/intltimezone.getregion.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 	 */
-	function intltz_get_region(string $zoneId): string|false {}
+	function intltz_get_region(string $timezoneId): string|false {}
 
 	/**
 	 * Get the timezone data version currently used by ICU
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
-	 * @return string
+	 * @return string|false
 	 * @link https://php.net/manual/en/intltimezone.gettzdataversion.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_get_tz_data_version(): string {}
+	function intltz_get_tz_data_version(): string|false {}
 
 	/**
 	 * Get the "unknown" time zone
@@ -9363,34 +10614,34 @@ namespace {
 
 	/**
 	 * Translate a system timezone into a Windows timezone
-	 * <p>Object-oriented style (method):</p><p>Translates a system timezone (e.g. "America/Los_Angeles") into a Windows timezone (e.g. "Pacific Standard Time").</p><p><b>Note</b>:  This function requires ICU version &ge; 52. </p><p>This function is currently not documented; only its argument list is available.</p>
-	 * @param string $timezone
+	 * <p>Object-oriented style (method):</p><p>Translates a system timezone (e.g. "America/Los_Angeles") into a Windows timezone (e.g. "Pacific Standard Time").</p><p><b>Note</b>:  This function requires ICU version &#x2265; 52. </p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param string $timezoneId
 	 * @return string|false <p>Returns the Windows timezone or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/intltimezone.getwindowsid.php
 	 * @since PHP 7 >= 7.1.0, PHP 8
 	 */
-	function intltz_get_windows_id(string $timezone): string|false {}
+	function intltz_get_windows_id(string $timezoneId): string|false {}
 
 	/**
 	 * Check if this zone has the same rules and offset as another zone
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param \IntlTimeZone $timezone
-	 * @param \IntlTimeZone $otherTimeZone
+	 * @param \IntlTimeZone $other
 	 * @return bool
 	 * @link https://php.net/manual/en/intltimezone.hassamerules.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_has_same_rules(\IntlTimeZone $timezone, \IntlTimeZone $otherTimeZone): bool {}
+	function intltz_has_same_rules(\IntlTimeZone $timezone, \IntlTimeZone $other): bool {}
 
 	/**
 	 * Convert to DateTimeZone object
 	 * <p>Object-oriented style (method):</p><p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param \IntlTimeZone $timezone
-	 * @return DateTimeZone
+	 * @return DateTimeZone|false
 	 * @link https://php.net/manual/en/intltimezone.todatetimezone.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1
 	 */
-	function intltz_to_date_time_zone(\IntlTimeZone $timezone): \DateTimeZone {}
+	function intltz_to_date_time_zone(\IntlTimeZone $timezone): \DateTimeZone|false {}
 
 	/**
 	 * Check if this time zone uses daylight savings time
@@ -9426,7 +10677,7 @@ namespace {
 	/**
 	 * Returns a correctly ordered and delimited locale ID
 	 * <p>Object-oriented style</p><p>Returns a correctly ordered and delimited locale ID the keys identify the particular locale ID subtags, and the values are the associated subtag values.</p>
-	 * @param array $subtags <p>An <code>array</code> containing a list of key-value pairs, where the keys identify the particular locale ID subtags, and the values are the associated subtag values.</p><p><b>Note</b>:</p><p>The <code>'variant'</code> and <code>'private'</code> subtags can take maximum 15 values whereas <code>'extlang'</code> can take maximum 3 values. For instance, variants are allowed with the suffix ranging from 0-14. Hence the keys for the input array can be <code>variant0</code>, <code>variant1</code>, &hellip;,<code>variant14</code>. In the returned locale id, the subtag is ordered by suffix resulting in <code>variant0</code> followed by <code>variant1</code> followed by <code>variant2</code> and so on.</p> <p>Alternatively, the <code>'variant'</code>, <code>'private'</code> and <code>'extlang'</code> values can be specified as array under specific key (e.g. <code>'variant'</code>). In this case no limits on the number of recognized subtags apply.</p>
+	 * @param array $subtags <p>An <code>array</code> containing a list of key-value pairs, where the keys identify the particular locale ID subtags, and the values are the associated subtag values.</p><p><b>Note</b>:</p><p>The <code>'variant'</code> and <code>'private'</code> subtags can take maximum 15 values whereas <code>'extlang'</code> can take maximum 3 values. For instance, variants are allowed with the suffix ranging from 0-14. Hence the keys for the input array can be <code>variant0</code>, <code>variant1</code>, &#x2026;,<code>variant14</code>. In the returned locale id, the subtag is ordered by suffix resulting in <code>variant0</code> followed by <code>variant1</code> followed by <code>variant2</code> and so on.</p> <p>Alternatively, the <code>'variant'</code>, <code>'private'</code> and <code>'extlang'</code> values can be specified as array under specific key (e.g. <code>'variant'</code>). In this case no limits on the number of recognized subtags apply.</p>
 	 * @return string|false <p>The corresponding locale identifier, or <b><code>false</code></b> when <code>subtags</code> is empty.</p>
 	 * @link https://php.net/manual/en/locale.composelocale.php
 	 * @see locale_parse()
@@ -9612,7 +10863,7 @@ namespace {
 	 * Constructs a new Message Formatter
 	 * <p>Object-oriented style (method)</p><p>Object-oriented style (constructor):</p><p>Constructs a new Message Formatter</p>
 	 * @param string $locale <p>The locale to use when formatting arguments</p>
-	 * @param string $pattern <p>The pattern string to stick arguments into. The pattern uses an 'apostrophe-friendly' syntax; it is run through umsg_autoQuoteApostrophe before being interpreted.</p>
+	 * @param string $pattern <p>The pattern string to stick arguments into. The pattern uses an 'apostrophe-friendly' syntax; see &#xBB;&#xA0;Quoting/Escaping for details.</p>
 	 * @return ?MessageFormatter <p>The formatter <code>object</code>, or <b><code>null</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/messageformatter.create.php
 	 * @see msgfmt_format(), msgfmt_parse(), msgfmt_get_error_code(), msgfmt_get_error_message()
@@ -9634,9 +10885,9 @@ namespace {
 
 	/**
 	 * Quick format message
-	 * <p>Object-oriented style</p><p>Quick formatting function that formats the string without having to explicitly create the formatter object. Use this function when the format operation is done only once and does not need and parameters or state to be kept.</p>
+	 * <p>Object-oriented style</p><p>Quick formatting function that formats the string without having to explicitly create the formatter object. Use this function when the format operation is done only once and does not need any parameters or state to be kept or when wanting to customize the output by providing additional context to ICU directly.</p>
 	 * @param string $locale <p>The locale to use for formatting locale-dependent parts</p>
-	 * @param string $pattern <p>The pattern <code>string</code> to insert things into. The pattern uses an 'apostrophe-friendly' syntax; it is run through umsg_autoQuoteApostrophe before being interpreted.</p>
+	 * @param string $pattern <p>The pattern <code>string</code> to insert things into. The pattern uses an 'apostrophe-friendly' syntax; see &#xBB;&#xA0;Quoting/Escaping for details.</p>
 	 * @param array $values <p>The <code>array</code> of values to insert into the format <code>string</code></p>
 	 * @return string|false <p>The formatted pattern string or <b><code>false</code></b> if an error occurred</p>
 	 * @link https://php.net/manual/en/messageformatter.formatmessage.php
@@ -9703,7 +10954,7 @@ namespace {
 
 	/**
 	 * Quick parse input string
-	 * <p>Object-oriented style</p><p>Parses input string without explicitly creating the formatter object. Use this function when the format operation is done only once and does not need and parameters or state to be kept.</p>
+	 * <p>Object-oriented style</p><p>Parses input string without explicitly creating the formatter object. Use this function when the format operation is done only once and does not need any parameters or state to be kept.</p>
 	 * @param string $locale <p>The locale to use for parsing locale-dependent parts</p>
 	 * @param string $pattern <p>The pattern with which to parse the <code>message</code>.</p>
 	 * @param string $message <p>The <code>string</code> to parse, conforming to the <code>pattern</code>.</p>
@@ -9718,7 +10969,7 @@ namespace {
 	 * Set the pattern used by the formatter
 	 * <p>Object-oriented style</p><p>Set the pattern used by the formatter</p>
 	 * @param \MessageFormatter $formatter <p>The message formatter</p>
-	 * @param string $pattern <p>The pattern <code>string</code> to use in this message formatter. The pattern uses an 'apostrophe-friendly' syntax; it is run through umsg_autoQuoteApostrophe before being interpreted.</p>
+	 * @param string $pattern <p>The pattern <code>string</code> to use in this message formatter. The pattern uses an 'apostrophe-friendly' syntax; see &#xBB;&#xA0;Quoting/Escaping for details.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/messageformatter.setpattern.php
 	 * @see msgfmt_create(), msgfmt_get_pattern()
@@ -9765,7 +11016,7 @@ namespace {
 	 * Create a number formatter
 	 * <p>Object-oriented style (method)</p><p>Object-oriented style (constructor):</p><p>Creates a number formatter.</p>
 	 * @param string $locale <p>Locale in which the number would be formatted (locale name, e.g. en_CA).</p>
-	 * @param int $style <p>Style of the formatting, one of the  format style constants. If <b><code>NumberFormatter::PATTERN_DECIMAL</code></b> or <b><code>NumberFormatter::PATTERN_RULEBASED</code></b> is passed then the number format is opened using the given pattern, which must conform to the syntax described in ICU DecimalFormat documentation or ICU RuleBasedNumberFormat documentation, respectively.</p>
+	 * @param int $style <p>Style of the formatting, one of the  format style constants. If <b><code>NumberFormatter::PATTERN_DECIMAL</code></b> or <b><code>NumberFormatter::PATTERN_RULEBASED</code></b> is passed then the number format is opened using the given pattern, which must conform to the syntax described in &#xBB;&#xA0;ICU DecimalFormat documentation or &#xBB;&#xA0;ICU RuleBasedNumberFormat documentation, respectively.</p>
 	 * @param ?string $pattern <p>Pattern string if the chosen style requires a pattern.</p>
 	 * @return ?NumberFormatter <p>Returns <code>NumberFormatter</code> object or <b><code>null</code></b> on error.</p>
 	 * @link https://php.net/manual/en/numberformatter.create.php
@@ -9779,10 +11030,10 @@ namespace {
 	 * <p>Object-oriented style</p><p>Format a numeric value according to the formatter rules.</p>
 	 * @param \NumberFormatter $formatter <p><code>NumberFormatter</code> object.</p>
 	 * @param int|float $num <p>The value to format. Can be <code>int</code> or <code>float</code>, other values will be converted to a numeric value.</p>
-	 * @param int $type <p>The  formatting type to use.</p>
+	 * @param int $type <p>The  formatting type to use. Note that <b><code>NumberFormatter::TYPE_CURRENCY</code></b> is not supported; use <code>NumberFormatter::formatCurrency()</code> instead.</p>
 	 * @return string|false <p>Returns the string containing formatted value, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/numberformatter.format.php
-	 * @see numfmt_get_error_code(), numfmt_format_currency(), numfmt_parse()
+	 * @see numfmt_get_error_code(), numfmt_format_currency(), numfmt_parse(), msgfmt_format_message()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
 	 */
 	function numfmt_format(\NumberFormatter $formatter, int|float $num, int $type = NumberFormatter::TYPE_DEFAULT): string|false {}
@@ -9795,7 +11046,7 @@ namespace {
 	 * @param string $currency <p>The 3-letter ISO 4217 currency code indicating the currency to use.</p>
 	 * @return string|false <p>String representing the formatted currency value, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/numberformatter.formatcurrency.php
-	 * @see numfmt_get_error_code(), numfmt_format(), numfmt_parse_currency()
+	 * @see numfmt_get_error_code(), numfmt_format(), numfmt_parse_currency(), msgfmt_format_message()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8, PECL intl >= 1.0.0
 	 */
 	function numfmt_format_currency(\NumberFormatter $formatter, float $amount, string $currency): string|false {}
@@ -9886,7 +11137,7 @@ namespace {
 	 * <p>Object-oriented style</p><p>Parse a string into a number using the current formatter rules.</p>
 	 * @param \NumberFormatter $formatter <p><code>NumberFormatter</code> object.</p>
 	 * @param string $string <p>The string to parse for the number.</p>
-	 * @param int $type <p>The  formatting type to use. By default, <b><code>NumberFormatter::TYPE_DOUBLE</code></b> is used.</p>
+	 * @param int $type <p>The  formatting type to use. By default, <b><code>NumberFormatter::TYPE_DOUBLE</code></b> is used. Note that <b><code>NumberFormatter::TYPE_CURRENCY</code></b> is not supported; use <code>NumberFormatter::parseCurrency()</code> instead.</p>
 	 * @param int $offset <p>Offset in the string at which to begin parsing. On return, this value will hold the offset at which parsing ended.</p>
 	 * @return int|float|false <p>The value of the parsed number or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/numberformatter.parse.php
@@ -9897,7 +11148,7 @@ namespace {
 
 	/**
 	 * Parse a currency number
-	 * <p>Object-oriented style</p><p>Parse a string into a double and a currency using the current formatter.</p>
+	 * <p>Object-oriented style</p><p>Parse a string into a float and a currency using the current formatter.</p>
 	 * @param \NumberFormatter $formatter <p><code>NumberFormatter</code> object.</p>
 	 * @param string $string
 	 * @param string $currency <p>Parameter to receive the currency name (3-letter ISO 4217 currency code).</p>
@@ -9926,7 +11177,7 @@ namespace {
 	 * Set formatter pattern
 	 * <p>Object-oriented style</p><p>Set the pattern used by the formatter. Can not be used on a rule-based formatter.</p>
 	 * @param \NumberFormatter $formatter <p><code>NumberFormatter</code> object.</p>
-	 * @param string $pattern <p>Pattern in syntax described in ICU DecimalFormat documentation.</p>
+	 * @param string $pattern <p>Pattern in syntax described in &#xBB;&#xA0;ICU DecimalFormat documentation.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/numberformatter.setpattern.php
 	 * @see numfmt_get_error_code(), numfmt_create(), numfmt_get_pattern()
@@ -10207,12 +11458,12 @@ namespace {
 	/**
 	 * The current ICU library version as a dotted-decimal string.
 	 */
-	define('INTL_ICU_VERSION', 66.1);
+	define('INTL_ICU_VERSION', 70.1);
 
 	/**
 	 * Use IDNA 2003 algorithm in <code>idn_to_utf8()</code> and <code>idn_to_ascii()</code>. This is the default. This constant and using the default has been deprecated as of PHP 7.2.0.
 	 */
-	define('INTL_IDNA_VARIANT_2003', 0);
+	define('INTL_IDNA_VARIANT_2003', null);
 
 	/**
 	 * Use UTS #46 algorithm in <code>idn_to_utf8()</code> and <code>idn_to_ascii()</code>. Available as of ICU 4.6.

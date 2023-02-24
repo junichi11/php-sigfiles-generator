@@ -14,11 +14,11 @@ namespace {
 		/**
 		 * Determine whether an object has been marked as garbage
 		 * <p>Can be called in <code>Pool::collect()</code> to determine if this object is garbage.</p>
-		 * @return bool <p>Always returns <b><code>true</code></b>.</p>
+		 * @return true <p>Always returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/collectable.isgarbage.php
 		 * @since PECL pthreads >= 2.0.8
 		 */
-		public function isGarbage(): bool;
+		public function isGarbage(): true;
 	}
 
 	/**
@@ -65,7 +65,7 @@ namespace {
 		 * @param int $size <p>The maximum number of workers for this pool to create</p>
 		 * @param string $class <p>The class for new Workers. If no class is given, then it defaults to the <code>Worker</code> class.</p>
 		 * @param array $ctor <p>An array of arguments to be passed to new workers' constructors</p>
-		 * @return Pool <p>The new pool</p>
+		 * @return self
 		 * @link https://php.net/manual/en/pool.construct.php
 		 * @since PECL pthreads >= 2.0.0
 		 */

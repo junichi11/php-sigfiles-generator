@@ -2183,6 +2183,48 @@ namespace {
 		const ALPHACHANNEL_TRANSPARENT = 10;
 
 		/**
+		 * @var int This constant is available if Imagick has been compiled against ImageMagick version 6.5.3 or higher.
+		 * @link https://php.net/manual/en/imagick.constants.php
+		 */
+		const ALPHACHANNEL_BACKGROUND = 2;
+
+		/**
+		 * @var int This constant is available if Imagick has been compiled against ImageMagick version 6.7.8 or higher.
+		 * @link https://php.net/manual/en/imagick.constants.php
+		 */
+		const ALPHACHANNEL_REMOVE = 12;
+
+		/**
+		 * @var int This constant is available if Imagick has been compiled against ImageMagick version 6.9.0 or higher.
+		 * @link https://php.net/manual/en/imagick.constants.php
+		 */
+		const ALPHACHANNEL_ASSOCIATE = 13;
+
+		/**
+		 * @var int This constant is available if Imagick has been compiled against ImageMagick version 6.9.0 or higher.
+		 * @link https://php.net/manual/en/imagick.constants.php
+		 */
+		const ALPHACHANNEL_DISSOCIATE = 14;
+
+		/**
+		 * @var int This constant is available if Imagick has been compiled against ImageMagick version 7.0.0 or higher.
+		 * @link https://php.net/manual/en/imagick.constants.php
+		 */
+		const ALPHACHANNEL_ON = null;
+
+		/**
+		 * @var int This constant is available if Imagick has been compiled against ImageMagick version 7.0.0 or higher.
+		 * @link https://php.net/manual/en/imagick.constants.php
+		 */
+		const ALPHACHANNEL_OFF = null;
+
+		/**
+		 * @var int This constant is available if Imagick has been compiled against ImageMagick version 7.0.0 or higher.
+		 * @link https://php.net/manual/en/imagick.constants.php
+		 */
+		const ALPHACHANNEL_DISCRETE = null;
+
+		/**
 		 * @var int This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
 		 * @link https://php.net/manual/en/imagick.constants.php
 		 */
@@ -2318,7 +2360,7 @@ namespace {
 		 * The Imagick constructor
 		 * <p>Creates an Imagick instance for a specified image or set of images.</p>
 		 * @param mixed $files <p>The path to an image to load or an array of paths. Paths can include wildcards for file names, or can be URLs.</p>
-		 * @return self <p>Returns a new Imagick object on success.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/imagick.construct.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -2453,7 +2495,7 @@ namespace {
 		public function appendImages(bool $stack): \Imagick {}
 
 		/**
-		 * Description
+		 * Adjusts the levels of a particular image channel
 		 * <p>Adjusts the levels of a particular image channel by scaling the minimum and maximum values to the full quantum range.</p>
 		 * @param int $channel <p>Which channel should the auto-levelling should be done on.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
@@ -2482,7 +2524,7 @@ namespace {
 		public function blackThresholdImage(mixed $threshold): bool {}
 
 		/**
-		 * Description
+		 * Mutes the colors of the image
 		 * <p>Mutes the colors of the image to simulate a scene at nighttime in the moonlight.</p>
 		 * @param float $factor
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
@@ -2517,7 +2559,7 @@ namespace {
 		public function borderImage(mixed $bordercolor, int $width, int $height): bool {}
 
 		/**
-		 * Description
+		 * Change the brightness and/or contrast of an image
 		 * <p>Change the brightness and/or contrast of an image. It converts the brightness and contrast parameters into slope and intercept and calls a polynomical function to apply to the image.</p>
 		 * @param float $brightness
 		 * @param float $contrast
@@ -2554,7 +2596,7 @@ namespace {
 		public function chopImage(int $width, int $height, int $x, int $y): bool {}
 
 		/**
-		 * Description
+		 * Restricts the color range from 0 to the quantum depth.
 		 * <p>Restricts the color range from 0 to the quantum depth.</p>
 		 * @param int $channel
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -2582,7 +2624,7 @@ namespace {
 		public function clipImage(): bool {}
 
 		/**
-		 * Description
+		 * Clips along the named paths from the 8BIM profile, if present
 		 * <p>Clips along the named paths from the 8BIM profile, if present. Later operations take effect inside the path. Id may be a number if preceded with #, to work on a numbered path, e.g., "#1" to use the first path.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $pathname
 		 * @param string $inside
@@ -2648,7 +2690,7 @@ namespace {
 		public function colorFloodfillImage(mixed $fill, float $fuzz, mixed $bordercolor, int $x, int $y): bool {}
 
 		/**
-		 * Description
+		 * Apply color transformation to an image
 		 * <p>Apply color transformation to an image. The method permits saturation changes, hue rotation, luminance to alpha, and various other effects. Although variable-sized transformation matrices can be used, typically one uses a 5x5 matrix for an RGBA image and a 6x6 for CMYKA (or RGBA with offsets). The matrix is similar to those used by Adobe Flash except offsets are in column 6 rather than 5 (in support of CMYKA images) and offsets are normalized (divide Flash offset by 255)</p>
 		 * @param array $color_matrix
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
@@ -2857,7 +2899,7 @@ namespace {
 		public function deleteImageArtifact(string $artifact): bool {}
 
 		/**
-		 * Description
+		 * Deletes an image property
 		 * <p>Deletes an image property.</p>
 		 * @param string $name <p>The name of the property to delete.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
@@ -3029,7 +3071,7 @@ namespace {
 		public function extentImage(int $width, int $height, int $x, int $y): bool {}
 
 		/**
-		 * Description
+		 * Applies a custom convolution kernel to the image
 		 * <p>Applies a custom convolution kernel to the image.</p>
 		 * @param \ImagickKernel $ImagickKernel <p>An instance of ImagickKernel that represents either a single kernel or a linked series of kernels.</p>
 		 * @param int $channel <p>Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b><code>Imagick::CHANNEL_DEFAULT</code></b>. Refer to this list of channel constants</p>
@@ -3085,7 +3127,7 @@ namespace {
 		public function flopImage(): bool {}
 
 		/**
-		 * Description
+		 * Implements the discrete Fourier transform (DFT)
 		 * <p>Implements the discrete Fourier transform (DFT) of the image either as a magnitude / phase or real / imaginary image pair.</p>
 		 * @param bool $magnitude <p>If true, return as magnitude / phase pair otherwise a real / imaginary image pair.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
@@ -3110,7 +3152,7 @@ namespace {
 
 		/**
 		 * Applies a function on the image
-		 * <p>Applies an arithmetic, relational, or logical expression to a pseudo image.</p><p>See also ImageMagick v6 Examples - Image Transformations &mdash; Function, Multi-Argument Evaluate</p><p>This method is available if Imagick has been compiled against ImageMagick version 6.4.9 or newer.</p>
+		 * <p>Applies an arithmetic, relational, or logical expression to a pseudo image.</p><p>See also &#xBB;&#xA0;ImageMagick v6 Examples - Image Transformations &#x2014; Function, Multi-Argument Evaluate</p><p>This method is available if Imagick has been compiled against ImageMagick version 6.4.9 or newer.</p>
 		 * @param int $function <p>Refer to this list of function constants</p>
 		 * @param array $arguments <p>Array of arguments to pass to this function.</p>
 		 * @param int $channel
@@ -3122,7 +3164,7 @@ namespace {
 
 		/**
 		 * Evaluate expression for each pixel in the image
-		 * <p>Evaluate expression for each pixel in the image. Consult The Fx Special Effects Image Operator for more information.</p>
+		 * <p>Evaluate expression for each pixel in the image. Consult &#xBB;&#xA0;The Fx Special Effects Image Operator for more information.</p>
 		 * @param string $expression <p>The expression.</p>
 		 * @param int $channel <p>Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channeltype constants using bitwise operators. Refer to this list of channel constants.</p>
 		 * @return Imagick <p>Returns <b><code>true</code></b> on success.</p>
@@ -3246,13 +3288,13 @@ namespace {
 		public function getImage(): \Imagick {}
 
 		/**
-		 * Gets the image alpha channel
-		 * <p>Gets the image alpha channel value. The returned value is one of the alpha channel constants. This method is available if Imagick has been compiled against ImageMagick version 6.4.0 or newer.</p>
-		 * @return int <p>Returns a constant defining the current alpha channel value. Refer to this list of alpha channel constants.</p>
+		 * Checks if the image has an alpha channel
+		 * <p>Returns whether the image has an alpha channel.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the image has an alpha channel value and <b><code>false</code></b> if not, i.e. the image is RGB rather than RGBA or CMYK rather than CMYKA.</p>
 		 * @link https://php.net/manual/en/imagick.getimagealphachannel.php
 		 * @since PECL imagick 2 >= 2.3.0, PECL imagick 3
 		 */
-		public function getImageAlphaChannel(): int {}
+		public function getImageAlphaChannel(): bool {}
 
 		/**
 		 * Get image artifact
@@ -3339,7 +3381,7 @@ namespace {
 		 * @param \Imagick $reference <p>Imagick object containing the reference image</p>
 		 * @param int $metric <p>Refer to this list of metric type constants.</p>
 		 * @param int $channel <p>Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b><code>Imagick::CHANNEL_DEFAULT</code></b>. Refer to this list of channel constants</p>
-		 * @return float <p>Returns a double describing the channel distortion.</p>
+		 * @return float <p>Returns a <code>float</code> describing the channel distortion.</p>
 		 * @link https://php.net/manual/en/imagick.getimagechanneldistortions.php
 		 * @since PECL imagick 2 >= 2.3.0, PECL imagick 3
 		 */
@@ -3641,7 +3683,7 @@ namespace {
 		public function getImageMatteColor(): \ImagickPixel {}
 
 		/**
-		 * Description
+		 * Returns the image mime-type
 		 * <p>Returns the image mime-type.</p>
 		 * @return string
 		 * @link https://php.net/manual/en/imagick.getimagemimetype.php
@@ -3949,8 +3991,8 @@ namespace {
 		public function getPointSize(): float {}
 
 		/**
-		 * Description
-		 * <p>Returns the ImageMagick quantum range as an integer.</p>
+		 * Returns the ImageMagick quantum range
+		 * <p>Returns the ImageMagick quantum range. If HDRI was enabled then the type is a float, if not it is an int.</p>
 		 * @return int
 		 * @link https://php.net/manual/en/imagick.getquantum.php
 		 * @since PECL imagick 3 >= 3.3.0
@@ -3976,7 +4018,7 @@ namespace {
 		public static function getQuantumRange(): array {}
 
 		/**
-		 * Description
+		 * Get a StringRegistry entry
 		 * <p>Get the StringRegistry entry for the named key or false if not set.</p>
 		 * @param string $key <p>The entry to get.</p>
 		 * @return string
@@ -4080,7 +4122,7 @@ namespace {
 		public function hasPreviousImage(): bool {}
 
 		/**
-		 * Description
+		 * Formats a string with image details
 		 * <p>Replaces any embedded formatting characters with the appropriate image property and returns the interpreted text. See http://www.imagemagick.org/script/escape.php for escape sequences.</p>
 		 * @param string $embedText <p>A string containing formatting sequences e.g. "Trim box: %@ number of unique colors: %k".</p>
 		 * @return string|false <p>Returns format or <b><code>false</code></b> on failure.</p>
@@ -4126,7 +4168,7 @@ namespace {
 		public function importImagePixels(int $x, int $y, int $width, int $height, string $map, int $storage, array $pixels): bool {}
 
 		/**
-		 * Description
+		 * Implements the inverse discrete Fourier transform (DFT)
 		 * <p>Implements the inverse discrete Fourier transform (DFT) of the image either as a magnitude / phase or real / imaginary image pair.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \Imagick $complement <p>The second image to combine with this one to form either the magnitude / phase or real / imaginary image pair.</p>
 		 * @param bool $magnitude <p>If true, combine as magnitude / phase pair otherwise a real / imaginary image pair.</p>
@@ -4185,7 +4227,7 @@ namespace {
 		public function liquidRescaleImage(int $width, int $height, float $delta_x, float $rigidity): bool {}
 
 		/**
-		 * Description
+		 * List all the registry settings
 		 * <p>List all the registry settings. Returns an array of all the key/value pairs in the registry</p>
 		 * @return array <p>An array containing the key/values from the registry.</p>
 		 * @link https://php.net/manual/en/imagick.listregistry.php
@@ -4293,7 +4335,7 @@ namespace {
 		public function morphImages(int $number_frames): \Imagick {}
 
 		/**
-		 * Description
+		 * Applies a user supplied kernel to the image according to the given morphology method.
 		 * <p>Applies a user supplied kernel to the image according to the given morphology method.</p>
 		 * @param int $morphologyMethod <p>Which morphology method to use one of the \Imagick::MORPHOLOGY_&#42; constants.</p>
 		 * @param int $iterations <p>The number of iteration to apply the morphology function. A value of -1 means loop until no change found. How this is applied may depend on the morphology method. Typically this is a value of 1.</p>
@@ -4680,7 +4722,7 @@ namespace {
 		public function readImageFile($filehandle, string $fileName = null): bool {}
 
 		/**
-		 * Description
+		 * Reads image from an array of filenames
 		 * <p>Reads image from an array of filenames. All the images are held in a single Imagick object.</p>
 		 * @param array $filenames
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
@@ -4810,7 +4852,7 @@ namespace {
 		public function rotateImage(mixed $background, float $degrees): bool {}
 
 		/**
-		 * Description
+		 * Rotational blurs an image
 		 * <p>Rotational blurs an image.</p>
 		 * @param float $angle <p>The angle to apply the blur over.</p>
 		 * @param int $channel <p>Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b><code>Imagick::CHANNEL_DEFAULT</code></b>. Refer to this list of channel constants</p>
@@ -4872,7 +4914,7 @@ namespace {
 		public function segmentImage(int $COLORSPACE, float $cluster_threshold, float $smooth_threshold, bool $verbose = false): bool {}
 
 		/**
-		 * Description
+		 * Selectively blur an image within a contrast threshold
 		 * <p>Selectively blur an image within a contrast threshold. It is similar to the unsharpen mask that sharpens everything with contrast above a certain threshold.</p>
 		 * @param float $radius
 		 * @param float $sigma
@@ -5028,8 +5070,8 @@ namespace {
 		public function setImageArtifact(string $artifact, string $value): bool {}
 
 		/**
-		 * Description
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
+		 * Sets an image attribute
+		 * <p>Sets an image attribute.</p>
 		 * @param string $key
 		 * @param string $value
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
@@ -5059,14 +5101,14 @@ namespace {
 		public function setImageBias(float $bias): bool {}
 
 		/**
-		 * Description
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $bias
+		 * Sets the image bias
+		 * <p>Sets the image bias. Bias should be scaled with <code>0</code> (no adjustment) to <code>1</code> (quantum value).</p>
+		 * @param float $bias
 		 * @return void
 		 * @link https://php.net/manual/en/imagick.setimagebiasquantum.php
 		 * @since PECL imagick 3 >= 3.3.0
 		 */
-		public function setImageBiasQuantum(string $bias): void {}
+		public function setImageBiasQuantum(float $bias): void {}
 
 		/**
 		 * Sets the image chromaticity blue primary point
@@ -5527,7 +5569,7 @@ namespace {
 		public function setPointSize(float $point_size): bool {}
 
 		/**
-		 * Description
+		 * Set a callback to be called during processing
 		 * <p>Set a callback that will be called during the processing of the Imagick image.</p>
 		 * @param callable $callback <p>The progress function to call. It should return true if image processing should continue, or false if it should be cancelled. The offset parameter indicates the progress and the span parameter indicates the total amount of work needed to be done.</p>   callback ( <code>mixed</code> <code>$offset</code> ,  <code>mixed</code> <code>$span</code> ): <code>bool</code> <b>Caution</b> <p>The values passed to the callback function are not consistent. In particular the span parameter can increase during image processing. Because of this calculating the percentage complete of an image operation is not trivial.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
@@ -5537,7 +5579,7 @@ namespace {
 		public function setProgressMonitor(callable $callback): bool {}
 
 		/**
-		 * Description
+		 * Sets the ImageMagick registry entry named key to value
 		 * <p>Sets the ImageMagick registry entry named key to value. This is most useful for setting "temporary-path" which controls where ImageMagick creates temporary images e.g. while processing PDFs.</p>
 		 * @param string $key
 		 * @param string $value
@@ -5674,7 +5716,7 @@ namespace {
 
 		/**
 		 * Adjusts the contrast of an image
-		 * <p>Adjusts the contrast of an image with a non-linear sigmoidal contrast algorithm. Increase the contrast of the image using a sigmoidal transfer function without saturating highlights or shadows. Contrast indicates how much to increase the contrast (0 is none; 3 is typical; 20 is pushing it); mid-point indicates where midtones fall in the resultant image (0 is white; 50 is middle-gray; 100 is black). Set sharpen to <b><code>true</code></b> to increase the image contrast otherwise the contrast is reduced.</p><p>See also ImageMagick v6 Examples - Image Transformations &mdash; Sigmoidal Non-linearity Contrast</p>
+		 * <p>Adjusts the contrast of an image with a non-linear sigmoidal contrast algorithm. Increase the contrast of the image using a sigmoidal transfer function without saturating highlights or shadows. Contrast indicates how much to increase the contrast (0 is none; 3 is typical; 20 is pushing it); mid-point indicates where midtones fall in the resultant image (0 is white; 50 is middle-gray; 100 is black). Set sharpen to <b><code>true</code></b> to increase the image contrast otherwise the contrast is reduced.</p><p>See also &#xBB;&#xA0;ImageMagick v6 Examples - Image Transformations &#x2014; Sigmoidal Non-linearity Contrast</p>
 		 * @param bool $sharpen <p>If true increase the contrast, if false decrease the contrast.</p>
 		 * @param float $alpha <p>The amount of contrast to apply. 1 is very little, 5 is a significant amount, 20 is extreme.</p>
 		 * @param float $beta <p>Where the midpoint of the gradient will be. This value should be in the range 0 to 1 - mutliplied by the quantum value for ImageMagick.</p>
@@ -5698,7 +5740,7 @@ namespace {
 		public function sketchImage(float $radius, float $sigma, float $angle): bool {}
 
 		/**
-		 * Description
+		 * Takes all images from the current image pointer to the end of the image list and smushs them
 		 * <p>Takes all images from the current image pointer to the end of the image list and smushs them to each other top-to-bottom if the stack parameter is true, otherwise left-to-right.</p>
 		 * @param bool $stack
 		 * @param int $offset
@@ -5754,7 +5796,7 @@ namespace {
 		public function spreadImage(float $radius): bool {}
 
 		/**
-		 * Description
+		 * Modifies image using a statistics function
 		 * <p>Replace each pixel with corresponding statistic from the neighborhood of the specified width and height.</p>
 		 * @param int $type
 		 * @param int $width
@@ -5797,7 +5839,7 @@ namespace {
 		public function stripImage(): bool {}
 
 		/**
-		 * Description
+		 * Searches for a subimage in the current image and returns a similarity image
 		 * <p>Searches for a subimage in the current image and returns a similarity image such that an exact match location is completely white and if none of the pixels match, black, otherwise some gray level in-between. You can also pass in the optional parameters bestMatch and similarity. After calling the function similarity will be set to the 'score' of the similarity between the subimage and the matching position in the larger image, bestMatch will contain an associative array with elements x, y, width, height that describe the matching region.</p>
 		 * @param \Imagick $Imagick
 		 * @param array $offset
@@ -6012,8 +6054,8 @@ namespace {
 		/**
 		 * Writes an image to a filehandle
 		 * <p>Writes the image sequence to an open filehandle. The handle must be opened with for example fopen. This method is available if Imagick has been compiled against ImageMagick version 6.3.6 or newer.</p>
-		 * @param resource $filehandle <p>Filehandle where to write the image</p>
-		 * @param string $format
+		 * @param resource $filehandle <p>Filehandle where to write the image.</p>
+		 * @param string $format <p>The image format. The list of valid format specifiers depends on the compiled feature set of ImageMagick, and can be queried at runtime via <code>Imagick::queryFormats()</code>.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
 		 * @link https://php.net/manual/en/imagick.writeimagefile.php
 		 * @since PECL imagick 2 >= 2.3.0, PECL imagick 3
@@ -6034,8 +6076,8 @@ namespace {
 		/**
 		 * Writes frames to a filehandle
 		 * <p>Writes all image frames into an open filehandle. This method can be used to write animated gifs or other multiframe images into open filehandle. This method is available if Imagick has been compiled against ImageMagick version 6.3.6 or newer.</p>
-		 * @param resource $filehandle <p>Filehandle where to write the images</p>
-		 * @param string $format
+		 * @param resource $filehandle <p>Filehandle where to write the images.</p>
+		 * @param string $format <p>The image format. The list of valid format specifiers depends on the compiled feature set of ImageMagick, and can be queried at runtime via <code>Imagick::queryFormats()</code>.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
 		 * @link https://php.net/manual/en/imagick.writeimagesfile.php
 		 * @since PECL imagick 2 >= 2.3.0, PECL imagick 3
@@ -6279,7 +6321,7 @@ namespace {
 		public function getFontSize(): float {}
 
 		/**
-		 * Description
+		 * Gets the font stretch to use when annotating with text
 		 * <p>Gets the font stretch to use when annotating with text. Returns a StretchType.</p>
 		 * @return int
 		 * @link https://php.net/manual/en/imagickdraw.getfontstretch.php
@@ -6380,7 +6422,7 @@ namespace {
 		/**
 		 * Returns the opacity of stroked object outlines
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the opacity of stroked object outlines.</p>
-		 * @return float <p>Returns a double describing the opacity.</p>
+		 * @return float <p>Returns a <code>float</code> describing the opacity.</p>
 		 * @link https://php.net/manual/en/imagickdraw.getstrokeopacity.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6389,7 +6431,7 @@ namespace {
 		/**
 		 * Returns the width of the stroke used to draw object outlines
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Returns the width of the stroke used to draw object outlines.</p>
-		 * @return float <p>Returns a double describing the stroke width.</p>
+		 * @return float <p>Returns a <code>float</code> describing the stroke width.</p>
 		 * @link https://php.net/manual/en/imagickdraw.getstrokewidth.php
 		 * @since PECL imagick 2, PECL imagick 3
 		 */
@@ -6432,7 +6474,7 @@ namespace {
 		public function getTextEncoding(): string {}
 
 		/**
-		 * Description
+		 * Gets the text interword spacing
 		 * <p>Gets the text interword spacing.</p>
 		 * @return float
 		 * @link https://php.net/manual/en/imagickdraw.gettextinterlinespacing.php
@@ -6441,7 +6483,7 @@ namespace {
 		public function getTextInterlineSpacing(): float {}
 
 		/**
-		 * Description
+		 * Gets the text interword spacing
 		 * <p>Gets the text interword spacing.</p>
 		 * @return float
 		 * @link https://php.net/manual/en/imagickdraw.gettextinterwordspacing.php
@@ -6450,7 +6492,7 @@ namespace {
 		public function getTextInterwordSpacing(): float {}
 
 		/**
-		 * Description
+		 * Gets the text kerning
 		 * <p>Gets the text kerning.</p>
 		 * @return float
 		 * @link https://php.net/manual/en/imagickdraw.gettextkerning.php
@@ -6880,7 +6922,7 @@ namespace {
 		public function render(): bool {}
 
 		/**
-		 * Description
+		 * Resets the vector graphics
 		 * <p>Resets the vector graphics.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
 		 * @link https://php.net/manual/en/imagickdraw.resetvectorgraphics.php
@@ -7075,7 +7117,7 @@ namespace {
 		public function setGravity(int $gravity): bool {}
 
 		/**
-		 * Description
+		 * Sets the resolution
 		 * <p>Sets the resolution.</p>
 		 * @param float $x_resolution
 		 * @param float $y_resolution
@@ -7236,7 +7278,7 @@ namespace {
 		public function setTextEncoding(string $encoding): bool {}
 
 		/**
-		 * Description
+		 * Sets the text interline spacing
 		 * <p>Sets the text interline spacing.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param float $spacing
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
@@ -7246,7 +7288,7 @@ namespace {
 		public function setTextInterlineSpacing(float $spacing): bool {}
 
 		/**
-		 * Description
+		 * Sets the text interword spacing
 		 * <p>Sets the text interword spacing.</p>
 		 * @param float $spacing
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
@@ -7256,7 +7298,7 @@ namespace {
 		public function setTextInterwordSpacing(float $spacing): bool {}
 
 		/**
-		 * Description
+		 * Sets the text kerning
 		 * <p>Sets the text kerning</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param float $kerning
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
@@ -7337,7 +7379,7 @@ namespace {
 	class ImagickKernel {
 
 		/**
-		 * Description
+		 * Attach another kernel to a kernel list
 		 * <p>Attach another kernel to this kernel to allow them to both be applied in a single morphology or filter function. Returns the new combined kernel.</p>
 		 * @param \ImagickKernel $ImagickKernel
 		 * @return void
@@ -7347,7 +7389,7 @@ namespace {
 		public function addKernel(\ImagickKernel $ImagickKernel): void {}
 
 		/**
-		 * Description
+		 * Adds a Unity Kernel to the kernel list
 		 * <p>Adds a given amount of the 'Unity' Convolution Kernel to the given pre-scaled and normalized Kernel. This in effect adds that amount of the original image into the resulting convolution kernel. The resulting effect is to convert the defined kernels into blended soft-blurs, unsharp kernels or into sharpening kernels.</p>
 		 * @param float $scale
 		 * @return void
@@ -7357,7 +7399,7 @@ namespace {
 		public function addUnityKernel(float $scale): void {}
 
 		/**
-		 * Description
+		 * Create a kernel from a builtin in kernel
 		 * <p>Create a kernel from a builtin in kernel. See http://www.imagemagick.org/Usage/morphology/#kernel for examples. Currently the 'rotation' symbols are not supported. Example: $diamondKernel = ImagickKernel::fromBuiltIn(\Imagick::KERNEL_DIAMOND, "2");</p>
 		 * @param int $kernelType
 		 * @param string $kernelString <p>A string that describes the parameters e.g. "4,2.5"</p>
@@ -7368,7 +7410,7 @@ namespace {
 		public static function fromBuiltIn(int $kernelType, string $kernelString): \ImagickKernel {}
 
 		/**
-		 * Description
+		 * Create a kernel from a 2d matrix of values
 		 * <p>Create a kernel from an 2d matrix of values. Each value should either be a float (if the element should be used) or 'false' if the element should be skipped. For matrices that are odd sizes in both dimensions the origin pixel will default to the centre of the kernel. For all other kernel sizes the origin pixel must be specified.</p>
 		 * @param array $matrix
 		 * @param array $origin
@@ -7379,7 +7421,7 @@ namespace {
 		public static function fromMatrix(array $matrix, array $origin = null): \ImagickKernel {}
 
 		/**
-		 * Description
+		 * Get the 2d matrix of values used in this kernel
 		 * <p>Get the 2d matrix of values used in this kernel. The elements are either float for elements that are used or 'false' if the element should be skipped.</p>
 		 * @return array <p>A matrix (2d array) of the values that represent the kernel.</p>
 		 * @link https://php.net/manual/en/imagickkernel.getmatrix.php
@@ -7388,10 +7430,10 @@ namespace {
 		public function getMatrix(): array {}
 
 		/**
-		 * Description
-		 * <p>ScaleKernelInfo() scales the given kernel list by the given amount, with or without normalization of the sum of the kernel values (as per given flags). The exact behaviour of this function depends on the normalization type being used please see http://www.imagemagick.org/api/morphology.php#ScaleKernelInfo for details. Flag should be one of Imagick::NORMALIZE_KERNEL_VALUE, Imagick::NORMALIZE_KERNEL_CORRELATE, Imagick::NORMALIZE_KERNEL_PERCENT or not set.</p>
+		 * Scales a kernel list by the given amount
+		 * <p>Scales the given kernel list by the given amount, with or without normalization of the sum of the kernel values (as per given flags). The exact behaviour of this function depends on the normalization type being used please see http://www.imagemagick.org/api/morphology.php#ScaleKernelInfo for details.</p>
 		 * @param float $scale
-		 * @param int $normalizeFlag
+		 * @param int $normalizeFlag <p></p><ul> <li>Imagick::NORMALIZE_KERNEL_NONE</li> <li>Imagick::NORMALIZE_KERNEL_VALUE</li> <li>Imagick::NORMALIZE_KERNEL_CORRELATE</li> <li>Imagick::NORMALIZE_KERNEL_PERCENT</li> </ul>
 		 * @return void
 		 * @link https://php.net/manual/en/imagickkernel.scale.php
 		 * @since PECL imagick >= 3.3.0
@@ -7399,7 +7441,7 @@ namespace {
 		public function scale(float $scale, int $normalizeFlag = null): void {}
 
 		/**
-		 * Description
+		 * Separates a linked set of kernels and returns an array of ImagickKernels
 		 * <p>Separates a linked set of kernels and returns an array of ImagickKernels.</p>
 		 * @return array
 		 * @link https://php.net/manual/en/imagickkernel.separate.php
@@ -7471,7 +7513,7 @@ namespace {
 		public function getColorCount(): int {}
 
 		/**
-		 * Description
+		 * Returns the color of the pixel in an array as Quantum values
 		 * <p>Returns the color of the pixel in an array as Quantum values. If ImageMagick was compiled as HDRI these will be floats, otherwise they will be integers.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return array <p>Returns an array with keys <code>"r"</code>, <code>"g"</code>, <code>"b"</code>, <code>"a"</code>.</p>
 		 * @link https://php.net/manual/en/imagickpixel.getcolorquantum.php
@@ -7490,7 +7532,7 @@ namespace {
 		public function getColorValue(int $color): float {}
 
 		/**
-		 * Description
+		 * Gets the quantum value of a color in the ImagickPixel
 		 * <p>Gets the quantum value of a color in the ImagickPixel. Return value is a float if ImageMagick was compiled with HDRI, otherwise an integer.</p>
 		 * @param int $color
 		 * @return int|float <p>The quantum value of the color element. Float if ImageMagick was compiled with HDRI, otherwise an int.</p>
@@ -7509,7 +7551,7 @@ namespace {
 		public function getHSL(): array {}
 
 		/**
-		 * Description
+		 * Gets the colormap index of the pixel wand
 		 * <p>Gets the colormap index of the pixel wand.</p>
 		 * @return int
 		 * @link https://php.net/manual/en/imagickpixel.getindex.php
@@ -7529,7 +7571,7 @@ namespace {
 		public function isPixelSimilar(\ImagickPixel $color, float $fuzz): bool {}
 
 		/**
-		 * Description
+		 * Returns whether two colors differ by less than the specified distance
 		 * <p>Returns true if the distance between two colors is less than the specified distance. The fuzz value should be in the range 0-QuantumRange. The maximum value represents the longest possible distance in the colorspace. e.g. from RGB(0, 0, 0) to RGB(255, 255, 255) for the RGB colorspace</p>
 		 * @param string $color
 		 * @param string $fuzz
@@ -7561,7 +7603,7 @@ namespace {
 		public function setColor(string $color): bool {}
 
 		/**
-		 * Description
+		 * Sets the color count associated with this color
 		 * <p>Sets the color count associated with this color.</p>
 		 * @param int $colorCount
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
@@ -7582,7 +7624,7 @@ namespace {
 		public function setColorValue(int $color, float $value): bool {}
 
 		/**
-		 * Description
+		 * Sets the quantum value of a color element of the ImagickPixel
 		 * <p>Sets the quantum value of a color element of the ImagickPixel.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param int $color <p>Which color element to set e.g. \Imagick::COLOR_GREEN.</p>
 		 * @param int|float $value <p>The quantum value to set the color element to. This should be a float if ImageMagick was compiled with HDRI otherwise an int in the range 0 to Imagick::getQuantum().</p>
@@ -7605,7 +7647,7 @@ namespace {
 		public function setHSL(float $hue, float $saturation, float $luminosity): bool {}
 
 		/**
-		 * Description
+		 * Sets the colormap index of the pixel wand
 		 * <p>Sets the colormap index of the pixel wand.</p>
 		 * @param int $index
 		 * @return bool <p>Returns <b><code>true</code></b> on success.</p>

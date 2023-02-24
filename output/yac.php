@@ -53,7 +53,7 @@ namespace {
 		 * @param string $keys <p><code>string</code> key</p>
 		 * @param mixed $value <p>mixed value, All php value type could be stored except resource</p>
 		 * @param int $ttl <p>expire time</p>
-		 * @return bool <p><code>bool</code>, <b><code>true</code></b> on success, <b><code>false</code></b> on failure</p><p><b>Note</b>:</p><p><b>Yac::add()</b> may fail if cas lock could not obtain, so, if you need the value to be stored properly, you may write codes like:</p> <p><b>Example #1 Make sure the item is stored</b></p>  <code> while(!$yac-&gt;set("key",&nbsp;"vale)); </code>
+		 * @return bool <p><code>bool</code>, <b><code>true</code></b> on success, <b><code>false</code></b> on failure</p><p><b>Note</b>:</p><p><b>Yac::add()</b> may fail if cas lock could not obtain, so, if you need the value to be stored properly, you may write codes like:</p> <p><b>Example #1 Make sure the item is stored</b></p>  <code> while(!$yac-&gt;set("key", "vale)); </code>
 		 * @link https://php.net/manual/en/yac.add.php
 		 * @since PECL yac >= 1.0.0
 		 */

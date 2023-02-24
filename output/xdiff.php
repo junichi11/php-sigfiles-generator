@@ -57,7 +57,7 @@ namespace {
 	function xdiff_file_diff(string $old_file, string $new_file, string $dest, int $context = 3, bool $minimal = false): bool {}
 
 	/**
-	 * Alias of xdiff_file_bdiff
+	 * Alias of xdiff_file_bdiff()
 	 * <p>Makes a binary diff of two files and stores the result in a patch file. This function works with both text and binary files. Resulting patch file can be later applied using <code>xdiff_file_bpatch()</code>.</p><p>Starting with version 1.5.0 this function is an alias of <code>xdiff_file_bdiff()</code>.</p>
 	 * @link https://php.net/manual/en/function.xdiff-file-diff-binary.php
 	 * @since PECL xdiff >= 0.2.0
@@ -93,7 +93,7 @@ namespace {
 	function xdiff_file_patch(string $file, string $patch, string $dest, int $flags = DIFF_PATCH_NORMAL): mixed {}
 
 	/**
-	 * Alias of xdiff_file_bpatch
+	 * Alias of xdiff_file_bpatch()
 	 * <p>Patches a <code>file</code> with a binary <code>patch</code> and stores the result in a file <code>dest</code>. This function accepts patches created both via <code>xdiff_file_bdiff()</code> or <code>xdiff_file_rabdiff()</code> functions or their string counterparts.</p><p>Starting with version 1.5.0 this function is an alias of <code>xdiff_file_bpatch()</code>.</p>
 	 * @link https://php.net/manual/en/function.xdiff-file-patch-binary.php
 	 * @since PECL xdiff >= 0.2.0
@@ -102,7 +102,7 @@ namespace {
 
 	/**
 	 * Make binary diff of two files using the Rabin's polynomial fingerprinting algorithm
-	 * <p>Makes a binary diff of two files and stores the result in a patch file. The difference between this function and <code>xdiff_file_bdiff()</code> is different algorithm used which should result in faster execution and smaller diff produced. This function works with both text and binary files. Resulting patch file can be later applied using <code>xdiff_file_bpatch()</code>/<code>xdiff_string_bpatch()</code>.</p><p>For more details about differences between algorithm used please check libxdiff website.</p>
+	 * <p>Makes a binary diff of two files and stores the result in a patch file. The difference between this function and <code>xdiff_file_bdiff()</code> is different algorithm used which should result in faster execution and smaller diff produced. This function works with both text and binary files. Resulting patch file can be later applied using <code>xdiff_file_bpatch()</code>/<code>xdiff_string_bpatch()</code>.</p><p>For more details about differences between algorithm used please check &#xBB;&#xA0;libxdiff website.</p>
 	 * @param string $old_file <p>Path to the first file. This file acts as "old" file.</p>
 	 * @param string $new_file <p>Path to the second file. This file acts as "new" file.</p>
 	 * @param string $dest <p>Path of the resulting patch file. Resulting file contains differences between "old" and "new" files. It is in binary format and is human-unreadable.</p>
@@ -163,7 +163,7 @@ namespace {
 	function xdiff_string_diff(string $old_data, string $new_data, int $context = 3, bool $minimal = false): string {}
 
 	/**
-	 * Alias of xdiff_string_bdiff
+	 * Alias of xdiff_string_bdiff()
 	 * <p>Makes a binary diff of two strings and returns the result. This function works with both text and binary data. Resulting patch can be later applied using <code>xdiff_string_bpatch()</code>/<code>xdiff_file_bpatch()</code>.</p><p>Starting with version 1.5.0 this function is an alias of <code>xdiff_string_bdiff()</code>.</p>
 	 * @link https://php.net/manual/en/function.xdiff-string-diff-binary.php
 	 * @since PECL xdiff >= 0.2.0
@@ -199,7 +199,7 @@ namespace {
 	function xdiff_string_patch(string $str, string $patch, int $flags = null, string &$error = null): string {}
 
 	/**
-	 * Alias of xdiff_string_bpatch
+	 * Alias of xdiff_string_bpatch()
 	 * <p>Patches a string <code>str</code> with a binary <code>patch</code>. This function accepts patches created both via <code>xdiff_string_bdiff()</code> and <code>xdiff_string_rabdiff()</code> functions or their file counterparts.</p><p>Starting with version 1.5.0 this function is an alias of <code>xdiff_string_bpatch()</code>.</p>
 	 * @link https://php.net/manual/en/function.xdiff-string-patch-binary.php
 	 * @since PECL xdiff >= 0.2.0
@@ -208,7 +208,7 @@ namespace {
 
 	/**
 	 * Make binary diff of two strings using the Rabin's polynomial fingerprinting algorithm
-	 * <p>Makes a binary diff of two strings and returns the result. The difference between this function and <code>xdiff_string_bdiff()</code> is different algorithm used which should result in faster execution and smaller diff produced. This function works with both text and binary data. Resulting patch can be later applied using <code>xdiff_string_bpatch()</code>/<code>xdiff_file_bpatch()</code>.</p><p>For more details about differences between algorithm used please check libxdiff website.</p>
+	 * <p>Makes a binary diff of two strings and returns the result. The difference between this function and <code>xdiff_string_bdiff()</code> is different algorithm used which should result in faster execution and smaller diff produced. This function works with both text and binary data. Resulting patch can be later applied using <code>xdiff_string_bpatch()</code>/<code>xdiff_file_bpatch()</code>.</p><p>For more details about differences between algorithm used please check &#xBB;&#xA0;libxdiff website.</p>
 	 * @param string $old_data <p>First string with binary data. It acts as "old" data.</p>
 	 * @param string $new_data <p>Second string with binary data. It acts as "new" data.</p>
 	 * @return string <p>Returns string with binary diff containing differences between "old" and "new" data or <b><code>false</code></b> if an internal error occurred.</p>

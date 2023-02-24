@@ -30,7 +30,7 @@ namespace {
 	 * @param string $name <p>The constant name.</p>
 	 * @return mixed <p>Returns the value of the constant.</p>
 	 * @link https://php.net/manual/en/function.constant.php
-	 * @see define(), defined()
+	 * @see define(), defined(), get_defined_constants()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function constant(string $name): mixed {}
@@ -231,9 +231,9 @@ namespace {
 
 	/**
 	 * Delay execution
-	 * <p>Delays the program execution for the given number of <code>seconds</code>.</p>
-	 * @param int $seconds <p>Halt time in seconds.</p>
-	 * @return int <p>Returns zero on success, or <b><code>false</code></b> on error.</p><p>If the call was interrupted by a signal, <b>sleep()</b> returns a non-zero value. On Windows, this value will always be <code>192</code> (the value of the <b><code>WAIT_IO_COMPLETION</code></b> constant within the Windows API). On other platforms, the return value will be the number of seconds left to sleep.</p>
+	 * <p>Delays the program execution for the given number of <code>seconds</code>.</p><p><b>Note</b>:</p><p>In order to delay program execution for a fraction of a second, use <code>usleep()</code> as the <b>sleep()</b> function expects an <code>int</code>. For example, <code>sleep(0.25)</code> will pause program execution for <code>0</code> seconds.</p>
+	 * @param int $seconds <p>Halt time in seconds (must be greater than or equal to <code>0</code>).</p>
+	 * @return int <p>Returns zero on success.</p><p>If the call was interrupted by a signal, <b>sleep()</b> returns a non-zero value. On Windows, this value will always be <code>192</code> (the value of the <b><code>WAIT_IO_COMPLETION</code></b> constant within the Windows API). On other platforms, the return value will be the number of seconds left to sleep.</p>
 	 * @link https://php.net/manual/en/function.sleep.php
 	 * @see usleep(), time_nanosleep(), time_sleep_until(), set_time_limit()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
@@ -274,11 +274,12 @@ namespace {
 
 	/**
 	 * Generate a unique ID
-	 * <p>Gets a prefixed unique identifier based on the current time in microseconds.</p><p>This function does not generate cryptographically secure values, and should not be used for cryptographic purposes. If you need a cryptographically secure value, consider using <code>random_int()</code>, <code>random_bytes()</code>, or <code>openssl_random_pseudo_bytes()</code> instead.</p><p>This function does not guarantee uniqueness of return value. Since most systems adjust system clock by NTP or like, system time is changed constantly. Therefore, it is possible that this function does not return unique ID for the process/thread. Use <code>more_entropy</code> to increase likelihood of uniqueness.</p>
+	 * <p>Gets a prefixed unique identifier based on the current time in microseconds.</p><p>This function does not generate cryptographically secure values, and <i>must not</i> be used for cryptographic purposes, or purposes that require returned values to be unguessable.</p><p>If cryptographically secure randomness is required, the <code>Random\Randomizer</code> may be used with the <code>Random\Engine\Secure</code> engine. For simple use cases, the <code>random_int()</code> and <code>random_bytes()</code> functions provide a convenient and secure API that is backed by the operating system&#x2019;s CSPRNG.</p><p>This function does not guarantee uniqueness of return value. Since most systems adjust system clock by NTP or like, system time is changed constantly. Therefore, it is possible that this function does not return unique ID for the process/thread. Use <code>more_entropy</code> to increase likelihood of uniqueness.</p>
 	 * @param string $prefix <p>Can be useful, for instance, if you generate identifiers simultaneously on several hosts that might happen to generate the identifier at the same microsecond.</p> <p>With an empty <code>prefix</code>, the returned string will be 13 characters long. If <code>more_entropy</code> is <b><code>true</code></b>, it will be 23 characters.</p>
 	 * @param bool $more_entropy <p>If set to <b><code>true</code></b>, <b>uniqid()</b> will add additional entropy (using the combined linear congruential generator) at the end of the return value, which increases the likelihood that the result will be unique.</p>
 	 * @return string <p>Returns timestamp based unique identifier as a string.</p><p><b>Warning</b></p> <p>This function tries to create unique identifier, but it does not guarantee 100% uniqueness of return value.</p>
 	 * @link https://php.net/manual/en/function.uniqid.php
+	 * @see random_bytes()
 	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function uniqid(string $prefix = "", bool $more_entropy = false): string {}
@@ -299,7 +300,7 @@ namespace {
 	/**
 	 * Delay execution in microseconds
 	 * <p>Delays program execution for the given number of microseconds.</p>
-	 * @param int $microseconds <p>Halt time in microseconds. A microsecond is one millionth of a second.</p> <p><b>Note</b>:  Values larger than <code>1000000</code> (i.e. sleeping for more than a second) may not be supported by the operating system. Use <code>sleep()</code> instead. </p> <p><b>Note</b>:  On Windows, the system may sleep longer that the given number of microseconds, depending on the hardware. </p>
+	 * @param int $microseconds <p>Halt time in microseconds. A microsecond is one millionth of a second.</p> <p><b>Note</b>:  Values larger than <code>1000000</code> (i.e. sleeping for more than a second) may not be supported by the operating system. Use <code>sleep()</code> instead. </p> <p><b>Note</b>:  The sleep may be lengthened slightly (i.e. may be longer than <code>microseconds</code>) by any system activity or by the time spent processing the call or by the granularity of system timers. </p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.usleep.php
 	 * @see sleep(), time_nanosleep(), time_sleep_until(), set_time_limit()

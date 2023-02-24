@@ -68,8 +68,8 @@ namespace {
 	 * Get array with contents of getaddrinfo about the given hostname
 	 * <p>Lookup different ways we can connect to <code>host</code>. The returned array contains a set of <code>AddressInfo</code> instances that we can bind to using <code>socket_addrinfo_bind()</code>.</p>
 	 * @param string $host <p>Hostname to search.</p>
-	 * @param ?string $service <p>The service to connect to. If service is a name, it is translated to the corresponding port number.</p>
-	 * @param array $hints <p>Hints provide criteria for selecting addresses returned. You may specify the hints as defined by getadrinfo.</p>
+	 * @param ?string $service <p>The service to connect to. If service is a numeric string, it designates the port. Otherwise it designates a network service name, which is mapped to a port by the operating system.</p>
+	 * @param array $hints <p>Hints provide criteria for selecting addresses returned. You may specify the hints as defined by getaddrinfo.</p>
 	 * @return array|false <p>Returns an array of <code>AddressInfo</code> instances that can be used with the other socket_addrinfo functions. On failure, <b><code>false</code></b> is returned.</p>
 	 * @link https://php.net/manual/en/function.socket-addrinfo-lookup.php
 	 * @see socket_addrinfo_bind(), socket_addrinfo_connect(), socket_addrinfo_explain()
@@ -192,7 +192,7 @@ namespace {
 	 * <p>The <b>socket_get_option()</b> function retrieves the value for the option specified by the <code>option</code> parameter for the specified <code>socket</code>.</p>
 	 * @param \Socket $socket <p>A <code>Socket</code> instance created with <code>socket_create()</code> or <code>socket_accept()</code>.</p>
 	 * @param int $level <p>The <code>level</code> parameter specifies the protocol level at which the option resides. For example, to retrieve options at the socket level, a <code>level</code> parameter of <b><code>SOL_SOCKET</code></b> would be used. Other levels, such as <b><code>TCP</code></b>, can be used by specifying the protocol number of that level. Protocol numbers can be found by using the <code>getprotobyname()</code> function.</p>
-	 * @param int $option <b>Available Socket Options</b>   Option Description Type     <b><code>SO_DEBUG</code></b>  Reports whether debugging information is being recorded.   <code>int</code>    <b><code>SO_BROADCAST</code></b>  Reports whether transmission of broadcast messages is supported.   <code>int</code>    <b><code>SO_REUSEADDR</code></b>  Reports whether local addresses can be reused.   <code>int</code>    <b><code>SO_REUSEPORT</code></b>  Reports whether local ports can be reused.   <code>int</code>    <b><code>SO_KEEPALIVE</code></b>  Reports whether connections are kept active with periodic transmission of messages. If the connected socket fails to respond to these messages, the connection is broken and processes writing to that socket are notified with a SIGPIPE signal.   <code>int</code>    <b><code>SO_LINGER</code></b>  <p>Reports whether the <code>socket</code> lingers on <code>socket_close()</code> if data is present. By default, when the socket is closed, it attempts to send all unsent data. In the case of a connection-oriented socket, <code>socket_close()</code> will wait for its peer to acknowledge the data.</p> <p>If l_onoff is non-zero and l_linger is zero, all the unsent data will be discarded and RST (reset) is sent to the peer in the case of a connection-oriented socket.</p> <p>On the other hand, if l_onoff is non-zero and l_linger is non-zero, <code>socket_close()</code> will block until all the data is sent or the time specified in l_linger elapses. If the socket is non-blocking, <code>socket_close()</code> will fail and return an error.</p>   <code>array</code>. The array will contain two keys: l_onoff and l_linger.    <b><code>SO_OOBINLINE</code></b>  Reports whether the <code>socket</code> leaves out-of-band data inline.   <code>int</code>    <b><code>SO_SNDBUF</code></b>  Reports the size of the send buffer.   <code>int</code>    <b><code>SO_RCVBUF</code></b>  Reports the size of the receive buffer.   <code>int</code>    <b><code>SO_ERROR</code></b>  Reports information about error status and clears it.   <code>int</code> (cannot be set by <code>socket_set_option()</code>)    <b><code>SO_TYPE</code></b>  Reports the <code>socket</code> type (e.g. <b><code>SOCK_STREAM</code></b>).   <code>int</code> (cannot be set by <code>socket_set_option()</code>)    <b><code>SO_DONTROUTE</code></b>  Reports whether outgoing messages bypass the standard routing facilities.   <code>int</code>    <b><code>SO_RCVLOWAT</code></b>  Reports the minimum number of bytes to process for <code>socket</code> input operations.   <code>int</code>    <b><code>SO_RCVTIMEO</code></b>  Reports the timeout value for input operations.   <code>array</code>. The array will contain two keys: sec which is the seconds part on the timeout value and usec which is the microsecond part of the timeout value.    <b><code>SO_SNDTIMEO</code></b>  Reports the timeout value specifying the amount of time that an output function blocks because flow control prevents data from being sent.   <code>array</code>. The array will contain two keys: sec which is the seconds part on the timeout value and usec which is the microsecond part of the timeout value.    <b><code>SO_SNDLOWAT</code></b>  Reports the minimum number of bytes to process for <code>socket</code> output operations.   <code>int</code>    <b><code>TCP_NODELAY</code></b>  Reports whether the Nagle TCP algorithm is disabled.   <code>int</code>    <b><code>MCAST_JOIN_GROUP</code></b>  Joins a multicast group.   <code>array</code> with keys <code>"group"</code>, specifying a <code>string</code> with an IPv4 or IPv6 multicast address and <code>"interface"</code>, specifying either an interface number (type <code>int</code>) or a <code>string</code> with the interface name, like <code>"eth0"</code>. <code>0</code> can be specified to indicate the interface should be selected using routing rules. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_LEAVE_GROUP</code></b>  Leaves a multicast group.   <code>array</code>. See <b><code>MCAST_JOIN_GROUP</code></b> for more information. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_BLOCK_SOURCE</code></b>  Blocks packets arriving from a specific source to a specific multicast group, which must have been previously joined.   <code>array</code> with the same keys as <b><code>MCAST_JOIN_GROUP</code></b>, plus one extra key, <code>source</code>, which maps to a <code>string</code> specifying an IPv4 or IPv6 address of the source to be blocked. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_UNBLOCK_SOURCE</code></b>  Unblocks (start receiving again) packets arriving from a specific source address to a specific multicast group, which must have been previously joined.   <code>array</code> with the same format as <b><code>MCAST_BLOCK_SOURCE</code></b>. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_JOIN_SOURCE_GROUP</code></b>  Receive packets destined to a specific multicast group whose source address matches a specific value.   <code>array</code> with the same format as <b><code>MCAST_BLOCK_SOURCE</code></b>. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_LEAVE_SOURCE_GROUP</code></b>  Stop receiving packets destined to a specific multicast group whose source address matches a specific value.   <code>array</code> with the same format as <b><code>MCAST_BLOCK_SOURCE</code></b>. (can only be used in <code>socket_set_option()</code>)    <b><code>IP_MULTICAST_IF</code></b>  The outgoing interface for IPv4 multicast packets.   Either <code>int</code> specifying the interface number or a <code>string</code> with an interface name, like <code>eth0</code>. The value 0 can be used to indicate the routing table is to used in the interface selection. The function <b>socket_get_option()</b> returns an interface index. Note that, unlike the C API, this option does NOT take an IP address. This eliminates the interface difference between <b><code>IP_MULTICAST_IF</code></b> and <b><code>IPV6_MULTICAST_IF</code></b>.    <b><code>IPV6_MULTICAST_IF</code></b>  The outgoing interface for IPv6 multicast packets.   The same as <b><code>IP_MULTICAST_IF</code></b>.    <b><code>IP_MULTICAST_LOOP</code></b>  The multicast loopback policy for IPv4 packets, which determines whether multicast packets sent by this socket also reach receivers in the same host that have joined the same multicast group on the outgoing interface used by this socket. This is the case by default.   <code>int</code> (either <code>0</code> or <code>1</code>). For <code>socket_set_option()</code> any value will be accepted and will be converted to a boolean following the usual PHP rules.    <b><code>IPV6_MULTICAST_LOOP</code></b>  Analogous to <b><code>IP_MULTICAST_LOOP</code></b>, but for IPv6.   <code>int</code>. See <b><code>IP_MULTICAST_LOOP</code></b>.    <b><code>IP_MULTICAST_TTL</code></b>  The time-to-live of outgoing IPv4 multicast packets. This should be a value between 0 (don't leave the interface) and 255. The default value is 1 (only the local network is reached).   <code>int</code> between 0 and 255.    <b><code>IPV6_MULTICAST_HOPS</code></b>  Analogous to <b><code>IP_MULTICAST_TTL</code></b>, but for IPv6 packets. The value -1 is also accepted, meaning the route default should be used.   <code>int</code> between -1 and 255.    <b><code>SO_MARK</code></b>  Sets an identifier on the socket for packet filtering purpose on Linux.   <code>int</code>    <b><code>SO_ACCEPTFILTER</code></b>  Adds an accept filter on the listened socket (FreeBSD/NetBSD). An accept filter kernel module needs to be loaded beforehand on FreeBSD (e.g. accf_http).   <code>string</code> name of the filter (length 15 max).    <b><code>SO_USER_COOKIE</code></b>  Sets an identifier on the socket for packet filtering purpose on FreeBSD.   <code>int</code>    <b><code>SO_DONTTRUNC</code></b>  Retain unread data.   <code>int</code>    <b><code>SO_WANTMORE</code></b>  Give a hint when more data is ready.   <code>int</code>    <b><code>TCP_DEFER_ACCEPT</code></b>  Don't notify a listening socket until data is ready.   <code>int</code>
+	 * @param int $option <b>Available Socket Options</b>   Option Description Type     <b><code>SO_DEBUG</code></b>  Reports whether debugging information is being recorded.   <code>int</code>    <b><code>SO_BROADCAST</code></b>  Reports whether transmission of broadcast messages is supported.   <code>int</code>    <b><code>SO_REUSEADDR</code></b>  Reports whether local addresses can be reused.   <code>int</code>    <b><code>SO_REUSEPORT</code></b>  Reports whether local ports can be reused.   <code>int</code>    <b><code>SO_KEEPALIVE</code></b>  Reports whether connections are kept active with periodic transmission of messages. If the connected socket fails to respond to these messages, the connection is broken and processes writing to that socket are notified with a SIGPIPE signal.   <code>int</code>    <b><code>SO_LINGER</code></b>  <p>Reports whether the <code>socket</code> lingers on <code>socket_close()</code> if data is present. By default, when the socket is closed, it attempts to send all unsent data. In the case of a connection-oriented socket, <code>socket_close()</code> will wait for its peer to acknowledge the data.</p> <p>If l_onoff is non-zero and l_linger is zero, all the unsent data will be discarded and RST (reset) is sent to the peer in the case of a connection-oriented socket.</p> <p>On the other hand, if l_onoff is non-zero and l_linger is non-zero, <code>socket_close()</code> will block until all the data is sent or the time specified in l_linger elapses. If the socket is non-blocking, <code>socket_close()</code> will fail and return an error.</p>   <code>array</code>. The array will contain two keys: l_onoff and l_linger.    <b><code>SO_OOBINLINE</code></b>  Reports whether the <code>socket</code> leaves out-of-band data inline.   <code>int</code>    <b><code>SO_SNDBUF</code></b>  Reports the size of the send buffer.   <code>int</code>    <b><code>SO_RCVBUF</code></b>  Reports the size of the receive buffer.   <code>int</code>    <b><code>SO_ERROR</code></b>  Reports information about error status and clears it.   <code>int</code> (cannot be set by <code>socket_set_option()</code>)    <b><code>SO_TYPE</code></b>  Reports the <code>socket</code> type (e.g. <b><code>SOCK_STREAM</code></b>).   <code>int</code> (cannot be set by <code>socket_set_option()</code>)    <b><code>SO_DONTROUTE</code></b>  Reports whether outgoing messages bypass the standard routing facilities.   <code>int</code>    <b><code>SO_RCVLOWAT</code></b>  Reports the minimum number of bytes to process for <code>socket</code> input operations.   <code>int</code>    <b><code>SO_RCVTIMEO</code></b>  Reports the timeout value for input operations.   <code>array</code>. The array will contain two keys: sec which is the seconds part on the timeout value and usec which is the microsecond part of the timeout value.    <b><code>SO_SNDTIMEO</code></b>  Reports the timeout value specifying the amount of time that an output function blocks because flow control prevents data from being sent.   <code>array</code>. The array will contain two keys: sec which is the seconds part on the timeout value and usec which is the microsecond part of the timeout value.    <b><code>SO_SNDLOWAT</code></b>  Reports the minimum number of bytes to process for <code>socket</code> output operations.   <code>int</code>    <b><code>TCP_NODELAY</code></b>  Reports whether the Nagle TCP algorithm is disabled.   <code>int</code>    <b><code>MCAST_JOIN_GROUP</code></b>  Joins a multicast group.   <code>array</code> with keys <code>"group"</code>, specifying a <code>string</code> with an IPv4 or IPv6 multicast address and <code>"interface"</code>, specifying either an interface number (type <code>int</code>) or a <code>string</code> with the interface name, like <code>"eth0"</code>. <code>0</code> can be specified to indicate the interface should be selected using routing rules. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_LEAVE_GROUP</code></b>  Leaves a multicast group.   <code>array</code>. See <b><code>MCAST_JOIN_GROUP</code></b> for more information. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_BLOCK_SOURCE</code></b>  Blocks packets arriving from a specific source to a specific multicast group, which must have been previously joined.   <code>array</code> with the same keys as <b><code>MCAST_JOIN_GROUP</code></b>, plus one extra key, <code>source</code>, which maps to a <code>string</code> specifying an IPv4 or IPv6 address of the source to be blocked. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_UNBLOCK_SOURCE</code></b>  Unblocks (start receiving again) packets arriving from a specific source address to a specific multicast group, which must have been previously joined.   <code>array</code> with the same format as <b><code>MCAST_BLOCK_SOURCE</code></b>. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_JOIN_SOURCE_GROUP</code></b>  Receive packets destined to a specific multicast group whose source address matches a specific value.   <code>array</code> with the same format as <b><code>MCAST_BLOCK_SOURCE</code></b>. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_LEAVE_SOURCE_GROUP</code></b>  Stop receiving packets destined to a specific multicast group whose source address matches a specific value.   <code>array</code> with the same format as <b><code>MCAST_BLOCK_SOURCE</code></b>. (can only be used in <code>socket_set_option()</code>)    <b><code>IP_MULTICAST_IF</code></b>  The outgoing interface for IPv4 multicast packets.   Either <code>int</code> specifying the interface number or a <code>string</code> with an interface name, like <code>eth0</code>. The value 0 can be used to indicate the routing table is to used in the interface selection. The function <b>socket_get_option()</b> returns an interface index. Note that, unlike the C API, this option does NOT take an IP address. This eliminates the interface difference between <b><code>IP_MULTICAST_IF</code></b> and <b><code>IPV6_MULTICAST_IF</code></b>.    <b><code>IPV6_MULTICAST_IF</code></b>  The outgoing interface for IPv6 multicast packets.   The same as <b><code>IP_MULTICAST_IF</code></b>.    <b><code>IP_MULTICAST_LOOP</code></b>  The multicast loopback policy for IPv4 packets enables or disables loopback of outgoing multicasts, which must have been previously joined. The effect differs, however, whether it applies on unixes or Windows, the former being on the receive path whereas the latter being on the send path.   <code>int</code> (either <code>0</code> or <code>1</code>). For <code>socket_set_option()</code> any value will be accepted and will be converted to a boolean following the usual PHP rules.    <b><code>IPV6_MULTICAST_LOOP</code></b>  Analogous to <b><code>IP_MULTICAST_LOOP</code></b>, but for IPv6.   <code>int</code>. See <b><code>IP_MULTICAST_LOOP</code></b>.    <b><code>IP_MULTICAST_TTL</code></b>  The time-to-live of outgoing IPv4 multicast packets. This should be a value between 0 (don't leave the interface) and 255. The default value is 1 (only the local network is reached).   <code>int</code> between 0 and 255.    <b><code>IPV6_MULTICAST_HOPS</code></b>  Analogous to <b><code>IP_MULTICAST_TTL</code></b>, but for IPv6 packets. The value -1 is also accepted, meaning the route default should be used.   <code>int</code> between -1 and 255.    <b><code>SO_MARK</code></b>  Sets an identifier on the socket for packet filtering purpose on Linux.   <code>int</code>    <b><code>SO_ACCEPTFILTER</code></b>  Adds an accept filter on the listened socket (FreeBSD/NetBSD). An accept filter kernel module needs to be loaded beforehand on FreeBSD (e.g. accf_http).   <code>string</code> name of the filter (length 15 max).    <b><code>SO_USER_COOKIE</code></b>  Sets an identifier on the socket for packet filtering purpose on FreeBSD.   <code>int</code>    <b><code>SO_RTABLE</code></b>  Sets an identifier on the socket for packet filtering purpose on OpenBSD.   <code>int</code>    <b><code>SO_DONTTRUNC</code></b>  Retain unread data.   <code>int</code>    <b><code>SO_WANTMORE</code></b>  Give a hint when more data is ready.   <code>int</code>    <b><code>TCP_DEFER_ACCEPT</code></b>  Don't notify a listening socket until data is ready.   <code>int</code>    <b><code>SO_INCOMING_CPU</code></b>  Gets/Sets the cpu affinity of a socket.   <code>int</code>    <b><code>SO_MEMINFO</code></b>  Gets all the meminfo of a socket.   <code>int</code>    <b><code>SO_BPF_EXTENSIONS</code></b>  Gets the supported BPF extensions by the kernel to attach to a socket.   <code>int</code>    <b><code>SO_SETFIB</code></b>  Sets the route table (FIB) of a socket. (FreeBSD only)   <code>int</code>    <b><code>SOL_FILTER</code></b>  Filters attributed to a socket. (Solaris/Illumos only)   <code>int</code>    <b><code>TCP_KEEPCNT</code></b>  Sets the maximum number of keepalive probes TCP should send before dropping the connection.   <code>int</code>    <b><code>TCP_KEEPIDLE</code></b>  Sets the time the connection needs to remain idle.   <code>int</code>    <b><code>TCP_KEEPINTVL</code></b>  Sets the time between individual keepalive probes.   <code>int</code>    <b><code>TCP_KEEPALIVE</code></b>  Sets the time the connection needs to remain idle. (macOS only)   <code>int</code>    <b><code>TCP_NOTSENT_LOWAT</code></b>  Sets the limit number of unsent data in write queue by the socket stream. (Linux only)   <code>int</code>
 	 * @return array|int|false <p>Returns the value of the given option, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.socket-get-option.php
 	 * @see socket_create_listen(), socket_set_option()
@@ -205,7 +205,7 @@ namespace {
 	 * <p>This function is an alias of: <code>socket_get_option()</code>.</p>
 	 * @param \Socket $socket <p>A <code>Socket</code> instance created with <code>socket_create()</code> or <code>socket_accept()</code>.</p>
 	 * @param int $level <p>The <code>level</code> parameter specifies the protocol level at which the option resides. For example, to retrieve options at the socket level, a <code>level</code> parameter of <b><code>SOL_SOCKET</code></b> would be used. Other levels, such as <b><code>TCP</code></b>, can be used by specifying the protocol number of that level. Protocol numbers can be found by using the <code>getprotobyname()</code> function.</p>
-	 * @param int $option <b>Available Socket Options</b>   Option Description Type     <b><code>SO_DEBUG</code></b>  Reports whether debugging information is being recorded.   <code>int</code>    <b><code>SO_BROADCAST</code></b>  Reports whether transmission of broadcast messages is supported.   <code>int</code>    <b><code>SO_REUSEADDR</code></b>  Reports whether local addresses can be reused.   <code>int</code>    <b><code>SO_REUSEPORT</code></b>  Reports whether local ports can be reused.   <code>int</code>    <b><code>SO_KEEPALIVE</code></b>  Reports whether connections are kept active with periodic transmission of messages. If the connected socket fails to respond to these messages, the connection is broken and processes writing to that socket are notified with a SIGPIPE signal.   <code>int</code>    <b><code>SO_LINGER</code></b>  <p>Reports whether the <code>socket</code> lingers on <code>socket_close()</code> if data is present. By default, when the socket is closed, it attempts to send all unsent data. In the case of a connection-oriented socket, <code>socket_close()</code> will wait for its peer to acknowledge the data.</p> <p>If l_onoff is non-zero and l_linger is zero, all the unsent data will be discarded and RST (reset) is sent to the peer in the case of a connection-oriented socket.</p> <p>On the other hand, if l_onoff is non-zero and l_linger is non-zero, <code>socket_close()</code> will block until all the data is sent or the time specified in l_linger elapses. If the socket is non-blocking, <code>socket_close()</code> will fail and return an error.</p>   <code>array</code>. The array will contain two keys: l_onoff and l_linger.    <b><code>SO_OOBINLINE</code></b>  Reports whether the <code>socket</code> leaves out-of-band data inline.   <code>int</code>    <b><code>SO_SNDBUF</code></b>  Reports the size of the send buffer.   <code>int</code>    <b><code>SO_RCVBUF</code></b>  Reports the size of the receive buffer.   <code>int</code>    <b><code>SO_ERROR</code></b>  Reports information about error status and clears it.   <code>int</code> (cannot be set by <code>socket_set_option()</code>)    <b><code>SO_TYPE</code></b>  Reports the <code>socket</code> type (e.g. <b><code>SOCK_STREAM</code></b>).   <code>int</code> (cannot be set by <code>socket_set_option()</code>)    <b><code>SO_DONTROUTE</code></b>  Reports whether outgoing messages bypass the standard routing facilities.   <code>int</code>    <b><code>SO_RCVLOWAT</code></b>  Reports the minimum number of bytes to process for <code>socket</code> input operations.   <code>int</code>    <b><code>SO_RCVTIMEO</code></b>  Reports the timeout value for input operations.   <code>array</code>. The array will contain two keys: sec which is the seconds part on the timeout value and usec which is the microsecond part of the timeout value.    <b><code>SO_SNDTIMEO</code></b>  Reports the timeout value specifying the amount of time that an output function blocks because flow control prevents data from being sent.   <code>array</code>. The array will contain two keys: sec which is the seconds part on the timeout value and usec which is the microsecond part of the timeout value.    <b><code>SO_SNDLOWAT</code></b>  Reports the minimum number of bytes to process for <code>socket</code> output operations.   <code>int</code>    <b><code>TCP_NODELAY</code></b>  Reports whether the Nagle TCP algorithm is disabled.   <code>int</code>    <b><code>MCAST_JOIN_GROUP</code></b>  Joins a multicast group.   <code>array</code> with keys <code>"group"</code>, specifying a <code>string</code> with an IPv4 or IPv6 multicast address and <code>"interface"</code>, specifying either an interface number (type <code>int</code>) or a <code>string</code> with the interface name, like <code>"eth0"</code>. <code>0</code> can be specified to indicate the interface should be selected using routing rules. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_LEAVE_GROUP</code></b>  Leaves a multicast group.   <code>array</code>. See <b><code>MCAST_JOIN_GROUP</code></b> for more information. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_BLOCK_SOURCE</code></b>  Blocks packets arriving from a specific source to a specific multicast group, which must have been previously joined.   <code>array</code> with the same keys as <b><code>MCAST_JOIN_GROUP</code></b>, plus one extra key, <code>source</code>, which maps to a <code>string</code> specifying an IPv4 or IPv6 address of the source to be blocked. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_UNBLOCK_SOURCE</code></b>  Unblocks (start receiving again) packets arriving from a specific source address to a specific multicast group, which must have been previously joined.   <code>array</code> with the same format as <b><code>MCAST_BLOCK_SOURCE</code></b>. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_JOIN_SOURCE_GROUP</code></b>  Receive packets destined to a specific multicast group whose source address matches a specific value.   <code>array</code> with the same format as <b><code>MCAST_BLOCK_SOURCE</code></b>. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_LEAVE_SOURCE_GROUP</code></b>  Stop receiving packets destined to a specific multicast group whose source address matches a specific value.   <code>array</code> with the same format as <b><code>MCAST_BLOCK_SOURCE</code></b>. (can only be used in <code>socket_set_option()</code>)    <b><code>IP_MULTICAST_IF</code></b>  The outgoing interface for IPv4 multicast packets.   Either <code>int</code> specifying the interface number or a <code>string</code> with an interface name, like <code>eth0</code>. The value 0 can be used to indicate the routing table is to used in the interface selection. The function <b>socket_get_option()</b> returns an interface index. Note that, unlike the C API, this option does NOT take an IP address. This eliminates the interface difference between <b><code>IP_MULTICAST_IF</code></b> and <b><code>IPV6_MULTICAST_IF</code></b>.    <b><code>IPV6_MULTICAST_IF</code></b>  The outgoing interface for IPv6 multicast packets.   The same as <b><code>IP_MULTICAST_IF</code></b>.    <b><code>IP_MULTICAST_LOOP</code></b>  The multicast loopback policy for IPv4 packets, which determines whether multicast packets sent by this socket also reach receivers in the same host that have joined the same multicast group on the outgoing interface used by this socket. This is the case by default.   <code>int</code> (either <code>0</code> or <code>1</code>). For <code>socket_set_option()</code> any value will be accepted and will be converted to a boolean following the usual PHP rules.    <b><code>IPV6_MULTICAST_LOOP</code></b>  Analogous to <b><code>IP_MULTICAST_LOOP</code></b>, but for IPv6.   <code>int</code>. See <b><code>IP_MULTICAST_LOOP</code></b>.    <b><code>IP_MULTICAST_TTL</code></b>  The time-to-live of outgoing IPv4 multicast packets. This should be a value between 0 (don't leave the interface) and 255. The default value is 1 (only the local network is reached).   <code>int</code> between 0 and 255.    <b><code>IPV6_MULTICAST_HOPS</code></b>  Analogous to <b><code>IP_MULTICAST_TTL</code></b>, but for IPv6 packets. The value -1 is also accepted, meaning the route default should be used.   <code>int</code> between -1 and 255.    <b><code>SO_MARK</code></b>  Sets an identifier on the socket for packet filtering purpose on Linux.   <code>int</code>    <b><code>SO_ACCEPTFILTER</code></b>  Adds an accept filter on the listened socket (FreeBSD/NetBSD). An accept filter kernel module needs to be loaded beforehand on FreeBSD (e.g. accf_http).   <code>string</code> name of the filter (length 15 max).    <b><code>SO_USER_COOKIE</code></b>  Sets an identifier on the socket for packet filtering purpose on FreeBSD.   <code>int</code>    <b><code>SO_DONTTRUNC</code></b>  Retain unread data.   <code>int</code>    <b><code>SO_WANTMORE</code></b>  Give a hint when more data is ready.   <code>int</code>    <b><code>TCP_DEFER_ACCEPT</code></b>  Don't notify a listening socket until data is ready.   <code>int</code>
+	 * @param int $option <b>Available Socket Options</b>   Option Description Type     <b><code>SO_DEBUG</code></b>  Reports whether debugging information is being recorded.   <code>int</code>    <b><code>SO_BROADCAST</code></b>  Reports whether transmission of broadcast messages is supported.   <code>int</code>    <b><code>SO_REUSEADDR</code></b>  Reports whether local addresses can be reused.   <code>int</code>    <b><code>SO_REUSEPORT</code></b>  Reports whether local ports can be reused.   <code>int</code>    <b><code>SO_KEEPALIVE</code></b>  Reports whether connections are kept active with periodic transmission of messages. If the connected socket fails to respond to these messages, the connection is broken and processes writing to that socket are notified with a SIGPIPE signal.   <code>int</code>    <b><code>SO_LINGER</code></b>  <p>Reports whether the <code>socket</code> lingers on <code>socket_close()</code> if data is present. By default, when the socket is closed, it attempts to send all unsent data. In the case of a connection-oriented socket, <code>socket_close()</code> will wait for its peer to acknowledge the data.</p> <p>If l_onoff is non-zero and l_linger is zero, all the unsent data will be discarded and RST (reset) is sent to the peer in the case of a connection-oriented socket.</p> <p>On the other hand, if l_onoff is non-zero and l_linger is non-zero, <code>socket_close()</code> will block until all the data is sent or the time specified in l_linger elapses. If the socket is non-blocking, <code>socket_close()</code> will fail and return an error.</p>   <code>array</code>. The array will contain two keys: l_onoff and l_linger.    <b><code>SO_OOBINLINE</code></b>  Reports whether the <code>socket</code> leaves out-of-band data inline.   <code>int</code>    <b><code>SO_SNDBUF</code></b>  Reports the size of the send buffer.   <code>int</code>    <b><code>SO_RCVBUF</code></b>  Reports the size of the receive buffer.   <code>int</code>    <b><code>SO_ERROR</code></b>  Reports information about error status and clears it.   <code>int</code> (cannot be set by <code>socket_set_option()</code>)    <b><code>SO_TYPE</code></b>  Reports the <code>socket</code> type (e.g. <b><code>SOCK_STREAM</code></b>).   <code>int</code> (cannot be set by <code>socket_set_option()</code>)    <b><code>SO_DONTROUTE</code></b>  Reports whether outgoing messages bypass the standard routing facilities.   <code>int</code>    <b><code>SO_RCVLOWAT</code></b>  Reports the minimum number of bytes to process for <code>socket</code> input operations.   <code>int</code>    <b><code>SO_RCVTIMEO</code></b>  Reports the timeout value for input operations.   <code>array</code>. The array will contain two keys: sec which is the seconds part on the timeout value and usec which is the microsecond part of the timeout value.    <b><code>SO_SNDTIMEO</code></b>  Reports the timeout value specifying the amount of time that an output function blocks because flow control prevents data from being sent.   <code>array</code>. The array will contain two keys: sec which is the seconds part on the timeout value and usec which is the microsecond part of the timeout value.    <b><code>SO_SNDLOWAT</code></b>  Reports the minimum number of bytes to process for <code>socket</code> output operations.   <code>int</code>    <b><code>TCP_NODELAY</code></b>  Reports whether the Nagle TCP algorithm is disabled.   <code>int</code>    <b><code>MCAST_JOIN_GROUP</code></b>  Joins a multicast group.   <code>array</code> with keys <code>"group"</code>, specifying a <code>string</code> with an IPv4 or IPv6 multicast address and <code>"interface"</code>, specifying either an interface number (type <code>int</code>) or a <code>string</code> with the interface name, like <code>"eth0"</code>. <code>0</code> can be specified to indicate the interface should be selected using routing rules. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_LEAVE_GROUP</code></b>  Leaves a multicast group.   <code>array</code>. See <b><code>MCAST_JOIN_GROUP</code></b> for more information. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_BLOCK_SOURCE</code></b>  Blocks packets arriving from a specific source to a specific multicast group, which must have been previously joined.   <code>array</code> with the same keys as <b><code>MCAST_JOIN_GROUP</code></b>, plus one extra key, <code>source</code>, which maps to a <code>string</code> specifying an IPv4 or IPv6 address of the source to be blocked. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_UNBLOCK_SOURCE</code></b>  Unblocks (start receiving again) packets arriving from a specific source address to a specific multicast group, which must have been previously joined.   <code>array</code> with the same format as <b><code>MCAST_BLOCK_SOURCE</code></b>. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_JOIN_SOURCE_GROUP</code></b>  Receive packets destined to a specific multicast group whose source address matches a specific value.   <code>array</code> with the same format as <b><code>MCAST_BLOCK_SOURCE</code></b>. (can only be used in <code>socket_set_option()</code>)    <b><code>MCAST_LEAVE_SOURCE_GROUP</code></b>  Stop receiving packets destined to a specific multicast group whose source address matches a specific value.   <code>array</code> with the same format as <b><code>MCAST_BLOCK_SOURCE</code></b>. (can only be used in <code>socket_set_option()</code>)    <b><code>IP_MULTICAST_IF</code></b>  The outgoing interface for IPv4 multicast packets.   Either <code>int</code> specifying the interface number or a <code>string</code> with an interface name, like <code>eth0</code>. The value 0 can be used to indicate the routing table is to used in the interface selection. The function <b>socket_get_option()</b> returns an interface index. Note that, unlike the C API, this option does NOT take an IP address. This eliminates the interface difference between <b><code>IP_MULTICAST_IF</code></b> and <b><code>IPV6_MULTICAST_IF</code></b>.    <b><code>IPV6_MULTICAST_IF</code></b>  The outgoing interface for IPv6 multicast packets.   The same as <b><code>IP_MULTICAST_IF</code></b>.    <b><code>IP_MULTICAST_LOOP</code></b>  The multicast loopback policy for IPv4 packets enables or disables loopback of outgoing multicasts, which must have been previously joined. The effect differs, however, whether it applies on unixes or Windows, the former being on the receive path whereas the latter being on the send path.   <code>int</code> (either <code>0</code> or <code>1</code>). For <code>socket_set_option()</code> any value will be accepted and will be converted to a boolean following the usual PHP rules.    <b><code>IPV6_MULTICAST_LOOP</code></b>  Analogous to <b><code>IP_MULTICAST_LOOP</code></b>, but for IPv6.   <code>int</code>. See <b><code>IP_MULTICAST_LOOP</code></b>.    <b><code>IP_MULTICAST_TTL</code></b>  The time-to-live of outgoing IPv4 multicast packets. This should be a value between 0 (don't leave the interface) and 255. The default value is 1 (only the local network is reached).   <code>int</code> between 0 and 255.    <b><code>IPV6_MULTICAST_HOPS</code></b>  Analogous to <b><code>IP_MULTICAST_TTL</code></b>, but for IPv6 packets. The value -1 is also accepted, meaning the route default should be used.   <code>int</code> between -1 and 255.    <b><code>SO_MARK</code></b>  Sets an identifier on the socket for packet filtering purpose on Linux.   <code>int</code>    <b><code>SO_ACCEPTFILTER</code></b>  Adds an accept filter on the listened socket (FreeBSD/NetBSD). An accept filter kernel module needs to be loaded beforehand on FreeBSD (e.g. accf_http).   <code>string</code> name of the filter (length 15 max).    <b><code>SO_USER_COOKIE</code></b>  Sets an identifier on the socket for packet filtering purpose on FreeBSD.   <code>int</code>    <b><code>SO_RTABLE</code></b>  Sets an identifier on the socket for packet filtering purpose on OpenBSD.   <code>int</code>    <b><code>SO_DONTTRUNC</code></b>  Retain unread data.   <code>int</code>    <b><code>SO_WANTMORE</code></b>  Give a hint when more data is ready.   <code>int</code>    <b><code>TCP_DEFER_ACCEPT</code></b>  Don't notify a listening socket until data is ready.   <code>int</code>    <b><code>SO_INCOMING_CPU</code></b>  Gets/Sets the cpu affinity of a socket.   <code>int</code>    <b><code>SO_MEMINFO</code></b>  Gets all the meminfo of a socket.   <code>int</code>    <b><code>SO_BPF_EXTENSIONS</code></b>  Gets the supported BPF extensions by the kernel to attach to a socket.   <code>int</code>    <b><code>SO_SETFIB</code></b>  Sets the route table (FIB) of a socket. (FreeBSD only)   <code>int</code>    <b><code>SOL_FILTER</code></b>  Filters attributed to a socket. (Solaris/Illumos only)   <code>int</code>    <b><code>TCP_KEEPCNT</code></b>  Sets the maximum number of keepalive probes TCP should send before dropping the connection.   <code>int</code>    <b><code>TCP_KEEPIDLE</code></b>  Sets the time the connection needs to remain idle.   <code>int</code>    <b><code>TCP_KEEPINTVL</code></b>  Sets the time between individual keepalive probes.   <code>int</code>    <b><code>TCP_KEEPALIVE</code></b>  Sets the time the connection needs to remain idle. (macOS only)   <code>int</code>    <b><code>TCP_NOTSENT_LOWAT</code></b>  Sets the limit number of unsent data in write queue by the socket stream. (Linux only)   <code>int</code>
 	 * @return array|int|false
 	 * @link https://php.net/manual/en/function.socket-getopt.php
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
@@ -334,7 +334,7 @@ namespace {
 	 * @param ?array $except <p>The sockets listed in the <code>except</code> array will be watched for exceptions.</p>
 	 * @param ?int $seconds <p>The <code>seconds</code> and <code>microseconds</code> together form the <code>timeout</code> parameter. The <code>timeout</code> is an upper bound on the amount of time elapsed before <b>socket_select()</b> return. <code>seconds</code> may be zero , causing <b>socket_select()</b> to return immediately. This is useful for polling. If <code>seconds</code> is <b><code>null</code></b> (no timeout), <b>socket_select()</b> can block indefinitely.</p>
 	 * @param int $microseconds
-	 * @return int|false <p>On success <b>socket_select()</b> returns the number of sockets contained in the modified arrays, which may be zero if the timeout expires before anything interesting happens.On error <b><code>false</code></b> is returned. The error code can be retrieved with <code>socket_last_error()</code>.</p><p><b>Note</b>:</p><p>Be sure to use the <code>===</code> operator when checking for an error. Since the <b>socket_select()</b> may return 0 the comparison with <code>==</code> would evaluate to <b><code>true</code></b>:</p> <p><b>Example #2 Understanding <b>socket_select()</b>'s result</b></p>  <code> &lt;&#63;php<br>$e&nbsp;=&nbsp;NULL;<br>if&nbsp;(false&nbsp;===&nbsp;socket_select($r,&nbsp;$w,&nbsp;$e,&nbsp;0))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"socket_select()&nbsp;failed,&nbsp;reason:&nbsp;"&nbsp;.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;socket_strerror(socket_last_error())&nbsp;.&nbsp;"\n";<br>}<br>&#63;&gt;  </code>
+	 * @return int|false <p>On success <b>socket_select()</b> returns the number of sockets contained in the modified arrays, which may be zero if the timeout expires before anything interesting happens.On error <b><code>false</code></b> is returned. The error code can be retrieved with <code>socket_last_error()</code>.</p><p><b>Note</b>:</p><p>Be sure to use the <code>===</code> operator when checking for an error. Since the <b>socket_select()</b> may return 0 the comparison with <code>==</code> would evaluate to <b><code>true</code></b>:</p> <p><b>Example #2 Understanding <b>socket_select()</b>'s result</b></p>  <code> &lt;&#63;php<br>$e = NULL;<br>if (false === socket_select($r, $w, $e, 0)) {<br> echo "socket_select() failed, reason: " .<br> socket_strerror(socket_last_error()) . "\n";<br>}<br>&#63;&gt;  </code>
 	 * @link https://php.net/manual/en/function.socket-select.php
 	 * @see socket_read(), socket_write(), socket_last_error(), socket_strerror()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
@@ -410,7 +410,7 @@ namespace {
 	 * Sets socket options for the socket
 	 * <p>The <b>socket_set_option()</b> function sets the option specified by the <code>option</code> parameter, at the specified protocol <code>level</code>, to the value pointed to by the <code>value</code> parameter for the <code>socket</code>.</p>
 	 * @param \Socket $socket <p>A <code>Socket</code> instance created with <code>socket_create()</code> or <code>socket_accept()</code>.</p>
-	 * @param int $level <p>The <code>level</code> parameter specifies the protocol level at which the option resides. For example, to retrieve options at the socket level, a <code>level</code> parameter of <b><code>SOL_SOCKET</code></b> would be used. Other levels, such as TCP, can be used by specifying the protocol number of that level. Protocol numbers can be found by using the <code>getprotobyname()</code> function.</p>
+	 * @param int $level <p>The <code>level</code> parameter specifies the protocol level at which the option resides. For example, to set options at the socket level, a <code>level</code> parameter of <b><code>SOL_SOCKET</code></b> would be used. Other levels, such as TCP, can be used by specifying the protocol number of that level. Protocol numbers can be found by using the <code>getprotobyname()</code> function.</p>
 	 * @param int $option <p>The available socket options are the same as those for the <code>socket_get_option()</code> function.</p>
 	 * @param array|string|int $value <p>The option value.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -424,7 +424,7 @@ namespace {
 	 * Alias of socket_set_option()
 	 * <p>This function is an alias of: <code>socket_set_option()</code>.</p>
 	 * @param \Socket $socket <p>A <code>Socket</code> instance created with <code>socket_create()</code> or <code>socket_accept()</code>.</p>
-	 * @param int $level <p>The <code>level</code> parameter specifies the protocol level at which the option resides. For example, to retrieve options at the socket level, a <code>level</code> parameter of <b><code>SOL_SOCKET</code></b> would be used. Other levels, such as TCP, can be used by specifying the protocol number of that level. Protocol numbers can be found by using the <code>getprotobyname()</code> function.</p>
+	 * @param int $level <p>The <code>level</code> parameter specifies the protocol level at which the option resides. For example, to set options at the socket level, a <code>level</code> parameter of <b><code>SOL_SOCKET</code></b> would be used. Other levels, such as TCP, can be used by specifying the protocol number of that level. Protocol numbers can be found by using the <code>getprotobyname()</code> function.</p>
 	 * @param int $option <p>The available socket options are the same as those for the <code>socket_get_option()</code> function.</p>
 	 * @param array|string|int $value <p>The option value.</p>
 	 * @return bool
@@ -511,6 +511,16 @@ namespace {
 
 	define('AF_UNIX', 1);
 
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('LOCAL_CREDS', null);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('LOCAL_CREDS_PERSISTENT', null);
+
 	define('MSG_DONTROUTE', 4);
 
 	/**
@@ -529,6 +539,11 @@ namespace {
 
 	define('MSG_WAITALL', 256);
 
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('MSG_ZEROCOPY', 67108864);
+
 	define('PHP_BINARY_READ', 2);
 
 	define('PHP_NORMAL_READ', 1);
@@ -536,14 +551,119 @@ namespace {
 	define('SCM_CREDENTIALS', 2);
 
 	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SCM_CREDS', null);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SCM_CREDS2', null);
+
+	/**
 	 * Send or receive a set of open file descriptors from another process.
 	 */
 	define('SCM_RIGHTS', 1);
 
 	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_ALU_XOR_X', 40);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_CPU', 36);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_HATYPE', 28);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_IFINDEX', 8);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_MARK', 20);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_MAX', 64);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_NLATTR', 12);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_NLATTR_NEST', 16);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_OFF', -4096);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_PAY_OFFSET', 52);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_PKTTYPE', 4);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_PROTOCOL', 0);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_QUEUE', 24);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_RANDOM', 56);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_RXHASH', 32);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_VLAN_TAG', 44);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_VLAN_TAG_PRESENT', 48);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SKF_AD_VLAN_TPID', 60);
+
+	/**
 	 * Available as of PHP 8.1.0
 	 */
 	define('SO_ACCEPTFILTER', null);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SO_BPF_EXTENSIONS', 48);
 
 	define('SO_BROADCAST', 6);
 
@@ -558,6 +678,11 @@ namespace {
 
 	define('SO_ERROR', 4);
 
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SO_INCOMING_CPU', 49);
+
 	define('SO_KEEPALIVE', 9);
 
 	define('SO_LINGER', 13);
@@ -565,7 +690,12 @@ namespace {
 	/**
 	 * Available as of PHP 8.1.0
 	 */
-	define('SO_MARK', null);
+	define('SO_MARK', 36);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SO_MEMINFO', 55);
 
 	define('SO_OOBINLINE', 10);
 
@@ -578,9 +708,19 @@ namespace {
 	define('SO_REUSEADDR', 2);
 
 	/**
-	 * This constant is only available on platforms that support the <b><code>SO_REUSEPORT</code></b> socket option: this includes macOS and FreeBSD, but does not include Linux or Windows.
+	 * This constant is only available on platforms that support the <b><code>SO_REUSEPORT</code></b> socket option: this includes Linux, macOS and &#42;BSD, but does not include Windows.
 	 */
 	define('SO_REUSEPORT', 15);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SO_RTABLE', null);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SO_SETFIB', null);
 
 	define('SO_SNDBUF', 7);
 
@@ -599,6 +739,11 @@ namespace {
 	 * Available as of PHP 8.1.0
 	 */
 	define('SO_WANTMORE', null);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SO_ZEROCOPY', 60);
 
 	define('SOCK_DGRAM', 2);
 
@@ -658,7 +803,7 @@ namespace {
 	define('SOCKET_EBADE', 52);
 
 	/**
-	 * Bad file number.
+	 * Bad file descriptor number.
 	 */
 	define('SOCKET_EBADF', 9);
 
@@ -1145,6 +1290,11 @@ namespace {
 
 	define('SOCKET_VERNOTSUPPORTED', null);
 
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('SOL_FILTER', null);
+
 	define('SOL_SOCKET', 1);
 
 	define('SOL_TCP', 6);
@@ -1152,13 +1302,43 @@ namespace {
 	define('SOL_UDP', 17);
 
 	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('TCP_CONGESTION', 13);
+
+	/**
 	 * Available as of PHP 8.1.0
 	 */
-	define('TCP_DEFER_ACCEPT', null);
+	define('TCP_DEFER_ACCEPT', 9);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('TCP_KEEPALIVE', null);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('TCP_KEEPCNT', 6);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('TCP_KEEPIDLE', 4);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('TCP_KEEPINTVL', 5);
 
 	/**
 	 * Used to disable Nagle TCP algorithm.
 	 */
 	define('TCP_NODELAY', 1);
+
+	/**
+	 * Available as of PHP 8.2.0
+	 */
+	define('TCP_NOTSENT_LOWAT', 25);
 
 }

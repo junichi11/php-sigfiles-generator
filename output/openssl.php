@@ -39,6 +39,16 @@ namespace {
 	function openssl_cipher_iv_length(string $cipher_algo): int|false {}
 
 	/**
+	 * Gets the cipher key length
+	 * <p>Gets the cipher key length.</p>
+	 * @param string $cipher_algo <p>The cipher method, see <code>openssl_get_cipher_methods()</code> for a list of potential values.</p>
+	 * @return int|false <p>Returns the cipher length on success, or <b><code>false</code></b> on failure.</p>
+	 * @link https://php.net/manual/en/function.openssl-cipher-key-length.php
+	 * @since PHP 8 >= 8.2.0
+	 */
+	function openssl_cipher_key_length(string $cipher_algo): int|false {}
+
+	/**
 	 * Decrypt a CMS message
 	 * <p>Decrypts a CMS message.</p>
 	 * @param string $input_filename <p>The name of a file containing encrypted content.</p>
@@ -118,14 +128,14 @@ namespace {
 	 * Exports a CSR as a string
 	 * <p><b>openssl_csr_export()</b> takes the Certificate Signing Request represented by <code>csr</code> and stores it in PEM format in <code>output</code>, which is passed by reference.</p>
 	 * @param \OpenSSLCertificateSigningRequest|string $csr <p>See CSR parameters for a list of valid values.</p>
-	 * @param \OpenSSLAsymmetricKey $output <p>on success, this string will contain the PEM encoded CSR</p>
+	 * @param string $output <p>on success, this string will contain the PEM encoded CSR</p>
 	 * @param bool $no_text <p>The optional parameter <code>notext</code> affects the verbosity of the output; if it is <b><code>false</code></b>, then additional human-readable information is included in the output. The default value of <code>notext</code> is <b><code>true</code></b>.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.openssl-csr-export.php
 	 * @see openssl_csr_export_to_file(), openssl_csr_new(), openssl_csr_sign()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
-	function openssl_csr_export(\OpenSSLCertificateSigningRequest|string $csr, \OpenSSLAsymmetricKey &$output, bool $no_text = true): bool {}
+	function openssl_csr_export(\OpenSSLCertificateSigningRequest|string $csr, string &$output, bool $no_text = true): bool {}
 
 	/**
 	 * Exports a CSR to a file
@@ -202,7 +212,7 @@ namespace {
 	 * @param int $options <p><code>options</code> can be one of <b><code>OPENSSL_RAW_DATA</code></b>, <b><code>OPENSSL_ZERO_PADDING</code></b>.</p>
 	 * @param string $iv <p>A non-NULL Initialization Vector.</p>
 	 * @param ?string $tag <p>The authentication tag in AEAD cipher mode. If it is incorrect, the authentication fails and the function returns <b><code>false</code></b>.</p> <b>Caution</b> <p>The length of the <code>tag</code> is not checked by the function. It is the caller's responsibility to ensure that the length of the tag matches the length of the tag retrieved when <code>openssl_encrypt()</code> has been called. Otherwise the decryption may succeed if the given tag only matches the start of the proper tag.</p>
-	 * @param string $aad <p>Additional authentication data.</p>
+	 * @param string $aad <p>Additional authenticated data.</p>
 	 * @return string|false <p>The decrypted string on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.openssl-decrypt.php
 	 * @see openssl_encrypt()
@@ -244,7 +254,7 @@ namespace {
 	 * @param int $options <p><code>options</code> is a bitwise disjunction of the flags <b><code>OPENSSL_RAW_DATA</code></b> and <b><code>OPENSSL_ZERO_PADDING</code></b>.</p>
 	 * @param string $iv <p>A non-NULL Initialization Vector.</p>
 	 * @param string $tag <p>The authentication tag passed by reference when using AEAD cipher mode (GCM or CCM).</p>
-	 * @param string $aad <p>Additional authentication data.</p>
+	 * @param string $aad <p>Additional authenticated data.</p>
 	 * @param int $tag_length <p>The length of the authentication <code>tag</code>. Its value can be between 4 and 16 for GCM mode.</p>
 	 * @return string|false <p>Returns the encrypted string on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.openssl-encrypt.php
@@ -355,7 +365,7 @@ namespace {
 	 * @param string $password <p>Password from which the derived key is generated.</p>
 	 * @param string $salt <p>PBKDF2 recommends a crytographic salt of at least 64 bits (8 bytes).</p>
 	 * @param int $key_length <p>Length of desired output key.</p>
-	 * @param int $iterations <p>The number of iterations desired. NIST recommends at least 10,000.</p>
+	 * @param int $iterations <p>The number of iterations desired. &#xBB;&#xA0;NIST recommends at least 10,000.</p>
 	 * @param string $digest_algo <p>Optional hash or digest algorithm from <code>openssl_get_md_methods()</code>. Defaults to SHA-1.</p>
 	 * @return string|false <p>Returns raw binary string or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.openssl-pbkdf2.php
@@ -624,11 +634,11 @@ namespace {
 	/**
 	 * Generate a pseudo-random string of bytes
 	 * <p>Generates a <code>string</code> of pseudo-random bytes, with the number of bytes determined by the <code>length</code> parameter.</p><p>It also indicates if a cryptographically strong algorithm was used to produce the pseudo-random bytes, and does this via the optional <code>strong_result</code> parameter. It's rare for this to be <b><code>false</code></b>, but some systems may be broken or old.</p>
-	 * @param int $length <p>The length of the desired string of bytes. Must be a positive integer. PHP will try to cast this parameter to a non-null integer to use it.</p>
+	 * @param int $length <p>The length of the desired string of bytes. Must be a positive integer less than or equal to <code>2147483647</code>. PHP will try to cast this parameter to a non-null integer to use it.</p>
 	 * @param bool $strong_result <p>If passed into the function, this will hold a <code>bool</code> value that determines if the algorithm used was "cryptographically strong", e.g., safe for usage with GPG, passwords, etc. <b><code>true</code></b> if it did, otherwise <b><code>false</code></b></p>
-	 * @return string <p>Returns the generated <code>string</code> of bytes on success, or <b><code>false</code></b> on failure.</p>
+	 * @return string <p>Returns the generated <code>string</code> of bytes.</p>
 	 * @link https://php.net/manual/en/function.openssl-random-pseudo-bytes.php
-	 * @see random_bytes(), bin2hex(), crypt(), mt_rand(), uniqid()
+	 * @see random_bytes(), bin2hex(), crypt(), random_int()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 	 */
 	function openssl_random_pseudo_bytes(int $length, bool &$strong_result = null): string {}

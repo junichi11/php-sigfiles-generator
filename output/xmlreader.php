@@ -15,133 +15,133 @@ namespace {
 		 * @var int <p>No node type</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const NONE = 0;
+		public const NONE = 0;
 
 		/**
 		 * @var int <p>Start element</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const ELEMENT = 1;
+		public const ELEMENT = 1;
 
 		/**
 		 * @var int <p>Attribute node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const ATTRIBUTE = 2;
+		public const ATTRIBUTE = 2;
 
 		/**
 		 * @var int <p>Text node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const TEXT = 3;
+		public const TEXT = 3;
 
 		/**
 		 * @var int <p>CDATA node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const CDATA = 4;
+		public const CDATA = 4;
 
 		/**
 		 * @var int <p>Entity Reference node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const ENTITY_REF = 5;
+		public const ENTITY_REF = 5;
 
 		/**
 		 * @var int <p>Entity Declaration node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const ENTITY = 6;
+		public const ENTITY = 6;
 
 		/**
 		 * @var int <p>Processing Instruction node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const PI = 7;
+		public const PI = 7;
 
 		/**
 		 * @var int <p>Comment node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const COMMENT = 8;
+		public const COMMENT = 8;
 
 		/**
 		 * @var int <p>Document node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const DOC = 9;
+		public const DOC = 9;
 
 		/**
 		 * @var int <p>Document Type node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const DOC_TYPE = 10;
+		public const DOC_TYPE = 10;
 
 		/**
 		 * @var int <p>Document Fragment node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const DOC_FRAGMENT = 11;
+		public const DOC_FRAGMENT = 11;
 
 		/**
 		 * @var int <p>Notation node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const NOTATION = 12;
+		public const NOTATION = 12;
 
 		/**
 		 * @var int <p>Whitespace node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const WHITESPACE = 13;
+		public const WHITESPACE = 13;
 
 		/**
 		 * @var int <p>Significant Whitespace node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const SIGNIFICANT_WHITESPACE = 14;
+		public const SIGNIFICANT_WHITESPACE = 14;
 
 		/**
 		 * @var int <p>End Element</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const END_ELEMENT = 15;
+		public const END_ELEMENT = 15;
 
 		/**
 		 * @var int <p>End Entity</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const END_ENTITY = 16;
+		public const END_ENTITY = 16;
 
 		/**
 		 * @var int <p>XML Declaration node</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const XML_DECLARATION = 17;
+		public const XML_DECLARATION = 17;
 
 		/**
 		 * @var int <p>Load DTD but do not validate</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const LOADDTD = 1;
+		public const LOADDTD = 1;
 
 		/**
 		 * @var int <p>Load DTD and default attributes but do not validate</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const DEFAULTATTRS = 2;
+		public const DEFAULTATTRS = 2;
 
 		/**
 		 * @var int <p>Load DTD and validate while parsing</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const VALIDATE = 3;
+		public const VALIDATE = 3;
 
 		/**
 		 * @var int <p>Substitute entities and expand references</p>
 		 * @link https://php.net/manual/en/class.xmlreader.php
 		 */
-		const SUBST_ENTITIES = 4;
+		public const SUBST_ENTITIES = 4;
 
 		/**
 		 * @var int <p>The number of attributes on the node</p>

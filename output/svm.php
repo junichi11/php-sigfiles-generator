@@ -145,7 +145,7 @@ namespace {
 		/**
 		 * Construct a new SVM object
 		 * <p>Constructs a new SVM object ready to accept training data.</p>
-		 * @return self <p>Throws SVMException if the libsvm library could not be loaded</p>
+		 * @return self
 		 * @link https://php.net/manual/en/svm.construct.php
 		 * @since PECL svm >= 0.1.0
 		 */
@@ -204,7 +204,7 @@ namespace {
 		 * Construct a new SVMModel
 		 * <p>Build a new SVMModel. Models will usually be created from the SVM::train function, but then saved models may be restored directly.</p>
 		 * @param string $filename <p>The filename for the saved model file this model should load.</p>
-		 * @return self <p>Throws SVMException on error</p>
+		 * @return self
 		 * @link https://php.net/manual/en/svmmodel.construct.php
 		 * @since PECL svm >= 0.1.0
 		 */

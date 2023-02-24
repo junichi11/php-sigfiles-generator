@@ -129,7 +129,7 @@ namespace {
 
 	/**
 	 * Parse RFC 822 compliant addresses
-	 * <p>Parses a RFC 822 compliant recipient list, such as that found in the <code>To:</code> header.</p>
+	 * <p>Parses a &#xBB;&#xA0;RFC 822 compliant recipient list, such as that found in the <code>To:</code> header.</p>
 	 * @param string $addresses <p>A string containing addresses, like in: <code>Wez Furlong &lt;wez@example.com&gt;, doe@example.com</code></p> <p><b>Note</b>:</p><p>This string must not include the header name.</p>
 	 * @return array <p>Returns an array of associative arrays with the following keys for each recipient:</p>   <code>display</code>  The recipient name, for display purpose. If this part is not set for a recipient, this key will hold the same value as <code>address</code>.    <code>address</code> The email address   <code>is_group</code> <b><code>true</code></b> if the recipient is a newsgroup, <b><code>false</code></b> otherwise.
 	 * @link https://php.net/manual/en/function.mailparse-rfc822-parse-addresses.php

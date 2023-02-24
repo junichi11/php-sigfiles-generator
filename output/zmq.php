@@ -89,13 +89,13 @@ namespace {
 		const SOCKET_XSUB = null;
 
 		/**
-		 * @var int <p>Used to send and receive TCP data from a non-&Oslash;MQ peer. Available if compiled against ZeroMQ 4.x or higher (Value: <code>int</code>).</p>
+		 * @var int <p>Used to send and receive TCP data from a non-&#xD8;MQ peer. Available if compiled against ZeroMQ 4.x or higher (Value: <code>int</code>).</p>
 		 * @link https://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_STREAM = null;
 
 		/**
-		 * @var int <p>The high water mark for inbound and outbound messages is a hard limit on the maximum number of outstanding messages &Oslash;MQ shall queue in memory for any single peer that the specified socket is communicating with. Setting this option on a socket will only affect connections made after the option has been set. On ZeroMQ 3.x this is a wrapper for setting both SNDHWM and RCVHWM. (Value: <code>int</code>).</p>
+		 * @var int <p>The high water mark for inbound and outbound messages is a hard limit on the maximum number of outstanding messages &#xD8;MQ shall queue in memory for any single peer that the specified socket is communicating with. Setting this option on a socket will only affect connections made after the option has been set. On ZeroMQ 3.x this is a wrapper for setting both SNDHWM and RCVHWM. (Value: <code>int</code>).</p>
 		 * @link https://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_HWM = null;
@@ -424,7 +424,7 @@ namespace {
 
 		/**
 		 * Construct a new device
-		 * <p>"&Oslash;MQ devices can do intermediation of addresses, services, queues, or any other abstraction you care to define above the message and socket layers." -- zguide</p>
+		 * <p>"&#xD8;MQ devices can do intermediation of addresses, services, queues, or any other abstraction you care to define above the message and socket layers." -- zguide</p>
 		 * @param \ZMQSocket $frontend <p>Frontend parameter for the devices. Usually where there messages are coming.</p>
 		 * @param \ZMQSocket $backend <p>Backend parameter for the devices. Usually where there messages going to.</p>
 		 * @param \ZMQSocket $listener <p>Listener socket, which receives a copy of all messages going both directions. The type of this socket should be SUB, PULL or DEALER.</p>

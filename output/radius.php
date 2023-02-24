@@ -48,7 +48,7 @@ namespace {
 
 	/**
 	 * Causes the library to read the given configuration file
-	 * <p>Before issuing any Radius requests, the library must be made aware of the servers it can contact. The easiest way to configure the library is to call <b>radius_config()</b>. <b>radius_config()</b> causes the library to read a configuration file whose format is described in radius.conf.</p>
+	 * <p>Before issuing any Radius requests, the library must be made aware of the servers it can contact. The easiest way to configure the library is to call <b>radius_config()</b>. <b>radius_config()</b> causes the library to read a configuration file whose format is described in &#xBB;&#xA0;radius.conf.</p>
 	 * @param resource $radius_handle
 	 * @param string $file <p>The pathname of the configuration file is passed as the file argument to <b>radius_config()</b>. The library can also be configured programmatically by calls to <code>radius_add_server()</code>.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -116,7 +116,7 @@ namespace {
 
 	/**
 	 * Derives mppe-keys from mangled data
-	 * <p>When using MPPE with MS-CHAPv2, the send- and recv-keys are mangled (see RFC 2548), however this function is useless, because I don't think that there is or will be a PPTP-MPPE implementation in PHP.</p>
+	 * <p>When using MPPE with MS-CHAPv2, the send- and recv-keys are mangled (see &#xBB;&#xA0;RFC 2548), however this function is useless, because I don't think that there is or will be a PPTP-MPPE implementation in PHP.</p>
 	 * @param resource $radius_handle <p>The RADIUS resource.</p>
 	 * @param string $mangled <p>The mangled data to demangle</p>
 	 * @return string <p>Returns the demangled string, or <b><code>false</code></b> on error.</p>

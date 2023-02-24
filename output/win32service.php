@@ -206,7 +206,7 @@ namespace {
 
 	/**
 	 * Send a custom control to the service
-	 * <p>See Microsoft ControlService function for more details</p>
+	 * <p>See &#xBB;&#xA0;Microsoft ControlService function for more details</p>
 	 * @param string $servicename <p>The short name of the service.</p>
 	 * @param int $control <p>The custom contole value between 128 and 255.</p>
 	 * @param string $machine <p>Optional machine name. If omitted, the local machine is used.</p>
@@ -219,7 +219,7 @@ namespace {
 
 	/**
 	 * Define or return the exit code for the current running service
-	 * <p>Change or return the exit code. The exit code is used only if the exit mode is not graceful. If the value is not zero, the recovery configuration can be used after service fail. See Microsoft system error codes for more details</p><p>This function work only in "cli" SAPI. On other SAPI this function is disabled.</p>
+	 * <p>Change or return the exit code. The exit code is used only if the exit mode is not graceful. If the value is not zero, the recovery configuration can be used after service fail. See &#xBB;&#xA0;Microsoft system error codes for more details</p><p>This function work only in "cli" SAPI. On other SAPI this function is disabled.</p>
 	 * @param int $exitCode <p>The return code used on exit.</p>
 	 * @return int <p>Return the current or old exit code.</p>
 	 * @link https://php.net/manual/en/function.win32-set-service-exit-code.php

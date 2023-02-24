@@ -12,34 +12,34 @@ namespace {
 	class DOMAttr extends \DOMNode {
 
 		/**
-		 * @var string <p>The name of the attribute</p>
+		 * @var string <p>The name of the attribute.</p>
 		 * @link https://php.net/manual/en/class.domattr.php#domattr.props.name
 		 */
 		public $name;
 
 		/**
-		 * @var DOMElement <p>The element which contains the attribute</p>
+		 * @var bool <p>Not implemented yet, always is <b><code>true</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domattr.php#domattr.props.specified
+		 */
+		public $specified = true;
+
+		/**
+		 * @var string <p>The value of the attribute.</p>
+		 * @link https://php.net/manual/en/class.domattr.php#domattr.props.value
+		 */
+		public $value;
+
+		/**
+		 * @var ?DOMElement <p>The element which contains the attribute or <b><code>null</code></b>.</p>
 		 * @link https://php.net/manual/en/class.domattr.php#domattr.props.ownerelement
 		 */
 		public $ownerElement;
 
 		/**
-		 * @var bool <p>Not implemented yet, always is <b><code>null</code></b></p>
+		 * @var mixed <p>Not implemented yet, always is <b><code>null</code></b>.</p>
 		 * @link https://php.net/manual/en/class.domattr.php#domattr.props.schematypeinfo
 		 */
-		public $schemaTypeInfo;
-
-		/**
-		 * @var bool <p>Not implemented yet, always is <b><code>null</code></b></p>
-		 * @link https://php.net/manual/en/class.domattr.php#domattr.props.specified
-		 */
-		public $specified;
-
-		/**
-		 * @var string <p>The value of the attribute</p>
-		 * @link https://php.net/manual/en/class.domattr.php#domattr.props.value
-		 */
-		public $value;
+		public $schemaTypeInfo = null;
 
 		/**
 		 * @var string <p>Returns the most accurate name for the current node type</p>
@@ -114,7 +114,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -359,6 +359,18 @@ namespace {
 		public $length;
 
 		/**
+		 * @var ?DOMElement <p>The previous sibling element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.previouselementsibling
+		 */
+		public $previousElementSibling;
+
+		/**
+		 * @var ?DOMElement <p>The next sibling element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.nextelementsibling
+		 */
+		public $nextElementSibling;
+
+		/**
 		 * @var string <p>Returns the most accurate name for the current node type</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.nodename
 		 */
@@ -431,7 +443,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -526,7 +538,7 @@ namespace {
 		 * <p>Deletes <code>count</code> characters starting from position <code>offset</code>.</p>
 		 * @param int $offset <p>The offset from which to start removing.</p>
 		 * @param int $count <p>The number of characters to delete. If the sum of <code>offset</code> and <code>count</code> exceeds the length, then all characters to the end of the data are deleted.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domcharacterdata.deletedata.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -584,7 +596,7 @@ namespace {
 		 * <p>Inserts string <code>data</code> at position <code>offset</code>.</p>
 		 * @param int $offset <p>The character offset at which to insert.</p>
 		 * @param string $data <p>The string to insert.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domcharacterdata.insertdata.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -694,7 +706,7 @@ namespace {
 		 * @param int $offset <p>The offset from which to start replacing.</p>
 		 * @param int $count <p>The number of characters to replace. If the sum of <code>offset</code> and <code>count</code> exceeds the length, then all characters to the end of the data are replaced.</p>
 		 * @param string $data <p>The string with which the range must be replaced.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domcharacterdata.replacedata.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -740,6 +752,18 @@ namespace {
 		 * @link https://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.length
 		 */
 		public $length;
+
+		/**
+		 * @var ?DOMElement <p>The previous sibling element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.previouselementsibling
+		 */
+		public $previousElementSibling;
+
+		/**
+		 * @var ?DOMElement <p>The next sibling element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.nextelementsibling
+		 */
+		public $nextElementSibling;
 
 		/**
 		 * @var string <p>Returns the most accurate name for the current node type</p>
@@ -814,7 +838,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -899,7 +923,7 @@ namespace {
 		 * <p>Deletes <code>count</code> characters starting from position <code>offset</code>.</p>
 		 * @param int $offset <p>The offset from which to start removing.</p>
 		 * @param int $count <p>The number of characters to delete. If the sum of <code>offset</code> and <code>count</code> exceeds the length, then all characters to the end of the data are deleted.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domcharacterdata.deletedata.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -957,7 +981,7 @@ namespace {
 		 * <p>Inserts string <code>data</code> at position <code>offset</code>.</p>
 		 * @param int $offset <p>The character offset at which to insert.</p>
 		 * @param string $data <p>The string to insert.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domcharacterdata.insertdata.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -1050,7 +1074,7 @@ namespace {
 		 * @param int $offset <p>The offset from which to start replacing.</p>
 		 * @param int $count <p>The number of characters to replace. If the sum of <code>offset</code> and <code>count</code> exceeds the length, then all characters to the end of the data are replaced.</p>
 		 * @param string $data <p>The string with which the range must be replaced.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domcharacterdata.replacedata.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -1134,6 +1158,18 @@ namespace {
 		public $length;
 
 		/**
+		 * @var ?DOMElement <p>The previous sibling element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.previouselementsibling
+		 */
+		public $previousElementSibling;
+
+		/**
+		 * @var ?DOMElement <p>The next sibling element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.nextelementsibling
+		 */
+		public $nextElementSibling;
+
+		/**
 		 * @var string <p>Returns the most accurate name for the current node type</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.nodename
 		 */
@@ -1206,7 +1242,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -1301,7 +1337,7 @@ namespace {
 		 * <p>Deletes <code>count</code> characters starting from position <code>offset</code>.</p>
 		 * @param int $offset <p>The offset from which to start removing.</p>
 		 * @param int $count <p>The number of characters to delete. If the sum of <code>offset</code> and <code>count</code> exceeds the length, then all characters to the end of the data are deleted.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domcharacterdata.deletedata.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -1359,7 +1395,7 @@ namespace {
 		 * <p>Inserts string <code>data</code> at position <code>offset</code>.</p>
 		 * @param int $offset <p>The character offset at which to insert.</p>
 		 * @param string $data <p>The string to insert.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domcharacterdata.insertdata.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -1452,7 +1488,7 @@ namespace {
 		 * @param int $offset <p>The offset from which to start replacing.</p>
 		 * @param int $count <p>The number of characters to replace. If the sum of <code>offset</code> and <code>count</code> exceeds the length, then all characters to the end of the data are replaced.</p>
 		 * @param string $data <p>The string with which the range must be replaced.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domcharacterdata.replacedata.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -1478,46 +1514,10 @@ namespace {
 	class DOMDocument extends \DOMNode implements \DOMParentNode {
 
 		/**
-		 * @var string <p><i>Deprecated</i>. Actual encoding of the document, is a readonly equivalent to encoding.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.actualencoding
-		 */
-		public $actualEncoding;
-
-		/**
-		 * @var DOMConfiguration <p><i>Deprecated</i>. Configuration used when <code>DOMDocument::normalizeDocument()</code> is invoked.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.config
-		 */
-		public $config;
-
-		/**
-		 * @var DOMDocumentType <p>The Document Type Declaration associated with this document.</p>
+		 * @var ?DOMDocumentType <p>The Document Type Declaration associated with this document.</p>
 		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.doctype
 		 */
 		public $doctype;
-
-		/**
-		 * @var ?DOMElement <p>The <code>DOMElement</code> object that is the first document element. If not found, this evaluates to <b><code>null</code></b>.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.documentelement
-		 */
-		public $documentElement;
-
-		/**
-		 * @var ?string <p>The location of the document or <b><code>null</code></b> if undefined.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.documenturi
-		 */
-		public $documentURI;
-
-		/**
-		 * @var string <p>Encoding of the document, as specified by the XML declaration. This attribute is not present in the final DOM Level 3 specification, but is the only way of manipulating XML document encoding in this implementation.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.encoding
-		 */
-		public $encoding;
-
-		/**
-		 * @var bool <p>Nicely formats output with indentation and extra space. This has no effect if the document was loaded with preserveWhitespace enabled.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.formatoutput
-		 */
-		public $formatOutput;
 
 		/**
 		 * @var DOMImplementation <p>The <code>DOMImplementation</code> object that handles this document.</p>
@@ -1526,52 +1526,22 @@ namespace {
 		public $implementation;
 
 		/**
-		 * @var bool <p>Do not remove redundant white space. Default to <b><code>true</code></b>. Setting this to <b><code>false</code></b> has the same effect as passing <b><code>LIBXML_NOBLANKS</code></b> as <code>option</code> to <code>DOMDocument::load()</code> etc.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.preservewhitespace
+		 * @var ?DOMElement <p>The <code>DOMElement</code> object that is the first document element. If not found, this evaluates to <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.documentelement
 		 */
-		public $preserveWhiteSpace = true;
+		public $documentElement;
 
 		/**
-		 * @var bool <p><i>Proprietary</i>. Enables recovery mode, i.e. trying to parse non-well formed documents. This attribute is not part of the DOM specification and is specific to libxml.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.recover
+		 * @var ?string <p><i>Deprecated</i>. Actual encoding of the document, is a readonly equivalent to encoding.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.actualencoding
 		 */
-		public $recover;
+		public $actualEncoding;
 
 		/**
-		 * @var bool <p>Set it to <b><code>true</code></b> to load external entities from a doctype declaration. This is useful for including character entities in your XML document.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.resolveexternals
+		 * @var ?string <p>Encoding of the document, as specified by the XML declaration. This attribute is not present in the final DOM Level 3 specification, but is the only way of manipulating XML document encoding in this implementation.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.encoding
 		 */
-		public $resolveExternals;
-
-		/**
-		 * @var bool <p><i>Deprecated</i>. Whether or not the document is standalone, as specified by the XML declaration, corresponds to xmlStandalone.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.standalone
-		 */
-		public $standalone;
-
-		/**
-		 * @var bool <p>Throws <code>DOMException</code> on errors. Default to <b><code>true</code></b>.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.stricterrorchecking
-		 */
-		public $strictErrorChecking = true;
-
-		/**
-		 * @var bool <p><i>Proprietary</i>. Whether or not to substitute entities. This attribute is not part of the DOM specification and is specific to libxml.</p> <b>Caution</b> <p>Enabling entity substitution may facilitate XML External Entity (XXE) attacks.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.substituteentities
-		 */
-		public $substituteEntities;
-
-		/**
-		 * @var bool <p>Loads and validates against the DTD. Default to <b><code>false</code></b>.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.validateonparse
-		 */
-		public $validateOnParse = false;
-
-		/**
-		 * @var string <p><i>Deprecated</i>. Version of XML, corresponds to xmlVersion.</p>
-		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.version
-		 */
-		public $version;
+		public $encoding;
 
 		/**
 		 * @var ?string <p>An attribute specifying, as part of the XML declaration, the encoding of this document. This is <b><code>null</code></b> when unspecified or when it is not known, such as when the Document was created in memory.</p>
@@ -1580,16 +1550,100 @@ namespace {
 		public $xmlEncoding;
 
 		/**
+		 * @var bool <p><i>Deprecated</i>. Whether or not the document is standalone, as specified by the XML declaration, corresponds to xmlStandalone.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.standalone
+		 */
+		public $standalone;
+
+		/**
 		 * @var bool <p>An attribute specifying, as part of the XML declaration, whether this document is standalone. This is <b><code>false</code></b> when unspecified.</p>
 		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.xmlstandalone
 		 */
 		public $xmlStandalone;
 
 		/**
-		 * @var string <p>An attribute specifying, as part of the XML declaration, the version number of this document. If there is no declaration and if this document supports the "XML" feature, the value is "1.0".</p>
+		 * @var ?string <p><i>Deprecated</i>. Version of XML, corresponds to xmlVersion.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.version
+		 */
+		public $version;
+
+		/**
+		 * @var ?string <p>An attribute specifying, as part of the XML declaration, the version number of this document. If there is no declaration and if this document supports the "XML" feature, the value is "1.0".</p>
 		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.xmlversion
 		 */
 		public $xmlVersion;
+
+		/**
+		 * @var bool <p>Throws <code>DOMException</code> on errors. Default to <b><code>true</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.stricterrorchecking
+		 */
+		public $strictErrorChecking;
+
+		/**
+		 * @var ?string <p>The location of the document or <b><code>null</code></b> if undefined.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.documenturi
+		 */
+		public $documentURI;
+
+		/**
+		 * @var mixed <p><i>Deprecated</i>. Configuration used when <code>DOMDocument::normalizeDocument()</code> is invoked.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.config
+		 */
+		public $config = null;
+
+		/**
+		 * @var bool <p>Nicely formats output with indentation and extra space. This has no effect if the document was loaded with preserveWhitespace enabled.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.formatoutput
+		 */
+		public $formatOutput;
+
+		/**
+		 * @var bool <p>Loads and validates against the DTD. Default to <b><code>false</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.validateonparse
+		 */
+		public $validateOnParse;
+
+		/**
+		 * @var bool <p>Set it to <b><code>true</code></b> to load external entities from a doctype declaration. This is useful for including character entities in your XML document.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.resolveexternals
+		 */
+		public $resolveExternals;
+
+		/**
+		 * @var bool <p>Do not remove redundant white space. Default to <b><code>true</code></b>. Setting this to <b><code>false</code></b> has the same effect as passing <b><code>LIBXML_NOBLANKS</code></b> as <code>option</code> to <code>DOMDocument::load()</code> etc.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.preservewhitespace
+		 */
+		public $preserveWhiteSpace;
+
+		/**
+		 * @var bool <p><i>Proprietary</i>. Enables recovery mode, i.e. trying to parse non-well formed documents. This attribute is not part of the DOM specification and is specific to libxml.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.recover
+		 */
+		public $recover;
+
+		/**
+		 * @var bool <p><i>Proprietary</i>. Whether or not to substitute entities. This attribute is not part of the DOM specification and is specific to libxml.</p> <b>Caution</b> <p>Enabling entity substitution may facilitate XML External Entity (XXE) attacks.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.substituteentities
+		 */
+		public $substituteEntities;
+
+		/**
+		 * @var ?DOMElement <p>First child element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.firstelementchild
+		 */
+		public $firstElementChild;
+
+		/**
+		 * @var ?DOMElement <p>Last child element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.lastelementchild
+		 */
+		public $lastElementChild;
+
+		/**
+		 * @var int <p>The number of child elements.</p>
+		 * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.childelementcount
+		 */
+		public $childElementCount;
 
 		/**
 		 * @var string <p>Returns the most accurate name for the current node type</p>
@@ -1664,7 +1718,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -2064,7 +2118,7 @@ namespace {
 
 		/**
 		 * Performs relaxNG validation on the document
-		 * <p>Performs relaxNG validation on the document based on the given RNG schema.</p>
+		 * <p>Performs &#xBB;&#xA0;relaxNG validation on the document based on the given RNG schema.</p>
 		 * @param string $filename <p>The RNG file.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domdocument.relaxngvalidate.php
@@ -2074,7 +2128,7 @@ namespace {
 
 		/**
 		 * Performs relaxNG validation on the document
-		 * <p>Performs relaxNG validation on the document based on the given RNG source.</p>
+		 * <p>Performs &#xBB;&#xA0;relaxNG validation on the document based on the given RNG source.</p>
 		 * @param string $source <p>A string containing the RNG schema.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domdocument.relaxngvalidatesource.php
@@ -2178,7 +2232,7 @@ namespace {
 
 		/**
 		 * Substitutes XIncludes in a DOMDocument Object
-		 * <p>This method substitutes XIncludes in a DOMDocument object.</p><p><b>Note</b>:</p><p>Due to libxml2 automatically resolving entities, this method will produce unexpected results if the included XML file have an attached DTD.</p>
+		 * <p>This method substitutes &#xBB;&#xA0;XIncludes in a DOMDocument object.</p><p><b>Note</b>:</p><p>Due to libxml2 automatically resolving entities, this method will produce unexpected results if the included XML file have an attached DTD.</p>
 		 * @param int $options <p>libxml parameters. Available since Libxml 2.6.7.</p>
 		 * @return int|false <p>Returns the number of XIncludes in the document, -1 if some processing failed, or <b><code>false</code></b> if there were no substitutions.</p>
 		 * @link https://php.net/manual/en/domdocument.xinclude.php
@@ -2192,6 +2246,24 @@ namespace {
 	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	class DOMDocumentFragment extends \DOMNode implements \DOMParentNode {
+
+		/**
+		 * @var ?DOMElement <p>First child element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domdocumentfragment.php#domdocumentfragment.props.firstelementchild
+		 */
+		public $firstElementChild;
+
+		/**
+		 * @var ?DOMElement <p>Last child element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domdocumentfragment.php#domdocumentfragment.props.lastelementchild
+		 */
+		public $lastElementChild;
+
+		/**
+		 * @var int <p>The number of child elements.</p>
+		 * @link https://php.net/manual/en/class.domdocumentfragment.php#domdocumentfragment.props.childelementcount
+		 */
+		public $childElementCount;
 
 		/**
 		 * @var string <p>Returns the most accurate name for the current node type</p>
@@ -2266,7 +2338,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -2491,18 +2563,6 @@ namespace {
 	class DOMDocumentType extends \DOMNode {
 
 		/**
-		 * @var string <p>The public identifier of the external subset.</p>
-		 * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.publicid
-		 */
-		public $publicId;
-
-		/**
-		 * @var string <p>The system identifier of the external subset. This may be an absolute URI or not.</p>
-		 * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.systemid
-		 */
-		public $systemId;
-
-		/**
 		 * @var string <p>The name of DTD; i.e., the name immediately following the <code>DOCTYPE</code> keyword.</p>
 		 * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.name
 		 */
@@ -2521,7 +2581,19 @@ namespace {
 		public $notations;
 
 		/**
-		 * @var string <p>The internal subset as a string, or null if there is none. This does not contain the delimiting square brackets.</p>
+		 * @var string <p>The public identifier of the external subset.</p>
+		 * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.publicid
+		 */
+		public $publicId;
+
+		/**
+		 * @var string <p>The system identifier of the external subset. This may be an absolute URI or not.</p>
+		 * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.systemid
+		 */
+		public $systemId;
+
+		/**
+		 * @var ?string <p>The internal subset as a string, or <b><code>null</code></b> if there is none. This does not contain the delimiting square brackets.</p>
 		 * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.internalsubset
 		 */
 		public $internalSubset;
@@ -2599,7 +2671,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -2805,16 +2877,46 @@ namespace {
 	class DOMElement extends \DOMNode implements \DOMParentNode, \DOMChildNode {
 
 		/**
-		 * @var bool <p>Not implemented yet, always return <b><code>null</code></b></p>
-		 * @link https://php.net/manual/en/class.domelement.php#domelement.props.schematypeinfo
-		 */
-		public $schemaTypeInfo;
-
-		/**
 		 * @var string <p>The element name</p>
 		 * @link https://php.net/manual/en/class.domelement.php#domelement.props.tagname
 		 */
 		public $tagName;
+
+		/**
+		 * @var mixed <p>Not implemented yet, always return <b><code>null</code></b></p>
+		 * @link https://php.net/manual/en/class.domelement.php#domelement.props.schematypeinfo
+		 */
+		public $schemaTypeInfo = null;
+
+		/**
+		 * @var ?DOMElement <p>First child element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domelement.php#domelement.props.firstelementchild
+		 */
+		public $firstElementChild;
+
+		/**
+		 * @var ?DOMElement <p>Last child element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domelement.php#domelement.props.lastelementchild
+		 */
+		public $lastElementChild;
+
+		/**
+		 * @var int <p>The number of child elements.</p>
+		 * @link https://php.net/manual/en/class.domelement.php#domelement.props.childelementcount
+		 */
+		public $childElementCount;
+
+		/**
+		 * @var ?DOMElement <p>The previous sibling element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domelement.php#domelement.props.previouselementsibling
+		 */
+		public $previousElementSibling;
+
+		/**
+		 * @var ?DOMElement <p>The next sibling element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domelement.php#domelement.props.nextelementsibling
+		 */
+		public $nextElementSibling;
 
 		/**
 		 * @var string <p>Returns the most accurate name for the current node type</p>
@@ -2889,7 +2991,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -3300,40 +3402,40 @@ namespace {
 	class DOMEntity extends \DOMNode {
 
 		/**
-		 * @var string <p>The public identifier associated with the entity if specified, and <b><code>null</code></b> otherwise.</p>
+		 * @var ?string <p>The public identifier associated with the entity if specified, and <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.domentity.php#domentity.props.publicid
 		 */
 		public $publicId;
 
 		/**
-		 * @var string <p>The system identifier associated with the entity if specified, and <b><code>null</code></b> otherwise. This may be an absolute URI or not.</p>
+		 * @var ?string <p>The system identifier associated with the entity if specified, and <b><code>null</code></b> otherwise. This may be an absolute URI or not.</p>
 		 * @link https://php.net/manual/en/class.domentity.php#domentity.props.systemid
 		 */
 		public $systemId;
 
 		/**
-		 * @var string <p>For unparsed entities, the name of the notation for the entity. For parsed entities, this is <b><code>null</code></b>.</p>
+		 * @var ?string <p>For unparsed entities, the name of the notation for the entity. For parsed entities, this is <b><code>null</code></b>.</p>
 		 * @link https://php.net/manual/en/class.domentity.php#domentity.props.notationname
 		 */
 		public $notationName;
 
 		/**
-		 * @var string <p>An attribute specifying the encoding used for this entity at the time of parsing, when it is an external parsed entity. This is <b><code>null</code></b> if it an entity from the internal subset or if it is not known.</p>
+		 * @var ?string <p>An attribute specifying the encoding used for this entity at the time of parsing, when it is an external parsed entity. This is <b><code>null</code></b> if it is an entity from the internal subset or if it is not known.</p>
 		 * @link https://php.net/manual/en/class.domentity.php#domentity.props.actualencoding
 		 */
-		public $actualEncoding;
+		public $actualEncoding = null;
 
 		/**
-		 * @var string <p>An attribute specifying, as part of the text declaration, the encoding of this entity, when it is an external parsed entity. This is <b><code>null</code></b> otherwise.</p>
+		 * @var ?string <p>An attribute specifying, as part of the text declaration, the encoding of this entity, when it is an external parsed entity. This is <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.domentity.php#domentity.props.encoding
 		 */
-		public $encoding;
+		public $encoding = null;
 
 		/**
-		 * @var string <p>An attribute specifying, as part of the text declaration, the version number of this entity, when it is an external parsed entity. This is <b><code>null</code></b> otherwise.</p>
+		 * @var ?string <p>An attribute specifying, as part of the text declaration, the version number of this entity, when it is an external parsed entity. This is <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.domentity.php#domentity.props.version
 		 */
-		public $version;
+		public $version = null;
 
 		/**
 		 * @var string <p>Returns the most accurate name for the current node type</p>
@@ -3408,7 +3510,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -3686,7 +3788,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -3955,6 +4057,18 @@ namespace {
 		private function __clone() {}
 
 		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param ?\Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link https://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null) {}
+
+		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
@@ -4060,7 +4174,7 @@ namespace {
 
 		/**
 		 * Test if the DOM implementation implements a specific feature
-		 * <p>Test if the DOM implementation implements a specific <code>feature</code>.</p><p>You can find a list of all features in the Conformance section of the DOM specification.</p>
+		 * <p>Test if the DOM implementation implements a specific <code>feature</code>.</p><p>You can find a list of all features in the &#xBB;&#xA0;Conformance section of the DOM specification.</p>
 		 * @param string $feature <p>The feature to test.</p>
 		 * @param string $version <p>The version number of the <code>feature</code> to test. In level 2, this can be either <code>2.0</code> or <code>1.0</code>.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -4202,7 +4316,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -4524,7 +4638,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -4841,7 +4955,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -5077,6 +5191,18 @@ namespace {
 		public $length;
 
 		/**
+		 * @var ?DOMElement <p>The previous sibling element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.previouselementsibling
+		 */
+		public $previousElementSibling;
+
+		/**
+		 * @var ?DOMElement <p>The next sibling element or <b><code>null</code></b>.</p>
+		 * @link https://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.nextelementsibling
+		 */
+		public $nextElementSibling;
+
+		/**
 		 * @var string <p>Returns the most accurate name for the current node type</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.nodename
 		 */
@@ -5149,7 +5275,7 @@ namespace {
 		public $namespaceURI;
 
 		/**
-		 * @var string <p>The namespace prefix of this node, or <b><code>null</code></b> if it is unspecified.</p>
+		 * @var string <p>The namespace prefix of this node.</p>
 		 * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
 		 */
 		public $prefix;
@@ -5244,7 +5370,7 @@ namespace {
 		 * <p>Deletes <code>count</code> characters starting from position <code>offset</code>.</p>
 		 * @param int $offset <p>The offset from which to start removing.</p>
 		 * @param int $count <p>The number of characters to delete. If the sum of <code>offset</code> and <code>count</code> exceeds the length, then all characters to the end of the data are deleted.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domcharacterdata.deletedata.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -5302,7 +5428,7 @@ namespace {
 		 * <p>Inserts string <code>data</code> at position <code>offset</code>.</p>
 		 * @param int $offset <p>The character offset at which to insert.</p>
 		 * @param string $data <p>The string to insert.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domcharacterdata.insertdata.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -5412,7 +5538,7 @@ namespace {
 		 * @param int $offset <p>The offset from which to start replacing.</p>
 		 * @param int $count <p>The number of characters to replace. If the sum of <code>offset</code> and <code>count</code> exceeds the length, then all characters to the end of the data are replaced.</p>
 		 * @param string $data <p>The string with which the range must be replaced.</p>
-		 * @return bool <p>No value is returned.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/domcharacterdata.replacedata.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -5452,6 +5578,12 @@ namespace {
 		 * @link https://php.net/manual/en/class.domxpath.php#domxpath.props.document
 		 */
 		public $document;
+
+		/**
+		 * @var bool <p>When set to <b><code>true</code></b>, namespaces in the node are registered.</p>
+		 * @link https://php.net/manual/en/class.domxpath.php#domxpath.props.registernodenamespaces
+		 */
+		public $registerNodeNamespaces;
 
 		/**
 		 * Creates a new DOMXPath object

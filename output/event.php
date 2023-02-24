@@ -70,33 +70,13 @@ namespace {
 
 		/**
 		 * Makes event pending
-		 * <p>Marks event pending. Non-pending event will never occur, and the event callback will never be called. In conjuction with <code>Event::del()</code> an event could be re-scheduled by user at any time.</p><p>If <b>Event::add()</b> is called on an already pending event, libevent will leave it pending and re-schedule it with the given timeout(if specified). If in this case timeout is not specified, <b>Event::add()</b> has no effect.</p>
+		 * <p>Marks event pending. Non-pending event will never occur, and the event callback will never be called. In conjunction with <code>Event::del()</code> an event could be re-scheduled by user at any time.</p><p>If <b>Event::add()</b> is called on an already pending event, libevent will leave it pending and re-schedule it with the given timeout(if specified). If in this case timeout is not specified, <b>Event::add()</b> has no effect.</p>
 		 * @param float $timeout <p>Timeout in seconds.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/event.add.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
 		public function add(float $timeout = null): bool {}
-
-		/**
-		 * Makes signal event pending
-		 * <p><b>Event::addSignal()</b> is an alias of <code>Event::add()</code></p>
-		 * @param float $timeout
-		 * @return bool
-		 * @link https://php.net/manual/en/event.addsignal.php
-		 * @since PECL event >= 1.2.6-beta
-		 */
-		public function addSignal(float $timeout = null): bool {}
-
-		/**
-		 * Makes timer event pending
-		 * <p><b>Event::addTimer()</b> is an alias of <code>Event::add()</code></p>
-		 * @param float $timeout
-		 * @return bool
-		 * @link https://php.net/manual/en/event.addtimer.php
-		 * @since PECL event >= 1.2.6-beta
-		 */
-		public function addTimer(float $timeout = null): bool {}
 
 		/**
 		 * Makes event non-pending
@@ -106,24 +86,6 @@ namespace {
 		 * @since PECL event >= 1.2.6-beta
 		 */
 		public function del(): bool {}
-
-		/**
-		 * Makes signal event non-pending
-		 * <p><b>Event::delSignal()</b> is an alias of <code>Event::del()</code></p>
-		 * @return bool
-		 * @link https://php.net/manual/en/event.delsignal.php
-		 * @since PECL event >= 1.2.6-beta
-		 */
-		public function delSignal(): bool {}
-
-		/**
-		 * Makes timer event non-pending
-		 * <p><b>Event::delTimer()</b> is an alias of <code>Event::del()</code> .</p>
-		 * @return bool
-		 * @link https://php.net/manual/en/event.deltimer.php
-		 * @since PECL event >= 1.2.6-beta
-		 */
-		public function delTimer(): bool {}
 
 		/**
 		 * Make event non-pending and free resources allocated for this event
@@ -709,19 +671,19 @@ namespace {
 		const OPT_CLOSE_ON_FREE = 1;
 
 		/**
-		 * @var int <p>Automatically allocate locks for the bufferevent, so that it&rsquo;s safe to use from multiple threads.</p>
+		 * @var int <p>Automatically allocate locks for the bufferevent, so that it&#x2019;s safe to use from multiple threads.</p>
 		 * @link https://php.net/manual/en/class.eventbufferevent.php
 		 */
 		const OPT_THREADSAFE = 2;
 
 		/**
-		 * @var int <p>When this flag is set, the bufferevent defers all of its callbacks. See Fast portable non-blocking network programming with Libevent, Deferred callbacks .</p>
+		 * @var int <p>When this flag is set, the bufferevent defers all of its callbacks. See &#xBB;&#xA0;Fast portable non-blocking network programming with Libevent, Deferred callbacks .</p>
 		 * @link https://php.net/manual/en/class.eventbufferevent.php
 		 */
 		const OPT_DEFER_CALLBACKS = 4;
 
 		/**
-		 * @var int <p>By default, when the bufferevent is set up to be threadsafe, the buffer event&rsquo;s locks are held whenever the any user-provided callback is invoked. Setting this option makes Libevent release the buffer event&rsquo;s lock when it&rsquo;s invoking the callbacks.</p>
+		 * @var int <p>By default, when the bufferevent is set up to be threadsafe, the buffer event&#x2019;s locks are held whenever the any user-provided callback is invoked. Setting this option makes Libevent release the buffer event&#x2019;s lock when it&#x2019;s invoking the callbacks.</p>
 		 * @link https://php.net/manual/en/class.eventbufferevent.php
 		 */
 		const OPT_UNLOCK_CALLBACKS = 8;
@@ -777,11 +739,12 @@ namespace {
 		 * @param callable $readcb <p>Read event callback. See About buffer event callbacks .</p>
 		 * @param callable $writecb <p>Write event callback. See About buffer event callbacks .</p>
 		 * @param callable $eventcb <p>Status-change event callback. See About buffer event callbacks .</p>
+		 * @param mixed $arg <p>A variable that will be passed to all the callbacks.</p>
 		 * @return self <p>Returns buffer event resource optionally associated with socket resource. &#42;/</p>
 		 * @link https://php.net/manual/en/eventbufferevent.construct.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function __construct(\EventBase $base, mixed $socket = null, int $options = 0, callable $readcb = null, callable $writecb = null, callable $eventcb = null) {}
+		public function __construct(\EventBase $base, mixed $socket = null, int $options = 0, callable $readcb = null, callable $writecb = null, callable $eventcb = null, mixed $arg = null) {}
 
 		/**
 		 * Closes file descriptor associated with the current buffer event
@@ -917,12 +880,12 @@ namespace {
 		 * @param callable $readcb <p>Read event callback. See About buffer event callbacks .</p>
 		 * @param callable $writecb <p>Write event callback. See About buffer event callbacks .</p>
 		 * @param callable $eventcb <p>Status-change event callback. See About buffer event callbacks .</p>
-		 * @param string $arg <p>A variable that will be passed to all the callbacks.</p>
+		 * @param mixed $arg <p>A variable that will be passed to all the callbacks.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.setcallbacks.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function setCallbacks(callable $readcb, callable $writecb, callable $eventcb, string $arg = null): void {}
+		public function setCallbacks(callable $readcb, callable $writecb, callable $eventcb, mixed $arg = null): void {}
 
 		/**
 		 * Assign a priority to a bufferevent
@@ -947,7 +910,7 @@ namespace {
 
 		/**
 		 * Adjusts read and/or write watermarks
-		 * <p>Adjusts the read watermarks, the write <i>watermarks</i> , or both, of a single buffer event.</p><p>A buffer event watermark is an edge, a value specifying number of bytes to be read or written before callback is invoked. By default every read/write event triggers a callback invokation. See Fast portable non-blocking network programming with Libevent: Callbacks and watermarks</p>
+		 * <p>Adjusts the read watermarks, the write <i>watermarks</i> , or both, of a single buffer event.</p><p>A buffer event watermark is an edge, a value specifying number of bytes to be read or written before callback is invoked. By default every read/write event triggers a callback invokation. See &#xBB;&#xA0;Fast portable non-blocking network programming with Libevent: Callbacks and watermarks</p>
 		 * @param int $events <p>Bitmask of <b><code>Event::READ</code></b> , <b><code>Event::WRITE</code></b> , or both.</p>
 		 * @param int $lowmark <p>Minimum watermark value.</p>
 		 * @param int $highmark <p>Maximum watermark value. <b><code>0</code></b> means "unlimited".</p>
@@ -1096,7 +1059,7 @@ namespace {
 
 		/**
 		 * Tells libevent to avoid specific event method
-		 * <p>Tells libevent to avoid specific event method(backend). See Creating an event base .</p>
+		 * <p>Tells libevent to avoid specific event method(backend). See &#xBB;&#xA0;Creating an event base .</p>
 		 * @param string $method <p>The backend method to avoid. See EventConfig constants .</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/eventconfig.avoidmethod.php
@@ -1145,7 +1108,7 @@ namespace {
 	final class EventDnsBase {
 
 		/**
-		 * @var int <p>Tells to read the domain and search fields from the <code>resolv.conf</code> file and the <code>ndots</code> option, and use them to decide which domains(if any) to search for hostnames that aren&rsquo;t fully-qualified.</p>
+		 * @var int <p>Tells to read the domain and search fields from the <code>resolv.conf</code> file and the <code>ndots</code> option, and use them to decide which domains(if any) to search for hostnames that aren&#x2019;t fully-qualified.</p>
 		 * @link https://php.net/manual/en/class.eventdnsbase.php
 		 */
 		const OPTION_SEARCH = 1;
@@ -1178,7 +1141,7 @@ namespace {
 		 * Constructs EventDnsBase object
 		 * <p>Constructs EventDnsBase object.</p>
 		 * @param \EventBase $base <p>Event base.</p>
-		 * @param bool $initialize <p>If the <code>initialize</code> argument is <b><code>true</code></b>, it tries to configure the DNS base sensibly given your operating system&rsquo;s default. Otherwise, it leaves the event DNS base empty, with no nameservers or options configured. In the latter case DNS base should be configured manually, e.g. with <code>EventDnsBase::parseResolvConf()</code> .</p>
+		 * @param bool $initialize <p>If the <code>initialize</code> argument is <b><code>true</code></b>, it tries to configure the DNS base sensibly given your operating system&#x2019;s default. Otherwise, it leaves the event DNS base empty, with no nameservers or options configured. In the latter case DNS base should be configured manually, e.g. with <code>EventDnsBase::parseResolvConf()</code> .</p>
 		 * @return self <p>Returns EventDnsBase object.</p>
 		 * @link https://php.net/manual/en/eventdnsbase.construct.php
 		 * @since PECL event >= 1.2.6-beta
@@ -1826,7 +1789,7 @@ namespace {
 		const OPT_REUSEABLE = 8;
 
 		/**
-		 * @var int <p>Allocate locks for the listener, so that it&rsquo;s safe to use it from multiple threads.</p>
+		 * @var int <p>Allocate locks for the listener, so that it&#x2019;s safe to use it from multiple threads.</p>
 		 * @link https://php.net/manual/en/class.eventlistener.php
 		 */
 		const OPT_THREADSAFE = 16;
@@ -1844,7 +1807,7 @@ namespace {
 		 * @param callable $cb <p>A <code>callable</code> that will be invoked when new connection received.</p>
 		 * @param mixed $data <p>Custom user data attached to <code>cb</code> .</p>
 		 * @param int $flags <p>Bit mask of <code>EventListener::OPT_&#42;</code> constants. See EventListener constants .</p>
-		 * @param int $backlog <p>Controls the maximum number of pending connections that the network stack should allow to wait in a not-yet-accepted state at any time; see documentation for your system&rsquo;s <code>listen</code> function for more details. If <code>backlog</code> is negative, Libevent tries to pick a good value for the <code>backlog</code> ; if it is zero, Event assumes that <code>listen</code> is already called on the socket( <code>target</code> )</p>
+		 * @param int $backlog <p>Controls the maximum number of pending connections that the network stack should allow to wait in a not-yet-accepted state at any time; see documentation for your system&#x2019;s <code>listen</code> function for more details. If <code>backlog</code> is negative, Libevent tries to pick a good value for the <code>backlog</code> ; if it is zero, Event assumes that <code>listen</code> is already called on the socket( <code>target</code> )</p>
 		 * @param mixed $target <p>May be string, socket resource, or a stream associated with a socket. In case if <code>target</code> is a string, the string will be parsed as network address. It will be interpreted as a UNIX domain socket path, if prefixed with <code>'unix:'</code> , e.g. <code>'unix:/tmp/my.sock'</code> .</p>
 		 * @return self <p>Returns <code>EventListener</code> object representing the event connection listener.</p>
 		 * @link https://php.net/manual/en/eventlistener.construct.php
@@ -1893,7 +1856,7 @@ namespace {
 		/**
 		 * The setCallback purpose
 		 * <p>Adjust event connect listener's callback and optionally the callback argument.</p>
-		 * @param callable $cb <p>The new callback for new connections. Ignored if <b><code>null</code></b>.</p> <p>Should match the following prototype:</p>  <b>callback</b>(<br>&nbsp;&nbsp;&nbsp;&nbsp; <code>EventListener</code> <code>$listener</code>  = <b><code>null</code></b> ,<br>&nbsp;&nbsp;&nbsp;&nbsp; <code>mixed</code> <code>$fd</code>  = <b><code>null</code></b> ,<br>&nbsp;&nbsp;&nbsp;&nbsp; <code>array</code> <code>$address</code>  = <b><code>null</code></b> ,<br>&nbsp;&nbsp;&nbsp;&nbsp; <code>mixed</code> <code>$arg</code>  = <b><code>null</code></b> <br>): void <p></p>  <code>listener</code>   <p>The <code>EventListener</code> object.</p>   <code>fd</code>   <p>The file descriptor or a resource associated with the listener.</p>   <code>address</code>   <p>Array of two elements: IP address and the <i>server</i> port.</p>   <code>arg</code>   <p>User custom data attached to the callback.</p>
+		 * @param callable $cb <p>The new callback for new connections. Ignored if <b><code>null</code></b>.</p> <p>Should match the following prototype:</p>  <b>callback</b>(<br>&#xA0;&#xA0;&#xA0;&#xA0; <code>EventListener</code> <code>$listener</code>  = <b><code>null</code></b> ,<br>&#xA0;&#xA0;&#xA0;&#xA0; <code>mixed</code> <code>$fd</code>  = <b><code>null</code></b> ,<br>&#xA0;&#xA0;&#xA0;&#xA0; <code>array</code> <code>$address</code>  = <b><code>null</code></b> ,<br>&#xA0;&#xA0;&#xA0;&#xA0; <code>mixed</code> <code>$arg</code>  = <b><code>null</code></b> <br>): void <p></p>  <code>listener</code>   <p>The <code>EventListener</code> object.</p>   <code>fd</code>   <p>The file descriptor or a resource associated with the listener.</p>   <code>address</code>   <p>Array of two elements: IP address and the <i>server</i> port.</p>   <code>arg</code>   <p>User custom data attached to the callback.</p>
 		 * @param mixed $arg <p>Custom user data attached to the callback. Ignored if <b><code>null</code></b>.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/eventlistener.setcallback.php

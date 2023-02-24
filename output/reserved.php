@@ -96,25 +96,25 @@ namespace {
 	 */
 	define('null', null);
 
-	define('PEAR_EXTENSION_DIR', '/usr/lib/php/20190902');
+	define('PEAR_EXTENSION_DIR', '/usr/lib/php/20220829');
 
 	define('PEAR_INSTALL_DIR', '/usr/share/php');
 
 	/**
 	 * Specifies the PHP binary path during script execution.
 	 */
-	define('PHP_BINARY', '/usr/bin/php7.4');
+	define('PHP_BINARY', '/usr/bin/php8.2');
 
 	/**
 	 * The value <b>--bindir</b> was set to at configure. On Windows, it is the value <b>--with-prefix</b> was set to at configure.
 	 */
 	define('PHP_BINDIR', '/usr/bin');
 
-	define('PHP_CONFIG_FILE_PATH', '/etc/php/7.4/cli');
+	define('PHP_CONFIG_FILE_PATH', '/etc/php/8.2/cli');
 
-	define('PHP_CONFIG_FILE_SCAN_DIR', '/etc/php/7.4/cli/conf.d');
+	define('PHP_CONFIG_FILE_SCAN_DIR', '/etc/php/8.2/cli/conf.d');
 
-	define('PHP_DATADIR', '/usr/share/php/7.4');
+	define('PHP_DATADIR', '/usr/share/php/8.2');
 
 	define('PHP_DEBUG', 0);
 
@@ -127,7 +127,7 @@ namespace {
 	/**
 	 * The default directory where to look for dynamically loadable extensions (unless overridden by extension_dir). Defaults to <b><code>PHP_PREFIX</code></b> (or <code>PHP_PREFIX . "\\ext"</code> on Windows).
 	 */
-	define('PHP_EXTENSION_DIR', '/usr/lib/php/20190902');
+	define('PHP_EXTENSION_DIR', '/usr/lib/php/20220829');
 
 	/**
 	 * The current PHP "extra" version as a string (e.g., '-extra' from version "5.2.7-extra"). Often used by distribution vendors to indicate a package version.
@@ -181,7 +181,7 @@ namespace {
 	/**
 	 * The current PHP "major" version as an integer (e.g., int(5) from version "5.2.7-extra").
 	 */
-	define('PHP_MAJOR_VERSION', 7);
+	define('PHP_MAJOR_VERSION', 8);
 
 	/**
 	 * Specifies where the manpages were installed into.
@@ -196,7 +196,7 @@ namespace {
 	/**
 	 * The current PHP "minor" version as an integer (e.g., int(2) from version "5.2.7-extra").
 	 */
-	define('PHP_MINOR_VERSION', 4);
+	define('PHP_MINOR_VERSION', 2);
 
 	/**
 	 * The operating system PHP was built for.
@@ -233,12 +233,12 @@ namespace {
 	/**
 	 * The current PHP version as a string in "major.minor.release[extra]" notation.
 	 */
-	define('PHP_VERSION', '7.4.3');
+	define('PHP_VERSION', '8.2.3');
 
 	/**
 	 * The current PHP version as an integer, useful for version comparisons (e.g., int(50207) from version "5.2.7-extra").
 	 */
-	define('PHP_VERSION_ID', 70403);
+	define('PHP_VERSION_ID', 80203);
 
 	/**
 	 * A Windows <code>CTRL+BREAK</code> event. Available as of PHP 7.4.0 (Windows only).

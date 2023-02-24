@@ -13,8 +13,8 @@ namespace {
 
 		/**
 		 * Generates a list of cases on an enum
-		 * <p>This method will return a packed array of all cases in an enumeration, in lexical order.</p>
-		 * @return array <p>An array of all defined cases of this enumeration, in lexical order.</p>
+		 * <p>This method will return a packed array of all cases in an enumeration, in order of declaration.</p>
+		 * @return array <p>An array of all defined cases of this enumeration, in order of declaration.</p>
 		 * @link https://php.net/manual/en/unitenum.cases.php
 		 * @since PHP 8 >= 8.1.0
 		 */
