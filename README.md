@@ -5,7 +5,7 @@ Application that generates PHP signature files from the official PHP HTML docume
 ## How to run
 
 - download `Many HTML files` from [PHP documentation site](http://php.net/download-docs.php)
-and unzip it into `resources` directory (the HTML files will end in `php-chunked-xhtml` directory)
+and unzip it into `phpdoc/resources` directory (the HTML files will end in `php-chunked-xhtml` directory)
 - update `php-chunked-xhtml.txt` (size and date of the HTML help)
 - *[optional]* create any of the following files if any configuration option needs to be overwritten:
     - `config.local.ini` in the application directory
@@ -26,15 +26,11 @@ e.g.
 sudo apt install php-imagick php-gmagick php-memcashed php-zip
 ```
 
-## The licenses
+## Licenses
 
 ### Source code
 
 [Apache license 2.0](http://www.apache.org/licenses/)
-
-### Resources(PHP Documentation files)
-
-[CC-BY-3.0](https://www.php.net/manual/en/cc.license.php)
 
 ### Generated files
 
