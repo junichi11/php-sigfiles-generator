@@ -25,3 +25,17 @@ e.g.
 ```
 sudo apt install php-imagick php-gmagick php-memcashed php-zip
 ```
+
+## The licenses
+
+### Source code
+
+[Apache license 2.0](http://www.apache.org/licenses/)
+
+### Resources(PHP Documentation files)
+
+[CC-BY-3.0](https://www.php.net/manual/en/cc.license.php)
+
+### Generated files
+
+[CC-BY-3.0](http://creativecommons.org/licenses/by/3.0/) (because The license of PHP Documentation is [CC-BY-3.0](https://www.php.net/manual/en/cc.license.php).)
