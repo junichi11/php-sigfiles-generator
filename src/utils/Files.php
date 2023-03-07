@@ -58,7 +58,9 @@ final class Files {
     private static function header(string $license): string {
         $out = '';
         $out .= '<?php' . NEW_LINE;
-        $out .= $license . NEW_LINE . NEW_LINE;
+        if ($license !== '') {
+            $out .= $license . NEW_LINE . NEW_LINE;
+        }
         // XXX
         //$out .= '// Generated on ' . (new \DateTime())->format('r') . NEW_LINE;
         $out .= NEW_LINE;
