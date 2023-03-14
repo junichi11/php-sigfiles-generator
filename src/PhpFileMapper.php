@@ -4,19 +4,21 @@ use utils\Html;
 use utils\Log;
 use utils\Strings;
 
-class PhpFileMapper {
-
+class PhpFileMapper
+{
     /** @var string[] */
     private static $mapping = [];
 
-    public static function init(): void {
+    public static function init(): void
+    {
         $books = glob(Config::get()->inputDir() . '/book.*.html', GLOB_ERR);
         foreach ($books as $book) {
             self::processBook($book);
         }
     }
 
-    public static function map(string $filename): string {
+    public static function map(string $filename): string
+    {
         if (array_key_exists($filename, self::$mapping)) {
             return self::$mapping[$filename];
         }
@@ -33,14 +35,16 @@ class PhpFileMapper {
         return $filename;
     }
 
-    private static function processBook(string $filename): void {
+    private static function processBook(string $filename): void
+    {
         $book = self::processFilename(basename($filename), 'book.');
         $xpath = Html::xpath($filename);
         self::processLinks($book, $xpath, 'class');
         self::processLinks($book, $xpath, 'function');
     }
 
-    private static function processLinks(string $book, DOMXPath $xpath, string $type): void {
+    private static function processLinks(string $book, DOMXPath $xpath, string $type): void
+    {
         $links = Html::queryNodes($xpath, '//div[@class="book"]//a[contains(@href, "' . $type. '.")]', null, true);
         foreach ($links as $link) {
             $href = $link->attributes->getNamedItem('href')->nodeValue;
@@ -56,8 +60,8 @@ class PhpFileMapper {
         }
     }
 
-    private static function processFilename(string $filename, string $prefix): string {
+    private static function processFilename(string $filename, string $prefix): string
+    {
         return str_replace([$prefix, '.html'], '', $filename);
     }
-
 }

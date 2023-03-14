@@ -2,17 +2,19 @@
 
 use utils\Strings;
 
-class PhpConstant extends SigFileElement {
-
+class PhpConstant extends SigFileElement
+{
     /** @var PhpDoc */
     private $phpDoc;
 
-    public function __construct(string $file, PhpName $name, PhpDoc $phpDoc) {
+    public function __construct(string $file, PhpName $name, PhpDoc $phpDoc)
+    {
         parent::__construct($file, $name);
         $this->phpDoc = $phpDoc;
     }
 
-    protected function signatureInternal(bool $withPhpDoc, int $indent = 0): ?string {
+    protected function signatureInternal(bool $withPhpDoc, int $indent = 0): ?string
+    {
         $out = '';
         $constantName = $this->name->getName();
         $constant = $constantName;
@@ -45,8 +47,8 @@ class PhpConstant extends SigFileElement {
         return $out;
     }
 
-    protected function initInternal(): void {
+    protected function initInternal(): void
+    {
         // noop
     }
-
 }

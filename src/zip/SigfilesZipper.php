@@ -8,9 +8,10 @@ use utils\Log;
 use utils\Strings;
 use ZipArchive;
 
-class SigfilesZipper {
-
-    public static function generate(array $licenseFiles): void {
+class SigfilesZipper
+{
+    public static function generate(array $licenseFiles): void
+    {
         if (!self::sigfilesExist()) {
             Log::error('Not found sigfiles in ' . Config::get()->outputDir() . '. Please generate them.', true);
         }
@@ -22,7 +23,8 @@ class SigfilesZipper {
         self::zip($zipOptions);
     }
 
-    private static function sigfilesExist(): bool {
+    private static function sigfilesExist(): bool
+    {
         // check whether sigfiles exist
         $sigfiles = glob(Config::get()->outputDir() . '/*.php');
         if (count($sigfiles) === 0) {
@@ -31,13 +33,15 @@ class SigfilesZipper {
         return true;
     }
 
-    private static function validateZipExtension(): void {
+    private static function validateZipExtension(): void
+    {
         if (!extension_loaded('zip')) {
             Log::error('Please install the zip extension.', true);
         }
     }
 
-    public static function zip(ZipOptions $options): void {
+    public static function zip(ZipOptions $options): void
+    {
         // create an output directory if it does not exist
         Files::createDirectory($options->getOutputDir());
         $zipFilePath = self::buildZipFilePath($options);
@@ -46,7 +50,8 @@ class SigfilesZipper {
         self::rename($zipFilePath, $options);
     }
 
-    private static function buildZipFilePath(ZipOptions $options, string $sha1Prefix = ''): string {
+    private static function buildZipFilePath(ZipOptions $options, string $sha1Prefix = ''): string
+    {
         return rtrim($options->getOutputDir(), '/') . '/'
                 . Strings::appendSuffix($sha1Prefix, '-')
                 . $options->getZipFileName()
@@ -54,7 +59,8 @@ class SigfilesZipper {
                 . '.zip';
     }
 
-    private static function validateExistingFile(string $zipFilePath, ZipOptions $options): void {
+    private static function validateExistingFile(string $zipFilePath, ZipOptions $options): void
+    {
         if (file_exists($zipFilePath)) {
             if (!$options->overwrite()) {
                 Log::error('Zip file already exists.', true);
@@ -64,7 +70,8 @@ class SigfilesZipper {
         }
     }
 
-    private static function internalZip(string $filePath, ZipOptions $options): void {
+    private static function internalZip(string $filePath, ZipOptions $options): void
+    {
         $zip = new ZipArchive();
         try {
             $result = $zip->open($filePath, ZipArchive::CREATE);
@@ -78,21 +85,26 @@ class SigfilesZipper {
         }
     }
 
-    private static function addSigfiles(ZipArchive $zip, ZipOptions $options): void {
+    private static function addSigfiles(ZipArchive $zip, ZipOptions $options): void
+    {
         if (!$options->getSubDir() || $zip->addEmptyDir($options->getSubDir())) {
             $subDir = $options->getSubDir();
             if ($subDir) {
                 $subDir = Strings::endsWith($subDir, '/') ? $subDir : $subDir . '/';
             }
-            $zip->addGlob(Config::get()->outputDir() . '/*.php', 0,
-                    ['add_path' => $subDir, 'remove_all_path' => true]);
+            $zip->addGlob(
+                Config::get()->outputDir() . '/*.php',
+                0,
+                ['add_path' => $subDir, 'remove_all_path' => true]
+            );
         } else {
             Log::error('Cannot add an empty directory: ' . $options->getSubDir(), true);
         }
         return;
     }
 
-    private static function addLicenseFiles(ZipArchive $zip, ZipOptions $options): void {
+    private static function addLicenseFiles(ZipArchive $zip, ZipOptions $options): void
+    {
         $licenseFileDir = $options->getLicenseFileDir();
         $sigfilesVersion = $options->getSigfilesVersion();
         if (!$licenseFileDir || $zip->addEmptyDir($licenseFileDir)) {
@@ -105,7 +117,7 @@ class SigfilesZipper {
                     }
                     $contents = str_replace('%PHPSIGFILES_VERSION%', $sigfilesVersion, $contents);
                     $zip->addFromString($licenseFileDir . '/phpsigfiles' . Strings::appendPrefix($sigfilesVersion, '-') . '-license.txt', $contents);
-                } else if ($basename === 'phpsigfiles-notice.txt') {
+                } elseif ($basename === 'phpsigfiles-notice.txt') {
                     $zip->addFile($file, $licenseFileDir . '/phpsigfiles' . Strings::appendPrefix($sigfilesVersion, '-') . '-notice.txt');
                 } else {
                     $zip->addFile($file, $licenseFileDir . '/' . basename($file));
@@ -116,7 +128,8 @@ class SigfilesZipper {
         }
     }
 
-    private static function rename(string $zipFilePath, ZipOptions $options): void {
+    private static function rename(string $zipFilePath, ZipOptions $options): void
+    {
         if ($options->isSha1Prefixed()) {
             if (file_exists($zipFilePath)) {
                 $sha1Prefix = strtoupper(sha1_file($zipFilePath));

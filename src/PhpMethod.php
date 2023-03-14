@@ -6,8 +6,8 @@ use utils\Php;
 use utils\SourceDocFixer;
 use utils\Strings;
 
-class PhpMethod extends SigFileElement {
-
+class PhpMethod extends SigFileElement
+{
     /** @var string[] */
     protected $modifiers = [];
     /** @var bool */
@@ -27,7 +27,8 @@ class PhpMethod extends SigFileElement {
         '__clone',
     ];
 
-    protected function signatureInternal(bool $withPhpDoc, int $indent = 0): string {
+    protected function signatureInternal(bool $withPhpDoc, int $indent = 0): string
+    {
         if ($this->alias) {
             return $this->signatureAlias($withPhpDoc, $indent);
         } else {
@@ -35,20 +36,24 @@ class PhpMethod extends SigFileElement {
         }
     }
 
-    public function getName(): PhpName {
+    public function getName(): PhpName
+    {
         $this->init();
         return $this->name;
     }
 
-    public function getParameters(): ?PhpParameters {
+    public function getParameters(): ?PhpParameters
+    {
         return $this->parameters;
     }
 
-    public function getType(): ?string {
+    public function getType(): ?string
+    {
         return $this->type;
     }
 
-    protected function initInternal(): void {
+    protected function initInternal(): void
+    {
         if ($this->name === null) {
             $this->initName();
         }
@@ -66,11 +71,13 @@ class PhpMethod extends SigFileElement {
         }
     }
 
-    protected function initName(): void {
+    protected function initName(): void
+    {
         throw new RuntimeException("Name should already be set for method in file '$this->file'");
     }
 
-    private function isAliasFunction(): bool {
+    private function isAliasFunction(): bool
+    {
         $title = Html::querySingleValue($this->xpath(), '//title');
         if (Strings::startsWith(strtolower($title), 'alias of')) {
             $this->alias = true;
@@ -91,7 +98,8 @@ class PhpMethod extends SigFileElement {
         return $this->alias;
     }
 
-    private function setAliasedMethod(): void {
+    private function setAliasedMethod(): void
+    {
         // function alias
         $elements = Html::queryNodes($this->xpath(), '//*[@class="refsect1 description"]//a[@class="function"]/@href', null, true);
         if ($elements->length > 0) {
@@ -107,7 +115,8 @@ class PhpMethod extends SigFileElement {
         // }
     }
 
-    private function initAlias(): void {
+    private function initAlias(): void
+    {
         Log::debug("Alias function from file '$this->file'");
         if ($this->aliasedMethod) {
             $this->parameters = $this->aliasedMethod->getParameters();
@@ -115,7 +124,8 @@ class PhpMethod extends SigFileElement {
         }
     }
 
-    private function initRegular(): void {
+    private function initRegular(): void
+    {
         $method = $this->detectMethodNode();
         $this->modifiers = Html::queryValues($this->xpath(), './/span[@class="modifier"]', $method, true);
         if (!count($this->modifiers)) {
@@ -168,7 +178,8 @@ class PhpMethod extends SigFileElement {
         }
     }
 
-    private function getOptionalParameterIndexes(\DOMNode $method): array {
+    private function getOptionalParameterIndexes(\DOMNode $method): array
+    {
         $indexes = [];
         $methodSynopsis = $method->nodeValue;
         $parenStart = strpos($methodSynopsis, '(');
@@ -207,7 +218,8 @@ class PhpMethod extends SigFileElement {
         return $indexes;
     }
 
-    protected function detectMethodNode(): ?DOMNode {
+    protected function detectMethodNode(): ?DOMNode
+    {
         $nodes = Html::queryNodes($this->xpath(), '//div[@class="methodsynopsis dc-description"]', null, true);
         if ($nodes->length === 0) {
             $nodes = Html::queryNodes($this->xpath(), '//div[@class="constructorsynopsis dc-description"]', null, true);
@@ -233,11 +245,13 @@ class PhpMethod extends SigFileElement {
         return null;
     }
 
-    protected function isMySignature(string $signature): bool {
+    protected function isMySignature(string $signature): bool
+    {
         return Strings::contains($signature, '::');
     }
 
-    private function signatureAlias(bool $withPhpDoc, int $indent): string {
+    private function signatureAlias(bool $withPhpDoc, int $indent): string
+    {
         $out = $withPhpDoc ? $this->phpDoc($indent) : '';
         $out .= Strings::indent($indent, 'function ', false);
         $out .= $this->name->getName();
@@ -247,7 +261,8 @@ class PhpMethod extends SigFileElement {
         return $out;
     }
 
-    private function signatureRegular(bool $withPhpDoc, int $indent): string {
+    private function signatureRegular(bool $withPhpDoc, int $indent): string
+    {
         $phpDoc = $withPhpDoc ? $this->phpDoc($indent) : '';
         $out = $this->signatureModifiers();
         $out .= 'function ';
@@ -258,12 +273,14 @@ class PhpMethod extends SigFileElement {
         return $phpDoc . Strings::indent($indent, $out);
     }
 
-    protected function signatureModifiers(): string {
+    protected function signatureModifiers(): string
+    {
         $out = implode(' ', Php::sanitizeMethodModifiers($this->modifiers, $this->name->getName()));
         return $out ? $out . ' ' : '';
     }
 
-    private function signatureParameters(): string {
+    private function signatureParameters(): string
+    {
         $out = '(';
         $first = true;
         if ($this->parameters) {
@@ -297,7 +314,8 @@ class PhpMethod extends SigFileElement {
         return $out;
     }
 
-    private function signatureReturnType(): string {
+    private function signatureReturnType(): string
+    {
         $out = '';
         if (!in_array($this->name->getName(), self::NO_RETURN_TYPE_METHODS)) {
             $type = Php::sanitizeType($this->type);
@@ -308,14 +326,16 @@ class PhpMethod extends SigFileElement {
         return $out;
     }
 
-    protected function signatureMethodBody(): string {
+    protected function signatureMethodBody(): string
+    {
         if (in_array('abstract', $this->modifiers)) {
             return ';';
         }
         return ' {}';
     }
 
-    private function phpDoc(int $indent = 0): ?string {
+    private function phpDoc(int $indent = 0): ?string
+    {
         if ($this->alias) {
             return $this->phpDoc->asFunctionAlias($indent);
         } else {
@@ -323,7 +343,8 @@ class PhpMethod extends SigFileElement {
         }
     }
 
-    private function getPhpDocType(): string {
+    private function getPhpDocType(): string
+    {
         if ($this->type !== null) {
             return $this->type;
         }
@@ -351,5 +372,4 @@ class PhpMethod extends SigFileElement {
         }
         return 'mixed';
     }
-
 }

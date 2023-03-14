@@ -3,8 +3,8 @@
 use utils\Files;
 use utils\Log;
 
-class PhpGenerator {
-
+class PhpGenerator
+{
     /** @var int */
     private static $files = 0;
     /** @var int */
@@ -18,23 +18,28 @@ class PhpGenerator {
     /** @var PhpGeneratorItem[] */
     private static $duplicities= [];
 
-    public static function collectInternals(): void {
+    public static function collectInternals(): void
+    {
         PhpInternals::collect();
     }
 
-    public static function collectTypes(): void {
+    public static function collectTypes(): void
+    {
         PhpTypes::collect();
     }
 
-    public static function collectFunctions(): void {
+    public static function collectFunctions(): void
+    {
         PhpFunctions::collect();
     }
 
-    public static function collectConstants(): void {
+    public static function collectConstants(): void
+    {
         PhpConstants::collect();
     }
 
-    public static function generate(): void {
+    public static function generate(): void
+    {
         self::sort();
         $currentNamespace = PhpName::DEFAULT_NAMESPACE;
         $currentFilename = null;
@@ -71,7 +76,8 @@ class PhpGenerator {
         }
     }
 
-    public static function report(): void {
+    public static function report(): void
+    {
         echo 'Generated ' . self::$files . ' files:' . NEW_LINE;
         echo self::sprintfNumber(self::$types) . ' types' . NEW_LINE;
         echo self::sprintfNumber(self::$functions) . ' functions' . NEW_LINE;
@@ -80,7 +86,8 @@ class PhpGenerator {
         echo 'Duplicated items: ' . count(self::$duplicities) . NEW_LINE;
     }
 
-    public static function collect(PhpGeneratorItem $item) {
+    public static function collect(PhpGeneratorItem $item)
+    {
         $name = $item->getName()->asString();
         if (array_key_exists($name, self::$items)) {
             if (!array_key_exists($name, self::$duplicities)) {
@@ -95,8 +102,9 @@ class PhpGenerator {
     }
 
     // XXX improve
-    private static function sort() {
-        uasort(self::$items, function(PhpGeneratorItem $item1, PhpGeneratorItem $item2) {
+    private static function sort()
+    {
+        uasort(self::$items, function (PhpGeneratorItem $item1, PhpGeneratorItem $item2) {
             $filename1 = $item1->getFilename();
             $filename2 = $item2->getFilename();
             if ($filename1 !== $filename2) {
@@ -139,11 +147,13 @@ class PhpGenerator {
         });
     }
 
-    private static function getOutputFile(string $filename): string {
+    private static function getOutputFile(string $filename): string
+    {
         return Files::phpFile(Config::get()->outputDir(), $filename, Config::get()->license());
     }
 
-    private static function countItem(PhpGeneratorItem $item) {
+    private static function countItem(PhpGeneratorItem $item)
+    {
         if ($item->isType()) {
             self::$types++;
         } elseif ($item->isFunction()) {
@@ -155,11 +165,13 @@ class PhpGenerator {
         }
     }
 
-    private static function sprintfNumber(int $number) {
+    private static function sprintfNumber(int $number)
+    {
         return sprintf('%8d', $number);
     }
 
-    private static function writeNamespaceStart(string $namespace, string $currentFile): void {
+    private static function writeNamespaceStart(string $namespace, string $currentFile): void
+    {
         if ($namespace === PhpName::DEFAULT_NAMESPACE) {
             Files::writeToFile($currentFile, "namespace {");
         } else {
@@ -168,8 +180,8 @@ class PhpGenerator {
         Files::writeToFile($currentFile, '');
     }
 
-    private static function writeNamespaceEnd(string $currentFile): void {
+    private static function writeNamespaceEnd(string $currentFile): void
+    {
         Files::writeToFile($currentFile, '}');
     }
-
 }

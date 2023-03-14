@@ -3,24 +3,26 @@
 use utils\Log;
 use utils\Strings;
 
-class PhpInterface extends PhpType {
-
-    protected function createPhpMethod(string $file, PhpName $name): PhpMethod {
-        return new class($file, $name) extends PhpMethod {
-
-            protected function signatureMethodBody(): string {
+class PhpInterface extends PhpType
+{
+    protected function createPhpMethod(string $file, PhpName $name): PhpMethod
+    {
+        return new class ($file, $name) extends PhpMethod {
+            protected function signatureMethodBody(): string
+            {
                 return ';';
             }
 
-            protected function signatureModifiers(): string {
+            protected function signatureModifiers(): string
+            {
                 $this->modifiers = array_diff($this->modifiers, ['abstract']);
                 return parent::signatureModifiers();
             }
-
         };
     }
 
-    protected function signatureInternal(bool $withPhpDoc, int $indent = 0): ?string {
+    protected function signatureInternal(bool $withPhpDoc, int $indent = 0): ?string
+    {
         $out = $withPhpDoc ? $this->phpDoc->asType($indent) : '';
         $out .= Strings::indent($indent, '', false);
         $out .= 'interface ';
@@ -67,5 +69,4 @@ class PhpInterface extends PhpType {
         $out .= Strings::indent($indent, '}');
         return $out;
     }
-
 }

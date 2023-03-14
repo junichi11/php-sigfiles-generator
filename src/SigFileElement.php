@@ -3,8 +3,8 @@
 use utils\Files;
 use utils\Html;
 
-abstract class SigFileElement {
-
+abstract class SigFileElement
+{
     /** @var string */
     protected $file;
     /** @var PhpName */
@@ -14,26 +14,31 @@ abstract class SigFileElement {
     /** @var bool */
     private $inited = false;
 
-    public function __construct(string $file, PhpName $name = null) {
+    public function __construct(string $file, PhpName $name = null)
+    {
         $this->file = Files::findFile($file);
         $this->name = $name;
     }
 
-    public function getFile(): string {
+    public function getFile(): string
+    {
         return $this->file;
     }
 
-    public function getName(): PhpName {
+    public function getName(): PhpName
+    {
         $this->init();
         return $this->name;
     }
 
-    public final function signature(bool $withPhpDoc, int $indent = 0): ?string {
+    final public function signature(bool $withPhpDoc, int $indent = 0): ?string
+    {
         $this->init();
         return $this->signatureInternal($withPhpDoc, $indent);
     }
 
-    protected final function init(): void {
+    final protected function init(): void
+    {
         if ($this->inited) {
             return;
         }
@@ -41,15 +46,15 @@ abstract class SigFileElement {
         $this->initInternal();
     }
 
-    protected abstract function signatureInternal(bool $withPhpDoc, int $indent = 0): ?string;
+    abstract protected function signatureInternal(bool $withPhpDoc, int $indent = 0): ?string;
 
-    protected abstract function initInternal(): void;
+    abstract protected function initInternal(): void;
 
-    protected function xpath(): DOMXPath {
+    protected function xpath(): DOMXPath
+    {
         if ($this->xpath === null) {
             $this->xpath = Html::xpath($this->file);
         }
         return $this->xpath;
     }
-
 }

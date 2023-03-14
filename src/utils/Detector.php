@@ -4,8 +4,8 @@ namespace utils;
 
 use PhpName;
 
-class Detector {
-
+class Detector
+{
     /** @var \DOMXPath */
     private $xpath;
     /** @var PhpName[] */
@@ -13,21 +13,25 @@ class Detector {
     /** @var string[] */
     private $methods = [];
 
-    public function __construct(\DOMXPath $xpath) {
+    public function __construct(\DOMXPath $xpath)
+    {
         $this->xpath = $xpath;
     }
 
     /** @return PhpName[] */
-    public function getFunctions(): array {
+    public function getFunctions(): array
+    {
         return $this->functions;
     }
 
     /** @return PhpName[] */
-    public function getMethods(): array {
+    public function getMethods(): array
+    {
         return $this->methods;
     }
 
-    public function detectMethodsFunctions(): void {
+    public function detectMethodsFunctions(): void
+    {
         foreach (Html::queryNodes($this->xpath, '//h1[@class="refname"]') as $h1) {
             $name = trim($h1->nodeValue);
             $nameParts = explode('::', $name);
@@ -44,8 +48,8 @@ class Detector {
         }
     }
 
-    private function getFile(): string {
+    private function getFile(): string
+    {
         return $this->xpath->document->documentURI;
     }
-
 }

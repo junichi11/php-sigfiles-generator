@@ -2,12 +2,14 @@
 
 namespace utils;
 
-final class Files {
-
-    private function __construct() {
+final class Files
+{
+    private function __construct()
+    {
     }
 
-    public static function findFile(string $file): string {
+    public static function findFile(string $file): string
+    {
         $file = explode('#', $file)[0];
         if (is_file($file)) {
             return $file;
@@ -19,7 +21,8 @@ final class Files {
         throw new \RuntimeException("File '$file' does not exist.");
     }
 
-    public static function deleteFiles(string $dir): void {
+    public static function deleteFiles(string $dir): void
+    {
         foreach (glob($dir . '/*') as $file) {
             if (!@unlink($file)) {
                 Log::error("Cannot delete file '$file'", true);
@@ -27,7 +30,8 @@ final class Files {
         }
     }
 
-    public static function phpFile(string $outputDir, string $name, string $license): string {
+    public static function phpFile(string $outputDir, string $name, string $license): string
+    {
         $file = $outputDir . '/' . $name . '.php';
         if (!is_file($file)) {
             file_put_contents($file, self::header($license));
@@ -35,7 +39,8 @@ final class Files {
         return $file;
     }
 
-    public static function createDirectory(string $dir): void {
+    public static function createDirectory(string $dir): void
+    {
         if ($dir === '') {
             Log::error('The directory path is empty', true);
         }
@@ -48,14 +53,16 @@ final class Files {
         }
     }
 
-    public static function writeToFile(string $file, string $content, bool $appendNewLine = true): void {
+    public static function writeToFile(string $file, string $content, bool $appendNewLine = true): void
+    {
         if ($appendNewLine) {
             $content .= NEW_LINE;
         }
         file_put_contents($file, $content, FILE_APPEND);
     }
 
-    private static function header(string $license): string {
+    private static function header(string $license): string
+    {
         $out = '';
         $out .= '<?php' . NEW_LINE;
         if ($license !== '') {
@@ -66,5 +73,4 @@ final class Files {
         $out .= NEW_LINE;
         return $out;
     }
-
 }
