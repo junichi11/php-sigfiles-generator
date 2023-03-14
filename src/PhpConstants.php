@@ -65,7 +65,7 @@ class PhpConstants extends PhpElements {
                 if (!self::isCollectedConstantFile($this->file)) {
                     // add the following constants to the blacklist because these extensions are EXPERIMENTAL
                     // Swish*, SDO_DAS_ChangeSummary*, KTaglib_ID3v2_AttachedPictureFrame*, KTaglib_MPEG_Header*
-                    Log::info("Skipping class constant '$constant' $this->file" );
+                    Log::info("Skipping class constant '$constant' $this->file");
                 }
                 continue;
             }

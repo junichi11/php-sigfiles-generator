@@ -211,8 +211,8 @@ final class Php {
         switch ($type) {
             case 'string':
                 if (strtolower($initializer) !== '= null'
-                        && !Strings::endsWith($initializer,'"')
-                        && !Strings::endsWith($initializer,"'")) {
+                        && !Strings::endsWith($initializer, '"')
+                        && !Strings::endsWith($initializer, "'")) {
                     $initializer = '= \'' . substr($initializer, 2) . '\'';
                 }
         }
