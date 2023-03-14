@@ -1,7 +1,7 @@
 <?php
 
-class PhpField {
-
+class PhpField
+{
     /** @var bool */
     private $constant = false;
     /** @var bool */
@@ -19,84 +19,100 @@ class PhpField {
     /** @var string */
     private $extraConstantKey;
 
-    public function isConstant(): bool {
+    public function isConstant(): bool
+    {
         return $this->constant;
     }
 
-    public function setConstant(bool $constant): PhpField {
+    public function setConstant(bool $constant): PhpField
+    {
         $this->constant = $constant;
         return $this;
     }
 
-    public function isProperty(): bool {
+    public function isProperty(): bool
+    {
         return $this->property;
     }
 
-    public function setProperty(bool $property): void {
+    public function setProperty(bool $property): void
+    {
         $this->property = $property;
     }
 
     /** @return string[] */
-    public function getModifiers(): array {
+    public function getModifiers(): array
+    {
         if (!count($this->modifiers)) {
             $this->modifiers = ['public'];
         }
         return $this->modifiers;
     }
 
-    public function addModifier(string $modifier): PhpField {
+    public function addModifier(string $modifier): PhpField
+    {
         $this->modifiers[] = $modifier;
         return $this;
     }
 
-    public function setModifiers(array $modifiers): PhpField {
+    public function setModifiers(array $modifiers): PhpField
+    {
         $this->modifiers = $modifiers;
         return $this;
     }
 
-    public function getType(): ?string {
+    public function getType(): ?string
+    {
         return $this->type;
     }
 
-    public function setType(?string $type): PhpField {
+    public function setType(?string $type): PhpField
+    {
         $this->type = $type;
         return $this;
     }
 
-    public function getName(): ?string {
+    public function getName(): ?string
+    {
         return $this->name;
     }
 
-    public function setName(string $name): PhpField {
+    public function setName(string $name): PhpField
+    {
         $this->name = $name;
         return $this;
     }
 
-    public function getInitializer(): ?string {
+    public function getInitializer(): ?string
+    {
         return $this->initializer;
     }
 
-    public function setInitializer(?string $initializer): PhpField {
+    public function setInitializer(?string $initializer): PhpField
+    {
         $this->initializer = $initializer;
         return $this;
     }
 
-    public function getPhpDoc(): ?PhpDoc {
+    public function getPhpDoc(): ?PhpDoc
+    {
         return $this->phpDoc;
     }
 
-    public function setPhpDoc(PhpDoc $phpDoc): PhpField {
+    public function setPhpDoc(PhpDoc $phpDoc): PhpField
+    {
         $this->phpDoc = $phpDoc;
         return $this;
     }
 
-    public function getExtraConstantKey(): ?string {
+    public function getExtraConstantKey(): ?string
+    {
         return $this->extraConstantKey;
     }
 
-    public function setExtraConstantKey(?string $extraConstantKey): PhpField {
+    public function setExtraConstantKey(?string $extraConstantKey): PhpField
+    {
         $this->extraConstantKey = $extraConstantKey;
         return $this;
     }
-
 }

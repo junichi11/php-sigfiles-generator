@@ -4,8 +4,8 @@ namespace utils;
 
 use PhpName;
 
-final class Php {
-
+final class Php
+{
     /** @var string[] */
     private static $builtInTypes = [
         'array',
@@ -41,10 +41,12 @@ final class Php {
         'boolean' => 'bool',
     ];
 
-    private function __construct() {
+    private function __construct()
+    {
     }
 
-    public static function sanitizeHtml(string $html, bool $removeProceduralInfos = false): string {
+    public static function sanitizeHtml(string $html, bool $removeProceduralInfos = false): string
+    {
         $replacement = [
             //'%<div class="phpcode">(.+)</div>%is' => '<pre>$1</pre>',
             '%<span class="type">([^<]+)</span>%i' => '<code>$1</code>',
@@ -85,7 +87,8 @@ final class Php {
         return $html;
     }
 
-    public static function sanitizeName(?string $name): ?string {
+    public static function sanitizeName(?string $name): ?string
+    {
         $name = SourceDocFixer::name($name);
         $name = str_replace('-', '_', $name);
         if (preg_match('/\\W/', $name)) {
@@ -94,7 +97,8 @@ final class Php {
         return $name;
     }
 
-    public static function sanitizeType(?string $type, bool $phpDoc = false): ?string {
+    public static function sanitizeType(?string $type, bool $phpDoc = false): ?string
+    {
         if ($type === null) {
             return $phpDoc ? 'mixed' : null;
         }
@@ -149,7 +153,8 @@ final class Php {
         return implode('|', $types);
     }
 
-    public static function sanitizeParamName(string $name): string {
+    public static function sanitizeParamName(string $name): string
+    {
         if (Strings::contains($name, '|')) {
             $nameParts = explode('|', $name);
             $name = $nameParts[count($nameParts) - 1];
@@ -173,7 +178,8 @@ final class Php {
         return str_replace(['-', '*'], '_', $name);
     }
 
-    public static function sanitizePropertyName(string $property): string {
+    public static function sanitizePropertyName(string $property): string
+    {
         if (Strings::contains($property, ' ')) {
             $parts = explode(' ', trim($property));
             $property = trim($parts[count($parts) - 1]);
@@ -184,7 +190,8 @@ final class Php {
         return $property;
     }
 
-    public static function sanitizeConstantName(string $constant, bool $sanitizeClassConstants): string {
+    public static function sanitizeConstantName(string $constant, bool $sanitizeClassConstants): string
+    {
         $constant = trim(explode('(', $constant, 2)[0]);
         $constant = trim(explode(NEW_LINE, $constant, 2)[0]);
         $constant = str_replace('-', '_', $constant);
@@ -199,7 +206,8 @@ final class Php {
         return $constant;
     }
 
-    public static function sanitizeInitializer(string $initializer, string $type) {
+    public static function sanitizeInitializer(string $initializer, string $type)
+    {
         $initializer = trim($initializer);
         if ($initializer === '='
                 || $initializer === '= ?') { // #25
@@ -211,8 +219,8 @@ final class Php {
         switch ($type) {
             case 'string':
                 if (strtolower($initializer) !== '= null'
-                        && !Strings::endsWith($initializer,'"')
-                        && !Strings::endsWith($initializer,"'")) {
+                        && !Strings::endsWith($initializer, '"')
+                        && !Strings::endsWith($initializer, "'")) {
                     $initializer = '= \'' . substr($initializer, 2) . '\'';
                 }
         }
@@ -229,11 +237,13 @@ final class Php {
         return $initializer;
     }
 
-    public static function asHtmlIdent(string $ident): string {
+    public static function asHtmlIdent(string $ident): string
+    {
         return str_replace(['_', PhpName::NAMESPACE_SEPARATOR], '-', $ident);
     }
 
-    public static function sanitizeMethodModifiers($modifires, string $methodName) {
+    public static function sanitizeMethodModifiers($modifires, string $methodName)
+    {
         $result = $modifires;
         if ($methodName === '__construct') {
             if (in_array('static', $modifires)) {
@@ -243,7 +253,8 @@ final class Php {
         return $result;
     }
 
-    private static function isBuiltinType(string $type) {
+    private static function isBuiltinType(string $type)
+    {
         $type = strtolower($type);
         if (in_array($type, self::$builtInTypes)) {
             return true;
@@ -253,5 +264,4 @@ final class Php {
         }
         return false;
     }
-
 }

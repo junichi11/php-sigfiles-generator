@@ -3,16 +3,18 @@
 use utils\Html;
 use utils\Strings;
 
-class PhpClass extends PhpType {
-
+class PhpClass extends PhpType
+{
     /** @var string[] */
     private $implements = [];
 
-    protected function createPhpMethod(string $file, PhpName $name): PhpMethod {
+    protected function createPhpMethod(string $file, PhpName $name): PhpMethod
+    {
         return new PhpMethod($file, $name);
     }
 
-    protected function signatureInternal(bool $withPhpDoc, int $indent = 0): ?string {
+    protected function signatureInternal(bool $withPhpDoc, int $indent = 0): ?string
+    {
         $out = $withPhpDoc ? $this->phpDoc->asType($indent) : '';
         $out .= Strings::indent($indent, '', false);
         if (count($this->modifiers)) {
@@ -76,9 +78,9 @@ class PhpClass extends PhpType {
         return $out;
     }
 
-    protected function initInternal(): void {
+    protected function initInternal(): void
+    {
         parent::initInternal();
         $this->implements = Html::queryValues($this->xpath(), './/span[@class="oointerface"]/a', $this->typeInfo, true);
     }
-
 }

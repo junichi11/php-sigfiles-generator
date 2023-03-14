@@ -4,14 +4,16 @@ use utils\Html;
 use utils\Log;
 use utils\Strings;
 
-class PhpFunction extends PhpMethod {
-
-    protected function signatureModifiers(): string {
+class PhpFunction extends PhpMethod
+{
+    protected function signatureModifiers(): string
+    {
         $this->modifiers = [];
         return parent::signatureModifiers();
     }
 
-    protected function initName(): void {
+    protected function initName(): void
+    {
         $name = null;
         foreach (Html::queryNodes($this->xpath(), '//h1[@class="refname"]') as $h1) {
             $name = trim($h1->nodeValue);
@@ -26,8 +28,8 @@ class PhpFunction extends PhpMethod {
         $this->name = PhpName::fromString($name);
     }
 
-    protected function isMySignature(string $signature): bool {
+    protected function isMySignature(string $signature): bool
+    {
         return !Strings::contains($signature, '::');
     }
-
 }

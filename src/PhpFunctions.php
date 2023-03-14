@@ -2,9 +2,10 @@
 
 use utils\Log;
 
-class PhpFunctions extends PhpElements {
-
-    public static function collect(): void {
+class PhpFunctions extends PhpElements
+{
+    public static function collect(): void
+    {
         $refs = glob(Config::get()->inputDir() . '/ref.*.html', GLOB_ERR);
         foreach ($refs as $ref) {
             $refName = self::getRefName($ref);
@@ -17,12 +18,14 @@ class PhpFunctions extends PhpElements {
         }
     }
 
-    private static function getRefName(string $ref): string {
+    private static function getRefName(string $ref): string
+    {
         $what = ['ref.', '.html'];
         return strtolower(str_replace($what, '', basename($ref)));
     }
 
-    protected function init(): void {
+    protected function init(): void
+    {
         $elements = $this->xpath()->query('//ul[@class="chunklist chunklist_reference"]//a[starts-with(@href, "function.")]');
         if (is_null($elements)) {
             Log::warn("No functions found in file '$this->file'");
@@ -46,5 +49,4 @@ class PhpFunctions extends PhpElements {
             PhpGenerator::collect(new PhpGeneratorItem($filename, $function));
         }
     }
-
 }

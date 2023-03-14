@@ -4,12 +4,13 @@ use utils\Html;
 use utils\Log;
 use utils\Strings;
 
-class PhpTypes extends PhpElements {
-
+class PhpTypes extends PhpElements
+{
     /** @var string */
     private $title = null;
 
-    public static function collect(): void {
+    public static function collect(): void
+    {
         $types = glob(Config::get()->inputDir() . '/class.*.html', GLOB_ERR);
         foreach ($types as $type) {
             $typeName = self::getTypeName($type);
@@ -22,12 +23,14 @@ class PhpTypes extends PhpElements {
         }
     }
 
-    private static function getTypeName(string $file): string {
+    private static function getTypeName(string $file): string
+    {
         $what = ['class.', '.html'];
         return strtolower(str_replace($what, '', basename($file)));
     }
 
-    protected function init(): void {
+    protected function init(): void
+    {
         $name = $this->initName();
         if (Config::get()->isBlacklistType($name->asString())) {
             Log::debug("Type '$name' is blacklisted");
@@ -71,7 +74,8 @@ class PhpTypes extends PhpElements {
         }
     }
 
-    private function initName(): PhpName {
+    private function initName(): PhpName
+    {
         $name = Html::queryFirstValue($this->xpath(), '//*[@class="classsynopsisinfo"]//strong[@class="classname"]', null, true);
         if ($name === null) {
             $titleParts = explode(' ', $this->getTitle());
@@ -89,7 +93,8 @@ class PhpTypes extends PhpElements {
         return PhpName::fromString($name);
     }
 
-    private function initType(PhpName $name): ?PhpType {
+    private function initType(PhpName $name): ?PhpType
+    {
         $class = 0;
         $interface = 0;
         // detect from title
@@ -128,11 +133,11 @@ class PhpTypes extends PhpElements {
         return null;
     }
 
-    private function getTitle(): string {
+    private function getTitle(): string
+    {
         if ($this->title === null) {
             $this->title = Html::querySingleValue($this->xpath(), '//h1[@class="title"]');
         }
         return $this->title;
     }
-
 }

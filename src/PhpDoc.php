@@ -6,8 +6,8 @@ use utils\Php;
 use utils\SourceDocFixer;
 use utils\Strings;
 
-final class PhpDoc {
-
+final class PhpDoc
+{
     /** @var DOMXPath */
     private $xpath;
     /** @var string[] */
@@ -37,16 +37,19 @@ final class PhpDoc {
     private const DESCRIPTION = 'description';
     private const TYPE = 'type';
 
-    public function __construct(DOMXPath $xpath, string $url = null) {
+    public function __construct(DOMXPath $xpath, string $url = null)
+    {
         $this->xpath = $xpath;
         $this->link = $this->getPhpdocLink(Config::get()->phpDocUrl(), $url ?: $this->getFile());
     }
 
-    public function getConstantNames(): array {
+    public function getConstantNames(): array
+    {
         return array_keys($this->constants);
     }
 
-    public function getConstantType(string $name): ?string {
+    public function getConstantType(string $name): ?string
+    {
         if (!array_key_exists($name, $this->constants)
                 || !array_key_exists(self::TYPE, $this->constants[$name])) {
             return null;
@@ -54,24 +57,28 @@ final class PhpDoc {
         return $this->constants[$name][self::TYPE];
     }
 
-    public function setField(PhpField $field): PhpDoc {
+    public function setField(PhpField $field): PhpDoc
+    {
         $this->field = $field;
         return $this;
     }
 
-    public function parseType(string $typeName): PhpDoc {
+    public function parseType(string $typeName): PhpDoc
+    {
         return $this->parseIntro($typeName)
             ->parseSince();
     }
 
-    public function parseFunctionAlias(?string $type, ?PhpParameters $parameters): PhpDoc {
+    public function parseFunctionAlias(?string $type, ?PhpParameters $parameters): PhpDoc
+    {
         $this->type = $type;
         $this->parameters = $parameters;
         return $this->parseDescription()
             ->parseSince();
     }
 
-    public function parseFunction(string $type, PhpParameters $parameters): PhpDoc {
+    public function parseFunction(string $type, PhpParameters $parameters): PhpDoc
+    {
         $this->type = $type;
         $this->parameters = $parameters;
         return $this->parseDescription()
@@ -81,7 +88,8 @@ final class PhpDoc {
             ->parseSince();
     }
 
-    public function parseField(PhpField $field): PhpDoc {
+    public function parseField(PhpField $field): PhpDoc
+    {
         $this->field = $field;
         if ($field->isProperty()) {
             return $this->parseProperties();
@@ -92,7 +100,8 @@ final class PhpDoc {
             ->parseSince();
     }
 
-    public function parseConstants(string $element, bool $sanitizeClassConstants, bool $includingDocTable = false): PhpDoc {
+    public function parseConstants(string $element, bool $sanitizeClassConstants, bool $includingDocTable = false): PhpDoc
+    {
         if ($includingDocTable) {
             $rows = Html::queryNodes($this->xpath, '//table[@class="doctable table"]/tbody/tr', null, true);
             foreach ($rows as $row) {
@@ -146,7 +155,8 @@ final class PhpDoc {
         return $this;
     }
 
-    public function asType(int $indent = 0): string {
+    public function asType(int $indent = 0): string
+    {
         $out = Strings::indent($indent, '/**');
         foreach ($this->intro as $intro) {
             $out .= Strings::indent($indent, ' * ' . $intro);
@@ -157,7 +167,8 @@ final class PhpDoc {
         return $out;
     }
 
-    public function asFunctionAlias(int $indent = 0): string {
+    public function asFunctionAlias(int $indent = 0): string
+    {
         $out = Strings::indent($indent, '/**');
         foreach ($this->description as $description) {
             $out .= Strings::indent($indent, ' * ' . $description);
@@ -176,7 +187,8 @@ final class PhpDoc {
         return $out;
     }
 
-    public function asFunction(int $indent = 0): string {
+    public function asFunction(int $indent = 0): string
+    {
         $out = Strings::indent($indent, '/**');
         foreach ($this->description as $description) {
             $out .= Strings::indent($indent, ' * ' . $description);
@@ -199,7 +211,8 @@ final class PhpDoc {
         return $out;
     }
 
-    public function asConstant(string $constant, int $indent = 0): ?string {
+    public function asConstant(string $constant, int $indent = 0): ?string
+    {
         if (!array_key_exists($constant, $this->constants)) {
             Log::error("Constant $constant not found in file '{$this->getFile()}'");
             return '';
@@ -215,14 +228,15 @@ final class PhpDoc {
         return $out;
     }
 
-    public function asField(int $indent = 0): ?string {
+    public function asField(int $indent = 0): ?string
+    {
         if ($this->field->isConstant()) {
             // constant
             $phpDoc = '';
             $extraConstantKey = $this->field->getExtraConstantKey();
             if (array_key_exists($this->field->getName(), $this->constants)) {
                 $phpDoc = $this->constants[$this->field->getName()][self::DESCRIPTION];
-            } else if ($extraConstantKey !== null && array_key_exists($extraConstantKey, $this->constants)) {
+            } elseif ($extraConstantKey !== null && array_key_exists($extraConstantKey, $this->constants)) {
                 // in this case, constants are in another file
                 $phpDoc = $this->constants[$extraConstantKey][self::DESCRIPTION];
             } elseif (!SourceDocFixer::isConstantsBrokenFile($this->getFile())) {
@@ -262,7 +276,8 @@ final class PhpDoc {
         return $out;
     }
 
-    private function parseIntro(string $className): PhpDoc {
+    private function parseIntro(string $className): PhpDoc
+    {
         $introNodes = Html::queryNodes($this->xpath, '//*[@id="' . $className . '.intro"]//p', null, true);
         foreach ($introNodes as $introNode) {
             $intro = $this->nodeHtml($introNode);
@@ -273,7 +288,8 @@ final class PhpDoc {
         return $this;
     }
 
-    private function parseDescription(): PhpDoc {
+    private function parseDescription(): PhpDoc
+    {
         $refname = Html::querySingleNode($this->xpath, '//*[@class="refnamediv"]');
         $this->description[] = Php::sanitizeHtml(Html::querySingleValue($this->xpath, './/*[@class="dc-title"]', $refname));
         $description = null;
@@ -301,7 +317,8 @@ final class PhpDoc {
         return $this;
     }
 
-    private function parseProperties(): PhpDoc {
+    private function parseProperties(): PhpDoc
+    {
         $nodes = Html::queryNodes($this->xpath, '//div[contains(@id, ".props")]//dl', null, true);
         if ($nodes->length === 0) {
             $nodes = Html::queryNodes($this->xpath, '//div[contains(@id, ".fields")]//dl', null, true);
@@ -330,7 +347,8 @@ final class PhpDoc {
         return $this;
     }
 
-    private function parseParameters(): PhpDoc {
+    private function parseParameters(): PhpDoc
+    {
         $params = Html::querySingleNode($this->xpath, '//*[@class="refsect1 parameters"]/dl', null, true);
         if ($params != null) {
             $param = null;
@@ -357,7 +375,8 @@ final class PhpDoc {
         return $this;
     }
 
-    private function parseReturn(): PhpDoc {
+    private function parseReturn(): PhpDoc
+    {
         $return = Html::querySingleNode($this->xpath, '//*[@class="refsect1 returnvalues"]', null, true);
         if ($return === null) {
             return $this;
@@ -376,7 +395,8 @@ final class PhpDoc {
         return $this;
     }
 
-    private function parseSee(): PhpDoc {
+    private function parseSee(): PhpDoc
+    {
         $nodes = Html::queryNodes($this->xpath, '//*[@class="refsect1 seealso"]//ul[@class="simplelist"]//a[@class="function"]', null, true);
         if ($nodes->length > 0) {
             foreach ($nodes as $node) {
@@ -386,7 +406,8 @@ final class PhpDoc {
         return $this;
     }
 
-    private function parseSince(): PhpDoc {
+    private function parseSince(): PhpDoc
+    {
         $since = Html::querySingleValue($this->xpath, '//*[@class="verinfo"]');
         if (Strings::startsWith($since, '(')) {
             $since = substr($since, 1);
@@ -398,39 +419,46 @@ final class PhpDoc {
         return $this;
     }
 
-    private function getPhpdocLink(string $phpDocUrl, string $file): string {
+    private function getPhpdocLink(string $phpDocUrl, string $file): string
+    {
         return $phpDocUrl . basename(str_replace('.html', '.php', $file));
     }
 
-    private function nodeHtml(?DOMNode $node, bool $deep = true): string {
+    private function nodeHtml(?DOMNode $node, bool $deep = true): string
+    {
         $newDoc = new DOMDocument();
         $this->importNode($newDoc, $node, $deep);
         return Php::sanitizeHtml($newDoc->saveHTML());
     }
 
-    private function nodesHtml(?DOMNodeList $nodes, bool $deep = true): string {
+    private function nodesHtml(?DOMNodeList $nodes, bool $deep = true): string
+    {
         $newDoc = new DOMDocument();
         $this->importNodes($newDoc, $nodes, $deep);
         return Php::sanitizeHtml($newDoc->saveHTML());
     }
 
-    private function importNode(DOMDocument $document, ?DOMNode $node, bool $deep = true): void {
+    private function importNode(DOMDocument $document, ?DOMNode $node, bool $deep = true): void
+    {
         if ($node !== null) {
             $document->appendChild($document->importNode($node, $deep));
         }
     }
 
-    private function importNodes(DOMDocument $document, DOMNodeList $nodes, bool $deep = true): void {
+    private function importNodes(DOMDocument $document, DOMNodeList $nodes, bool $deep = true): void
+    {
         foreach ($nodes as $node) {
             $this->importNode($document, $node, $deep);
         }
     }
 
-    private function getFile(): string {
+    private function getFile(): string
+    {
         return $this->xpath->document->documentURI;
     }
 
-    private function requiredType(): string {
+    private function requiredType(): string
+    {
         if ($this->type !== null) {
             return $this->type;
         }
@@ -440,5 +468,4 @@ final class PhpDoc {
         Log::error("Type is expected for file '{$this->getFile()}'");
         return '???';
     }
-
 }

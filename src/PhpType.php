@@ -8,8 +8,8 @@ use utils\Php;
 use utils\SourceDocFixer;
 use utils\Strings;
 
-abstract class PhpType extends SigFileElement {
-
+abstract class PhpType extends SigFileElement
+{
     /** @var string[] */
     protected $modifiers = [];
     /** @var string[] */
@@ -27,24 +27,28 @@ abstract class PhpType extends SigFileElement {
     /** @var PhpDoc */
     protected $allConstantsPhpDoc;
 
-    protected abstract function createPhpMethod(string $file, PhpName $name): PhpMethod;
+    abstract protected function createPhpMethod(string $file, PhpName $name): PhpMethod;
 
-    public function getName(): PhpName {
+    public function getName(): PhpName
+    {
         return $this->name;
     }
 
     /** @return PhpMethod[] */
-    public function getRelatedFunctions(): array {
+    public function getRelatedFunctions(): array
+    {
         $this->init();
         return $this->relatedFunctions;
     }
 
     /** @return PhpDoc */
-    public function getAllConstantsPhpDoc(): PhpDoc {
+    public function getAllConstantsPhpDoc(): PhpDoc
+    {
         return $this->allConstantsPhpDoc;
     }
 
-    protected function initInternal(): void {
+    protected function initInternal(): void
+    {
         $this->phpDoc = (new PhpDoc($this->xpath()))
             ->parseType($this->name->asHtmlIdent());
         $this->typeInfo= Html::querySingleNode($this->xpath(), '//div[@class="classsynopsis"]');
@@ -54,7 +58,8 @@ abstract class PhpType extends SigFileElement {
         $this->initMethods();
     }
 
-    private function initFields(): void {
+    private function initFields(): void
+    {
         $this->fields = new PhpFields();
         $fieldNodes = Html::queryNodes($this->xpath(), './/div[@class="fieldsynopsis"]', $this->typeInfo, true);
         $htmlIdent = $this->name->asHtmlIdent();
@@ -126,7 +131,8 @@ abstract class PhpType extends SigFileElement {
         }
     }
 
-    private function initConstants(): void {
+    private function initConstants(): void
+    {
         // to add constants, find name.constants.html
         $name = $this->name->getName();
         $typeName = PhpFileMapper::map(strtolower($name));
@@ -155,7 +161,8 @@ abstract class PhpType extends SigFileElement {
         PhpConstants::addCollectedConstantFile($file);
     }
 
-    private function addConstants(array $constants, PhpDoc $constantPhpDoc): void {
+    private function addConstants(array $constants, PhpDoc $constantPhpDoc): void
+    {
         $extensionClasses = [];
         foreach ($constants as $constant) {
             if (Config::get()->isBlacklistConstant($constant)) {
@@ -196,7 +203,8 @@ abstract class PhpType extends SigFileElement {
         }
     }
 
-    private function getConstInitializer(string $className, string $constName, ?string $constType, array &$extensionClasses): string {
+    private function getConstInitializer(string $className, string $constName, ?string $constType, array &$extensionClasses): string
+    {
         $classExists = class_exists($className, false);
         if (!$classExists && !in_array($className, $extensionClasses)) {
             $extensionClasses[] = $className;
@@ -217,7 +225,8 @@ abstract class PhpType extends SigFileElement {
         return $initializer;
     }
 
-    private function initMethods(): void {
+    private function initMethods(): void
+    {
         // methods from class
         $methodNodes = Html::queryNodes($this->xpath(), '//a[@class="methodname"]', $this->typeInfo, true);
         foreach ($methodNodes as $methodNode) {
@@ -246,7 +255,8 @@ abstract class PhpType extends SigFileElement {
         ksort($this->methods);
     }
 
-    protected function addMethods(string $file): void {
+    protected function addMethods(string $file): void
+    {
         if (Strings::contains($file, '#')) {
             Log::debug("Internal URL ignored for field in file '$this->file'");
             return;
@@ -261,18 +271,19 @@ abstract class PhpType extends SigFileElement {
         }
     }
 
-    private function addFunction(PhpName $name, string $file): void {
+    private function addFunction(PhpName $name, string $file): void
+    {
         if (array_key_exists($name->getName(), $this->relatedFunctions)) {
             return;
         }
         $this->relatedFunctions[$name->getName()] = new PhpFunction($file, $name);
     }
 
-    private function addMethod(PhpName $name, string $file): void {
+    private function addMethod(PhpName $name, string $file): void
+    {
         if (array_key_exists($name->getName(), $this->methods)) {
             return;
         }
         $this->methods[$name->getName()] = $this->createPhpMethod($file, $name);
     }
-
 }
