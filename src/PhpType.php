@@ -49,7 +49,20 @@ abstract class PhpType extends SigFileElement {
             ->parseType($this->name->asHtmlIdent());
         $this->typeInfo= Html::querySingleNode($this->xpath(), '//div[@class="classsynopsis"]');
         $this->modifiers = array_unique(Html::queryValues($this->xpath(), './/div[@class="classsynopsisinfo"]//strong[@class="classname"]//preceding::span[@class="modifier"]', $this->typeInfo, true));
-        $this->extends = Html::queryValues($this->xpath(), './/span[@class="ooclass"]//a', $this->typeInfo, true);
+        if (empty($this->modifiers)) {
+            // e.g. class.backedenum.html
+            $modifier = Html::queryFirstValue($this->xpath(), './/div[@class="classsynopsisinfo"]//span[@class="modifier"]', $this->typeInfo, true);
+            if ($modifier != null) {
+                $this->modifiers[] = $modifier;
+            }
+        }
+        // there may be not `class="ooclass"`
+        if (Php::isInterface($this->modifiers)) {
+            $this->extends = Html::queryValues($this->xpath(), './/a[@class="interfacename"]', $this->typeInfo, true);
+        } else {
+            // e.g. class.argumentcounterror.html
+            $this->extends = Html::queryValues($this->xpath(), './/a[@class="classname"]', $this->typeInfo, true);
+        }
         $this->initFields();
         $this->initMethods();
     }
