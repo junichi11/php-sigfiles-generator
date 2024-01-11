@@ -78,7 +78,7 @@ class PhpClass extends PhpType {
 
     protected function initInternal(): void {
         parent::initInternal();
-        $this->implements = Html::queryValues($this->xpath(), './/span[@class="oointerface"]/a', $this->typeInfo, true);
+        $this->implements = Html::queryValues($this->xpath(), './/div[@class="classsynopsisinfo"]//a[@class="interfacename"]', $this->typeInfo, true);
     }
 
 }
