@@ -74,14 +74,14 @@ class PhpTypes extends PhpElements {
     private function initName(): PhpName {
         $name = Html::queryFirstValue($this->xpath(), '//*[@class="classsynopsisinfo"]//strong[@class="classname"]', null, true);
         if ($name === null) {
+            // e.g. class.throwable.html
+            $name = Html::queryFirstValue($this->xpath(), '//*[@class="classsynopsisinfo"]//strong[@class="interfacename"]', null, true);
+        }
+        if ($name === null) {
             $titleParts = explode(' ', $this->getTitle());
             if (count($titleParts) === 3) {
                 $name = $titleParts[1];
             }
-        }
-        if ($name === null) {
-            // e.g. class.throwable.html
-            $name = Html::queryFirstValue($this->xpath(), '//*[@class="classsynopsisinfo"]//strong[@class="interfacename"]', null, true);
         }
         if ($name === null) {
             Log::error("Missing name in file '$this->file'", true);
