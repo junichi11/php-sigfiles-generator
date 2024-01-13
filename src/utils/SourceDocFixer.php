@@ -104,4 +104,16 @@ class SourceDocFixer {
         return false;
     }
 
+    public static function getConstantNameIndex(string $name): int {
+        $result = 0;
+        switch ($name) {
+            case 'errorfunc':
+                // see: https://www.php.net/manual/en/errorfunc.constants.php
+                $result = 1;
+                break;
+            default:
+                break;
+        }
+        return $result;
+    }
 }

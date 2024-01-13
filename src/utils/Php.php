@@ -243,6 +243,10 @@ final class Php {
         return $result;
     }
 
+    public static function isInterface(array $modifiers): bool {
+        return in_array('interface', $modifiers, true);
+    }
+
     private static function isBuiltinType(string $type) {
         $type = strtolower($type);
         if (in_array($type, self::$builtInTypes)) {

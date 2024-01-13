@@ -97,7 +97,9 @@ final class PhpDoc {
             $rows = Html::queryNodes($this->xpath, '//table[@class="doctable table"]/tbody/tr', null, true);
             foreach ($rows as $row) {
                 $columns = Html::queryNodes($this->xpath, './td[not(@class="empty")]', $row, false);
-                $name = Php::sanitizeConstantName(trim($columns->item(0)->nodeValue), $sanitizeClassConstants);
+                // constant name index of errorfunc.constants.html is 1
+                $nameIndex = SourceDocFixer::getConstantNameIndex($element);
+                $name = Php::sanitizeConstantName(trim($columns->item($nameIndex)->nodeValue), $sanitizeClassConstants);
                 if (array_key_exists($name, $this->constants)) {
                     Log::error("The constant key '$name' already exists");
                 }
