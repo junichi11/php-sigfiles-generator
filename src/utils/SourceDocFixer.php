@@ -116,4 +116,16 @@ class SourceDocFixer {
         }
         return $result;
     }
+
+    public static function getConstantTableRowsExpression(string $name): string {
+        $result = '//table[@class="doctable table"]/tbody/tr';
+        switch ($name) {
+            case 'debug-backtrace': // function.debug-backtrace.html
+                $result = '//dl/dd/table[@class="doctable table"]/tbody/tr';
+                break;
+            default:
+                break;
+        }
+        return $result;
+    }
 }
