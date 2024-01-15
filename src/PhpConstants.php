@@ -13,6 +13,7 @@ class PhpConstants extends PhpElements {
 
     public static function collect(): void {
         $constants = glob(Config::get()->inputDir() . '/*.constants.*html', GLOB_ERR);
+        $constants[] = Config::get()->inputDir() . '/function.debug-backtrace.html';
         foreach ($constants as $consts) {
             $refName = self::getConstantsName($consts);
             if (Config::get()->isBlacklistConstants($refName)) {
@@ -37,7 +38,8 @@ class PhpConstants extends PhpElements {
     }
 
     public static function getConstantsName(string $constants): string {
-        $name = strtolower(str_replace(['.html', 'constants.', 'constants'], '', basename($constants)));
+        // function.: function.debug-backtrace.html
+        $name = strtolower(str_replace(['.html', 'constants.', 'constants', 'function.'], '', basename($constants)));
         while (Strings::endsWith($name, '.')) {
             $name = substr($name, 0, -1);
         }

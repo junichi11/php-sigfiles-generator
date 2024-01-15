@@ -94,7 +94,8 @@ final class PhpDoc {
 
     public function parseConstants(string $element, bool $sanitizeClassConstants, bool $includingDocTable = false): PhpDoc {
         if ($includingDocTable) {
-            $rows = Html::queryNodes($this->xpath, '//table[@class="doctable table"]/tbody/tr', null, true);
+            $expression = SourceDocFixer::getConstantTableRowsExpression($element);
+            $rows = Html::queryNodes($this->xpath, $expression, null, true);
             foreach ($rows as $row) {
                 $columns = Html::queryNodes($this->xpath, './td[not(@class="empty")]', $row, false);
                 // constant name index of errorfunc.constants.html is 1
