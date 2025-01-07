@@ -218,6 +218,13 @@ abstract class PhpType extends SigFileElement {
         $constant = $className . "::" . $constName;
         $initializer = $classExists && defined($constant) ? constant($constant) : null;
         if ($initializer !== null) {
+            if ($initializer === true) {
+                $initializer = 'true';
+            } elseif ($initializer === false) {
+                $initializer = 'false';
+            } elseif (!is_numeric($initializer)) {
+                $initializer = "'$initializer'";
+            }
             if ($constType !== null) {
                 $initializer = Php::sanitizeInitializer($initializer, $constType);
             } else {
