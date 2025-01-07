@@ -100,14 +100,23 @@ final class PhpDoc {
                 $columns = Html::queryNodes($this->xpath, './td[not(@class="empty")]', $row, false);
                 // constant name index of errorfunc.constants.html is 1
                 $nameIndex = SourceDocFixer::getConstantNameIndex($element);
-                $name = Php::sanitizeConstantName(trim($columns->item($nameIndex)->nodeValue), $sanitizeClassConstants);
-                if (array_key_exists($name, $this->constants)) {
-                    Log::error("The constant key '$name' already exists");
+                $constName = Php::sanitizeConstantName(trim($columns->item($nameIndex)->nodeValue), $sanitizeClassConstants);
+                $names = [];
+                if (Strings::contains($constName, '/')) {
+                    $constName = str_replace(' ', '', $constName);
+                    $names = explode('/', $constName);
+                } else {
+                    $names[] = $constName;
                 }
-                $this->constants[$name][self::DESCRIPTION] = $this->nodeHtml($columns->item($columns->length - 1));
-                $typeNodes = Html::queryNodes($this->xpath, '//*[@class="type"]', $row, true);
-                if (count($typeNodes) > 0) {
-                    $this->constants[$name][self::TYPE] = Php::sanitizeType($typeNodes->item(0)->nodeValue);
+                foreach ($names as $name) {
+                    if (array_key_exists($name, $this->constants)) {
+                        Log::error("The constant key '$name' already exists");
+                    }
+                    $this->constants[$name][self::DESCRIPTION] = $this->nodeHtml($columns->item($columns->length - 1));
+                    $typeNodes = Html::queryNodes($this->xpath, '//*[@class="type"]', $row, true);
+                    if (count($typeNodes) > 0) {
+                        $this->constants[$name][self::TYPE] = Php::sanitizeType($typeNodes->item(0)->nodeValue);
+                    }
                 }
             }
         }
