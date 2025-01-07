@@ -17,6 +17,7 @@ class SourceDocFixer {
         switch ($htmlIdent) {
             case 'OCI-Collection':
             case 'OCI-Lob':
+            case 'RequestParseBodyException':
                 return $htmlIdent;
         }
         return null;
