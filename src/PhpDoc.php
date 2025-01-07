@@ -121,7 +121,7 @@ final class PhpDoc {
             }
         }
         if (SourceDocFixer::detectDefinitionList($element)) {
-            $nodes = Html::queryNodes($this->xpath, '//*[contains(@id, "' . strtolower($element) . '.constants")]//dl', null, true);
+            $nodes = Html::queryNodes($this->xpath, SourceDocFixer::getConstantDefinitionListExpression($element), null, true);
             if ($nodes->length === 0) {
                 $nodes = Html::queryNodes($this->xpath, '//*[@id="' . strtolower($element) . '.constants.types"]//dl', null, true);
             }

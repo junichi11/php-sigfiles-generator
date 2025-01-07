@@ -135,6 +135,19 @@ class SourceDocFixer {
         return $result;
     }
 
+    public static function getConstantDefinitionListExpression(string $name): string {
+        $result = '//*[contains(@id, "' . strtolower($name) . '.constants")]//dl';
+        switch ($name) {
+            case 'filter':
+                // filter.constants.html <dt><code class="literal">default</code></dt>
+                $result = '//*[contains(@id, "' . strtolower($element) . '.constants")]//dl[dt[@id]]';
+                break;
+            default:
+                break;
+        }
+        return $result;
+    }
+
     public static function detectDefinitionList(string $name): bool {
         // detect <dl></dl> or not
         switch ($name) {
