@@ -106,7 +106,12 @@ class SigfilesZipper {
                     $contents = str_replace('%PHPSIGFILES_VERSION%', $sigfilesVersion, $contents);
                     $zip->addFromString($licenseFileDir . '/phpsigfiles' . Strings::appendPrefix($sigfilesVersion, '-') . '-license.txt', $contents);
                 } else if ($basename === 'phpsigfiles-notice.txt') {
-                    $zip->addFile($file, $licenseFileDir . '/phpsigfiles' . Strings::appendPrefix($sigfilesVersion, '-') . '-notice.txt');
+                    $contents = file_get_contents($file);
+                    if ($contents === false) {
+                        Log::error('Cannot get notice file contents: ' . $file, true);
+                    }
+                    $contents = str_replace('%CURRENT_YEAR%', date('Y'), $contents);
+                    $zip->addFromString($licenseFileDir . '/phpsigfiles' . Strings::appendPrefix($sigfilesVersion, '-') . '-notice.txt', $contents);
                 } else {
                     $zip->addFile($file, $licenseFileDir . '/' . basename($file));
                 }
