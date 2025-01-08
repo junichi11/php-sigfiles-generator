@@ -100,49 +100,60 @@ final class PhpDoc {
                 $columns = Html::queryNodes($this->xpath, './td[not(@class="empty")]', $row, false);
                 // constant name index of errorfunc.constants.html is 1
                 $nameIndex = SourceDocFixer::getConstantNameIndex($element);
-                $name = Php::sanitizeConstantName(trim($columns->item($nameIndex)->nodeValue), $sanitizeClassConstants);
-                if (array_key_exists($name, $this->constants)) {
-                    Log::error("The constant key '$name' already exists");
+                $constName = Php::sanitizeConstantName(trim($columns->item($nameIndex)->nodeValue), $sanitizeClassConstants);
+                $names = [];
+                if (Strings::contains($constName, '/')) {
+                    $constName = str_replace(' ', '', $constName);
+                    $names = explode('/', $constName);
+                } else {
+                    $names[] = $constName;
                 }
-                $this->constants[$name][self::DESCRIPTION] = $this->nodeHtml($columns->item($columns->length - 1));
-                $typeNodes = Html::queryNodes($this->xpath, '//*[@class="type"]', $row, true);
-                if (count($typeNodes) > 0) {
-                    $this->constants[$name][self::TYPE] = Php::sanitizeType($typeNodes->item(0)->nodeValue);
+                foreach ($names as $name) {
+                    if (array_key_exists($name, $this->constants)) {
+                        Log::error("The constant key '$name' already exists");
+                    }
+                    $this->constants[$name][self::DESCRIPTION] = $this->nodeHtml($columns->item($columns->length - 1));
+                    $typeNodes = Html::queryNodes($this->xpath, '//*[@class="type"]', $row, true);
+                    if (count($typeNodes) > 0) {
+                        $this->constants[$name][self::TYPE] = Php::sanitizeType($typeNodes->item(0)->nodeValue);
+                    }
                 }
             }
         }
-        $nodes = Html::queryNodes($this->xpath, '//*[contains(@id, "' . strtolower($element) . '.constants")]//dl', null, true);
-        if ($nodes->length === 0) {
-            $nodes = Html::queryNodes($this->xpath, '//*[@id="' . strtolower($element) . '.constants.types"]//dl', null, true);
-        }
-        if ($nodes->length === 0) {
-            // e.g. class.mongocollection.html
-            $node = Html::queryFirstNode($this->xpath, '//dl/dt[contains(@id, ".constants")]', null, true);
-            if ($node !== null) {
-                $nodes = [$node->parentNode];
+        if (SourceDocFixer::detectDefinitionList($element)) {
+            $nodes = Html::queryNodes($this->xpath, SourceDocFixer::getConstantDefinitionListExpression($element), null, true);
+            if ($nodes->length === 0) {
+                $nodes = Html::queryNodes($this->xpath, '//*[@id="' . strtolower($element) . '.constants.types"]//dl', null, true);
             }
-        }
-        $names = [];
-        foreach ($nodes as $node) {
-            foreach ($node->childNodes as $childNode) {
-                switch ($childNode->nodeName) {
-                    case 'dt':
-                        $name = Php::sanitizeConstantName(trim($childNode->nodeValue), $sanitizeClassConstants);
-                        if (array_key_exists($name, $this->constants)) {
-                            Log::error("The constant key '$name' already exists");
-                        }
-                        $this->constants[$name][self::DESCRIPTION] = '';
-                        $names[] = $name;
-                        $typeNodes = Html::queryNodes($this->xpath, '//*[@class="type"]', $childNode, true);
-                        if (count($typeNodes) > 0) {
-                            $this->constants[$name][self::TYPE] = Php::sanitizeType($typeNodes->item(0)->nodeValue);
-                        }
-                        break;
-                    case 'dd':
-                        foreach ($names as $name) {
-                            $this->constants[$name][self::DESCRIPTION] = $this->nodeHtml($childNode);
-                        }
-                        $names = [];
+            if ($nodes->length === 0) {
+                // e.g. class.mongocollection.html
+                $node = Html::queryFirstNode($this->xpath, '//dl/dt[contains(@id, ".constants")]', null, true);
+                if ($node !== null) {
+                    $nodes = [$node->parentNode];
+                }
+            }
+            $names = [];
+            foreach ($nodes as $node) {
+                foreach ($node->childNodes as $childNode) {
+                    switch ($childNode->nodeName) {
+                        case 'dt':
+                            $name = Php::sanitizeConstantName(trim($childNode->nodeValue), $sanitizeClassConstants);
+                            if (array_key_exists($name, $this->constants)) {
+                                Log::error("The constant key '$name' already exists");
+                            }
+                            $this->constants[$name][self::DESCRIPTION] = '';
+                            $names[] = $name;
+                            $typeNodes = Html::queryNodes($this->xpath, '//*[@class="type"]', $childNode, true);
+                            if (count($typeNodes) > 0) {
+                                $this->constants[$name][self::TYPE] = Php::sanitizeType($typeNodes->item(0)->nodeValue);
+                            }
+                            break;
+                        case 'dd':
+                            foreach ($names as $name) {
+                                $this->constants[$name][self::DESCRIPTION] = $this->nodeHtml($childNode);
+                            }
+                            $names = [];
+                    }
                 }
             }
         }

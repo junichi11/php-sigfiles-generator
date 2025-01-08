@@ -22,6 +22,7 @@ class PhpFunctions extends PhpElements {
         return strtolower(str_replace($what, '', basename($ref)));
     }
 
+    #[\Override]
     protected function init(): void {
         $elements = $this->xpath()->query('//ul[@class="chunklist chunklist_reference"]//a[starts-with(@href, "function.")]');
         if (is_null($elements)) {

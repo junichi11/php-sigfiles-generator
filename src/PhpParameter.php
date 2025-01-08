@@ -4,18 +4,22 @@ use utils\Php;
 
 class PhpParameter {
 
-    /** @var string */
-    private $type;
-    /** @var string */
-    private $name;
-    /** @var string */
-    private $initializer;
-    /** @var string */
-    private $phpDoc;
-    /** @var bool */
-    private $reference;
-    /** @var bool */
-    private $optional;
+    private ?string $attribute;
+    private string $type;
+    private string $name;
+    private ?string $initializer;
+    private ?string $phpDoc = null;
+    private bool $reference;
+    private bool $optional;
+
+    public function getAttribute(): ?string {
+        return $this->attribute;
+    }
+
+    public function setAttribute(?string $attribute): PhpParameter {
+        $this->attribute = $attribute;
+        return $this;
+    }
 
     public function getType(): ?string {
         return $this->type;

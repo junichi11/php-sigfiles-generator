@@ -111,7 +111,7 @@ final class Php {
         $partsCount = count($parts);
         if (!$phpDoc) {
             // resource?
-            if (in_array('resource', $parts)) {
+            if (in_array('resource', $parts) || in_array('?resource', $parts)) {
                 // resource => noop (phpdoc will help us)
                 return '';
             }
@@ -120,18 +120,7 @@ final class Php {
                 // void[|...] => void
                 return 'void';
             }
-            // false?
-            if (in_array('false', $parts)) {
-                if ($partsCount == 1) {
-                    // false => bool
-                    return 'bool';
-                }
-                if ($partsCount == 2
-                        && in_array('null', $parts)) {
-                    // null|false => ?bool
-                    return '?bool';
-                }
-            }
+            // PHP 8.2 allows null and false as stand-alone types
         }
         foreach ($parts as $part) {
             $prefix = self::isBuiltinType($part) ? '' : PhpName::DEFAULT_NAMESPACE;

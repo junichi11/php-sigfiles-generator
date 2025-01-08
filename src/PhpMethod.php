@@ -27,6 +27,7 @@ class PhpMethod extends SigFileElement {
         '__clone',
     ];
 
+    #[\Override]
     protected function signatureInternal(bool $withPhpDoc, int $indent = 0): string {
         if ($this->alias) {
             return $this->signatureAlias($withPhpDoc, $indent);
@@ -35,6 +36,7 @@ class PhpMethod extends SigFileElement {
         }
     }
 
+    #[\Override]
     public function getName(): PhpName {
         $this->init();
         return $this->name;
@@ -48,6 +50,7 @@ class PhpMethod extends SigFileElement {
         return $this->type;
     }
 
+    #[\Override]
     protected function initInternal(): void {
         if ($this->name === null) {
             $this->initName();
@@ -133,6 +136,7 @@ class PhpMethod extends SigFileElement {
                 $paramIndex++;
                 continue;
             }
+            $attribute = Html::queryFirstValue($this->xpath(), '*[@class="attribute"]', $param, true);
             $type = Html::queryFirstValue($this->xpath(), '*[@class="type"]', $param);
             if ($type === "?") {
                 // e.g. function.apache-note.html
@@ -159,6 +163,7 @@ class PhpMethod extends SigFileElement {
             }
             $optional = $hasOptionalParam && in_array($paramIndex, $optionalParamIndexes);
             $this->parameters->addParameter((new PhpParameter())
+                ->setAttribute($attribute)
                 ->setType($type)
                 ->setName($name)
                 ->setReference($reference)
@@ -177,22 +182,43 @@ class PhpMethod extends SigFileElement {
         $length = strlen($params);
         $bracketBalance = 0;
         $paramIndex = 0;
+        $inAttribute = false;
+        $bracketBalanceInAttribute = 0;
         for ($index = 0; $index < $length; $index++) {
             $c = $params[$index];
             switch ($c) {
-                case '[':
-                    // the first parameter may be optional
-                    // e.g. myfunc([mixed $array])
-                    $bracketBalance++;
-                    $index++;
-                    // e.g. myfunc($param1 [, mixed $value])
-                    if ($params[$index] === ',') {
-                        $paramIndex++;
+                case '#':
+                    // e.g. myfunc(#[\Attr] $param1)
+                    if ($params[$index + 1] === '[') {
+                        $inAttribute = true;
+                        $bracketBalanceInAttribute++;
+                        $index++;
                     }
-                    $indexes[] = $paramIndex;
+                    break;
+                case '[':
+                    if ($inAttribute) {
+                        $bracketBalanceInAttribute++;
+                    } else {
+                        // the first parameter may be optional
+                        // e.g. myfunc([mixed $array])
+                        $bracketBalance++;
+                        $index++;
+                        // e.g. myfunc($param1 [, mixed $value])
+                        if ($params[$index] === ',') {
+                            $paramIndex++;
+                        }
+                        $indexes[] = $paramIndex;
+                    }
                     break;
                 case ']':
-                    $bracketBalance--;
+                    if ($inAttribute) {
+                        $bracketBalanceInAttribute--;
+                        if ($bracketBalanceInAttribute === 0) {
+                            $inAttribute = false;
+                        }
+                    } else {
+                        $bracketBalance--;
+                    }
                     break;
                 case ',':
                     $paramIndex++;
@@ -273,6 +299,9 @@ class PhpMethod extends SigFileElement {
                     $first = false;
                 } else {
                     $out .= ', ';
+                }
+                if ($parameter->getAttribute()) {
+                    $out .= $parameter->getAttribute() . ' ';
                 }
                 if ($parameter->getType()) {
                     $parameterType = Php::sanitizeType($parameter->getType());

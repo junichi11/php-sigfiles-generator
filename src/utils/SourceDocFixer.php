@@ -17,6 +17,7 @@ class SourceDocFixer {
         switch ($htmlIdent) {
             case 'OCI-Collection':
             case 'OCI-Lob':
+            case 'RequestParseBodyException':
                 return $htmlIdent;
         }
         return null;
@@ -123,9 +124,38 @@ class SourceDocFixer {
             case 'debug-backtrace': // function.debug-backtrace.html
                 $result = '//dl/dd/table[@class="doctable table"]/tbody/tr';
                 break;
+            case 'info': // no break, info.constants.html
+            case 'curl': // curl.constants.html
+                // the first tr is <tr><th>Constants</th><th>Description</th></tr>, ignore it
+                $result = '//table[@class="doctable table"]/tr[1 < position()]';
+                break;
             default:
                 break;
         }
         return $result;
+    }
+
+    public static function getConstantDefinitionListExpression(string $name): string {
+        $result = '//*[contains(@id, "' . strtolower($name) . '.constants")]//dl';
+        switch ($name) {
+            case 'filter':
+                // filter.constants.html <dt><code class="literal">default</code></dt>
+                $result = '//*[contains(@id, "' . strtolower($element) . '.constants")]//dl[dt[@id]]';
+                break;
+            default:
+                break;
+        }
+        return $result;
+    }
+
+    public static function detectDefinitionList(string $name): bool {
+        // detect <dl></dl> or not
+        switch ($name) {
+            case 'curl':
+                return false;
+            default:
+                break;
+        }
+        return true;
     }
 }

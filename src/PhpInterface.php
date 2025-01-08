@@ -5,13 +5,16 @@ use utils\Strings;
 
 class PhpInterface extends PhpType {
 
+    #[\Override]
     protected function createPhpMethod(string $file, PhpName $name): PhpMethod {
         return new class($file, $name) extends PhpMethod {
 
+            #[\Override]
             protected function signatureMethodBody(): string {
                 return ';';
             }
 
+            #[\Override]
             protected function signatureModifiers(): string {
                 $this->modifiers = array_diff($this->modifiers, ['abstract']);
                 return parent::signatureModifiers();
@@ -20,6 +23,7 @@ class PhpInterface extends PhpType {
         };
     }
 
+    #[\Override]
     protected function signatureInternal(bool $withPhpDoc, int $indent = 0): ?string {
         $out = $withPhpDoc ? $this->phpDoc->asType($indent) : '';
         $out .= Strings::indent($indent, '', false);
@@ -51,6 +55,7 @@ class PhpInterface extends PhpType {
                 $out .= implode(' ', $field->getModifiers());
                 $out .= ' ';
             }
+            $out .= $this->getFieldAndConstType($field);
             $out .= $field->getName();
             if ($field->getInitializer() !== null) {
                 $out .= ' ' . $field->getInitializer();

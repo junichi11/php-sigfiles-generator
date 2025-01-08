@@ -29,6 +29,7 @@ abstract class PhpType extends SigFileElement {
 
     protected abstract function createPhpMethod(string $file, PhpName $name): PhpMethod;
 
+    #[\Override]
     public function getName(): PhpName {
         return $this->name;
     }
@@ -44,6 +45,7 @@ abstract class PhpType extends SigFileElement {
         return $this->allConstantsPhpDoc;
     }
 
+    #[\Override]
     protected function initInternal(): void {
         $this->phpDoc = (new PhpDoc($this->xpath()))
             ->parseType($this->name->asHtmlIdent());
@@ -218,6 +220,13 @@ abstract class PhpType extends SigFileElement {
         $constant = $className . "::" . $constName;
         $initializer = $classExists && defined($constant) ? constant($constant) : null;
         if ($initializer !== null) {
+            if ($initializer === true) {
+                $initializer = 'true';
+            } elseif ($initializer === false) {
+                $initializer = 'false';
+            } elseif (!is_numeric($initializer)) {
+                $initializer = "'$initializer'";
+            }
             if ($constType !== null) {
                 $initializer = Php::sanitizeInitializer($initializer, $constType);
             } else {
@@ -288,4 +297,12 @@ abstract class PhpType extends SigFileElement {
         $this->methods[$name->getName()] = $this->createPhpMethod($file, $name);
     }
 
+    protected function getFieldAndConstType(PhpField $field): string {
+        $result = '';
+        $type = Php::sanitizeType($field->getType());
+        if ($type) {
+            $result .= $type . ' ';
+        }
+        return $result;
+    }
 }
