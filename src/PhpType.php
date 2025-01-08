@@ -295,4 +295,12 @@ abstract class PhpType extends SigFileElement {
         $this->methods[$name->getName()] = $this->createPhpMethod($file, $name);
     }
 
+    protected function getFieldAndConstType(PhpField $field): string {
+        $result = '';
+        $type = Php::sanitizeType($field->getType());
+        if ($type) {
+            $result .= $type . ' ';
+        }
+        return $result;
+    }
 }

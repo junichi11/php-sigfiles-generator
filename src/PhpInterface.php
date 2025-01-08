@@ -51,6 +51,7 @@ class PhpInterface extends PhpType {
                 $out .= implode(' ', $field->getModifiers());
                 $out .= ' ';
             }
+            $out .= $this->getFieldAndConstType($field);
             $out .= $field->getName();
             if ($field->getInitializer() !== null) {
                 $out .= ' ' . $field->getInitializer();
