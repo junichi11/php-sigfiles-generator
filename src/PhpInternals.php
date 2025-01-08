@@ -17,10 +17,12 @@ class PhpInternals {
                 $this->name = PhpName::fromString('stdClass');
             }
 
+            #[\Override]
             protected function initInternal(): void {
                 // noop
             }
 
+            #[\Override]
             protected function signatureInternal(bool $withPhpDoc, int $indent = 0): ?string {
                 $out = Strings::indent($indent, 'class stdClass {');
                 $out .= Strings::indent($indent, '}');

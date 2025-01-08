@@ -27,6 +27,7 @@ class PhpMethod extends SigFileElement {
         '__clone',
     ];
 
+    #[\Override]
     protected function signatureInternal(bool $withPhpDoc, int $indent = 0): string {
         if ($this->alias) {
             return $this->signatureAlias($withPhpDoc, $indent);
@@ -35,6 +36,7 @@ class PhpMethod extends SigFileElement {
         }
     }
 
+    #[\Override]
     public function getName(): PhpName {
         $this->init();
         return $this->name;
@@ -48,6 +50,7 @@ class PhpMethod extends SigFileElement {
         return $this->type;
     }
 
+    #[\Override]
     protected function initInternal(): void {
         if ($this->name === null) {
             $this->initName();

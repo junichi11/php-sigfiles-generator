@@ -29,6 +29,7 @@ abstract class PhpType extends SigFileElement {
 
     protected abstract function createPhpMethod(string $file, PhpName $name): PhpMethod;
 
+    #[\Override]
     public function getName(): PhpName {
         return $this->name;
     }
@@ -44,6 +45,7 @@ abstract class PhpType extends SigFileElement {
         return $this->allConstantsPhpDoc;
     }
 
+    #[\Override]
     protected function initInternal(): void {
         $this->phpDoc = (new PhpDoc($this->xpath()))
             ->parseType($this->name->asHtmlIdent());

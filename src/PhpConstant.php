@@ -12,6 +12,7 @@ class PhpConstant extends SigFileElement {
         $this->phpDoc = $phpDoc;
     }
 
+    #[\Override]
     protected function signatureInternal(bool $withPhpDoc, int $indent = 0): ?string {
         $out = '';
         $constantName = $this->name->getName();
@@ -45,6 +46,7 @@ class PhpConstant extends SigFileElement {
         return $out;
     }
 
+    #[\Override]
     protected function initInternal(): void {
         // noop
     }

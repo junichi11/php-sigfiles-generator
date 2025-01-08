@@ -46,6 +46,7 @@ class PhpConstants extends PhpElements {
         return $name;
     }
 
+    #[\Override]
     protected function init(): void {
         $this->phpDoc = new PhpDoc($this->xpath());
         $this->phpDoc->parseConstants(self::getConstantsName($this->file), false, true);

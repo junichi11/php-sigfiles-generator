@@ -8,10 +8,12 @@ class PhpClass extends PhpType {
     /** @var string[] */
     private $implements = [];
 
+    #[\Override]
     protected function createPhpMethod(string $file, PhpName $name): PhpMethod {
         return new PhpMethod($file, $name);
     }
 
+    #[\Override]
     protected function signatureInternal(bool $withPhpDoc, int $indent = 0): ?string {
         $out = $withPhpDoc ? $this->phpDoc->asType($indent) : '';
         $out .= Strings::indent($indent, '', false);
@@ -77,6 +79,7 @@ class PhpClass extends PhpType {
         return $out;
     }
 
+    #[\Override]
     protected function initInternal(): void {
         parent::initInternal();
         $this->implements = Html::queryValues($this->xpath(), './/div[@class="classsynopsisinfo"]//a[@class="interfacename"]', $this->typeInfo, true);

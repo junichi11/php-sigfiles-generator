@@ -27,6 +27,7 @@ class PhpTypes extends PhpElements {
         return strtolower(str_replace($what, '', basename($file)));
     }
 
+    #[\Override]
     protected function init(): void {
         $name = $this->initName();
         if (Config::get()->isBlacklistType($name->asString())) {

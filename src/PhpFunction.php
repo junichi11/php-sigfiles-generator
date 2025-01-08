@@ -6,11 +6,13 @@ use utils\Strings;
 
 class PhpFunction extends PhpMethod {
 
+    #[\Override]
     protected function signatureModifiers(): string {
         $this->modifiers = [];
         return parent::signatureModifiers();
     }
 
+    #[\Override]
     protected function initName(): void {
         $name = null;
         foreach (Html::queryNodes($this->xpath(), '//h1[@class="refname"]') as $h1) {
@@ -26,6 +28,7 @@ class PhpFunction extends PhpMethod {
         $this->name = PhpName::fromString($name);
     }
 
+    #[\Override]
     protected function isMySignature(string $signature): bool {
         return !Strings::contains($signature, '::');
     }
